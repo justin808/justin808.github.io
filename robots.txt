@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://justin808.github.io/sitemap.xml 
