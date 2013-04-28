@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>---</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="---"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-04-27T23:17-1000"/>
+<meta name="author" content="Justin Gordon"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript" src="http://orgmode.org/org-info.js">
+/**
+ *
+ * @source: http://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in http://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012  Sebastian Rose
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in http://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "showall");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">---</h1>
+
+
+---
+layout: post
+title: "Octopress Setup with Github and Org-mode"
+date: 2013-04-27 22:46
+comments: true
+categories: [Octopress, github, org-mode]
+keywords: octopress, github, org-mode
+description: Installing Octopress with github hosting, org-mode markup, and Live-Reload
+---
+<p>
+Octopress, deployed on Github, with org-mode, and LiveReload
+April 27, 2013
+</p>
+<p>
+WordPress seemed like a good blogging platform, but it just didn't feel right,
+as I wanted to edit my blog posts in org-mode. So I bit the bullet, and dove
+into Octopress. Here's my perspectives on it. This should be useful for:
+</p><ol>
+<li>Anybody reading this near the date April 27, 2013, as any technical
+   instructions seem to degrade in accuracy over time.
+</li>
+<li>Any interest in using org-mode to publish to Octopress.
+</li>
+<li>Some explanation of what Octopress and git are doing.
+</li>
+<li>How to use LiveReload with Octopress and org-mode 
+</li>
+</ol>
+
+
+
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Useful Links</a></li>
+<li><a href="#sec-2">2 Basic setup</a></li>
+<li><a href="#sec-3">3 </a></li>
+<li><a href="#sec-4">4 Org-mode Integration</a></li>
+<li><a href="#sec-5">5 LiveReload</a></li>
+<li><a href="#sec-6">6 Shortcuts and Cheat Sheat</a></li>
+<li><a href="#sec-7">7 Directory Structure of Octopress and the master and source Git Branches</a></li>
+<li><a href="#sec-8">8 Why org-mode and markdown?</a>
+<ul>
+<li><a href="#sec-8-1">8.1 Org-mode Features I love (some are Emacs ones)</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9 CheatSheet of org-mode and markdown</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Useful Links</h2>
+<div class="outline-text-2" id="text-1">
+
+<ol>
+<li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
+   posting on April 30th, 2012. There are only a few differences worth noting:
+<ol>
+<li>You may wish to change the .rvmrc to a .ruby-version file
+</li>
+<li>Github recommends your deployment repository be named <code>yourname.github.io</code>,
+      not <code>yourname.github.com</code>.
+</li>
+<li>After you run <code>rake setup_github_pages</code> and before running <code>rake       generate</code>, you should run <code>rake install</code>. If you forget, there's a clear
+      message indicating this omission.
+</li>
+</ol>
+
+</li>
+<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>:
+</li>
+<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a> 
+</li>
+<li><a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">dblock.org Article on Octopress</a>: A good explanation from Jan 17, 2012,
+   especially on the difference of the source and master branches.
+</li>
+<li><a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>: For org-mode. See below.
+</li>
+<li><a href="http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/">18 Months of Octopress</a>: Nice article on why Octopress was worth the switch.
+</li>
+</ol>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Basic setup</h2>
+<div class="outline-text-2" id="text-2">
+
+<ol>
+<li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
+   on April 30th, 2012. I copy my shell commands below. There are a few
+   differences worth noting:
+<ol>
+<li>You may wish to change the .rvmrc to a .ruby-version file
+</li>
+<li>Github recommends your deployment repository be named <code>yourname.github.io</code>,
+      not <code>yourname.github.com</code>.
+</li>
+<li>After you run <code>rake setup_github_pages</code> and before running <code>rake       generate</code>, you should run <code>rake install</code>. If you forget, there's a clear
+      message indicating this omission.
+</li>
+</ol>
+
+</li>
+<li>Customize <code>octopress/_config.yml</code>. The yaml file contains descriptions.
+</li>
+<li>Update the DNS to use your custom domain if you wish: <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a>
+</li>
+<li>At this point, you can either create a post or a page:
+
+
+
+<pre class="src src-bash">rake new_post[<span style="color: #cc9393;">"my post name"</span>]
+</pre>
+
+
+
+
+
+<pre class="src src-bash">rake new_page[<span style="color: #cc9393;">"my page name"</span>]
+</pre>
+
+
+
+<pre class="src src-bash"># same as generate and deploy
+rake gen_deploy 
+</pre>
+
+
+
+
+
+<pre class="src src-bash"># Watch the site and regenerate when it changes
+rake watch 
+</pre>
+
+
+
+
+
+<pre class="src src-bash"># preview the site in a web browser
+rake preview
+</pre>
+
+
+
+
+
+<pre class="src src-bash"># See all the available rake options
+rake -T
+</pre>
+
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> </h2>
+<div class="outline-text-2" id="text-3">
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Org-mode Integration</h2>
+<div class="outline-text-2" id="text-4">
+
+<p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It's quite the <b>hacker's delight</b> for note taking and authoring of blog articles. Down below I list a
+few reasons why org-mode.
+</p>
+<ol>
+<li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
+</li>
+<li>At the time of this article, April 27, there's a bug with the latest
+   org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
+   won't need that tip.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> LiveReload</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<ol>
+<li>Add these 2 gems to your <code>Gemfile</code> and run <code>bundle</code>
+
+
+
+<pre class="src src-ruby">gem <span style="color: #cc9393;">'guard'</span>
+gem <span style="color: #cc9393;">'guard-livereload'</span>
+</pre>
+
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Shortcuts and Cheat Sheat</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<ol>
+<li>Save changes to source branch
+
+
+
+<pre class="src src-bash">git add .
+git commit -m <span style="color: #cc9393;">"save changes to source"</span>
+git push origin source
+</pre>
+
+</li>
+</ol>
+
+
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Directory Structure of Octopress and the master and source Git Branches</h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+The octopress/.gitignore file contains the following, which essentially keeps
+the keeps the <code>rake generate</code> files out of the source branch.
+</p>
+
+
+<pre class="src src-bash">.bundle
+.DS_Store
+.sass-cache
+.gist-cache
+.pygments-cache
+_deploy
+public
+sass.old
+source.old
+source/_stash
+source/stylesheets/screen.css
+vendor
+node_modules
+</pre>
+
+
+
+<p>
+<img src="public-dir-corresponds-master-branch.png"  alt="public-dir-corresponds-master-branch.png" />
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Why org-mode and markdown?</h2>
+<div class="outline-text-2" id="text-8">
+
+
+</div>
+
+<div id="outline-container-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> Org-mode Features I love (some are Emacs ones)</h3>
+<div class="outline-text-3" id="text-8-1">
+
+<ol>
+<li>Numbered lists
+</li>
+<li>Editable tables in text editor, with movable columns, movable rows
+</li>
+<li>Ergonomics of insertion of URLs and images.
+</li>
+</ol>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> CheatSheet of org-mode and markdown</h2>
+<div class="outline-text-2" id="text-9">
+
+<p>Since I still need to use markdown on github.com and stackoverflow.com:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">Effect</th><th scope="col" class="left">org-mode</th><th scope="col" class="left">markdown</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">Heading</td><td class="left">Prefix with one to n stars</td><td class="left"></td></tr>
+<tr><td class="left">Numbered Lists</td><td class="left">Prefix with 1. or 1)</td><td class="left"></td></tr>
+<tr><td class="left">URLs</td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left">Source</td><td class="left"></td><td class="left"></td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2013-04-27T23:17-1000</p>
+<p class="author">Author: Justin Gordon</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.2+ with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
