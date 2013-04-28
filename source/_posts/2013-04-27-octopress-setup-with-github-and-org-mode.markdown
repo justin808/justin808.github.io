@@ -41,14 +41,8 @@ should be useful for:
 <li><a href="#sec-3">3 POW</a></li>
 <li><a href="#sec-4">4 LiveReload</a></li>
 <li><a href="#sec-5">5 Org-mode Integration</a></li>
-<li><a href="#sec-6">6 Shortcuts and Cheat Sheat</a></li>
-<li><a href="#sec-7">7 Directory Structure of Octopress and the master and source Git Branches</a></li>
-<li><a href="#sec-8">8 Why org-mode and markdown?</a>
-<ul>
-<li><a href="#sec-8-1">8.1 Org-mode Features I love (Some are Emacs ones)</a></li>
-</ul>
-</li>
-<li><a href="#sec-9">9 CheatSheet of org-mode and markdown</a></li>
+<li><a href="#sec-6">6 Directory Structure of Octopress and the master and source Git Branches</a></li>
+<li><a href="#sec-7">7 Why org-mode for blog publishing?</a></li>
 </ul>
 </div>
 </div>
@@ -58,6 +52,9 @@ should be useful for:
 <div class="outline-text-2" id="text-1">
 
 <ol>
+<li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
+   March 2013.
+</li>
 <li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
    posting on April 30th, 2012.
 </li>
@@ -72,8 +69,7 @@ should be useful for:
 </li>
 <li><a href="http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/">18 Months of Octopress</a>: Nice article on why Octopress was worth the switch.
 </li>
-<li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
-   March 2013.
+<li><a href="http://odino.org/bash-aliases-for-octopress/">Shell Aliases for Octopress</a>: Save time with these shortcuts
 </li>
 </ol>
 
@@ -88,8 +84,7 @@ should be useful for:
 
 <ol>
 <li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
-   on April 30th, 2012. I copy my shell commands below. There are a few
-   differences worth noting:
+   on April 30th, 2012. There are a few differences worth noting:
 <ol>
 <li>You may wish to change the .rvmrc to a .ruby-version file
 </li>
@@ -147,6 +142,13 @@ should be useful for:
   rake -T
 {% endcodeblock %}
 
+{% codeblock lang:bash %}
+  # Save changes to source branch
+  git add .
+  git commit -m "save changes to source"
+  git push origin source
+{% endcodeblock %}
+
 </div>
 
 </div>
@@ -174,61 +176,56 @@ alternative to running POW is to run.
 the browser after you publish your file. You don't need to buy the paid
 product. I use the <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Chrome browser extension</a>. You can use this with or without
 POW.
-</p><ol>
-<li><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">Install the browser extension</a>.
+</p><ul>
+<li><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">Install the browser extension</a> for your type of browser.
 </li>
 <li>Add these two entries to your <code>Gemfile</code>, in the :development group:
 </li>
-</ol>
+</ul>
 
-
-  
 
 {% codeblock lang:ruby %}
-       gem 'guard'
-       gem 'guard-livereload'
+   gem 'guard'
+   gem 'guard-livereload'
 {% endcodeblock %}
 
-<ol>
+<ul>
 <li>Create a file called <code>Guardfile</code> containing something like:
 </li>
-</ol>
+</ul>
 
-
-  
 
 {% codeblock lang:ruby %}
-       guard 'livereload' do
-         watch(%r{public/generated})
-         watch(%r{public/.+\.(css|js|html)})
-       end
+     guard 'livereload' do
+       watch(%r{public/generated})
+       watch(%r{public/.+\.(css|js|html)})
+     end
 {% endcodeblock %}
 
-<ol>
-<li>Start 2 shell tabs running these commands:
-     watch the files 
+<ul>
+<li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
+   and <code>guard</code> 
 </li>
-</ol>
+</ul>
 
 
 {% codeblock lang:bash %}
-       > rake generate && rake watch
+     > rake generate && rake watch
 {% endcodeblock %}
 <p>
-     This screen shot shows <code>watch</code> updating the deployment files.
-     <img src="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
-     start guard LiveReload
+   This screen shot shows <code>watch</code> updating the deployment files.
+   <img src="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
+   start guard LiveReload
 {% codeblock lang:bash %}
-       > guard
+     > guard
 {% endcodeblock %}
-     This screen grab shows guard detecting the browser and telling the
-     browser to update.
-     <img src="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
+   This screen grab shows guard detecting the browser and telling the
+   browser to update.
+   <img src="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
 </p>
 <p>
 It's really worth the effort to get LiveReload working with Octopress.
 </p>
-
 <p>
 It's worth noting that if you're running any other instance of guard-
 LiveReload, then one of these two copies will win and one won't work. If you
@@ -261,38 +258,22 @@ few reasons why org-mode.
 </ol>
 
 
+
 </div>
 
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Shortcuts and Cheat Sheat</h2>
+<h2 id="sec-6">Directory Structure of Octopress and the master and source Git Branches</h2>
 <div class="outline-text-2" id="text-6">
 
-
-<ol>
-<li>Save changes to source branch
-</li>
-</ol>
-
-
-{% codeblock lang:bash %}
-  git add .
-  git commit -m "save changes to source"
-  git push origin source
-{% endcodeblock %}
-
-
-
-</div>
-
-</div>
-
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Directory Structure of Octopress and the master and source Git Branches</h2>
-<div class="outline-text-2" id="text-7">
-
-
+<p>I originally was quite confused by the concept of using two separate git
+branches to make up what gets deployed on the live website versus the git
+repository of my articles. Plus, there's the issue of Octopress git repository
+that you clone when starting out. Eventually, I figured out that the two branches
+simply contain different files, with one containing the original Octopress
+files. Here's a few screen grabs that might clarify the situation for you.
+</p>
 <p>
 The octopress/.gitignore file contains the following, which essentially keeps
 the keeps the <code>rake generate</code> files out of the source branch.
@@ -311,7 +292,6 @@ source/stylesheets/screen.css
 vendor
 node_modules
 {% endcodeblock %}
-
 
 The <code>octopress/public</code> directory corresponds to what you'll find on the github
 site for your deployment (master branch).
@@ -333,54 +313,25 @@ well as your customizations and blog posts.
 
 </div>
 
-<div id="outline-container-8" class="outline-2">
-<h2 id="sec-8">Why org-mode and markdown?</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Why org-mode for blog publishing?</h2>
+<div class="outline-text-2" id="text-7">
 
-
-</div>
-
-<div id="outline-container-8-1" class="outline-3">
-<h3 id="sec-8-1">Org-mode Features I love (Some are Emacs ones)</h3>
-<div class="outline-text-3" id="text-8-1">
-
-<ol>
+<p>Here's a few org-mode features I love (Some are Emacs ones):
+</p><ol>
+<li>All headers and list items can be reordered with minimal keystrokes (think
+   super powerful outliner).
+</li>
 <li>Numbered lists
 </li>
 <li>Editable tables in text editor, with movable columns, movable rows
 </li>
 <li>Ergonomics of insertion of URLs and images.
 </li>
+<li>Includes the basics of markdown, such as source code blocks.
+</li>
 </ol>
 
-
-
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-9" class="outline-2">
-<h2 id="sec-9">CheatSheet of org-mode and markdown</h2>
-<div class="outline-text-2" id="text-9">
-
-<p>Since I still need to use markdown on github.com and stackoverflow.com:
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="left" /><col class="left" /><col class="left" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="left">Effect</th><th scope="col" class="left">org-mode</th><th scope="col" class="left">markdown</th></tr>
-</thead>
-<tbody>
-<tr><td class="left">Heading</td><td class="left">Prefix with one to n stars</td><td class="left"></td></tr>
-<tr><td class="left">Numbered Lists</td><td class="left">Prefix with 1. or 1)</td><td class="left"></td></tr>
-<tr><td class="left">URLs</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="left">Source</td><td class="left"></td><td class="left"></td></tr>
-</tbody>
-</table>
 
 </div>
 </div>
