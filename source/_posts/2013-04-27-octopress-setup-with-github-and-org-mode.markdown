@@ -1,0 +1,386 @@
+---
+layout: post
+title: "Octopress Setup with Github, Org-mode, and LiveReload"
+date: 2013-04-27 22:46
+comments: true
+categories: [Octopress, github, org-mode]
+keywords: octopress, github, org-mode
+description: Installing Octopress with github hosting, org-mode markup, and Live-Reload
+---
+<p>
+by Justin Gordon
+</p>
+<p>
+WordPress seemed like a good blogging platform, but it just didn't feel right,
+as I wanted to edit my blog posts in org-mode. So I bit the bullet, and dove
+into Octopress. You're looking at it! Here's my perspectives on it. This article
+should be useful for:
+</p><ol>
+<li>Anybody reading this near the date April 27, 2013, as any technical
+     instructions seem to degrade in accuracy over time.
+</li>
+<li>Any interest in using org-mode to publish to Octopress including some
+     reasons I use org-mode
+</li>
+<li>Some explanation of what Octopress and git are doing.
+</li>
+<li>How to use LiveReload with Octopress and org-mode
+</li>
+<li>Anybody curious about how using free github pages works to host Octopress. 
+</li>
+</ol>
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Useful Links</a></li>
+<li><a href="#sec-2">2 Basic setup</a></li>
+<li><a href="#sec-3">3 POW</a></li>
+<li><a href="#sec-4">4 LiveReload</a></li>
+<li><a href="#sec-5">5 Org-mode Integration</a></li>
+<li><a href="#sec-6">6 Shortcuts and Cheat Sheat</a></li>
+<li><a href="#sec-7">7 Directory Structure of Octopress and the master and source Git Branches</a></li>
+<li><a href="#sec-8">8 Why org-mode and markdown?</a>
+<ul>
+<li><a href="#sec-8-1">8.1 Org-mode Features I love (Some are Emacs ones)</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9 CheatSheet of org-mode and markdown</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Useful Links</h2>
+<div class="outline-text-2" id="text-1">
+
+<ol>
+<li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
+   posting on April 30th, 2012.
+</li>
+<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>:
+</li>
+<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a> 
+</li>
+<li><a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">dblock.org Article on Octopress</a>: A good explanation from Jan 17, 2012,
+   especially on the difference of the source and master branches.
+</li>
+<li><a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>: For org-mode. See below.
+</li>
+<li><a href="http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/">18 Months of Octopress</a>: Nice article on why Octopress was worth the switch.
+</li>
+<li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
+   March 2013.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Basic setup</h2>
+<div class="outline-text-2" id="text-2">
+
+<ol>
+<li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
+   on April 30th, 2012. I copy my shell commands below. There are a few
+   differences worth noting:
+<ol>
+<li>You may wish to change the .rvmrc to a .ruby-version file
+</li>
+<li>Github recommends your deployment repository be named <code>yourname.github.io</code>,
+      not <code>yourname.github.com</code>.
+</li>
+<li>After you run <code>rake setup_github_pages</code> and before running <code>rake       generate</code>, you should run <code>rake install</code>. If you forget, there's a clear
+      message indicating this omission.
+</li>
+</ol>
+
+</li>
+<li>Customize <code>octopress/_config.yml</code>. The yaml file contains descriptions.
+</li>
+<li>Update the DNS to use your custom domain if you wish: <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a>
+</li>
+<li>At this point, you can either create a post or a page:
+</li>
+</ol>
+
+
+{% codeblock lang:bash %}
+  rake new_post["my post name"]
+{% endcodeblock %}
+
+ 
+
+{% codeblock lang:bash %}
+  rake new_page["my page name"]
+{% endcodeblock %}
+
+{% codeblock lang:bash %}
+  # same as generate and deploy
+  rake gen_deploy 
+{% endcodeblock %}
+
+ 
+
+{% codeblock lang:bash %}
+  # Watch the site and regenerate when it changes
+  rake watch 
+{% endcodeblock %}
+
+  
+
+{% codeblock lang:bash %}
+  # preview the site in a web browser
+  rake preview
+{% endcodeblock %}
+
+  
+
+{% codeblock lang:bash %}
+  # See all the available rake options
+  rake -T
+{% endcodeblock %}
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">POW</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>Pow allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your
+Octopress website. Scroll to the bottom of this page for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The
+alternative to running POW is to run.
+{% codeblock lang:bash %}
+  rake preview
+{% endcodeblock %}
+
+</p></div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">LiveReload</h2>
+<div class="outline-text-2" id="text-4">
+
+<p>LiveReload is a browser extension for Chrome that will automatically refresh
+the browser after you publish your file. You don't need to buy the paid
+product. I use the <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Chrome browser extension</a>. You can use this with or without
+POW.
+</p><ol>
+<li><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">Install the browser extension</a>.
+</li>
+<li>Add these two entries to your <code>Gemfile</code>, in the :development group:
+</li>
+</ol>
+
+
+  
+
+{% codeblock lang:ruby %}
+       gem 'guard'
+       gem 'guard-livereload'
+{% endcodeblock %}
+
+<ol>
+<li>Create a file called <code>Guardfile</code> containing something like:
+</li>
+</ol>
+
+
+  
+
+{% codeblock lang:ruby %}
+       guard 'livereload' do
+         watch(%r{public/generated})
+         watch(%r{public/.+\.(css|js|html)})
+       end
+{% endcodeblock %}
+
+<ol>
+<li>Start 2 shell tabs running these commands:
+     watch the files 
+</li>
+</ol>
+
+
+{% codeblock lang:bash %}
+       > rake generate && rake watch
+{% endcodeblock %}
+<p>
+     This screen shot shows <code>watch</code> updating the deployment files.
+     <img src="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
+     start guard LiveReload
+{% codeblock lang:bash %}
+       > guard
+{% endcodeblock %}
+     This screen grab shows guard detecting the browser and telling the
+     browser to update.
+     <img src="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
+</p>
+<p>
+It's really worth the effort to get LiveReload working with Octopress.
+</p>
+
+<p>
+It's worth noting that if you're running any other instance of guard-
+LiveReload, then one of these two copies will win and one won't work. If you
+run a rails server this way, then this can bite you. It took me a bit of time
+to figure out why guard wasn't working.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Org-mode Integration</h2>
+<div class="outline-text-2" id="text-5">
+
+<p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It's quite the <b>hacker's delight</b> for note taking and authoring of blog articles. Down below I list a
+few reasons why org-mode.
+</p>
+<ol>
+<li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
+</li>
+<li>At the time of this article, April 27, there's a bug with the latest
+   org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
+   won't need that tip.
+</li>
+<li>Images work fine. My strategy for org-mode is to create a separate
+   subdirectory for each org-mode document for images. That keeps the images
+   attached to the original document. The above instructions work fine at
+   publishing images.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Shortcuts and Cheat Sheat</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<ol>
+<li>Save changes to source branch
+</li>
+</ol>
+
+
+{% codeblock lang:bash %}
+  git add .
+  git commit -m "save changes to source"
+  git push origin source
+{% endcodeblock %}
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Directory Structure of Octopress and the master and source Git Branches</h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+The octopress/.gitignore file contains the following, which essentially keeps
+the keeps the <code>rake generate</code> files out of the source branch.
+{% codeblock lang:bash %}
+.bundle
+.DS_Store
+.sass-cache
+.gist-cache
+.pygments-cache
+_deploy
+public
+sass.old
+source.old
+source/_stash
+source/stylesheets/screen.css
+vendor
+node_modules
+{% endcodeblock %}
+
+
+The <code>octopress/public</code> directory corresponds to what you'll find on the github
+site for your deployment (master branch).
+<img src="2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png" />
+</p>
+<p>
+Here's the github master branch right after creation. Note the correspondence
+with <code>public</code>. This is what gets deployed as your blog.
+<img src="2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png" />
+</p>
+
+<p>
+Here's the github source branch. This contains the octopress environment, as
+well as your customizations and blog posts.
+<img src="2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png" />
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Why org-mode and markdown?</h2>
+<div class="outline-text-2" id="text-8">
+
+
+</div>
+
+<div id="outline-container-8-1" class="outline-3">
+<h3 id="sec-8-1">Org-mode Features I love (Some are Emacs ones)</h3>
+<div class="outline-text-3" id="text-8-1">
+
+<ol>
+<li>Numbered lists
+</li>
+<li>Editable tables in text editor, with movable columns, movable rows
+</li>
+<li>Ergonomics of insertion of URLs and images.
+</li>
+</ol>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">CheatSheet of org-mode and markdown</h2>
+<div class="outline-text-2" id="text-9">
+
+<p>Since I still need to use markdown on github.com and stackoverflow.com:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">Effect</th><th scope="col" class="left">org-mode</th><th scope="col" class="left">markdown</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">Heading</td><td class="left">Prefix with one to n stars</td><td class="left"></td></tr>
+<tr><td class="left">Numbered Lists</td><td class="left">Prefix with 1. or 1)</td><td class="left"></td></tr>
+<tr><td class="left">URLs</td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left">Source</td><td class="left"></td><td class="left"></td></tr>
+</tbody>
+</table>
+
+</div>
+</div>

@@ -1,0 +1,211 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Octopress Setup with Github, Org-mode, and LiveReload"
+date: 2013-04-27 22:46
+comments: true
+categories: [Octopress, github, org-mode]
+keywords: octopress, github, org-mode
+description: Installing Octopress with github hosting, org-mode markup, and Live-Reload
+---
+#+END_HTML
+by Justin Gordon
+
+WordPress seemed like a good blogging platform, but it just didn't feel right,
+as I wanted to edit my blog posts in org-mode. So I bit the bullet, and dove
+into Octopress. You're looking at it! Here's my perspectives on it. This article
+should be useful for:
+  1. Anybody reading this near the date April 27, 2013, as any technical
+     instructions seem to degrade in accuracy over time.
+  2. Any interest in using org-mode to publish to Octopress including some
+     reasons I use org-mode
+  3. Some explanation of what Octopress and git are doing.
+  4. How to use LiveReload with Octopress and org-mode
+  5. Anybody curious about how using free github pages works to host Octopress. 
+
+* Useful Links
+1. [[%20http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/][Rob Dodson on Octopress]]: Most of the instructions I show below are from this
+   posting on April 30th, 2012.
+2. [[http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/][Joel McCracken on Octopress]]:
+3. [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on setting up a custom domain]] 
+4. [[http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one][dblock.org Article on Octopress]]: A good explanation from Jan 17, 2012,
+   especially on the difference of the source and master branches.
+5. [[http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/][Introducing Octopress Blogging for Org-Mode]]: For org-mode. See below.
+6. [[http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/][18 Months of Octopress]]: Nice article on why Octopress was worth the switch.
+7. [[http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/][Getting Started with Octopress]]: Nice overall tutorial. Very current!
+   March 2013.
+   
+* Basic setup
+1. [[%20http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/][Rob Dodson on Octopress]]: Start off with these instructions from this posting
+   on April 30th, 2012. I copy my shell commands below. There are a few
+   differences worth noting:
+   1. You may wish to change the .rvmrc to a .ruby-version file
+   2. Github recommends your deployment repository be named =yourname.github.io=,
+      not =yourname.github.com=.
+   3. After you run =rake setup_github_pages= and before running =rake
+      generate=, you should run =rake install=. If you forget, there's a clear
+      message indicating this omission.
+2. Customize =octopress/_config.yml=. The yaml file contains descriptions.
+3. Update the DNS to use your custom domain if you wish: [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on
+   setting up a custom domain]]
+4. At this point, you can either create a post or a page:
+  #+BEGIN_SRC bash
+  rake new_post["my post name"]
+  #+END_SRC
+ 
+  #+BEGIN_SRC bash
+  rake new_page["my page name"]
+  #+END_SRC
+
+  #+BEGIN_SRC bash
+  # same as generate and deploy
+  rake gen_deploy 
+  #+END_SRC
+ 
+  #+BEGIN_SRC bash
+  # Watch the site and regenerate when it changes
+  rake watch 
+  #+END_SRC
+  
+  #+BEGIN_SRC bash
+  # preview the site in a web browser
+  rake preview
+  #+END_SRC
+  
+  #+BEGIN_SRC bash
+  # See all the available rake options
+  rake -T
+  #+END_SRC
+
+* POW
+Pow allows you to point your browser to [[http://octopress.dev]] to see your
+Octopress website. Scroll to the bottom of this page for details on [[http://octopress.org/docs/blogging/][POW]]. The
+alternative to running POW is to run.
+  #+BEGIN_SRC bash
+  rake preview
+  #+END_SRC
+
+* LiveReload
+LiveReload is a browser extension for Chrome that will automatically refresh
+the browser after you publish your file. You don't need to buy the paid
+product. I use the [[https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl%3Den][Chrome browser extension]]. You can use this with or without
+POW.
+  1. [[http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-][Install the browser extension]].
+  2. Add these two entries to your =Gemfile=, in the :development group:
+  
+     #+BEGIN_SRC ruby
+       gem 'guard'
+       gem 'guard-livereload'
+     #+END_SRC
+     
+  3. Create a file called =Guardfile= containing something like:
+  
+     #+BEGIN_SRC ruby
+       guard 'livereload' do
+         watch(%r{public/generated})
+         watch(%r{public/.+\.(css|js|html)})
+       end
+     #+END_SRC
+     
+  4. Start 2 shell tabs running these commands:
+     watch the files 
+     #+BEGIN_SRC bash
+       > rake generate && rake watch
+     #+END_SRC
+     This screen shot shows =watch= updating the deployment files.
+     [[file:2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png]]
+     start guard LiveReload
+     #+BEGIN_SRC bash
+       > guard
+     #+END_SRC
+     This screen grab shows guard detecting the browser and telling the
+     browser to update.
+     [[file:2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png]]
+
+It's really worth the effort to get LiveReload working with Octopress.
+
+
+It's worth noting that if you're running any other instance of guard-
+LiveReload, then one of these two copies will win and one won't work. If you
+run a rails server this way, then this can bite you. It took me a bit of time
+to figure out why guard wasn't working.
+  
+* Org-mode Integration
+[[http://orgmode.org/][Org-mode]] offers quite a bit more than plain markdown. It's quite the *hacker's
+delight* for note taking and authoring of blog articles. Down below I list a
+few reasons why org-mode.
+
+1. Follow the instructions here: [[http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/][Introducing Octopress Blogging for Org-Mode]]
+2. At the time of this article, April 27, there's a bug with the latest
+   org-mode. [[https://github.com/craftkiller/orgmode-octopress/issues/3][I posted a workaround.]] By the time you read this, you probably
+   won't need that tip.
+3. Images work fine. My strategy for org-mode is to create a separate
+   subdirectory for each org-mode document for images. That keeps the images
+   attached to the original document. The above instructions work fine at
+   publishing images.
+
+* Shortcuts and Cheat Sheat
+
+1. Save changes to source branch
+  #+BEGIN_SRC bash
+  git add .
+  git commit -m "save changes to source"
+  git push origin source
+  #+END_SRC
+
+      
+
+* Directory Structure of Octopress and the master and source Git Branches
+
+The octopress/.gitignore file contains the following, which essentially keeps
+the keeps the =rake generate= files out of the source branch.
+#+BEGIN_SRC bash
+.bundle
+.DS_Store
+.sass-cache
+.gist-cache
+.pygments-cache
+_deploy
+public
+sass.old
+source.old
+source/_stash
+source/stylesheets/screen.css
+vendor
+node_modules
+#+END_SRC
+
+
+The =octopress/public= directory corresponds to what you'll find on the github
+site for your deployment (master branch).
+[[file:2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png]]
+
+Here's the github master branch right after creation. Note the correspondence
+with =public=. This is what gets deployed as your blog.
+[[file:2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png]]
+
+
+Here's the github source branch. This contains the octopress environment, as
+well as your customizations and blog posts.
+[[file:2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png]]
+
+
+* Why org-mode and markdown?
+** Org-mode Features I love (Some are Emacs ones)
+1. Numbered lists
+2. Editable tables in text editor, with movable columns, movable rows
+3. Ergonomics of insertion of URLs and images.
+
+
+
+* CheatSheet of org-mode and markdown
+Since I still need to use markdown on github.com and stackoverflow.com:
+
+| Effect         | org-mode                   | markdown |
+|----------------+----------------------------+----------|
+| Heading        | Prefix with one to n stars |          |
+| Numbered Lists | Prefix with 1. or 1)       |          |
+| URLs           |                            |          |
+| Source         |                            |          |
+|                |                            |          |
+|                |                            |          |
