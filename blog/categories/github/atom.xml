@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com/"/>
-  <updated>2013-04-29T00:37:37-10:00</updated>
+  <updated>2013-04-29T00:41:36-10:00</updated>
   <id>http://www.railsonmaui.com/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -236,10 +236,11 @@ This article should be useful for:
 <h2 id="sec-3">POW</h2>
 <div class="outline-text-2" id="text-3">
 
-<p>Pow allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your
-Octopress website. Scroll to the bottom of this page for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The
-alternative to running POW is to run <code>rake preview</code> and then point your browser
-at <code>http://0.0.0.0:4000</code> (or whatever port you configured).
+<p>POW allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your local,
+unpublished Octopress website. It's very convenient to not have to remember to
+run a local server, and it works great with LiveReload. Scroll to the bottom of
+this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake preview</code> and then point your browser at <code>http://0.0.0.0:4000</code> (or whatever port
+you configured).
 </p>
 </div>
 

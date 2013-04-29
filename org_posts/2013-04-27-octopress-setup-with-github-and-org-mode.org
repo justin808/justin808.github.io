@@ -122,10 +122,12 @@ This article should be useful for:
   #+END_SRC
 
 * POW
-Pow allows you to point your browser to [[http://octopress.dev]] to see your
-Octopress website. Scroll to the bottom of this page for details on [[http://octopress.org/docs/blogging/][POW]]. The
-alternative to running POW is to run =rake preview= and then point your browser
-at =http://0.0.0.0:4000= (or whatever port you configured).
+POW allows you to point your browser to [[http://octopress.dev]] to see your local,
+unpublished Octopress website. It's very convenient to not have to remember to
+run a local server, and it works great with LiveReload. Scroll to the bottom of
+this link for details on [[http://octopress.org/docs/blogging/][POW]]. The alternative to running POW is to run =rake
+preview= and then point your browser at =http://0.0.0.0:4000= (or whatever port
+you configured).
 
 * LiveReload
 LiveReload is a browser extension for Chrome that will automatically refresh
