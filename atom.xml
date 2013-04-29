@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://justin808.github.io/atom.xml" rel="self"/>
   <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T20:46:08-10:00</updated>
+  <updated>2013-04-28T21:22:04-10:00</updated>
   <id>http://justin808.github.io/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -68,16 +68,9 @@ better. If you&#8217;ve ever had to write a blog post using one of those horribl
 this feature. And lastly, static HTML is <em>fast</em>.</p></blockquote>
 
 <p>
-There&#8217;s a few really cool things about how I shared this quote:
+I found it totally neat that I could embed markdown inside the org-mode
+document. See below for how this is done.
 </p>
-
-
-<p>
-of which I got the source from his
-github repo for his octopress blog.
-</p>
-
-
 
 
 <p>
@@ -111,9 +104,10 @@ This article should be useful for:
 <li><a href="#sec-2">2 Basic setup</a></li>
 <li><a href="#sec-3">3 POW</a></li>
 <li><a href="#sec-4">4 LiveReload</a></li>
-<li><a href="#sec-5">5 Org-mode Integration</a></li>
-<li><a href="#sec-6">6 Directory Structure of Octopress and the master and source Git Branches</a></li>
-<li><a href="#sec-7">7 Why org-mode for blog publishing?</a></li>
+<li><a href="#sec-5">5 Why org-mode for blog publishing?</a></li>
+<li><a href="#sec-6">6 Org-mode Integration</a></li>
+<li><a href="#sec-7">7 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
+<li><a href="#sec-8">8 Parting words&hellip;</a></li>
 </ul>
 </div>
 </div>
@@ -330,7 +324,7 @@ POW.
 
 <p>
    This screen shot shows <code>watch</code> updating the deployment files.
-   <img src="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
+   <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
    start guard LiveReload
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -339,7 +333,7 @@ POW.
 
    This screen grab shows guard detecting the browser and telling the
    browser to update.
-   <img src="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
+   <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
 </p>
 <p>
 It&#8217;s really worth the effort to get LiveReload working with Octopress.
@@ -358,13 +352,46 @@ to figure out why guard wasn&#8217;t working.
 
 
 <div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">Org-mode Integration</h2>
+<h2 id="sec-5">Why org-mode for blog publishing?</h2>
 <div class="outline-text-2" id="text-5">
 
-<p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s delight</b> for note taking and authoring of blog articles. Down below I list a
-few reasons why org-mode.
+<p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s delight</b> for note taking and authoring of blog articles. Down below I list a few
+reasons why org-mode. Here&#8217;s a few org-mode features I love (Some are Emacs
+ones):
+</p><ol>
+<li>All headers and list items can be reordered with minimal keystrokes (think
+   super powerful outliner).
+</li>
+<li>Numbered lists
+</li>
+<li>Editable tables in text editor, with movable columns, movable rows
+</li>
+<li>Ergonomics of insertion of URLs and images.
+</li>
+<li>Includes the basics of markdown, such as source code blocks and much more.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Org-mode Integration</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>I found a plugin that automates the process of converting an org-mode document
+(<code>.org</code> file) in <code>source/org_posts</code> into a <code>.markdown</code> document in
+<code>source/_posts</code>. Once the markdown document is saved in <sub>posts</sub>, the <code>rake watch</code> task picks up the change and deploys the file, and LiveReload can then
+automatically update your web browser. <b>Neat!</b>
 </p>
-<ol>
+<p>
+Here are the basic steps:
+</p><ol>
 <li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
 </li>
 <li>At the time of this article, April 27, there&#8217;s a bug with the latest
@@ -376,76 +403,13 @@ few reasons why org-mode.
    attached to the original document. The above instructions work fine at
    publishing images.
 </li>
+<li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
+   inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
+   <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png" />
+</li>
 </ol>
 
 
-
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Directory Structure of Octopress and the master and source Git Branches</h2>
-<div class="outline-text-2" id="text-6">
-
-<p>I originally was quite confused by the concept of using two separate git
-branches to make up what gets deployed on the live website versus the git
-repository of my articles. Plus, there&#8217;s the issue of Octopress git repository
-that you clone when starting out. Eventually, I figured out that the two branches
-simply contain different files, with one containing the original Octopress
-files. Here&#8217;s a few screen grabs that might clarify the situation for you.
-</p>
-<p>
-The octopress/.gitignore file contains the following, which essentially keeps
-the keeps the <code>rake generate</code> files out of the source branch.
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>.bundle
-</span><span class='line'>.DS_Store
-</span><span class='line'>.sass-cache
-</span><span class='line'>.gist-cache
-</span><span class='line'>.pygments-cache
-</span><span class='line'>_deploy
-</span><span class='line'>public
-</span><span class='line'>sass.old
-</span><span class='line'>source.old
-</span><span class='line'><span class="nb">source</span>/_stash
-</span><span class='line'><span class="nb">source</span>/stylesheets/screen.css
-</span><span class='line'>vendor
-</span><span class='line'>node_modules
-</span></code></pre></td></tr></table></div></figure>
-
-
-The <code>octopress/public</code> directory corresponds to what you&#8217;ll find on the github
-site for your deployment (master branch).
-<img src="2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png" />
-</p>
-<p>
-Here&#8217;s the github master branch right after creation. Note the correspondence
-with <code>public</code>. This is what gets deployed as your blog.
-<img src="2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png" />
-</p>
-
-<p>
-Here&#8217;s the github source branch. This contains the octopress environment, as
-well as your customizations and blog posts.
-<img src="2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png" />
-</p>
 
 </div>
 
@@ -455,26 +419,58 @@ well as your customizations and blog posts.
 
 
 <div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Why org-mode for blog publishing?</h2>
+<h2 id="sec-7">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
 <div class="outline-text-2" id="text-7">
 
-<p>Here&#8217;s a few org-mode features I love (Some are Emacs ones):
-</p><ol>
-<li>All headers and list items can be reordered with minimal keystrokes (think
-   super powerful outliner).
-</li>
-<li>Numbered lists
-</li>
-<li>Editable tables in text editor, with movable columns, movable rows
-</li>
-<li>Ergonomics of insertion of URLs and images.
-</li>
-<li>Includes the basics of markdown, such as source code blocks.
-</li>
-</ol>
-
+<p>Github offers free hosting of both the blog deployment and source. You&#8217;re
+looking at the deployment right now. You can find the source here at <a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
+convenience. You can look inside of this repo, clone it, etc. and you have
+everything that it took to make this blog.
+</p>
+<p>
+I originally was quite confused by the concept of using two separate git
+branches to make up what gets deployed on the live website versus the git
+repository of my articles. Plus, there&#8217;s the issue of Octopress git repository
+that you clone when starting out. Eventually, I figured out that the two branches
+simply contain different files, with one containing the original Octopress
+files. Here&#8217;s a few screen grabs that might clarify the situation for you.
+</p>
+<p>
+The <code>octopress/public</code> directory corresponds to what you&#8217;ll find on the github
+site for your deployment (master branch).
+</p>
+<p>
+<img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png" />
+</p>
+<p>
+The octopress/.gitignore file contains entries like <code>public</code>, which essentially
+keeps the <code>rake generate</code> files out of the source branch.
+</p>
+<p>
+Here&#8217;s the github master branch right after creation. Note the correspondence
+with <code>public</code>. This is what gets deployed as your blog.
+<img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png" />
+</p>
+<p>
+Here&#8217;s the github source branch. This contains the octopress environment, as
+well as your customizations and blog posts.
+<img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png" />
+</p>
 
 </div>
+
+</div>
+
+
+
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Parting words&hellip;</h2>
+<div class="outline-text-2" id="text-8">
+
+<p>Thanks in advance for any suggestions on this article. I hope you find it
+helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@RailsOnMaui</a>.
+</p></div>
 </div>
 
 ]]></content>
