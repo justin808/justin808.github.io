@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Rails on Maui]]></title>
-  <link href="http://justin808.github.io/atom.xml" rel="self"/>
-  <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T22:41:56-10:00</updated>
-  <id>http://justin808.github.io/</id>
+  <link href="http://www.railsonmaui.com/atom.xml" rel="self"/>
+  <link href="http://www.railsonmaui.com/"/>
+  <updated>2013-04-28T23:04:59-10:00</updated>
+  <id>http://www.railsonmaui.com/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
     
@@ -15,15 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress Setup with Github, Org-mode, and LiveReload]]></title>
-    <link href="http://justin808.github.io/blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
+    <link href="http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
     <updated>2013-04-27T22:46:00-10:00</updated>
-    <id>http://justin808.github.io/blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
+    <id>http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
     <content type="html"><![CDATA[<p>
-by Justin Gordon
-</p>
-
-
-<p>
 WordPress seemed like a good blogging platform, but it just didn&#8217;t feel right.
 I spend all my day editing text files, and in the past year, I fell in love
 with <a href="http://orgmode.org/">Org Mode</a> for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like
@@ -323,7 +318,7 @@ POW.
 
 <p>
    This screen shot shows <code>watch</code> updating the deployment files.
-   <img src="http://justin808.github.io/images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
+   <img src="http://www.railsonmaui.com/images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
    start guard LiveReload
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -332,7 +327,7 @@ POW.
 
    This screen grab shows guard detecting the browser and telling the
    browser to update.
-   <img src="http://justin808.github.io/images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png">
+   <img src="http://www.railsonmaui.com/images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png">
 </p>
 <p>
 It&#8217;s really worth the effort to get LiveReload working with Octopress. It&#8217;s
@@ -401,7 +396,7 @@ Here are the basic steps:
 </li>
 <li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
    inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
-   <img src="http://justin808.github.io/images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png">
+   <img src="http://www.railsonmaui.com/images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png">
 </li>
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
    inclusion of images in org-mode results in broken paths at deployment. The
@@ -411,7 +406,7 @@ Here are the basic steps:
    in the postings directory. If I&#8217;m creating a document with many images, I&#8217;ll
    group the images for that document in a sub-directory of images named like
    the document. This is how it should look:
-   <img src="http://justin808.github.io/images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
+   <img src="http://www.railsonmaui.com/images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
 </li>
 </ol>
 
@@ -450,7 +445,7 @@ The <code>octopress/public</code> directory corresponds to what you&#8217;ll fin
 site for your deployment (master branch).
 </p>
 <p>
-<img src="http://justin808.github.io/images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png">
+<img src="http://www.railsonmaui.com/images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png">
 </p>
 <p>
 The octopress/.gitignore file contains entries like <code>public</code>, which essentially
@@ -459,12 +454,12 @@ keeps the <code>rake generate</code> files out of the source branch.
 <p>
 Here&#8217;s the github master branch right after creation. Note the correspondence
 with <code>public</code>. This is what gets deployed as your blog.
-<img src="http://justin808.github.io/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
+<img src="http://www.railsonmaui.com/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
 </p>
 <p>
 Here&#8217;s the github source branch. This contains the octopress environment, as
 well as your customizations and blog posts.
-<img src="http://justin808.github.io/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
+<img src="http://www.railsonmaui.com/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
 
 
 </p></div>

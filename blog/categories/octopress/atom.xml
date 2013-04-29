@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Octopress | Rails on Maui]]></title>
-  <link href="http://justin808.github.io/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T22:41:56-10:00</updated>
-  <id>http://justin808.github.io/</id>
+  <link href="http://www.railsonmaui.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://www.railsonmaui.com/"/>
+  <updated>2013-04-28T23:04:59-10:00</updated>
+  <id>http://www.railsonmaui.com/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
     
@@ -15,15 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress Setup with Github, Org-mode, and LiveReload]]></title>
-    <link href="http://justin808.github.io/blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
+    <link href="http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
     <updated>2013-04-27T22:46:00-10:00</updated>
-    <id>http://justin808.github.io/blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
+    <id>http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
     <content type="html"><![CDATA[<p>
-by Justin Gordon
-</p>
-
-
-<p>
 WordPress seemed like a good blogging platform, but it just didn't feel right.
 I spend all my day editing text files, and in the past year, I fell in love
 with <a href="http://orgmode.org/">Org Mode</a> for all non-coding writing. If you don't know Org Mode, it's like

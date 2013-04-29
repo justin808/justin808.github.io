@@ -9,8 +9,6 @@ keywords: octopress, github, org-mode, Emacs, livereload
 description: Installing Octopress with github hosting, org-mode markup, and Live-Reload
 ---
 #+END_HTML
-by Justin Gordon
-
 WordPress seemed like a good blogging platform, but it just didn't feel right.
 I spend all my day editing text files, and in the past year, I fell in love
 with [[http://orgmode.org/][Org Mode]] for all non-coding writing. If you don't know Org Mode, it's like
