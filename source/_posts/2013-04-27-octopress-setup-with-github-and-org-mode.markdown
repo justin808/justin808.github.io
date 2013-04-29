@@ -11,10 +11,59 @@ description: Installing Octopress with github hosting, org-mode markup, and Live
 by Justin Gordon
 </p>
 <p>
-WordPress seemed like a good blogging platform, but it just didn't feel right,
-as I wanted to edit my blog posts in org-mode. So I bit the bullet, and dove
-into Octopress. You're looking at it! Here's my perspectives on it. This article
-should be useful for:
+WordPress seemed like a good blogging platform, but it just didn't feel right.
+I spend all my day editing text files, and in the past year, I fell in love
+with org-mode for all non-coding writing. If you don't know Org Mode, it's like
+having Markdown mode on steroids. You can have a numbered list in Markdown, but
+org-mode lets you re-order the list, and that's just the beginning. Editing
+blog documents in the WordPress editor felt almost as bad as being told to use
+MS Word. I found that ergonomics of org-mode, including all the goodness of
+recent versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a href="http://emacswiki.org/emacs/Evil">Evil</a> (Vim emulation), just made organization
+of creative thoughts so much more enjoyable.
+</p>
+<p>
+So I bit the bullet this weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You're looking at the
+results of this endeavor, including my first Octopress article, and the latest
+on redoing what I just did, which is using Octopress with Org Mode authoring,
+using LiveReload, and deployed at no charge on github.com. 
+</p>
+<p>
+If you used to writing real web applications, rather than know the intricacies
+of a giant monolithic blogging platform, then the <a href="http://octopress.org/docs/theme/template/">customization of Octopress</a>
+seems so much more straightforward.  
+</p>
+<p>
+I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson's summary</a>:
+</p>
+
+
+
+> [Octopress](http://octopress.org/) is a blogging framework written by [Brandon Mathis](http://brandonmathis.com/)
+([@imathis](https://twitter.com/#!/imathis)) which sits on top of [Jekyll](https://github.com/mojombo/jekyll). Jekyll is
+a static site generator, meaning there's no database associated with your blog. Instead of writing everything in a
+WSYWIG linked to MySQL (like Wordpress or Blogger) you produce text files using Markdown which are then converted to
+static HTML. There are 3 huge benefits to this approach. First, writing in Markdown is awesome. Once you learn the
+syntax it's incredibly fast and you don't have to spend time playing with a tiny little editor window just to
+<s>add</s> *some* **style** to your posts. Second, writing in your favorite text editor is also awesome. I produce
+everything in [Sublime Text 2](http://www.sublimetext.com/2) and every day I discover new tricks to make the process
+better. If you've ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
+this feature. And lastly, static HTML is *fast*.
+
+
+<p>
+There's a few really cool things about how I shared this quote:
+</p>
+<p>
+of which I got the source from his
+github repo for his octopress blog.
+</p>
+
+
+
+
+
+<p>
+This article should be useful for:
 </p><ol>
 <li>Anybody reading this near the date April 27, 2013, as any technical
      instructions seem to degrade in accuracy over time.
@@ -55,7 +104,7 @@ should be useful for:
 <li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
    March 2013.
 </li>
-<li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
+<li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
    posting on April 30th, 2012.
 </li>
 <li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>:
