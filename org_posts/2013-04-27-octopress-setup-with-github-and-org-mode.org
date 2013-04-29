@@ -188,7 +188,7 @@ ones):
 * Org-mode Integration
 I found a plugin that automates the process of converting an org-mode document
 (=.org= file) in =source/org_posts= into a =.markdown= document in
-=source/_posts=. Once the markdown document is saved in _posts, the =rake
+=source/\_posts=. Once the markdown document is saved in \_posts, the =rake
 watch= task picks up the change and deploys the file, and LiveReload can then
 automatically update your web browser. *Neat!*
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://justin808.github.io/atom.xml" rel="self"/>
   <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T22:19:58-10:00</updated>
+  <updated>2013-04-28T22:32:26-10:00</updated>
   <id>http://justin808.github.io/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -387,7 +387,7 @@ ones):
 
 <p>I found a plugin that automates the process of converting an org-mode document
 (<code>.org</code> file) in <code>source/org_posts</code> into a <code>.markdown</code> document in
-<code>source/_posts</code>. Once the markdown document is saved in <sub>posts</sub>, the <code>rake watch</code> task picks up the change and deploys the file, and LiveReload can then
+<code>source/_posts</code>. Once the markdown document is saved in _posts, the <code>rake watch</code> task picks up the change and deploys the file, and LiveReload can then
 automatically update your web browser. <b>Neat!</b>
 </p>
 <p>
