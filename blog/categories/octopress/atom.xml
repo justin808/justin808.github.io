@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Rails on Maui]]></title>
   <link href="http://justin808.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T21:22:04-10:00</updated>
+  <updated>2013-04-28T21:24:16-10:00</updated>
   <id>http://justin808.github.io/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -177,55 +177,48 @@ This article should be useful for:
 </ol>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake new_post<span class="o">[</span><span class="s2">&quot;my post name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake new_post["my post name"]
+{% endcodeblock %}
 
  
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;my page name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake new_page["my page name"]
+{% endcodeblock %}
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="c"># same as generate and deploy</span>
-</span><span class='line'>  rake gen_deploy
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  # same as generate and deploy
+  rake gen_deploy 
+{% endcodeblock %}
 
  
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="c"># Watch the site and regenerate when it changes</span>
-</span><span class='line'>  rake watch
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  # Watch the site and regenerate when it changes
+  rake watch 
+{% endcodeblock %}
 
   
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="c"># preview the site in a web browser</span>
-</span><span class='line'>  rake preview
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  # preview the site in a web browser
+  rake preview
+{% endcodeblock %}
 
   
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="c"># See all the available rake options</span>
-</span><span class='line'>  rake -T
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  # See all the available rake options
+  rake -T
+{% endcodeblock %}
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  <span class="c"># Save changes to source branch</span>
-</span><span class='line'>  git add .
-</span><span class='line'>  git commit -m <span class="s2">&quot;save changes to source&quot;</span>
-</span><span class='line'>  git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  # Save changes to source branch
+  git add .
+  git commit -m "save changes to source"
+  git push origin source
+{% endcodeblock %}
 
 </div>
 
@@ -241,9 +234,9 @@ This article should be useful for:
 <p>Pow allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your
 Octopress website. Scroll to the bottom of this page for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The
 alternative to running POW is to run.
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake preview
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake preview
+{% endcodeblock %}
 
 </p></div>
 
@@ -268,11 +261,10 @@ POW.
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'>   <span class="n">gem</span> <span class="s1">&#39;guard-livereload&#39;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:ruby %}
+   gem 'guard'
+   gem 'guard-livereload'
+{% endcodeblock %}
 
 <ul>
 <li>Create a file called <code>Guardfile</code> containing something like:
@@ -280,15 +272,12 @@ POW.
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>     <span class="n">guard</span> <span class="s1">&#39;livereload&#39;</span> <span class="k">do</span>
-</span><span class='line'>       <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/generated}</span><span class="p">)</span>
-</span><span class='line'>       <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/.+\.(css|js|html)}</span><span class="p">)</span>
-</span><span class='line'>     <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:ruby %}
+     guard 'livereload' do
+       watch(%r{public/generated})
+       watch(%r{public/.+\.(css|js|html)})
+     end
+{% endcodeblock %}
 
 <ul>
 <li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
@@ -297,16 +286,16 @@ POW.
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>     &gt; rake generate <span class="o">&amp;&amp;</span> rake watch
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+     > rake generate && rake watch
+{% endcodeblock %}
 <p>
    This screen shot shows <code>watch</code> updating the deployment files.
    <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
    start guard LiveReload
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>     &gt; guard
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+     > guard
+{% endcodeblock %}
    This screen grab shows guard detecting the browser and telling the
    browser to update.
    <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
@@ -410,6 +399,10 @@ repository of my articles. Plus, there's the issue of Octopress git repository
 that you clone when starting out. Eventually, I figured out that the two branches
 simply contain different files, with one containing the original Octopress
 files. Here's a few screen grabs that might clarify the situation for you.
+</p>
+<p>
+Don't forget that you never push to the master branch, but rather the <code>rake deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
+the content of your blog to github.
 </p>
 <p>
 The <code>octopress/public</code> directory corresponds to what you'll find on the github

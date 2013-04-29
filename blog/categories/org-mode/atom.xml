@@ -4,7 +4,7 @@
   <title><![CDATA[Category: org-mode | Rails on Maui]]></title>
   <link href="http://justin808.github.io/blog/categories/org-mode/atom.xml" rel="self"/>
   <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T21:22:04-10:00</updated>
+  <updated>2013-04-28T21:24:16-10:00</updated>
   <id>http://justin808.github.io/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -410,6 +410,10 @@ repository of my articles. Plus, there's the issue of Octopress git repository
 that you clone when starting out. Eventually, I figured out that the two branches
 simply contain different files, with one containing the original Octopress
 files. Here's a few screen grabs that might clarify the situation for you.
+</p>
+<p>
+Don't forget that you never push to the master branch, but rather the <code>rake deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
+the content of your blog to github.
 </p>
 <p>
 The <code>octopress/public</code> directory corresponds to what you'll find on the github

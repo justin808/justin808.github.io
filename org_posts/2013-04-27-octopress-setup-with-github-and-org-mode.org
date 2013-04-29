@@ -217,6 +217,10 @@ that you clone when starting out. Eventually, I figured out that the two branche
 simply contain different files, with one containing the original Octopress
 files. Here's a few screen grabs that might clarify the situation for you.
 
+Don't forget that you never push to the master branch, but rather the =rake
+deploy= task does it for you. Instead, you run =git push origin source= to push
+the content of your blog to github.
+
 The =octopress/public= directory corresponds to what you'll find on the github
 site for your deployment (master branch).
 
