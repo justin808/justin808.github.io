@@ -67,7 +67,7 @@ This article should be useful for:
    March 2013.
 2. [[http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages][Rob Dodson on Octopress]]: Most of the instructions I show below are from this
    posting on April 30th, 2012.
-3. [[http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/][Joel McCracken on Octopress]]:
+3. [[http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/][Joel McCracken on Octopress]]: Use Jekyll? You Really Should Be Using Octopress 
 4. [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on setting up a custom domain]] 
 5. [[http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one][dblock.org Article on Octopress]]: A good explanation from Jan 17, 2012,
    especially on the difference of the source and master branches.

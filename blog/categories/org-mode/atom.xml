@@ -4,7 +4,7 @@
   <title><![CDATA[Category: org-mode | Rails on Maui]]></title>
   <link href="http://justin808.github.io/blog/categories/org-mode/atom.xml" rel="self"/>
   <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T22:32:26-10:00</updated>
+  <updated>2013-04-28T22:34:04-10:00</updated>
   <id>http://justin808.github.io/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -129,7 +129,7 @@ This article should be useful for:
 <li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
    posting on April 30th, 2012.
 </li>
-<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>:
+<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>: Use Jekyll? You Really Should Be Using Octopress 
 </li>
 <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a> 
 </li>
