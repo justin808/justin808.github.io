@@ -4,7 +4,7 @@
   <title><![CDATA[Category: org-mode | Rails on Maui]]></title>
   <link href="http://justin808.github.io/blog/categories/org-mode/atom.xml" rel="self"/>
   <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T21:24:16-10:00</updated>
+  <updated>2013-04-28T22:15:04-10:00</updated>
   <id>http://justin808.github.io/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -26,11 +26,11 @@ by Justin Gordon
 <p>
 WordPress seemed like a good blogging platform, but it just didn't feel right.
 I spend all my day editing text files, and in the past year, I fell in love
-with org-mode for all non-coding writing. If you don't know Org Mode, it's like
+with <a href="http://orgmode.org/">Org Mode</a> for all non-coding writing. If you don't know Org Mode, it's like
 having Markdown mode on steroids. You can have a numbered list in Markdown, but
 org-mode lets you re-order the list, and that's just the beginning. Editing
 blog documents in the WordPress editor felt almost as bad as being told to use
-MS Word. I found that ergonomics of org-mode, including all the goodness of
+MS Word. I found that ergonomics of Org Mode, including all the goodness of
 recent versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a href="http://emacswiki.org/emacs/Evil">Evil</a> (Vim emulation), just made organization
 of creative thoughts so much more enjoyable.
 </p>
@@ -39,7 +39,7 @@ of creative thoughts so much more enjoyable.
 <p>
 So I bit the bullet this weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You're looking at the
 results of this endeavor, including my first Octopress article, and the latest
-on redoing what I just did, which is using Octopress with Org Mode authoring,
+tips on recreating this sort of blog using Octopress with Org Mode authoring,
 using LiveReload, and deployed at no charge on github.com. 
 </p>
 
@@ -47,7 +47,9 @@ using LiveReload, and deployed at no charge on github.com.
 <p>
 If you used to writing real web applications, rather than know the intricacies
 of a giant monolithic blogging platform, then the <a href="http://octopress.org/docs/theme/template/">customization of Octopress</a>
-seems so much more straightforward.  
+seems so much more straightforward. This is so much more like the Unix
+philosophy that so many of us love, which is small and modular, rather than
+monolithic.
 </p>
 
 
@@ -240,12 +242,10 @@ This article should be useful for:
 
 <p>Pow allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your
 Octopress website. Scroll to the bottom of this page for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The
-alternative to running POW is to run.
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake preview
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-</p></div>
+alternative to running POW is to run <code>rake preview</code> and then point your browser
+at <code>http://0.0.0.0:4000</code> (or whatever port you configured).
+</p>
+</div>
 
 </div>
 
@@ -302,17 +302,19 @@ POW.
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>
    This screen shot shows <code>watch</code> updating the deployment files.
-   <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
+   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
    start guard LiveReload
 <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>     &gt; guard
 </span></code></pre></td></tr></table></div></figure></notextile></div>
    This screen grab shows guard detecting the browser and telling the
    browser to update.
-   <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
+   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png">
 </p>
 <p>
-It's really worth the effort to get LiveReload working with Octopress.
+It's really worth the effort to get LiveReload working with Octopress. It's
+just so cool to save and see your web browser update. Trust me, I never felt any
+joy like that when hitting save in the WordPress editor and then hitting preview!
 </p>
 <p>
 It's worth noting that if you're running any other instance of guard-
@@ -338,9 +340,9 @@ ones):
 <li>All headers and list items can be reordered with minimal keystrokes (think
    super powerful outliner).
 </li>
-<li>Numbered lists
+<li>Numbered lists.
 </li>
-<li>Editable tables in text editor, with movable columns, movable rows
+<li>Editable tables in text editor, with movable columns, movable rows.
 </li>
 <li>Ergonomics of insertion of URLs and images.
 </li>
@@ -374,14 +376,19 @@ Here are the basic steps:
    org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
    won't need that tip.
 </li>
-<li>Images work fine. My strategy for org-mode is to create a separate
-   subdirectory for each org-mode document for images. That keeps the images
-   attached to the original document. The above instructions work fine at
-   publishing images.
-</li>
 <li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
    inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
-   <img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png" />
+   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png">
+</li>
+<li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
+   inclusion of images in org-mode results in broken paths at deployment. The
+   workaround is to embed the Octopress syntax for an image, and to place the
+   images under source/images. Note, you'll want to be sure to use an absolute
+   path, or else your article might look OK on the home page, but might now work
+   in the postings directory. If I'm creating a document with many images, I'll
+   group the images for that document in a sub-directory of images named like
+   the document. This is how it should look:
+   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
 </li>
 </ol>
 
@@ -420,7 +427,7 @@ The <code>octopress/public</code> directory corresponds to what you'll find on t
 site for your deployment (master branch).
 </p>
 <p>
-<img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png" />
+<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png">
 </p>
 <p>
 The octopress/.gitignore file contains entries like <code>public</code>, which essentially
@@ -429,15 +436,15 @@ keeps the <code>rake generate</code> files out of the source branch.
 <p>
 Here's the github master branch right after creation. Note the correspondence
 with <code>public</code>. This is what gets deployed as your blog.
-<img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png" />
+<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
 </p>
 <p>
 Here's the github source branch. This contains the octopress environment, as
 well as your customizations and blog posts.
-<img src="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png"  alt="file:///2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png" />
-</p>
+<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
 
-</div>
+
+</p></div>
 
 </div>
 
