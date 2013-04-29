@@ -1,15 +1,12 @@
 ---
 layout: post
-title: "Octopress Setup with Github, Org-mode, and LiveReload"
+title: "Octopress Setup with Github, Org Mode, and LiveReload"
 date: 2013-04-27 22:46
 comments: true
 categories: [Octopress, github, org-mode]
 keywords: octopress, github, org-mode, Emacs, livereload
-description: Installing Octopress with github hosting, org-mode markup, and Live-Reload
+description: Installing Octopress with github hosting, Org Mode markup, and Live-Reload
 ---
-<p>
-by Justin Gordon
-</p>
 <p>
 WordPress seemed like a good blogging platform, but it just didn't feel right.
 I spend all my day editing text files, and in the past year, I fell in love
