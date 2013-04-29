@@ -61,11 +61,11 @@ This article should be useful for:
      instructions seem to degrade in accuracy over time.
 </li>
 <li>Any interest in using org-mode to publish to Octopress including some
-     reasons I use org-mode
+     reasons I use Org Mode (with Emacs).
 </li>
 <li>Some explanation of what Octopress and git are doing.
 </li>
-<li>How to use LiveReload with Octopress and org-mode
+<li>How to use LiveReload with Octopress and Org Mode.
 </li>
 <li>Anybody curious about how using free github pages works to host Octopress. 
 </li>

@@ -55,9 +55,9 @@ This article should be useful for:
   1. Anybody reading this near the date April 27, 2013, as any technical
      instructions seem to degrade in accuracy over time.
   2. Any interest in using org-mode to publish to Octopress including some
-     reasons I use org-mode
+     reasons I use Org Mode (with Emacs).
   3. Some explanation of what Octopress and git are doing.
-  4. How to use LiveReload with Octopress and org-mode
+  4. How to use LiveReload with Octopress and Org Mode.
   5. Anybody curious about how using free github pages works to host Octopress. 
 
 * Useful Links
