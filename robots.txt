@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://www.railsonmaui.com/sitemap.xml 
+Sitemap: http://justin808.github.io/sitemap.xml 

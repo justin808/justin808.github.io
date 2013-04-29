@@ -5,7 +5,7 @@ title: "Octopress Setup with Github, Org-mode, and LiveReload"
 date: 2013-04-27 22:46
 comments: true
 categories: [Octopress, github, org-mode]
-keywords: octopress, github, org-mode
+keywords: octopress, github, org-mode, Emacs, livereload
 description: Installing Octopress with github hosting, org-mode markup, and Live-Reload
 ---
 #+END_HTML
