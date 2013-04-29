@@ -32,7 +32,7 @@ seems so much more straightforward. This is so much more like the Unix
 philosophy that so many of us love, which is small and modular, rather than
 monolithic.
 
-I like [[https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown][Rob Dodson's summary]]:
+I like [[https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown][Rob Dodson's summary]] (noting Org Mode plus Emacs):
 
 #+begin_html
 
@@ -40,10 +40,11 @@ I like [[https://github.com/robdodson/robdodson.github.com/blob/source/source/_p
 ([@imathis](https://twitter.com/#!/imathis)) which sits on top of [Jekyll](https://github.com/mojombo/jekyll). Jekyll is
 a static site generator, meaning there's no database associated with your blog. Instead of writing everything in a
 WSYWIG linked to MySQL (like Wordpress or Blogger) you produce text files using Markdown which are then converted to
-static HTML. There are 3 huge benefits to this approach. First, writing in Markdown is awesome. Once you learn the
+static HTML. There are 3 huge benefits to this approach. First, writing in
+Markdown [*org-mode* for Justin] is awesome. Once you learn the
 syntax it's incredibly fast and you don't have to spend time playing with a tiny little editor window just to
 <s>add</s> *some* **style** to your posts. Second, writing in your favorite text editor is also awesome. I produce
-everything in [Sublime Text 2](http://www.sublimetext.com/2) and every day I discover new tricks to make the process
+everything in [Sublime Text 2](http://www.sublimetext.com/2) [*Emacs* for Justin] and every day I discover new tricks to make the process
 better. If you've ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
 this feature. And lastly, static HTML is *fast*.
 

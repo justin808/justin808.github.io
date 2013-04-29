@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | Rails on Maui]]></title>
   <link href="http://justin808.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://justin808.github.io/"/>
-  <updated>2013-04-28T22:15:04-10:00</updated>
+  <updated>2013-04-28T22:19:58-10:00</updated>
   <id>http://justin808.github.io/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -54,7 +54,7 @@ monolithic.
 
 
 <p>
-I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson's summary</a>:
+I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson's summary</a> (noting Org Mode plus Emacs):
 </p>
 
 
@@ -62,10 +62,11 @@ I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/so
 (<a href="https://twitter.com/#!/imathis">@imathis</a>) which sits on top of <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is
 a static site generator, meaning there's no database associated with your blog. Instead of writing everything in a
 WSYWIG linked to MySQL (like Wordpress or Blogger) you produce text files using Markdown which are then converted to
-static HTML. There are 3 huge benefits to this approach. First, writing in Markdown is awesome. Once you learn the
+static HTML. There are 3 huge benefits to this approach. First, writing in
+Markdown [<em>org-mode</em> for Justin] is awesome. Once you learn the
 syntax it's incredibly fast and you don't have to spend time playing with a tiny little editor window just to
 <s>add</s> <em>some</em> <strong>style</strong> to your posts. Second, writing in your favorite text editor is also awesome. I produce
-everything in <a href="http://www.sublimetext.com/2">Sublime Text 2</a> and every day I discover new tricks to make the process
+everything in <a href="http://www.sublimetext.com/2">Sublime Text 2</a> [<em>Emacs</em> for Justin] and every day I discover new tricks to make the process
 better. If you've ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
 this feature. And lastly, static HTML is <em>fast</em>.</p></blockquote>
 
