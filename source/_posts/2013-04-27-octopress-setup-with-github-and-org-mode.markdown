@@ -4,7 +4,7 @@ title: "Octopress Setup with Github, Org-mode, and LiveReload"
 date: 2013-04-27 22:46
 comments: true
 categories: [Octopress, github, org-mode]
-keywords: octopress, github, org-mode
+keywords: octopress, github, org-mode, Emacs, livereload
 description: Installing Octopress with github hosting, org-mode markup, and Live-Reload
 ---
 <p>
@@ -13,27 +13,29 @@ by Justin Gordon
 <p>
 WordPress seemed like a good blogging platform, but it just didn't feel right.
 I spend all my day editing text files, and in the past year, I fell in love
-with org-mode for all non-coding writing. If you don't know Org Mode, it's like
+with <a href="http://orgmode.org/">Org Mode</a> for all non-coding writing. If you don't know Org Mode, it's like
 having Markdown mode on steroids. You can have a numbered list in Markdown, but
 org-mode lets you re-order the list, and that's just the beginning. Editing
 blog documents in the WordPress editor felt almost as bad as being told to use
-MS Word. I found that ergonomics of org-mode, including all the goodness of
+MS Word. I found that ergonomics of Org Mode, including all the goodness of
 recent versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a href="http://emacswiki.org/emacs/Evil">Evil</a> (Vim emulation), just made organization
 of creative thoughts so much more enjoyable.
 </p>
 <p>
 So I bit the bullet this weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You're looking at the
 results of this endeavor, including my first Octopress article, and the latest
-on redoing what I just did, which is using Octopress with Org Mode authoring,
+tips on recreating this sort of blog using Octopress with Org Mode authoring,
 using LiveReload, and deployed at no charge on github.com. 
 </p>
 <p>
 If you used to writing real web applications, rather than know the intricacies
 of a giant monolithic blogging platform, then the <a href="http://octopress.org/docs/theme/template/">customization of Octopress</a>
-seems so much more straightforward.  
+seems so much more straightforward. This is so much more like the Unix
+philosophy that so many of us love, which is small and modular, rather than
+monolithic.
 </p>
 <p>
-I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson's summary</a>:
+I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson's summary</a> (noting Org Mode plus Emacs):
 </p>
 
 
@@ -42,26 +44,19 @@ I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/so
 ([@imathis](https://twitter.com/#!/imathis)) which sits on top of [Jekyll](https://github.com/mojombo/jekyll). Jekyll is
 a static site generator, meaning there's no database associated with your blog. Instead of writing everything in a
 WSYWIG linked to MySQL (like Wordpress or Blogger) you produce text files using Markdown which are then converted to
-static HTML. There are 3 huge benefits to this approach. First, writing in Markdown is awesome. Once you learn the
+static HTML. There are 3 huge benefits to this approach. First, writing in
+Markdown [*org-mode* for Justin] is awesome. Once you learn the
 syntax it's incredibly fast and you don't have to spend time playing with a tiny little editor window just to
 <s>add</s> *some* **style** to your posts. Second, writing in your favorite text editor is also awesome. I produce
-everything in [Sublime Text 2](http://www.sublimetext.com/2) and every day I discover new tricks to make the process
+everything in [Sublime Text 2](http://www.sublimetext.com/2) [*Emacs* for Justin] and every day I discover new tricks to make the process
 better. If you've ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
 this feature. And lastly, static HTML is *fast*.
 
 
 <p>
-There's a few really cool things about how I shared this quote:
+I found it totally neat that I could embed markdown inside the org-mode
+document. See below for how this is done.
 </p>
-<p>
-of which I got the source from his
-github repo for his octopress blog.
-</p>
-
-
-
-
-
 <p>
 This article should be useful for:
 </p><ol>
@@ -89,9 +84,10 @@ This article should be useful for:
 <li><a href="#sec-2">2 Basic setup</a></li>
 <li><a href="#sec-3">3 POW</a></li>
 <li><a href="#sec-4">4 LiveReload</a></li>
-<li><a href="#sec-5">5 Org-mode Integration</a></li>
-<li><a href="#sec-6">6 Directory Structure of Octopress and the master and source Git Branches</a></li>
-<li><a href="#sec-7">7 Why org-mode for blog publishing?</a></li>
+<li><a href="#sec-5">5 Why org-mode for blog publishing?</a></li>
+<li><a href="#sec-6">6 Org-mode Integration</a></li>
+<li><a href="#sec-7">7 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
+<li><a href="#sec-8">8 Parting words&hellip;</a></li>
 </ul>
 </div>
 </div>
@@ -107,7 +103,7 @@ This article should be useful for:
 <li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
    posting on April 30th, 2012.
 </li>
-<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>:
+<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>: Use Jekyll? You Really Should Be Using Octopress 
 </li>
 <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a> 
 </li>
@@ -208,12 +204,10 @@ This article should be useful for:
 
 <p>Pow allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your
 Octopress website. Scroll to the bottom of this page for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The
-alternative to running POW is to run.
-{% codeblock lang:bash %}
-  rake preview
-{% endcodeblock %}
-
-</p></div>
+alternative to running POW is to run <code>rake preview</code> and then point your browser
+at <code>http://0.0.0.0:4000</code> (or whatever port you configured).
+</p>
+</div>
 
 </div>
 
@@ -263,17 +257,19 @@ POW.
 {% endcodeblock %}
 <p>
    This screen shot shows <code>watch</code> updating the deployment files.
-   <img src="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png" />
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png %}
    start guard LiveReload
 {% codeblock lang:bash %}
      > guard
 {% endcodeblock %}
    This screen grab shows guard detecting the browser and telling the
    browser to update.
-   <img src="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png" />
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png %}
 </p>
 <p>
-It's really worth the effort to get LiveReload working with Octopress.
+It's really worth the effort to get LiveReload working with Octopress. It's
+just so cool to save and see your web browser update. Trust me, I never felt any
+joy like that when hitting save in the WordPress editor and then hitting preview!
 </p>
 <p>
 It's worth noting that if you're running any other instance of guard-
@@ -286,26 +282,25 @@ to figure out why guard wasn't working.
 </div>
 
 <div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">Org-mode Integration</h2>
+<h2 id="sec-5">Why org-mode for blog publishing?</h2>
 <div class="outline-text-2" id="text-5">
 
-<p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It's quite the <b>hacker's delight</b> for note taking and authoring of blog articles. Down below I list a
-few reasons why org-mode.
-</p>
-<ol>
-<li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
+<p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It's quite the <b>hacker's delight</b> for note taking and authoring of blog articles. Down below I list a few
+reasons why org-mode. Here's a few org-mode features I love (Some are Emacs
+ones):
+</p><ol>
+<li>All headers and list items can be reordered with minimal keystrokes (think
+   super powerful outliner).
 </li>
-<li>At the time of this article, April 27, there's a bug with the latest
-   org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
-   won't need that tip.
+<li>Numbered lists.
 </li>
-<li>Images work fine. My strategy for org-mode is to create a separate
-   subdirectory for each org-mode document for images. That keeps the images
-   attached to the original document. The above instructions work fine at
-   publishing images.
+<li>Editable tables in text editor, with movable columns, movable rows.
+</li>
+<li>Ergonomics of insertion of URLs and images.
+</li>
+<li>Includes the basics of markdown, such as source code blocks and much more.
 </li>
 </ol>
-
 
 
 </div>
@@ -313,10 +308,56 @@ few reasons why org-mode.
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Directory Structure of Octopress and the master and source Git Branches</h2>
+<h2 id="sec-6">Org-mode Integration</h2>
 <div class="outline-text-2" id="text-6">
 
-<p>I originally was quite confused by the concept of using two separate git
+<p>I found a plugin that automates the process of converting an org-mode document
+(<code>.org</code> file) in <code>source/org_posts</code> into a <code>.markdown</code> document in
+<code>source/_posts</code>. Once the markdown document is saved in _posts, the <code>rake watch</code> task picks up the change and deploys the file, and LiveReload can then
+automatically update your web browser. <b>Neat!</b>
+</p>
+<p>
+Here are the basic steps:
+</p><ol>
+<li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
+</li>
+<li>At the time of this article, April 27, there's a bug with the latest
+   org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
+   won't need that tip.
+</li>
+<li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
+   inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png %}
+</li>
+<li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
+   inclusion of images in org-mode results in broken paths at deployment. The
+   workaround is to embed the Octopress syntax for an image, and to place the
+   images under source/images. Note, you'll want to be sure to use an absolute
+   path, or else your article might look OK on the home page, but might now work
+   in the postings directory. If I'm creating a document with many images, I'll
+   group the images for that document in a sub-directory of images named like
+   the document. This is how it should look:
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
+</li>
+</ol>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
+<div class="outline-text-2" id="text-7">
+
+<p>Github offers free hosting of both the blog deployment and source. You're
+looking at the deployment right now. You can find the source here at <a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
+convenience. You can look inside of this repo, clone it, etc. and you have
+everything that it took to make this blog.
+</p>
+<p>
+I originally was quite confused by the concept of using two separate git
 branches to make up what gets deployed on the live website versus the git
 repository of my articles. Plus, there's the issue of Octopress git repository
 that you clone when starting out. Eventually, I figured out that the two branches
@@ -324,63 +365,40 @@ simply contain different files, with one containing the original Octopress
 files. Here's a few screen grabs that might clarify the situation for you.
 </p>
 <p>
-The octopress/.gitignore file contains the following, which essentially keeps
-the keeps the <code>rake generate</code> files out of the source branch.
-{% codeblock lang:bash %}
-.bundle
-.DS_Store
-.sass-cache
-.gist-cache
-.pygments-cache
-_deploy
-public
-sass.old
-source.old
-source/_stash
-source/stylesheets/screen.css
-vendor
-node_modules
-{% endcodeblock %}
-
+Don't forget that you never push to the master branch, but rather the <code>rake deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
+the content of your blog to github.
+</p>
+<p>
 The <code>octopress/public</code> directory corresponds to what you'll find on the github
 site for your deployment (master branch).
-<img src="2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png" />
+</p>
+<p>
+{% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png %}
+</p>
+<p>
+The octopress/.gitignore file contains entries like <code>public</code>, which essentially
+keeps the <code>rake generate</code> files out of the source branch.
 </p>
 <p>
 Here's the github master branch right after creation. Note the correspondence
 with <code>public</code>. This is what gets deployed as your blog.
-<img src="2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png" />
+{% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png %}
 </p>
-
 <p>
 Here's the github source branch. This contains the octopress environment, as
 well as your customizations and blog posts.
-<img src="2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png"  alt="2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png" />
-</p>
+{% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png %}
+
+
+</p></div>
 
 </div>
 
-</div>
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Parting words&hellip;</h2>
+<div class="outline-text-2" id="text-8">
 
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Why org-mode for blog publishing?</h2>
-<div class="outline-text-2" id="text-7">
-
-<p>Here's a few org-mode features I love (Some are Emacs ones):
-</p><ol>
-<li>All headers and list items can be reordered with minimal keystrokes (think
-   super powerful outliner).
-</li>
-<li>Numbered lists
-</li>
-<li>Editable tables in text editor, with movable columns, movable rows
-</li>
-<li>Ergonomics of insertion of URLs and images.
-</li>
-<li>Includes the basics of markdown, such as source code blocks.
-</li>
-</ol>
-
-
-</div>
+<p>Thanks in advance for any suggestions on this article. I hope you find it
+helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@RailsOnMaui</a>.
+</p></div>
 </div>
