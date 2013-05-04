@@ -202,7 +202,7 @@ Here are the basic steps:
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png %}
 4. +Images work fine.+ Well, almost fine. The big gotcha is that the standard
    inclusion of images in org-mode results in broken paths at deployment. The
-   workaround is to embed the Octopress syntax for an image, and to place the
+   workaround is to embed the [[http://octopress.org/docs/plugins/image-tag/][Octopress syntax for an image]], and to place the
    images under source/images. Note, you'll want to be sure to use an absolute
    path, or else your article might look OK on the home page, but might now work
    in the postings directory. If I'm creating a document with many images, I'll
@@ -213,8 +213,8 @@ Here are the basic steps:
 
 * Deploying to Github: Directory Structure of Octopress and the master and source Git Branches
 Github offers free hosting of both the blog deployment and source. You're
-looking at the deployment right now. You can find the source here at [[https://github.com/justin808/justin808.github.io][my git repo
-justin808.github.io]]. I doubt you could beat the price, performance, and
+looking at the deployment right now. You can find the source here at
+[[https://github.com/justin808/justin808.github.io][my git repo justin808.github.io]]. I doubt you could beat the price, performance, and
 convenience. You can look inside of this repo, clone it, etc. and you have
 everything that it took to make this blog.
 
