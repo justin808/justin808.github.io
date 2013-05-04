@@ -19,7 +19,7 @@ recent versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, inclu
 of creative thoughts so much more enjoyable.
 </p>
 <p>
-So I bit the bullet this weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You're looking at the
+So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You're looking at the
 results of this endeavor, including my first Octopress article, and the latest
 tips on recreating this sort of blog using Octopress with Org Mode authoring,
 using LiveReload, and deployed at no charge on github.com. 
@@ -329,16 +329,27 @@ Here are the basic steps:
 </li>
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
    inclusion of images in org-mode results in broken paths at deployment. The
-   workaround is to embed the Octopress syntax for an image, and to place the
+   workaround is to embed the <a href="http://octopress.org/docs/plugins/image-tag/">Octopress syntax for an image</a>, and to place the
    images under source/images. Note, you'll want to be sure to use an absolute
    path, or else your article might look OK on the home page, but might now work
    in the postings directory. If I'm creating a document with many images, I'll
    group the images for that document in a sub-directory of images named like
-   the document. This is how it should look:
+   the document. This is how it should look. The trick is to place the
+   octopress <code>img</code> directive within a HTML begin/end block.
+
+<p>
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
+</p></li>
+<li>Links to other pages or posts require using something like this. The trick
+   is that you have to specify <code>file:</code> and place the <code>html</code> file type.
 </li>
 </ol>
 
+
+
+
+<pre class="example">[[file:/about/some_details.html][Some Details]]  
+</pre>
 
 
 </div>
@@ -350,7 +361,8 @@ Here are the basic steps:
 <div class="outline-text-2" id="text-7">
 
 <p>Github offers free hosting of both the blog deployment and source. You're
-looking at the deployment right now. You can find the source here at <a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
+looking at the deployment right now. You can find the source here at
+<a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
 convenience. You can look inside of this repo, clone it, etc. and you have
 everything that it took to make this blog.
 </p>

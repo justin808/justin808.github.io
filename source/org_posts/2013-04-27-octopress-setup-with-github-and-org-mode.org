@@ -19,7 +19,7 @@ MS Word. I found that ergonomics of Org Mode, including all the goodness of
 recent versions of [[http://www.gnu.org/software/emacs/][Emacs]], including [[http://emacswiki.org/emacs/Evil][Evil]] (Vim emulation), just made organization
 of creative thoughts so much more enjoyable.
 
-So I bit the bullet this weekend, and dove into [[http://octopress.org/][Octopress]]. You're looking at the
+So I bit the bullet one weekend, and dove into [[http://octopress.org/][Octopress]]. You're looking at the
 results of this endeavor, including my first Octopress article, and the latest
 tips on recreating this sort of blog using Octopress with Org Mode authoring,
 using LiveReload, and deployed at no charge on github.com. 
@@ -207,9 +207,15 @@ Here are the basic steps:
    path, or else your article might look OK on the home page, but might now work
    in the postings directory. If I'm creating a document with many images, I'll
    group the images for that document in a sub-directory of images named like
-   the document. This is how it should look:
+   the document. This is how it should look. The trick is to place the
+   octopress =img= directive within a HTML begin/end block.
+
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
-   
+5. Links to other pages or posts require using something like this. The trick
+   is that you have to specify =file:= and place the =html= file type.
+#+BEGIN_EXAMPLE
+   [[file:/about/some_details.html][Some Details]]  
+#+END_EXAMPLE
 
 * Deploying to Github: Directory Structure of Octopress and the master and source Git Branches
 Github offers free hosting of both the blog deployment and source. You're
