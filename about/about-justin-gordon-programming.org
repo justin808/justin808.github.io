@@ -57,8 +57,7 @@ had started my MBA part-time while working at Mellon Capital.
 After my MBA, I joined Trigo, a promising start-up, in 2002. Trigo got sold to
 IBM in late 2004, and the product is still going strong. It is currently known
 as [[http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html][InfoSphere MDM Collaborative Edition]]. According to Gartner in 2012, in a
-report titled [[http://public.dhe.ibm.com/common/ssi/ecm/en/iml14344usen/IML14344USEN.PDF]["Magic Quadrant for Master Data Management of Product Data
-Solutions"]], this product is the leader. Pretty cool!
+report titled [[http://public.dhe.ibm.com/common/ssi/ecm/en/iml14344usen/IML14344USEN.PDF]["Magic Quadrant for Master Data Management of Product Data Solutions"]], this product is the leader. Pretty cool!
 
 So what does this product do? Suppose you're a huge retailer with thousands of
 suppliers that send you product descriptions, maybe in XML. And you need to

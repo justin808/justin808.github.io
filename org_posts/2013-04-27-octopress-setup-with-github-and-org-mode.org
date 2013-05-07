@@ -209,6 +209,44 @@ Here are the basic steps:
    #+END_SRC
 
 
+* Useful Scripts
++ Just configure =OCTO_HOME=
++ Emacs tip: Visit the created file by placing cursor over file name and then hit =Ctrl-x, f=. 
+#+BEGIN_SRC bash
+export OCTO_HOME=~/octopress
+ogen () {
+  cd $OCTO_HOME; rake generate; cd -
+}
+
+osave () {
+  cd $OCTO_HOME; git commit -am "Updates" && git push origin source; cd -
+}
+
+odeploy () {
+  cd $OCTO_HOME; osave; rake gen_deploy; cd -
+}
+
+opost() {
+  cd $OCTO_HOME
+  output=$(rake new_post["${1}"])
+  new_file=$(echo $output | awk '{print $4}')
+  base=$(basename $new_file) 
+  new_location=$OCTO_HOME/source/org_posts/
+  mv $OCTO_HOME/$new_file $new_location
+  echo created $new_location/$base
+  cd -
+}
+
+opage() {
+  cd $OCTO_HOME
+  rake new_page["${1}"]
+  cd -
+}
+
+
+
+#+END_SRC
+
 * Deploying to Github: Directory Structure of Octopress and the master and source Git Branches
 Github offers free hosting of both the blog deployment and source. You're
 looking at the deployment right now. You can find the source here at

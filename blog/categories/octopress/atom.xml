@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com/"/>
-  <updated>2013-05-07T01:56:32-10:00</updated>
+  <updated>2013-05-07T12:39:50-10:00</updated>
   <id>http://www.railsonmaui.com/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -99,9 +99,10 @@ This article should be useful for:
 <li><a href="#sec-3">3 LiveReload</a></li>
 <li><a href="#sec-4">4 Why org-mode for blog publishing?</a></li>
 <li><a href="#sec-5">5 Org-mode Integration</a></li>
-<li><a href="#sec-6">6 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
-<li><a href="#sec-7">7 Useful Links</a></li>
-<li><a href="#sec-8">8 Parting words&hellip;</a></li>
+<li><a href="#sec-6">6 Useful Scripts</a></li>
+<li><a href="#sec-7">7 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
+<li><a href="#sec-8">8 Useful Links</a></li>
+<li><a href="#sec-9">9 Parting words&hellip;</a></li>
 </ul>
 </div>
 </div>
@@ -372,8 +373,87 @@ Here are the basic steps:
 
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
+<h2 id="sec-6">Useful Scripts</h2>
 <div class="outline-text-2" id="text-6">
+
+<ul>
+<li>Just configure <code>OCTO_HOME</code>
+</li>
+<li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>. 
+</li>
+</ul>
+
+
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">OCTO_HOME</span><span class="o">=</span>~/octopress
+</span><span class='line'>ogen <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; rake generate; <span class="nb">cd</span> -
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>osave <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; git commit -am <span class="s2">&quot;Updates&quot;</span> <span class="o">&amp;&amp;</span> git push origin <span class="nb">source</span>; <span class="nb">cd</span> -
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>odeploy <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; osave; rake gen_deploy; <span class="nb">cd</span> -
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
+</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> | awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$new_file</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">new_location</span><span class="o">=</span><span class="nv">$OCTO_HOME</span>/source/org_posts/
+</span><span class='line'>  mv <span class="nv">$OCTO_HOME</span>/<span class="nv">$new_file</span> <span class="nv">$new_location</span>
+</span><span class='line'>  <span class="nb">echo </span>created <span class="nv">$new_location</span>/<span class="nv">$base</span>
+</span><span class='line'>  <span class="nb">cd</span> -
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>opage<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
+</span><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span>
+</span><span class='line'>  <span class="nb">cd</span> -
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
+<div class="outline-text-2" id="text-7">
 
 <p>Github offers free hosting of both the blog deployment and source. You're
 looking at the deployment right now. You can find the source here at
@@ -421,9 +501,9 @@ well as your customizations and blog posts.
 
 
 
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Useful Links</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Useful Links</h2>
+<div class="outline-text-2" id="text-8">
 
 <ol>
 <li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
@@ -456,9 +536,9 @@ well as your customizations and blog posts.
 
 
 
-<div id="outline-container-8" class="outline-2">
-<h2 id="sec-8">Parting words&hellip;</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">Parting words&hellip;</h2>
+<div class="outline-text-2" id="text-9">
 
 <p>Thanks in advance for any suggestions on this article. I hope you find it
 helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@RailsOnMaui</a>.
