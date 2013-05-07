@@ -1,0 +1,226 @@
+---
+layout: page
+title: "Justin Gordon and Programming"
+date: 2013-05-03 18:03
+comments: true
+sharing: true
+footer: true
+draft: true
+---
+<p>
+Here's the more detailed version about me. Skim it, read it, let me know what
+you think&hellip;
+</p>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Just a Kid</a></li>
+<li><a href="#sec-2">2 After College</a></li>
+<li><a href="#sec-3">3 Trigo and IBM</a>
+<ul>
+<li><a href="#sec-3-1">3.1 Inventing a Storage Mechanism for Product Data</a></li>
+<li><a href="#sec-3-2">3.2 Test Driven Development</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Just a Kid</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>I'd probably say my first exposure to a computer was an <a href="http://en.wikipedia.org/wiki/Pong">Atari Pong</a>. I was a
+little kid, and the game was addictive. After that, I had various Atari video
+games, and then started programming on the <a href="http://en.wikipedia.org/wiki/TRS-80">TRS-80</a> and <a href="http://en.wikipedia.org/wiki/Commodore_64">Commodore 64</a>. In high
+school, I wrote a database program in PASCAL on an <a href="http://en.wikipedia.org/wiki/Commodore_64">Apple II</a> for the school's
+college counselor to rank the class by GPA. Shortly after high school, I did
+programmed neuroscience simulations on <a href="http://en.wikipedia.org/wiki/Apollo_Computer">Apollo Workstation</a>. I took a break from
+computers for a few years, studying applied mathematics at <a href="http://www.college.harvard.edu/icb/icb.do">Harvard College</a>.
+</p>
+<p>
+Part of me regrets a bit that I didn't study computer science, but at the time,
+I just loved learning about so many other subjects, especially math, economics,
+statistics, and a vast array of liberal arts topics. I just loved learning. And
+I was growing up.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">After College</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>After college, I wrote investment management applications for <a href="http://www.gmo.com/America/">GMO</a>, using 4D
+database software, and then investment trading applications for <a href="http://www.mcm.com/">Mellon Capital</a>,
+using C++/Sybase/Solaris. My most significant accomplishment at Mellon was
+writing a good portion of their Taxable Tactical Asset Allocation system, which
+took into account the tax effects of potential asset allocation re-balancing
+trades. For example, if you were 70% stocks and 30% bonds, and your stocks had
+big gains (big taxes if you sell), would that affect your decision to re-balance
+your account to 50% stocks and 50% bonds? This system was used for many years to
+manage billions of dollars.
+</p>
+<p>
+In 1996, the Internet took off, and I got recruited to join a classic dot-com,
+called Infoscape, that built a Java database tool called "Fresco". I was really
+fortunate to have learned Java from Infoscape's founder Richard Williamson, who,
+until recently, was the head of the new iOS Maps app. That was definitely the
+best part about the startup experience. Although Infoscape was recognized by
+Upside and Computer World magazines as one of the top 100 emerging technology
+companies for 1998, it went bankrupt.
+</p>
+<p>
+In 1998, I left Infoscape to work on a startup idea to automate recruiting
+functions at large corporations. That worked out OK, with the assets eventually
+getting sold to Extensity, where I had already had gotten recruited with a great
+offer as the dot-com frenzy exploded in late 1998 and early 1999. The party
+ended in mid-2001, and I had an opportunity to take a breather from the dot-com
+craziness and to enjoy finishing up my MBA at <a href="http://www.haas.berkeley.edu/">UC Berkeley's Haas School</a>, where I
+had started my MBA part-time while working at Mellon Capital.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Trigo and IBM</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>After my MBA, I joined Trigo, a promising start-up, in 2002. Trigo got sold to
+IBM in late 2004, and the product is still going strong. It is currently known
+as <a href="http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html">InfoSphere MDM Collaborative Edition</a>. According to Gartner in 2012, in a
+report titled <a href="http://public.dhe.ibm.com/common/ssi/ecm/en/iml14344usen/IML14344USEN.PDF">"Magic Quadrant for Master Data Management of Product Data Solutions"</a>, this product is the leader. Pretty cool!
+</p>
+<p>
+So what does this product do? Suppose you're a huge retailer with thousands of
+suppliers that send you product descriptions, maybe in XML. And you need to
+enable your team to check and amend this data, before publishing this data to
+your e-commerce site. Now suppose this product information is for a big hardware
+store and it includes things as different as lawn mowers and cleaning chemicals.
+Suppose you tried to save the data for these two types of products in
+conventional SQL tables (remember, this is circa 2002 before no-SQL databases
+nor DB support for XML columns). With thousands of product types, standard SQL
+tables don't work. MDM CE provides a categorization mechanism such that you can
+have different product categories with different sets of attributes.
+</p>
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1">Inventing a Storage Mechanism for Product Data</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<p>My biggest contribution to the product was my leadership and execution of a
+dramatic change in the core storage architecture. Originally, the data in the
+product was stored in what's known as an <a href="http://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model">Entity–attribute–value model</a>. As the
+Wikipedia article puts it: "The Achilles heel of EAV is the difficulty of
+working with large volumes of EAV data." The team bounced around some ideas of
+how we might solve this problem such as storing blobs of XML data. Then we
+struck upon the idea of a hierarchical indexed binary representation of the data
+akin to how a database or file system works. Around this time, I heard about the
+agile approach from John Seybold, the CTO of Guidewire. John especially espoused
+the benefits of doing true Test Driven Development, or, as he called it, "Test
+First Programming". With an idea and a technique, I took the ball and ran, and
+the result was a dramatically improved storage architecture for storing vast
+quantities of structured, hierarchical data, which we called "serialization".
+</p>
+<p>
+So how good is the performance of "serialization"? Pretty damn good. Good enough
+that the performance and reliability have overcome the concerns of many
+architects within IBM with the conventional mode of thinking that a small team
+could not have built a storage architecture that could compete with products
+like IBM's DB2 XML. The performance of the "serialization" mechanism for reads
+is O(N) where N is the depth of the tree. The memory usage is similarly good. There
+is only a tiny amount of memory used to navigate the tree. Not only can values
+can be read from such a data structure nearly instantly, but the time to write a
+value back into the tree is similarly fast. In comparison to DOM parsing of
+huge XML documents, and the cost to re-serialize large DOMs, there was simply
+no comparison.
+</p>
+<p>
+The use of Test Driven Development was critical for this project. For one, any
+errors in the algorithms turned out to be as obscure as working on C/C++ code
+due to the nature of the binary manipulations. Then, the original implementation
+was slow, which is not surprising in retrospect. A fast arsenal of unit tests,
+however, enabled me to make dramatic changes to the internal algorithms to get
+the blazing speed needed. It really was like a secret sauce to have used TDD
+plus Pair-Programming to develop an awesome test suite, and to use <a href="http://www.yourkit.com/">Yourkit</a> to
+profile and optimize.
+</p>
+<p>
+Upon the completion of the storage mechanism, I realized that searching for the
+data inside these binary objects was the next major problem. This led to my
+patents <a href="http://appft1.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&amp;Sect2=HITOFF&amp;d=PG01&amp;p=1&amp;u=/netahtml/PTO/srchnum.html&amp;r=1&amp;f=G&amp;l=50&amp;s1=%2220070244865%22.PGNR.">Method and system for data retrieval using a product information search engine</a> and <a href="http://appft1.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&amp;Sect2=HITOFF&amp;d=PG01&amp;p=1&amp;u=/netahtml/PTO/srchnum.html&amp;r=1&amp;f=G&amp;l=50&amp;s1=%2220090210434%22.PGNR.">STORAGE AND RETRIEVAL OF VARIABLE DATA</a>. The first part is a query
+language, similar to SQL, used for finding data. The second part describes the
+use of XML database records as shadow copies of the binary storage, which can be
+written asynchronously to avoid slowing down realtime reading and writing. This
+way we can have our cake and eat it too, with super fast reading-writing of the
+structured documents through "serialization" plus the ability to query and
+export the XML copies of the data.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">Test Driven Development</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<p>The success of Test Driven Development for the "Serialization" project led to
+management requests for tests against the rest of the system. The hard part of
+creating tests was in generating the huge object graphs backed by the database.
+This led to my work on the open source project called the <a href="https://github.com/justin808/dof">Dependent Object Framework</a>, This was a huge success within the team in terms of allowing the team
+to achieve a reasonable degree of test coverage. With this experience in TDD, I
+became a frequent speaker on the topic, having spoken at three Dr. Dobb's
+conferences on the topic (San Jose, Chicago, and Boston).
+</p>
+<p>
+Here was an abstract of one of the talks:
+</p><blockquote>
+
+<p>Dr. Dobbs, Architecture and Design world talk:
+THURSDAY, JULY 24, 3:30 PM—5:00 PM, TRACK: ADM s LEVEL: INT, JUNIT AND
+TEST-DRIVEN, DEVELOPMENT: WHY AND HOW IN ENTERPRISE SOFTWARE. Justin Gordon. A
+comprehensive suite of JUnit tests is the single most important artifact created
+in a software project because it reduces bugs, facilitates adding new
+developers, and enables refactoring and performance tuning with confidence.
+Test-driven development (TDD) is the best way to build a test suite. Justin will
+discuss this assertion and address practical issues encountered on test-driven
+projects, including: How to get team members to adopt TDD on a project; how to
+implement TDD on a project with large amounts of existing untested legacy code,
+especially with pervasive database dependencies; design patterns to facilitate
+TDD, including mock objects, dependency location, and the Dependent Object
+Framework. These techniques solve the difficult technical problems of isolating
+code to be tested and setting up required persistent data. After the talk,
+Justin will do Q&amp;A and a live, hands-on demo of Test-Driven Development and Pair
+Programming. Requirements: Basic Java Programming Experience. Java IDE required,
+preferably IntelliJ or Eclipse.
+</p>
+</blockquote>
+
+
+<p>
+Here's a copy of the slides from a recent talk I gave on TDD: <a href="http://www.slideshare.net/justingordon/x-unitandtdd-whyandhowinenterprisesoftwarejustingordon20120816">xUnit and TDD: Why and How in Enterprise Software, August 2012</a>.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
