@@ -12,8 +12,18 @@ Justin has been passionately writing software since 1985, focusing on Java since
 1996 at several startups and with Ruby on Rails the past couple of years. This
 blog is created using Octopress, as described [[http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]].
 
+#+begin_quote
 "Would you bet on a NASCAR driver who can't drive stick? No? Then fire every
 developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
+#+end_quote
+
+* Links to Details
++ I +like+ love to program. Here's a narrative of [[file:about-justin-gordon-programming.html][Justin's years tinkering with computers]]. 
++ [[file:justin-gordon-resume.html][My resume]].
++ I telecommute from Maui. [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]].
++ My productivity setup (coming soon)
+
+* Some Bullets
 + I use ideaVim inside of RubyMine and IntelliJ and Evil (vim) mode inside of
   emacs. And everything I do is backed by developer written tests.
 + Experienced and passionate software engineer with a track record of successful projects.
@@ -43,17 +53,13 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 + Graduated in 1991 with an AB magna cum laude in applied mathematics from
   Harvard and received an MBA from UC Berkeley in 2001.
 
+* Outside of Programming
 Besides writing great software, Justin enjoys the ocean sports found in Maui,
 and has done quite a bit of home improvement, having designed and built the
 Sugar Ranch, a B&B (pending application) where he lives with his family. You can
 read more about Sugar Ranch here http://www.sugarranchmaui.com and here:
 http://www.facebook.com/sugarranch.
 
-
-+ I +like+ love to program. Here's a narrative of [[file:about-justin-gordon-programming.html][Justin's years tinkering with computers]]. 
-+ [[file:justin-gordon-resume.html][My resume]].
-+ I telecommute from Maui. [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]].
-+ My productivity setup (coming soon)
 
 {% img /about/JustinHeadShot2012-May.jpg %}
 

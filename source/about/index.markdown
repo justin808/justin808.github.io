@@ -11,10 +11,51 @@ Justin has been passionately writing software since 1985, focusing on Java since
 1996 at several startups and with Ruby on Rails the past couple of years. This
 blog is created using Octopress, as described <a href="http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">here</a>.
 </p>
-<p>
-"Would you bet on a NASCAR driver who can't drive stick? No? Then fire every
+<blockquote>
+
+<p>"Would you bet on a NASCAR driver who can't drive stick? No? Then fire every
 developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
-</p><ul>
+</p>
+</blockquote>
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Links to Details</a></li>
+<li><a href="#sec-2">2 Some Bullets</a></li>
+<li><a href="#sec-3">3 Outside of Programming</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Links to Details</h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li>I <del>like</del> love to program. Here's a narrative of <a href="about-justin-gordon-programming.html">Justin's years tinkering with computers</a>. 
+</li>
+<li><a href="justin-gordon-resume.html">My resume</a>.
+</li>
+<li>I telecommute from Maui. <a href="telecommuting.html">Why telecommuting works and how I maximize productivity</a>.
+</li>
+<li>My productivity setup (coming soon)
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Some Bullets</h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
 <li>I use ideaVim inside of RubyMine and IntelliJ and Evil (vim) mode inside of
   emacs. And everything I do is backed by developer written tests.
 </li>
@@ -60,25 +101,20 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 </ul>
 
 
-<p>
-Besides writing great software, Justin enjoys the ocean sports found in Maui,
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Outside of Programming</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>Besides writing great software, Justin enjoys the ocean sports found in Maui,
 and has done quite a bit of home improvement, having designed and built the
 Sugar Ranch, a B&amp;B (pending application) where he lives with his family. You can
 read more about Sugar Ranch here <a href="http://www.sugarranchmaui.com">http://www.sugarranchmaui.com</a> and here:
 <a href="http://www.facebook.com/sugarranch">http://www.facebook.com/sugarranch</a>.
 </p>
-
-<ul>
-<li>I <del>like</del> love to program. Here's a narrative of <a href="about-justin-gordon-programming.html">Justin's years tinkering with computers</a>. 
-</li>
-<li><a href="justin-gordon-resume.html">My resume</a>.
-</li>
-<li>I telecommute from Maui. <a href="telecommuting.html">Why telecommuting works and how I maximize productivity</a>.
-</li>
-<li>My productivity setup (coming soon)
-</li>
-</ul>
-
 
 <p>
 {% img /about/JustinHeadShot2012-May.jpg %}
@@ -93,4 +129,5 @@ As you drive up to Sugar Ranch&hellip;
 <p>
 The back side of Sugar Ranch&hellip;
 {% img /about/SugarRanchRearEvening.jpg %}
-</p>
+</p></div>
+</div>
