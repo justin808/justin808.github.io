@@ -78,9 +78,10 @@ This article should be useful for:
 <li><a href="#sec-3">3 LiveReload</a></li>
 <li><a href="#sec-4">4 Why org-mode for blog publishing?</a></li>
 <li><a href="#sec-5">5 Org-mode Integration</a></li>
-<li><a href="#sec-6">6 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
-<li><a href="#sec-7">7 Useful Links</a></li>
-<li><a href="#sec-8">8 Parting words&hellip;</a></li>
+<li><a href="#sec-6">6 Useful Scripts</a></li>
+<li><a href="#sec-7">7 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
+<li><a href="#sec-8">8 Useful Links</a></li>
+<li><a href="#sec-9">9 Parting words&hellip;</a></li>
 </ul>
 </div>
 </div>
@@ -327,8 +328,59 @@ Here are the basic steps:
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
+<h2 id="sec-6">Useful Scripts</h2>
 <div class="outline-text-2" id="text-6">
+
+<ul>
+<li>Just configure <code>OCTO_HOME</code>
+</li>
+<li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>. 
+</li>
+</ul>
+
+
+{% codeblock lang:bash %}
+export OCTO_HOME=~/octopress
+ogen () {
+  cd $OCTO_HOME; rake generate; cd -
+}
+
+osave () {
+  cd $OCTO_HOME; git commit -am "Updates" && git push origin source; cd -
+}
+
+odeploy () {
+  cd $OCTO_HOME; osave; rake gen_deploy; cd -
+}
+
+opost() {
+  cd $OCTO_HOME
+  output=$(rake new_post["${1}"])
+  new_file=$(echo $output | awk '{print $4}')
+  base=$(basename $new_file) 
+  new_location=$OCTO_HOME/source/org_posts/
+  mv $OCTO_HOME/$new_file $new_location
+  echo created $new_location/$base
+  cd -
+}
+
+opage() {
+  cd $OCTO_HOME
+  rake new_page["${1}"]
+  cd -
+}
+
+
+
+{% endcodeblock %}
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
+<div class="outline-text-2" id="text-7">
 
 <p>Github offers free hosting of both the blog deployment and source. You're
 looking at the deployment right now. You can find the source here at
@@ -373,9 +425,9 @@ well as your customizations and blog posts.
 
 </div>
 
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Useful Links</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Useful Links</h2>
+<div class="outline-text-2" id="text-8">
 
 <ol>
 <li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
@@ -405,9 +457,9 @@ well as your customizations and blog posts.
 
 </div>
 
-<div id="outline-container-8" class="outline-2">
-<h2 id="sec-8">Parting words&hellip;</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">Parting words&hellip;</h2>
+<div class="outline-text-2" id="text-9">
 
 <p>Thanks in advance for any suggestions on this article. I hope you find it
 helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@RailsOnMaui</a>.

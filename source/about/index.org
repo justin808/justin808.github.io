@@ -12,12 +12,36 @@ Justin has been passionately writing software since 1985, focusing on Java since
 1996 at several startups and with Ruby on Rails the past couple of years. This
 blog is created using Octopress, as described [[http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]].
 
-Justin Gordon pioneered the use of Test Driven
-Development, JUnit, and other Agile development techniques. Justin founded the
-open source project, the Dependent Object Framework, which vastly simplifies and
-accelerates JUnit testing with persistent dependencies. Justin graduated in 1991
-with an AB magna cum laude in applied mathematics from Harvard and received an
-MBA from UC Berkeley in 2001.
+"Would you bet on a NASCAR driver who can't drive stick? No? Then fire every
+developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
++ I use ideaVim inside of RubyMine and IntelliJ and Evil (vim) mode inside of
+  emacs. And everything I do is backed by developer written tests.
++ Experienced and passionate software engineer with a track record of successful projects.
++ Responsible for majority of design and coding of the core storage layer behind
+  the [[http://public.dhe.ibm.com/common/ssi/ecm/en/iml14344usen/IML14344USEN.PDF][Gartner 2012]] leading program for product master data management:
+  [[http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html][InfoSphere MDM Collaborative Edition]]. This involved tons of TDD along with
+  tons of experience optimizing Java code in Yourkit, and inventing clever time
+  and space solutions, including binary data stores and distributed caching.
++ Love programming in Ruby on Rails and the whole wonderful ecosystem of Heroku,
+  Amazon EC2, jQuery, coffeescript, haml, sass, etc.
++ Close connections to the Jetbrains team and expert with their tools: IntelliJ and RubyMine.
++ Love writing tests in rspec, and phantomjs with capybara is simply amazing.
+  Finally, developers can write tests on the full stack, including all client
+  side javascript.
++ Twitter Bootstrap rocks.
++ Even done some Objective-C recently.
++ Current specialization is in Master Data Manager for Product Information Management.
++ Thought leader in doing Test Driven Development in the context of enterprise
+  software
++ Author of open source project "Dependent Object Framework", which vastly
+  simplifies and accelerates JUnit testing with persistent dependencies.
++ Former speaker at Dr. Dobb's SD West Santa Clara, Architecture and Design
+  World Chicago, and SD Best Practices in Boston.
++ Tons I didn't mention, but stuff you'd expect given my experience. Here's a
+  few more things I like using: postgres, tmux, yaml, json, rubygems (too many
+  to list), and the Canary's webkit debugger.
++ Graduated in 1991 with an AB magna cum laude in applied mathematics from
+  Harvard and received an MBA from UC Berkeley in 2001.
 
 Besides writing great software, Justin enjoys the ocean sports found in Maui,
 and has done quite a bit of home improvement, having designed and built the
