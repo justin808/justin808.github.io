@@ -1,0 +1,88 @@
+#+BEGIN_HTML
+---
+layout: page
+title: "Justin Gordon Resume 2013"
+date: 2013-05-06 22:04
+comments: true
+sharing: true
+footer: true
+---
+#+END_HTML
+Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808) 281-7272 (M)
+
+* Education
++ *University of California at Berkeley*, Walter Haas School of Business MBA, December 2001, Beta Gamma Sigma, Management of Technology Certificate
++ *Harvard University*, BA Applied Mathematics, Magna Cum Laude, 1991
++ *Chartered Financial Analyst*, 1996
+
+* Overview
++ Software engineer with extensive contributions to high performance Java
+  enterprise applications
++ Areas of expertise include: Test Driven Development ([[http://junit.org/][JUnit]] and [[http://rspec.info/][rspec]]),
+  profiling and optimizing (with [[http://www.yourkit.com/][Yourkit]]),
+  concurrency, caching, [[http://dojotoolkit.org/][Dojo Toolkit]] JavaScript UIs.
++ Ruby on Rails interactive web applications, ruby, coffeescript, jQuery, saas,
+  haml.
+  
+* Experience
+** IBM (Trigo Acquisition), [[http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html][InfoSphere MDM Collaborative Edition]]
++ November, 2002 to present. Team Lead, Senior Engineer, Architect, in
+  Burlingame, CA and telecommuting from Maui since 2007.
++ Java software engineering leadership on 3 tier web-based enterprise
+  application for product information management, collection and distribution,
+  for the world’s largest retailers.
++ Responsible for all development aspects of releases from 4.2.1, 5.0.1 (Home
+  Depot/Albertsons “Large Retailer” release), 6.x, and 9.x, from negotiation of
+  product feature set and schedule, to developer assignments, to handling
+  resource re-allocations, to development procedures, to bug triage, and final
+  release.
++ Coordinated QA efforts when department lacked a manager.
++ Authored official Trigo Release Processes with buy-in from PM, PS, QA, CM, and
+  Dev organizations.
++ Lead implementer of improved storage layer architecture from shredded database
+  tables to highly performing serialized form, using an XP development
+  methodology (TDD, pair programming, and scrum meetings).
++ Process and innovation driver: Instigated move toward Agile Development
+  Methodologies, including Pair Programming and Test Driven Development (TDD).
++ Migrated CVS repository to P4 and led training. Moved company to use TWiki.
+  Use of refactoring IDEs.
++ Led integration of profilers into PIM product for more efficient customer
+  support.
++ Main contact for tough customer issues, especially regarding performance (cpu
+  and memory usage), data integrity, caching, and threading issues.
++ Developed methodology to bring TDD product wide using the Dependent Object
+  Framework.
+
+** Extensity
++ 1999-2001, Emeryville, CA, Architect, Tools
++ Responsible for all of Extensity’s development efforts (all Java) aimed at
+  system administrators and integrators, including serving as the co-architect
+  of cross-functional efforts to improve the efficiency of Extensity’s
+  professional services. Conducted architecture and code reviews, gathered
+  customer requirements, created design documents, conducted training sessions,
+  and supervised team members. Awarded "Employee of the Month" for October 2000.
+  Promoted from “Team Lead” to “Architect” in June 2000.
++ Led re-architecture of 5.0 System Administration Tool, from marketing
+  requirements and initial design plans to coding and refinement to GA in
+  June 2000.
++ Primary designer and implementer of “Group Based Data” (Application security)
++ Architect of the GuiEditor, an internal tool for designing screens and other
+  installation customizations. Designed and coded tools for configuration of
+  sample and meta data.
++ Led the design for multinational organizations with features such as support for VAT.
+
+** Other Experience
+In the 1990's, I did C++/Sybase investment programming at [[http://www.mcm.com/][Mellon Capital]] and
+Java programming for a startup Infoscape. Here's some details from an [[file:justin-gordon-resume-1990s.html][older
+resume]] if you're interested.
+
+  
+* Patents
++ [[http://appft1.uspto.gov/netacgi/nph-Parser?Sect1%3DPTO1&Sect2%3DHITOFF&d%3DPG01&p%3D1&u%3D/netahtml/PTO/srchnum.html&r%3D1&f%3DG&l%3D50&s1%3D%252220070244865%2522.PGNR.][Method and system for data retrieval using a product information search engine]]
++ [[http://appft1.uspto.gov/netacgi/nph-Parser?Sect1%3DPTO1&Sect2%3DHITOFF&d%3DPG01&p%3D1&u%3D/netahtml/PTO/srchnum.html&r%3D1&f%3DG&l%3D50&s1%3D%252220090210434%2522.PGNR.][STORAGE AND RETRIEVAL OF VARIABLE DATA]]
++ [[http://appft1.uspto.gov/netacgi/nph-Parser?Sect1%3DPTO1&Sect2%3DHITOFF&d%3DPG01&p%3D1&u%3D/netahtml/PTO/srchnum.html&r%3D1&f%3DG&l%3D50&s1%3D%252220090178029%2522.PGNR.][Dependent Object Framework for JUnit Testing]]. 
+
+* Publications
++ My talks at Dr. Dobbs were the basis for the chapter on Test Driven
+  Development in [[http://www.distributedscrum.com/?page_id%3D11][A Practical Guide to Distributed Scrum]].
+

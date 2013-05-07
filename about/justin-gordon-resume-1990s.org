@@ -1,0 +1,51 @@
+#+BEGIN_HTML
+---
+layout: page
+title: "Justin Gordon Resume 1990s"
+date: 2013-05-07 00:48
+comments: true
+sharing: true
+footer: true
+---
+#+END_HTML
+
+* Digital Workforce
+1998-2000, San Francisco, CA, Co-Founder, CTO
+
++ Co-designed and wrote a three-tier Java/HTML/SilverStream application to
+  manage the hiring process for beta customer Siebel Systems. Product modeled a
+  closed-loop hiring process, akin to a sales process. Company sold to Extensity
+  in August 2000.
+
+* Infoscape
+1996-1998, San Francisco, CA, Senior Software Engineer
+
++ Developed major areas of Fresco, 3-tier web-deployment Java database
+  development tool. Contributed to 3 major releases. Reported and fixed over
+  200% more bugs than any other developer. Fresco named a 1997 JavaWorld
+  finalist for application development tools.
+
+* Mellon Capital
+1994-1996, San Francisco, CA, Senior Associate, Research Department
++ Quantitative investment research programming.
++ Designed and developed portfolio analysis software for taxable accounts. Program
+  calculated tax impact of hypothetical trades. $400 million (5/99) invested in strategy.
++ Established technology infrastructure of the research department, including
+  C++ object libraries, a generic application framework, and data warehouses of
+  global financial data.
++ Conducted research on currency hedging, tactical asset allocation, and stock
+  selection.
+  
+1999, Consultant to Asset Allocation Department
++ Gathered requirements, designed, and wrote a global asset allocation
+  performance reporting system, using PowerBuilder and Sybase. Conducted an
+  exhaustive functional requirement analysis and process inventory for global
+  asset allocation.
+
+* ACI (now called 4D)
+1993 ACI US Cupertino, CA, Database Programming Instructor (4D)
+
+* GMO 
+1991-1992, Boston, MA, Investment Applications Programmer
++ Analyzed, designed, developed, and implemented portfolio management databases,
+  fund management reports, and institutional trading systems using 4th Dimension.

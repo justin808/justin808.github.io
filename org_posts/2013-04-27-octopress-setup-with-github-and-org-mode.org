@@ -9,17 +9,17 @@ keywords: octopress, github, org-mode, Emacs, livereload
 description: Installing Octopress with github hosting, Org Mode markup, and Live-Reload
 ---
 #+END_HTML
-WordPress seemed like a good blogging platform, but it just didn't feel right.
-I spend all my day editing text files, and in the past year, I fell in love
-with [[http://orgmode.org/][Org Mode]] for all non-coding writing. If you don't know Org Mode, it's like
-having Markdown mode on steroids. You can have a numbered list in Markdown, but
-org-mode lets you re-order the list, and that's just the beginning. Editing
-blog documents in the WordPress editor felt almost as bad as being told to use
-MS Word. I found that ergonomics of Org Mode, including all the goodness of
-recent versions of [[http://www.gnu.org/software/emacs/][Emacs]], including [[http://emacswiki.org/emacs/Evil][Evil]] (Vim emulation), just made organization
-of creative thoughts so much more enjoyable.
+WordPress seemed like a good blogging platform, but it just didn't feel right. I
+spend all my day editing text files using vim key-bindings, and I love [[http://orgmode.org/][Org
+Mode]] for all non-coding writing. If you don't know Org Mode, it's like having
+Markdown mode on steroids. You can have a numbered list in Markdown, but
+org-mode lets you re-order the list, and that's just the beginning. Editing blog
+documents in the WordPress editor felt almost as bad as being told to use MS
+Word. I found that ergonomics of Org Mode, including all the goodness of recent
+versions of [[http://www.gnu.org/software/emacs/][Emacs]], including [[http://emacswiki.org/emacs/Evil][Evil]] (Vim emulation), just made organization of
+creative thoughts so much more enjoyable.
 
-So I bit the bullet this weekend, and dove into [[http://octopress.org/][Octopress]]. You're looking at the
+So I bit the bullet one weekend, and dove into [[http://octopress.org/][Octopress]]. You're looking at the
 results of this endeavor, including my first Octopress article, and the latest
 tips on recreating this sort of blog using Octopress with Org Mode authoring,
 using LiveReload, and deployed at no charge on github.com. 
@@ -52,26 +52,11 @@ I found it totally neat that I could embed markdown inside the org-mode
 document. See below for how this is done.
 
 This article should be useful for:
-  1. Anybody reading this near the date April 27, 2013, as any technical
-     instructions seem to degrade in accuracy over time.
-  2. Any interest in using org-mode to publish to Octopress including some
+  1. Any interest in using org-mode to publish to Octopress including some
      reasons I use Org Mode (with Emacs).
-  3. Some explanation of what Octopress and git are doing.
-  4. How to use LiveReload with Octopress and Org Mode.
-  5. Anybody curious about how using free github pages works to host Octopress. 
-
-* Useful Links
-1. [[http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/][Getting Started with Octopress]]: Nice overall tutorial. Very current!
-   March 2013.
-2. [[http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages][Rob Dodson on Octopress]]: Most of the instructions I show below are from this
-   posting on April 30th, 2012.
-3. [[http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/][Joel McCracken on Octopress]]: Use Jekyll? You Really Should Be Using Octopress 
-4. [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on setting up a custom domain]] 
-5. [[http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one][dblock.org Article on Octopress]]: A good explanation from Jan 17, 2012,
-   especially on the difference of the source and master branches.
-6. [[http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/][Introducing Octopress Blogging for Org-Mode]]: For org-mode. See below.
-7. [[http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/][18 Months of Octopress]]: Nice article on why Octopress was worth the switch.
-8. [[http://odino.org/bash-aliases-for-octopress/][Shell Aliases for Octopress]]: Save time with these shortcuts
+  2. Some explanation of what Octopress and git are doing.
+  3. How to use LiveReload with Octopress and Org Mode.
+  4. Anybody curious about how using free github pages works to host Octopress.
 
 * Basic setup
 1. [[%20http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/][Rob Dodson on Octopress]]: Start off with these instructions from this posting
@@ -85,37 +70,38 @@ This article should be useful for:
 2. Customize =octopress/_config.yml=. The yaml file contains descriptions.
 3. Update the DNS to use your custom domain if you wish: [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on
    setting up a custom domain]]
-4. At this point, you can either create a post or a page:
+4. At this point, you can create a post:
   #+BEGIN_SRC bash
   rake new_post["my post name"]
   #+END_SRC
  
+  Create a page:
   #+BEGIN_SRC bash
   rake new_page["my page name"]
   #+END_SRC
 
+  Generate and deploy:
   #+BEGIN_SRC bash
-  # same as generate and deploy
   rake gen_deploy 
   #+END_SRC
  
+  Watch the site and regenerate when it changes:
   #+BEGIN_SRC bash
-  # Watch the site and regenerate when it changes
   rake watch 
   #+END_SRC
   
+  Preview the site in a web browser:
   #+BEGIN_SRC bash
-  # preview the site in a web browser
   rake preview
   #+END_SRC
   
+  See all the available rake options:
   #+BEGIN_SRC bash
-  # See all the available rake options
   rake -T
   #+END_SRC
 
+  Save changes to source branch:
   #+BEGIN_SRC bash
-  # Save changes to source branch
   git add .
   git commit -m "save changes to source"
   git push origin source
@@ -130,10 +116,8 @@ preview= and then point your browser at =http://0.0.0.0:4000= (or whatever port
 you configured).
 
 * LiveReload
-LiveReload is a browser extension for Chrome that will automatically refresh
-the browser after you publish your file. You don't need to buy the paid
-product. I use the [[https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl%3Den][Chrome browser extension]]. You can use this with or without
-POW.
+LiveReload is a [[https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl%3Den][Chrome browser extension]] that will automatically refresh
+the browser after you publish your file. This works with or without POW.
 + [[http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-][Install the browser extension]] for your type of browser.
 + Add these two entries to your =Gemfile=, in the :development group:
    #+BEGIN_SRC ruby
@@ -164,14 +148,15 @@ POW.
    browser to update.
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png %}
 
-It's really worth the effort to get LiveReload working with Octopress. It's
-just so cool to save and see your web browser update. Trust me, I never felt any
-joy like that when hitting save in the WordPress editor and then hitting preview!
+It's neat to get LiveReload working with Octopress. However, the generation can
+finish after your page does a reload, so you won't see your latest changes. I'll
+update this blog post when I figure out a solution to that one.
 
 It's worth noting that if you're running any other instance of guard-
 LiveReload, then one of these two copies will win and one won't work. If you
 run a rails server this way, then this can bite you. It took me a bit of time
 to figure out why guard wasn't working.
+
 
 * Why org-mode for blog publishing?
 [[http://orgmode.org/][Org-mode]] offers quite a bit more than plain markdown. It's quite the *hacker's
@@ -202,19 +187,32 @@ Here are the basic steps:
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png %}
 4. +Images work fine.+ Well, almost fine. The big gotcha is that the standard
    inclusion of images in org-mode results in broken paths at deployment. The
-   workaround is to embed the Octopress syntax for an image, and to place the
+   workaround is to embed the [[http://octopress.org/docs/plugins/image-tag/][Octopress syntax for an image]], and to place the
    images under source/images. Note, you'll want to be sure to use an absolute
    path, or else your article might look OK on the home page, but might now work
    in the postings directory. If I'm creating a document with many images, I'll
    group the images for that document in a sub-directory of images named like
-   the document. This is how it should look:
+   the document. This is how it should look. The trick is to place the
+   octopress =img= directive within a HTML begin/end block.
+
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
-   
+5. Links to other pages or posts require using something like this. The trick
+   is that you have to specify =http:= and place the =html= file suffix type.
+   Also note using one slash at the beginning for an absolute path.
+   #+BEGIN_EXAMPLE
+   [[http:/about/some_details.html][Some Details]]  
+   #+END_EXAMPLE
+6. Bold styling was a bit of mystery using the standard theme. I had to add
+   this line to \_typography.scss:
+   #+BEGIN_SRC css
+   b { font-weight: bold; }
+   #+END_SRC
+
 
 * Deploying to Github: Directory Structure of Octopress and the master and source Git Branches
 Github offers free hosting of both the blog deployment and source. You're
-looking at the deployment right now. You can find the source here at [[https://github.com/justin808/justin808.github.io][my git repo
-justin808.github.io]]. I doubt you could beat the price, performance, and
+looking at the deployment right now. You can find the source here at
+[[https://github.com/justin808/justin808.github.io][my git repo justin808.github.io]]. I doubt you could beat the price, performance, and
 convenience. You can look inside of this repo, clone it, etc. and you have
 everything that it took to make this blog.
 
@@ -246,6 +244,19 @@ well as your customizations and blog posts.
 #+begin_html
 {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png %}
 #+end_html
+
+* Useful Links
+1. [[http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/][Getting Started with Octopress]]: Nice overall tutorial. Very current!
+   March 2013.
+2. [[http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages][Rob Dodson on Octopress]]: Most of the instructions I show below are from this
+   posting on April 30th, 2012.
+3. [[http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/][Joel McCracken on Octopress]]: Use Jekyll? You Really Should Be Using Octopress 
+4. [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on setting up a custom domain]] 
+5. [[http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one][dblock.org Article on Octopress]]: A good explanation from Jan 17, 2012,
+   especially on the difference of the source and master branches.
+6. [[http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/][Introducing Octopress Blogging for Org-Mode]]: For org-mode. See below.
+7. [[http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/][18 Months of Octopress]]: Nice article on why Octopress was worth the switch.
+8. [[http://odino.org/bash-aliases-for-octopress/][Shell Aliases for Octopress]]: Save time with these shortcuts
 
 
 * Parting words...
