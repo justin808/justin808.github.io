@@ -16,7 +16,7 @@ Here's a video of my favorite RubyMine tips. I'll be updating this post shortly
 with an improved version of this video, and details on the tips.
 </p>
 <p>
-{% youtube buQhf2OTTNk %}
+{% youtube LnN-JIxDRCg %}
 </p>
 
 <div id="outline-container-1" class="outline-2">
