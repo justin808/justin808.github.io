@@ -1,0 +1,212 @@
+---
+layout: post
+title: "Buy Apple Products with American Express"
+date: 2013-05-07 21:53
+comments: true
+categories: Mac
+keywords: AppleCare, Mac, Extended Warranties, Credit Cards
+description: When buying AppleCare, prefer using American Express over Visa and MasterCard, or don't buy AppleCare if Visa or MasterCard extends your warranty.
+---
+
+<p>
+Here's a few tips on buying Apple gear and credit card extended warranties. The
+bottom line is:
+</p><ul>
+<li>Consider buying <b>AppleCare</b> with <b>American Express</b> to get an extended warranty that
+  extends 12 months past AppleCare's 3 years. That's 4 years total! Visa and
+  MasterCard <b>do not</b> extend AppleCare's 3 years.
+</li>
+<li>If you don't need AppleCare, then try to buy with American Express, as you know you'll
+  still get an extra 12 months. Visa or MasterCard may or may not offer a
+  warranty extension depending on your card.
+</li>
+<li>Avoid buying AppleCare with a Visa or MasterCard if the card already has a
+  warranty extension. You would get 24 months of basic coverage (one year
+  original plus one year card). For the price of AppleCare, you get only an
+  extra 12 months, although some will want the telephone question coverage of
+  AppleCare.
+</li>
+</ul>
+
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Buying Tips</a></li>
+<li><a href="#sec-2">2 AppleCare</a></li>
+<li><a href="#sec-3">3 American Express, not Mastercard, if you buy AppleCare</a></li>
+<li><a href="#sec-4">4 Details (the fine print)</a>
+<ul>
+<li><a href="#sec-4-1">4.1 American Express</a></li>
+<li><a href="#sec-4-2">4.2 MasterCard</a></li>
+<li><a href="#sec-4-3">4.3 Visa</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Buying Tips</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Buy products when they just come out, or wait until the next version comes out.
+It seems like Apple products don't really go on sale, so you might as well get
+the newest stuff, or wait if you can. A good place to check is <a href="http://buyersguide.macrumors.com/">MacRumors Buyers Guide</a>. That being said, if you need something, then you need it, so just buy
+it. If you're not sure, then you can probably wait.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">AppleCare</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>In general, you'd probably be off without extended warranties unless there's
+something special about your situation that suggest one is worth it. Plus, if
+you buy with the right credit card, you'll get one year extension, giving you a
+full years without paying a cent. Here's an article on <a href="http://lifehacker.com/5697141/skip-the-extended-warranty-use-a-good-credit-card-instead">LifeHacker: Skip the Extended Warranty; Use a Good Credit Card Instead</a>. I live on the beach, so
+everything tends to rust, so I tend to buy extended warranties for this reason.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">American Express, not Mastercard, if you buy AppleCare</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>Both American Express and Mastercard offer warranty extensions of up to one year for using
+their cards. However, there's a huge difference in their policies. American Express
+specifically states that they extend past supplemental warranty extensions like
+AppleCare. MasterCard explicitly says they do not. Visa is ambiguous. I quoted
+the details below. American Express will provide up to one year additional for warranties
+up to 5 years. MasterCard only goes to one year. Visa goes to 3 years.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Details (the fine print)</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1">American Express</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<p>I've got the Costco True Earnings card. The details of the plan are
+here:<a href="http://www.americanexpress.com/us/content/pdf/card-benefits/TrueEarningsCardfromCostcoandAmericanExpress/EW-DOC-CCSG.pdf">EXTENDED WARRANTY DESCRIPTION OF COVERAGE</a>. Kudos to the American Express for website
+for making it easy to find the information (unlike MasterCard).
+</p>
+<p>
+Just to be sure, I found the spot which ensures that I get one year past when
+AppleCare ends:
+</p>
+<blockquote>
+
+<p>Where a Loss has occurred during this Plan's extended warranty time period of up
+to one (1) additional year, We will provide a benefit equal to the coverage of
+the original manufacturer's warranty on warranties of up to five (5) years. We
+will pay up to the actual amount charged to Your Account for the product for
+which a Loss is claimed, but not to exceed $10,000. If the product also is
+covered by a purchased service contract, this Plan’s extended warranty time
+period begins at the end of the service contract and extends the original
+manufacturer’s warranty for a period of time equal to that warranty, up to one
+(1) additional year. If the combined coverage of the original manufacturer’s
+warranty and the purchased service contract exceed five (5) years, the product
+purchased is not eligible under this Plan and no coverage applies.
+</p>
+</blockquote>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2">MasterCard</h3>
+<div class="outline-text-3" id="text-4-2">
+
+<p>Your bank's website will not have any information about any extended warranty.
+You have to go to MasterCard's website: <a href="http://www.mastercard.com/us/personal/en/cardholderservices/guidetobenefits/pdf/489247_extended_warranty_v2.pdf">Guide to Benefits EXTENDED WARRANTY COVERAGE</a>. MasterCard is the stingiest. If the product has more than a one year
+warranty, then MasterCard does not help.
+</p>
+<blockquote>
+
+<p>&gt; Extended Warranty doubles the original warranty time period and duplicates the coverage of
+the original manufacturer’s (or U.S. store brand) warranty up to a maximum of twelve (12)
+months on most items you purchase. For products with multiple warranty components,
+each warranty time period will be duplicated up to a maximum of twelve (12) months.
+Should you fail to properly register the original warranty as required by manufacturer,
+Extended Warranty will only double the actual warranty time period that you received from
+the manufacturer. An example of a product with multiple warranty components includes an
+appliance with original manufacturer’s (or U.S. store brand) warranties that differ for parts,
+labor, compressor, etc.
+</p>
+<p>
+&gt; If you purchase a service contract or an optional extended warranty of twelve (12) months
+or less on your item, Extended Warranty will cover up to an additional twelve (12) months
+after both the original manufacturer’s (or U.S. store brand) warranty and the purchased
+service contract or extended warranty coverage period end. If your service contract or
+extended warranty exceeds twelve (12) months, this coverage does not apply.
+</p>
+<p>
+&gt; If you do not have an additional service contract or an optional extended warranty, this
+Extended Warranty benefit commences the day after your original manufacturer’s (or U.S.
+store brand) warranty expires.
+</p>
+<p>
+&gt; If either the original manufacturer’s (or U.S. store brand) warranty or the service contract
+covers more than twelve (12) months, Extended Warranty benefits will not apply.
+</p>
+</blockquote>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3">Visa</h3>
+<div class="outline-text-3" id="text-4-3">
+
+<p>Here's the Visa benefits for one type of card: <a href="http://usa.visa.com/business/why-pay-with-visa/security-benefits/bft-purchase-security.html">VISA PURCHASE PROTECTION</a>. Note,
+each Visa card may be different. Visa is a lot better than MasterCard in that
+if your product has more than a 1 year warranty, Visa still gives you an extra
+year.
+</p>
+<blockquote>
+
+<p>Extended Protection Yes, as long as you purchased the item entirely with your
+eligible U.S.- issued Visa Business card and the eligible item has a valid
+original manufacturer’s written U.S. repair warranty or assembler warranty of
+three (3) years or less.
+</p>
+</blockquote>
+
+
+
+
+
+<ul>
+<li>Here's a good article with more details on why you should American Express for all
+  extended warranties: <a href="http://www.cardhub.com/edu/credit-card-extended-warranty-study/">2012 Credit Card Extended Warranty Study</a>
+</li>
+<li>Another comparison, from the NYT: <a href="http://bucks.blogs.nytimes.com/2012/08/01/credit-cards-with-the-best-extended-warranties/">Credit Cards With the Best Extended Warranties</a>
+</li>
+<li>LifeHacker: <a href="http://lifehacker.com/5871487/are-extended-warranties-worth-it">Are Extended Warranties Worth It?</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>

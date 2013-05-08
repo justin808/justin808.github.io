@@ -1,0 +1,18 @@
+#+BEGIN_HTML
+---
+layout: page
+title: "meta"
+date: 2013-05-07 23:43
+comments: true
+sharing: true
+footer: true
+---
+#+END_HTML
+
+Here's a list of customizations that I applied to Octopress.
+
+Initial setup: [[http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][Octopress Setup With Github, Org Mode, and LiveReload]].
+
+
+* Plugins Installed
++ [[https://github.com/optikfluffel/octopress-responsive-video-embed][octopress-responsive-video-embed]]: No issues. Easy to embed youtube video.
