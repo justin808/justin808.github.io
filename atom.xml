@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com/"/>
-  <updated>2013-05-07T23:02:49-10:00</updated>
+  <updated>2013-05-08T00:08:33-10:00</updated>
   <id>http://www.railsonmaui.com/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -236,6 +236,24 @@ three (3) years or less.
 </div>
 </div>
 </div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Favorite RubyMine Tips]]></title>
+    <link href="http://www.railsonmaui.com/blog/2013/05/03/favorite-rubymine-tips/"/>
+    <updated>2013-05-03T17:57:00-10:00</updated>
+    <id>http://www.railsonmaui.com/blog/2013/05/03/favorite-rubymine-tips</id>
+    <content type="html"><![CDATA[<p>
+Here&#8217;s a video of my favorite RubyMine tips. I&#8217;ll be updating this post shortly
+with an improved version of this video, and details on the tips.
+</p>
+
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/buQhf2OTTNk "></iframe></div>
+</p>
 
 ]]></content>
   </entry>

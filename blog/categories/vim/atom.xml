@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Vim | Rails on Maui]]></title>
+  <link href="http://www.railsonmaui.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://www.railsonmaui.com/"/>
+  <updated>2013-05-08T00:08:33-10:00</updated>
+  <id>http://www.railsonmaui.com/</id>
+  <author>
+    <name><![CDATA[Justin Gordon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Favorite RubyMine Tips]]></title>
+    <link href="http://www.railsonmaui.com/blog/2013/05/03/favorite-rubymine-tips/"/>
+    <updated>2013-05-03T17:57:00-10:00</updated>
+    <id>http://www.railsonmaui.com/blog/2013/05/03/favorite-rubymine-tips</id>
+    <content type="html"><![CDATA[<p>
+Here's a video of my favorite RubyMine tips. I'll be updating this post shortly
+with an improved version of this video, and details on the tips.
+</p>
+
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/buQhf2OTTNk "></iframe></div>
+</p>
+
+]]></content>
+  </entry>
+  
+</feed>
