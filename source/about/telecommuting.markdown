@@ -5,6 +5,8 @@ date: 2013-05-06 22:09
 comments: true
 sharing: true
 footer: true
+keywords: telecommuting, Maui, productivity, hire, rework, Remote Office
+description:  Why hire a remote worker and achieving maximum productivity in a remote office.
 ---
 <p>
 I've been working remotely from Maui full time since 2007. My home office is

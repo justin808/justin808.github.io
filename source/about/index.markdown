@@ -20,17 +20,6 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 
 
 
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Links to Details</a></li>
-<li><a href="#sec-2">2 Some Bullets</a></li>
-<li><a href="#sec-3">3 Outside of Programming</a></li>
-</ul>
-</div>
-</div>
-
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Links to Details</h2>
 <div class="outline-text-2" id="text-1">
@@ -57,7 +46,7 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 
 <ul>
 <li>I use ideaVim inside of RubyMine and IntelliJ and Evil (vim) mode inside of
-  emacs. And everything I do is backed by developer written tests.
+  emacs. And almost everything I do is backed by developer written tests.
 </li>
 <li>Experienced and passionate software engineer with a track record of successful projects.
 </li>
