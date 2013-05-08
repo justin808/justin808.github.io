@@ -25,7 +25,7 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 
 * Some Bullets
 + I use ideaVim inside of RubyMine and IntelliJ and Evil (vim) mode inside of
-  emacs. And everything I do is backed by developer written tests.
+  emacs. And almost everything I do is backed by developer written tests.
 + Experienced and passionate software engineer with a track record of successful projects.
 + Responsible for majority of design and coding of the core storage layer behind
   the [[http://public.dhe.ibm.com/common/ssi/ecm/en/iml14344usen/IML14344USEN.PDF][Gartner 2012]] leading program for product master data management:
