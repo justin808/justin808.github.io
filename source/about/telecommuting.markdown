@@ -109,7 +109,7 @@ for the future, and get reacquainted with one another on a personal level.
 <ul>
 <li>I've got a sign on my door that really seems to cut down on disturbances from
   the family. That's critical to getting into a state of "flow".
-  {% img /about/do-not-break-my-flow-940.JPG 940 336 %}
+  {% img /about/do-not-break-my-flow-940.jpg 940 336 %}
 </li>
 <li>When teleconferencing using the Yeti Mic, it's best to use the only a speaker
   from the computer or monitor that is behind the mic. If you have speakers
