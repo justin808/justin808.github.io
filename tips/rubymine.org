@@ -16,7 +16,7 @@ description: Here's a video of my favorite RubyMine tips.
 Here's a video of my favorite RubyMine tips. I'll be updating this post shortly
 with an improved version of this video, and details on the tips.
 
-{% youtube buQhf2OTTNk %}
+{% youtube LnN-JIxDRCg %}
 
 * Favorite things to show about RubyMine
 Here's my notes when making the video.
