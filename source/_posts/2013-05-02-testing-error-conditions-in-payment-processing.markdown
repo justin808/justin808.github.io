@@ -287,5 +287,32 @@ I find that the best way to develop such a test is to:
 
 
 
+
+
+
+
+{% codeblock lang:ruby %}
+  scenario "Purchase cart, strip", :vcr do
+    error_content = "Testing error handling exception message in Stripe"
+    PaymentGateway.stub(:charge) { raise Stripe::InvalidRequestError.new(error_content, 'id') }
+    place_order "stripe-failure"
+    should have_content error_content
+    should have_content "Error purchasing"
+    order.reload
+    order.purchased.should_not be
+  end
+
+{% endcodeblock %}
+
+
+
+{% codeblock lang:ruby %}
+  def validate_error_emailed
+    email = ActionMailer::Base.deliveries.last
+    email.should_not be_nil
+    email.to.should_not include(order.user.email)
+    email.to.should include('justin@blinkinc.com')
+  end
+{% endcodeblock %}
 </div>
 </div>
