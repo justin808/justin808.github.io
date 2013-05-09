@@ -29,6 +29,8 @@ new_post_ext    = "org"  # default new post file extension when using the new_po
 new_page_ext    = "org"  # default new page file extension when using the new_page task
 org_posts_dir   = "org_posts"
 server_port     = "4001"      # port for preview server eg. localhost:4000
+org_posts_dir   = "org_posts"
+
 
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
@@ -376,6 +378,50 @@ def get_stdin(message)
   STDIN.gets.chomp
 end
 
+desc "list tasks"
+task :list do
+  puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
+  puts "(type rake -T for more detail)\n\n"
+end
+
+
+# From http://www.ewal.net/2012/09/08/octopress-customizations/  
+desc "Rename files in the posts directory if the filename does not match the post date in the YAML front matter"
+task :rename_posts do
+  rename_posts_in_dir "#{source_dir}/#{posts_dir}"
+  # remove next line if you're you're not using org-mode
+  rename_posts_in_dir "#{source_dir}/#{org_posts_dir}"
+end
+
+def rename_posts_in_dir dir
+  Dir.chdir(dir) do
+    Dir['*.markdown'].each do |post|
+      post_date = ""
+      File.open( post ) do |f|
+        f.grep( /^date: / ) do |line|
+          post_date = line.gsub(/date: /, "").gsub(/\s.*$/, "")
+          break
+        end
+      end
+      post_title = post.to_s.gsub(/\d{4}-\d{2}-\d{2}/, "")  # Get the post title from the currently processed post
+      new_post_name = post_date + post_title # determing the correct filename
+      is_draft = false
+      File.open( post ) do |f|
+          f.grep( /^published: false/ ) do |line|
+            is_draft = true
+            break
+          end
+      end
+      if !is_draft && post != new_post_name
+          puts "renaming #{post} to #{new_post_name}"
+          FileUtils.mv(post, new_post_name)
+      end
+    end
+  end
+end
+
+
+
 def ask(message, valid_options)
   if valid_options
     answer = get_stdin("#{message} #{valid_options.to_s.gsub(/"/, '').gsub(/, /,'/')} ") while !valid_options.include?(answer)
@@ -385,8 +431,3 @@ def ask(message, valid_options)
   answer
 end
 
-desc "list tasks"
-task :list do
-  puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
-  puts "(type rake -T for more detail)\n\n"
-end

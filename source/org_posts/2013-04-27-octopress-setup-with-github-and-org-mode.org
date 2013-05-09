@@ -107,6 +107,17 @@ This article should be useful for:
   git push origin source
   #+END_SRC
 
+* Some Perspectives on how Octopress Works
+** Posts vs. Pages
+*Posts* are created using the rake task =rake new_page["Post Title"]=. The key things about a post are:
+1. File is located in =source/_posts.
+2. File has a header containing the meta-data for the post. The post URL and
+   date are determined by the by the =title= and =date= fields. If you want to
+   change the date of your post, then you change the meta-data. Changing the
+   file name is useful only for file navigation. If 
+
+
+  
 * POW
 POW allows you to point your browser to [[http://octopress.dev]] to see your local,
 unpublished Octopress website. It's very convenient to not have to remember to
@@ -150,15 +161,18 @@ the browser after you publish your file. This works with or without POW.
 
 It's neat to get LiveReload working with Octopress. However, the generation can
 finish after your page does a reload, so you won't see your latest changes. I'll
-update this blog post when I figure out a solution to that one.
+update this blog post when I figure out a solution to that one. Until then, you
+may find it more convenient to manually refresh the blog page yourself.
 
 It's worth noting that if you're running any other instance of guard-
 LiveReload, then one of these two copies will win and one won't work. If you
 run a rails server this way, then this can bite you. It took me a bit of time
 to figure out why guard wasn't working.
 
-
-* Why org-mode for blog publishing?
+* Org-Mode
+You can skip this section if you're not interested in org-mode. However, it's
+super cool!
+** Why org-mode for blog publishing?
 [[http://orgmode.org/][Org-mode]] offers quite a bit more than plain markdown. It's quite the *hacker's
 delight* for note taking and authoring of blog articles. Down below I list a few
 reasons why org-mode. Here's a few org-mode features I love (Some are Emacs
@@ -170,7 +184,7 @@ ones):
 4. Ergonomics of insertion of URLs and images.
 5. Includes the basics of markdown, such as source code blocks and much more.
 
-* Org-mode Integration
+** Org-mode Integration
 I found a plugin that automates the process of converting an org-mode document
 (=.org= file) in =source/org_posts= into a =.markdown= document in
 =source/\_posts=. Once the markdown document is saved in \_posts, the =rake
@@ -226,6 +240,7 @@ odeploy () {
   cd $OCTO_HOME; osave; rake gen_deploy; cd -
 }
 
+# this one is for orgmode only
 opost() {
   cd $OCTO_HOME
   output=$(rake new_post["${1}"])
