@@ -1,0 +1,147 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Saner Rails Logging"
+date: 2013-05-08 17:41
+comments: true
+categories: [Rails, Error Handling ] 
+keywords: Ruby on Rails, Exceptions, Logging
+description: Clean logging and error handling is a critical aspect of a RoR app. 
+published: true
+---
+#+END_HTML
+
+TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+
+A Rails app can have awesome unit and functional tests, and then in production,
+something goes wrong and the right error handling does not happen, making
+a bad situation worse. By this, I mean, it's bad enough that something went
+wrong in production. It's even worse if:
+1. You don't have clear log messages that identify exactly what went wrong.
+2. You didn't get automatically notified via email that something went wrong.
+   Instead, the customer told the customer service rep that there's an issue.
+   Ideally, when an error happens, the responsible developers should be
+   notified.
+
+Here's some tips on logging setup and error handling, including a utility
+method to log the stack and send an email.
+   
+* Log Setup
+** Notification of any Exceptions via Email with Gem exception_notification
+Check out the gem [[http://smartinez87.github.io/exception_notification/][exception_notification]]. It works great. One things the docs
+don't point out is that it works great with [[http://mailcatcher.me/][MailCatcher]]. This allows you to
+"test" that your exception notification emails are being sent as expected
+without using a real mail account. Thus, /do/ enable exception logging in
+development mode, contrary to the basic setup. Here's a config example at this
+post on [[http://www.mikeperham.com/2012/12/09/12-gems-of-christmas-4-mailcatcher-and-mail_view/][MailCatcher and mail_view]].
+
+** Log the Browser Details with Gem browser_details
+The gem [[https://github.com/gshutler/browser_details][browser_details]] will tell you what type of browser was used, which
+can be very important when errors occur. I cracked up when I read this from the
+gem info page: 
+#+begin_quote
+Have you ever had the conversation:
+
+Your site doesn't work.
+What browser are you using and do you have Javascript enabled?
+
+What's a browser?
+#+end_quote
+
+
+** Control Rails Log Verbosity with Gem lograge
+Sometimes too much of a good thing (log info) is a bad thing, and that's true
+with Rails default logging. Check out the gem =[[https://github.com/roidrage/lograge][lograge]]=. The big difference is
+that a single request will take a single line. To quote the README, instead of
+logs like this:
+#+BEGIN_EXAMPLE
+Started GET "/" for 127.0.0.1 at 2012-03-10 14:28:14 +0100
+Processing by HomeController#index as HTML
+  Rendered text template within layouts/application (0.0ms)
+  Rendered layouts/_assets.html.erb (2.0ms)
+  Rendered layouts/_top.html.erb (2.6ms)
+  Rendered layouts/_about.html.erb (0.3ms)
+  Rendered layouts/_google_analytics.html.erb (0.4ms)
+Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
+#+END_EXAMPLE
+
+After installing lograge, you'll have one line for the request:
+#+BEGIN_EXAMPLE
+method=GET path=/jobs/833552.json format=json controller=jobs action=show status=200 duration=58.33 view=40.43 db=15.26
+#+END_EXAMPLE
+
+The one issue with =lograge= is that the default configuration does not log
+request parameters, which can be useful for debugging. This blog post, [[http://ionrails.com/2013/03/26/how-to-add-the-request-parameters-along-with-full-url-request-in-lograge-outputted-files/][How to add
+request parameters to lograge logs]], addresses that shortcoming.
+
+** Utility Method to Log Exceptions
+This sample method =Utility.log_exception= takes care of logging an exception along with sending out an
+email notification.
+
+Example of calling =Utility.log_exception=:
+
+#+BEGIN_SRC ruby
+def my_method_with_error foobar
+  do_something_that_raises foobar
+rescue => e # catches StandardError (don't use rescue Esception => e)
+  Utility.log_exception e, info: "called do_something_that_raises wihh #{foobar}"
+end
+#+END_SRC
+
+Definition of =Utility.log_exception=:
+
+#+BEGIN_SRC ruby
+class Utility
+  # Logs and emails exception
+  # Optional args:
+  # request: request Used for the ExceptionNotifier
+  # info: "A descriptive messsage"
+  def self.log_exception e, args
+    extra_info = args[:info]
+
+    Rails.logger.error extra_info if extra_info
+    Rails.logger.error e.message
+    st = e.backtrace.join("\n")
+    Rails.logger.error st
+
+    extra_info ||= "<NO DETAILS>"
+    request = args[:request]
+    env = request ? request.env : nil
+    if env
+      ExceptionNotifier::Notifier.exception_notification(env, e, :data => {:message => "Exception: #{extra_info}"}).deliver
+    else
+      ExceptionNotifier::Notifier.background_exception_notification(e, :data => {:message => "Exception: #{extra_info}"}).deliver
+     end
+  end
+end
+#+END_SRC   
+
+* Error Handling and Logging Strategy
+1. Avoid rescuing/catching if you can't do anything with the exception. For
+   example, in a model method, you might be calling that from a controller, but
+   you also might be calling that from some scheduled job. Thus, it's hard to
+   say what the right action should be. A special case is calling =raise= without
+   arguments: sometimes it is reasonable to catch all exceptions, logging the
+   exception, and then re-raising it like it was never caught.
+2. If you catch an exception, consider if you should re-throw the exception.
+3. Consider how the code is being invoked, such as from a call to generate
+   HTML or an ajax request, or maybe a batch job. All of these cases have very
+   different needs for how the error should be handled.
+4. Be sure you understand the order of your rescue clauses matter. This article
+   [[http://blog.rubybestpractices.com/posts/rklemme/003-The_Universe_between_begin_and_end.html][The Universe between =begin= and =end=]] provides a good explanation.
+   Basically put the most specific exception types first and something like
+   =rescue => e= last.
+5. Ruby does not support the concept of a "cause" with an exception. Thus, if
+   you catch an exception and are going to rethrow a different exception, then
+   it's important to log the stack of the original exception, or else that
+   information will be lost.
+6. Test the logging of the exception in both development and production mode.
+   You want to ensure that any exception prints clearly regardless of Rails
+   environment.
+7. A good way to test error handling is to temporarily put in =raise
+   ArgumentError= (or whatever other error), and see how the exception is
+   handled, both by the logger and the UI.
+8. The worst scenario is catching an exception and failing to log any messages.
+   This can make troubleshooting a problem very tricky.
+ 
+   
