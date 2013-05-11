@@ -401,14 +401,14 @@ end
 #Dir.glob('rakefiles/*.rake').each { |r| import r }
 
 
-# From http://www.ewal.net/2012/09/08/octopress-customizations/
-# Modified to have default flag of true to include drafts
-desc "Rename files in the posts directory if the filename does not match the post date in the YAML front matter. Note, URLs based on 'date' metadata, so this shouldn't break any links"
+# Based on blog post http://www.ewal.net/2012/09/08/octopress-customizations/
+# Modified to option of either all or no drafts, and also to use org-mode files
+desc "Redate files in the posts directory if the filename does not match the post date in the YAML front matter. Note, URLs based on 'date' metadata, so this shouldn't break any links"
 task :redate_posts do
   redate_posts true, source_dir, posts_dir, org_posts_dir
 end
 
-desc "Rename files in the posts directory, skipping drafts, if the filename does not match the post date in the YAML front matter. Note, URLs based on 'date' metadata, so this shouldn't break any links"
+desc "Redate files in the posts directory, skipping drafts, if the filename does not match the post date in the YAML front matter. Note, URLs based on 'date' metadata, so this shouldn't break any links"
 task :redate_posts_no_drafts do
   redate_posts false, source_dir, posts_dir, org_posts_dir
 end
@@ -417,7 +417,6 @@ def redate_posts include_drafts, source_dir, posts_dir, org_posts_dir
   redate_posts_in_dir "#{source_dir}/#{posts_dir}", "markdown", include_drafts
   # remove next line if you're you're not using org-mode
   redate_posts_in_dir "#{source_dir}/#{org_posts_dir}", "org", include_drafts
-
 end
 
 def redate_posts_in_dir dir, ext, include_drafts = true
