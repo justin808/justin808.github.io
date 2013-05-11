@@ -13,4 +13,4 @@ footer: true
 + [[http:/tips/rubymine.html][RubyMine]]
 + Octopress
   + [[http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/][Octopress Setup With Github, Org Mode, and LiveReload]]
-  + Renaming, re-dating blog posts (coming soon)
+  + [[http:/tips/renaming-redating-blog-posts.html][Renaming, redating blog posts]]

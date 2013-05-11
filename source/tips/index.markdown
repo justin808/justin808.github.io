@@ -11,5 +11,14 @@ footer: true
 <ul>
 <li><a href="http:/tips/rubymine.html">RubyMine</a>
 </li>
+<li>Octopress
+<ul>
+<li><a href="http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup With Github, Org Mode, and LiveReload</a>
+</li>
+<li><a href="http:/tips/renaming-redating-blog-posts.html">Renaming, redating blog posts</a>
+</li>
+</ul>
+
+</li>
 </ul>
 
