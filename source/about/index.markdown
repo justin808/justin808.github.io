@@ -106,7 +106,7 @@ read more about Sugar Ranch here <a href="http://www.sugarranchmaui.com">http://
 </p>
 
 <p>
-{% img /about/JustinHeadShot2012-May.jpg %}
+{% img /about/Justin2013-headshot-outdoors-789.jpg %}
 </p>
 <p>
 <a href="https://maps.google.com/maps?q=141+Makahiki+St,+Paia,+HI&amp;hl=en&amp;ll=20.908851,-156.408621&amp;spn=0.002944,0.003433&amp;sll=20.46,-157.505&amp;sspn=12.075058,9.876709&amp;oq=141&amp;t=w&amp;hnear=141+Makahiki+St,+Paia,+Maui,+Hawaii+96779&amp;z=19&amp;iwloc=r0&amp;source=gplus-ogsb">Map of Sugar Ranch</a>.

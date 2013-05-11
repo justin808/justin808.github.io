@@ -108,13 +108,21 @@ This article should be useful for:
   #+END_SRC
 
 * Some Perspectives on how Octopress Works
-** Posts vs. Pages
-*Posts* are created using the rake task =rake new_page["Post Title"]=. The key things about a post are:
+** Posts
+*Posts* are created using the rake task =rake new_post["Post Title"]=. The key things about a post are:
 1. File is located in =source/_posts.
 2. File has a header containing the meta-data for the post. The post URL and
    date are determined by the by the =title= and =date= fields. If you want to
    change the date of your post, then you change the meta-data. Changing the
-   file name is useful only for file navigation. If 
+   file name is useful only for file navigation. Here's a [[https://gist.github.com/justin808/5550381][gist for a rake task
+   to update the file names to match the metadata]].
+
+** Pages
+*Pages* are created using the rake task =rake new_page["Page Title"]=. The key
+things about a page are:
+1. Files are located in =source/page-title
+2. File has a header containing the meta-data for the post. The post URL and
+
 
 
   
@@ -187,7 +195,7 @@ ones):
 ** Org-mode Integration
 I found a plugin that automates the process of converting an org-mode document
 (=.org= file) in =source/org_posts= into a =.markdown= document in
-=source/\_posts=. Once the markdown document is saved in \_posts, the =rake
+=source/_posts=. Once the markdown document is saved in _posts, the =rake
 watch= task picks up the change and deploys the file, and LiveReload can then
 automatically update your web browser. *Neat!*
 
@@ -217,7 +225,7 @@ Here are the basic steps:
    [[http:/about/some_details.html][Some Details]]  
    #+END_EXAMPLE
 6. Bold styling was a bit of mystery using the standard theme. I had to add
-   this line to \_typography.scss:
+   this line to _typography.scss:
    #+BEGIN_SRC css
    b { font-weight: bold; }
    #+END_SRC

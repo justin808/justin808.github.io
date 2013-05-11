@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Saner Rails Logging"
+title: "Strategies for Rails Logging and Error Handling"
+alias: /blog/2013/05/08/saner-rails-logging/index.html
 date: 2013-05-08 17:41
 comments: true
 categories: [Rails, Error Handling ] 
@@ -11,6 +12,7 @@ published: true
 
 <p>
 TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+What's a good strategy? Why does this matter?
 </p>
 <p>
 A Rails app can have awesome unit and functional tests, and then in production,
@@ -30,7 +32,7 @@ wrong in production. It's even worse if:
 
 <p>
 Here's some tips on logging setup and error handling, including a utility
-method to log the stack and send an email.
+method to log the stack trace and send an email.
 </p>
 
 <div id="table-of-contents">
@@ -40,12 +42,12 @@ method to log the stack and send an email.
 <li><a href="#sec-1">1 Log Setup</a>
 <ul>
 <li><a href="#sec-1-1">1.1 Notification of any Exceptions via Email with Gem exception_notification</a></li>
-<li><a href="#sec-1-2">1.2 Log the Browser Details with Gem browser_details</a></li>
+<li><a href="#sec-1-2">1.2 Log the Browser Details with Gem 'browser_details'</a></li>
 <li><a href="#sec-1-3">1.3 Control Rails Log Verbosity with Gem lograge</a></li>
 <li><a href="#sec-1-4">1.4 Utility Method to Log Exceptions</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2 Error Handling and Logging Strategy</a></li>
+<li><a href="#sec-2">2 Strategy: Error Handling and Logging</a></li>
 </ul>
 </div>
 </div>
@@ -73,7 +75,7 @@ post on <a href="http://www.mikeperham.com/2012/12/09/12-gems-of-christmas-4-mai
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">Log the Browser Details with Gem browser_details</h3>
+<h3 id="sec-1-2">Log the Browser Details with Gem 'browser_details'</h3>
 <div class="outline-text-3" id="text-1-2">
 
 <p>The gem <a href="https://github.com/gshutler/browser_details">browser_details</a> will tell you what type of browser was used, which
@@ -103,7 +105,7 @@ What's a browser?
 <div class="outline-text-3" id="text-1-3">
 
 <p>Sometimes too much of a good thing (log info) is a bad thing, and that's true
-with Rails default logging. Check out the gem =<a href="https://github.com/roidrage/lograge">lograge</a>=. The big difference is
+with Rails default logging. Check out the gem '<a href="https://github.com/roidrage/lograge">lograge</a>'. The big difference is
 that a single request will take a single line. To quote the README, instead of
 logs like this:
 </p>
@@ -194,7 +196,7 @@ end
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Error Handling and Logging Strategy</h2>
+<h2 id="sec-2">Strategy: Error Handling and Logging</h2>
 <div class="outline-text-2" id="text-2">
 
 <ol>
@@ -205,7 +207,9 @@ end
    arguments: sometimes it is reasonable to catch all exceptions, logging the
    exception, and then re-raising it like it was never caught.
 </li>
-<li>If you catch an exception, consider if you should re-throw the exception.
+<li>If you catch an exception, consider if you should re-throw the exception
+   because code at a different level will be able to handle the exception more
+   properly.
 </li>
 <li>Consider how the code is being invoked, such as from a call to generate
    HTML or an ajax request, or maybe a batch job. All of these cases have very
