@@ -21,7 +21,7 @@
   <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Rails on Maui" type="application/atom+xml">
+  <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -55,8 +55,10 @@
 </hgroup>
 
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/railsonmaui" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=RailsOnMaui&amp;loc=en_US" rel="subscribe-email" title="subscribe via email">Email</a></li>
   
 </ul>
   
@@ -185,10 +187,20 @@ This article should be useful for:
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1 Basic setup</a></li>
-<li><a href="#sec-2">2 POW</a></li>
-<li><a href="#sec-3">3 LiveReload</a></li>
-<li><a href="#sec-4">4 Why org-mode for blog publishing?</a></li>
-<li><a href="#sec-5">5 Org-mode Integration</a></li>
+<li><a href="#sec-2">2 Some Perspectives on how Octopress Works</a>
+<ul>
+<li><a href="#sec-2-1">2.1 Posts</a></li>
+<li><a href="#sec-2-2">2.2 Pages</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 POW</a></li>
+<li><a href="#sec-4">4 LiveReload</a></li>
+<li><a href="#sec-5">5 Org-Mode</a>
+<ul>
+<li><a href="#sec-5-1">5.1 Why org-mode for blog publishing?</a></li>
+<li><a href="#sec-5-2">5.2 Org-mode Integration</a></li>
+</ul>
+</li>
 <li><a href="#sec-6">6 Useful Scripts</a></li>
 <li><a href="#sec-7">7 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
 <li><a href="#sec-8">8 Useful Links</a></li>
@@ -292,8 +304,60 @@ This article should be useful for:
 
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">POW</h2>
+<h2 id="sec-2">Some Perspectives on how Octopress Works</h2>
 <div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Posts</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p><b>Posts</b> are created using the rake task <code>rake new_post["Post Title"]</code>. The key things about a post are:
+</p><ol>
+<li>File is located in =source/_posts.
+</li>
+<li>File has a header containing the meta-data for the post. The post URL and
+   date are determined by the by the <code>title</code> and <code>date</code> fields. If you want to
+   change the date of your post, then you change the meta-data. Changing the
+   file name is useful only for file navigation. Here&#8217;s a <a href="https://gist.github.com/justin808/5550381">gist for a rake task to update the file names to match the metadata</a>.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Pages</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<p><b>Pages</b> are created using the rake task <code>rake new_page["Page Title"]</code>. The key
+things about a page are:
+</p><ol>
+<li>Files are located in =source/page-title
+</li>
+<li>File has a header containing the meta-data for the post. The post URL and
+</li>
+</ol>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">POW</h2>
+<div class="outline-text-2" id="text-3">
 
 <p>POW allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your local,
 unpublished Octopress website. It&#8217;s very convenient to not have to remember to
@@ -308,9 +372,9 @@ you configured).
 
 
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">LiveReload</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">LiveReload</h2>
+<div class="outline-text-2" id="text-4">
 
 <p>LiveReload is a <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Chrome browser extension</a> that will automatically refresh
 the browser after you publish your file. This works with or without POW.
@@ -376,7 +440,8 @@ the browser after you publish your file. This works with or without POW.
 <p>
 It&#8217;s neat to get LiveReload working with Octopress. However, the generation can
 finish after your page does a reload, so you won&#8217;t see your latest changes. I&#8217;ll
-update this blog post when I figure out a solution to that one.
+update this blog post when I figure out a solution to that one. Until then, you
+may find it more convenient to manually refresh the blog page yourself.
 </p>
 <p>
 It&#8217;s worth noting that if you&#8217;re running any other instance of guard-
@@ -384,7 +449,6 @@ LiveReload, then one of these two copies will win and one won&#8217;t work. If y
 run a rails server this way, then this can bite you. It took me a bit of time
 to figure out why guard wasn&#8217;t working.
 </p>
-
 </div>
 
 </div>
@@ -392,9 +456,18 @@ to figure out why guard wasn&#8217;t working.
 
 
 
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Why org-mode for blog publishing?</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Org-Mode</h2>
+<div class="outline-text-2" id="text-5">
+
+<p>You can skip this section if you&#8217;re not interested in org-mode. However, it&#8217;s
+super cool!
+</p>
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1">Why org-mode for blog publishing?</h3>
+<div class="outline-text-3" id="text-5-1">
 
 <p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s delight</b> for note taking and authoring of blog articles. Down below I list a few
 reasons why org-mode. Here&#8217;s a few org-mode features I love (Some are Emacs
@@ -418,12 +491,9 @@ ones):
 
 </div>
 
-
-
-
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">Org-mode Integration</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2">Org-mode Integration</h3>
+<div class="outline-text-3" id="text-5-2">
 
 <p>I found a plugin that automates the process of converting an org-mode document
 (<code>.org</code> file) in <code>source/org_posts</code> into a <code>.markdown</code> document in
@@ -480,6 +550,7 @@ Here are the basic steps:
 
 
 </div>
+</div>
 
 </div>
 
@@ -528,6 +599,7 @@ Here are the basic steps:
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
 <span class='line-number'>29</span>
+<span class='line-number'>30</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">OCTO_HOME</span><span class="o">=</span>~/octopress
 </span><span class='line'>ogen <span class="o">()</span> <span class="o">{</span>
 </span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; rake generate; <span class="nb">cd</span> -
@@ -541,6 +613,7 @@ Here are the basic steps:
 </span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; osave; rake gen_deploy; <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
+</span><span class='line'><span class="c"># this one is for orgmode only</span>
 </span><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
 </span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
 </span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span><span class="k">)</span>
@@ -738,7 +811,11 @@ helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@Rail
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/05/08/saner-rails-logging/">Saner Rails Logging</a>
+        <a href="/blog/2013/05/11/testing-error-conditions-in-payment-processing/">Testing Error Handling of Payment Processing: Unit and Integration</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a>
       </li>
     
       <li class="post">

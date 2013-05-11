@@ -1,7 +1,8 @@
 #+BEGIN_HTML
 ---
 layout: post
-title: "Saner Rails Logging"
+title: "Strategies for Rails Logging and Error Handling"
+alias: /blog/2013/05/08/saner-rails-logging/index.html
 date: 2013-05-08 17:41
 comments: true
 categories: [Rails, Error Handling ] 
@@ -12,6 +13,7 @@ published: true
 #+END_HTML
 
 TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+What's a good strategy? Why does this matter?
 
 A Rails app can have awesome unit and functional tests, and then in production,
 something goes wrong and the right error handling does not happen, making
@@ -24,7 +26,7 @@ wrong in production. It's even worse if:
    notified.
 
 Here's some tips on logging setup and error handling, including a utility
-method to log the stack and send an email.
+method to log the stack trace and send an email.
    
 * Log Setup
 ** Notification of any Exceptions via Email with Gem exception_notification
@@ -35,7 +37,7 @@ without using a real mail account. Thus, /do/ enable exception logging in
 development mode, contrary to the basic setup. Here's a config example at this
 post on [[http://www.mikeperham.com/2012/12/09/12-gems-of-christmas-4-mailcatcher-and-mail_view/][MailCatcher and mail_view]].
 
-** Log the Browser Details with Gem browser_details
+** Log the Browser Details with Gem 'browser_details'
 The gem [[https://github.com/gshutler/browser_details][browser_details]] will tell you what type of browser was used, which
 can be very important when errors occur. I cracked up when I read this from the
 gem info page: 
@@ -51,7 +53,7 @@ What's a browser?
 
 ** Control Rails Log Verbosity with Gem lograge
 Sometimes too much of a good thing (log info) is a bad thing, and that's true
-with Rails default logging. Check out the gem =[[https://github.com/roidrage/lograge][lograge]]=. The big difference is
+with Rails default logging. Check out the gem '[[https://github.com/roidrage/lograge][lograge]]'. The big difference is
 that a single request will take a single line. To quote the README, instead of
 logs like this:
 #+BEGIN_EXAMPLE
@@ -116,14 +118,16 @@ class Utility
 end
 #+END_SRC   
 
-* Error Handling and Logging Strategy
+* Strategy: Error Handling and Logging
 1. Avoid rescuing/catching if you can't do anything with the exception. For
    example, in a model method, you might be calling that from a controller, but
    you also might be calling that from some scheduled job. Thus, it's hard to
    say what the right action should be. A special case is calling =raise= without
    arguments: sometimes it is reasonable to catch all exceptions, logging the
    exception, and then re-raising it like it was never caught.
-2. If you catch an exception, consider if you should re-throw the exception.
+2. If you catch an exception, consider if you should re-throw the exception
+   because code at a different level will be able to handle the exception more
+   properly.
 3. Consider how the code is being invoked, such as from a call to generate
    HTML or an ajax request, or maybe a batch job. All of these cases have very
    different needs for how the error should be handled.
