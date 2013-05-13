@@ -4,16 +4,16 @@ layout: post
 title: "Testing Error Handling"
 date: 2013-05-11 00:01
 comments: true
-categories: [Rails, Error Handling, rspec, capybara ] 
+categories: [Rails, Error Handling, rspec, capybara ]
 keywords: Ruby on Rails, Exceptions, Logging, rspec, capybara, phantomjs
-description: Clean logging and error handling is a critical aspect of a RoR app. 
+description: Clean logging and error handling is a critical aspect of a RoR app.
 published: true
 ---
 #+END_HTML
 How do ensure that your application properly handles errors, especially when
 relying on third parties, such as payment processors? Is it easy to verify that
 the right things happen when the wrong things happen? Last week's article
-[[http:/blog/2013/05/08/saner-rails-logging/][Strategies for Rails Logging and Error Handling ]] discussed some techniques to
+[[../../08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]] discussed some techniques to
 setup a good error handling strategy. Here's some techniques to verify that your
 application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
@@ -44,12 +44,12 @@ errors.
 
 #+BEGIN_SRC ruby
 class Order
-  def purchase_cart 
+  def purchase_cart
     error_message = nil
     Order.transaction do
       # self.user record has charge info, and self.total is the order total
       # PaymentGateway.charge returns either error_message if failed or charge_details if success
-      error_message, charge_details = PaymentGateway.charge user, total 
+      error_message, charge_details = PaymentGateway.charge user, total
       # update the order and the user records with the charge_details
       set_charge_fields_and_save user, charge_details unless error_message # update the order to indicated purchased
       fulfill_order # do lots of complicated stuff to fulfill the order
@@ -100,7 +100,7 @@ end
 Then go into the UI and test placing an order. Consider the following questions:
 1. Was the right error message displayed to the user?
 2. Was the right information logged at the correct log level?
-3. Was an automatic email sent regarding the error? 
+3. Was an automatic email sent regarding the error?
 
 See my prior article [[http:/blog/2013/05/08/saner-rails-logging/][Saner Rails Logging]] for the answers to #2 and #3.
 
@@ -111,7 +111,7 @@ the code. You'll be surprised how well it works. Before giving you the fix to
 the above code, let's see if we can write unit and feature tests on our error
 handling.
 
-* RSpec Unit Testing of Errors 
+* RSpec Unit Testing of Errors
 It turns out that with stubbing in =rspec=, it's easy to test error handling!
 [[https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs][RSpec provides a nice mocking library]]. The test code would look something like
 this. Pay attention to the call to *stub*.
@@ -133,8 +133,8 @@ describe Order do
         expect {
           order.purchase_cart
         }.to raise_error
-        order.reload 
-        order.purchased.should_not be   
+        order.reload
+        order.purchased.should_not be
         # charge refunded verified in mock
       end
     end
@@ -152,11 +152,11 @@ class Order
     begin
       Order.transaction do
         # user has a credit card info, returns either error_message if failed or charge_details if success
-        error_message, charge_details = PaymentGateway.charge user, total 
+        error_message, charge_details = PaymentGateway.charge user, total
         set_charge_fields_and_save user, charge_details unless error_message # update the order to indicated purchased
       end
       fulfill_order # do lots of complicated stuff to process the order, do this outside of the original tx, so that the payment info can be committed.
-    rescue => e 
+    rescue => e
       Utility.log_exception e # Unified strategy for error handling including email notification, see below
       refund_charge if charge_details # If there's an error here, then sys admins will have to manually refund the charge.
       throw e
@@ -177,7 +177,7 @@ Here are the key points to the improved code:
    there's an issue in fulfilling the order, that can be dealt with separately
    from the original charge. In other words, the customer can successfully pay
    for the order, and the store can deal with the failure to fulfill the order.
-   
+
 * RSpec Capybara Feature (Integration) Tests of UI Errors
 It's possibly more important and sometimes easier to do the verification at the
 integration level in RSpec feature specs using [[https://github.com/jnicklas/capybara][Capybara]] with [[http://phantomjs.org/][PhantomJs]] and
@@ -194,7 +194,7 @@ I tend to develop such a test in an iterative manner:
    an error at an opportune time.
    #+BEGIN_SRC ruby
      Order.any_instance.stub(:fulfill_order) { raise ArgumentError, "test error" }
-   #+END_SRC 
+   #+END_SRC
 3. Allow the test cases to fail, and put in screen shots (in Capybara with
    phantomjs, that looks like this:
    #+BEGIN_SRC ruby
@@ -205,19 +205,19 @@ I tend to develop such a test in an iterative manner:
    def render_page name
      path = File.join Rails.application.config.integration_test_render_dir, "#{name}.png"
      page.driver.render(path)
-   end 
+   end
    #+END_SRC
 4. Put in some assertions that the page shows the correct error and the records
    in the database have the right values.
-5. You can even 
-  
+5. You can even
+
 Here's an example that tests a failure of the Stripe payment API, including
 verification that an email was sent signifying an error:
 
 #+BEGIN_SRC ruby
   # using gem vcr to record http communication for faster performance
   let(:order) { create :order } # lots of setup in factory girl for non-purchased order
-  
+
   scenario "Purchase cart, Strip payment error", :vcr do
     # Setup the stub -- the secret sauce to this test
     error_content = "Testing error handling exception message"
