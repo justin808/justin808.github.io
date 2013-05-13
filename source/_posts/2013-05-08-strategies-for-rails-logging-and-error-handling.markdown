@@ -34,6 +34,11 @@ wrong in production. It's even worse if:
 Here's some tips on logging setup and error handling, including a utility
 method to log the stack trace and send an email.
 </p>
+<p>
+The next article,
+<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>, will show you how to verify that your error handling strategy
+is properly implemented, includind with rspec tests.
+</p>
 
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -48,6 +53,7 @@ method to log the stack trace and send an email.
 </ul>
 </li>
 <li><a href="#sec-2">2 Strategy: Error Handling and Logging</a></li>
+<li><a href="#sec-3">3 Verification and Testing</a></li>
 </ul>
 </div>
 </div>
@@ -238,6 +244,18 @@ end
 </ol>
 
 
+</div>
 
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Verification and Testing</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>The next article,
+<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>, will show you how to verify that your error handling strategy
+is properly implemented, and how to add rspec unit and functional tests on error
+handling.
+</p>
 </div>
 </div>
