@@ -27,7 +27,12 @@ wrong in production. It's even worse if:
 
 Here's some tips on logging setup and error handling, including a utility
 method to log the stack trace and send an email.
-   
+
+The next article,
+[[http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/][Testing
+Error Handling]], will show you how to verify that your error handling strategy
+is properly implemented, includind with rspec tests.
+
 * Log Setup
 ** Notification of any Exceptions via Email with Gem exception_notification
 Check out the gem [[http://smartinez87.github.io/exception_notification/][exception_notification]]. It works great. One things the docs
@@ -148,4 +153,10 @@ end
 8. The worst scenario is catching an exception and failing to log any messages.
    This can make troubleshooting a problem very tricky.
  
+* Verification and Testing
+The next article,
+[[http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/][Testing
+Error Handling]], will show you how to verify that your error handling strategy
+is properly implemented, and how to add rspec unit and functional tests on error
+handling.
    
