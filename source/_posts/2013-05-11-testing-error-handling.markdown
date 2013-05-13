@@ -164,7 +164,7 @@ Then go into the UI and test placing an order. Consider the following questions:
 
 
 <p>
-See my prior article <a href="http:/blog/2013/05/08/saner-rails-logging/">Saner Rails Logging</a> for the answers to #2 and #3.
+See my prior article <a href="../blog/2013/05/08/saner-rails-logging/">Saner Rails Logging</a> for the answers to #2 and #3.
 </p>
 <p>
 By applying this technique to each of the components of completing a purchase,
@@ -244,7 +244,7 @@ Here are the key points to the improved code:
 </p><ol>
 <li>There's a block to catch the exception which is <i>separate from the    transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
    being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
-   that all the right things happen with this sort of error (see <a href="http:/blog/2013/05/08/saner-rails-logging/">code for Utlity.logException</a>).
+   that all the right things happen with this sort of error (see <a href="../blog/2013/05/08/saner-rails-logging/">code for Utlity.logException</a>).
 </li>
 <li>fulfill_order is moved outside of the transaction block. This allows the
    transaction to complete, and then the order_fulfillment takes place. If
