@@ -33,7 +33,6 @@ monolithic.
 I like [[https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown][Rob Dodson's summary]] (noting Org Mode plus Emacs):
 
 #+begin_html
-
 > [Octopress](http://octopress.org/) is a blogging framework written by [Brandon Mathis](http://brandonmathis.com/)
 ([@imathis](https://twitter.com/#!/imathis)) which sits on top of [Jekyll](https://github.com/mojombo/jekyll). Jekyll is
 a static site generator, meaning there's no database associated with your blog. Instead of writing everything in a
@@ -45,7 +44,6 @@ syntax it's incredibly fast and you don't have to spend time playing with a tiny
 everything in [Sublime Text 2](http://www.sublimetext.com/2) [*Emacs* for Justin] and every day I discover new tricks to make the process
 better. If you've ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
 this feature. And lastly, static HTML is *fast*.
-
 #+end_html
 
 I found it totally neat that I could embed markdown inside the org-mode
@@ -218,18 +216,25 @@ Here are the basic steps:
    octopress =img= directive within a HTML begin/end block.
 
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
-5. Links to other pages or posts require using something like this. The trick
-   is that you have to specify =http:= and place the =html= file suffix type.
-   Also note using one slash at the beginning for an absolute path.
+5. Links to other pages or posts require a relative file path. 
+   Links for relative pages are simple. 
    #+BEGIN_EXAMPLE
-   [[http:/about/some_details.html][Some Details]]  
+   [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]].
    #+END_EXAMPLE
+   However, the big gotcha is blog posts due to the nested URL structure that
+   does not map to the where you're putting your org-posts. You need to follow a
+   format as this example shows. It's easiest to copy the =/blog/...= part from
+   the browser address bar.
+   #+BEGIN_EXAMPLE
+   [[file:../blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]] discussed some techniques to
+   #+END_EXAMPLE
+   Note, I had first tried to use =http:= rather than =file:=, and using a the =html= file suffix
+   type. This actually worked on Chrome, but that did not work on mobile Safari.
 6. Bold styling was a bit of mystery using the standard theme. I had to add
    this line to _typography.scss:
    #+BEGIN_SRC css
    b { font-weight: bold; }
    #+END_SRC
-
 
 * Useful Scripts
 + Just configure =OCTO_HOME=

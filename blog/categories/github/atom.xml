@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com/"/>
-  <updated>2013-05-12T16:27:24-10:00</updated>
+  <updated>2013-05-12T17:19:41-10:00</updated>
   <id>http://www.railsonmaui.com/</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -412,16 +412,29 @@ Here are the basic steps:
 <p>
    <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
 </p></li>
-<li>Links to other pages or posts require using something like this. The trick
-   is that you have to specify <code>http:</code> and place the <code>html</code> file suffix type.
-   Also note using one slash at the beginning for an absolute path.
+<li>Links to other pages or posts require a relative file path. 
+   Links for relative pages are simple. 
 
 
 
-<pre class="example">[[http:/about/some_details.html][Some Details]]  
+<pre class="example">[[file:telecommuting.html][Why telecommuting works and how I maximize productivity]].
 </pre>
 
-</li>
+<p>
+   However, the big gotcha is blog posts due to the nested URL structure that
+   does not map to the where you're putting your org-posts. You need to follow a
+   format as this example shows. It's easiest to copy the <code>/blog/...</code> part from
+   the browser address bar.
+</p>
+
+
+<pre class="example">[[file:../blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]] discussed some techniques to
+</pre>
+
+<p>
+   Note, I had first tried to use <code>http:</code> rather than <code>file:</code>, and using a the <code>html</code> file suffix
+   type. This actually worked on Chrome, but that did not work on mobile Safari.
+</p></li>
 <li>Bold styling was a bit of mystery using the standard theme. I had to add
    this line to _typography.scss:
 </li>
@@ -431,7 +444,6 @@ Here are the basic steps:
 <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-
 
 </div>
 </div>
