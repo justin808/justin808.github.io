@@ -32,3 +32,9 @@ Initial setup: [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mod
 
 * Displaying Categories in Navigation Bar
   + [[http://vigodome.com/blog/2011/12/22/show-categories-and-post-count-in-octopress/][Show Categories and Post Count in Octopress]]
+
+
+
+* Validating Links
+  + You want to do something like this: [[http://validator.w3.org/check?verbose=1&uri=http://www.railsonmaui.com/]]
+  + Very useful for finding broken links.
