@@ -41,7 +41,7 @@ Initial setup: <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-m
 </li>
 <li>Details: <a href="http://jason.the-graham.com/2010/11/21/kramdown_support_for_jekyll/">Kramdown Support for Jekyll</a>
 </li>
-<li><code>parse_block_html</code> is not passed to kramdown. <a href="https://github.com/mojombo/jekyll/issues/1095">Issue on Github</a>
+<li>parse_block_html is not passed to kramdown. <a href="https://github.com/mojombo/jekyll/issues/1095">Issue on Github</a>
 </li>
 </ul>
 
@@ -54,8 +54,18 @@ Initial setup: <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-m
   kramdown:
     parse_block_html: true # default for kramdown is false. This will enable using Markdown links
 {% endcodeblock %}
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Displaying Categories in Navigation Bar</h2>
+<div class="outline-text-2" id="text-3">
+
 <ul>
-<li>Kramdown option for parse_block_html
+<li><a href="http://vigodome.com/blog/2011/12/22/show-categories-and-post-count-in-octopress/">Show Categories and Post Count in Octopress</a>
 </li>
 </ul>
 

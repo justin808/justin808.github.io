@@ -28,3 +28,7 @@ Initial setup: [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mod
   kramdown:
     parse_block_html: true # default for kramdown is false. This will enable using Markdown links
   #+END_SRC
+
+
+* Displaying Categories in Navigation Bar
+  + [[http://vigodome.com/blog/2011/12/22/show-categories-and-post-count-in-octopress/][Show Categories and Post Count in Octopress]]
