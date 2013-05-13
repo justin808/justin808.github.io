@@ -22,7 +22,7 @@ creative thoughts so much more enjoyable.
 So I bit the bullet one weekend, and dove into [[http://octopress.org/][Octopress]]. You're looking at the
 results of this endeavor, including my first Octopress article, and the latest
 tips on recreating this sort of blog using Octopress with Org Mode authoring,
-using LiveReload, and deployed at no charge on github.com. 
+using LiveReload, and deployed at no charge on github.com.
 
 If you used to writing real web applications, rather than know the intricacies
 of a giant monolithic blogging platform, then the [[http://octopress.org/docs/theme/template/][customization of Octopress]]
@@ -57,7 +57,7 @@ This article should be useful for:
   4. Anybody curious about how using free github pages works to host Octopress.
 
 * Basic setup
-1. [[%20http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/][Rob Dodson on Octopress]]: Start off with these instructions from this posting
+1. [[http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/][Rob Dodson on Octopress]]: Start off with these instructions from this posting
    on April 30th, 2012. There are a few differences worth noting:
    1. You may wish to change the .rvmrc to a .ruby-version file
    2. Github recommends your deployment repository be named =yourname.github.io=,
@@ -72,7 +72,7 @@ This article should be useful for:
   #+BEGIN_SRC bash
   rake new_post["my post name"]
   #+END_SRC
- 
+
   Create a page:
   #+BEGIN_SRC bash
   rake new_page["my page name"]
@@ -80,19 +80,19 @@ This article should be useful for:
 
   Generate and deploy:
   #+BEGIN_SRC bash
-  rake gen_deploy 
+  rake gen_deploy
   #+END_SRC
- 
+
   Watch the site and regenerate when it changes:
   #+BEGIN_SRC bash
-  rake watch 
+  rake watch
   #+END_SRC
-  
+
   Preview the site in a web browser:
   #+BEGIN_SRC bash
   rake preview
   #+END_SRC
-  
+
   See all the available rake options:
   #+BEGIN_SRC bash
   rake -T
@@ -123,7 +123,7 @@ things about a page are:
 
 
 
-  
+
 * POW
 POW allows you to point your browser to [[http://octopress.dev]] to see your local,
 unpublished Octopress website. It's very convenient to not have to remember to
@@ -141,7 +141,7 @@ the browser after you publish your file. This works with or without POW.
    gem 'guard'
    gem 'guard-livereload'
    #+END_SRC
-   
+
 + Create a file called =Guardfile= containing something like:
    #+BEGIN_SRC ruby
      guard 'livereload' do
@@ -149,9 +149,9 @@ the browser after you publish your file. This works with or without POW.
        watch(%r{public/.+\.(css|js|html)})
      end
    #+END_SRC
-   
+
 + Start 2 shell tabs running these commands: =rake generate && rake watch=
-   and =guard= 
+   and =guard=
    #+BEGIN_SRC bash
      > rake generate && rake watch
    #+END_SRC
@@ -216,20 +216,28 @@ Here are the basic steps:
    octopress =img= directive within a HTML begin/end block.
 
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
-5. Links to other pages or posts require a relative file path. 
-   Links for relative pages are simple. 
+5. *Links*: Links for relative pages are simple.
    #+BEGIN_EXAMPLE
-   [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]].
+   [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
    #+END_EXAMPLE
-   However, the big gotcha is blog posts due to the nested URL structure that
-   does not map to the where you're putting your org-posts. You need to follow a
-   format as this example shows. It's easiest to copy the =/blog/...= part from
-   the browser address bar.
+   Links from a /page/ to a /post/ can use a relative link like this:
    #+BEGIN_EXAMPLE
-   [[file:../blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]] discussed some techniques to
+   [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]]
+   #+END_EXAMPLE 
+   *However*, links from posts to other posts require an absolute URL. The big
+   gotcha is blog posts due to the nested URL structure that does not map to the
+   where you're putting your org-posts. To avoid trouble, you need to follow a
+   format as this example shows. It's easiest to copy the URL from the browser
+   address bar.
+   #+BEGIN_EXAMPLE
+   [[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
    #+END_EXAMPLE
-   Note, I had first tried to use =http:= rather than =file:=, and using a the =html= file suffix
-   type. This actually worked on Chrome, but that did not work on mobile Safari.
+   I tried using a =file:../blog= syntax, but that either would work on the home
+   page or in the specific blog article, but not both. =http:/blog= links would
+   work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
+   not work if the link is within a block level html tag (i.e., a paragraph).
+   Hopefully, one day we'll be able to specify relative links from blog article
+   to blog article.
 6. Bold styling was a bit of mystery using the standard theme. I had to add
    this line to _typography.scss:
    #+BEGIN_SRC css
@@ -238,7 +246,7 @@ Here are the basic steps:
 
 * Useful Scripts
 + Just configure =OCTO_HOME=
-+ Emacs tip: Visit the created file by placing cursor over file name and then hit =Ctrl-x, f=. 
++ Emacs tip: Visit the created file by placing cursor over file name and then hit =Ctrl-x, f=.
 #+BEGIN_SRC bash
 export OCTO_HOME=~/octopress
 ogen () {
@@ -258,7 +266,7 @@ opost() {
   cd $OCTO_HOME
   output=$(rake new_post["${1}"])
   new_file=$(echo $output | awk '{print $4}')
-  base=$(basename $new_file) 
+  base=$(basename $new_file)
   new_location=$OCTO_HOME/source/org_posts/
   mv $OCTO_HOME/$new_file $new_location
   echo created $new_location/$base
@@ -316,8 +324,8 @@ well as your customizations and blog posts.
    March 2013.
 2. [[http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages][Rob Dodson on Octopress]]: Most of the instructions I show below are from this
    posting on April 30th, 2012.
-3. [[http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/][Joel McCracken on Octopress]]: Use Jekyll? You Really Should Be Using Octopress 
-4. [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on setting up a custom domain]] 
+3. [[http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/][Joel McCracken on Octopress]]: Use Jekyll? You Really Should Be Using Octopress
+4. [[https://help.github.com/articles/setting-up-a-custom-domain-with-pages][Github directions on setting up a custom domain]]
 5. [[http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one][dblock.org Article on Octopress]]: A good explanation from Jan 17, 2012,
    especially on the difference of the source and master branches.
 6. [[http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/][Introducing Octopress Blogging for Org-Mode]]: For org-mode. See below.

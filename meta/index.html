@@ -106,7 +106,7 @@ Here&#8217;s a list of customizations that I applied to Octopress.
 
 
 <p>
-Initial setup: <a href="http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">Octopress Setup With Github, Org Mode, and LiveReload</a>.
+Initial setup: <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">Octopress Setup With Github, Org Mode, and LiveReload</a>.
 </p>
 
 
@@ -118,6 +118,48 @@ Initial setup: <a href="http:/blog/2013/04/27/octopress-setup-with-github-and-or
 
 <ul>
 <li><a href="https://github.com/optikfluffel/octopress-responsive-video-embed">octopress-responsive-video-embed</a>: No issues. Easy to embed youtube video.
+</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Option Configured</h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
+<li>Kramdown
+<ul>
+<li>Considering using Kramdown instead of rdiscount to enable links.
+</li>
+<li>Details: <a href="http://jason.the-graham.com/2010/11/21/kramdown_support_for_jekyll/">Kramdown Support for Jekyll</a>
+</li>
+<li><code>parse_block_html</code> is not passed to kramdown. <a href="https://github.com/mojombo/jekyll/issues/1095">Issue on Github</a>
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'>  <span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kramdown</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">kramdown</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">parse_block_html</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span> <span class="c1"># default for kramdown is false. This will enable using Markdown links</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<ul>
+<li>Kramdown option for parse_block_html
 </li>
 </ul>
 
