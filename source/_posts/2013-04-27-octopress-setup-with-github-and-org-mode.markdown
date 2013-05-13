@@ -35,7 +35,6 @@ I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/so
 </p>
 
 
-
 > [Octopress](http://octopress.org/) is a blogging framework written by [Brandon Mathis](http://brandonmathis.com/)
 ([@imathis](https://twitter.com/#!/imathis)) which sits on top of [Jekyll](https://github.com/mojombo/jekyll). Jekyll is
 a static site generator, meaning there's no database associated with your blog. Instead of writing everything in a
@@ -47,7 +46,6 @@ syntax it's incredibly fast and you don't have to spend time playing with a tiny
 everything in [Sublime Text 2](http://www.sublimetext.com/2) [*Emacs* for Justin] and every day I discover new tricks to make the process
 better. If you've ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
 this feature. And lastly, static HTML is *fast*.
-
 
 <p>
 I found it totally neat that I could embed markdown inside the org-mode
@@ -370,16 +368,29 @@ Here are the basic steps:
 <p>
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
 </p></li>
-<li>Links to other pages or posts require using something like this. The trick
-   is that you have to specify <code>http:</code> and place the <code>html</code> file suffix type.
-   Also note using one slash at the beginning for an absolute path.
+<li>Links to other pages or posts require a relative file path. 
+   Links for relative pages are simple. 
 
 
 
-<pre class="example">[[http:/about/some_details.html][Some Details]]  
+<pre class="example">[[file:telecommuting.html][Why telecommuting works and how I maximize productivity]].
 </pre>
 
-</li>
+<p>
+   However, the big gotcha is blog posts due to the nested URL structure that
+   does not map to the where you're putting your org-posts. You need to follow a
+   format as this example shows. It's easiest to copy the <code>/blog/...</code> part from
+   the browser address bar.
+</p>
+
+
+<pre class="example">[[file:../blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]] discussed some techniques to
+</pre>
+
+<p>
+   Note, I had first tried to use <code>http:</code> rather than <code>file:</code>, and using a the <code>html</code> file suffix
+   type. This actually worked on Chrome, but that did not work on mobile Safari.
+</p></li>
 <li>Bold styling was a bit of mystery using the standard theme. I had to add
    this line to _typography.scss:
 </li>
@@ -389,7 +400,6 @@ Here are the basic steps:
 {% codeblock lang:css %}
    b { font-weight: bold; }
 {% endcodeblock %}
-
 
 </div>
 </div>

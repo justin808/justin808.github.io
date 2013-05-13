@@ -12,7 +12,7 @@ published: true
 How do ensure that your application properly handles errors, especially when
 relying on third parties, such as payment processors? Is it easy to verify that
 the right things happen when the wrong things happen? Last week's article
-<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
+<a href="../blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
 setup a good error handling strategy. Here's some techniques to verify that your
 application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
@@ -372,5 +372,9 @@ can simulate errors with the very simple and quick technique of a well placed
 =raise "some error"=, and then testing in a UI. Or you might prefer the
 robustness of unit or feature tests using stubbing. Either way, the key message
 is to check how your application handles errors, before your customers do.
+</p>
+<p>
+Related Post:
+<a href="../blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a>
 </p></div>
 </div>

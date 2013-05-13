@@ -11,7 +11,7 @@ footer: true
 
 Here's a list of customizations that I applied to Octopress.
 
-Initial setup: [[http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][Octopress Setup With Github, Org Mode, and LiveReload]].
+Initial setup: [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][Octopress Setup With Github, Org Mode, and LiveReload]].
 
 
 * Plugins Installed
