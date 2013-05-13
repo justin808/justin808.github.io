@@ -9,7 +9,7 @@ footer: true
 <p>
 Justin has been passionately writing software since 1985, focusing on Java since
 1996 at several startups and with Ruby on Rails the past couple of years. This
-blog is created using Octopress, as described <a href="http:/blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">here</a>.
+blog is created using Octopress, as described <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">here</a>.
 </p>
 <blockquote>
 
