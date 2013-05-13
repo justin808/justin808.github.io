@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Testing Error Handling of Payment Processing: Unit and Integration - Rails on Maui</title>
+  <title>Testing Error Handling - Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
   <meta name="description" content="Clean logging and error handling is a critical aspect of a RoR app.">
-  <meta name="keywords" content="Ruby on Rails, Exceptions, Logging">
+  <meta name="keywords" content="Ruby on Rails, Exceptions, Logging, rspec, capybara, phantomjs">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-conditions-in-payment-processing">
+  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -85,7 +85,7 @@
   
   <header>
     
-      <h1 class="entry-title">Testing Error Handling of Payment Processing: Unit and Integration</h1>
+      <h1 class="entry-title">Testing Error Handling</h1>
     
     
       <p class="meta">
@@ -114,7 +114,7 @@
 How do ensure that your application properly handles errors, especially when
 relying on third parties, such as payment processors? Is it easy to verify that
 the right things happen when the wrong things happen? Last week&#8217;s article
-<a href="http:/blog/2013/05/08/saner-rails-logging/">Strategies for Rails Logging and Error Handling </a> discussed some techniques to
+<a href="../../08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
 setup a good error handling strategy. Here&#8217;s some techniques to verify that your
 application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
@@ -295,7 +295,7 @@ Then go into the UI and test placing an order. Consider the following questions:
 </li>
 <li>Was the right information logged at the correct log level?
 </li>
-<li>Was an automatic email sent regarding the error? 
+<li>Was an automatic email sent regarding the error?
 </li>
 </ol>
 
@@ -501,12 +501,12 @@ I tend to develop such a test in an iterative manner:
 <li>Put in some assertions that the page shows the correct error and the records
    in the database have the right values.
 </li>
-<li>You can even 
+<li>You can even
 </li>
 </ol>
 
 
-<p>  
+<p>
 Here&#8217;s an example that tests a failure of the Stripe payment API, including
 verification that an email was sent signifying an error:
 </p>
@@ -635,7 +635,7 @@ is to check how your application handles errors, before your customers do.
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/error-handling/'>Error Handling</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
+    <a class='category' href='/blog/categories/error-handling/'>Error Handling</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/capybara/'>capybara</a>, <a class='category' href='/blog/categories/rspec/'>rspec</a>
   
 </span>
 
@@ -644,7 +644,7 @@ is to check how your application handles errors, before your customers do.
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com/blog/2013/05/11/testing-error-conditions-in-payment-processing/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com/blog/2013/05/11/testing-error-conditions-in-payment-processing/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -657,10 +657,8 @@ is to check how your application handles errors, before your customers do.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/" title="Previous Post: Strategies for Rails Logging and Error Handling">&laquo; Strategies for Rails Logging and Error Handling</a>
+        <a class="basic-alignment left" href="/blog/2013/05/11/testing-error-conditions-in-payment-processing/" title="Previous Post: Testing Error Handling of Payment Processing: Unit and Integration">&laquo; Testing Error Handling of Payment Processing: Unit and Integration</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/05/11/testing-error-handling/" title="Next Post: Testing Error Handling">Testing Error Handling &raquo;</a>
       
     </p>
   </footer>
@@ -789,8 +787,8 @@ is to check how your application handles errors, before your customers do.
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.railsonmaui.com/blog/2013/05/11/testing-error-conditions-in-payment-processing/';
-        var disqus_url = 'http://www.railsonmaui.com/blog/2013/05/11/testing-error-conditions-in-payment-processing/';
+        var disqus_identifier = 'http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/';
+        var disqus_url = 'http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/';
         var disqus_script = 'embed.js';
       
     (function () {
