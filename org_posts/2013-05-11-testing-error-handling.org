@@ -167,6 +167,7 @@ end
 #+END_SRC
 
 Here are the key points to the improved code:
+
 1. There's a block to catch the exception which is /separate from the
    transaction block/. The =rescue= properly handles the case of an a charge
    being made and needing to be refunded. =Utility.log_exception= will ensure

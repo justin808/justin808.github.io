@@ -2,70 +2,74 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>
-            http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode/
+            http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/
         </loc>
-        <lastmod>2013-05-12T22:53:27-10:00</lastmod>
+        <lastmod>2013-05-13T00:06:03-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/blog/2013/05/07/buying-apple-products-with-amex/</loc>
+        <loc>http://www.railsonmaui.com//blog/2013/05/07/buying-apple-products-with-amex/</loc>
         <lastmod>2013-05-07T23:01:42-10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
+            http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
         </loc>
         <lastmod>2013-05-12T22:41:05-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/</loc>
-        <lastmod>2013-05-12T22:41:04-10:00</lastmod>
+        <loc>http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/</loc>
+        <lastmod>2013-05-13T00:05:32-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/about/about-justin-gordon-programming.html</loc>
+        <loc>http://www.railsonmaui.com//about/about-justin-gordon-programming.html</loc>
         <lastmod>2013-05-07T12:39:16-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/about/</loc>
+        <loc>http://www.railsonmaui.com//about/</loc>
         <lastmod>2013-05-12T22:43:07-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/about/justin-gordon-resume-1990s.html</loc>
+        <loc>http://www.railsonmaui.com//about/justin-gordon-resume-1990s.html</loc>
         <lastmod>2013-05-07T00:56:13-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/about/justin-gordon-resume.html</loc>
+        <loc>http://www.railsonmaui.com//about/justin-gordon-resume.html</loc>
         <lastmod>2013-05-07T01:08:21-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/about/telecommuting.html</loc>
+        <loc>http://www.railsonmaui.com//about/telecommuting.html</loc>
         <lastmod>2013-05-08T00:16:33-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/blog/archives/</loc>
-        <lastmod>2013-05-12T22:53:27-10:00</lastmod>
+        <loc>http://www.railsonmaui.com//blog/archives/</loc>
+        <lastmod>2013-05-13T00:06:03-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/</loc>
-        <lastmod>2013-05-12T22:53:27-10:00</lastmod>
+        <loc>http://www.railsonmaui.com//blog/categories.html</loc>
+        <lastmod>2013-05-12T23:59:56-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/meta/</loc>
-        <lastmod>2013-05-12T22:41:55-10:00</lastmod>
+        <loc>http://www.railsonmaui.com//</loc>
+        <lastmod>2013-05-13T00:06:03-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/robots.txt</loc>
+        <loc>http://www.railsonmaui.com//meta/</loc>
+        <lastmod>2013-05-13T00:07:38-10:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.railsonmaui.com//robots.txt</loc>
         <lastmod>2013-04-27T20:14:46-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/tips/</loc>
+        <loc>http://www.railsonmaui.com//tips/</loc>
         <lastmod>2013-05-11T00:01:49-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/tips/renaming-redating-blog-posts.html</loc>
+        <loc>http://www.railsonmaui.com//tips/renaming-redating-blog-posts.html</loc>
         <lastmod>2013-05-11T00:09:16-10:00</lastmod>
     </url>
     <url>
-        <loc>http://www.railsonmaui.com/tips/rubymine.html</loc>
+        <loc>http://www.railsonmaui.com//tips/rubymine.html</loc>
         <lastmod>2013-05-08T12:23:02-10:00</lastmod>
     </url>
 </urlset>

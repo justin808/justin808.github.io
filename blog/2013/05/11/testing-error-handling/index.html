@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling">
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -64,17 +64,18 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:www.railsonmaui.com" />
+    <input type="hidden" name="q" value="site:www.railsonmaui.com/" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/tips">Tips</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/meta">Meta</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="/blog/categories.html">Categories</a></li>
+  <li><a href="/tips/">Tips</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/meta/">Meta</a></li>
 </ul>
 
 </nav>
@@ -271,7 +272,7 @@ might raise a specific error, if say your payment processor throws a specific
 type of error.
 </p>
 <p>
-For the above example, the different methods referenced, such as <code>process_order</code>
+For the above example, the different methods referenced, such as process_order
 can get modified with a single line at the beginning, which would be:
 </p>
 
@@ -322,7 +323,7 @@ handling.
 <h2 id="sec-5">RSpec Unit Testing of Errors</h2>
 <div class="outline-text-2" id="text-5">
 
-<p>It turns out that with stubbing in <code>rspec</code>, it&#8217;s easy to test error handling!
+<p>It turns out that with stubbing in rspec, it&#8217;s easy to test error handling!
 <a href="https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs">RSpec provides a nice mocking library</a>. The test code would look something like
 this. Pay attention to the call to <b>stub</b>.
 </p>
@@ -422,9 +423,10 @@ Here&#8217;s an improved version of the Order#payment_method above:
 
 
 Here are the key points to the improved code:
-</p><ol>
-<li>There&#8217;s a block to catch the exception which is <i>separate from the    transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
-   being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
+</p>
+<ol>
+<li>There&#8217;s a block to catch the exception which is <i>separate from the    transaction block</i>. The rescue properly handles the case of an a charge
+   being made and needing to be refunded. Utility.log_exception will ensure
    that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for Utlity.logException</a>).
 </li>
 <li>fulfill_order is moved outside of the transaction block. This allows the
@@ -485,7 +487,7 @@ I tend to develop such a test in an iterative manner:
 </span></code></pre></td></tr></table></div></figure>
 
 <p>
-   Setup this method <code>render_page</code> in a spec helper file like this:
+   Setup this method render_page in a spec helper file like this:
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -648,7 +650,7 @@ Related Post:
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -787,8 +789,8 @@ Related Post:
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/';
-        var disqus_url = 'http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/';
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/';
         var disqus_script = 'embed.js';
       
     (function () {

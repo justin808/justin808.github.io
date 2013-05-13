@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mac | Rails on Maui]]></title>
-  <link href="http://www.railsonmaui.com/blog/categories/mac/atom.xml" rel="self"/>
-  <link href="http://www.railsonmaui.com/"/>
-  <updated>2013-05-12T22:54:22-10:00</updated>
-  <id>http://www.railsonmaui.com/</id>
+  <link href="http://www.railsonmaui.com//blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://www.railsonmaui.com//"/>
+  <updated>2013-05-13T00:09:13-10:00</updated>
+  <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
     <email><![CDATA[justin.gordon@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Buy Apple Products with American Express]]></title>
-    <link href="http://www.railsonmaui.com/blog/2013/05/07/buying-apple-products-with-amex/"/>
+    <link href="http://www.railsonmaui.com//blog/2013/05/07/buying-apple-products-with-amex/"/>
     <updated>2013-05-07T21:53:00-10:00</updated>
-    <id>http://www.railsonmaui.com/blog/2013/05/07/buying-apple-products-with-amex</id>
+    <id>http://www.railsonmaui.com//blog/2013/05/07/buying-apple-products-with-amex</id>
     <content type="html"><![CDATA[<p>
 Here's a few tips on buying Apple gear and credit card extended warranties. The
 bottom line is:

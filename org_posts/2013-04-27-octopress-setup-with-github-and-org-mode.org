@@ -4,7 +4,7 @@ layout: post
 title: "Octopress Setup with Github, Org Mode, and LiveReload"
 date: 2013-04-27 22:46
 comments: true
-categories: [Octopress, github, org-mode]
+categories: [Octopress, org-mode]
 keywords: octopress, github, org-mode, Emacs, livereload
 description: Installing Octopress with github hosting, Org Mode markup, and Live-Reload
 ---
@@ -16,7 +16,7 @@ Markdown mode on steroids. You can have a numbered list in Markdown, but
 org-mode lets you re-order the list, and that's just the beginning. Editing blog
 documents in the WordPress editor felt almost as bad as being told to use MS
 Word. I found that ergonomics of Org Mode, including all the goodness of recent
-versions of [[http://www.gnu.org/software/emacs/][Emacs]], including [[http://emacswiki.org/emacs/Evil][Evil]] (Vim emulation), just made organization of
+versions of [[http://www.gnu.org/software/emacs/][Emacs]], including [[http://www.emacswiki.org/emacs/Evil][Evil]] (Vim emulation), just made organization of
 creative thoughts so much more enjoyable.
 
 So I bit the bullet one weekend, and dove into [[http://octopress.org/][Octopress]]. You're looking at the
