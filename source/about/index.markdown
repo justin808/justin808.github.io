@@ -25,7 +25,7 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 <div class="outline-text-2" id="text-1">
 
 <ul>
-<li>I <del>like</del> love to program. Here's a narrative of <a href="about-justin-gordon-programming.html">Justin's years tinkering with computers</a>. 
+<li>I <del>like</del> love to program. Here's a narrative of <a href="about-justin-gordon-programming.html">Justin's years tinkering with computers</a>.
 </li>
 <li><a href="justin-gordon-resume.html">My resume</a>.
 </li>

@@ -16,3 +16,15 @@ Initial setup: [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mod
 
 * Plugins Installed
 + [[https://github.com/optikfluffel/octopress-responsive-video-embed][octopress-responsive-video-embed]]: No issues. Easy to embed youtube video.
+
+
+* Option Configured
++ Kramdown
+  + Considering using Kramdown instead of rdiscount to enable links.
+  + Details: [[http://jason.the-graham.com/2010/11/21/kramdown_support_for_jekyll/][Kramdown Support for Jekyll]]
+  + =parse_block_html= is not passed to kramdown. [[https://github.com/mojombo/jekyll/issues/1095][Issue on Github]]
+  #+BEGIN_SRC yaml
+  markdown: kramdown
+  kramdown:
+    parse_block_html: true # default for kramdown is false. This will enable using Markdown links
+  #+END_SRC

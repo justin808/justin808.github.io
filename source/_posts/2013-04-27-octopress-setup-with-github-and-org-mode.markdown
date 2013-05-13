@@ -21,7 +21,7 @@ creative thoughts so much more enjoyable.
 So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You're looking at the
 results of this endeavor, including my first Octopress article, and the latest
 tips on recreating this sort of blog using Octopress with Org Mode authoring,
-using LiveReload, and deployed at no charge on github.com. 
+using LiveReload, and deployed at no charge on github.com.
 </p>
 <p>
 If you used to writing real web applications, rather than know the intricacies
@@ -99,7 +99,7 @@ This article should be useful for:
 <div class="outline-text-2" id="text-1">
 
 <ol>
-<li><a href="#http-robdodson.me-blog-2012-04-30-custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
+<li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
    on April 30th, 2012. There are a few differences worth noting:
 <ol>
 <li>You may wish to change the .rvmrc to a .ruby-version file
@@ -126,7 +126,7 @@ This article should be useful for:
   rake new_post["my post name"]
 {% endcodeblock %}
 
-<p> 
+<p>
   Create a page:
 {% codeblock lang:bash %}
   rake new_page["my page name"]
@@ -134,22 +134,19 @@ This article should be useful for:
 
   Generate and deploy:
 {% codeblock lang:bash %}
-  rake gen_deploy 
+  rake gen_deploy
 {% endcodeblock %}
-</p>
-<p> 
+
   Watch the site and regenerate when it changes:
 {% codeblock lang:bash %}
-  rake watch 
+  rake watch
 {% endcodeblock %}
-</p>
-<p>  
+
   Preview the site in a web browser:
 {% codeblock lang:bash %}
   rake preview
 {% endcodeblock %}
-</p>
-<p>  
+
   See all the available rake options:
 {% codeblock lang:bash %}
   rake -T
@@ -263,7 +260,7 @@ the browser after you publish your file. This works with or without POW.
 
 <ul>
 <li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
-   and <code>guard</code> 
+   and <code>guard</code>
 </li>
 </ul>
 
@@ -368,28 +365,40 @@ Here are the basic steps:
 <p>
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
 </p></li>
-<li>Links to other pages or posts require a relative file path. 
-   Links for relative pages are simple. 
+<li><b>Links</b>: Links for relative pages are simple.
 
 
 
-<pre class="example">[[file:telecommuting.html][Why telecommuting works and how I maximize productivity]].
+<pre class="example">[[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
 </pre>
 
 <p>
-   However, the big gotcha is blog posts due to the nested URL structure that
-   does not map to the where you're putting your org-posts. You need to follow a
-   format as this example shows. It's easiest to copy the <code>/blog/...</code> part from
-   the browser address bar.
+   Links from a <i>page</i> to a <i>post</i> can use a relative link like this:
 </p>
 
 
-<pre class="example">[[file:../blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]] discussed some techniques to
+<pre class="example">[[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]]
 </pre>
 
 <p>
-   Note, I had first tried to use <code>http:</code> rather than <code>file:</code>, and using a the <code>html</code> file suffix
-   type. This actually worked on Chrome, but that did not work on mobile Safari.
+   <b>However</b>, links from posts to other posts require an absolute URL. The big
+   gotcha is blog posts due to the nested URL structure that does not map to the
+   where you're putting your org-posts. To avoid trouble, you need to follow a
+   format as this example shows. It's easiest to copy the URL from the browser
+   address bar.
+</p>
+
+
+<pre class="example">[[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
+</pre>
+
+<p>
+   I tried using a <code>file:../blog</code> syntax, but that either would work on the home
+   page or in the specific blog article, but not both. <code>http:/blog</code> links would
+   work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
+   not work if the link is within a block level html tag (i.e., a paragraph).
+   Hopefully, one day we'll be able to specify relative links from blog article
+   to blog article.
 </p></li>
 <li>Bold styling was a bit of mystery using the standard theme. I had to add
    this line to _typography.scss:
@@ -413,7 +422,7 @@ Here are the basic steps:
 <ul>
 <li>Just configure <code>OCTO_HOME</code>
 </li>
-<li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>. 
+<li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>.
 </li>
 </ul>
 
@@ -437,7 +446,7 @@ opost() {
   cd $OCTO_HOME
   output=$(rake new_post["${1}"])
   new_file=$(echo $output | awk '{print $4}')
-  base=$(basename $new_file) 
+  base=$(basename $new_file)
   new_location=$OCTO_HOME/source/org_posts/
   mv $OCTO_HOME/$new_file $new_location
   echo created $new_location/$base
@@ -516,9 +525,9 @@ well as your customizations and blog posts.
 <li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
    posting on April 30th, 2012.
 </li>
-<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>: Use Jekyll? You Really Should Be Using Octopress 
+<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>: Use Jekyll? You Really Should Be Using Octopress
 </li>
-<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a> 
+<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a>
 </li>
 <li><a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">dblock.org Article on Octopress</a>: A good explanation from Jan 17, 2012,
    especially on the difference of the source and master branches.
