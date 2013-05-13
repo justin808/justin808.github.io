@@ -69,5 +69,23 @@ Initial setup: <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-m
 </li>
 </ul>
 
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Validating Links</h2>
+<div class="outline-text-2" id="text-4">
+
+<ul>
+<li>You want to do something like this: <a href="http://validator.w3.org/check?verbose=1&amp;uri=http://www.railsonmaui.com/">http://validator.w3.org/check?verbose=1&amp;uri=http://www.railsonmaui.com/</a>
+</li>
+<li>Very useful for finding broken links.
+</li>
+</ul>
+
 </div>
 </div>
