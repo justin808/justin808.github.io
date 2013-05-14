@@ -30,7 +30,7 @@ new_page_ext    = "org"  # default new page file extension when using the new_pa
 org_posts_dir   = "org_posts"
 server_port     = "4001"      # port for preview server eg. localhost:4000
 org_posts_dir   = "org_posts"
-
+exclude         = ["org_posts", "*.org"] # we don't want to generate any jekyll files from here. This works for posts. Issue is for pages, every save will generate the website
 
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
