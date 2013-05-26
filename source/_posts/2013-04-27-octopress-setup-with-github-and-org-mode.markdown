@@ -374,7 +374,7 @@ Here are the basic steps:
    Hopefully, one day we'll be able to specify relative links from blog article
    to blog article.
 </p></li>
-<li>Bold styling was a bit of mystery using the standard theme. I had to add
+<li>Bold styling (text inside of stars) was a bit of mystery using the standard theme. I had to add
    this line to _typography.scss:
 </li>
 </ol>
@@ -383,13 +383,9 @@ Here are the basic steps:
 {% codeblock lang:css %}
    b { font-weight: bold; }
 {% endcodeblock %}
-<ol>
-<li>Code styling (<code>like this</code>) did not work after a code block unless I added
+<p>
+   Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
    the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
-</li>
-</ol>
-
-
 {% codeblock lang:css %}
    // Sometimes html gen by org-mode misses p or li tags
    div, p, li {
@@ -397,7 +393,7 @@ Here are the basic steps:
        @extend .mono;
 {% endcodeblock %}
 
-</div>
+</p></div>
 </div>
 
 </div>
