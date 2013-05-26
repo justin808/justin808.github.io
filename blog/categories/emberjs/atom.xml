@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emberjs | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/emberjs/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-25T15:47:18-10:00</updated>
+  <updated>2013-05-25T15:49:24-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Getting Started wtih Discourse]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/25/getting-started-wtih-discourse/"/>
+    <title type="html"><![CDATA[Getting Started with Discourse]]></title>
+    <link href="http://www.railsonmaui.com//blog/2013/05/25/getting-started-with-discourse/"/>
     <updated>2013-05-25T13:24:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/25/getting-started-wtih-discourse</id>
+    <id>http://www.railsonmaui.com//blog/2013/05/25/getting-started-with-discourse</id>
     <content type="html"><![CDATA[<p>
 Looking for a great open source example of a <i>production quality</i>
 rails, emberjs, and single-page-application project? Check out <a href="https://github.com/discourse/discourse">Discourse</a>.
