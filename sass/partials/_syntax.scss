@@ -97,7 +97,8 @@ h3.filename {
   + pre { @include border-top-radius(0px); }
 }
 
-p, li {
+// Sometimes html gen by org-mode misses p or li tags
+div, p, li {
   code {
     @extend .mono;
     display: inline-block;
@@ -213,7 +214,7 @@ pre, .highlight, .gist-highlight {
   &::-webkit-scrollbar-thumb:horizontal { background: $solar-scroll-thumb;  -webkit-border-radius: 4px; border-radius: 4px }
 }
 
-.highlight code { 
+.highlight code {
   @extend .pre-code; background: #000;
 }
 figure.code {
