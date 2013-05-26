@@ -244,6 +244,14 @@ Here are the basic steps:
    #+BEGIN_SRC css
    b { font-weight: bold; }
    #+END_SRC
+7. Code styling (=like this=) did not work after a code block unless I added
+   the =div= tag to this line around 100 in =_syntax.scss=
+   #+BEGIN_SRC css
+   // Sometimes html gen by org-mode misses p or li tags
+   div, p, li {
+     code {
+       @extend .mono;
+   #+END_SRC
 
 * Useful Scripts
 + Just configure =OCTO_HOME=

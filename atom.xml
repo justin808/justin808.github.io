@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-25T15:06:21-10:00</updated>
+  <updated>2013-05-25T15:36:24-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -101,6 +101,8 @@ sure that you run the postgres instructions for <a href="https://github.com/disc
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
 </span></code></pre></td></tr></table></div></figure>
 
+
+
 The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
 rather some tiny bit of &#8220;seed&#8221; data (like post action types).
 </p>
@@ -145,7 +147,11 @@ open up two tabs. Cd each to the disource directory.
 </span></code></pre></td></tr></table></div></figure>
 
 
+
 Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
+</p>
+
+
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -156,8 +162,9 @@ Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>P
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>
 If you got this working, you&#8217;ll see this:
-<img src="http://www.railsonmaui.com//images/2013-05-25-getting-started-wtih-discourse/discourse-installed.jpg">
+<img src="http://www.railsonmaui.com//images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png">
 </p>
 
 </div>
@@ -1627,6 +1634,24 @@ Here are the basic steps:
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<ol>
+<li>Code styling (<code>like this</code>) did not work after a code block unless I added
+   the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
+</li>
+</ol>
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span>
+</span><span class='line'>   <span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
+</span><span class='line'>     <span class="n">code</span> <span class="err">{</span>
+</span><span class='line'>       <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 

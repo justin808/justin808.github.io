@@ -194,6 +194,8 @@ sure that you run the postgres instructions for <a href="https://github.com/disc
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
 </span></code></pre></td></tr></table></div></figure>
 
+
+
 The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
 rather some tiny bit of &#8220;seed&#8221; data (like post action types).
 </p>
@@ -238,7 +240,11 @@ open up two tabs. Cd each to the disource directory.
 </span></code></pre></td></tr></table></div></figure>
 
 
+
 Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
+</p>
+
+
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -249,8 +255,9 @@ Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>P
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>
 If you got this working, you&#8217;ll see this:
-<img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.jpg">
+<img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png">
 </p>
 
 </div>

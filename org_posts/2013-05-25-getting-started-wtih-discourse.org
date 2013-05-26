@@ -50,6 +50,8 @@ database]], rather than using the rake task. Then you can install the seed data:
 #+BEGIN_SRC bash
 psql -d discourse_development < pg_dumps/development-image.sql
 #+END_SRC
+
+
 The rake task to do =rake db:seed_fu= does not install the sample data, but
 rather some tiny bit of "seed" data (like post action types).
 
@@ -80,7 +82,9 @@ bundle exec sidekiq
 bundle exec clockwork config/clock.rb
 #+END_SRC
 
+
 Or, install foreman (=gem install foreman=) and run (runs the =Procfile=).
+
 #+BEGIN_SRC bash
 export PORT=3000
 export RAILS_ENV=development
@@ -88,7 +92,7 @@ foreman start
 #+END_SRC
 
 If you got this working, you'll see this:
-{% img /images/2013-05-25-getting-started-wtih-discourse/discourse-installed.jpg %}
+{% img /images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png %}
 
 
 * Links

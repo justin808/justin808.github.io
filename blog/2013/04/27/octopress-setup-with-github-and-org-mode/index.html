@@ -540,6 +540,24 @@ Here are the basic steps:
 </pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
+<ol>
+<li>Code styling (<code>like this</code>) did not work after a code block unless I added
+   the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
+</li>
+</ol>
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span>
+</span><span class='line'>   <span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
+</span><span class='line'>     <span class="n">code</span> <span class="err">{</span>
+</span><span class='line'>       <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 </div>
 </div>

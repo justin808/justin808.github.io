@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emberjs | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/emberjs/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-25T15:06:21-10:00</updated>
+  <updated>2013-05-25T15:36:24-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -99,6 +99,8 @@ sure that you run the postgres instructions for <a href="https://github.com/disc
 <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
 The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
 rather some tiny bit of "seed" data (like post action types).
 </p>
@@ -135,7 +137,11 @@ open up two tabs. Cd each to the disource directory.
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>clockwork config/clock.rb
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
+
 Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
+</p>
+
+
 <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -144,8 +150,9 @@ Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>P
 </span><span class='line'>foreman start
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p>
 If you got this working, you'll see this:
-<img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.jpg">
+<img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png">
 </p>
 
 </div>
