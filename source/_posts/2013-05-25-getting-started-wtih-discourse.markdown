@@ -45,7 +45,7 @@ and run it. I just did that and I'm impressed.
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Why Explore (Hack on?) Discourse's Source?</h2>
+<h2 id="sec-2">Why Explore Discourse's Source?</h2>
 <div class="outline-text-2" id="text-2">
 
 <ol>
