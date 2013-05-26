@@ -1,0 +1,168 @@
+---
+layout: post
+title: "Getting Started wtih Discourse"
+date: 2013-05-25 13:24
+comments: true
+categories: emberjs
+keywords: emberjs discourse.org
+description: A quick guide to installing discourse to see a production quality rails project on github.
+---
+
+<p>
+Looking for a great open source example of a <i>production quality</i>
+rails, emberjs, and single-page-application project? Check out <a href="https://github.com/discourse/discourse">Discourse</a>.
+</p><blockquote>
+
+<p>Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
+</p>
+</blockquote>
+
+
+<p>
+Here's a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Production Quality, not a Tutorial</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Note, this is an example of a <i>production quality</i> application, rather than a
+useful tutorial sample application. What's the difference? The Discourse
+codebase is the real deal, including all the gory details, such as performance
+optimizations. If you want a superb sample rails application, check out <a href="https://github.com/railstutorial/sample_app_2nd_ed">Rails Tutorial, 2nd Ediition</a> and read the book <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">Ruby on Rails Tutorial, Learn Web Development with Rails, Michael Hartl</a>. There's even an interesting discussion on
+the Discourse blog about <a href="http://blog.discourse.org/2013/04/discourse-as-your-first-rails-app/">Discourse as Your First Rails App</a>, which it shouldn't be.
+</p>
+<p>
+That being said, the Discourse code base is probably as good as or, in many
+cases, better than what you'll find in many software-as-a-service companies.
+It's no secret that public scrutiny of popular open source code really raises
+the bar on quality. Consequently, if you're a serious and experienced Rails
+developer, it's worth your time to install the source of discourse and explore
+and run it. I just did that and I'm impressed.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Why Explore (Hack on?) Discourse's Source?</h2>
+<div class="outline-text-2" id="text-2">
+
+<ol>
+<li>Example of EmberJs Single-Page-Application.
+</li>
+<li>Design decisions are discussed at <a href="http://meta.discourse.org/">meta.discourse.org</a>, such as <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+</li>
+<li>Solid project, from code quality to organization.
+</li>
+<li>Co-Founded by Jeff Atwood, who created <a href="http://stackoverflow.com/">Stack Overflow</a>. Jeff wrote a article
+   introducing the discourse project: <a href="http://www.codinghorror.com/blog/2013/02/civilized-discourse-construction-kit.html">Civilized Discourse Construction Kit</a>.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Setup Tips</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>Basically, there's a few dependencies to install, some of which you probably already
+have installed, such as Postgres and Redis. The main gotcha I faced was to make
+sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development database</a>, rather than using the rake task. Then you can install the seed data:
+{% codeblock lang:bash %}
+psql -d discourse_development < pg_dumps/development-image.sql
+{% endcodeblock %}
+
+
+The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
+rather some tiny bit of "seed" data (like post action types).
+</p>
+<p>
+Once you have the test data installed, then run these commands.
+{% codeblock lang:bash %}
+bundle install # Yes, this DOES take a while. No, it's not really cloning all of rubygems :-)
+rake db:migrate
+rake db:test:prepare
+rake db:seed_fu
+bundle exec rspec # All specs should pass
+{% endcodeblock %}
+
+You should have installed <a href="http://mailcatcher.me/">MailCatcher</a>, so that you don't have to configure any
+smtp server. Then you just have to visit <a href="http://localhost:1080">http://localhost:1080</a> to see the mail
+messages that Discourse sends.
+</p>
+<p>
+Then to run the Discourse application (assuming postgres and redis are running)
+open up two tabs. Cd each to the disource directory. 
+{% codeblock lang:bash %}
+bundle exec rails server
+{% endcodeblock %}
+
+{% codeblock lang:bash %}
+bundle exec sidekiq
+{% endcodeblock %}
+
+{% codeblock lang:bash %}
+bundle exec clockwork config/clock.rb
+{% endcodeblock %}
+
+
+Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
+</p>
+
+
+{% codeblock lang:bash %}
+export PORT=3000
+export RAILS_ENV=development
+foreman start
+{% endcodeblock %}
+
+<p>
+If you got this working, you'll see this:
+{% img /images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png %}
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Links</h2>
+<div class="outline-text-2" id="text-4">
+
+<ul>
+<li><a href="https://github.com/discourse/discourse">Discourse on Github</a>
+</li>
+<li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPER-ADVANCED.md">Discourse Advanced Developer Guide</a>
+</li>
+<li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">Developing under OS X Without Vagrant</a> 
+</li>
+<li>Overview: <a href="http://www.discourse.org/">www.discourse.org</a>
+</li>
+<li>Discourse discussing itself: <a href="http://meta.discourse.org/">meta.discourse.org</a>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>

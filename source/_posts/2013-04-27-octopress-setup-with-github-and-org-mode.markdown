@@ -383,6 +383,19 @@ Here are the basic steps:
 {% codeblock lang:css %}
    b { font-weight: bold; }
 {% endcodeblock %}
+<ol>
+<li>Code styling (<code>like this</code>) did not work after a code block unless I added
+   the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
+</li>
+</ol>
+
+
+{% codeblock lang:css %}
+   // Sometimes html gen by org-mode misses p or li tags
+   div, p, li {
+     code {
+       @extend .mono;
+{% endcodeblock %}
 
 </div>
 </div>
