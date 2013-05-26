@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Getting Started wtih Discourse - Rails on Maui</title>
+  <meta name="author" content="Justin Gordon">
+
+  
+  <meta name="description" content="A quick guide to installing discourse to see a production quality rails project on github.">
+  <meta name="keywords" content="emberjs discourse.org">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/05/25/getting-started-wtih-discourse">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40522944-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rails on Maui</a></h1>
+  
+    <h2>Programming in Paradise</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/railsonmaui" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=RailsOnMaui&amp;loc=en_US" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.railsonmaui.com/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="/blog/categories.html">Categories</a></li>
+  <li><a href="/tips/">Tips</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/meta/">Meta</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Getting Started Wtih Discourse</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-25T13:24:00-10:00" pubdate data-updated="true">May 25<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>
+Looking for a great open source example of a <i>production quality</i>
+rails, emberjs, and single-page-application project? Check out <a href="https://github.com/discourse/discourse">Discourse</a>.
+</p>
+
+
+<blockquote>
+
+<p>Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
+</p>
+</blockquote>
+
+
+
+
+<p>
+Here&#8217;s a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+</p>
+
+
+
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Production Quality, not a Tutorial</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Note, this is an example of a <i>production quality</i> application, rather than a
+useful tutorial sample application. What&#8217;s the difference? The Discourse
+codebase is the real deal, including all the gory details, such as performance
+optimizations. If you want a superb sample rails application, check out <a href="https://github.com/railstutorial/sample_app_2nd_ed">Rails Tutorial, 2nd Ediition</a> and read the book <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">Ruby on Rails Tutorial, Learn Web Development with Rails, Michael Hartl</a>. There&#8217;s even an interesting discussion on
+the Discourse blog about <a href="http://blog.discourse.org/2013/04/discourse-as-your-first-rails-app/">Discourse as Your First Rails App</a>, which it shouldn&#8217;t be.
+</p>
+<p>
+That being said, the Discourse code base is probably as good as or, in many
+cases, better than what you&#8217;ll find in many software-as-a-service companies.
+It&#8217;s no secret that public scrutiny of popular open source code really raises
+the bar on quality. Consequently, if you&#8217;re a serious and experienced Rails
+developer, it&#8217;s worth your time to install the source of discourse and explore
+and run it. I just did that and I&#8217;m impressed.
+</p>
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Why Explore (Hack on?) Discourse&#8217;s Source?</h2>
+<div class="outline-text-2" id="text-2">
+
+<ol>
+<li>Example of EmberJs Single-Page-Application.
+</li>
+<li>Design decisions are discussed at <a href="http://meta.discourse.org/">meta.discourse.org</a>, such as <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+</li>
+<li>Solid project, from code quality to organization.
+</li>
+<li>Co-Founded by Jeff Atwood, who created <a href="http://stackoverflow.com/">Stack Overflow</a>. Jeff wrote a article
+   introducing the discourse project: <a href="http://www.codinghorror.com/blog/2013/02/civilized-discourse-construction-kit.html">Civilized Discourse Construction Kit</a>.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Setup Tips</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>Basically, there&#8217;s a few dependencies to install, some of which you probably already
+have installed, such as Postgres and Redis. The main gotcha I faced was to make
+sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development database</a>, rather than using the rake task. Then you can install the seed data:
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
+</span></code></pre></td></tr></table></div></figure>
+
+The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
+rather some tiny bit of &#8220;seed&#8221; data (like post action types).
+</p>
+<p>
+Once you have the test data installed, then run these commands.
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle install <span class="c"># Yes, this DOES take a while. No, it&#39;s not really cloning all of rubygems :-)</span>
+</span><span class='line'>rake db:migrate
+</span><span class='line'>rake db:test:prepare
+</span><span class='line'>rake db:seed_fu
+</span><span class='line'>bundle <span class="nb">exec </span>rspec <span class="c"># All specs should pass</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+You should have installed <a href="http://mailcatcher.me/">MailCatcher</a>, so that you don&#8217;t have to configure any
+smtp server. Then you just have to visit <a href="http://localhost:1080">http://localhost:1080</a> to see the mail
+messages that Discourse sends.
+</p>
+<p>
+Then to run the Discourse application (assuming postgres and redis are running)
+open up two tabs. Cd each to the disource directory. 
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rails server
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>sidekiq
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>clockwork config/clock.rb
+</span></code></pre></td></tr></table></div></figure>
+
+
+Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PORT</span><span class="o">=</span>3000
+</span><span class='line'><span class="nb">export </span><span class="nv">RAILS_ENV</span><span class="o">=</span>development
+</span><span class='line'>foreman start
+</span></code></pre></td></tr></table></div></figure>
+
+
+If you got this working, you&#8217;ll see this:
+<img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.jpg">
+</p>
+
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Links</h2>
+<div class="outline-text-2" id="text-4">
+
+<ul>
+<li><a href="https://github.com/discourse/discourse">Discourse on Github</a>
+</li>
+<li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPER-ADVANCED.md">Discourse Advanced Developer Guide</a>
+</li>
+<li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">Developing under OS X Without Vagrant</a> 
+</li>
+<li>Overview: <a href="http://www.discourse.org/">www.discourse.org</a>
+</li>
+<li>Discourse discussing itself: <a href="http://meta.discourse.org/">meta.discourse.org</a>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-25T13:24:00-10:00" pubdate data-updated="true">May 25<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/emberjs/'>emberjs</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/05/25/getting-started-wtih-discourse/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/05/25/getting-started-wtih-discourse/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/11/testing-error-handling/" title="Previous Post: Testing Error Handling">&laquo; Testing Error Handling</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>I'm Justin Gordon. I love doing full stack development, surfing, and
+  racing SUPs, all in Maui. You can find me on gmail
+  as <code>justin.gordon</code>. I'm also on <a href='http://www.linkedin.com/pub/justin-gordon/1/a41/286'>Linked In</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/05/25/getting-started-wtih-discourse/">Getting Started Wtih Discourse</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/07/buying-apple-products-with-amex/">Buy Apple Products With American Express</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup With Github, Org Mode, and LiveReload</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/justin808">@justin808</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'justin808',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102850786590145072082?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+<section>
+  <h1>On Twitter:</h1>
+  <div>
+    <p><br /><a href="http://twitter.com/railsonmaui" target="_blank">My Tweets, on Twitter.</a></p>
+    <a href="http://twitter.com/railsonmaui" class="twitter-follow-button" data-show-count="">Follow @railsonmaui</a>
+  </div>
+</section>
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Justin Gordon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'railsonmaui';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/05/25/getting-started-wtih-discourse/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2013/05/25/getting-started-wtih-discourse/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
