@@ -68,33 +68,6 @@ This article should be useful for:
 
 
 
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Basic setup</a></li>
-<li><a href="#sec-2">2 Some Perspectives on how Octopress Works</a>
-<ul>
-<li><a href="#sec-2-1">2.1 Posts</a></li>
-<li><a href="#sec-2-2">2.2 Pages</a></li>
-</ul>
-</li>
-<li><a href="#sec-3">3 POW</a></li>
-<li><a href="#sec-4">4 LiveReload</a></li>
-<li><a href="#sec-5">5 Org-Mode</a>
-<ul>
-<li><a href="#sec-5-1">5.1 Why org-mode for blog publishing?</a></li>
-<li><a href="#sec-5-2">5.2 Org-mode Integration</a></li>
-</ul>
-</li>
-<li><a href="#sec-6">6 Useful Scripts</a></li>
-<li><a href="#sec-7">7 Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</a></li>
-<li><a href="#sec-8">8 Useful Links</a></li>
-<li><a href="#sec-9">9 Parting words&hellip;</a></li>
-</ul>
-</div>
-</div>
-
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Basic setup</h2>
 <div class="outline-text-2" id="text-1">
@@ -105,16 +78,16 @@ This article should be useful for:
 <ol>
 <li>You may wish to change the .rvmrc to a .ruby-version file
 </li>
-<li>Github recommends your deployment repository be named yourname.github.io,
-      not yourname.github.com.
+<li>Github recommends your deployment repository be named <code>yourname.github.io</code>,
+      not <code>yourname.github.com</code>.
 </li>
-<li>After you run rake setup_github_pages and before running rake       generate, you should run rake install. If you forget, there's a clear
+<li>After you run <code>rake setup_github_pages</code> and before running <code>rake       generate</code>, you should run <code>rake install</code>. If you forget, there's a clear
       message indicating this omission.
 </li>
 </ol>
 
 </li>
-<li>Customize octopress/_config.yml. The yaml file contains descriptions.
+<li>Customize <code>octopress/_config.yml</code>. The yaml file contains descriptions.
 </li>
 <li>Update the DNS to use your custom domain if you wish: <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a>
 </li>
@@ -175,12 +148,12 @@ This article should be useful for:
 <h3 id="sec-2-1">Posts</h3>
 <div class="outline-text-3" id="text-2-1">
 
-<p><b>Posts</b> are created using the rake task rake new_post["Post Title"]. The key things about a post are:
+<p><b>Posts</b> are created using the rake task <code>rake new_post["Post Title"]</code>. The key things about a post are:
 </p><ol>
 <li>File is located in =source/_posts.
 </li>
 <li>File has a header containing the meta-data for the post. The post URL and
-   date are determined by the by the title and date fields. If you want to
+   date are determined by the by the <code>title</code> and <code>date</code> fields. If you want to
    change the date of your post, then you change the meta-data. Changing the
    file name is useful only for file navigation. Here's a <a href="https://gist.github.com/justin808/5550381">gist for a rake task to update the file names to match the metadata</a>.
 </li>
@@ -195,7 +168,7 @@ This article should be useful for:
 <h3 id="sec-2-2">Pages</h3>
 <div class="outline-text-3" id="text-2-2">
 
-<p><b>Pages</b> are created using the rake task rake new_page["Page Title"]. The key
+<p><b>Pages</b> are created using the rake task <code>rake new_page["Page Title"]</code>. The key
 things about a page are:
 </p><ol>
 <li>Files are located in =source/page-title
@@ -220,7 +193,7 @@ things about a page are:
 <p>POW allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your local,
 unpublished Octopress website. It's very convenient to not have to remember to
 run a local server, and it works great with LiveReload. Scroll to the bottom of
-this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run rake preview and then point your browser at http://0.0.0.0:4000 (or whatever port
+this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake preview</code> and then point your browser at <code>http://0.0.0.0:4000</code> (or whatever port
 you configured).
 </p>
 </div>
@@ -236,7 +209,7 @@ the browser after you publish your file. This works with or without POW.
 </p><ul>
 <li><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">Install the browser extension</a> for your type of browser.
 </li>
-<li>Add these two entries to your Gemfile, in the :development group:
+<li>Add these two entries to your <code>Gemfile</code>, in the :development group:
 </li>
 </ul>
 
@@ -247,7 +220,7 @@ the browser after you publish your file. This works with or without POW.
 {% endcodeblock %}
 
 <ul>
-<li>Create a file called Guardfile containing something like:
+<li>Create a file called <code>Guardfile</code> containing something like:
 </li>
 </ul>
 
@@ -260,8 +233,8 @@ the browser after you publish your file. This works with or without POW.
 {% endcodeblock %}
 
 <ul>
-<li>Start 2 shell tabs running these commands: rake generate &amp;&amp; rake watch
-   and guard
+<li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
+   and <code>guard</code>
 </li>
 </ul>
 
@@ -270,7 +243,7 @@ the browser after you publish your file. This works with or without POW.
      > rake generate && rake watch
 {% endcodeblock %}
 <p>
-   This screen shot shows watch updating the deployment files.
+   This screen shot shows <code>watch</code> updating the deployment files.
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png %}
    start guard LiveReload
 {% codeblock lang:bash %}
@@ -336,8 +309,8 @@ ones):
 <div class="outline-text-3" id="text-5-2">
 
 <p>I found a plugin that automates the process of converting an org-mode document
-(.org file) in source/org_posts into a .markdown document in
-source/_posts. Once the markdown document is saved in _posts, the rake watch task picks up the change and deploys the file, and LiveReload can then
+(<code>.org</code> file) in <code>source/org_posts</code> into a <code>.markdown</code> document in
+<code>source/_posts</code>. Once the markdown document is saved in _posts, the <code>rake watch</code> task picks up the change and deploys the file, and LiveReload can then
 automatically update your web browser. <b>Neat!</b>
 </p>
 <p>
@@ -350,7 +323,7 @@ Here are the basic steps:
    won't need that tip.
 </li>
 <li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
-   inside of a #+begin_html and #+end_html block.
+   inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png %}
 </li>
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
@@ -361,7 +334,7 @@ Here are the basic steps:
    in the postings directory. If I'm creating a document with many images, I'll
    group the images for that document in a sub-directory of images named like
    the document. This is how it should look. The trick is to place the
-   octopress img directive within a HTML begin/end block.
+   octopress <code>img</code> directive within a HTML begin/end block.
 
 <p>
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
@@ -394,8 +367,8 @@ Here are the basic steps:
 </pre>
 
 <p>
-   I tried using a file:../blog syntax, but that either would work on the home
-   page or in the specific blog article, but not both. http:/blog links would
+   I tried using a <code>file:../blog</code> syntax, but that either would work on the home
+   page or in the specific blog article, but not both. <code>http:/blog</code> links would
    work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
    not work if the link is within a block level html tag (i.e., a paragraph).
    Hopefully, one day we'll be able to specify relative links from blog article
@@ -421,9 +394,9 @@ Here are the basic steps:
 <div class="outline-text-2" id="text-6">
 
 <ul>
-<li>Just configure OCTO_HOME
+<li>Just configure <code>OCTO_HOME</code>
 </li>
-<li>Emacs tip: Visit the created file by placing cursor over file name and then hit Ctrl-x, f.
+<li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>.
 </li>
 </ul>
 
@@ -487,23 +460,23 @@ simply contain different files, with one containing the original Octopress
 files. Here's a few screen grabs that might clarify the situation for you.
 </p>
 <p>
-Don't forget that you never push to the master branch, but rather the rake deploy task does it for you. Instead, you run git push origin source to push
+Don't forget that you never push to the master branch, but rather the <code>rake deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
 the content of your blog to github.
 </p>
 <p>
-The octopress/public directory corresponds to what you'll find on the github
+The <code>octopress/public</code> directory corresponds to what you'll find on the github
 site for your deployment (master branch).
 </p>
 <p>
 {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png %}
 </p>
 <p>
-The octopress/.gitignore file contains entries like public, which essentially
-keeps the rake generate files out of the source branch.
+The octopress/.gitignore file contains entries like <code>public</code>, which essentially
+keeps the <code>rake generate</code> files out of the source branch.
 </p>
 <p>
 Here's the github master branch right after creation. Note the correspondence
-with public. This is what gets deployed as your blog.
+with <code>public</code>. This is what gets deployed as your blog.
 {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png %}
 </p>
 <p>

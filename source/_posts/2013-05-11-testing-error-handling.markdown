@@ -18,21 +18,6 @@ application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
 </p>
 
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Your Code Depends on Outside Systems (That Might Raise Errors)</a></li>
-<li><a href="#sec-2">2 Verification of Error Handling Strategy</a></li>
-<li><a href="#sec-3">3 Payment Processing is Like a 2-Phase Commit</a></li>
-<li><a href="#sec-4">4 Brute Force Methodology</a></li>
-<li><a href="#sec-5">5 RSpec Unit Testing of Errors</a></li>
-<li><a href="#sec-6">6 RSpec Capybara Feature (Integration) Tests of UI Errors</a></li>
-<li><a href="#sec-7">7 Conclusion</a></li>
-</ul>
-</div>
-</div>
-
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Your Code Depends on Outside Systems (That Might Raise Errors)</h2>
 <div class="outline-text-2" id="text-1">
@@ -139,7 +124,7 @@ might raise a specific error, if say your payment processor throws a specific
 type of error.
 </p>
 <p>
-For the above example, the different methods referenced, such as process_order
+For the above example, the different methods referenced, such as <code>process_order</code>
 can get modified with a single line at the beginning, which would be:
 </p>
 
@@ -182,7 +167,7 @@ handling.
 <h2 id="sec-5">RSpec Unit Testing of Errors</h2>
 <div class="outline-text-2" id="text-5">
 
-<p>It turns out that with stubbing in rspec, it's easy to test error handling!
+<p>It turns out that with stubbing in <code>rspec</code>, it's easy to test error handling!
 <a href="https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs">RSpec provides a nice mocking library</a>. The test code would look something like
 this. Pay attention to the call to <b>stub</b>.
 </p>
@@ -243,8 +228,8 @@ end
 Here are the key points to the improved code:
 </p>
 <ol>
-<li>There's a block to catch the exception which is <i>separate from the    transaction block</i>. The rescue properly handles the case of an a charge
-   being made and needing to be refunded. Utility.log_exception will ensure
+<li>There's a block to catch the exception which is <i>separate from the    transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
+   being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
    that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for Utlity.logException</a>).
 </li>
 <li>fulfill_order is moved outside of the transaction block. This allows the
@@ -298,7 +283,7 @@ I tend to develop such a test in an iterative manner:
    render_page "a-descriptive-name"
 {% endcodeblock %}
 <p>
-   Setup this method render_page in a spec helper file like this:
+   Setup this method <code>render_page</code> in a spec helper file like this:
 {% codeblock lang:ruby %}
    def render_page name
      path = File.join Rails.application.config.integration_test_render_dir, "#{name}.png"

@@ -40,24 +40,6 @@ The next article,
 is properly implemented, includind with rspec tests.
 </p>
 
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Log Setup</a>
-<ul>
-<li><a href="#sec-1-1">1.1 Notification of any Exceptions via Email with Gem exception_notification</a></li>
-<li><a href="#sec-1-2">1.2 Log the Browser Details with Gem 'browser_details'</a></li>
-<li><a href="#sec-1-3">1.3 Control Rails Log Verbosity with Gem lograge</a></li>
-<li><a href="#sec-1-4">1.4 Utility Method to Log Exceptions</a></li>
-</ul>
-</li>
-<li><a href="#sec-2">2 Strategy: Error Handling and Logging</a></li>
-<li><a href="#sec-3">3 Verification and Testing</a></li>
-</ul>
-</div>
-</div>
-
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Log Setup</h2>
 <div class="outline-text-2" id="text-1">

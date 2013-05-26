@@ -30,24 +30,6 @@ bottom line is:
 
 
 
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Buying Tips</a></li>
-<li><a href="#sec-2">2 AppleCare</a></li>
-<li><a href="#sec-3">3 American Express, not Mastercard, if you buy AppleCare</a></li>
-<li><a href="#sec-4">4 Details (the fine print)</a>
-<ul>
-<li><a href="#sec-4-1">4.1 American Express</a></li>
-<li><a href="#sec-4-2">4.2 MasterCard</a></li>
-<li><a href="#sec-4-3">4.3 Visa</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Buying Tips</h2>
 <div class="outline-text-2" id="text-1">
