@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Error Handling | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/error-handling/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-25T19:10:11-10:00</updated>
+  <updated>2013-05-26T14:40:29-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -27,6 +27,11 @@ setup a good error handling strategy. Here's some techniques to verify that your
 application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
 </p>
+
+
+
+
+<!-- more -->
 
 
 
@@ -533,6 +538,11 @@ The next article,
 <a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>, will show you how to verify that your error handling strategy
 is properly implemented, includind with rspec tests.
 </p>
+
+
+
+
+<!-- more -->
 
 
 

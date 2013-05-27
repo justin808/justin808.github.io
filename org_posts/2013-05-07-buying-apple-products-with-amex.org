@@ -23,6 +23,10 @@ bottom line is:
   original plus one year card). For the price of AppleCare, you get only an
   extra 12 months, although some will want the telephone question coverage of
   AppleCare.
+  
+#+begin_html
+<!-- more -->
+#+end_html
 
 * Buying Tips
 Buy products when they just come out, or wait until the next version comes out.
