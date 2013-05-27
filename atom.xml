@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T09:09:35-10:00</updated>
+  <updated>2013-05-27T12:14:49-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -79,6 +79,14 @@ this:
 <p>
 <img src="http://www.railsonmaui.com//images/2013-05-26-ember-dot-js-hello-world/ember-inspector.png">
 </p>
+
+
+<p>
+You can click on most of the purple text to dig into the ember objects:
+<img src="http://www.railsonmaui.com//images/2013-05-26-ember-dot-js-hello-world/ember-inspector-2.png">
+</p>
+
+
 
 
 <p>
