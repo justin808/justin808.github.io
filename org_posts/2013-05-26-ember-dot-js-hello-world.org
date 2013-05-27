@@ -21,7 +21,7 @@ iframe. Some of the features you'll learn include:
 4. Even how to do a read/write REST interface. 
 
 If a picture is worth a thousand words, here's what you build in the video (you
-can try in the iframe below or a [[/tutorials/ember-js-guides-railsonmaui/index.html][separate tab]]). The dynamic mvc nature of the
+can try in the iframe below or a [[http://www.railsonmaui.com/tutorials/ember-js-guides-railsonmaui/index.html][separate tab]]). The dynamic mvc nature of the
 bindings is neat. Try this:
    1. Click on the article "Octopress" on the left.
    2. Click Edit, change the markdown in the 2nd field, and see it change below
