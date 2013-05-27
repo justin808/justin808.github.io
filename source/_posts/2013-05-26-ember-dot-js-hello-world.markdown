@@ -57,7 +57,10 @@ this:
 You can click on most of the purple text to dig into the ember objects:
 {% img /images/2013-05-26-ember-dot-js-hello-world/ember-inspector-2.png %}
 </p>
-
+<p>
+You can view <i>&lt;computed&gt;</i> values:
+{% img /images/2013-05-26-ember-dot-js-hello-world/ember-inspector-3.png %}
+</p>
 <p>
 To make it easier for you, I created git repos of the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-start">start</a> and the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">finish</a>,
 minus the REST interface. 
