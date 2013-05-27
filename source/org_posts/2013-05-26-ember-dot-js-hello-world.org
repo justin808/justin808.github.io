@@ -31,7 +31,7 @@ bindings is neat. Try this:
 #+end_html    
 
 Then try out the "Ember Inspector for Chrome". Yehuda does a nice [[https://www.youtube.com/watch?v%3D18OSYuhk0Yo][demo of it on
-youtube]]. You can follow the [[http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/][installation instructions from Kasper Tidemann]].
+youtube]] (more [[http://www.youtube.com/user/wycats/videos][here]]). You can follow the [[http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/][installation instructions from Kasper Tidemann]].
 Basically you want to install the chrome extension files from
 [[https://github.com/tildeio/ember-extension][github.com/tildeio/ember-extension]].
 

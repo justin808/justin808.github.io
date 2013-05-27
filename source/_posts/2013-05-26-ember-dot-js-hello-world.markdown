@@ -42,7 +42,7 @@ bindings is neat. Try this:
 <div><iframe src='/tutorials/ember-js-guides-railsonmaui/index.html' width='100%' height='600px'></iframe></div>
 
 <p>
-Then try out the "Ember Inspector for Chrome". Yehuda does a nice <a href="https://www.youtube.com/watch?v=18OSYuhk0Yo">demo of it on youtube</a>. You can follow the <a href="http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/">installation instructions from Kasper Tidemann</a>.
+Then try out the "Ember Inspector for Chrome". Yehuda does a nice <a href="https://www.youtube.com/watch?v=18OSYuhk0Yo">demo of it on youtube</a> (more <a href="http://www.youtube.com/user/wycats/videos">here</a>). You can follow the <a href="http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/">installation instructions from Kasper Tidemann</a>.
 Basically you want to install the chrome extension files from
 <a href="https://github.com/tildeio/ember-extension">github.com/tildeio/ember-extension</a>.
 </p>
