@@ -10,7 +10,7 @@ published: true
 ---
 
 <p>
-Ember.js is really cool! The place to start is <a href="http://emberjs.com/guides/">Tom Dale's Intro Tutorial Video</a>
+Ember.js is really amazing. The place to start is <a href="http://emberjs.com/guides/">Tom Dale's Intro Tutorial Video</a>
 (on <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=Ga99hMi7wfY">Youtube</a>). In the 30 minute video you build the app shown here in this
 iframe. Some of the features you'll learn include:
 </p><ol>

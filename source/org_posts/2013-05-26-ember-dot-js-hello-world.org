@@ -11,7 +11,7 @@ published: true
 ---
 #+END_HTML
 
-Ember.js is really cool! The place to start is [[http://emberjs.com/guides/][Tom Dale's Intro Tutorial Video]]
+Ember.js is really amazing. The place to start is [[http://emberjs.com/guides/][Tom Dale's Intro Tutorial Video]]
 (on [[http://www.youtube.com/watch?feature%3Dplayer_embedded&v%3DGa99hMi7wfY][Youtube]]). In the 30 minute video you build the app shown here in this
 iframe. Some of the features you'll learn include:
 1. Basic setup for an Ember.js app.
