@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T12:20:38-10:00</updated>
+  <updated>2013-05-27T12:39:16-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -87,6 +87,10 @@ You can click on most of the purple text to dig into the ember objects:
 </p>
 
 
+<p>
+You can view <i>&lt;computed&gt;</i> values:
+<img src="http://www.railsonmaui.com//images/2013-05-26-ember-dot-js-hello-world/ember-inspector-3.png">
+</p>
 
 
 <p>
