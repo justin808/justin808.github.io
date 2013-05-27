@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T12:19:33-10:00</updated>
+  <updated>2013-05-27T12:20:38-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -64,7 +64,7 @@ bindings is neat. Try this:
 
 
 <p>
-Then try out the &#8220;Ember Inspector for Chrome&#8221;. Yehuda does a nice <a href="https://www.youtube.com/watch?v=18OSYuhk0Yo">demo of it on youtube</a>. You can follow the <a href="http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/">installation instructions from Kasper Tidemann</a>.
+Then try out the &#8220;Ember Inspector for Chrome&#8221;. Yehuda does a nice <a href="https://www.youtube.com/watch?v=18OSYuhk0Yo">demo of it on youtube</a> (more <a href="http://www.youtube.com/user/wycats/videos">here</a>). You can follow the <a href="http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/">installation instructions from Kasper Tidemann</a>.
 Basically you want to install the chrome extension files from
 <a href="https://github.com/tildeio/ember-extension">github.com/tildeio/ember-extension</a>.
 </p>
