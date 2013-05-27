@@ -28,7 +28,7 @@ iframe. Some of the features you'll learn include:
 
 <p>
 If a picture is worth a thousand words, here's what you build in the video (you
-can try in the iframe below or a <a href="file:///tutorials/ember-js-guides-railsonmaui/index.html">separate tab</a>). The dynamic mvc nature of the
+can try in the iframe below or a <a href="http://www.railsonmaui.com/tutorials/ember-js-guides-railsonmaui/index.html">separate tab</a>). The dynamic mvc nature of the
 bindings is neat. Try this:
 </p><ol>
 <li>Click on the article "Octopress" on the left.
