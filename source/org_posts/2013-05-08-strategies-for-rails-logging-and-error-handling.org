@@ -33,6 +33,10 @@ The next article,
 Error Handling]], will show you how to verify that your error handling strategy
 is properly implemented, includind with rspec tests.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Log Setup
 ** Notification of any Exceptions via Email with Gem exception_notification
 Check out the gem [[http://smartinez87.github.io/exception_notification/][exception_notification]]. It works great. One things the docs

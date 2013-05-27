@@ -18,6 +18,10 @@ application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
 </p>
 
+
+<!-- more -->
+
+
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Your Code Depends on Outside Systems (That Might Raise Errors)</h2>
 <div class="outline-text-2" id="text-1">

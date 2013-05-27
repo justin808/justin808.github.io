@@ -29,6 +29,10 @@ bottom line is:
 </ul>
 
 
+  
+
+<!-- more -->
+
 
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Buying Tips</h2>

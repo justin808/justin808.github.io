@@ -31,6 +31,10 @@ seems so much more straightforward. This is so much more like the Unix
 philosophy that so many of us love, which is small and modular, rather than
 monolithic.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 I like [[https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown][Rob Dodson's summary]] (noting Org Mode plus Emacs):
 
 #+begin_html

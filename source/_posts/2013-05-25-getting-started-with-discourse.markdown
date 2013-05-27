@@ -4,7 +4,7 @@ title: "Getting Started with Discourse"
 date: 2013-05-25 13:24
 comments: true
 alias: /blog/2013/05/25/getting-started-wtih-discourse/index.html
-categories: emberjs
+categories: ember.js
 keywords: emberjs discourse.org
 description: A quick guide to installing discourse to see a production quality rails project on github.
 ---
@@ -22,6 +22,10 @@ rails, emberjs, and single-page-application project? Check out <a href="https://
 <p>
 Here's a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
 </p>
+
+
+<!-- more -->
+
 
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Production Quality, not a Tutorial</h2>

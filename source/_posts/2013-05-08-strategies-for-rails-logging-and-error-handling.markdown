@@ -40,6 +40,10 @@ The next article,
 is properly implemented, includind with rspec tests.
 </p>
 
+
+<!-- more -->
+
+
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Log Setup</h2>
 <div class="outline-text-2" id="text-1">

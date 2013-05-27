@@ -1,0 +1,49 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Ember.js Hello World"
+date: 2013-05-26 09:53
+comments: true
+categories: ember.js
+keywords: emberjs tutorial 
+description: Tips to learn emberjs
+published: true
+---
+#+END_HTML
+
+Ember.js is really cool! The place to start is [[http://emberjs.com/guides/][Tom Dale's Intro Tutorial Video]]
+(on [[http://www.youtube.com/watch?feature%3Dplayer_embedded&v%3DGa99hMi7wfY][Youtube]]). In the 30 minute video you build the app shown here in this
+iframe. Some of the features you'll learn include:
+1. Basic setup for an Ember.js app.
+2. Nested views. You can click on the articles on the left, and see the
+   articles on the right.
+3. Ember helpers which provide markdown and date conversion with a tiny bit of code.
+4. Even how to do a read/write REST interface. 
+
+If a picture is worth a thousand words, here's what you build in the video (you
+can try in the iframe below or a [[/tutorials/ember-js-guides-railsonmaui/index.html][separate tab]]). The dynamic mvc nature of the
+bindings is neat. Try this:
+   1. Click on the article "Octopress" on the left.
+   2. Click Edit, change the markdown in the 2nd field, and see it change below
+      dynamically! 
+#+begin_html
+<div><iframe src='/tutorials/ember-js-guides-railsonmaui/index.html' width='100%' height='600px'></iframe></div>
+#+end_html    
+
+To make it easier for you, I created git repos of the [[https://github.com/justin808/ember-js-guides-railsonmaui-start][start]] and the [[https://github.com/justin808/ember-js-guides-railsonmaui-no-rest][finish]],
+minus the REST interface. 
+
+To maximize your learning efficiency: 
++ Start with the files in the [[https://github.com/justin808/ember-js-guides-railsonmaui-start][starter repo that I created]]. The Ember.js files
+  are still changing, so your combination of js files is critical. There's heaps
+  of comments on the youtube video about how frustrating it can be to have the
+  wrong combination of js files.
++ Try building the app yourself by following the video. If you're short on time,
+  watch the demo once and say "that's damn cool". But you won't truly absorb the
+  content without following along. Plus, it's super cool to enter some
+  statements in the console and see the magic of ember happen. (16:52 in the
+  video).
++ When you have an error in your code (which you will if you're practicing
+  this), you need to know that you look for errors in the browser's console.
+
+
