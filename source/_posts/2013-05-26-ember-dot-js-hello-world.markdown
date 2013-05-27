@@ -34,13 +34,25 @@ bindings is neat. Try this:
 <li>Click on the article "Octopress" on the left.
 </li>
 <li>Click Edit, change the markdown in the 2nd field, and see it change below
-      dynamically! 
+      dynamically!
 </li>
 </ol>
 
 
 <div><iframe src='/tutorials/ember-js-guides-railsonmaui/index.html' width='100%' height='600px'></iframe></div>
 
+<p>
+Then try out the "Ember Inspector for Chrome". I have Chrome Canary installed
+for experimental uses. You can follow the <a href="http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/">installation instructions from Kasper Tidemann</a>. Basically you want to install the chrome extension files from
+<a href="https://github.com/tildeio/ember-extension">github.com/tildeio/ember-extension</a>.
+</p>
+<p>
+Once you do that, you can browse to open the sample on <a href="http://www.railsonmaui.com/tutorials/ember-js-guides-railsonmaui/index.html">separate tab</a> and see
+this:
+</p>
+<p>
+{% img /images/2013-05-26-ember-dot-js-hello-world/ember-inspector.png %}
+</p>
 <p>
 To make it easier for you, I created git repos of the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-start">start</a> and the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">finish</a>,
 minus the REST interface. 
