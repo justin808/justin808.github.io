@@ -24,8 +24,8 @@ code, even with correct line numbers. This rails gem, <a href="https://github.co
 makes it easy to include CoffeeScript source maps as part of your rails
 application. Note, the <code>Rails.env.development?</code> is hard coded, so this only works
 when you use that specific environment. You can also do it manually, by using
-the <code>-m</code> flag with the <code>coffee</code> command. {% img
-/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png %}
+the <code>-m</code> flag with the <code>coffee</code> command.
+{% img /images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png %}
 </p>
 </div>
 
