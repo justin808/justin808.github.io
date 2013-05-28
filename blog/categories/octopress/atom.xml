@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T12:39:16-10:00</updated>
+  <updated>2013-05-27T22:10:11-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -125,44 +125,42 @@ This article should be useful for:
 </ol>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake new_post<span class="o">[</span><span class="s2">&quot;my post name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake new_post["my post name"]
+{% endcodeblock %}
 
 <p>
   Create a page:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;my page name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake new_page["my page name"]
+{% endcodeblock %}
 
   Generate and deploy:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake gen_deploy
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake gen_deploy
+{% endcodeblock %}
 
   Watch the site and regenerate when it changes:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake watch
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake watch
+{% endcodeblock %}
 
   Preview the site in a web browser:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake preview
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake preview
+{% endcodeblock %}
 
   See all the available rake options:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake -T
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  rake -T
+{% endcodeblock %}
 
   Save changes to source branch:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  git add .
-</span><span class='line'>  git commit -m <span class="s2">&quot;save changes to source&quot;</span>
-</span><span class='line'>  git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+  git add .
+  git commit -m "save changes to source"
+  git push origin source
+{% endcodeblock %}
 
 </p></div>
 
@@ -254,11 +252,10 @@ the browser after you publish your file. This works with or without POW.
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'>   <span class="n">gem</span> <span class="s1">&#39;guard-livereload&#39;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:ruby %}
+   gem 'guard'
+   gem 'guard-livereload'
+{% endcodeblock %}
 
 <ul>
 <li>Create a file called <code>Guardfile</code> containing something like:
@@ -266,15 +263,12 @@ the browser after you publish your file. This works with or without POW.
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>     <span class="n">guard</span> <span class="s1">&#39;livereload&#39;</span> <span class="k">do</span>
-</span><span class='line'>       <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/generated}</span><span class="p">)</span>
-</span><span class='line'>       <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/.+\.(css|js|html)}</span><span class="p">)</span>
-</span><span class='line'>     <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:ruby %}
+     guard 'livereload' do
+       watch(%r{public/generated})
+       watch(%r{public/.+\.(css|js|html)})
+     end
+{% endcodeblock %}
 
 <ul>
 <li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
@@ -283,19 +277,19 @@ the browser after you publish your file. This works with or without POW.
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>     &gt; rake generate <span class="o">&amp;&amp;</span> rake watch
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+     > rake generate && rake watch
+{% endcodeblock %}
 <p>
    This screen shot shows <code>watch</code> updating the deployment files.
-   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png %}
    start guard LiveReload
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>     &gt; guard
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+     > guard
+{% endcodeblock %}
    This screen grab shows guard detecting the browser and telling the
    browser to update.
-   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png">
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png %}
 </p>
 <p>
 It's neat to get LiveReload working with Octopress. However, the generation can
@@ -371,7 +365,7 @@ Here are the basic steps:
 </li>
 <li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
    inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
-   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png">
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png %}
 </li>
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
    inclusion of images in org-mode results in broken paths at deployment. The
@@ -384,7 +378,7 @@ Here are the basic steps:
    octopress <code>img</code> directive within a HTML begin/end block.
 
 <p>
-   <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
+   {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
 </p></li>
 <li><b>Links</b>: Links for relative pages are simple.
 
@@ -427,21 +421,18 @@ Here are the basic steps:
 </ol>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:css %}
+   b { font-weight: bold; }
+{% endcodeblock %}
 <p>
    Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
    the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span>
-</span><span class='line'>   <span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
-</span><span class='line'>     <span class="n">code</span> <span class="err">{</span>
-</span><span class='line'>       <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:css %}
+   // Sometimes html gen by org-mode misses p or li tags
+   div, p, li {
+     code {
+       @extend .mono;
+{% endcodeblock %}
 
 </p></div>
 </div>
@@ -463,67 +454,41 @@ Here are the basic steps:
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">OCTO_HOME</span><span class="o">=</span>~/octopress
-</span><span class='line'>ogen <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; rake generate; <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>osave <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; git commit -am <span class="s2">&quot;Updates&quot;</span> <span class="o">&amp;&amp;</span> git push origin <span class="nb">source</span>; <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>odeploy <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; osave; rake gen_deploy; <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># this one is for orgmode only</span>
-</span><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
-</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> | awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$new_file</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">new_location</span><span class="o">=</span><span class="nv">$OCTO_HOME</span>/source/org_posts/
-</span><span class='line'>  mv <span class="nv">$OCTO_HOME</span>/<span class="nv">$new_file</span> <span class="nv">$new_location</span>
-</span><span class='line'>  <span class="nb">echo </span>created <span class="nv">$new_location</span>/<span class="nv">$base</span>
-</span><span class='line'>  <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>opage<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
-</span><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span>
-</span><span class='line'>  <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+{% codeblock lang:bash %}
+export OCTO_HOME=~/octopress
+ogen () {
+  cd $OCTO_HOME; rake generate; cd -
+}
+
+osave () {
+  cd $OCTO_HOME; git commit -am "Updates" && git push origin source; cd -
+}
+
+odeploy () {
+  cd $OCTO_HOME; osave; rake gen_deploy; cd -
+}
+
+# this one is for orgmode only
+opost() {
+  cd $OCTO_HOME
+  output=$(rake new_post["${1}"])
+  new_file=$(echo $output | awk '{print $4}')
+  base=$(basename $new_file)
+  new_location=$OCTO_HOME/source/org_posts/
+  mv $OCTO_HOME/$new_file $new_location
+  echo created $new_location/$base
+  cd -
+}
+
+opage() {
+  cd $OCTO_HOME
+  rake new_page["${1}"]
+  cd -
+}
+
+
+
+{% endcodeblock %}
 
 </div>
 
@@ -559,7 +524,7 @@ The <code>octopress/public</code> directory corresponds to what you'll find on t
 site for your deployment (master branch).
 </p>
 <p>
-<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png">
+{% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png %}
 </p>
 <p>
 The octopress/.gitignore file contains entries like <code>public</code>, which essentially
@@ -568,12 +533,12 @@ keeps the <code>rake generate</code> files out of the source branch.
 <p>
 Here's the github master branch right after creation. Note the correspondence
 with <code>public</code>. This is what gets deployed as your blog.
-<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
+{% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png %}
 </p>
 <p>
 Here's the github source branch. This contains the octopress environment, as
 well as your customizations and blog posts.
-<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
+{% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png %}
 
 </p></div>
 
