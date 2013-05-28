@@ -131,8 +131,9 @@ Rails and EmberJs. All 3 tools are useful for different purposes.
 JavaScript code in the debugger. Instead, you can now see your CoffeeScript
 code, even with correct line numbers. This rails gem, <a href="https://github.com/markbates/coffee-rails-source-maps">coffee-rails-source-maps</a>,
 makes it easy to include CoffeeScript source maps as part of your rails
-application. You can also do it manually, by using the <code>-m</code> flag with the
-<code>coffee</code> command.
+application. Note, the <code>Rails.env.development?</code> is hard coded, so this only works
+when you use that specific environment. You can also do it manually, by using
+the <code>-m</code> flag with the <code>coffee</code> command.
 <img src="/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
 </p>
 </div>
@@ -173,48 +174,6 @@ the Web Inspector.
 
 </div>
 </div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/26/ember-dot-js-notes/">Ember.js Notes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-26T19:42:00-10:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/05/26/ember-dot-js-notes/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-<a href="http://emberjs.com/guides/controllers/">Controllers</a>
-&#8220;From the template&#8217;s perspective, a controller is simply an object that provides its data.&#8221;
-</p>
 
 </div>
   
@@ -727,10 +686,6 @@ monolithic.
       </li>
     
       <li class="post">
-        <a href="/blog/2013/05/26/ember-dot-js-notes/">Ember.js Notes</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
       </li>
     
@@ -748,6 +703,10 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2013/05/07/buying-apple-products-with-amex/">Buy Apple Products With American Express</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup With Github, Org Mode, and LiveReload</a>
       </li>
     
   </ul>

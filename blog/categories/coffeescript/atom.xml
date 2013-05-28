@@ -4,7 +4,7 @@
   <title><![CDATA[Category: coffeescript | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/coffeescript/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T22:10:54-10:00</updated>
+  <updated>2013-05-27T22:11:16-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -36,8 +36,8 @@ code, even with correct line numbers. This rails gem, <a href="https://github.co
 makes it easy to include CoffeeScript source maps as part of your rails
 application. Note, the <code>Rails.env.development?</code> is hard coded, so this only works
 when you use that specific environment. You can also do it manually, by using
-the <code>-m</code> flag with the <code>coffee</code> command. {% img
-/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png %}
+the <code>-m</code> flag with the <code>coffee</code> command.
+<img src="/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
 </p>
 </div>
 
@@ -56,7 +56,7 @@ between JavaScript and CoffeeScript. The main advantage over
 you can enter either CoffeeScript or JavaScript.
 </p>
 <p>
-{% img /images/2013-05-27-coffeescript-chrome-extensions/try-coffeescript.png %}
+<img src="/images/2013-05-27-coffeescript-chrome-extensions/try-coffeescript.png">
 </p>
 </div>
 
@@ -71,7 +71,7 @@ you can enter either CoffeeScript or JavaScript.
 
 <p>"<a href="http://snook.ca/archives/browsers/coffeeconsole">Coffeeconsole: A Chrome Extension</a>" provides a place to execute CoffeeScript in
 the Web Inspector.
-{% img /images/2013-05-27-coffeescript-chrome-extensions/coffee-console.png %}
+<img src="/images/2013-05-27-coffeescript-chrome-extensions/coffee-console.png">
 </p>
 
 

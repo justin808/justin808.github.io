@@ -127,8 +127,9 @@ Rails and EmberJs. All 3 tools are useful for different purposes.
 JavaScript code in the debugger. Instead, you can now see your CoffeeScript
 code, even with correct line numbers. This rails gem, <a href="https://github.com/markbates/coffee-rails-source-maps">coffee-rails-source-maps</a>,
 makes it easy to include CoffeeScript source maps as part of your rails
-application. You can also do it manually, by using the <code>-m</code> flag with the
-<code>coffee</code> command.
+application. Note, the <code>Rails.env.development?</code> is hard coded, so this only works
+when you use that specific environment. You can also do it manually, by using
+the <code>-m</code> flag with the <code>coffee</code> command.
 <img src="/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
 </p>
 </div>
@@ -219,7 +220,7 @@ the Web Inspector.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/05/26/ember-dot-js-notes/" title="Previous Post: Ember.js Notes">&laquo; Ember.js Notes</a>
+        <a class="basic-alignment left" href="/blog/2013/05/26/ember-dot-js-hello-world/" title="Previous Post: Ember.js Hello World">&laquo; Ember.js Hello World</a>
       
       
     </p>
@@ -251,10 +252,6 @@ the Web Inspector.
       </li>
     
       <li class="post">
-        <a href="/blog/2013/05/26/ember-dot-js-notes/">Ember.js Notes</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
       </li>
     
@@ -272,6 +269,10 @@ the Web Inspector.
     
       <li class="post">
         <a href="/blog/2013/05/07/buying-apple-products-with-amex/">Buy Apple Products With American Express</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup With Github, Org Mode, and LiveReload</a>
       </li>
     
   </ul>

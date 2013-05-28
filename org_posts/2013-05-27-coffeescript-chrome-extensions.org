@@ -21,8 +21,8 @@ code, even with correct line numbers. This rails gem, [[https://github.com/markb
 makes it easy to include CoffeeScript source maps as part of your rails
 application. Note, the =Rails.env.development?= is hard coded, so this only works
 when you use that specific environment. You can also do it manually, by using
-the =-m= flag with the =coffee= command. {% img
-/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png %}
+the =-m= flag with the =coffee= command.
+{% img /images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png %}
 
 * Try CoffeeScript Chrome Extension: Converting between CoffeeScript and JavaScript
 The [[https://chrome.google.com/webstore/detail/try-coffeescript-enhanced/fldhkfldchaibgaheaogapecjmnkaepe?hl%3Den][Try CoffeeScript Enhanced]] Chrome extension is pretty nice for converting

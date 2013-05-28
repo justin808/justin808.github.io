@@ -4,7 +4,7 @@
   <title><![CDATA[Category: capybara | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/capybara/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T22:10:54-10:00</updated>
+  <updated>2013-05-27T22:11:16-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -77,22 +77,35 @@ errors.
 </p>
 
 
-{% codeblock lang:ruby %}
-class Order
-  def purchase_cart
-    error_message = nil
-    Order.transaction do
-      # self.user record has charge info, and self.total is the order total
-      # PaymentGateway.charge returns either error_message if failed or charge_details if success
-      error_message, charge_details = PaymentGateway.charge user, total
-      # update the order and the user records with the charge_details
-      set_charge_fields_and_save user, charge_details unless error_message # update the order to indicated purchased
-      fulfill_order # do lots of complicated stuff to fulfill the order
-    end
-    error_message # return any error message if there is one
-  end
-end
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Order</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">purchase_cart</span>
+</span><span class='line'>    <span class="n">error_message</span> <span class="o">=</span> <span class="kp">nil</span>
+</span><span class='line'>    <span class="no">Order</span><span class="o">.</span><span class="n">transaction</span> <span class="k">do</span>
+</span><span class='line'>      <span class="c1"># self.user record has charge info, and self.total is the order total</span>
+</span><span class='line'>      <span class="c1"># PaymentGateway.charge returns either error_message if failed or charge_details if success</span>
+</span><span class='line'>      <span class="n">error_message</span><span class="p">,</span> <span class="n">charge_details</span> <span class="o">=</span> <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">charge</span> <span class="n">user</span><span class="p">,</span> <span class="n">total</span>
+</span><span class='line'>      <span class="c1"># update the order and the user records with the charge_details</span>
+</span><span class='line'>      <span class="n">set_charge_fields_and_save</span> <span class="n">user</span><span class="p">,</span> <span class="n">charge_details</span> <span class="k">unless</span> <span class="n">error_message</span> <span class="c1"># update the order to indicated purchased</span>
+</span><span class='line'>      <span class="n">fulfill_order</span> <span class="c1"># do lots of complicated stuff to fulfill the order</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>
 So what can go wrong?
@@ -156,12 +169,15 @@ can get modified with a single line at the beginning, which would be:
 </p>
 
 
-{% codeblock lang:ruby %}
-def process_order
-  raise "Any error message"
-  # Lots of other code that can be commented out
-end
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">process_order</span>
+</span><span class='line'>  <span class="k">raise</span> <span class="s2">&quot;Any error message&quot;</span>
+</span><span class='line'>  <span class="c1"># Lots of other code that can be commented out</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>
 Then go into the UI and test placing an order. Consider the following questions:
@@ -203,29 +219,49 @@ this. Pay attention to the call to <b>stub</b>.
 </p>
 
 
-{% codeblock lang:ruby %}
-describe Order do
-  describe "#purchase_cart" do
-    context "process_order fails" do
-      let(:order) { create :order } # factory_girl creation of order and related objects
-      before do
-        # The magic stubbing of every instance
-        Order.any_instance.stub(:fulfill_order) { raise ArgumentError, "test error" }
-        # The call to purchase_cart will first call 'charge'
-        PaymentGateway.should_receive(:charge).and_return([nil, "charge_details"])
-        # The error from within purchase_cart should do a refund
-        PaymentGateway.should_receive(:refund).and_return("refund_details")
-      end
-      it "should throw an error" do
-        expect {
-          order.purchase_cart
-        }.to raise_error
-        order.reload
-        order.purchased.should_not be
-        # charge refunded verified in mock
-      end
-    end
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Order</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">describe</span> <span class="s2">&quot;#purchase_cart&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">context</span> <span class="s2">&quot;process_order fails&quot;</span> <span class="k">do</span>
+</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:order</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span> <span class="ss">:order</span> <span class="p">}</span> <span class="c1"># factory_girl creation of order and related objects</span>
+</span><span class='line'>      <span class="n">before</span> <span class="k">do</span>
+</span><span class='line'>        <span class="c1"># The magic stubbing of every instance</span>
+</span><span class='line'>        <span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
+</span><span class='line'>        <span class="c1"># The call to purchase_cart will first call &#39;charge&#39;</span>
+</span><span class='line'>        <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">should_receive</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="o">[</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;charge_details&quot;</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>        <span class="c1"># The error from within purchase_cart should do a refund</span>
+</span><span class='line'>        <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">should_receive</span><span class="p">(</span><span class="ss">:refund</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="s2">&quot;refund_details&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>      <span class="n">it</span> <span class="s2">&quot;should throw an error&quot;</span> <span class="k">do</span>
+</span><span class='line'>        <span class="n">expect</span> <span class="p">{</span>
+</span><span class='line'>          <span class="n">order</span><span class="o">.</span><span class="n">purchase_cart</span>
+</span><span class='line'>        <span class="p">}</span><span class="o">.</span><span class="n">to</span> <span class="n">raise_error</span>
+</span><span class='line'>        <span class="n">order</span><span class="o">.</span><span class="n">reload</span>
+</span><span class='line'>        <span class="n">order</span><span class="o">.</span><span class="n">purchased</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be</span>
+</span><span class='line'>        <span class="c1"># charge refunded verified in mock</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>
 This test code ensures that the error handling of purchase_cart will catch an
@@ -234,26 +270,43 @@ changes to the order record.
 </p>
 <p>
 Here's an improved version of the Order#payment_method above:
-{% codeblock lang:ruby %}
-class Order
-  def purchase_cart
-    error_message = nil
-    begin
-      Order.transaction do
-        # user has a credit card info, returns either error_message if failed or charge_details if success
-        error_message, charge_details = PaymentGateway.charge user, total
-        set_charge_fields_and_save user, charge_details unless error_message # update the order to indicated purchased
-      end
-      fulfill_order # do lots of complicated stuff to process the order, do this outside of the original tx, so that the payment info can be committed.
-    rescue => e
-      Utility.log_exception e # Unified strategy for error handling including email notification, see below
-      refund_charge if charge_details # If there's an error here, then sys admins will have to manually refund the charge.
-      throw e
-    end
-    error_message # return any error message if there is one
-  end
-end
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Order</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">purchase_cart</span>
+</span><span class='line'>    <span class="n">error_message</span> <span class="o">=</span> <span class="kp">nil</span>
+</span><span class='line'>    <span class="k">begin</span>
+</span><span class='line'>      <span class="no">Order</span><span class="o">.</span><span class="n">transaction</span> <span class="k">do</span>
+</span><span class='line'>        <span class="c1"># user has a credit card info, returns either error_message if failed or charge_details if success</span>
+</span><span class='line'>        <span class="n">error_message</span><span class="p">,</span> <span class="n">charge_details</span> <span class="o">=</span> <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">charge</span> <span class="n">user</span><span class="p">,</span> <span class="n">total</span>
+</span><span class='line'>        <span class="n">set_charge_fields_and_save</span> <span class="n">user</span><span class="p">,</span> <span class="n">charge_details</span> <span class="k">unless</span> <span class="n">error_message</span> <span class="c1"># update the order to indicated purchased</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>      <span class="n">fulfill_order</span> <span class="c1"># do lots of complicated stuff to process the order, do this outside of the original tx, so that the payment info can be committed.</span>
+</span><span class='line'>    <span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span><span class='line'>      <span class="no">Utility</span><span class="o">.</span><span class="n">log_exception</span> <span class="n">e</span> <span class="c1"># Unified strategy for error handling including email notification, see below</span>
+</span><span class='line'>      <span class="n">refund_charge</span> <span class="k">if</span> <span class="n">charge_details</span> <span class="c1"># If there&#39;s an error here, then sys admins will have to manually refund the charge.</span>
+</span><span class='line'>      <span class="kp">throw</span> <span class="n">e</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 Here are the key points to the improved code:
 </p>
@@ -302,9 +355,9 @@ I tend to develop such a test in an iterative manner:
 </ol>
 
 
-{% codeblock lang:ruby %}
-     Order.any_instance.stub(:fulfill_order) { raise ArgumentError, "test error" }
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>     <span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <ol>
 <li>Allow the test cases to fail, and put in screen shots (in Capybara with
    phantomjs, that looks like this:
@@ -312,17 +365,20 @@ I tend to develop such a test in an iterative manner:
 </ol>
 
 
-{% codeblock lang:ruby %}
-   render_page "a-descriptive-name"
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">render_page</span> <span class="s2">&quot;a-descriptive-name&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>
    Setup this method <code>render_page</code> in a spec helper file like this:
-{% codeblock lang:ruby %}
-   def render_page name
-     path = File.join Rails.application.config.integration_test_render_dir, "#{name}.png"
-     page.driver.render(path)
-   end
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="k">def</span> <span class="nf">render_page</span> <span class="nb">name</span>
+</span><span class='line'>     <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span>
+</span><span class='line'>     <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class='line'>   <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 </p><ol>
 <li>Put in some assertions that the page shows the correct error and the records
    in the database have the right values.
@@ -338,44 +394,79 @@ verification that an email was sent signifying an error:
 </p>
 
 
-{% codeblock lang:ruby %}
-  # using gem vcr to record http communication for faster performance
-  let(:order) { create :order } # lots of setup in factory girl for non-purchased order
-
-  scenario "Purchase cart, Strip payment error", :vcr do
-    # Setup the stub -- the secret sauce to this test
-    error_content = "Testing error handling exception message"
-    PaymentGateway.stub(:charge) { raise Stripe::InvalidRequestError.new(error_content, 'id') }
-    place_order
-    page.should have_content error_content
-    page.should have_content "Error purchasing"
-    order.reload
-    order.purchased.should_not be
-  end
-
-  def place_order
-   login_as(user, :scope => :user)
-   visit shopping_cart_path
-   page.should have_selector('.total .price', :text => in_dollars(order.total))
-   page.render_page("purchase-cart-1")
-   click_link "CHECKOUT"
-   fill_in_credit_card_info # utility test method to fill in credit card data
-   page.should have_selector('.total .price', :text => in_dollars(order.total))
-   render_page("purchase-cart-with-payment-info-2")
-   click_on "PURCHASE"
-   wait_for_spinners # method to wait for the busy spinner to stop
-   render_page("purchase-cart-after-click-purchase-3")
-   validate_error_emailed
- end
-
- # example of how you verify that an error was emailed
- def validate_error_emailed
-   email = ActionMailer::Base.deliveries.last
-   email.should_not be_nil
-   email.to.should_not include(order.user.email)
-   email.to.should include('whoever@gets-error.com')
- end
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1"># using gem vcr to record http communication for faster performance</span>
+</span><span class='line'>  <span class="n">let</span><span class="p">(</span><span class="ss">:order</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span> <span class="ss">:order</span> <span class="p">}</span> <span class="c1"># lots of setup in factory girl for non-purchased order</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">scenario</span> <span class="s2">&quot;Purchase cart, Strip payment error&quot;</span><span class="p">,</span> <span class="ss">:vcr</span> <span class="k">do</span>
+</span><span class='line'>    <span class="c1"># Setup the stub -- the secret sauce to this test</span>
+</span><span class='line'>    <span class="n">error_content</span> <span class="o">=</span> <span class="s2">&quot;Testing error handling exception message&quot;</span>
+</span><span class='line'>    <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="ss">Stripe</span><span class="p">:</span><span class="ss">:InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">place_order</span>
+</span><span class='line'>    <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="n">error_content</span>
+</span><span class='line'>    <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="s2">&quot;Error purchasing&quot;</span>
+</span><span class='line'>    <span class="n">order</span><span class="o">.</span><span class="n">reload</span>
+</span><span class='line'>    <span class="n">order</span><span class="o">.</span><span class="n">purchased</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">place_order</span>
+</span><span class='line'>   <span class="n">login_as</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="ss">:scope</span> <span class="o">=&gt;</span> <span class="ss">:user</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">visit</span> <span class="n">shopping_cart_path</span>
+</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
+</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-1&quot;</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">click_link</span> <span class="s2">&quot;CHECKOUT&quot;</span>
+</span><span class='line'>   <span class="n">fill_in_credit_card_info</span> <span class="c1"># utility test method to fill in credit card data</span>
+</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
+</span><span class='line'>   <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-with-payment-info-2&quot;</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">click_on</span> <span class="s2">&quot;PURCHASE&quot;</span>
+</span><span class='line'>   <span class="n">wait_for_spinners</span> <span class="c1"># method to wait for the busy spinner to stop</span>
+</span><span class='line'>   <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-after-click-purchase-3&quot;</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">validate_error_emailed</span>
+</span><span class='line'> <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c1"># example of how you verify that an error was emailed</span>
+</span><span class='line'> <span class="k">def</span> <span class="nf">validate_error_emailed</span>
+</span><span class='line'>   <span class="n">email</span> <span class="o">=</span> <span class="ss">ActionMailer</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
+</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
+</span><span class='line'> <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 </div>
 

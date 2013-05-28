@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T22:06:48-10:00</updated>
+  <updated>2013-05-27T22:11:16-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -34,8 +34,9 @@ Rails and EmberJs. All 3 tools are useful for different purposes.
 JavaScript code in the debugger. Instead, you can now see your CoffeeScript
 code, even with correct line numbers. This rails gem, <a href="https://github.com/markbates/coffee-rails-source-maps">coffee-rails-source-maps</a>,
 makes it easy to include CoffeeScript source maps as part of your rails
-application. You can also do it manually, by using the <code>-m</code> flag with the
-<code>coffee</code> command.
+application. Note, the <code>Rails.env.development?</code> is hard coded, so this only works
+when you use that specific environment. You can also do it manually, by using
+the <code>-m</code> flag with the <code>coffee</code> command.
 <img src="http://www.railsonmaui.com//images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
 </p>
 </div>
@@ -76,19 +77,6 @@ the Web Inspector.
 
 </div>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ember.js Notes]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes/"/>
-    <updated>2013-05-26T19:42:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes</id>
-    <content type="html"><![CDATA[<p>
-<a href="http://emberjs.com/guides/controllers/">Controllers</a>
-&#8220;From the template&#8217;s perspective, a controller is simply an object that provides its data.&#8221;
-</p>
 
 ]]></content>
   </entry>

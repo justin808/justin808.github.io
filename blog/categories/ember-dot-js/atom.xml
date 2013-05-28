@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ember.js | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/ember-dot-js/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-05-27T22:10:54-10:00</updated>
+  <updated>2013-05-27T22:11:16-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -77,19 +77,19 @@ this:
 
 
 <p>
-{% img /images/2013-05-26-ember-dot-js-hello-world/ember-inspector.png %}
+<img src="/images/2013-05-26-ember-dot-js-hello-world/ember-inspector.png">
 </p>
 
 
 <p>
 You can click on most of the purple text to dig into the ember objects:
-{% img /images/2013-05-26-ember-dot-js-hello-world/ember-inspector-2.png %}
+<img src="/images/2013-05-26-ember-dot-js-hello-world/ember-inspector-2.png">
 </p>
 
 
 <p>
 You can view <i>&lt;computed&gt;</i> values:
-{% img /images/2013-05-26-ember-dot-js-hello-world/ember-inspector-3.png %}
+<img src="/images/2013-05-26-ember-dot-js-hello-world/ember-inspector-3.png">
 </p>
 
 
@@ -214,9 +214,9 @@ and run it. I just did that and I'm impressed.
 <p>Basically, there's a few dependencies to install, some of which you probably already
 have installed, such as Postgres and Redis. The main gotcha I faced was to make
 sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development database</a>, rather than using the rake task. Then you can install the seed data:
-{% codeblock lang:bash %}
-psql -d discourse_development < pg_dumps/development-image.sql
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 
 The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
@@ -224,13 +224,17 @@ rather some tiny bit of "seed" data (like post action types).
 </p>
 <p>
 Once you have the test data installed, then run these commands.
-{% codeblock lang:bash %}
-bundle install # Yes, this DOES take a while. No, it's not really cloning all of rubygems :-)
-rake db:migrate
-rake db:test:prepare
-rake db:seed_fu
-bundle exec rspec # All specs should pass
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle install <span class="c"># Yes, this DOES take a while. No, it&#39;s not really cloning all of rubygems :-)</span>
+</span><span class='line'>rake db:migrate
+</span><span class='line'>rake db:test:prepare
+</span><span class='line'>rake db:seed_fu
+</span><span class='line'>bundle <span class="nb">exec </span>rspec <span class="c"># All specs should pass</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 You should have installed <a href="http://mailcatcher.me/">MailCatcher</a>, so that you don't have to configure any
 smtp server. Then you just have to visit <a href="http://localhost:1080">http://localhost:1080</a> to see the mail
@@ -239,32 +243,34 @@ messages that Discourse sends.
 <p>
 Then to run the Discourse application (assuming postgres and redis are running)
 open up two tabs. Cd each to the disource directory. 
-{% codeblock lang:bash %}
-bundle exec rails server
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rails server
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-{% codeblock lang:bash %}
-bundle exec sidekiq
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>sidekiq
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-{% codeblock lang:bash %}
-bundle exec clockwork config/clock.rb
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>clockwork config/clock.rb
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 
 Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
 </p>
 
 
-{% codeblock lang:bash %}
-export PORT=3000
-export RAILS_ENV=development
-foreman start
-{% endcodeblock %}
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PORT</span><span class="o">=</span>3000
+</span><span class='line'><span class="nb">export </span><span class="nv">RAILS_ENV</span><span class="o">=</span>development
+</span><span class='line'>foreman start
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>
 If you got this working, you'll see this:
-{% img /images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png %}
+<img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png">
 </p>
 
 </div>
