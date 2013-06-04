@@ -1,0 +1,159 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Creating Ember.js Guides Tutorial with Rails 4"
+date: 2013-05-28 16:06
+comments: true
+categories: [Rails, emberjs]
+keywords: Rails4, Rails, Ruby on Rails, Ember.js, Emberjs
+description: 
+published: false
+---
+#+END_HTML
+
+* Get the no-database fixture example of Emberj.s working.
++ Start with Tutorial at [[http://blog.dcxn.com/2013/03/23/getting-started-with-ember-js-on-rails/][The No Nonsense Guide to Ember.js on Rails]].
++ But first create a gemset for Rails 4 and install Rails 4
++ Get the desired version of ember-data.js from here:
+  http://builds.emberjs.com/. I tried with =ember-data-0.13.js=. Change
+  application.js to refer to this rather than simply =ember-data=.
++ Otherwise, you'll see this issue in the console log with the old ember data.
++ Install the CSS
+  
+#+BEGIN_EXAMPLE
+DEPRECATION: register("store", "main") is now deprecated in-favour of register("store:main");
+        at Object.Container.register (http://0.0.0.0:3000/assets/ember.js?body=1:7296:17)
+        at Application.initializer.initialize (http://0.0.0.0:3000/assets/ember-data.js?body=1:5069:19)
+        at http://0.0.0.0:3000/assets/ember.js?body=1:27903:7
+        at visit (http://0.0.0.0:3000/assets/ember.js?body=1:27041:3)
+        at DAG.topsort (http://0.0.0.0:3000/assets/ember.js?body=1:27095:7)
+        at Ember.Application.Ember.Namespace.extend.runInitializers (http://0.0.0.0:3000/assets/ember.js?body=1:27900:11)
+        at Ember.Application.Ember.Namespace.extend._initialize (http://0.0.0.0:3000/assets/ember.js?body=1:27784:10)
+        at Object.Backburner.run (http://0.0.0.0:3000/assets/ember.js?body=1:4612:26)
+        at Object.Ember.run (http://0.0.0.0:3000/assets/ember.js?body=1:5074:26) 
+#+END_EXAMPLE
+
+
++ Create the Model for Blog Posts
+#+BEGIN_SRC bash
+$ rails generate model Post title:string author:string published_at:date intro:text extended:text
+$ rake db:migrate
+#+END_SRC
+
+Since Rails comes pre-configured with sqllite3 by default, no database
+configuration is required.
+
+
+
+
++ Ember does a ton with default naming. It's basically got the same philosophy
+  of "Convention over Configuration" of Rails. So it's especially important to
+  try to grok when the Ember examples are doing something implicitly versus
+  explicitly. This is a bit like Rails. At first it seems like magic, like "How
+  the heck is that happening", and then one gets accustomed to the naming
+  conventions and appreciates how much code it saves.
+
++ The two RailsCasts episodes complement the first tutorial by Tom Dale by
+  showing how to add persistence via the =rails-ember= gem.
+  + [[http://railscasts.com/episodes/408-ember-part-1][#408 Ember Part 1]] (pro)
+  + [[http://railscasts.com/episodes/410-ember-part-2][#410 Ember Part 2]] (pro)
+  + [[http://railscasts.com/episodes/409-active-model-serializers?view%3Dcomments][#409 Active Model Serializers]]
+
+
++ Using Chrome, I found that the left/right arrow and space bar keys are
+  amazing for pausing and rewinding the railscasts so that I could get all the
+  nuances of the Ember naming schemes.
+
+
++ Check out the git repo: [PENDING] and especially the commits and comments, as
+  they walk you through what you need to do in order to migrate the static
+  example to the dynamic rails example. You can also find the example here, on
+  Heroku: [PENDING]
+
+
++ Adding an add button turned out to be not so easy. The issue is that you
+  don't want to add an
+
+
+
++ [[https://github.com/dgeb/ember_data_example][ember_data_example]] on Github is a nice full featured ember app with a parent
+  child relationship of contacts and phone numbers. It even has some examples
+  of using [[https://github.com/jfirebaugh/konacha][Konacha for testing Ember javascript code]].
+
+
++ Required fields
+  +
+
++ Edit Controller Patterns
+  + =startEditing= shows how to get the 
+
+
+
++ Pattern for adding top-level records
+  + Waits for notification that id is set before adding.
+
++ Use of Store's "transaction"
+  + =startEditing=, =stopEditing=, =save= all manage the transction
+
+
+  
+#+BEGIN_SRC javascript
+ App.ContactsNewController = Em.ObjectController.extend({
+  startEditing: function() {
+    // create a new record on a local transaction
+    debugger;
+    this.transaction = this.get('store').transaction();
+    this.set('content', this.transaction.createRecord(App.Contact, {}));
+  },
+
+  stopEditing: function() {
+    // rollback the local transaction if it hasn't already been cleared
+    if (this.transaction) {
+      this.transaction.rollback();
+      this.transaction = null;
+    }
+  },
+
+  save: function() {
+    // commit and then clear the local transaction
+    this.transaction.commit();
+    this.transaction = null;
+  },
+
+  transitionAfterSave: function() {
+    // when creating new records, it's necessary to wait for the record to be assigned
+    // an id before we can transition to its route (which depends on its id)
+    if (this.get('content.id')) {
+      this.transitionToRoute('contact', this.get('content'));
+    }
+  }.observes('content.id'),
+
+  cancel: function() {
+    this.stopEditing();
+    this.transitionToRoute('contacts.index');
+  },
+
+  addPhoneNumber: function() {
+    this.get('content.phoneNumbers').createRecord();
+  },
+
+  removePhoneNumber: function(phoneNumber) {
+    phoneNumber.deleteRecord();
+  }
+});
+#+END_SRC
+
+
++ Notes
+  + To create a new post, use a link, not a button, b/c we want to change the URL.
+  + Don't define both =model= and =setupController= on the Route!
+  #+BEGIN_SRC coffeescript
+  App.PostsNewRoute = Ember.Route.extend(
+    model: ->
+      App.Post.createRecord(publishedAt: new Date(), author: "current user")
+    setupController: (controller) ->
+      # controller.set('content', App.Post.createRecord(publishedAt: new Date(), author: "current user"))
+    deactivate: ->
+      debugger
+  )   
+  #+END_SRC
