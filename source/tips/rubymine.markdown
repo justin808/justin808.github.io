@@ -365,6 +365,8 @@ with an improved version of this video, and details on the tips.
 method separators.
 </p>
 <ol>
+<li>Hit Cmd-, to bring up the preferences dialog.
+</li>
 <li>To find a setting, type in a keyword. I typed in "method".
 </li>
 <li>Click on the matches. The matches for the keyword are highlighted.
