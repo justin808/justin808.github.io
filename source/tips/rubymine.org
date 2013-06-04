@@ -150,3 +150,16 @@ Here's my notes when making the video.
 + To search replace end of line
   + match: \n
   + replace: <new text>\n
+
+
+
+
+* Preferences
+Rubymine has an awesome configuration system. I was asked how to configure the
+method separators.
+
+0. Hit Cmd-, to bring up the preferences dialog.
+1. To find a setting, type in a keyword. I typed in "method".
+2. Click on the matches. The matches for the keyword are highlighted.
+
+{% img /tips/rubymine-preferences-method-separators.png %}

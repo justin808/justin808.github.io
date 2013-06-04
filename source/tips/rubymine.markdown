@@ -349,5 +349,30 @@ with an improved version of this video, and details on the tips.
 </li>
 </ul>
 
+
+
+
+
 </div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Preferences</h2>
+<div class="outline-text-2" id="text-5">
+
+<p>Rubymine has an awesome configuration system. I was asked how to configure the
+method separators.
+</p>
+<ol>
+<li>To find a setting, type in a keyword. I typed in "method".
+</li>
+<li>Click on the matches. The matches for the keyword are highlighted.
+</li>
+</ol>
+
+
+<p>
+{% img /tips/rubymine-preferences-method-separators.png %}
+</p></div>
 </div>
