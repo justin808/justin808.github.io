@@ -8,10 +8,24 @@ footer: true
 ---
 
 
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Software Development</h2>
+<div class="outline-text-2" id="text-1">
+
 <ul>
 <li><a href="http:/tips/rubymine.html">RubyMine</a>
 </li>
-<li>Octopress
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Octopress</h2>
+<div class="outline-text-2" id="text-2">
+
 <ul>
 <li><a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup With Github, Org Mode, and LiveReload</a>
 </li>
@@ -19,6 +33,20 @@ footer: true
 </li>
 </ul>
 
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">General Mac Tips</h2>
+<div class="outline-text-2" id="text-3">
+
+<ul>
+<li><a href="http:/tips/alfred-tips.html">Alfred (Productivity App)</a>
 </li>
 </ul>
 
+
+</div>
+</div>

@@ -1,0 +1,71 @@
+---
+layout: page
+title: "Alfred Tips"
+date: 2013-06-05 22:20
+comments: true
+sharing: true
+footer: true
+---
+
+<p>
+Alfred is awesome! Check it out at: <a href="http://www.alfredapp.com/">www.alfredapp.com</a>. I really never use the
+<code>Applications</code> folder or other mechanisms to find applications on my Mac. The
+basic features are free! However, the small price for the "Powerpak" is totally
+worth it.
+</p>
+<p>
+Here's the some of the ways that I use Alfred. If you've got suggestions that I
+should add, please add a comment below.
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Bring up Alfred</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>I'm using "Double Tap Cmd Key" to bring up Alfred, and then I type any
+application I want to visit, type <code>space</code> and then a file or folder name.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Powerpack Features</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>I use these 2 Powerpack features all the time:
+</p>
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Copy Buffer</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>Cmd-Opt-C brings up a list of all recent copy actions on my Mac.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Workflows</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<ul>
+<li><a href="https://github.com/BubiDevs/manage-hidden-files">Manage hidden files</a>, by Andrea Busi. Toggle the finder's showing of hidden
+  files. (keyword <code>hiddden</code>) 
+</li>
+<li><a href="http://cloud.dferg.us/2A7l">Switch Audio Input and Output</a>: Useful to switch from my external hi-fi to my
+  screen speakers so that when I teleconference, there is no echoing. (keyword
+  <code>input</code> and <code>output</code>)
+</li>
+<li><a href="https://github.com/ctwise/alfred-workflows">Time Machine</a>, By Ted Wise: Allows you to start and stop Time Machine from
+  Alfred. Ted has many other Alfred workflows at this git repository. (keyword:
+  <code>tmac start</code> and <code>tmac stop</code>)
+</li>
+</ul>
+
+</div>
+</div>
+</div>

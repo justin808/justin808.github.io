@@ -5,7 +5,6 @@ date: 2013-05-10 22:20
 comments: true
 sharing: true
 footer: true
-published: false
 ---
 
 <p>
