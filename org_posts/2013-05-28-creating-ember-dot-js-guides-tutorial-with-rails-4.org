@@ -96,6 +96,7 @@ configuration is required.
   + =startEditing=, =stopEditing=, =save= all manage the transction
 
 
+
   
 #+BEGIN_SRC javascript
  App.ContactsNewController = Em.ObjectController.extend({
@@ -145,15 +146,23 @@ configuration is required.
 
 
 + Notes
-  + To create a new post, use a link, not a button, b/c we want to change the URL.
+
+** Creating a New Post
+  + To create a new post, *use a link, not a button*, b/c we want to change the URL.
   + Don't define both =model= and =setupController= on the Route!
-  #+BEGIN_SRC coffeescript
-  App.PostsNewRoute = Ember.Route.extend(
-    model: ->
-      App.Post.createRecord(publishedAt: new Date(), author: "current user")
-    setupController: (controller) ->
-      # controller.set('content', App.Post.createRecord(publishedAt: new Date(), author: "current user"))
-    deactivate: ->
-      debugger
-  )   
-  #+END_SRC
+    If you do, you'll get this error:
+    #+BEGIN_EXAMPLE
+    Uncaught Error: assertion failed: Cannot delegate set('title', a) to the 'content' property of object proxy <App.PostsNewController:ember392>: its 'content' is undefined.  
+    #+END_EXAMPLE
+    I.e., if you define both =model= and =setupController=, you'll get the
+    above error, even if you have no code in the =setupController= definition! 
+    #+BEGIN_SRC coffeescript
+    App.PostsNewRoute = Ember.Route.extend(
+      model: ->
+        App.Post.createRecord(publishedAt: new Date(), author: "current user")
+      setupController: (controller) ->
+        # controller.set('content', App.Post.createRecord(publishedAt: new Date(), author: "current user"))
+      deactivate: ->
+        debugger
+    )   
+    #+END_SRC

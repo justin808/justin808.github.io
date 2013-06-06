@@ -9,8 +9,13 @@ footer: true
 ---
 #+END_HTML
 
-
+* Software Development
 + [[http:/tips/rubymine.html][RubyMine]]
-+ Octopress
+
+* Octopress
   + [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/][Octopress Setup With Github, Org Mode, and LiveReload]]
   + [[http:/tips/renaming-redating-blog-posts.html][Renaming, redating blog posts]]
+
+* General Mac Tips
+  + [[http:/tips/alfred-tips.html][Alfred (Productivity App)]]
+  
