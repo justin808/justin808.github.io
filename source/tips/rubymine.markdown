@@ -376,5 +376,34 @@ method separators.
 
 <p>
 {% img /tips/rubymine-preferences-method-separators.png %}
-</p></div>
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Debugging a Rake Task in RubyMine</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>If you tried to set a breakpoint in a Rakefile and then right click and debug
+"filename" for a Rakefile, it doesn't work. You will probably get an error:
+</p>
+
+
+<pre class="example">Uncaught exception: undefined method `namespace' for main:Object
+</pre>
+
+
+<p>
+The trick is to first run the rake task normally (Tools -&gt; Run Rake Task), and
+then the rake command will be in your run menu in the toolbar. Then hit the
+debugger icon next to it. Of course, you have already set a breakpoint in the
+rake test you wish to debug.
+</p>
+<p>
+{% img /tips/rubymine-debug-rake-task.png %}
+</p>
+
+</div>
 </div>

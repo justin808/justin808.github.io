@@ -163,3 +163,20 @@ method separators.
 2. Click on the matches. The matches for the keyword are highlighted.
 
 {% img /tips/rubymine-preferences-method-separators.png %}
+
+
+* Debugging a Rake Task in RubyMine
+If you tried to set a breakpoint in a Rakefile and then right click and debug
+"filename" for a Rakefile, it doesn't work. You will probably get an error:
+#+BEGIN_EXAMPLE
+Uncaught exception: undefined method `namespace' for main:Object
+#+END_EXAMPLE
+
+The trick is to first run the rake task normally (Tools -> Run Rake Task), and
+then the rake command will be in your run menu in the toolbar. Then hit the
+debugger icon next to it. Of course, you have already set a breakpoint in the
+rake test you wish to debug.
+
+{% img /tips/rubymine-debug-rake-task.png %}
+
+
