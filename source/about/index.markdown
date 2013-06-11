@@ -65,6 +65,8 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
   Finally, developers can write tests on the full stack, including all client
   side javascript.
 </li>
+<li>Love Test Drive Development. Check out my TDD tips site: <a href="http://tddtips.com">http://tddtips.com</a>.  
+</li>
 <li>Twitter Bootstrap rocks.
 </li>
 <li>Even done some Objective-C recently.
@@ -78,7 +80,9 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
   simplifies and accelerates JUnit testing with persistent dependencies.
 </li>
 <li>Former speaker at Dr. Dobb's SD West Santa Clara, Architecture and Design
-  World Chicago, and SD Best Practices in Boston.
+  World Chicago, and SD Best Practices in Boston. Talks were on "JUnit and
+  Test-Driven Development: Why and How in Enterprise Software" and the
+  "Dependent Object Framework for Enterprise TDD".
 </li>
 <li>Tons I didn't mention, but stuff you'd expect given my experience. Here's a
   few more things I like using: postgres, tmux, yaml, json, rubygems (too many
