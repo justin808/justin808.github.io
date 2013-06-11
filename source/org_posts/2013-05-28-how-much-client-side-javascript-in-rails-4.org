@@ -1,0 +1,32 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "How Much Client Side JavaScript in Rails 4?"
+date: 2013-05-28 15:22
+comments: true
+categories: 
+keywords: 
+published: false
+description: 
+---
+#+END_HTML
+
+
+
+
+Articles and Quick Summaries:
++ [[http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/][RailsConf 2013 Keynotes: Rails 4 vs Ember.js]]: DHH on server side vs. Yehuda on
+  the client side.
++ [[http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html][Improving performance on twitter.com]]: Twitter's retreat from client side js.
++ [[http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui][How Basecamp Next got to be so damn fast without using much client-side UI]]:
+  DHH on the Rails features the preclude the use of client side js.
+  
+
+
+[[http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html][Why Discourse uses Ember.js]]: 
+#+begin_quote
+Ask yourself how interactive your web application needs to be. On the less
+interactive side of the scale, there are huge wins with server side rendered
+HTML. The more interactive your application becomes, the more you’ll benefit
+from a client side MVC framework.
+#+end_quote

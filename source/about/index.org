@@ -38,12 +38,11 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 + Love writing tests in rspec, and phantomjs with capybara is simply amazing.
   Finally, developers can write tests on the full stack, including all client
   side javascript.
-+ Love Test Drive Development. Check out my TDD tips site: http://tddtips.com.  
 + Twitter Bootstrap rocks.
 + Even done some Objective-C recently.
 + Current specialization is in Master Data Manager for Product Information Management.
 + Thought leader in doing Test Driven Development in the context of enterprise
-  software
+  software. Check out my TDD tips site: http://tddtips.com.  
 + Author of open source project "Dependent Object Framework", which vastly
   simplifies and accelerates JUnit testing with persistent dependencies.
 + Former speaker at Dr. Dobb's SD West Santa Clara, Architecture and Design

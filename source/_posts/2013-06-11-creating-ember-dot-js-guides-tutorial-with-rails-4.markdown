@@ -1,0 +1,590 @@
+---
+layout: post
+title: "Ember.js Hello World with Rails 4 Persistence"
+date: 2013-06-11 13:00
+comments: true
+categories: [Rails, emberjs]
+keywords: Rails4, Rails, Ruby on Rails, Ember.js, Emberjs
+description: This post demonstrates how to build a simple Ember.js app with Rails 4 for persistence. 
+published: true
+---
+
+<p>
+The first post in this series, <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>, shows Ember working
+without a persistence backend. This post covers setting up Rails4 as the
+persistence engine behind that example, plus adding and deleting records. The
+amount of Ember and Rails code to make this example is almost completely
+included in this article. It's that tiny!
+</p>
+<p>
+The source code for the completed example can be found on github:
+<a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. I carefully crafted the commits
+to explain the steps.
+</p>
+<p>
+You can try out the application on Heroku at:
+<a href="http://railsonmaui-emberjs-rails4.herokuapp.com/">http://railsonmaui-emberjs-rails4.herokuapp.com/</a>
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Key Tips</h2>
+<div class="outline-text-2" id="text-1">
+
+<ol>
+<li>Be sure to update the <code>ember</code> and <code>ember-data</code> javascript files with the
+   command from the ember-rails gem (see below). Keeping these files at
+   appropriate versions is key while the API is changing, especially for
+   ember-data.
+</li>
+<li>If you specify the Router property for both <code>model</code> and <code>setupController</code>,
+   you can have some very confusing results (details below).
+</li>
+<li>Get comfortable with Ember's naming conventions. Ember does a ton with
+   default naming. It's basically got the same philosophy of "Convention over
+   Configuration" of Rails. So it's especially important to try to grok when the
+   Ember examples are doing something implicitly versus explicitly. This is a
+   bit like Rails. At first it seems like magic, like "How the heck is that
+   happening", and then one gets accustomed to the naming conventions and
+   appreciates how much code it saves.
+</li>
+</ol>
+
+
+
+
+<!-- more -->
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Building the Hello World without Persistence</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>The steps for this can be found in the git history up to tag <code>no-persistence</code>.
+Thanks to a few gems, the process is relatively simple.
+</p>
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Basic Setup</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>I started off with the instructions here <a href="http://blog.dcxn.com/2013/03/23/getting-started-with-ember-js-on-rails/">The No Nonsense Guide to Ember.js on Rails</a>. This article covers the basic setup, such as gems to include. You want to
+pay special attention to the <a href="https://github.com/emberjs/ember-rails">readme for ember-rails</a>. Depending on the current
+state of the ember-rails gem, you may get the deprecation warning (browser
+console) with the old ember-data.js.
+</p>
+
+
+
+<pre class="example">DEPRECATION: register("store", "main") is now deprecated in-favour of register("store:main");
+        at Object.Container.register (http://0.0.0.0:3000/assets/ember.js?body=1:7296:17)
+        at Application.initializer.initialize (http://0.0.0.0:3000/assets/ember-data.js?body=1:5069:19)
+        at http://0.0.0.0:3000/assets/ember.js?body=1:27903:7
+        at visit (http://0.0.0.0:3000/assets/ember.js?body=1:27041:3)
+        at DAG.topsort (http://0.0.0.0:3000/assets/ember.js?body=1:27095:7)
+        at Ember.Application.Ember.Namespace.extend.runInitializers (http://0.0.0.0:3000/assets/ember.js?body=1:27900:11)
+        at Ember.Application.Ember.Namespace.extend._initialize (http://0.0.0.0:3000/assets/ember.js?body=1:27784:10)
+        at Object.Backburner.run (http://0.0.0.0:3000/assets/ember.js?body=1:4612:26)
+        at Object.Ember.run (http://0.0.0.0:3000/assets/ember.js?body=1:5074:26) 
+</pre>
+
+
+<p>
+Originally, I included a separate version of ember-data in the git repository.
+Instead, I should have updated the versions of ember and ember-data with this
+command from the <a href="https://github.com/emberjs/ember-rails">ember-rails README</a>:
+{% codeblock lang:bash %}
+  rails generate ember:install --head
+{% endcodeblock %}
+This command puts the ember files in <code>vendor/assets/ember</code>. Pretty sweet. This
+is way better than manually installing the js files.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Get the no-database fixture example of Ember.js working.</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<p>Next, I migrated the non-rails static example presented in <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
+to the rails framework. You can checkout the tag <code>no-persistence</code> and get the
+code to where the static fixture is used and there is no persistence. Scroll to
+the bottom to see this code, as well as some additional code added for persistence.
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Building the Hello World with Persistence</h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1">Create the Model for Blog Posts</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<p>You can checkout the git tag <code>persistence-emberjs</code> to get the git repository to
+the state that persistence works.
+{% codeblock lang:bash %}
+$ rails generate model Post title:string author:string published_at:date intro:text extended:text
+$ rake db:migrate
+{% endcodeblock %}
+
+Since Rails comes pre-configured with sqllite3 by default, no database
+configuration is required.
+</p></div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">Add the Controller and Serializer</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<p>Note that in Rails 4, you need to use the form for "strong parameters". See the
+definition of <code>post_params</code> below.
+</p>
+</div>
+
+<div id="outline-container-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1">app/models/post.rb</h4>
+<div class="outline-text-4" id="text-3-2-1">
+
+
+{% codeblock lang:ruby %}
+class Post < ActiveRecord::Base
+  validates_presence_of :published_at, :author
+end
+{% endcodeblock %}
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2">app/serializers/post_serializer.rb</h4>
+<div class="outline-text-4" id="text-3-2-2">
+
+
+{% codeblock lang:ruby %}
+class PostSerializer < ActiveModel::Serializer
+  attributes :id, :title, :author, :published_at, :intro, :extended
+end
+{% endcodeblock %}
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3">app/controllers/posts_controller.rb</h4>
+<div class="outline-text-4" id="text-3-2-3">
+
+
+{% codeblock lang:ruby %}
+class PostsController < ApplicationController
+  respond_to :json # default to Active Model Serializers
+  def index
+    respond_with Post.all
+  end
+
+  def show
+    respond_with Post.find(params[:id])
+  end
+
+  def create
+    respond_with Post.create(post_params)
+  end
+
+  def update
+    respond_with Post.update(params[:id], post_params)
+  end
+
+  def destroy
+    respond_with Post.destroy(params[:id])
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :intro, :extended, :published_at, :author) # only allow these for now
+  end
+end
+{% endcodeblock %}
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3">Adding "Add" and "Remove" Buttons</h3>
+<div class="outline-text-3" id="text-3-3">
+
+<ul>
+<li>To create a new post, <b>use a link, not a button</b>, because we want to change the URL.
+</li>
+<li>Don't define both <code>model</code> and <code>setupController</code> on the Route!
+  If you do, you'll get this error:
+
+
+
+<pre class="example">Uncaught Error: assertion failed: Cannot delegate set('title', a) to the 'content' property of object proxy &lt;App.PostsNewController:ember392&gt;: its 'content' is undefined.  
+</pre>
+
+<p>
+  I originally had code like this and it took me some time to figure out that
+  the <code>model</code> part was not used. 
+</p></li>
+</ul>
+
+
+{% codeblock lang:coffeescript %}
+  App.PostsNewRoute = Ember.Route.extend(
+    model: ->
+      App.Post.createRecord(publishedAt: new Date(), author: "current user")
+    setupController: (controller) ->
+      # controller.set('content', App.Post.createRecord(publishedAt: new Date(), author: "current user"))
+  )   
+{% endcodeblock %}
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4">Update the URL on New with transitionAfterSave Hook</h3>
+<div class="outline-text-3" id="text-3-4">
+
+<p>You can't update the URL after a new record is saved directly in the event
+handler, as the commit will run asynchronously, and until the return value,
+there is no record id, and you would end up using record id <code>null</code> in the URL.
+Here's how to handle this situation. Not that the <code>save</code> does the commit, but
+the <code>transitionToRoute</code> is not called until the <code>transitionAfterSave</code> hook is
+run.
+{% codeblock lang:ruby %}
+App.PostsNewController = Ember.ObjectController.extend(
+  save: ->
+    @get('store').commit()
+
+  transitionAfterSave: ( ->
+    # when creating new records, it's necessary to wait for the record to be assigned
+    # an id before we can transition to its route (which depends on its id)
+    @transitionToRoute('post', @get('content')) if @get('content.id')
+  ).observes('content.id')
+)
+{% endcodeblock %}
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Heroku Deployment</h2>
+<div class="outline-text-2" id="text-4">
+
+<p>Heroku has listed many tips at <a href="https://devcenter.heroku.com/articles/rails4">Getting Started with Rails 4.x on Heroku</a>. And you
+can look at the commits leading up to tag <code>heroku</code>. The basic steps are:
+</p><ol>
+<li>Change a few gems
+</li>
+<li>Switch from sqllite to postgres.
+</li>
+<li>Add a ProcFile to use Puma for the webserver.
+</li>
+<li>Be sure that production.rb contains:
+</li>
+</ol>
+
+
+{% codeblock lang:ruby %}
+   config.ember.variant = :production
+{% endcodeblock %}
+<p>
+   If you don't, you'll see this error:
+</p>
+
+
+<pre class="example">RAILS_ENV=production bin/rake assets:precompile
+rake aborted!
+couldn't find file 'handlebars'
+  (in /Users/justin/j/emberjs/ember-js-guides-railsonmaui-rails4/app/app/assets/javascripts/application.js:18)
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Examples that Inspired this Tutorial</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1">RailsCasts</h3>
+<div class="outline-text-3" id="text-5-1">
+
+<ul>
+<li>The two RailsCasts episodes complement the <a href="http://www.youtube.com/watch?v=Ga99hMi7wfY">first tutorial by Tom Dale</a> by
+  showing how to add persistence via the <code>rails-ember</code> gem. The serializers
+  episode is also useful.
+<ul>
+<li><a href="http://railscasts.com/episodes/408-ember-part-1">#408 Ember Part 1</a> (pro)
+</li>
+<li><a href="http://railscasts.com/episodes/410-ember-part-2">#410 Ember Part 2</a> (pro)
+</li>
+<li><a href="http://railscasts.com/episodes/409-active-model-serializers?view=comments">#409 Active Model Serializers</a>
+</li>
+</ul>
+
+</li>
+<li>Tip: Using Chrome to watch the videos: I found that the left/right arrow and
+  space bar keys are amazing for pausing and rewinding the railscasts so that I
+  could get all the nuances of the Ember naming schemes.
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2">ember_data_example</h3>
+<div class="outline-text-3" id="text-5-2">
+
+<ul>
+<li><a href="https://github.com/dgeb/ember_data_example">ember_data_example</a> on Github is a nice full featured ember app with a parent
+  child relationship of contacts and phone numbers. It even has some examples
+  of using <a href="https://github.com/jfirebaugh/konacha">Konacha for testing Ember javascript code</a>.
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Source Code for Views and Javascript</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>I purposefully kept these to just 2 files to make this example simple. In a
+real world application, this would be broken into many files.
+</p>
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1">View Code: app/viws/static/index.html.erb</h3>
+<div class="outline-text-3" id="text-6-1">
+
+
+{% codeblock lang:html %}
+{% raw %}
+<script type="text/x-handlebars">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Bloggr</a>
+      <ul class="nav">
+        <li>{{#linkTo 'posts'}}Posts{{/linkTo}}</li>
+        <li>{{#linkTo 'about'}}About{{/linkTo}}</li>
+      </ul>
+
+    </div>
+  </div>
+  {{outlet}}
+</script>
+
+<script type="text/x-handlebars" id="about">
+  <div class='about'>
+    <p>Justin Gordon wrote this: http://www.railsonmaui.com</p>
+    <p>Git Repository: </p>
+  </div>
+</script>
+
+<script type="text/x-handlebars" id="posts">
+  <div class='container-fluid'>
+    <div class='row-fluid'>
+      <div class='span3'>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Recent Posts
+              {{#linkTo "posts.new" class="btn"}}Add Post{{/linkTo}}
+            </th>
+          </tr>
+          </thead>
+          {{#each model}}
+          <tr>
+            <td>
+              {{#linkTo 'post' this}}{{title}}
+              <small class='muted'>by {{author}}</small>
+              {{/linkTo}}
+            </td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+      <div class="span9">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</script>
+<script type="text/x-handlebars" id="posts/index">
+  <p class="text-warning">Please select a post</p>
+</script>
+
+<script type="text/x-handlebars" id="posts/new">
+  <legend>Create Post</legend>
+  {{partial 'post/edit'}}
+  <button {{action 'save'}} class='btn'>Create</button>
+  <button {{action cancel}} class='btn'>Cancel</button>
+  {{partial 'post/view'}}
+</script>
+
+<script type="text/x-handlebars" id="post">
+  {{#if isEditing}}
+  {{partial 'post/edit'}}
+  <button {{action 'doneEditing'}} class='btn'>Done</button>
+  {{else}}
+  <button {{action 'edit'}} class='btn'>Edit</button>
+  <button {{action 'delete'}} class='btn'>Delete</button>
+  {{/if}}
+  {{partial 'post/view'}}
+</script>
+
+<script type="text/x-handlebars" id="post/_view">
+  <h1>{{title}}</h1>
+  <h4>by {{author}} <small class="muted">({{date publishedAt}})</small></h4>
+  <hr>
+  <div class="intro">
+    {{markdown intro}}
+  </div>
+  <div class="below-the-fold">
+    {{markdown extended}}
+  </div>
+</script>
+
+<script type="text/x-handlebars" id="post/_edit">
+  <p>{{view Ember.TextField valueBinding='title' cols="30"}}</p>
+  <p>{{view Ember.TextArea valueBinding='intro' cols="50"}}</p>
+  <p>{{view Ember.TextArea valueBinding='extended' cols="80" rows="10"}}</p>
+</script>
+{% endraw %}
+{% endcodeblock %}
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2">CoffeeScript: app/assets/javascripts/app.js.coffee.</h3>
+<div class="outline-text-3" id="text-6-2">
+
+<p>Here's the entire set of CoffeeScript to build this application. As you can see,
+it's not much! I intentionally left this in one file to make the example a bit
+simpler. A real application would break this out into separate files.
+{% codeblock lang:coffeescript %}
+App.Store = DS.Store.extend(
+  revision: 12
+  adapter: "DS.RESTAdapter" # "DS.FixtureAdapter"
+)
+
+App.Post = DS.Model.extend(
+  title: DS.attr("string")
+  author: DS.attr("string")
+  intro: DS.attr("string")
+  extended: DS.attr("string")
+  publishedAt: DS.attr("date")
+)
+
+App.PostsRoute = Ember.Route.extend(
+  model: ->
+    App.Post.find()
+)
+
+App.PostsNewRoute = Ember.Route.extend(
+  model: ->
+    App.Post.createRecord(publishedAt: new Date(), author: "current user")
+)
+
+App.PostsNewController = Ember.ObjectController.extend(
+  save: ->
+    @get('store').commit()
+
+  cancel: ->
+    @get('content').deleteRecord()
+    @get('store').transaction().rollback()
+    @transitionToRoute('posts')
+
+  transitionAfterSave: ( ->
+    # when creating new records, it's necessary to wait for the record to be assigned
+    # an id before we can transition to its route (which depends on its id)
+    @transitionToRoute('post', @get('content')) if @get('content.id')
+  ).observes('content.id')
+)
+
+App.PostController = Ember.ObjectController.extend(
+  isEditing: false
+  edit: ->
+    @set "isEditing", true
+
+  delete: ->
+    if (window.confirm("Are you sure you want to delete this post?"))
+      @get('content').deleteRecord()
+      @get('store').commit()
+      @transitionToRoute('posts')
+
+  doneEditing: ->
+    @set "isEditing", false
+    @get('store').commit()
+
+)
+App.IndexRoute = Ember.Route.extend(redirect: ->
+  @transitionTo "posts"
+)
+Ember.Handlebars.registerBoundHelper "date", (date) ->
+  moment(date).fromNow()
+
+window.showdown = new Showdown.converter()
+
+Ember.Handlebars.registerBoundHelper "markdown", (input) ->
+  new Ember.Handlebars.SafeString(window.showdown.makeHtml(input)) if input # need to check if input is defined and not null
+
+Ember.Handlebars.registerHelper 'submitButton', (text) ->
+  new Handlebars.SafeString('<button type="submit" class="btn btn-primary">' + text + '</button>')
+
+App.Router.map ->
+  @resource "about"
+  @resource "posts", ->
+    @resource "post",
+      path: ":post_id"
+    @route "new"
+{% endcodeblock %}
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Conclusion</h2>
+<div class="outline-text-2" id="text-7">
+
+<p>Ember does quite a lot with just a few lines of code. Definitely check out the
+source code for the completed example github:
+<a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. And I welcome comments and
+suggestions.
+</p>
+</div>
+</div>
