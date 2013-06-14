@@ -1,29 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Rails | Rails on Maui]]></title>
-  <link href="http://www.railsonmaui.com//blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-06-14T06:38:20-10:00</updated>
-  <id>http://www.railsonmaui.com//</id>
-  <author>
-    <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ember.js Tutorial with Rails 4 - Rails on Maui</title>
+  <meta name="author" content="Justin Gordon">
 
   
-  <entry>
-    <title type="html"><![CDATA[Ember.js Tutorial with Rails 4]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/"/>
-    <updated>2013-06-11T13:00:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial</id>
-    <content type="html"><![CDATA[<p>
+  <meta name="description" content="This post demonstrates how to build a simple Ember.js app with Rails 4 for persistence, and includes a detailed screencast.">
+  <meta name="keywords" content="Rails4, Rails, Ruby on Rails, Ember.js, Emberjs, Persistence, Serialization, Controllers, Router, Tutorial">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40522944-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rails on Maui</a></h1>
+  
+    <h2>Programming in Paradise</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/railsonmaui" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=RailsOnMaui&amp;loc=en_US" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.railsonmaui.com/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="/blog/categories.html">Categories</a></li>
+  <li><a href="/tips/">Tips</a></li>
+  <li><a href="/meta/">Meta</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ember.js Tutorial With Rails 4</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-11T13:00:00-10:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>
 The first post in this series, <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>, shows Ember working
 without a persistence backend. This post covers setting up Rails4 as the
 persistence engine behind that example, plus adding and deleting records. The
 amount of Ember and Rails code to make this example is almost completely
-included in this article. It's that tiny!
+included in this article. It&#8217;s that tiny!
 </p>
 
 
@@ -66,12 +159,12 @@ brand new Rails 4 app to an Ember.js app deployed on Heroku.
 <li>If you specify the Router property for both <code>model</code> and <code>setupController</code>,
    you can have some very confusing results (details below).
 </li>
-<li>Get comfortable with Ember's naming conventions. Ember does a ton with
-   default naming. It's basically got the same philosophy of "Convention over
-   Configuration" of Rails. So it's especially important to try to grok when the
+<li>Get comfortable with Ember&#8217;s naming conventions. Ember does a ton with
+   default naming. It&#8217;s basically got the same philosophy of &#8220;Convention over
+   Configuration&#8221; of Rails. So it&#8217;s especially important to try to grok when the
    Ember examples are doing something implicitly versus explicitly. This is a
-   bit like Rails. At first it seems like magic, like "How the heck is that
-   happening", and then one gets accustomed to the naming conventions and
+   bit like Rails. At first it seems like magic, like &#8220;How the heck is that
+   happening&#8221;, and then one gets accustomed to the naming conventions and
    appreciates how much code it saves.
 </li>
 <li>Be mindful that some Ember.js commands run asynchronously, such as commit.
@@ -128,9 +221,11 @@ console) with the old ember-data.js.
 Originally, I included a separate version of ember-data in the git repository.
 Instead, I should have updated the versions of ember and ember-data with this
 command from the <a href="https://github.com/emberjs/ember-rails">ember-rails README</a>:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>  rails generate ember:install --head
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 This command puts the ember files in <code>vendor/assets/ember</code>. Pretty sweet. This
 is way better than manually installing the js files.
 </p>
@@ -168,11 +263,13 @@ the bottom to see this code, as well as some additional code added for persisten
 
 <p>You can checkout the git tag <code>persistence-emberjs</code> to get the git repository to
 the state that persistence works.
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rails generate model Post title:string author:string published_at:date intro:text extended:text
 </span><span class='line'><span class="nv">$ </span>rake db:migrate
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 
 Since Rails comes pre-configured with sqllite3 by default, no database
 configuration is required.
@@ -184,7 +281,7 @@ configuration is required.
 <h3 id="sec-3-2">Add the Controller and Serializer</h3>
 <div class="outline-text-3" id="text-3-2">
 
-<p>Note that in Rails 4, you need to use the form for "strong parameters". See the
+<p>Note that in Rails 4, you need to use the form for &#8220;strong parameters&#8221;. See the
 definition of <code>post_params</code> below.
 </p>
 </div>
@@ -194,13 +291,15 @@ definition of <code>post_params</code> below.
 <div class="outline-text-4" id="text-3-2-1">
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
 </span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:published_at</span><span class="p">,</span> <span class="ss">:author</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 
 </div>
 
@@ -211,13 +310,15 @@ definition of <code>post_params</code> below.
 <div class="outline-text-4" id="text-3-2-2">
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">PostSerializer</span> <span class="o">&lt;</span> <span class="ss">ActiveModel</span><span class="p">:</span><span class="ss">:Serializer</span>
 </span><span class='line'>  <span class="n">attributes</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">:published_at</span><span class="p">,</span> <span class="ss">:intro</span><span class="p">,</span> <span class="ss">:extended</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 
 </div>
 
@@ -228,7 +329,8 @@ definition of <code>post_params</code> below.
 <div class="outline-text-4" id="text-3-2-3">
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -282,7 +384,8 @@ definition of <code>post_params</code> below.
 </span><span class='line'>    <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:post</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:intro</span><span class="p">,</span> <span class="ss">:extended</span><span class="p">,</span> <span class="ss">:published_at</span><span class="p">,</span> <span class="ss">:author</span><span class="p">)</span> <span class="c1"># only allow these for now</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 
 </div>
 </div>
@@ -290,14 +393,14 @@ definition of <code>post_params</code> below.
 </div>
 
 <div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3">Adding "Add" and "Remove" Buttons</h3>
+<h3 id="sec-3-3">Adding &#8220;Add&#8221; and &#8220;Remove&#8221; Buttons</h3>
 <div class="outline-text-3" id="text-3-3">
 
 <ul>
 <li>To create a new post, <b>use a link, not a button</b>, because we want to change the URL.
 </li>
-<li>Don't define both <code>model</code> and <code>setupController</code> on the Route!
-  If you do, you'll get this error:
+<li>Don&#8217;t define both <code>model</code> and <code>setupController</code> on the Route!
+  If you do, you&#8217;ll get this error:
 
 
 
@@ -311,7 +414,8 @@ definition of <code>post_params</code> below.
 </ul>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -323,7 +427,8 @@ definition of <code>post_params</code> below.
 </span><span class='line'>    <span class="nv">setupController: </span><span class="nf">(controller) -&gt;</span>
 </span><span class='line'>      <span class="c1"># controller.set(&#39;content&#39;, App.Post.createRecord(publishedAt: new Date(), author: &quot;current user&quot;))</span>
 </span><span class='line'>  <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 
 </div>
 
@@ -333,13 +438,14 @@ definition of <code>post_params</code> below.
 <h3 id="sec-3-4">Update the URL on New with transitionAfterSave Hook</h3>
 <div class="outline-text-3" id="text-3-4">
 
-<p>You can't update the URL after a new record is saved directly in the event
+<p>You can&#8217;t update the URL after a new record is saved directly in the event
 handler, as the commit will run asynchronously, and until the return value,
 there is no record id, and you would end up using record id <code>null</code> in the URL.
-Here's how to handle this situation. Not that the <code>save</code> does the commit, but
+Here&#8217;s how to handle this situation. Not that the <code>save</code> does the commit, but
 the <code>transitionToRoute</code> is not called until the <code>transitionAfterSave</code> hook is
 run.
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -359,33 +465,34 @@ run.
 </span><span class='line'>    <span class="vi">@transitionToRoute</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="vi">@get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">))</span> <span class="k">if</span> <span class="vi">@get</span><span class="p">(</span><span class="s1">&#39;content.id&#39;</span><span class="p">)</span>
 </span><span class='line'>  <span class="p">)</span><span class="o">.</span><span class="n">observes</span><span class="p">(</span><span class="s1">&#39;content.id&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 
 </p></div>
 
 </div>
 
 <div id="outline-container-3-5" class="outline-3">
-<h3 id="sec-3-5">Don't put the new record, unsaved post in the list of saved posts</h3>
+<h3 id="sec-3-5">Don&#8217;t put the new record, unsaved post in the list of saved posts</h3>
 <div class="outline-text-3" id="text-3-5">
 
-<p>There's a slight bug in the adding of new records. If you click on the unsaved
-post link on the left, the URL will have "null" as the new post does not yet
+<p>There&#8217;s a slight bug in the adding of new records. If you click on the unsaved
+post link on the left, the URL will have &#8220;null&#8221; as the new post does not yet
 have an ID.
 </p>
 <p>
-Here's the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4/commit/8c58b6fac8b978f622bf772654258479ba22bae0">commit at github</a>, and the commit description:
+Here&#8217;s the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4/commit/8c58b6fac8b978f622bf772654258479ba22bae0">commit at github</a>, and the commit description:
 </p><blockquote>
 
 <p>See discussion at
 <a href="http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record">http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record</a>
-Note the change from iterating over "each model" to iterating over "each post in
-filteredContent" in index.html.erb. That change requires attributes be
-referenced by "post", and the updated linkTo takes the route, "post", as well as
-the "dynamic segment" which is also named "post", per the above #each post.
+Note the change from iterating over &#8220;each model&#8221; to iterating over &#8220;each post in
+filteredContent&#8221; in index.html.erb. That change requires attributes be
+referenced by &#8220;post&#8221;, and the updated linkTo takes the route, &#8220;post&#8221;, as well as
+the &#8220;dynamic segment&#8221; which is also named &#8220;post&#8221;, per the above #each post.
 (refer to <a href="http://emberjs.com/guides/templates/links/">http://emberjs.com/guides/templates/links/</a>). Note the addition of the
 PostsController. Previously, it was implicitly defined. It listens to property
-"arrangedContent.@each" so that when the new post saves, the filteredContent
+&#8220;arrangedContent.@each&#8221; so that when the new post saves, the filteredContent
 property updates and notifies the view template using this property in
 index.html.erb. Without the listener on this property, the view of all posts
 would not update.
@@ -424,11 +531,13 @@ can look at the commits leading up to tag <code>heroku</code>. The basic steps a
 </ol>
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">config</span><span class="o">.</span><span class="n">ember</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:production</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 <p>
-   If you don't, you'll see this error:
+   If you don&#8217;t, you&#8217;ll see this error:
 </p>
 
 
@@ -514,7 +623,8 @@ real world application, this would be broken into many files.
 <div class="outline-text-3" id="text-6-1">
 
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -694,7 +804,8 @@ real world application, this would be broken into many files.
 </span><span class='line'>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{{</span><span class="nx">view</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">TextArea</span> <span class="nx">valueBinding</span><span class="o">=</span><span class="s1">&#39;intro&#39;</span> <span class="nx">cols</span><span class="o">=</span><span class="s2">&quot;50&quot;</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
 </span><span class='line'>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{{</span><span class="nx">view</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">TextArea</span> <span class="nx">valueBinding</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span> <span class="nx">cols</span><span class="o">=</span><span class="s2">&quot;80&quot;</span> <span class="nx">rows</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
 </span><span class='line'><span class="nt">&lt;/script&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 
 </div>
 
@@ -704,10 +815,11 @@ real world application, this would be broken into many files.
 <h3 id="sec-6-2">CoffeeScript: app/assets/javascripts/app.js.coffee.</h3>
 <div class="outline-text-3" id="text-6-2">
 
-<p>Here's the entire set of CoffeeScript to build this application. As you can see,
-it's not much! I intentionally left this in one file to make the example a bit
+<p>Here&#8217;s the entire set of CoffeeScript to build this application. As you can see,
+it&#8217;s not much! I intentionally left this in one file to make the example a bit
 simpler. A real application would break this out into separate files.
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -873,7 +985,8 @@ simpler. A real application would break this out into separate files.
 </span><span class='line'>    <span class="nx">@resource</span> <span class="s">&quot;post&quot;</span><span class="p">,</span>
 </span><span class='line'>      <span class="nv">path: </span><span class="s">&quot;:post_id&quot;</span>
 </span><span class='line'>    <span class="nx">@route</span> <span class="s">&quot;new&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
+
 </p>
 </div>
 </div>
@@ -898,778 +1011,240 @@ I welcome comments and suggestions.
 </div>
 </div>
 
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Testing Error Handling]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/"/>
-    <updated>2013-05-11T00:01:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling</id>
-    <content type="html"><![CDATA[<p>
-How do ensure that your application properly handles errors, especially when
-relying on third parties, such as payment processors? Is it easy to verify that
-the right things happen when the wrong things happen? Last week's article
-<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
-setup a good error handling strategy. Here's some techniques to verify that your
-application does what you expect it to do when things go wrong. The key message
-is to check how your application handles errors, before your customers do.
-</p>
 
+<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
 
+      
 
 
-<!-- more -->
 
 
 
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Your Code Depends on Outside Systems (That Might Raise Errors)</h2>
-<div class="outline-text-2" id="text-1">
 
-<p>Suppose you've created the super-duper Rails storefront application that takes
-online payments. You may even have some unit tests that verify the code. Then
-you get the dreaded call that customers are being charged twice and their
-orders are not processed. WTF?
-</p>
-<p>
-It's not entirely obvious how to verify proper error handling when outside
-systems fail, or even when odd errors are raised from your own code. Payment
-processing deserves some special attention because it's a dependency on an
-outside service (the payment processor) and will typically require database
-updates based on the result of the payment processing. If you're updating
-several tables, then you'll want to use a transaction to ensure that all or
-nothing saves. While code review and manual testing are good first steps, you
-should consider a few extra steps with error handling for sensitive parts of
-your application.
-</p>
 
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Verification of Error Handling Strategy</h2>
-<div class="outline-text-2" id="text-2">
-
-<p>Typically, error handling code is not well tested. It's much more common to test
-the "happy path" of everything going right.
-</p>
-<p>
-Let's look at hypothetical example and some tests that can flush out some
-errors.
-</p>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Order</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">purchase_cart</span>
-</span><span class='line'>    <span class="n">error_message</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'>    <span class="no">Order</span><span class="o">.</span><span class="n">transaction</span> <span class="k">do</span>
-</span><span class='line'>      <span class="c1"># self.user record has charge info, and self.total is the order total</span>
-</span><span class='line'>      <span class="c1"># PaymentGateway.charge returns either error_message if failed or charge_details if success</span>
-</span><span class='line'>      <span class="n">error_message</span><span class="p">,</span> <span class="n">charge_details</span> <span class="o">=</span> <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">charge</span> <span class="n">user</span><span class="p">,</span> <span class="n">total</span>
-</span><span class='line'>      <span class="c1"># update the order and the user records with the charge_details</span>
-</span><span class='line'>      <span class="n">set_charge_fields_and_save</span> <span class="n">user</span><span class="p">,</span> <span class="n">charge_details</span> <span class="k">unless</span> <span class="n">error_message</span> <span class="c1"># update the order to indicated purchased</span>
-</span><span class='line'>      <span class="n">fulfill_order</span> <span class="c1"># do lots of complicated stuff to fulfill the order</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>
-So what can go wrong?
-</p>
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Payment Processing is Like a 2-Phase Commit</h2>
-<div class="outline-text-2" id="text-3">
-
-<p>Conceptually, you want a transaction, such that it's all or nothing. If the
-charge goes through, then so does everything else. Payment processing like a
-2-phase commit, except one has to handle all the what-ifs to be sure that it's
-handled correctly.
-</p>
-<p>
-The general steps of payment processing are like this:
-</p><ol>
-<li>Connect to outside resource to make charge.
-</li>
-<li>Update database records indicating charge successful.
-</li>
-<li>Fulfill the order.
-</li>
-</ol>
-
-
-<p>
-Rails transactions work such than any exception in the block will cause the
-transaction to be rolled back. The problem with the above code is what happens
-if fulfill_order throws an exception? The customer has been charged, the order
-was updated to reflect payment, but then <b>ka-boom</b> and an exception is raised,
-and any database updates to the order are rolled back, <b>but the payment is not refunded</b>. The customer is confused as there is a charge but nothing else. How
-could you have tested (and avoided) this?
-</p>
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Brute Force Methodology</h2>
-<div class="outline-text-2" id="text-4">
-
-<p>You can simulate error conditions by manually placing =raise "any error message"=
-statements in your code, and then testing, say in the UI manually. This is a
-good first step to verify that your error handling is working correctly. You
-might raise a specific error, if say your payment processor throws a specific
-type of error.
-</p>
-<p>
-For the above example, the different methods referenced, such as <code>process_order</code>
-can get modified with a single line at the beginning, which would be:
-</p>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">process_order</span>
-</span><span class='line'>  <span class="k">raise</span> <span class="s2">&quot;Any error message&quot;</span>
-</span><span class='line'>  <span class="c1"># Lots of other code that can be commented out</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>
-Then go into the UI and test placing an order. Consider the following questions:
-</p><ol>
-<li>Was the right error message displayed to the user?
-</li>
-<li>Was the right information logged at the correct log level?
-</li>
-<li>Was an automatic email sent regarding the error?
-</li>
-</ol>
-
-
-<p>
-See my prior article <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">Saner Rails Logging</a> for the answers to #2 and #3.
-</p>
-<p>
-By applying this technique to each of the components of completing a purchase,
-one can flush out (and handle) nearly all of the different possible errors that
-could affect a purchase. Give this technique a try in some critical section of
-the code. You'll be surprised how well it works. Before giving you the fix to
-the above code, let's see if we can write unit and feature tests on our error
-handling.
-</p>
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">RSpec Unit Testing of Errors</h2>
-<div class="outline-text-2" id="text-5">
-
-<p>It turns out that with stubbing in <code>rspec</code>, it's easy to test error handling!
-<a href="https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs">RSpec provides a nice mocking library</a>. The test code would look something like
-this. Pay attention to the call to <b>stub</b>.
-</p>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Order</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">describe</span> <span class="s2">&quot;#purchase_cart&quot;</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">context</span> <span class="s2">&quot;process_order fails&quot;</span> <span class="k">do</span>
-</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:order</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span> <span class="ss">:order</span> <span class="p">}</span> <span class="c1"># factory_girl creation of order and related objects</span>
-</span><span class='line'>      <span class="n">before</span> <span class="k">do</span>
-</span><span class='line'>        <span class="c1"># The magic stubbing of every instance</span>
-</span><span class='line'>        <span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
-</span><span class='line'>        <span class="c1"># The call to purchase_cart will first call &#39;charge&#39;</span>
-</span><span class='line'>        <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">should_receive</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="o">[</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;charge_details&quot;</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'>        <span class="c1"># The error from within purchase_cart should do a refund</span>
-</span><span class='line'>        <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">should_receive</span><span class="p">(</span><span class="ss">:refund</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="s2">&quot;refund_details&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>      <span class="n">it</span> <span class="s2">&quot;should throw an error&quot;</span> <span class="k">do</span>
-</span><span class='line'>        <span class="n">expect</span> <span class="p">{</span>
-</span><span class='line'>          <span class="n">order</span><span class="o">.</span><span class="n">purchase_cart</span>
-</span><span class='line'>        <span class="p">}</span><span class="o">.</span><span class="n">to</span> <span class="n">raise_error</span>
-</span><span class='line'>        <span class="n">order</span><span class="o">.</span><span class="n">reload</span>
-</span><span class='line'>        <span class="n">order</span><span class="o">.</span><span class="n">purchased</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be</span>
-</span><span class='line'>        <span class="c1"># charge refunded verified in mock</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>
-This test code ensures that the error handling of purchase_cart will catch an
-error from fulfill_order, and properly refund the payment and rollback any
-changes to the order record.
-</p>
-<p>
-Here's an improved version of the Order#payment_method above:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Order</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">purchase_cart</span>
-</span><span class='line'>    <span class="n">error_message</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'>    <span class="k">begin</span>
-</span><span class='line'>      <span class="no">Order</span><span class="o">.</span><span class="n">transaction</span> <span class="k">do</span>
-</span><span class='line'>        <span class="c1"># user has a credit card info, returns either error_message if failed or charge_details if success</span>
-</span><span class='line'>        <span class="n">error_message</span><span class="p">,</span> <span class="n">charge_details</span> <span class="o">=</span> <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">charge</span> <span class="n">user</span><span class="p">,</span> <span class="n">total</span>
-</span><span class='line'>        <span class="n">set_charge_fields_and_save</span> <span class="n">user</span><span class="p">,</span> <span class="n">charge_details</span> <span class="k">unless</span> <span class="n">error_message</span> <span class="c1"># update the order to indicated purchased</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>      <span class="n">fulfill_order</span> <span class="c1"># do lots of complicated stuff to process the order, do this outside of the original tx, so that the payment info can be committed.</span>
-</span><span class='line'>    <span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span>
-</span><span class='line'>      <span class="no">Utility</span><span class="o">.</span><span class="n">log_exception</span> <span class="n">e</span> <span class="c1"># Unified strategy for error handling including email notification, see below</span>
-</span><span class='line'>      <span class="n">refund_charge</span> <span class="k">if</span> <span class="n">charge_details</span> <span class="c1"># If there&#39;s an error here, then sys admins will have to manually refund the charge.</span>
-</span><span class='line'>      <span class="kp">throw</span> <span class="n">e</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-Here are the key points to the improved code:
-</p>
-<ol>
-<li>There's a block to catch the exception which is <i>separate from the    transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
-   being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
-   that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for Utlity.logException</a>).
-</li>
-<li>fulfill_order is moved outside of the transaction block. This allows the
-   transaction to complete, and then the order_fulfillment takes place. If
-   there's an issue in fulfilling the order, that can be dealt with separately
-   from the original charge. In other words, the customer can successfully pay
-   for the order, and the store can deal with the failure to fulfill the order.
-</li>
-</ol>
-
-
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">RSpec Capybara Feature (Integration) Tests of UI Errors</h2>
-<div class="outline-text-2" id="text-6">
-
-<p>It's possibly more important and sometimes easier to do the verification at the
-integration level in RSpec feature specs using <a href="https://github.com/jnicklas/capybara">Capybara</a> with <a href="http://phantomjs.org/">PhantomJs</a> and
-<a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>. The secret sauce is the same use of the same stubbing technique as
-above to replace some key methods such that they throw an exception. This sort
-of technique works amazingly well to ensure that application will do the right
-then when an unexpected failure occurs, from the logging and emailing of the
-error message to the browser display to then end user.
-</p>
-<p>
-I tend to develop such a test in an iterative manner:
-</p><ol>
-<li>Make sure you've got tests on the "happy" case where the story goes as
-   planned.
-</li>
-<li>Then introduce test cases where have bits of code like this that will raise
-   an error at an opportune time.
-</li>
-</ol>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>     <span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-<ol>
-<li>Allow the test cases to fail, and put in screen shots (in Capybara with
-   phantomjs, that looks like this:
-</li>
-</ol>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">render_page</span> <span class="s2">&quot;a-descriptive-name&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>
-   Setup this method <code>render_page</code> in a spec helper file like this:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="k">def</span> <span class="nf">render_page</span> <span class="nb">name</span>
-</span><span class='line'>     <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span>
-</span><span class='line'>     <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span class='line'>   <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-</p><ol>
-<li>Put in some assertions that the page shows the correct error and the records
-   in the database have the right values.
-</li>
-<li>You can even
-</li>
-</ol>
-
-
-<p>
-Here's an example that tests a failure of the Stripe payment API, including
-verification that an email was sent signifying an error:
-</p>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1"># using gem vcr to record http communication for faster performance</span>
-</span><span class='line'>  <span class="n">let</span><span class="p">(</span><span class="ss">:order</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span> <span class="ss">:order</span> <span class="p">}</span> <span class="c1"># lots of setup in factory girl for non-purchased order</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">scenario</span> <span class="s2">&quot;Purchase cart, Strip payment error&quot;</span><span class="p">,</span> <span class="ss">:vcr</span> <span class="k">do</span>
-</span><span class='line'>    <span class="c1"># Setup the stub -- the secret sauce to this test</span>
-</span><span class='line'>    <span class="n">error_content</span> <span class="o">=</span> <span class="s2">&quot;Testing error handling exception message&quot;</span>
-</span><span class='line'>    <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="ss">Stripe</span><span class="p">:</span><span class="ss">:InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>    <span class="n">place_order</span>
-</span><span class='line'>    <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="n">error_content</span>
-</span><span class='line'>    <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="s2">&quot;Error purchasing&quot;</span>
-</span><span class='line'>    <span class="n">order</span><span class="o">.</span><span class="n">reload</span>
-</span><span class='line'>    <span class="n">order</span><span class="o">.</span><span class="n">purchased</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">place_order</span>
-</span><span class='line'>   <span class="n">login_as</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="ss">:scope</span> <span class="o">=&gt;</span> <span class="ss">:user</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">visit</span> <span class="n">shopping_cart_path</span>
-</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
-</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-1&quot;</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">click_link</span> <span class="s2">&quot;CHECKOUT&quot;</span>
-</span><span class='line'>   <span class="n">fill_in_credit_card_info</span> <span class="c1"># utility test method to fill in credit card data</span>
-</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
-</span><span class='line'>   <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-with-payment-info-2&quot;</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">click_on</span> <span class="s2">&quot;PURCHASE&quot;</span>
-</span><span class='line'>   <span class="n">wait_for_spinners</span> <span class="c1"># method to wait for the busy spinner to stop</span>
-</span><span class='line'>   <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-after-click-purchase-3&quot;</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">validate_error_emailed</span>
-</span><span class='line'> <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'> <span class="c1"># example of how you verify that an error was emailed</span>
-</span><span class='line'> <span class="k">def</span> <span class="nf">validate_error_emailed</span>
-</span><span class='line'>   <span class="n">email</span> <span class="o">=</span> <span class="ss">ActionMailer</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
-</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
-</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
-</span><span class='line'> <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Conclusion</h2>
-<div class="outline-text-2" id="text-7">
-
-<p>If you aren't simulating how your application responds to errors, then you'll
-eventually find out, and the result might not be as good as you'd prefer. You
-can simulate errors with the very simple and quick technique of a well placed
-=raise "some error"=, and then testing in a UI. Or you might prefer the
-robustness of unit or feature tests using stubbing. Either way, the key message
-is to check how your application handles errors, before your customers do.
-</p>
-<p>
-Related Post:
-<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a>
-</p></div>
-</div>
-
-]]></content>
-  </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Strategies for Rails Logging and Error Handling]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/"/>
-    <updated>2013-05-08T17:41:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling</id>
-    <content type="html"><![CDATA[<p>
-TLDR: Clean logging and error handling is a critical aspect of a RoR app.
-What's a good strategy? Why does this matter?
-</p>
 
 
-<p>
-A Rails app can have awesome unit and functional tests, and then in production,
-something goes wrong and the right error handling does not happen, making
-a bad situation worse. By this, I mean, it's bad enough that something went
-wrong in production. It's even worse if:
-</p>
+<time datetime="2013-06-11T13:00:00-10:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
+      
 
-
-<ol>
-<li>You don't have clear log messages that identify exactly what went wrong.
-</li>
-<li>You didn't get automatically notified via email that something went wrong.
-   Instead, the customer told the customer service rep that there's an issue.
-   Ideally, when an error happens, the responsible developers should be
-   notified.
-</li>
-</ol>
-
-
-
-
-<p>
-Here's some tips on logging setup and error handling, including a utility
-method to log the stack trace and send an email.
-</p>
-
-
-<p>
-The next article,
-<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>, will show you how to verify that your error handling strategy
-is properly implemented, includind with rspec tests.
-</p>
-
-
-
-
-<!-- more -->
-
-
-
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Log Setup</h2>
-<div class="outline-text-2" id="text-1">
-
-
-</div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">Notification of any Exceptions via Email with Gem exception_notification</h3>
-<div class="outline-text-3" id="text-1-1">
-
-<p>Check out the gem <a href="http://smartinez87.github.io/exception_notification/">exception_notification</a>. It works great. One things the docs
-don't point out is that it works great with <a href="http://mailcatcher.me/">MailCatcher</a>. This allows you to
-"test" that your exception notification emails are being sent as expected
-without using a real mail account. Thus, <i>do</i> enable exception logging in
-development mode, contrary to the basic setup. Here's a config example at this
-post on <a href="http://www.mikeperham.com/2012/12/09/12-gems-of-christmas-4-mailcatcher-and-mail_view/">MailCatcher and mail_view</a>.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">Log the Browser Details with Gem 'browser_details'</h3>
-<div class="outline-text-3" id="text-1-2">
-
-<p>The gem <a href="https://github.com/gshutler/browser_details">browser_details</a> will tell you what type of browser was used, which
-can be very important when errors occur. I cracked up when I read this from the
-gem info page: 
-</p><blockquote>
-
-<p>Have you ever had the conversation:
-</p>
-<p>
-Your site doesn't work.
-What browser are you using and do you have Javascript enabled?
-</p>
-<p>
-What's a browser?
-</p>
-</blockquote>
-
-
-
-</div>
-
-</div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">Control Rails Log Verbosity with Gem lograge</h3>
-<div class="outline-text-3" id="text-1-3">
-
-<p>Sometimes too much of a good thing (log info) is a bad thing, and that's true
-with Rails default logging. Check out the gem '<a href="https://github.com/roidrage/lograge">lograge</a>'. The big difference is
-that a single request will take a single line. To quote the README, instead of
-logs like this:
-</p>
-
-
-<pre class="example">Started GET "/" for 127.0.0.1 at 2012-03-10 14:28:14 +0100
-Processing by HomeController#index as HTML
-  Rendered text template within layouts/application (0.0ms)
-  Rendered layouts/_assets.html.erb (2.0ms)
-  Rendered layouts/_top.html.erb (2.6ms)
-  Rendered layouts/_about.html.erb (0.3ms)
-  Rendered layouts/_google_analytics.html.erb (0.4ms)
-Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
-</pre>
-
-
-<p>
-After installing lograge, you'll have one line for the request:
-</p>
-
-
-<pre class="example">method=GET path=/jobs/833552.json format=json controller=jobs action=show status=200 duration=58.33 view=40.43 db=15.26
-</pre>
-
-
-<p>
-The one issue with <code>lograge</code> is that the default configuration does not log
-request parameters, which can be useful for debugging. This blog post, <a href="http://ionrails.com/2013/03/26/how-to-add-the-request-parameters-along-with-full-url-request-in-lograge-outputted-files/">How to add request parameters to lograge logs</a>, addresses that shortcoming.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4">Utility Method to Log Exceptions</h3>
-<div class="outline-text-3" id="text-1-4">
-
-<p>This sample method <code>Utility.log_exception</code> takes care of logging an exception along with sending out an
-email notification.
-</p>
-<p>
-Example of calling <code>Utility.log_exception</code>:
-</p>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">my_method_with_error</span> <span class="n">foobar</span>
-</span><span class='line'>  <span class="n">do_something_that_raises</span> <span class="n">foobar</span>
-</span><span class='line'><span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span> <span class="c1"># catches StandardError (don&#39;t use rescue Esception =&gt; e)</span>
-</span><span class='line'>  <span class="no">Utility</span><span class="o">.</span><span class="n">log_exception</span> <span class="n">e</span><span class="p">,</span> <span class="ss">info</span><span class="p">:</span> <span class="s2">&quot;called do_something_that_raises wihh </span><span class="si">#{</span><span class="n">foobar</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>
-Definition of <code>Utility.log_exception</code>:
-</p>
-
-
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Utility</span>
-</span><span class='line'>  <span class="c1"># Logs and emails exception</span>
-</span><span class='line'>  <span class="c1"># Optional args:</span>
-</span><span class='line'>  <span class="c1"># request: request Used for the ExceptionNotifier</span>
-</span><span class='line'>  <span class="c1"># info: &quot;A descriptive messsage&quot;</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">log_exception</span> <span class="n">e</span><span class="p">,</span> <span class="n">args</span>
-</span><span class='line'>    <span class="n">extra_info</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:info</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span> <span class="n">extra_info</span> <span class="k">if</span> <span class="n">extra_info</span>
-</span><span class='line'>    <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
-</span><span class='line'>    <span class="n">st</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">backtrace</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span> <span class="n">st</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">extra_info</span> <span class="o">||=</span> <span class="s2">&quot;&lt;NO DETAILS&gt;&quot;</span>
-</span><span class='line'>    <span class="n">request</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:request</span><span class="o">]</span>
-</span><span class='line'>    <span class="n">env</span> <span class="o">=</span> <span class="n">request</span> <span class="p">?</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span> <span class="p">:</span> <span class="kp">nil</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">env</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">exception_notification</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">background_exception_notification</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
-</span><span class='line'>     <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-</div>
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Strategy: Error Handling and Logging</h2>
-<div class="outline-text-2" id="text-2">
-
-<ol>
-<li>Avoid rescuing/catching if you can't do anything with the exception. For
-   example, in a model method, you might be calling that from a controller, but
-   you also might be calling that from some scheduled job. Thus, it's hard to
-   say what the right action should be. A special case is calling <code>raise</code> without
-   arguments: sometimes it is reasonable to catch all exceptions, logging the
-   exception, and then re-raising it like it was never caught.
-</li>
-<li>If you catch an exception, consider if you should re-throw the exception
-   because code at a different level will be able to handle the exception more
-   properly.
-</li>
-<li>Consider how the code is being invoked, such as from a call to generate
-   HTML or an ajax request, or maybe a batch job. All of these cases have very
-   different needs for how the error should be handled.
-</li>
-<li>Be sure you understand the order of your rescue clauses matter. This article
-   <a href="http://blog.rubybestpractices.com/posts/rklemme/003-The_Universe_between_begin_and_end.html">The Universe between <code>begin</code> and <code>end</code></a> provides a good explanation.
-   Basically put the most specific exception types first and something like
-   <code>rescue =&gt; e</code> last.
-</li>
-<li>Ruby does not support the concept of a "cause" with an exception. Thus, if
-   you catch an exception and are going to rethrow a different exception, then
-   it's important to log the stack of the original exception, or else that
-   information will be lost.
-</li>
-<li>Test the logging of the exception in both development and production mode.
-   You want to ensure that any exception prints clearly regardless of Rails
-   environment.
-</li>
-<li>A good way to test error handling is to temporarily put in <code>raise    ArgumentError</code> (or whatever other error), and see how the exception is
-   handled, both by the logger and the UI.
-</li>
-<li>The worst scenario is catching an exception and failing to log any messages.
-   This can make troubleshooting a problem very tricky.
-</li>
-</ol>
-
-
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Verification and Testing</h2>
-<div class="outline-text-2" id="text-3">
-
-<p>The next article,
-<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>, will show you how to verify that your error handling strategy
-is properly implemented, and how to add rspec unit and functional tests on error
-handling.
-</p>
-</div>
-</div>
-
-]]></content>
-  </entry>
+<span class="categories">
   
-</feed>
+    <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/emberjs/'>emberjs</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/27/coffeescript-chrome-extensions/" title="Previous Post: CoffeeScript Chrome Extensions">&laquo; CoffeeScript Chrome Extensions</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>I'm Justin Gordon. I love doing full stack development, surfing, and
+  racing SUPs, all in Maui. You can find me on gmail
+  as <code>justin.gordon</code>. I'm also on <a href='http://www.linkedin.com/pub/justin-gordon/1/a41/286'>Linked In</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/11/emberjs-rails4-tutorial/">Ember.js Tutorial With Rails 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/27/coffeescript-chrome-extensions/">CoffeeScript Chrome Extensions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/25/getting-started-with-discourse/">Getting Started With Discourse</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/07/buying-apple-products-with-amex/">Buy Apple Products With American Express</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/justin808">@justin808</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'justin808',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102850786590145072082?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+<section>
+  <h1>On Twitter:</h1>
+  <div>
+    <p><br /><a href="http://twitter.com/railsonmaui" target="_blank">My Tweets, on Twitter.</a></p>
+    <a href="http://twitter.com/railsonmaui" class="twitter-follow-button" data-show-count="">Follow @railsonmaui</a>
+  </div>
+</section>
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Justin Gordon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'railsonmaui';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

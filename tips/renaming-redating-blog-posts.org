@@ -3,6 +3,8 @@
 layout: page
 title: "Renaming, Redating Blog Posts"
 date: 2013-05-10 22:20
+keywords: Jekyll, Octopress, Renaming
+description: Here's a few tips regarding renaming and redating posts and pages in Octopress.
 comments: true
 sharing: true
 footer: true

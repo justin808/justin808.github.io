@@ -1,12 +1,13 @@
 #+BEGIN_HTML
 ---
 layout: post
-title: "Ember.js Hello World with Rails 4 Persistence"
+title: "Ember.js Tutorial with Rails 4"
 date: 2013-06-11 13:00
+alias: blog/2013/06/11/creating-ember-dot-js-guides-tutorial-with-rails-4/index.html
 comments: true
 categories: [Rails, emberjs]
-keywords: Rails4, Rails, Ruby on Rails, Ember.js, Emberjs
-description: This post demonstrates how to build a simple Ember.js app with Rails 4 for persistence. 
+keywords: Rails4, Rails, Ruby on Rails, Ember.js, Emberjs, Persistence, Serialization, Controllers, Router, Tutorial
+description: This post demonstrates how to build a simple Ember.js app with Rails 4 for persistence, and includes a detailed screencast. 
 published: true
 ---
 #+END_HTML
@@ -17,15 +18,15 @@ persistence engine behind that example, plus adding and deleting records. The
 amount of Ember and Rails code to make this example is almost completely
 included in this article. It's that tiny!
 
-The source code for the completed example can be found on github:
+The source code for the completed example can be found on GitHub:
 [[https://github.com/justin808/ember-js-guides-railsonmaui-rails4][justin808/ember-js-guides-railsonmaui-rails4]]. I carefully crafted the commits
 to explain the steps.
 
 You can try out the application on Heroku at:
 http://railsonmaui-emberjs-rails4.herokuapp.com/
 
-I just completed a comprehensive screencast of how to go from a brand new
-Rails 4 app to a deployed app on heroku.
+I put many more details in this [[http://youtu.be/ac1mYhCMRNc][comprehensive screencast]] of how to go from a
+brand new Rails 4 app to an Ember.js app deployed on Heroku.
 
 {% youtube ac1mYhCMRNc %}
 
@@ -43,7 +44,7 @@ Rails 4 app to a deployed app on heroku.
    bit like Rails. At first it seems like magic, like "How the heck is that
    happening", and then one gets accustomed to the naming conventions and
    appreciates how much code it saves.
-4. Be mindful that some EmberJs commands run asynchronously, such as commit.
+4. Be mindful that some Ember.js commands run asynchronously, such as commit.
 
 #+begin_html
 <!-- more -->
@@ -55,7 +56,7 @@ Thanks to a few gems, the process is relatively simple.
 ** Basic Setup
 I started off with the instructions here [[http://blog.dcxn.com/2013/03/23/getting-started-with-ember-js-on-rails/][The No Nonsense Guide to Ember.js on
 Rails]]. This article covers the basic setup, such as gems to include. You want to
-pay special attention to the [[https://github.com/emberjs/ember-rails][readme for ember-rails]]. Depending on the current
+pay special attention to the [[https://github.com/emberjs/ember-rails][README for ember-rails]]. Depending on the current
 state of the ember-rails gem, you may get the deprecation warning (browser
 console) with the old ember-data.js.
 
@@ -206,7 +207,7 @@ would not update.
 #+end_quote
 
 This is a really important change that is well documented in the commit as well
-as the screencast at 36:30.
+as the [[http://youtu.be/ac1mYhCMRNc?t%3D36m20s][tutorial screencast at 36:20]].
 
 
 * Heroku Deployment
@@ -235,14 +236,14 @@ can look at the commits leading up to tag =heroku=. The basic steps are:
   + [[http://railscasts.com/episodes/410-ember-part-2][#410 Ember Part 2]] (pro)
   + [[http://railscasts.com/episodes/409-active-model-serializers?view%3Dcomments][#409 Active Model Serializers]]
 + Tip: Using Chrome to watch the videos: I found that the left/right arrow and
-  space bar keys are amazing for pausing and rewinding the railscasts so that I
+  space bar keys are amazing for pausing and rewinding the RailsCasts so that I
   could get all the nuances of the Ember naming schemes.
 ** ember_data_example
-+ [[https://github.com/dgeb/ember_data_example][ember_data_example]] on Github is a nice full featured ember app with a parent
++ [[https://github.com/dgeb/ember_data_example][ember_data_example]] on GitHub is a nice full featured ember app with a parent
   child relationship of contacts and phone numbers. It even has some examples
-  of using [[https://github.com/jfirebaugh/konacha][Konacha for testing Ember javascript code]].
+  of using [[https://github.com/jfirebaugh/konacha][Konacha for testing Ember JavaScript code]].
 
-* Source Code for Views and Javascript
+* Source Code for Views and JavaScript
 I purposefully kept these to just 2 files to make this example simple. In a
 real world application, this would be broken into many files.
 ** View Code: app/viws/static/index.html.erb
@@ -434,6 +435,8 @@ App.Router.map ->
 * Conclusion
 Ember does quite a lot with just a few lines of code. Definitely check out the
 source code for the completed example github:
-[[https://github.com/justin808/ember-js-guides-railsonmaui-rails4][justin808/ember-js-guides-railsonmaui-rails4]]. And I welcome comments and
-suggestions.
+[[https://github.com/justin808/ember-js-guides-railsonmaui-rails4][justin808/ember-js-guides-railsonmaui-rails4]]. Please take a look at the
+screencast, as I put many details beyond this article.
+
+I welcome comments and suggestions.
 
