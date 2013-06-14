@@ -25,6 +25,13 @@ to explain the steps.
 You can try out the application on Heroku at:
 <a href="http://railsonmaui-emberjs-rails4.herokuapp.com/">http://railsonmaui-emberjs-rails4.herokuapp.com/</a>
 </p>
+<p>
+I just completed a comprehensive screencast of how to go from a brand new
+Rails 4 app to a deployed app on heroku.
+</p>
+<p>
+{% youtube ac1mYhCMRNc %}
+</p>
 
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Key Tips</h2>
@@ -46,6 +53,8 @@ You can try out the application on Heroku at:
    bit like Rails. At first it seems like magic, like "How the heck is that
    happening", and then one gets accustomed to the naming conventions and
    appreciates how much code it saves.
+</li>
+<li>Be mindful that some EmberJs commands run asynchronously, such as commit.
 </li>
 </ol>
 
@@ -280,7 +289,44 @@ App.PostsNewController = Ember.ObjectController.extend(
   ).observes('content.id')
 )
 {% endcodeblock %}
+
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5">Don't put the new record, unsaved post in the list of saved posts</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<p>There's a slight bug in the adding of new records. If you click on the unsaved
+post link on the left, the URL will have "null" as the new post does not yet
+have an ID.
 </p>
+<p>
+Here's the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4/commit/8c58b6fac8b978f622bf772654258479ba22bae0">commit at github</a>, and the commit description:
+</p><blockquote>
+
+<p>See discussion at
+<a href="http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record">http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record</a>
+Note the change from iterating over "each model" to iterating over "each post in
+filteredContent" in index.html.erb. That change requires attributes be
+referenced by "post", and the updated linkTo takes the route, "post", as well as
+the "dynamic segment" which is also named "post", per the above #each post.
+(refer to <a href="http://emberjs.com/guides/templates/links/">http://emberjs.com/guides/templates/links/</a>). Note the addition of the
+PostsController. Previously, it was implicitly defined. It listens to property
+"arrangedContent.@each" so that when the new post saves, the filteredContent
+property updates and notifies the view template using this property in
+index.html.erb. Without the listener on this property, the view of all posts
+would not update.
+</p>
+</blockquote>
+
+
+<p>
+This is a really important change that is well documented in the commit as well
+as the screencast at 36:30.
+</p>
+
 </div>
 </div>
 
@@ -423,11 +469,11 @@ real world application, this would be broken into many files.
             </th>
           </tr>
           </thead>
-          {{#each model}}
+          {{#each post in filteredContent}}
           <tr>
             <td>
-              {{#linkTo 'post' this}}{{title}}
-              <small class='muted'>by {{author}}</small>
+              {{#linkTo post post}}{{post.title}}
+              <small class='muted'>by {{post.author}}</small>
               {{/linkTo}}
             </td>
           </tr>
@@ -513,6 +559,17 @@ App.PostsRoute = Ember.Route.extend(
     App.Post.find()
 )
 
+# See Discussion at http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record
+App.PostsController = Ember.ArrayController.extend(
+  sortProperties: [ "id" ]
+  sortAscending: false
+  filteredContent: (->
+    content = @get("arrangedContent")
+    content.filter (item, index) ->
+      not (item.get("isDirty"))
+  ).property("arrangedContent.@each")
+)
+
 App.PostsNewRoute = Ember.Route.extend(
   model: ->
     App.Post.createRecord(publishedAt: new Date(), author: "current user")
@@ -560,9 +617,6 @@ window.showdown = new Showdown.converter()
 
 Ember.Handlebars.registerBoundHelper "markdown", (input) ->
   new Ember.Handlebars.SafeString(window.showdown.makeHtml(input)) if input # need to check if input is defined and not null
-
-Ember.Handlebars.registerHelper 'submitButton', (text) ->
-  new Handlebars.SafeString('<button type="submit" class="btn btn-primary">' + text + '</button>')
 
 App.Router.map ->
   @resource "about"

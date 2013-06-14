@@ -24,6 +24,11 @@ to explain the steps.
 You can try out the application on Heroku at:
 http://railsonmaui-emberjs-rails4.herokuapp.com/
 
+I just completed a comprehensive screencast of how to go from a brand new
+Rails 4 app to a deployed app on heroku.
+
+{% youtube ac1mYhCMRNc %}
+
 * Key Tips
 1. Be sure to update the =ember= and =ember-data= javascript files with the
    command from the ember-rails gem (see below). Keeping these files at
@@ -38,6 +43,7 @@ http://railsonmaui-emberjs-rails4.herokuapp.com/
    bit like Rails. At first it seems like magic, like "How the heck is that
    happening", and then one gets accustomed to the naming conventions and
    appreciates how much code it saves.
+4. Be mindful that some EmberJs commands run asynchronously, such as commit.
 
 #+begin_html
 <!-- more -->
@@ -177,7 +183,32 @@ App.PostsNewController = Ember.ObjectController.extend(
   ).observes('content.id')
 )
 #+END_SRC
-  
+
+** Don't put the new record, unsaved post in the list of saved posts
+There's a slight bug in the adding of new records. If you click on the unsaved
+post link on the left, the URL will have "null" as the new post does not yet
+have an ID.
+
+Here's the [[https://github.com/justin808/ember-js-guides-railsonmaui-rails4/commit/8c58b6fac8b978f622bf772654258479ba22bae0][commit at github]], and the commit description:
+#+begin_quote
+See discussion at
+http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record
+Note the change from iterating over "each model" to iterating over "each post in
+filteredContent" in index.html.erb. That change requires attributes be
+referenced by "post", and the updated linkTo takes the route, "post", as well as
+the "dynamic segment" which is also named "post", per the above #each post.
+(refer to http://emberjs.com/guides/templates/links/). Note the addition of the
+PostsController. Previously, it was implicitly defined. It listens to property
+"arrangedContent.@each" so that when the new post saves, the filteredContent
+property updates and notifies the view template using this property in
+index.html.erb. Without the listener on this property, the view of all posts
+would not update.
+#+end_quote
+
+This is a really important change that is well documented in the commit as well
+as the screencast at 36:30.
+
+
 * Heroku Deployment
 Heroku has listed many tips at [[https://devcenter.heroku.com/articles/rails4][Getting Started with Rails 4.x on Heroku]]. And you
 can look at the commits leading up to tag =heroku=. The basic steps are:
@@ -250,11 +281,11 @@ real world application, this would be broken into many files.
             </th>
           </tr>
           </thead>
-          {{#each model}}
+          {{#each post in filteredContent}}
           <tr>
             <td>
-              {{#linkTo 'post' this}}{{title}}
-              <small class='muted'>by {{author}}</small>
+              {{#linkTo post post}}{{post.title}}
+              <small class='muted'>by {{post.author}}</small>
               {{/linkTo}}
             </td>
           </tr>
@@ -333,6 +364,17 @@ App.PostsRoute = Ember.Route.extend(
     App.Post.find()
 )
 
+# See Discussion at http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record
+App.PostsController = Ember.ArrayController.extend(
+  sortProperties: [ "id" ]
+  sortAscending: false
+  filteredContent: (->
+    content = @get("arrangedContent")
+    content.filter (item, index) ->
+      not (item.get("isDirty"))
+  ).property("arrangedContent.@each")
+)
+
 App.PostsNewRoute = Ember.Route.extend(
   model: ->
     App.Post.createRecord(publishedAt: new Date(), author: "current user")
@@ -380,9 +422,6 @@ window.showdown = new Showdown.converter()
 
 Ember.Handlebars.registerBoundHelper "markdown", (input) ->
   new Ember.Handlebars.SafeString(window.showdown.makeHtml(input)) if input # need to check if input is defined and not null
-
-Ember.Handlebars.registerHelper 'submitButton', (text) ->
-  new Handlebars.SafeString('<button type="submit" class="btn btn-primary">' + text + '</button>')
 
 App.Router.map ->
   @resource "about"
