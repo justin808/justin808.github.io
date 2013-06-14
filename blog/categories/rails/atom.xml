@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-06-11T13:25:30-10:00</updated>
+  <updated>2013-06-13T22:25:14-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -40,6 +40,17 @@ You can try out the application on Heroku at:
 </p>
 
 
+<p>
+I just completed a comprehensive screencast of how to go from a brand new
+Rails 4 app to a deployed app on heroku.
+</p>
+
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/ac1mYhCMRNc "></iframe></div>
+</p>
+
+
 
 
 <div id="outline-container-1" class="outline-2">
@@ -62,6 +73,8 @@ You can try out the application on Heroku at:
    bit like Rails. At first it seems like magic, like "How the heck is that
    happening", and then one gets accustomed to the naming conventions and
    appreciates how much code it saves.
+</li>
+<li>Be mindful that some EmberJs commands run asynchronously, such as commit.
 </li>
 </ol>
 
@@ -347,7 +360,44 @@ run.
 </span><span class='line'>  <span class="p">)</span><span class="o">.</span><span class="n">observes</span><span class="p">(</span><span class="s1">&#39;content.id&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5">Don't put the new record, unsaved post in the list of saved posts</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<p>There's a slight bug in the adding of new records. If you click on the unsaved
+post link on the left, the URL will have "null" as the new post does not yet
+have an ID.
 </p>
+<p>
+Here's the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4/commit/8c58b6fac8b978f622bf772654258479ba22bae0">commit at github</a>, and the commit description:
+</p><blockquote>
+
+<p>See discussion at
+<a href="http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record">http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record</a>
+Note the change from iterating over "each model" to iterating over "each post in
+filteredContent" in index.html.erb. That change requires attributes be
+referenced by "post", and the updated linkTo takes the route, "post", as well as
+the "dynamic segment" which is also named "post", per the above #each post.
+(refer to <a href="http://emberjs.com/guides/templates/links/">http://emberjs.com/guides/templates/links/</a>). Note the addition of the
+PostsController. Previously, it was implicitly defined. It listens to property
+"arrangedContent.@each" so that when the new post saves, the filteredContent
+property updates and notifies the view template using this property in
+index.html.erb. Without the listener on this property, the view of all posts
+would not update.
+</p>
+</blockquote>
+
+
+<p>
+This is a really important change that is well documented in the commit as well
+as the screencast at 36:30.
+</p>
+
 </div>
 </div>
 
@@ -587,11 +637,11 @@ real world application, this would be broken into many files.
 </span><span class='line'>            <span class="o">&lt;</span><span class="err">/th&gt;</span>
 </span><span class='line'>          <span class="o">&lt;</span><span class="err">/tr&gt;</span>
 </span><span class='line'>          <span class="o">&lt;</span><span class="err">/thead&gt;</span>
-</span><span class='line'>          <span class="p">{{</span><span class="err">#</span><span class="nx">each</span> <span class="nx">model</span><span class="p">}}</span>
+</span><span class='line'>          <span class="p">{{</span><span class="err">#</span><span class="nx">each</span> <span class="nx">post</span> <span class="k">in</span> <span class="nx">filteredContent</span><span class="p">}}</span>
 </span><span class='line'>          <span class="o">&lt;</span><span class="nx">tr</span><span class="o">&gt;</span>
 </span><span class='line'>            <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span>
-</span><span class='line'>              <span class="p">{{</span><span class="err">#</span><span class="nx">linkTo</span> <span class="s1">&#39;post&#39;</span> <span class="k">this</span><span class="p">}}{{</span><span class="nx">title</span><span class="p">}}</span>
-</span><span class='line'>              <span class="o">&lt;</span><span class="nx">small</span> <span class="kr">class</span><span class="o">=</span><span class="s1">&#39;muted&#39;</span><span class="o">&gt;</span><span class="nx">by</span> <span class="p">{{</span><span class="nx">author</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/small&gt;</span>
+</span><span class='line'>              <span class="p">{{</span><span class="err">#</span><span class="nx">linkTo</span> <span class="nx">post</span> <span class="nx">post</span><span class="p">}}{{</span><span class="nx">post</span><span class="p">.</span><span class="nx">title</span><span class="p">}}</span>
+</span><span class='line'>              <span class="o">&lt;</span><span class="nx">small</span> <span class="kr">class</span><span class="o">=</span><span class="s1">&#39;muted&#39;</span><span class="o">&gt;</span><span class="nx">by</span> <span class="p">{{</span><span class="nx">post</span><span class="p">.</span><span class="nx">author</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/small&gt;</span>
 </span><span class='line'>              <span class="p">{{</span><span class="err">/linkTo}}</span>
 </span><span class='line'>            <span class="o">&lt;</span><span class="err">/td&gt;</span>
 </span><span class='line'>          <span class="o">&lt;</span><span class="err">/tr&gt;</span>
@@ -732,6 +782,14 @@ simpler. A real application would break this out into separate files.
 <span class='line-number'>73</span>
 <span class='line-number'>74</span>
 <span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
 </pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">App.Store = </span><span class="nx">DS</span><span class="p">.</span><span class="nx">Store</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
 </span><span class='line'>  <span class="nv">revision: </span><span class="mi">12</span>
 </span><span class='line'>  <span class="nv">adapter: </span><span class="s">&quot;DS.RESTAdapter&quot;</span> <span class="c1"># &quot;DS.FixtureAdapter&quot;</span>
@@ -748,6 +806,17 @@ simpler. A real application would break this out into separate files.
 </span><span class='line'><span class="nv">App.PostsRoute = </span><span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
 </span><span class='line'>  <span class="nv">model: </span><span class="nf">-&gt;</span>
 </span><span class='line'>    <span class="nx">App</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
+</span><span class='line'><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># See Discussion at http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record</span>
+</span><span class='line'><span class="nv">App.PostsController = </span><span class="nx">Ember</span><span class="p">.</span><span class="nx">ArrayController</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+</span><span class='line'>  <span class="nv">sortProperties: </span><span class="p">[</span> <span class="s">&quot;id&quot;</span> <span class="p">]</span>
+</span><span class='line'>  <span class="nv">sortAscending: </span><span class="kc">false</span>
+</span><span class='line'>  <span class="nv">filteredContent: </span><span class="p">(</span><span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nv">content = </span><span class="nx">@get</span><span class="p">(</span><span class="s">&quot;arrangedContent&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="nx">content</span><span class="p">.</span><span class="nx">filter</span> <span class="nf">(item, index) -&gt;</span>
+</span><span class='line'>      <span class="o">not</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;isDirty&quot;</span><span class="p">))</span>
+</span><span class='line'>  <span class="p">).</span><span class="nx">property</span><span class="p">(</span><span class="s">&quot;arrangedContent.@each&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'><span class="nv">App.PostsNewRoute = </span><span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
@@ -797,9 +866,6 @@ simpler. A real application would break this out into separate files.
 </span><span class='line'>
 </span><span class='line'><span class="nx">Ember</span><span class="p">.</span><span class="nx">Handlebars</span><span class="p">.</span><span class="nx">registerBoundHelper</span> <span class="s">&quot;markdown&quot;</span><span class="p">,</span> <span class="nf">(input) -&gt;</span>
 </span><span class='line'>  <span class="k">new</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Handlebars</span><span class="p">.</span><span class="nx">SafeString</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">showdown</span><span class="p">.</span><span class="nx">makeHtml</span><span class="p">(</span><span class="nx">input</span><span class="p">))</span> <span class="k">if</span> <span class="nx">input</span> <span class="c1"># need to check if input is defined and not null</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">Ember</span><span class="p">.</span><span class="nx">Handlebars</span><span class="p">.</span><span class="nx">registerHelper</span> <span class="s">&#39;submitButton&#39;</span><span class="p">,</span> <span class="nf">(text) -&gt;</span>
-</span><span class='line'>  <span class="k">new</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">SafeString</span><span class="p">(</span><span class="s">&#39;&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;&#39;</span> <span class="o">+</span> <span class="nx">text</span> <span class="o">+</span> <span class="s">&#39;&lt;/button&gt;&#39;</span><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'><span class="nx">App</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">map</span> <span class="nf">-&gt;</span>
 </span><span class='line'>  <span class="nx">@resource</span> <span class="s">&quot;about&quot;</span>
