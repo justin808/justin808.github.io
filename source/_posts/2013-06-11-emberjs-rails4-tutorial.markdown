@@ -567,7 +567,7 @@ App.PostsController = Ember.ArrayController.extend(
   filteredContent: (->
     content = @get("arrangedContent")
     content.filter (item, index) ->
-      not (item.get("isDirty"))
+      not (item.get("isNew"))
   ).property("arrangedContent.@each")
 )
 
