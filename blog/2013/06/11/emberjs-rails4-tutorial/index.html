@@ -927,7 +927,7 @@ simpler. A real application would break this out into separate files.
 </span><span class='line'>  <span class="nv">filteredContent: </span><span class="p">(</span><span class="nf">-&gt;</span>
 </span><span class='line'>    <span class="nv">content = </span><span class="nx">@get</span><span class="p">(</span><span class="s">&quot;arrangedContent&quot;</span><span class="p">)</span>
 </span><span class='line'>    <span class="nx">content</span><span class="p">.</span><span class="nx">filter</span> <span class="nf">(item, index) -&gt;</span>
-</span><span class='line'>      <span class="o">not</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;isDirty&quot;</span><span class="p">))</span>
+</span><span class='line'>      <span class="o">not</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;isNew&quot;</span><span class="p">))</span>
 </span><span class='line'>  <span class="p">).</span><span class="nx">property</span><span class="p">(</span><span class="s">&quot;arrangedContent.@each&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="p">)</span>
 </span><span class='line'>

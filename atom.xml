@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-06-14T06:38:20-10:00</updated>
+  <updated>2013-06-14T22:14:16-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -834,7 +834,7 @@ simpler. A real application would break this out into separate files.
 </span><span class='line'>  <span class="nv">filteredContent: </span><span class="p">(</span><span class="nf">-&gt;</span>
 </span><span class='line'>    <span class="nv">content = </span><span class="nx">@get</span><span class="p">(</span><span class="s">&quot;arrangedContent&quot;</span><span class="p">)</span>
 </span><span class='line'>    <span class="nx">content</span><span class="p">.</span><span class="nx">filter</span> <span class="nf">(item, index) -&gt;</span>
-</span><span class='line'>      <span class="o">not</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;isDirty&quot;</span><span class="p">))</span>
+</span><span class='line'>      <span class="o">not</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&quot;isNew&quot;</span><span class="p">))</span>
 </span><span class='line'>  <span class="p">).</span><span class="nx">property</span><span class="p">(</span><span class="s">&quot;arrangedContent.@each&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="p">)</span>
 </span><span class='line'>
