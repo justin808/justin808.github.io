@@ -46,6 +46,17 @@ are great times to review progress, discuss what's going right or wrong, plan
 for the future, and get reacquainted with one another on a personal level.
 #+end_quote
 
+The Ruby Rogues recently commented on telecommuting on episode: [[http://rubyrogues.com/108-rr-ruby-trends/][108 RR Ruby
+Trends]], at 33:26, or scroll down for the transcript. Here's a snippet, although
+I prefer listening to the podcast (at 1.5x speed on my iPhone).
+#+begin_quote
+KATRINA: Thoughtbot also had a no-remote-work policy. And then, they lost too
+many people. And then, when one of their other best guys was going to move to
+Sweden, I think, he was like, “Okay. I’m quitting because I’m moving to Sweden.”
+And they were like, “Maybe we should rethink this.” [Chuckles]
+#+end_quote
+
+
 * Productivity Features of My Home Office
 + *FAST Internet*. I've got 35/7 cable plus 7/1 DSL on a
   [[http://www.amazon.com/gp/product/B0042WCFI2/ref%3Das_li_ss_tl?ie%3DUTF8&camp%3D1789&creative%3D390957&creativeASIN%3DB0042WCFI2&linkCode%3Das2&tag%3Draionmau-20][ZyXEL load balancing router]] on a UPS. Even if the power goes out, it's likely I can

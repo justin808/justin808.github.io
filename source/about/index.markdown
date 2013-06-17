@@ -65,8 +65,6 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
   Finally, developers can write tests on the full stack, including all client
   side javascript.
 </li>
-<li>Love Test Drive Development. Check out my TDD tips site: <a href="http://tddtips.com">http://tddtips.com</a>.  
-</li>
 <li>Twitter Bootstrap rocks.
 </li>
 <li>Even done some Objective-C recently.
@@ -74,7 +72,7 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 <li>Current specialization is in Master Data Manager for Product Information Management.
 </li>
 <li>Thought leader in doing Test Driven Development in the context of enterprise
-  software
+  software. Check out my TDD tips site: <a href="http://tddtips.com">http://tddtips.com</a>.  
 </li>
 <li>Author of open source project "Dependent Object Framework", which vastly
   simplifies and accelerates JUnit testing with persistent dependencies.
