@@ -4,8 +4,8 @@ title: "Ember.js Hello World"
 date: 2013-05-26 09:53
 comments: true
 categories: ember.js
-keywords: emberjs tutorial 
-description: Tips to learn emberjs
+keywords: emberjs tutorial javascript
+description: Tips to learn emberjs and advice on getting started with Tom Dale's Tutorial
 published: true
 ---
 
