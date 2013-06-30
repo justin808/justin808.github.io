@@ -22,9 +22,8 @@ programmed neuroscience simulations on [[http://en.wikipedia.org/wiki/Apollo_Com
 computers for a few years, studying applied mathematics at [[http://www.college.harvard.edu/icb/icb.do][Harvard College]].
 
 Part of me regrets a bit that I didn't study computer science, but at the time,
-I just loved learning about so many other subjects, especially math, economics,
-statistics, and a vast array of liberal arts topics. I just loved learning. And
-I was growing up.
+I loved learning about so many other subjects, especially math, economics,
+statistics, and a vast array of liberal arts topics. 
 
 * After College
 After college, I wrote investment management applications for [[http://www.gmo.com/America/][GMO]], using 4D
