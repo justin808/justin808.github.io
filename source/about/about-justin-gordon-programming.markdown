@@ -12,22 +12,6 @@ Here's the more detailed version about me. Skim it, read it, let me know what
 you think&hellip;
 </p>
 
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Just a Kid</a></li>
-<li><a href="#sec-2">2 After College</a></li>
-<li><a href="#sec-3">3 Trigo and IBM</a>
-<ul>
-<li><a href="#sec-3-1">3.1 Inventing a Storage Mechanism for Product Data</a></li>
-<li><a href="#sec-3-2">3.2 Test Driven Development</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Just a Kid</h2>
 <div class="outline-text-2" id="text-1">
@@ -42,9 +26,8 @@ computers for a few years, studying applied mathematics at <a href="http://www.c
 </p>
 <p>
 Part of me regrets a bit that I didn't study computer science, but at the time,
-I just loved learning about so many other subjects, especially math, economics,
-statistics, and a vast array of liberal arts topics. I just loved learning. And
-I was growing up.
+I loved learning about so many other subjects, especially math, economics,
+statistics, and a vast array of liberal arts topics. 
 </p>
 </div>
 

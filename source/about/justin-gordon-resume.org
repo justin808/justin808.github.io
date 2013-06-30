@@ -26,28 +26,30 @@ Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808) 2
   
 * Experience
 ** IBM (Trigo Acquisition), [[http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html][InfoSphere MDM Collaborative Edition]]
++ [[http://www.railsonmaui.com/about/about-justin-gordon-programming.html#sec-3][Narrative of Details]]
 + November, 2002 to present. Team Lead, Senior Engineer, Architect, in
   Burlingame, CA and telecommuting from Maui since 2007.
 + Java software engineering leadership on 3 tier web-based enterprise
   application for product information management, collection and distribution,
   for the world’s largest retailers.
++ Broad contributions to all aspects of the leading ([[http://public.dhe.ibm.com/common/ssi/ecm/en/iml14344usen/IML14344USEN.PDF][according to Gartner]])
+  product for Master Data Management of Product Information, used by many of
+  the world's largest retailers.
++ Most significant contribution is the lead implementer of improved storage
+  layer architecture from shredded database tables to highly performing
+  binary serialization, using an XP development methodology (TDD, pair programming,
+  and scrum meetings), along with a mechanism of searching the data via database
+  XML.
++ Responsible for the majority of server side performance optimizations, such as
+  the use of EhCache distributed caching. Led integration of profilers into PIM
+  product for more efficient customer support.
 + Responsible for all development aspects of releases from 4.2.1, 5.0.1 (Home
   Depot/Albertsons “Large Retailer” release), 6.x, and 9.x, from negotiation of
   product feature set and schedule, to developer assignments, to handling
   resource re-allocations, to development procedures, to bug triage, and final
   release.
-+ Coordinated QA efforts when department lacked a manager.
-+ Authored official Trigo Release Processes with buy-in from PM, PS, QA, CM, and
-  Dev organizations.
-+ Lead implementer of improved storage layer architecture from shredded database
-  tables to highly performing serialized form, using an XP development
-  methodology (TDD, pair programming, and scrum meetings).
 + Process and innovation driver: Instigated move toward Agile Development
   Methodologies, including Pair Programming and Test Driven Development (TDD).
-+ Migrated CVS repository to P4 and led training. Moved company to use TWiki.
-  Use of refactoring IDEs.
-+ Led integration of profilers into PIM product for more efficient customer
-  support.
 + Main contact for tough customer issues, especially regarding performance (cpu
   and memory usage), data integrity, caching, and threading issues.
 + Developed methodology to bring TDD product wide using the Dependent Object

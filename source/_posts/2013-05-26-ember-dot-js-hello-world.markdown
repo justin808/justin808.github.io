@@ -9,8 +9,32 @@ description: Tips to learn emberjs
 published: true
 ---
 
-<p>
-Ember.js is really amazing. The place to start is <a href="http://emberjs.com/guides/">Tom Dale's Intro Tutorial Video</a>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">TLDR</h2>
+<div class="outline-text-2" id="text-1">
+
+<ol>
+<li><a href="http://emberjs.com/guides/">Tom Dale's Intro Tutorial Video</a> on EmberJs is awesome.
+</li>
+<li>Git repos of the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-start">start</a> and the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">finish</a> of the Tom Dale EmberJsTutorial.
+</li>
+<li>Tips for reproducing it.
+</li>
+<li><a href="http://youtu.be/vV6zzxi3JOc">Screencast of me explaining the completed example</a>.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Details</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>Ember.js is really amazing. The place to start is <a href="http://emberjs.com/guides/">Tom Dale's Intro Tutorial Video</a>
 (on <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=Ga99hMi7wfY">Youtube</a>). In the 30 minute video you build the app shown here in this
 iframe. Some of the features you'll learn include:
 </p><ol>
@@ -85,4 +109,14 @@ To maximize your learning efficiency:
 </ul>
 
 
+</div>
 
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Explanation of the Completed Code</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>{% youtube vV6zzxi3JOc %}
+</p></div>
+</div>
