@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Migrating from Capybara-Webkit to Poltergeist-PhantomJs - Rails on Maui</title>
+  <meta name="author" content="Justin Gordon">
+
+  
+  <meta name="description" content="Tips for efficiently migrating a test rspec test suite from capybara-webkit to poltergeist-phantomjs">
+  <meta name="keywords" content="capybara, capybara-webkit, poltergeist, phantomjs, rspec, rails">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40522944-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rails on Maui</a></h1>
+  
+    <h2>Programming in Paradise</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/railsonmaui" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=RailsOnMaui&amp;loc=en_US" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.railsonmaui.com/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="/blog/categories.html">Categories</a></li>
+  <li><a href="/tips/">Tips</a></li>
+  <li><a href="/meta/">Meta</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-06T21:38:00-10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Motivation</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Today I migrated a medium size test suite from <a href="https://github.com/thoughtbot/capybara-webkit">capybara-webkit</a> to <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>
+with <a href="http://phantomjs.org/index.html">PhantomJS</a>. I had two main motivations for switching:
+</p><ol>
+<li>PhantomJS is more sensitive to avoiding false positives. For example, in the
+   past, one could click on non-visible DOM elements with capybara-webkit.
+   While this may not currently be true with the latest Capybara, I&#8217;ve had good
+   luck with PhantomJS in the past.
+</li>
+<li>Speed. When I last checked, PhantomJS was faster. Speed is critical for slow
+   feature tests.
+</li>
+</ol>
+
+
+<p>
+Here&#8217;s one reason that Poltergeist is more accurate and <a href="https://github.com/jonleighton/poltergeist">sensitive to failure</a>: 
+</p>
+<blockquote>
+
+<p>When Poltergeist clicks on an element, rather than generating a DOM click event,
+it actually generates a &#8220;proper&#8221; click. This is much closer to what happens when
+a real user clicks on the page - but it means that Poltergeist must scroll the
+page to where the element is, and work out the correct co-ordinates to click. If
+the element is covered up by another element, the click will fail (this is a
+good thing - because your user won&#8217;t be able to click a covered up element
+either).
+</p>
+</blockquote>
+
+
+</div>
+
+</div>
+
+
+
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Tips for Migrating</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Upgrade Gems First</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>At first, I lost time due to timing issues where I was clicking on elements of a
+hidden dialog that was not finished showing. Capybara-webkit was not bothered by
+the fact that the dialog was actually hidden and being loaded. PhantomJS bombed
+out. However, after I worked around the issue, I realized that my gems were
+outdated. Since you&#8217;re going to be fixing a bunch of tests anyway, it makes
+sense to get on the latest versions of the testing gems. The gems you want to
+upgrade are: rspec, rspec-rails, Capybara, and poltergeist. 
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Visible Option</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<p>After upgrading the gems, my workarounds were no longer necessary. However, the
+change from Capybara 2.0 to 2.1 had a big change in the way that it handles
+finding dom elements that are <b>not visible</b>. Previously, Capybara would not care
+if the dom element was hidden. For my tests, this resulted in breaking any tests
+that queried any non-visible DOM elements, such as scripts, meta tags, and
+links.
+</p>
+<p>
+The key thing to be aware of is that you might get this obscure error message,
+and the fix is to add the <code>visible: false</code> optional parameter so that Capybara
+is not filtering by <code>visible: true</code>. The <code>visible</code> parameter is available to
+most finder methods in Capybara.
+</p>
+<p>
+The obscure error you might see is something like this:
+</p>
+
+
+<pre class="example">#=&gt; Capybara::ExpectationNotMet Exception: expected to find xpath "//title" with text "Title Text." but there were no matches. Also found "", which matched the selector but not all filters.
+</pre>
+
+
+<p>
+The reason is the title element is not visible, and &#8220;visible&#8221; is the &#8220;not all
+filters&#8221; part of the error message.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">Debugging Capybara Tests</h3>
+<div class="outline-text-3" id="text-2-3">
+
+<p>The main reasons that previously passing feature tests will fail when migrating
+to Poltergeist is due to timing and visibility. The two main techniques for
+debugging Capybara tests are:
+</p><ol>
+<li>Using screen shots (<code>render_page</code> below)
+</li>
+<li>Using HTML dumps (=page! below)
+</li>
+</ol>
+
+
+<p>
+Keep in mind that these methods will not wait for elements to load. Thus, you
+should either have a Capybara statement that will wait for some DOM element to
+load or you might want to put in a <code>sleep 10</code> to sleep for 10 seconds before
+capturing the screen shot or dumping the HTML.
+</p>
+<p>
+If you use the helper methods specified below, and you should be able to work
+through why Poltergeist is not doing what you think it should be doing. So far,
+I haven&#8217;t yet run into a case where I have not found out that it&#8217;s been my fault
+rather than a bug in Poltergeist that&#8217;s caused a failure due to the migration.
+In many cases, you&#8217;ll be somewhat pleasantly surprised that you&#8217;ll be fixing a
+false positive.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4">Capybara&#8217;s Wait Strategy</h3>
+<div class="outline-text-3" id="text-2-4">
+
+<p>Be sure to carefully read the <a href="https://github.com/jnicklas/capybara">Capybara documentation</a>, especially the part
+titled &#8220;Asynchronous JavaScript&#8221;. That section explains how Capybara cleverly
+will wait until the page or ajax call finished so that the element expected
+appears. There&#8217;s a configurable timeout (<code>Capybara.default_wait_time</code>) for
+changing the default wait time before a test bombs out.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5">Xpath Tip</h3>
+<div class="outline-text-3" id="text-2-5">
+
+<p>Be sure to understand the difference between <code>//something</code> and <code>.//something</code>.
+The later can be used inside a <code>within</code> block. The former will find the tag
+anywhere on the page, even when used inside of a <code>within</code> block!
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6">Setup and Utility Debugging Methods</h3>
+<div class="outline-text-3" id="text-2-6">
+
+<p>Here&#8217;s the setup and a couple utility methods that I use. Put these in a file in your helpers
+directory, such spec/helpers/capybara.rb.
+</p>
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">default_wait_time</span> <span class="o">=</span> <span class="mi">8</span> <span class="c1"># Seconds to wait before timeout error. Default is 2</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Register slightly larger than default window size...</span>
+</span><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">register_driver</span> <span class="ss">:poltergeist</span> <span class="k">do</span> <span class="o">|</span><span class="n">app</span><span class="o">|</span>
+</span><span class='line'>  <span class="ss">Capybara</span><span class="p">:</span><span class="ss">:Poltergeist</span><span class="o">::</span><span class="no">Driver</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="p">{</span> <span class="ss">debug</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="c1"># change this to true to troubleshoot</span>
+</span><span class='line'>                                           <span class="n">window_size</span><span class="p">:</span> <span class="o">[</span><span class="mi">1300</span><span class="p">,</span> <span class="mi">1000</span><span class="o">]</span> <span class="c1"># this can affect dynamic layout</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">javascript_driver</span> <span class="o">=</span> <span class="ss">:poltergeist</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Saves page to place specfied at name inside of</span>
+</span><span class='line'><span class="c1"># test.rb definition of:</span>
+</span><span class='line'><span class="c1">#   config.integration_test_render_dir = Rails.root.join(&quot;spec&quot;, &quot;render&quot;)</span>
+</span><span class='line'><span class="c1"># NOTE: you must pass &quot;js:&quot; for the scenario definition (or else you&#39;ll see that render doesn&#39;t exist!)</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">render_page</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">png_name</span> <span class="o">=</span> <span class="nb">name</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\W+/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">png_name</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># shortcut for typing save_and_open_page</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">page!</span>
+</span><span class='line'>  <span class="n">save_and_open_page</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-06T21:38:00-10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/testing/'>testing</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/06/29/update-to-emberjs-hello-world/" title="Previous Post: Update to EmberJs Hello World">&laquo; Update to EmberJs Hello World</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>I'm Justin Gordon. I love doing full stack development, surfing, and
+  racing SUPs, all in Maui. You can find me on gmail
+  as <code>justin.gordon</code>. I'm also on <a href='http://www.linkedin.com/pub/justin-gordon/1/a41/286'>Linked In</a>.</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/29/update-to-emberjs-hello-world/">Update to EmberJs Hello World</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/11/emberjs-rails4-tutorial/">Ember.js Tutorial With Rails 4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/27/coffeescript-chrome-extensions/">CoffeeScript Chrome Extensions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/26/ember-dot-js-notes/">Ember.js Notes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/25/getting-started-with-discourse/">Getting Started With Discourse</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/justin808">@justin808</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'justin808',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/102850786590145072082?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+<section>
+  <h1>On Twitter:</h1>
+  <div>
+    <p><br /><a href="http://twitter.com/railsonmaui" target="_blank">My Tweets, on Twitter.</a></p>
+    <a href="http://twitter.com/railsonmaui" class="twitter-follow-button" data-show-count="">Follow @railsonmaui</a>
+  </div>
+</section>
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Justin Gordon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'railsonmaui';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

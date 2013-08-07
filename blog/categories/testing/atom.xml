@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: rails | Rails on Maui]]></title>
-  <link href="http://www.railsonmaui.com//blog/categories/rails/atom.xml" rel="self"/>
+  <title><![CDATA[Category: testing | Rails on Maui]]></title>
+  <link href="http://www.railsonmaui.com//blog/categories/testing/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
   <updated>2013-08-06T22:50:10-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
