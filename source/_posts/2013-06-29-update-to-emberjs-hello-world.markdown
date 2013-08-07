@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Update to EmberJs Hello World"
+date: 2013-06-29 15:38
+comments: true
+categories: ember.js
+keywords: emberjs tutorial javascript
+description: Tips to learn emberjs and advice on getting started with Tom Dale's Tutorial
+---
+
+<p>
+I updated my previous post <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a> with a video walkthrough of the
+<a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">completed code found on github</a> of the <a href="http://emberjs.com/guides/">Tom Dale's Intro Tutorial Video</a> on
+EmberJs.
+</p>
+<p>
+Ember is really gaining some traction. For example, <a href="http://boingboing.net/">boing boing</a> just moved it's
+comments to Discourse, which is based on EmberJs. You can read about it at
+boing boing: <a href="http://boingboing.net/2013/06/27/can-we-talk.html">Can we talk?</a>.
+</p>
+<p>
+Please let me know if this walkthrough is helpful. Comments are always welcome.
+</p>
+<p>
+{% youtube vV6zzxi3JOc %}
+</p>
