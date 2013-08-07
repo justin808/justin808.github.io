@@ -20,6 +20,7 @@ with [[http://phantomjs.org/index.html][PhantomJS]]. I had two main motivations 
    feature tests.
 
 Here's one reason that Poltergeist is more accurate and [[https://github.com/jonleighton/poltergeist][sensitive to failure]]: 
+
 #+begin_quote
 When Poltergeist clicks on an element, rather than generating a DOM click event,
 it actually generates a "proper" click. This is much closer to what happens when
