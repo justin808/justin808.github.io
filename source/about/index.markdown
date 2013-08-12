@@ -1,15 +1,18 @@
 ---
 layout: page
 title: "About Justin Gordon"
-date: 2013-05-03 18:03
+date: 2013-08-12 18:03
 comments: false
 sharing: true
 footer: true
+keywords: Rails, Justin Gordon, Consulting, Ruby on Rails, Maui
+description: About the Rails on Maui website and Justin Gordon's background.
 ---
 <p>
 Justin has been passionately writing software since 1985, focusing on Java since
-1996 at several startups and with Ruby on Rails the past couple of years. This
-blog is created using Octopress, as described <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">here</a>.
+1996 at several startups and with Ruby on Rails the past couple of years. Please
+contact me if you're interested in Rails consulting. This blog is created using
+Octopress, as described <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">here</a>.
 </p>
 <blockquote>
 
@@ -67,9 +70,7 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 </li>
 <li>Twitter Bootstrap rocks.
 </li>
-<li>Even done some Objective-C recently.
-</li>
-<li>Current specialization is in Master Data Manager for Product Information Management.
+<li>Previously specialized in Master Data Manager for Product Information Management.
 </li>
 <li>Thought leader in doing Test Driven Development in the context of enterprise
   software. Check out my TDD tips site: <a href="http://tddtips.com">http://tddtips.com</a>.  

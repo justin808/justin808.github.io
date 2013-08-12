@@ -1,34 +1,44 @@
 #+BEGIN_HTML
 ---
 layout: page
-title: "Justin Gordon Resume 2013"
+title: "Justin Gordon Resume"
 date: 2013-05-06 22:04
 comments: true
 sharing: true
 footer: true
 ---
 #+END_HTML
-Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808) 281-7272 (M)
+Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808)
+281-7272 (M), [[http://www.linkedin.com/pub/justin-gordon/1/a41/286][Linked In]].
+
+* Overview
++ Currently Rails consulting.
++ From the backend persistence layer to the Ruby layer, to client side
+  JavaScript, I've got projects covered. I'm typically adding code to git with a
+  day of joining a project.
++ Ruby on Rails full stack engineer, ruby, coffeescript, jQuery, saas, haml.
++ Extensive contributions to high performance Java enterprise applications used
+  by the world's largest retailers.
++ Areas of expertise include: Ruby on Rails, Test Driven Development ([[http://rspec.info/][rspec]] and
+  [[http://junit.org/][JUnit]]), profiling and optimizing (with [[http://www.yourkit.com/][Yourkit]]), concurrency, caching, EmberJs.
 
 * Education
 + *University of California at Berkeley*, Walter Haas School of Business MBA, December 2001, Beta Gamma Sigma, Management of Technology Certificate
 + *Harvard University*, BA Applied Mathematics, Magna Cum Laude, 1991
 + *Chartered Financial Analyst*, 1996
 
-* Overview
-+ Software engineer with extensive contributions to high performance Java
-  enterprise applications
-+ Areas of expertise include: Test Driven Development ([[http://junit.org/][JUnit]] and [[http://rspec.info/][rspec]]),
-  profiling and optimizing (with [[http://www.yourkit.com/][Yourkit]]),
-  concurrency, caching, [[http://dojotoolkit.org/][Dojo Toolkit]] JavaScript UIs.
-+ Ruby on Rails interactive web applications, ruby, coffeescript, jQuery, saas,
-  haml.
-  
 * Experience
+** Rails Consulting Projects
++ Please email me at =justin.gordon= at =gmail.com= or if you're interested in
+  learning how I might be able to help your business.
+
 ** IBM (Trigo Acquisition), [[http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html][InfoSphere MDM Collaborative Edition]]
 + [[http://www.railsonmaui.com/about/about-justin-gordon-programming.html#sec-3][Narrative of Details]]
-+ November, 2002 to present. Team Lead, Senior Engineer, Architect, in
++ November, 2002 to 2013. Team Lead, Senior Engineer, Architect, in
   Burlingame, CA and telecommuting from Maui since 2007.
++ The world's largest retailers, including Walmart and Lowes, use the algorithms
+  designed, implemented, and optimized by Justin to store and edit all their vendor
+  product data *currently*.
 + Java software engineering leadership on 3 tier web-based enterprise
   application for product information management, collection and distribution,
   for the world’s largest retailers.

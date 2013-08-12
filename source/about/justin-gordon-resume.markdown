@@ -1,25 +1,34 @@
 ---
 layout: page
-title: "Justin Gordon Resume 2013"
+title: "Justin Gordon Resume"
 date: 2013-05-06 22:04
 comments: true
 sharing: true
 footer: true
 ---
 <p>
-Contact: at gmail, <code>justin.gordon</code>, 141 Makahiki Street, Paia, HI 96779, (808) 281-7272 (M)
+Contact: at gmail, <code>justin.gordon</code>, 141 Makahiki Street, Paia, HI 96779, (808)
+281-7272 (M), <a href="http://www.linkedin.com/pub/justin-gordon/1/a41/286">Linked In</a>.
 </p>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Education</h2>
+<h2 id="sec-1">Overview</h2>
 <div class="outline-text-2" id="text-1">
 
 <ul>
-<li><b>University of California at Berkeley</b>, Walter Haas School of Business MBA, December 2001, Beta Gamma Sigma, Management of Technology Certificate
+<li>Currently Rails consulting.
 </li>
-<li><b>Harvard University</b>, BA Applied Mathematics, Magna Cum Laude, 1991
+<li>From the backend persistence layer to the Ruby layer, to client side
+  JavaScript, I've got projects covered. I'm typically adding code to git with a
+  day of joining a project.
 </li>
-<li><b>Chartered Financial Analyst</b>, 1996
+<li>Ruby on Rails full stack engineer, ruby, coffeescript, jQuery, saas, haml.
+</li>
+<li>Extensive contributions to high performance Java enterprise applications used
+  by the world's largest retailers.
+</li>
+<li>Areas of expertise include: Ruby on Rails, Test Driven Development (<a href="http://rspec.info/">rspec</a> and
+  <a href="http://junit.org/">JUnit</a>), profiling and optimizing (with <a href="http://www.yourkit.com/">Yourkit</a>), concurrency, caching, EmberJs.
 </li>
 </ul>
 
@@ -29,19 +38,15 @@ Contact: at gmail, <code>justin.gordon</code>, 141 Makahiki Street, Paia, HI 967
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Overview</h2>
+<h2 id="sec-2">Education</h2>
 <div class="outline-text-2" id="text-2">
 
 <ul>
-<li>Software engineer with extensive contributions to high performance Java
-  enterprise applications
+<li><b>University of California at Berkeley</b>, Walter Haas School of Business MBA, December 2001, Beta Gamma Sigma, Management of Technology Certificate
 </li>
-<li>Areas of expertise include: Test Driven Development (<a href="http://junit.org/">JUnit</a> and <a href="http://rspec.info/">rspec</a>),
-  profiling and optimizing (with <a href="http://www.yourkit.com/">Yourkit</a>),
-  concurrency, caching, <a href="http://dojotoolkit.org/">Dojo Toolkit</a> JavaScript UIs.
+<li><b>Harvard University</b>, BA Applied Mathematics, Magna Cum Laude, 1991
 </li>
-<li>Ruby on Rails interactive web applications, ruby, coffeescript, jQuery, saas,
-  haml.
+<li><b>Chartered Financial Analyst</b>, 1996
 </li>
 </ul>
 
@@ -58,14 +63,33 @@ Contact: at gmail, <code>justin.gordon</code>, 141 Makahiki Street, Paia, HI 967
 </div>
 
 <div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1">IBM (Trigo Acquisition), <a href="http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html">InfoSphere MDM Collaborative Edition</a></h3>
+<h3 id="sec-3-1">Rails Consulting Projects</h3>
 <div class="outline-text-3" id="text-3-1">
+
+<ul>
+<li>Please email me at <code>justin.gordon</code> at <code>gmail.com</code> or if you're interested in
+  learning how I might be able to help your business.
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">IBM (Trigo Acquisition), <a href="http://www-01.ibm.com/software/data/infosphere/mdm/collaborative.html">InfoSphere MDM Collaborative Edition</a></h3>
+<div class="outline-text-3" id="text-3-2">
 
 <ul>
 <li><a href="http://www.railsonmaui.com/about/about-justin-gordon-programming.html#sec-3">Narrative of Details</a>
 </li>
-<li>November, 2002 to present. Team Lead, Senior Engineer, Architect, in
+<li>November, 2002 to 2013. Team Lead, Senior Engineer, Architect, in
   Burlingame, CA and telecommuting from Maui since 2007.
+</li>
+<li>The world's largest retailers, including Walmart and Lowes, use the algorithms
+  designed, implemented, and optimized by Justin to store and edit all their vendor
+  product data <b>currently</b>.
 </li>
 <li>Java software engineering leadership on 3 tier web-based enterprise
   application for product information management, collection and distribution,
@@ -77,7 +101,7 @@ Contact: at gmail, <code>justin.gordon</code>, 141 Makahiki Street, Paia, HI 967
 </li>
 <li>Most significant contribution is the lead implementer of improved storage
   layer architecture from shredded database tables to highly performing
-  serialized form, using an XP development methodology (TDD, pair programming,
+  binary serialization, using an XP development methodology (TDD, pair programming,
   and scrum meetings), along with a mechanism of searching the data via database
   XML.
 </li>
@@ -107,9 +131,9 @@ Contact: at gmail, <code>justin.gordon</code>, 141 Makahiki Street, Paia, HI 967
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2">Extensity</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3">Extensity</h3>
+<div class="outline-text-3" id="text-3-3">
 
 <ul>
 <li>1999-2001, Emeryville, CA, Architect, Tools
@@ -141,9 +165,9 @@ Contact: at gmail, <code>justin.gordon</code>, 141 Makahiki Street, Paia, HI 967
 
 </div>
 
-<div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3">Other Experience</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4">Other Experience</h3>
+<div class="outline-text-3" id="text-3-4">
 
 <p>In the 1990's, I did C++/Sybase investment programming at <a href="http://www.mcm.com/">Mellon Capital</a> and
 Java programming for a startup Infoscape. Here's some details from an <a href="justin-gordon-resume-1990s.html">older resume</a> if you're interested.
