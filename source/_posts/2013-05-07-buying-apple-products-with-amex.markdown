@@ -3,7 +3,7 @@ layout: post
 title: "Buy Apple Products with American Express"
 date: 2013-05-07 21:53
 comments: true
-categories: Mac
+categories: [Mac]
 keywords: AppleCare, Mac, Extended Warranties, Credit Cards
 description: When buying AppleCare, prefer using American Express over Visa and MasterCard, or don't buy AppleCare if Visa or MasterCard extends your warranty.
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "Ember.js Notes"
 date: 2013-05-26 19:42
 comments: true
-categories: 
+categories: emberjs
 keywords: 
 description: 
 published: false
