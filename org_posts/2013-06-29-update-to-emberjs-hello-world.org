@@ -4,7 +4,7 @@ layout: post
 title: "Update to EmberJs Hello World"
 date: 2013-06-29 15:38
 comments: true
-categories: ember.js
+categories: emberjs
 keywords: emberjs tutorial javascript
 description: Tips to learn emberjs and advice on getting started with Tom Dale's Tutorial
 ---

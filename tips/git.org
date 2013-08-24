@@ -1,0 +1,52 @@
+#+BEGIN_HTML
+---
+layout: page
+title: Git Tips
+sharing: true
+footer: true
+date: 2013-08-15 17:57
+comments: true
+categories: [git, Vim]
+keywords: RubyMine, git, Tips, Productivity
+published: false
+description: My favorite git tips and shortcuts
+---
+#+END_HTML
+
+* Links to useful information
+
+
+* Personal favorite tips
+
+
+* Creating a new feature branch
+
+# create a new tracking branch
+# git checkout -b feature/hl/sitemap
+# git push -u origin feature/hl/sitemap
+
+
+* Aliases
+#+BEGIN_SRC bash
+# Favorites used all the time
+alias gst='git status'
+alias gbv='git branch -vv'
+alias gb='git branch'
+alias gd='git diff'
+alias gh='git log --name-status -n'
+# avoid having useless console messages 
+alias gitk='gitk 2>/dev/null'
+alias gp='git push'
+alias grb='git rebase -p'
+
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gl='git pull'
+alias s='git status --short'
+
+
+# Aliases I don't use frequently
+alias gm='git merge --no-ff'
+alias gup='git fetch origin && grb origin/$(git_current_branch)'
+alias gpthis='git push origin HEAD:$(git_current_branch)'
+#+END_SRC
