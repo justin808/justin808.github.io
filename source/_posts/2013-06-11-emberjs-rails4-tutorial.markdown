@@ -4,7 +4,7 @@ title: "Ember.js Tutorial with Rails 4"
 date: 2013-06-11 13:00
 alias: blog/2013/06/11/creating-ember-dot-js-guides-tutorial-with-rails-4/index.html
 comments: true
-categories: [Rails, emberjs]
+categories: [rails, emberjs]
 keywords: Rails4, Rails, Ruby on Rails, Ember.js, Emberjs, Persistence, Serialization, Controllers, Router, Tutorial
 description: This post demonstrates how to build a simple Ember.js app with Rails 4 for persistence, and includes a detailed screencast. 
 published: true
