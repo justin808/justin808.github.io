@@ -10,9 +10,9 @@ description: About the Rails on Maui website and Justin Gordon's background.
 ---
 <p>
 Justin has been passionately writing software since 1985, focusing on Java since
-1996 at several startups and with Ruby on Rails the past couple of years. Please
-contact me at <code>justin.gordon</code> at <code>gmail.com</code> if you're interested in Rails consulting. This blog is created using
-Octopress, as described <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">here</a>.
+1996 at several startups and with Ruby on Rails since 2011. Please contact me at
+<code>justin.gordon</code> at <code>gmail.com</code> if you're interested in Rails consulting. This
+blog is created using Octopress, as described <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">here</a>.
 </p>
 <blockquote>
 

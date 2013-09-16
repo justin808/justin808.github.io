@@ -11,9 +11,9 @@ description: About the Rails on Maui website and Justin Gordon's background.
 ---
 #+END_HTML
 Justin has been passionately writing software since 1985, focusing on Java since
-1996 at several startups and with Ruby on Rails the past couple of years. Please
-contact me at =justin.gordon= at =gmail.com= if you're interested in Rails consulting. This blog is created using
-Octopress, as described [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]].
+1996 at several startups and with Ruby on Rails since 2011. Please contact me at
+=justin.gordon= at =gmail.com= if you're interested in Rails consulting. This
+blog is created using Octopress, as described [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]].
 
 #+begin_quote
 "Would you bet on a NASCAR driver who can't drive stick? No? Then fire every
