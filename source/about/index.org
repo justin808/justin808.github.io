@@ -27,6 +27,7 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 + My productivity setup (coming soon)
 
 * Some Bullets
++ Rails projects: http://www.housinglist.com and http://www.blinkinc.com.
 + I use ideaVim inside of RubyMine and IntelliJ and Evil (vim) mode inside of
   emacs. And almost everything I do is backed by developer written tests.
 + Experienced and passionate software engineer with a track record of successful projects.
@@ -65,7 +66,7 @@ read more about Sugar Ranch here http://www.sugarranchmaui.com and here:
 http://www.facebook.com/sugarranch.
 
 
-{% img /about/Justin2013-headshot-outdoors-789.jpg %}
+{% img /about/Justin-Office-2013.jpg %}
 
 [[https://maps.google.com/maps?q%3D141%2BMakahiki%2BSt,%2BPaia,%2BHI&hl%3Den&ll%3D20.908851,-156.408621&spn%3D0.002944,0.003433&sll%3D20.46,-157.505&sspn%3D12.075058,9.876709&oq%3D141&t%3Dw&hnear%3D141%2BMakahiki%2BSt,%2BPaia,%2BMaui,%2BHawaii%2B96779&z%3D19&iwloc%3Dr0&source%3Dgplus-ogsb][Map of Sugar Ranch]].
 
