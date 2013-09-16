@@ -65,7 +65,6 @@ Sugar Ranch, a B&B (pending application) where he lives with his family. You can
 read more about Sugar Ranch here http://www.sugarranchmaui.com and here:
 http://www.facebook.com/sugarranch.
 
-
 {% img /about/Justin-Office-2013.JPG %}
 
 [[https://maps.google.com/maps?q%3D141%2BMakahiki%2BSt,%2BPaia,%2BHI&hl%3Den&ll%3D20.908851,-156.408621&spn%3D0.002944,0.003433&sll%3D20.46,-157.505&sspn%3D12.075058,9.876709&oq%3D141&t%3Dw&hnear%3D141%2BMakahiki%2BSt,%2BPaia,%2BMaui,%2BHawaii%2B96779&z%3D19&iwloc%3Dr0&source%3Dgplus-ogsb][Map of Sugar Ranch]].

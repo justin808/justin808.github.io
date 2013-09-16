@@ -109,7 +109,6 @@ Sugar Ranch, a B&amp;B (pending application) where he lives with his family. You
 read more about Sugar Ranch here <a href="http://www.sugarranchmaui.com">http://www.sugarranchmaui.com</a> and here:
 <a href="http://www.facebook.com/sugarranch">http://www.facebook.com/sugarranch</a>.
 </p>
-
 <p>
 {% img /about/Justin-Office-2013.JPG %}
 </p>
