@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-09-15T23:54:31-10:00</updated>
+  <updated>2013-09-15T23:57:50-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -85,65 +85,6 @@ Did the upgrade work? You&#8217;re looking at the results of it.
 </p>
 
 
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Contributing to Discourse.org via CodeClimate]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/08/24/contributing-to-discourse-dot-org-via-codeclimate/"/>
-    <updated>2013-08-24T09:38:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/08/24/contributing-to-discourse-dot-org-via-codeclimate</id>
-    <content type="html"><![CDATA[<p>
-This article gives a quick background into:
-</p>
-
-
-<ol>
-<li>Why contribute to Discourse?
-</li>
-<li>How to use CodeClimate to contribute?
-</li>
-</ol>
-
-
-
-
-<p>
-This is the first part in a series of articles. The following articles will
-provide examples of improving the discourse.org codebase.
-</p>
-
-
-
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Why Discourse?</h2>
-<div class="outline-text-2" id="text-1">
-
-<p>The two hottest areas of modern web development are arguably Ruby on Rails and
-EmberJs. Supposing you&#8217;ve gone through tutorials, but what if you want to see a
-serious production application? Discourse
-(<a href="https://github.com/discourse/discourse">https://github.com/discourse/discourse</a>) provides just such an example. In May,
-I covered this topic in great detail: <a href="http://www.railsonmaui.com/blog/2013/05/25/getting-started-with-discourse/">Getting Started With Discourse</a>.
-</p>
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Get Involved</h2>
-<div class="outline-text-2" id="text-2">
-
-<p>Supposing you want to contribute to Discourse, what&#8217;s an easy place to get
-started? For starters, check out this thread at Discourse.org: <a href="http://meta.discourse.org/t/so-you-want-to-help-out-with-discourse/3823">So, you want to help out with Discourse</a>. The cool thing is that you&#8217;re using Discourse to learn
-how to contribute to it!
-</p>
-</div>
-</div>
 
 ]]></content>
   </entry>
@@ -1383,19 +1324,6 @@ the Web Inspector.
 
 </div>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ember.js Notes]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes/"/>
-    <updated>2013-05-26T19:42:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes</id>
-    <content type="html"><![CDATA[<p>
-<a href="http://emberjs.com/guides/controllers/">Controllers</a>
-&#8220;From the template&#8217;s perspective, a controller is simply an object that provides its data.&#8221;
-</p>
 
 ]]></content>
   </entry>
