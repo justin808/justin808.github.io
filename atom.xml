@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-09-15T22:07:26-10:00</updated>
+  <updated>2013-09-15T23:21:19-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,82 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Upgrading Octopress]]></title>
+    <link href="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/"/>
+    <updated>2013-09-15T22:08:00-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress</id>
+    <content type="html"><![CDATA[<p>
+One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, and thus upgrading Octopress
+is difficult. I delayed upgrading due to this. However, my concerns were
+unfounded, as it was very painless to upgrade Octopress.
+</p>
+
+
+<p>
+The instructions boil down to this short help page on <a href="http://octopress.org/docs/updating/">Updating Octopress</a>:
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git pull octopress master     <span class="c"># Get the latest Octopress</span>
+</span><span class='line'>bundle install                <span class="c"># Keep gems updated</span>
+</span><span class='line'>rake update_source            <span class="c"># update the template&#39;s source</span>
+</span><span class='line'>rake update_style             <span class="c"># update the template&#39;s style</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
+resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
+below) showing you how these tools helped with this process. Besides some minor
+issues dealing with a few merge conflicts, there was nothing very interesting or
+eventful about the upgrade, which means that the current process is really quite
+OK.
+</p>
+
+
+<p>
+I hope a few people find this demo of the RubyMine git conflict resolution tool
+helpful. The key takeaways from this video are:
+</p>
+
+
+<ol>
+<li>Merge conflicts show up as red in the list of changes.
+   <img src="http://www.railsonmaui.com//images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
+
+</li>
+<li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
+   the 3 way merge.
+   <img src="http://www.railsonmaui.com//images/2013-09-15-upgrading-octopress/merge-window.jpg">
+</li>
+</ol>
+
+
+
+
+<p>
+3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
+   or, in this case, the changes in the main Octopress development branch.
+</p>
+
+
+<p>
+Did the upgrade work? You&#8217;re looking at the results of it.
+</p>
+
+
+<p>   
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
+</p>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Migrating from Capybara-Webkit to Poltergeist-PhantomJs]]></title>

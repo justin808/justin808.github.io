@@ -1,0 +1,53 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Upgrading Octopress"
+date: 2013-09-15 22:08
+comments: true
+categories: [octopress, rubymine]
+keywords: Octopress
+description: Instructions on Upgrading Octopress
+---
+#+END_HTML
+
+One of the criticisms of Octopress is how there's no clear separation of the static
+generation engine and the content of one's website, and thus upgrading Octopress
+is difficult. I delayed upgrading due to this. However, my concerns were
+unfounded, as it was very painless to upgrade Octopress.
+
+The instructions boil down to this short help page on [[http://octopress.org/docs/updating/][Updating Octopress]]:
+#+BEGIN_SRC bash
+git pull octopress master     # Get the latest Octopress
+bundle install                # Keep gems updated
+rake update_source            # update the template's source
+rake update_style             # update the template's style
+#+END_SRC
+
+The first step resulted in a few merge conflicts. I find RubyMine's git conflict
+resolution tools helpful, so I used those. Here's a short [[http://youtu.be/x74Gd2lDC1A][screencast]] (embedded
+below) showing you how these tools helped with this process. Besides some minor
+issues dealing with a few merge conflicts, there was nothing very interesting or
+eventful about the upgrade, which means that the current process is really quite
+OK.
+
+I hope a few people find this demo of the RubyMine git conflict resolution tool
+helpful. The key takeaways from this video are:
+
+1. Merge conflicts show up as red in the list of changes.
+   {% img /images/2013-09-15-upgrading-octopress/conflicts-red.jpg %}
+
+2. Try the diff'ing buttons in the upper left to get 2 way views of
+   the 3 way merge.
+   {% img /images/2013-09-15-upgrading-octopress/merge-window.jpg %}
+
+3, "Yours" means your local changes, and "Theirs" means the server's changes,
+   or, in this case, the changes in the main Octopress development branch.
+
+Did the upgrade work? You're looking at the results of it.
+   
+{% youtube x74Gd2lDC1A %}
+
+
+
+
+

@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: testing - Rails on Maui</title>
+  <title>Upgrading Octopress - Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Category: testing">
-  
+  <meta name="description" content="Instructions on Upgrading Octopress">
+  <meta name="keywords" content="Octopress">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/categories/testing">
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -82,36 +82,164 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Testing</h1>
+    
+      <h1 class="entry-title">Upgrading Octopress</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-15T22:08:00-10:00" pubdate data-updated="true">Sep 15<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
+
+
+<div class="entry-content"><p>
+One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, and thus upgrading Octopress
+is difficult. I delayed upgrading due to this. However, my concerns were
+unfounded, as it was very painless to upgrade Octopress.
+</p>
+
+
+<p>
+The instructions boil down to this short help page on <a href="http://octopress.org/docs/updating/">Updating Octopress</a>:
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git pull octopress master     <span class="c"># Get the latest Octopress</span>
+</span><span class='line'>bundle install                <span class="c"># Keep gems updated</span>
+</span><span class='line'>rake update_source            <span class="c"># update the template&#39;s source</span>
+</span><span class='line'>rake update_style             <span class="c"># update the template&#39;s style</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
+resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
+below) showing you how these tools helped with this process. Besides some minor
+issues dealing with a few merge conflicts, there was nothing very interesting or
+eventful about the upgrade, which means that the current process is really quite
+OK.
+</p>
+
+
+<p>
+I hope a few people find this demo of the RubyMine git conflict resolution tool
+helpful. The key takeaways from this video are:
+</p>
+
+
+<ol>
+<li>Merge conflicts show up as red in the list of changes.
+   <img src="/images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
+
+</li>
+<li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
+   the 3 way merge.
+   <img src="/images/2013-09-15-upgrading-octopress/merge-window.jpg">
+</li>
+</ol>
 
 
 
-  
-  <h2>2013</h2>
 
-<article>
-  
-<h1><a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating from Capybara-Webkit to Poltergeist-PhantomJs</a></h1>
-<time datetime="2013-08-06T21:38:00-10:00" pubdate><span class='month'>Aug</span> <span class='day'>06</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/testing/'>testing</a></span>
-</footer>
+<p>
+3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
+   or, in this case, the changes in the main Octopress development branch.
+</p>
 
 
-</article>
+<p>
+Did the upgrade work? You&#8217;re looking at the results of it.
+</p>
+
+
+<p>   
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
+</p>
+
+
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-15T22:08:00-10:00" pubdate data-updated="true">Sep 15<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/rubymine/'>rubymine</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/" title="Previous Post: Migrating from Capybara-Webkit to Poltergeist-PhantomJs">&laquo; Migrating from Capybara-Webkit to Poltergeist-PhantomJs</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -239,7 +367,10 @@
       var disqus_shortname = 'railsonmaui';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

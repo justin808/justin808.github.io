@@ -5,7 +5,7 @@ title: "Strategies for Rails Logging and Error Handling"
 alias: /blog/2013/05/08/saner-rails-logging/index.html
 date: 2013-05-08 17:41
 comments: true
-categories: [rails, error handling ] 
+categories: [rails, error-handling ] 
 keywords: Ruby on Rails, Exceptions, Logging
 description: Clean logging and error handling is a critical aspect of a RoR app. 
 published: true

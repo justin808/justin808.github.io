@@ -9,8 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Motivation Today I migrated a medium size test suite from capybara-webkit to Poltergeist
-with PhantomJS. I had two main motivations for switching: &hellip;">
+  <meta name="description" content="One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,111 @@ with PhantomJS. I had two main motivations for switching: &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-15T22:08:00-10:00" pubdate data-updated="true">Sep 15<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/09/15/upgrading-octopress/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, and thus upgrading Octopress
+is difficult. I delayed upgrading due to this. However, my concerns were
+unfounded, as it was very painless to upgrade Octopress.
+</p>
+
+
+<p>
+The instructions boil down to this short help page on <a href="http://octopress.org/docs/updating/">Updating Octopress</a>:
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git pull octopress master     <span class="c"># Get the latest Octopress</span>
+</span><span class='line'>bundle install                <span class="c"># Keep gems updated</span>
+</span><span class='line'>rake update_source            <span class="c"># update the template&#39;s source</span>
+</span><span class='line'>rake update_style             <span class="c"># update the template&#39;s style</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
+resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
+below) showing you how these tools helped with this process. Besides some minor
+issues dealing with a few merge conflicts, there was nothing very interesting or
+eventful about the upgrade, which means that the current process is really quite
+OK.
+</p>
+
+
+<p>
+I hope a few people find this demo of the RubyMine git conflict resolution tool
+helpful. The key takeaways from this video are:
+</p>
+
+
+<ol>
+<li>Merge conflicts show up as red in the list of changes.
+   <img src="/images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
+
+</li>
+<li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
+   the 3 way merge.
+   <img src="/images/2013-09-15-upgrading-octopress/merge-window.jpg">
+</li>
+</ol>
+
+
+
+
+<p>
+3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
+   or, in this case, the changes in the main Octopress development branch.
+</p>
+
+
+<p>
+Did the upgrade work? You&#8217;re looking at the results of it.
+</p>
+
+
+<p>   
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
+</p>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1121,6 +1226,10 @@ monolithic.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</a>
       </li>
     
@@ -1142,10 +1251,6 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2013/05/25/getting-started-with-discourse/">Getting Started With Discourse</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>
       </li>
     
   </ul>
