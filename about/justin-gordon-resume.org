@@ -14,8 +14,8 @@ Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808)
 * Overview
 + Currently Rails consulting.
 + From the backend persistence layer to the Ruby layer, to client side
-  JavaScript, I've got projects covered. I'm typically adding code to git with a
-  day of joining a project.
+  JavaScript, I've got projects covered. I'm typically adding code to Github
+  and submitting a pull request within a day of joining a project.
 + Ruby on Rails full stack engineer, ruby, coffeescript, jQuery, saas, haml.
 + Extensive contributions to high performance Java enterprise applications used
   by the world's largest retailers.
@@ -29,6 +29,8 @@ Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808)
 
 * Experience
 ** Rails Consulting Projects
++ Rails projects with significant contributions: http://www.housinglist.com and
+  http://www.blinkinc.com.
 + Please email me at =justin.gordon= at =gmail.com= or if you're interested in
   learning how I might be able to help your business.
 
