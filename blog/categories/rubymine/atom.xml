@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rubymine | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rubymine/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-09-16T00:02:19-10:00</updated>
+  <updated>2013-09-16T08:51:31-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -78,7 +78,21 @@ Did the upgrade work? You're looking at the results of it.
 </p>
 
 
-<p>   
+<p>
+It's worth noting that I had one slight snag. When I merged sass/screen.scss, I
+accidentally removed this line, which is used for the youtube plugin.
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="s2">&quot;custom/rve&quot;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+I could have figured this out by examining the history of the file and noting
+that I had added this line, rather than it being part of Octopress. So yes, it
+would be bit better if there was a cleaner separation between the Octopress
+code and any enhancements. However, the current mechanism works, and it's still
+thousands of times better than WordPress. 
+</p>
+
+
+<p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
 </p>
 
