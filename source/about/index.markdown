@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About Justin Gordon"
-date: 2013-08-12 18:03
+date: 2013-08-15 18:03
 comments: false
 sharing: true
 footer: true
