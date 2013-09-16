@@ -50,3 +50,51 @@ alias gm='git merge --no-ff'
 alias gup='git fetch origin && grb origin/$(git_current_branch)'
 alias gpthis='git push origin HEAD:$(git_current_branch)'
 #+END_SRC
+
+
+
+
+* Revert Last Unpushed commit
+
+Undo a commit and redo
+
+#+BEGIN_SRC bash
+$ git commit ...              (1)
+$ git reset --soft HEAD^      (2)
+$ edit                        (3)
+$ git add ....                (4)
+$ git commit -c ORIG_HEAD     (5)
+#+END_SRC
+This is what you want to undo
+
+This is most often done when you remembered what you just committed is incomplete, or you misspelled your commit message, or both. Leaves working tree as it was before "reset".
+
+Make corrections to working tree files.
+
+Stage changes for commit.
+
+"reset" copies the old head to .git/ORIG_HEAD; redo the commit by starting with its log message. If you do not need to edit the message further, you can give -C option instead
+
+
+
+
+
+* Commands
+
+git log --pretty=format:'%h %s' --graph
+
+
+# what's in feature and not merged into dev
+git log dev..feature/remove-old-sitemap
+
+
+# see what's in a stash
+git stash show -p
+
+git stash list | awk -F: ‘{ print “\n\n\n\n”; print $0; print “\n\n”; system(“git –no-pager stash show -p ” $1); }’ | less
+
+
+
+
+* Stop git commit
+Quit vim with :cq which quits with an error code.
