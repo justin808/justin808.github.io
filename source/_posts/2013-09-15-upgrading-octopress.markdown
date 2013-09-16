@@ -53,7 +53,19 @@ helpful. The key takeaways from this video are:
 <p>
 Did the upgrade work? You're looking at the results of it.
 </p>
-<p>   
+<p>
+It's worth noting that I had one slight snag. When I merged sass/screen.scss, I
+accidentally removed this line, which is used for the youtube plugin.
+{% codeblock lang:scss %}
+@import "custom/rve";
+{% endcodeblock %}
+I could have figured this out by examining the history of the file and noting
+that I had added this line, rather than it being part of Octopress. So yes, it
+would be bit better if there was a cleaner separation between the Octopress
+code and any enhancements. However, the current mechanism works, and it's still
+thousands of times better than WordPress. 
+</p>
+<p>
 {% youtube x74Gd2lDC1A %}
 </p>
 
