@@ -9,8 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="RubyMine&#8217;s interactive search/replace is awesome. The Regexp feature is
-especially useful. Not only will it help you edit faster, but it will &hellip;">
+  <meta name="description" content="One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,147 +84,6 @@ especially useful. Not only will it help you edit faster, but it will &hellip;">
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/09/17/using-rubymine-slash-intellij-regexp-search-slash-replace/">Using RubyMine/IntelliJ Regexp Search/Replace</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-17T09:05:00-07:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/09/17/using-rubymine-slash-intellij-regexp-search-slash-replace/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-RubyMine&#8217;s interactive search/replace is awesome. The Regexp feature is
-especially useful. Not only will it help you edit faster, but it will improve
-your ability to write RegExp&#8217;s in your code. When do you need to use a regexp?
-Whenever a standard find/replace won&#8217;t cut it. For example, if you changing the
-rspec syntax from one form to another, such as from:
-</p>
-
-
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
-</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>
-to
-</p>
-
-
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
-</span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>
-The following screencast shows how you can interactively use the Regexp feature
-to figure out the right regexp to search for as well as the right replacement.
-</p>
-
-
-<p>
-In this example, I&#8217;m replacing one rspec syntax with a replacement one.
-</p>
-
-
-
-
-<pre class="example">it \{ expect\(my_subject\.(\w+)\)\.to eq\((.*)\) }
-</pre>
-
-
-
-
-<p>
-Replace with:
-</p>
-
-
-
-
-<pre class="example">its(:$1) { should eq($2) }
-</pre>
-
-
-
-
-<p>
-Here&#8217;s a few key tips:
-</p>
-
-
-<ol>
-<li>Be sure to first check the regexp check-box if you&#8217;ll need that.
-</li>
-<li>As you type each character into the search box, observe if you&#8217;re increasing
-   your match area to get what you want.
-</li>
-<li>If a character doesn&#8217;t match, then try escaping the character. For example,
-   I had to escape the <code>{</code> and <code>(</code> as those characters have special meaning in
-   the regexp.
-</li>
-<li>Once you get a match with the right groupings for replacement, then put in
-   the <code>$1</code>, <code>$2</code>, etc. into the replacement box to refine your replacement string.
-</li>
-<li>Then hit Opt-P (or Alt-P) to replace.
-</li>
-</ol>
-
-
-
-
-<p>
-This is best shown with this 2 minute screencast.
-</p>
-
-
-<p>
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/U_UaOjcR4wQ "></iframe></div>
-</p>
-
-
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -874,6 +733,48 @@ the Web Inspector.
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/05/26/ember-dot-js-notes/">Ember.js Notes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-26T19:42:00-07:00" pubdate data-updated="true">May 26<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/05/26/ember-dot-js-notes/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+<a href="http://emberjs.com/guides/controllers/">Controllers</a>
+&#8220;From the template&#8217;s perspective, a controller is simply an object that provides its data.&#8221;
+</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a></h1>
     
     
@@ -1383,10 +1284,6 @@ monolithic.
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/09/17/using-rubymine-slash-intellij-regexp-search-slash-replace/">Using RubyMine/IntelliJ Regexp Search/Replace</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a>
       </li>
     
@@ -1404,6 +1301,10 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2013/05/27/coffeescript-chrome-extensions/">CoffeeScript Chrome Extensions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/26/ember-dot-js-notes/">Ember.js Notes</a>
       </li>
     
       <li class="post">
