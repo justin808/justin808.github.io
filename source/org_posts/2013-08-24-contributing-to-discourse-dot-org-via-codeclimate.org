@@ -11,6 +11,7 @@ published: false
 ---
 #+END_HTML
 
+
 This article gives a quick background into:
 1. Why contribute to Discourse?
 2. How to use CodeClimate to contribute?
