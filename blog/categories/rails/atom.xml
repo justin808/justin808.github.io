@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-09-20T23:52:10-07:00</updated>
+  <updated>2013-09-26T23:12:04-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Migrating from Capybara-Webkit to Poltergeist-PhantomJs]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/"/>
-    <updated>2013-08-06T21:38:00-07:00</updated>
+    <updated>2013-08-06T21:38:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs</id>
     <content type="html"><![CDATA[<div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Motivation</h2>
@@ -246,7 +246,7 @@ directory, such spec/helpers/capybara.rb.
   <entry>
     <title type="html"><![CDATA[Ember.js Tutorial with Rails 4]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/"/>
-    <updated>2013-06-11T13:00:00-07:00</updated>
+    <updated>2013-06-11T13:00:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial</id>
     <content type="html"><![CDATA[<p>
 The first post in this series, <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>, shows Ember working
@@ -1134,7 +1134,7 @@ I welcome comments and suggestions.
   <entry>
     <title type="html"><![CDATA[Testing Error Handling]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/"/>
-    <updated>2013-05-11T00:01:00-07:00</updated>
+    <updated>2013-05-11T00:01:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling</id>
     <content type="html"><![CDATA[<p>
 How do ensure that your application properly handles errors, especially when
@@ -1616,7 +1616,7 @@ Related Post:
   <entry>
     <title type="html"><![CDATA[Strategies for Rails Logging and Error Handling]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/"/>
-    <updated>2013-05-08T17:41:00-07:00</updated>
+    <updated>2013-05-08T17:41:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling</id>
     <content type="html"><![CDATA[<p>
 TLDR: Clean logging and error handling is a critical aspect of a RoR app.

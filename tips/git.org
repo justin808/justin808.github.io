@@ -98,3 +98,7 @@ git stash list | awk -F: ‘{ print “\n\n\n\n”; print $0; print “\n\n”; 
 
 * Stop git commit
 Quit vim with :cq which quits with an error code.
+
+
+* Rebasing
++ [[http://stackoverflow.com/questions/8939977/git-push-rejected-after-feature-branch-rebase][Force pushing after rebasing a feature branch]]
