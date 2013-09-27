@@ -1,7 +1,7 @@
 #+BEGIN_HTML
 ---
 layout: post
-title: "GoGaRuCo 2013: Community ⨠ Code"
+title: "GoGaRuCo 2013: Community > Code"
 date: 2013-09-22 16:23
 comments: true
 categories: 
