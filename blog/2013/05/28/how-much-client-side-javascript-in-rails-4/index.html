@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>meta - Rails on Maui</title>
+  <title>How Much Client Side JavaScript in Rails 4? - Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Meta May 7th, 2013 Here&#8217;s a list of customizations that I applied to Octopress. Initial setup: Octopress Setup With Github, Org Mode, and &hellip;">
+  <meta name="description" content="Articles and Quick Summaries: RailsConf 2013 Keynotes: Rails 4 vs Ember.js: DHH on server side vs. Yehuda on the client side. Improving performance &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.railsonmaui.com//meta">
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -82,11 +82,15 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Meta</h1>
-    <p class="meta">
+    
+      <h1 class="entry-title">How Much Client Side JavaScript in Rails 4?</h1>
+    
+    
+      <p class="meta">
+        
 
 
 
@@ -98,133 +102,81 @@
   
 
 
-<time datetime="2013-05-07T23:43:00-10:00" pubdate data-updated="true">May 7<span>th</span>, 2013</time></p>
+<time datetime="2013-05-28T15:22:00-10:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
   </header>
-  
-  <p>
-Here&#8217;s a list of customizations that I applied to Octopress.
+
+
+<div class="entry-content"><p>
+Articles and Quick Summaries:
 </p>
+
+
+<ul>
+<li><a href="http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/">RailsConf 2013 Keynotes: Rails 4 vs Ember.js</a>: DHH on server side vs. Yehuda on
+  the client side.
+</li>
+<li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">Improving performance on twitter.com</a>: Twitter&#8217;s retreat from client side js.
+</li>
+<li><a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">How Basecamp Next got to be so damn fast without using much client-side UI</a>:
+  DHH on the Rails features the preclude the use of client side js.
+</li>
+</ul>
+
+
 
 
 <p>
-Initial setup: <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html">Octopress Setup With Github, Org Mode, and LiveReload</a>.
+<a href="http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html">Why Discourse uses Ember.js</a>: 
 </p>
 
 
+<blockquote>
 
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Plugins Installed</h2>
-<div class="outline-text-2" id="text-1">
-
-<ul>
-<li><a href="https://github.com/optikfluffel/octopress-responsive-video-embed">octopress-responsive-video-embed</a>: No issues. Easy to embed youtube video.
-</li>
-</ul>
-
-
-
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Option Configured</h2>
-<div class="outline-text-2" id="text-2">
-
-<ul>
-<li>Kramdown
-<ul>
-<li>Considering using Kramdown instead of rdiscount to enable links.
-</li>
-<li>Details: <a href="http://jason.the-graham.com/2010/11/21/kramdown_support_for_jekyll/">Kramdown Support for Jekyll</a>
-</li>
-<li>parse_block_html is not passed to kramdown. <a href="https://github.com/mojombo/jekyll/issues/1095">Issue on Github</a>
-</li>
-</ul>
-
-</li>
-</ul>
-
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'>  <span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kramdown</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">kramdown</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">parse_block_html</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span> <span class="c1"># default for kramdown is false. This will enable using Markdown links</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>Ask yourself how interactive your web application needs to be. On the less
+interactive side of the scale, there are huge wins with server side rendered
+HTML. The more interactive your application becomes, the more you’ll benefit
+from a client side MVC framework.
+</p>
+</blockquote>
 
 
 
 </div>
 
-</div>
 
-
-
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Displaying Categories in Navigation Bar</h2>
-<div class="outline-text-2" id="text-3">
-
-<ul>
-<li><a href="http://vigodome.com/blog/2011/12/22/show-categories-and-post-count-in-octopress/">Show Categories and Post Count in Octopress</a>
-</li>
-</ul>
-
-
-
-
-</div>
-
-</div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Validating Links</h2>
-<div class="outline-text-2" id="text-4">
-
-<ul>
-<li>You want to do something like this: <a href="http://validator.w3.org/check?verbose=1&amp;uri=http://www.railsonmaui.com/">http://validator.w3.org/check?verbose=1&amp;uri=http://www.railsonmaui.com/</a>
-</li>
-<li>Very useful for finding broken links.
-</li>
-</ul>
-
-</div>
-</div>
-
-
-  
-    <footer>
-      <p class="meta">
-        
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-07T23:43:00-10:00" pubdate data-updated="true">May 7<span>th</span>, 2013</time>
-        
-      </p>
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//meta/index.html" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//meta/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-28T15:22:00-10:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -234,9 +186,16 @@ Initial setup: <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-m
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/2013/05/27/coffeescript-chrome-extensions/" title="Previous Post: CoffeeScript Chrome Extensions">&laquo; CoffeeScript Chrome Extensions</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/06/11/emberjs-rails4-tutorial/" title="Next Post: Ember.js Tutorial with Rails 4">Ember.js Tutorial with Rails 4 &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -372,8 +331,8 @@ Initial setup: <a href="../blog/2013/04/27/octopress-setup-with-github-and-org-m
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.railsonmaui.com//meta/index.html';
-        var disqus_url = 'http://www.railsonmaui.com//meta/index.html';
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/';
         var disqus_script = 'embed.js';
       
     (function () {
