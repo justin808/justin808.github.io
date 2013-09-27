@@ -16,7 +16,7 @@ along with lots of photos.
 </a>
 
 The number one thing I discovered is that GoGaRuCo, like Ruby, is not just about
-code. It's about the <b>awesome</b> people and the community. 
+code. It's about the awesome people and the community. 
 </p>
 <p>
 If you just want to see the talks at GoGaRuCo, don't attend. All of the talks
@@ -27,7 +27,7 @@ will be available on web shortly. So why did the conference sell out, with about
 GoGaRuCo attendees are madly passionate about programming, especially in Ruby.
 Most attendees work at start-ups, at web consulting firms, or as freelancers.
 The common thread is that we all love to program. It's not work. It's a passion.
-And it's artistic, cutting-edge, relevant, and <b>FUN</b>!
+And it's artistic, cutting-edge, relevant, and fun!
 </p>
 <p>
 Amongst the community, there's a genuine feeling that we're all in this
