@@ -12,8 +12,13 @@ description: A Newbie's 2013 GoGaRuCo Experience
 
 This past weekend was my first [[http://gogaruco.com/][GoGaRuCo]]. Here's a perspective from a newbie,
 along with lots of photos.
-
+#+begin_html
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674318365913265&set=a.674315479246887.1073741830.484394724905631&type=1>
+#+end_html
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo1.jpg %}
+#+begin_html
+</a>
+#+end_html
 
 The number one thing I discovered is that GoGaRuCo, like Ruby, is not just about
 code. It's about the *awesome* people and the community. 
@@ -23,17 +28,17 @@ will be available on web shortly. So why did the conference sell out, with about
 200 wait-listed people begging to attend?
 
 GoGaRuCo attendees are madly passionate about programming, especially in Ruby.
-Many work at start-ups, web consulting firms, or as freelancers. The common
-thread is that we all love to program. It's not work. It's a passion. And it's
-artistic, cutting-edge, relevant, and *FUN*!
+Most attendees work at start-ups, at web consulting firms, or as freelancers.
+The common thread is that we all love to program. It's not work. It's a passion.
+And it's artistic, cutting-edge, relevant, and *FUN*!
 
 Amongst the community, there's a genuine feeling that we're all in this
 together, and the more we can help each other, the better off we and the world
 will be. This is truly the open source spirit of contributing whatever code you
 can give back to the community. Consequently, for me, attending the conference
 was about meeting others who contribute to open-source and learning more about
-how I can contribute. I got a chance to personally meet the people whom I follow
-on Twitter, read their blogs, and use their open source.
+how I can contribute. As a bonus, I got a chance to personally meet the people
+whom I follow on Twitter, read their blogs, and use their open source.
 
 * My Top 14 for 2013 GoGaRuCo
 1. Won't need to buy any new T-shirts for a long time.
@@ -45,7 +50,7 @@ on Twitter, read their blogs, and use their open source.
 7. Can write Ruby to fly a surveillance drone.
 8. Got tips on the performance tuning one of the biggest open source rails
    applications, Discourse.
-9. Everything I wanted to know about ruby, and my co-worker's compensation, but
+9. Everything I wanted to know about Ruby, and my co-worker's compensation, but
    was afraid to ask.
 10. Who is JEG2?
 11. Plenty of break time between talks made for lots of conversation.
@@ -62,7 +67,7 @@ on Twitter, read their blogs, and use their open source.
    of fun!
 
 * Ruby on Maui, 2014?
-If you interested in attending a small ruby conference in Maui next year, maybe
+If you interested in attending a small Ruby conference in Maui next year, maybe
 in May, please get in touch with me.
    
 * Photographs
@@ -88,13 +93,35 @@ on Facebook.
 + [[http://www.flickr.com/photos/justingordon/sets/72157635909144156/][Next 200]]: Conference day 2.
 + [[http://www.flickr.com/photos/justingordon/sets/72157635909491013/][Last 134]]: Conference day 2 and second post-party.
 
+#+begin_html
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674800812531687&set=a.674800445865057.1073741833.484394724905631&type= >
+#+end_html
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo2.jpg %}
+#+begin_html
+</a>
+#+end_html
 
+#+begin_html
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674319075913194&set=a.674317992579969.1073741831.484394724905631&type=1 >
+#+end_html
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo3.jpg %}
+#+begin_html
+</a>
+#+end_html
 
+
+#+begin_html
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674799195865182&set=a.674798672531901.1073741832.484394724905631&type=1 >
+#+end_html
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo4.jpg %}
+#+begin_html
+</a>
+#+end_html
 
+#+begin_html
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674321559246279&set=a.674317992579969.1073741831.484394724905631&type=1 >
+#+end_html
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo5.jpg %}
-
-
-
+#+begin_html
+</a>
+#+end_html

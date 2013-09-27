@@ -11,11 +11,10 @@ description: A Newbie's 2013 GoGaRuCo Experience
 <p>
 This past weekend was my first <a href="http://gogaruco.com/">GoGaRuCo</a>. Here's a perspective from a newbie,
 along with lots of photos.
-</p>
-<p>
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674318365913265&set=a.674315479246887.1073741830.484394724905631&type=1>
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo1.jpg %}
-</p>
-<p>
+</a>
+
 The number one thing I discovered is that GoGaRuCo, like Ruby, is not just about
 code. It's about the <b>awesome</b> people and the community. 
 </p>
@@ -26,9 +25,9 @@ will be available on web shortly. So why did the conference sell out, with about
 </p>
 <p>
 GoGaRuCo attendees are madly passionate about programming, especially in Ruby.
-Many work at start-ups, web consulting firms, or as freelancers. The common
-thread is that we all love to program. It's not work. It's a passion. And it's
-artistic, cutting-edge, relevant, and <b>FUN</b>!
+Most attendees work at start-ups, at web consulting firms, or as freelancers.
+The common thread is that we all love to program. It's not work. It's a passion.
+And it's artistic, cutting-edge, relevant, and <b>FUN</b>!
 </p>
 <p>
 Amongst the community, there's a genuine feeling that we're all in this
@@ -36,8 +35,8 @@ together, and the more we can help each other, the better off we and the world
 will be. This is truly the open source spirit of contributing whatever code you
 can give back to the community. Consequently, for me, attending the conference
 was about meeting others who contribute to open-source and learning more about
-how I can contribute. I got a chance to personally meet the people whom I follow
-on Twitter, read their blogs, and use their open source.
+how I can contribute. As a bonus, I got a chance to personally meet the people
+whom I follow on Twitter, read their blogs, and use their open source.
 </p>
 
 <div id="outline-container-1" class="outline-2">
@@ -62,7 +61,7 @@ on Twitter, read their blogs, and use their open source.
 <li>Got tips on the performance tuning one of the biggest open source rails
    applications, Discourse.
 </li>
-<li>Everything I wanted to know about ruby, and my co-worker's compensation, but
+<li>Everything I wanted to know about Ruby, and my co-worker's compensation, but
    was afraid to ask.
 </li>
 <li>Who is JEG2?
@@ -107,7 +106,7 @@ on Twitter, read their blogs, and use their open source.
 <h2 id="sec-3">Ruby on Maui, 2014?</h2>
 <div class="outline-text-2" id="text-3">
 
-<p>If you interested in attending a small ruby conference in Maui next year, maybe
+<p>If you interested in attending a small Ruby conference in Maui next year, maybe
 in May, please get in touch with me.
 </p>
 </div>
@@ -168,20 +167,25 @@ on Facebook.
 </ul>
 
 
+
+
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674800812531687&set=a.674800445865057.1073741833.484394724905631&type= >
 <p>
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo2.jpg %}
-</p>
-<p>
+</a>
+
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674319075913194&set=a.674317992579969.1073741831.484394724905631&type=1 >
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo3.jpg %}
-</p>
-<p>
+</a>
+
+
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674799195865182&set=a.674798672531901.1073741832.484394724905631&type=1 >
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo4.jpg %}
-</p>
-<p>
+</a>
+
+<a target=_ href=https://www.facebook.com/photo.php?fbid=674321559246279&set=a.674317992579969.1073741831.484394724905631&type=1 >
 {% img /images/2013-09-22-gogaruco-2013/GoGaRuCo5.jpg %}
-</p>
-
-
-</div>
+</a>
+</p></div>
 </div>
 </div>
