@@ -8,19 +8,6 @@ footer: true
 ---
 
 
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Digital Workforce</a></li>
-<li><a href="#sec-2">2 Infoscape</a></li>
-<li><a href="#sec-3">3 Mellon Capital</a></li>
-<li><a href="#sec-4">4 ACI (now called 4D)</a></li>
-<li><a href="#sec-5">5 GMO</a></li>
-</ul>
-</div>
-</div>
-
 <div id="outline-container-1" class="outline-2">
 <h2 id="sec-1">Digital Workforce</h2>
 <div class="outline-text-2" id="text-1">

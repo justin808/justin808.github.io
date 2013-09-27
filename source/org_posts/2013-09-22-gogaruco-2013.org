@@ -1,0 +1,100 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "GoGaRuCo 2013: Community ⨠ Code"
+date: 2013-09-22 16:23
+comments: true
+categories: 
+keywords: 
+description: A Newbie's 2013 GoGaRuCo Experience
+---
+#+END_HTML
+
+This past weekend was my first [[http://gogaruco.com/][GoGaRuCo]]. Here's a perspective from a newbie,
+along with lots of photos.
+
+{% img /images/2013-09-22-gogaruco-2013/GoGaRuCo1.jpg %}
+
+The number one thing I discovered is that GoGaRuCo, like Ruby, is not just about
+code. It's about the *awesome* people and the community. 
+
+If you just want to see the talks at GoGaRuCo, don't attend. All of the talks
+will be available on web shortly. So why did the conference sell out, with about
+200 wait-listed people begging to attend?
+
+GoGaRuCo attendees are madly passionate about programming, especially in Ruby.
+Many work at start-ups, web consulting firms, or as freelancers. The common
+thread is that we all love to program. It's not work. It's a passion. And it's
+artistic, cutting-edge, relevant, and *FUN*!
+
+Amongst the community, there's a genuine feeling that we're all in this
+together, and the more we can help each other, the better off we and the world
+will be. This is truly the open source spirit of contributing whatever code you
+can give back to the community. Consequently, for me, attending the conference
+was about meeting others who contribute to open-source and learning more about
+how I can contribute. I got a chance to personally meet the people whom I follow
+on Twitter, read their blogs, and use their open source.
+
+* My Top 14 for 2013 GoGaRuCo
+1. Won't need to buy any new T-shirts for a long time.
+2. Got a poster tube that doubles as a form for caissons.
+3. No stress over picking which talks to attend, with one track.
+4. Can, but won't, write my own replacement for ActiveRecord and IRB.
+5. Will finally be able to solve the Rubik's cube.
+6. Now understand why privacy from the NSA really does matter to me.
+7. Can write Ruby to fly a surveillance drone.
+8. Got tips on the performance tuning one of the biggest open source rails
+   applications, Discourse.
+9. Everything I wanted to know about ruby, and my co-worker's compensation, but
+   was afraid to ask.
+10. Who is JEG2?
+11. Plenty of break time between talks made for lots of conversation.
+12. Personally met many of the folks I follow on Twitter!
+13. Most folks I met want to visit me in Maui at my B&B [[http://www.sugarranchmaui.com][Sugar Ranch Maui]]!
+14. Met the most talented and interesting group of programmers anywhere, who
+    all love Ruby and programming just as much as I do.
+
+* Tips
+1. Don't miss the pre-parties, breakfasts, or after-parties.
+2. Don't plan to work during the conference, and leave your laptop at home. An
+   good mobile phone or tablet is very useful.
+3. Sign up early if hanging out with other passionate programmers is your idea
+   of fun!
+
+* Ruby on Maui, 2014?
+If you interested in attending a small ruby conference in Maui next year, maybe
+in May, please get in touch with me.
+   
+* Photographs
+If you'd like full resolution, non-watermarked copies of any of the images,
+please get in touch with me. I personally cropped and adjusted the exposure on
+all images. These were taken with a Nikon D5100, SB-400 AF Flash, and a very
+basic Nikon 18-55mm lens.
+
+I hope that folks tag themselves in the Facebook albums! And please share them.
+
+** Facebook
+High resolution (2560 pixel) photos of best half that I took (about 200 total):
++ [[https://www.facebook.com/media/set/?set%3Da.674312419247193.1073741829.484394724905631&type%3D1&l%3De7d75dd035][Pre-Party at Pivotal Labs, September 19, 2013]]
++ [[https://www.facebook.com/media/set/?set%3Da.674315479246887.1073741830.484394724905631&type%3D1&l%3D5e5f0ccdf2][Sessions, September 20, 2013]]
++ [[https://www.facebook.com/media/set/?set%3Da.674317992579969.1073741831.484394724905631&type%3D1&l%3D84732636b8][After-Party, September 20, 2013]]
++ [[https://www.facebook.com/media/set/?set%3Da.674798672531901.1073741832.484394724905631&type%3D1&l%3Dd50e526b26][Sessions, September 21, 2013]]
++ [[https://www.facebook.com/media/set/?set%3Da.674800445865057.1073741833.484394724905631&type%3D1&l%3Dba7bd127b1][After-Party, September 21, 2013]]
+
+** Flickr
+I uploaded the full set of 2560 pixel images here. This has the half not shown
+on Facebook.
++ [[http://www.flickr.com/photos/justingordon/sets/72157635909414895/][First 200]]: Pre-party, conference day 1, some of first after-party.
++ [[http://www.flickr.com/photos/justingordon/sets/72157635909144156/][Next 200]]: Conference day 2.
++ [[http://www.flickr.com/photos/justingordon/sets/72157635909491013/][Last 134]]: Conference day 2 and second post-party.
+
+{% img /images/2013-09-22-gogaruco-2013/GoGaRuCo2.jpg %}
+
+{% img /images/2013-09-22-gogaruco-2013/GoGaRuCo3.jpg %}
+
+{% img /images/2013-09-22-gogaruco-2013/GoGaRuCo4.jpg %}
+
+{% img /images/2013-09-22-gogaruco-2013/GoGaRuCo5.jpg %}
+
+
+

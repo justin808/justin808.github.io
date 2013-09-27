@@ -34,11 +34,12 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 </li>
 <li>I telecommute from Maui. <a href="telecommuting.html">Why telecommuting works and how I maximize productivity</a>.
 </li>
-<li>My productivity setup (coming soon)
-</li>
 </ul>
 
 
+<p>
+{% img /about/Justin-Office-2013.JPG %}
+</p>
 </div>
 
 </div>
@@ -109,9 +110,7 @@ Sugar Ranch, a B&amp;B (pending application) where he lives with his family. You
 read more about Sugar Ranch here <a href="http://www.sugarranchmaui.com">http://www.sugarranchmaui.com</a> and here:
 <a href="http://www.facebook.com/sugarranch">http://www.facebook.com/sugarranch</a>.
 </p>
-<p>
-{% img /about/Justin-Office-2013.JPG %}
-</p>
+
 <p>
 <a href="https://maps.google.com/maps?q=141+Makahiki+St,+Paia,+HI&amp;hl=en&amp;ll=20.908851,-156.408621&amp;spn=0.002944,0.003433&amp;sll=20.46,-157.505&amp;sspn=12.075058,9.876709&amp;oq=141&amp;t=w&amp;hnear=141+Makahiki+St,+Paia,+Maui,+Hawaii+96779&amp;z=19&amp;iwloc=r0&amp;source=gplus-ogsb">Map of Sugar Ranch</a>.
 </p>
