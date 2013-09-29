@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-09-27T10:27:28-10:00</updated>
+  <updated>2013-09-28T15:02:51-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -69,9 +69,9 @@ whom I follow on Twitter, read their blogs, and use their open source.
 </li>
 <li>No stress over picking which talks to attend, with one track.
 </li>
-<li>Can, but won&#8217;t, write my own replacement for ActiveRecord and IRB.
+<li>Can, but won&#8217;t, write my own replacement for <a href="http://www.confreaks.com/videos/2669-gogaruco2013-the-littlest-orm">ActiveRecord</a> and IRB.
 </li>
-<li>Will finally be able to solve the Rubik&#8217;s cube.
+<li><a href="http://www.confreaks.com/videos/2670-gogaruco2013-solving-the-rubik-s-cube-in-20-seconds">Will finally be able to solve the Rubik&#8217;s cube (soon).</a>
 </li>
 <li>Now understand why privacy from the NSA really does matter to me.
 </li>
@@ -83,7 +83,7 @@ whom I follow on Twitter, read their blogs, and use their open source.
 <li>Everything I wanted to know about Ruby, and my co-worker&#8217;s compensation, but
    was afraid to ask.
 </li>
-<li>Who is JEG2?
+<li><a href="http://www.youtube.com/watch?v=Yfay4cM5Qxk&amp;feature=youtu.be&amp;a">Who is @JEG2?</a>
 </li>
 <li>Plenty of break time between talks made for lots of conversation.
 </li>
@@ -1485,49 +1485,6 @@ I welcome comments and suggestions.
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[How Much Client Side JavaScript in Rails 4?]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/"/>
-    <updated>2013-05-28T15:22:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4</id>
-    <content type="html"><![CDATA[<p>
-Articles and Quick Summaries:
-</p>
-
-
-<ul>
-<li><a href="http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/">RailsConf 2013 Keynotes: Rails 4 vs Ember.js</a>: DHH on server side vs. Yehuda on
-  the client side.
-</li>
-<li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">Improving performance on twitter.com</a>: Twitter&#8217;s retreat from client side js.
-</li>
-<li><a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">How Basecamp Next got to be so damn fast without using much client-side UI</a>:
-  DHH on the Rails features the preclude the use of client side js.
-</li>
-</ul>
-
-
-
-
-<p>
-<a href="http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html">Why Discourse uses Ember.js</a>: 
-</p>
-
-
-<blockquote>
-
-<p>Ask yourself how interactive your web application needs to be. On the less
-interactive side of the scale, there are huge wins with server side rendered
-HTML. The more interactive your application becomes, the more you’ll benefit
-from a client side MVC framework.
-</p>
-</blockquote>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[CoffeeScript Chrome Extensions]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/"/>
     <updated>2013-05-27T17:16:00-10:00</updated>
@@ -1591,19 +1548,6 @@ the Web Inspector.
 
 </div>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ember.js Notes]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes/"/>
-    <updated>2013-05-26T19:42:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes</id>
-    <content type="html"><![CDATA[<p>
-<a href="http://emberjs.com/guides/controllers/">Controllers</a>
-&#8220;From the template&#8217;s perspective, a controller is simply an object that provides its data.&#8221;
-</p>
 
 ]]></content>
   </entry>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emberjs | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/emberjs/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-09-27T10:27:28-10:00</updated>
+  <updated>2013-09-28T15:02:51-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -928,19 +928,6 @@ I welcome comments and suggestions.
 </p>
 </div>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ember.js Notes]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes/"/>
-    <updated>2013-05-26T19:42:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes</id>
-    <content type="html"><![CDATA[<p>
-<a href="http://emberjs.com/guides/controllers/">Controllers</a>
-"From the template's perspective, a controller is simply an object that provides its data."
-</p>
 
 ]]></content>
   </entry>
