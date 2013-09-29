@@ -106,3 +106,7 @@ google_analytics_tracking_id: UA-40522944-1
 
 # Facebook Like
 facebook_like: true
+
+# Flattr
+flattr_user: railsonmaui
+# flattr_blog_thing: http://flattr.com/thing/582242/Not-a-blog
