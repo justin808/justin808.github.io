@@ -102,3 +102,13 @@ Quit vim with :cq which quits with an error code.
 
 * Rebasing
 + [[http://stackoverflow.com/questions/8939977/git-push-rejected-after-feature-branch-rebase][Force pushing after rebasing a feature branch]]
+
+
+* Useful configuration
+# Configure your default merges to not FF so that you can see that work was
+# done on a separate branch
+git config merge.ff false
+
+# Configure merge commits to include a description of the commits that went
+# into the merge
+git config --global merge.summary true

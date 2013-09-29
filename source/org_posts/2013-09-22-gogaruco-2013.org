@@ -44,15 +44,15 @@ whom I follow on Twitter, read their blogs, and use their open source.
 1. Won't need to buy any new T-shirts for a long time.
 2. Got a poster tube that doubles as a form for caissons.
 3. No stress over picking which talks to attend, with one track.
-4. Can, but won't, write my own replacement for ActiveRecord and IRB.
-5. Will finally be able to solve the Rubik's cube.
+4. Can, but won't, write my own replacement for [[http://www.confreaks.com/videos/2669-gogaruco2013-the-littlest-orm][ActiveRecord]] and IRB.
+5. [[http://www.confreaks.com/videos/2670-gogaruco2013-solving-the-rubik-s-cube-in-20-seconds][Will finally be able to solve the Rubik's cube (soon).]]
 6. Now understand why privacy from the NSA really does matter to me.
 7. Can write Ruby to fly a surveillance drone.
 8. Got tips on the performance tuning one of the biggest open source rails
    applications, Discourse.
 9. Everything I wanted to know about Ruby, and my co-worker's compensation, but
    was afraid to ask.
-10. Who is JEG2?
+10. [[http://www.youtube.com/watch?v%3DYfay4cM5Qxk&feature%3Dyoutu.be&a][Who is @JEG2?]]
 11. Plenty of break time between talks made for lots of conversation.
 12. Personally met many of the folks I follow on Twitter!
 13. Most folks I met want to visit me in Maui at my B&B [[http://www.sugarranchmaui.com][Sugar Ranch Maui]]!
