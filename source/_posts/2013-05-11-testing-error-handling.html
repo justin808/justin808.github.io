@@ -18,19 +18,18 @@ application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
 </p>
 
-
 <!-- more -->
 
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Your Code Depends on Outside Systems (That Might Raise Errors)</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>Suppose you've created the super-duper Rails storefront application that takes
+<p>
+Suppose you've created the super-duper Rails storefront application that takes
 online payments. You may even have some unit tests that verify the code. Then
 you get the dreaded call that customers are being charged twice and their
 orders are not processed. WTF?
 </p>
+
 <p>
 It's not entirely obvious how to verify proper error handling when outside
 systems fail, or even when odd errors are raised from your own code. Payment
@@ -42,23 +41,21 @@ nothing saves. While code review and manual testing are good first steps, you
 should consider a few extra steps with error handling for sensitive parts of
 your application.
 </p>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Verification of Error Handling Strategy</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>Typically, error handling code is not well tested. It's much more common to test
+<p>
+Typically, error handling code is not well tested. It's much more common to test
 the "happy path" of everything going right.
 </p>
+
 <p>
 Let's look at hypothetical example and some tests that can flush out some
 errors.
 </p>
-
 
 {% codeblock lang:ruby %}
 class Order
@@ -81,21 +78,21 @@ end
 So what can go wrong?
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Payment Processing is Like a 2-Phase Commit</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>Conceptually, you want a transaction, such that it's all or nothing. If the
+<p>
+Conceptually, you want a transaction, such that it's all or nothing. If the
 charge goes through, then so does everything else. Payment processing like a
 2-phase commit, except one has to handle all the what-ifs to be sure that it's
 handled correctly.
 </p>
+
 <p>
 The general steps of payment processing are like this:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Connect to outside resource to make charge.
 </li>
 <li>Update database records indicating charge successful.
@@ -104,34 +101,32 @@ The general steps of payment processing are like this:
 </li>
 </ol>
 
-
 <p>
 Rails transactions work such than any exception in the block will cause the
 transaction to be rolled back. The problem with the above code is what happens
 if fulfill_order throws an exception? The customer has been charged, the order
 was updated to reflect payment, but then <b>ka-boom</b> and an exception is raised,
-and any database updates to the order are rolled back, <b>but the payment is not refunded</b>. The customer is confused as there is a charge but nothing else. How
+and any database updates to the order are rolled back, <b>but the payment is not
+refunded</b>. The customer is confused as there is a charge but nothing else. How
 could you have tested (and avoided) this?
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Brute Force Methodology</h2>
 <div class="outline-text-2" id="text-4">
-
-<p>You can simulate error conditions by manually placing =raise "any error message"=
+<p>
+You can simulate error conditions by manually placing =raise "any error message"=
 statements in your code, and then testing, say in the UI manually. This is a
 good first step to verify that your error handling is working correctly. You
 might raise a specific error, if say your payment processor throws a specific
 type of error.
 </p>
+
 <p>
 For the above example, the different methods referenced, such as <code>process_order</code>
 can get modified with a single line at the beginning, which would be:
 </p>
-
 
 {% codeblock lang:ruby %}
 def process_order
@@ -142,7 +137,8 @@ end
 
 <p>
 Then go into the UI and test placing an order. Consider the following questions:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Was the right error message displayed to the user?
 </li>
 <li>Was the right information logged at the correct log level?
@@ -151,10 +147,10 @@ Then go into the UI and test placing an order. Consider the following questions:
 </li>
 </ol>
 
-
 <p>
 See my prior article <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">Saner Rails Logging</a> for the answers to #2 and #3.
 </p>
+
 <p>
 By applying this technique to each of the components of completing a purchase,
 one can flush out (and handle) nearly all of the different possible errors that
@@ -164,18 +160,15 @@ the above code, let's see if we can write unit and feature tests on our error
 handling.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-5" class="outline-2">
+<div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5">RSpec Unit Testing of Errors</h2>
 <div class="outline-text-2" id="text-5">
-
-<p>It turns out that with stubbing in <code>rspec</code>, it's easy to test error handling!
+<p>
+It turns out that with stubbing in <code>rspec</code>, it's easy to test error handling!
 <a href="https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs">RSpec provides a nice mocking library</a>. The test code would look something like
 this. Pay attention to the call to <b>stub</b>.
 </p>
-
 
 {% codeblock lang:ruby %}
 describe Order do
@@ -206,8 +199,10 @@ This test code ensures that the error handling of purchase_cart will catch an
 error from fulfill_order, and properly refund the payment and rollback any
 changes to the order record.
 </p>
+
 <p>
 Here's an improved version of the Order#payment_method above:
+</p>
 {% codeblock lang:ruby %}
 class Order
   def purchase_cart
@@ -229,31 +224,31 @@ class Order
 end
 {% endcodeblock %}
 
+<p>
 Here are the key points to the improved code:
 </p>
-<ol>
-<li>There's a block to catch the exception which is <i>separate from the    transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
-   being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
-   that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for Utlity.logException</a>).
+
+<ol class="org-ol">
+<li>There's a block to catch the exception which is <i>separate from the
+transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
+being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
+that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for
+Utlity.logException</a>).
 </li>
 <li>fulfill_order is moved outside of the transaction block. This allows the
-   transaction to complete, and then the order_fulfillment takes place. If
-   there's an issue in fulfilling the order, that can be dealt with separately
-   from the original charge. In other words, the customer can successfully pay
-   for the order, and the store can deal with the failure to fulfill the order.
+transaction to complete, and then the order_fulfillment takes place. If
+there's an issue in fulfilling the order, that can be dealt with separately
+from the original charge. In other words, the customer can successfully pay
+for the order, and the store can deal with the failure to fulfill the order.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-6" class="outline-2">
+<div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6">RSpec Capybara Feature (Integration) Tests of UI Errors</h2>
 <div class="outline-text-2" id="text-6">
-
-<p>It's possibly more important and sometimes easier to do the verification at the
+<p>
+It's possibly more important and sometimes easier to do the verification at the
 integration level in RSpec feature specs using <a href="https://github.com/jnicklas/capybara">Capybara</a> with <a href="http://phantomjs.org/">PhantomJs</a> and
 <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>. The secret sauce is the same use of the same stubbing technique as
 above to replace some key methods such that they throw an exception. This sort
@@ -261,110 +256,103 @@ of technique works amazingly well to ensure that application will do the right
 then when an unexpected failure occurs, from the logging and emailing of the
 error message to the browser display to then end user.
 </p>
+
 <p>
 I tend to develop such a test in an iterative manner:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Make sure you've got tests on the "happy" case where the story goes as
-   planned.
+planned.
 </li>
 <li>Then introduce test cases where have bits of code like this that will raise
-   an error at an opportune time.
-</li>
-</ol>
-
-
+an error at an opportune time.
 {% codeblock lang:ruby %}
-     Order.any_instance.stub(:fulfill_order) { raise ArgumentError, "test error" }
+Order.any_instance.stub(:fulfill_order) { raise ArgumentError, "test error" }
 {% endcodeblock %}
-<ol>
-<li>Allow the test cases to fail, and put in screen shots (in Capybara with
-   phantomjs, that looks like this:
 </li>
-</ol>
-
-
+<li>Allow the test cases to fail, and put in screen shots (in Capybara with
+phantomjs, that looks like this:
 {% codeblock lang:ruby %}
-   render_page "a-descriptive-name"
+render_page "a-descriptive-name"
 {% endcodeblock %}
 <p>
-   Setup this method <code>render_page</code> in a spec helper file like this:
+Setup this method <code>render_page</code> in a spec helper file like this:
+</p>
 {% codeblock lang:ruby %}
-   def render_page name
-     path = File.join Rails.application.config.integration_test_render_dir, "#{name}.png"
-     page.driver.render(path)
-   end
+def render_page name
+  path = File.join Rails.application.config.integration_test_render_dir, "#{name}.png"
+  page.driver.render(path)
+end
 {% endcodeblock %}
-</p><ol>
+</li>
 <li>Put in some assertions that the page shows the correct error and the records
-   in the database have the right values.
+in the database have the right values.
 </li>
 <li>You can even
 </li>
 </ol>
-
 
 <p>
 Here's an example that tests a failure of the Stripe payment API, including
 verification that an email was sent signifying an error:
 </p>
 
-
 {% codeblock lang:ruby %}
-  # using gem vcr to record http communication for faster performance
-  let(:order) { create :order } # lots of setup in factory girl for non-purchased order
+ # using gem vcr to record http communication for faster performance
+ let(:order) { create :order } # lots of setup in factory girl for non-purchased order
 
-  scenario "Purchase cart, Strip payment error", :vcr do
-    # Setup the stub -- the secret sauce to this test
-    error_content = "Testing error handling exception message"
-    PaymentGateway.stub(:charge) { raise Stripe::InvalidRequestError.new(error_content, 'id') }
-    place_order
-    page.should have_content error_content
-    page.should have_content "Error purchasing"
-    order.reload
-    order.purchased.should_not be
-  end
-
-  def place_order
-   login_as(user, :scope => :user)
-   visit shopping_cart_path
-   page.should have_selector('.total .price', :text => in_dollars(order.total))
-   page.render_page("purchase-cart-1")
-   click_link "CHECKOUT"
-   fill_in_credit_card_info # utility test method to fill in credit card data
-   page.should have_selector('.total .price', :text => in_dollars(order.total))
-   render_page("purchase-cart-with-payment-info-2")
-   click_on "PURCHASE"
-   wait_for_spinners # method to wait for the busy spinner to stop
-   render_page("purchase-cart-after-click-purchase-3")
-   validate_error_emailed
+ scenario "Purchase cart, Strip payment error", :vcr do
+   # Setup the stub -- the secret sauce to this test
+   error_content = "Testing error handling exception message"
+   PaymentGateway.stub(:charge) { raise Stripe::InvalidRequestError.new(error_content, 'id') }
+   place_order
+   page.should have_content error_content
+   page.should have_content "Error purchasing"
+   order.reload
+   order.purchased.should_not be
  end
 
- # example of how you verify that an error was emailed
- def validate_error_emailed
-   email = ActionMailer::Base.deliveries.last
-   email.should_not be_nil
-   email.to.should_not include(order.user.email)
-   email.to.should include('whoever@gets-error.com')
- end
+ def place_order
+  login_as(user, :scope => :user)
+  visit shopping_cart_path
+  page.should have_selector('.total .price', :text => in_dollars(order.total))
+  page.render_page("purchase-cart-1")
+  click_link "CHECKOUT"
+  fill_in_credit_card_info # utility test method to fill in credit card data
+  page.should have_selector('.total .price', :text => in_dollars(order.total))
+  render_page("purchase-cart-with-payment-info-2")
+  click_on "PURCHASE"
+  wait_for_spinners # method to wait for the busy spinner to stop
+  render_page("purchase-cart-after-click-purchase-3")
+  validate_error_emailed
+end
+
+# example of how you verify that an error was emailed
+def validate_error_emailed
+  email = ActionMailer::Base.deliveries.last
+  email.should_not be_nil
+  email.to.should_not include(order.user.email)
+  email.to.should include('whoever@gets-error.com')
+end
 {% endcodeblock %}
-
 </div>
-
 </div>
-
-<div id="outline-container-7" class="outline-2">
+<div id="outline-container-sec-7" class="outline-2">
 <h2 id="sec-7">Conclusion</h2>
 <div class="outline-text-2" id="text-7">
-
-<p>If you aren't simulating how your application responds to errors, then you'll
+<p>
+If you aren't simulating how your application responds to errors, then you'll
 eventually find out, and the result might not be as good as you'd prefer. You
 can simulate errors with the very simple and quick technique of a well placed
 =raise "some error"=, and then testing in a UI. Or you might prefer the
 robustness of unit or feature tests using stubbing. Either way, the key message
 is to check how your application handles errors, before your customers do.
 </p>
+
 <p>
 Related Post:
-<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a>
-</p></div>
+<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies
+for Rails Logging and Error Handling</a>
+</p>
+</div>
 </div>
