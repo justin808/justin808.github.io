@@ -1,0 +1,156 @@
+---
+layout: post
+title: "Migrating from Bash to Zsh"
+date: 2014-01-04 14:00:00
+comments: true
+categories: [zsh]  
+keywords: zsh, oh-my-zsh
+description: How and why on migration from bash to zsh on Mac OS.
+---
+
+<p>
+I migrated from Bash to Zsh in October and I'm quite thrilled with zsh.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Motivation</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+What motivated me to finally move?
+</p>
+
+<ol class="org-ol">
+<li>I no longer used the shell within Emacs. If you have a bash setup that works
+well in Emacs, don't try to switch. Since moving from emacs bindings to
+evil-mode, I am quite comfortable in Vim, so I find myself using iTerm way
+more than the Emacs shell.
+</li>
+<li>While doing some pair programming with <a href="https://twitter.com/jakeonrails">@jakeonrails</a>, I saw the coolness of
+zsh, which he pointed out to me "was no big deal", just what's on the
+<a href="http://railscasts.com/episodes/308-oh-my-zsh">Railscasts Episode on Oh My ZSH</a>.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Tips on Migrating</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Here's a few tips to somebody migrating might find useful:
+</p>
+
+<ol class="org-ol">
+<li>Try out <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> and take a look at the <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">themes examples</a>. The themes seem to
+be all customizations of the prompt. I'll share what I came up with at the
+bottom, which is a modification of the default robbyrussell theme.
+</li>
+<li>While most of your bash code will migrate as-is, this is a good time to clean
+up some cruft in your files. I like to organize my shell code into small
+files, each with a particular theme, and then have the .zshrc source those,
+rather than having a giant .zshrc file.
+</li>
+<li>The oh-my-zsh plugins are way for you to share shell configuration with
+other members of the community. It's simple to read what those plugins are
+doing. Many are just setting aliases. I started to migrate my own
+configuration code by converting to plugins, but then I realized that that's
+overkill. If I ever want to share the configuration, at that point, I can
+convert to a plugin, which is quite simple.
+</li>
+<li>If you have any shell functions that use <code>[</code>, you might have escape that
+character for zsh.
+</li>
+<li>If you install zsh plugins, be very careful with any newly installed aliases
+from the plugins. I previously had <code>gl</code> aliased as 'git log' and the git
+plugin uses <code>gl</code> for <code>git pull</code>, <a href="http://stackoverflow.com/questions/19085203/recovering-from-accidental-git-pull-on-octopress-branches">which caused me a huge headache</a> when I ran
+that within my octopress branch.
+</li>
+<li>You need to escape the <code>^</code> character for commands such as <code>git reset HEAD\^</code>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Migration Notes</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Escape []</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+In the third line of this function, I had to escape the <code>[</code> and the <code>]</code>.
+</p>
+{% codeblock lang:bash %}
+opost() {
+  cd $OCTO_HOME
+  output=$(rake new_post\["${1}"\])
+  new_file=$(echo $output | awk '{print $4}')
+  base=$(basename $new_file) 
+  new_location=$OCTO_HOME/source/org_posts/
+  mv $OCTO_HOME/$new_file $new_location
+  echo created $new_location$base
+  cd -
+}
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">My new zsh prompt</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+{% img /images/2013-09-29-migrating-from-bash-to-zsh/prompt.jpg %}
+</p>
+
+<p>
+To set this up, I created a custom theme called justin808 by doing the following:
+</p>
+
+<ol class="org-ol">
+<li>Create a theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>. See below.
+</li>
+<li>Export the theme name.
+</li>
+</ol>
+
+<p>
+This is what it looks like in my .zshrc file. The first line is because I moved
+my ZSH configuration files.
+</p>
+
+{% codeblock lang:bash %}
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="justin808"
+{% endcodeblock %}
+
+<p>
+Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
+</p>
+{% codeblock lang:bash %}
+hostname=`hostname`
+if [ $hostname != "$HOME_HOST" ] || [ $USER != "justin" ]; then
+  host_stuff='%n@%m:'
+else
+  host_stuff=''
+fi  
+PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p ${host_stuff}%{$fg[cyan]%}${PWD/#$HOME/~} %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+
+# display exitcode on the right when >0
+return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+
+RPROMPT='${return_code}$(git_prompt_status)%{$reset_color%} [%*]'
+
+# RPROMPT='[%*]'
+ZSH_THEME_GIT_PROMPT_PREFIX="(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+GIT_PS1_SHOWUPSTREAM=verbose
+
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
+{% endcodeblock %}
+</div>
+</div>
+</div>
