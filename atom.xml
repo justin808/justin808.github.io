@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2013-09-29T16:07:19-10:00</updated>
+  <updated>2014-01-04T14:55:58-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -21,14 +21,17 @@
     <content type="html"><![CDATA[<p>
 This past weekend was my first <a href="http://gogaruco.com/">GoGaRuCo</a>. Here&#8217;s a perspective from a newbie,
 along with lots of photos.
+</p>
 <a target=_ href=https://www.facebook.com/photo.php?fbid=674318365913265&set=a.674315479246887.1073741830.484394724905631&type=1>
+<p>
 <img src="http://www.railsonmaui.com//images/2013-09-22-gogaruco-2013/GoGaRuCo1.jpg">
+</p>
 </a>
 
+<p>
 The number one thing I discovered is that GoGaRuCo, like Ruby, is not just about
 code. It&#8217;s about the awesome people and the community. 
 </p>
-
 
 <p>
 If you just want to see the talks at GoGaRuCo, don&#8217;t attend. All of the talks
@@ -36,14 +39,12 @@ will be available on web shortly. So why did the conference sell out, with about
 200 wait-listed people begging to attend?
 </p>
 
-
 <p>
 GoGaRuCo attendees are madly passionate about programming, especially in Ruby.
 Most attendees work at start-ups, at web consulting firms, or as freelancers.
 The common thread is that we all love to program. It&#8217;s not work. It&#8217;s a passion.
 And it&#8217;s artistic, cutting-edge, relevant, and fun!
 </p>
-
 
 <p>
 Amongst the community, there&#8217;s a genuine feeling that we&#8217;re all in this
@@ -55,14 +56,10 @@ how I can contribute. As a bonus, I got a chance to personally meet the people
 whom I follow on Twitter, read their blogs, and use their open source.
 </p>
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">My Top 14 for 2013 GoGaRuCo</h2>
 <div class="outline-text-2" id="text-1">
-
-<ol>
+<ol class="org-ol">
 <li>Won&#8217;t need to buy any new T-shirts for a long time.
 </li>
 <li>Got a poster tube that doubles as a form for caissons.
@@ -78,12 +75,12 @@ whom I follow on Twitter, read their blogs, and use their open source.
 <li>Can write Ruby to fly a surveillance drone.
 </li>
 <li>Got tips on the performance tuning one of the biggest open source rails
-   applications, Discourse.
+applications, Discourse.
 </li>
 <li>Everything I wanted to know about Ruby, and my co-worker&#8217;s compensation, but
-   was afraid to ask.
+was afraid to ask.
 </li>
-<li><a href="http://www.youtube.com/watch?v=Yfay4cM5Qxk&amp;feature=youtu.be&amp;a">Who is @JEG2?</a>
+<li><a href="http://www.youtube.com/watch?v=Yfay4cM5Qxk&feature=youtu.be&a">Who is @JEG2?</a>
 </li>
 <li>Plenty of break time between talks made for lots of conversation.
 </li>
@@ -92,100 +89,78 @@ whom I follow on Twitter, read their blogs, and use their open source.
 <li>Most folks I met want to visit me in Maui at my B&amp;B <a href="http://www.sugarranchmaui.com">Sugar Ranch Maui</a>!
 </li>
 <li>Met the most talented and interesting group of programmers anywhere, who
-    all love Ruby and programming just as much as I do.
+all love Ruby and programming just as much as I do.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Tips</h2>
 <div class="outline-text-2" id="text-2">
-
-<ol>
+<ol class="org-ol">
 <li>Don&#8217;t miss the pre-parties, breakfasts, or after-parties.
 </li>
 <li>Don&#8217;t plan to work during the conference, and leave your laptop at home. An
-   good mobile phone or tablet is very useful.
+good mobile phone or tablet is very useful.
 </li>
 <li>Sign up early if hanging out with other passionate programmers is your idea
-   of fun!
+of fun!
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Ruby on Maui, 2014?</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>If you interested in attending a small Ruby conference in Maui next year, maybe
+<p>
+If you interested in attending a small Ruby conference in Maui next year, maybe
 in May, please get in touch with me.
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Photographs</h2>
 <div class="outline-text-2" id="text-4">
-
-<p>If you&#8217;d like full resolution, non-watermarked copies of any of the images,
+<p>
+If you&#8217;d like full resolution, non-watermarked copies of any of the images,
 please get in touch with me. I personally cropped and adjusted the exposure on
 all images. These were taken with a Nikon D5100, SB-400 AF Flash, and a very
 basic Nikon 18-55mm lens.
 </p>
+
 <p>
 I hope that folks tag themselves in the Facebook albums! And please share them.
 </p>
-
 </div>
 
-<div id="outline-container-4-1" class="outline-3">
+<div id="outline-container-sec-4-1" class="outline-3">
 <h3 id="sec-4-1">Facebook</h3>
 <div class="outline-text-3" id="text-4-1">
-
-<p>High resolution (2560 pixel) photos of best half that I took (about 200 total):
-</p><ul>
-<li><a href="https://www.facebook.com/media/set/?set=a.674312419247193.1073741829.484394724905631&amp;type=1&amp;l=e7d75dd035">Pre-Party at Pivotal Labs, September 19, 2013</a>
+<p>
+High resolution (2560 pixel) photos of best half that I took (about 200 total):
+</p>
+<ul class="org-ul">
+<li><a href="https://www.facebook.com/media/set/?set=a.674312419247193.1073741829.484394724905631&type=1&l=e7d75dd035">Pre-Party at Pivotal Labs, September 19, 2013</a>
 </li>
-<li><a href="https://www.facebook.com/media/set/?set=a.674315479246887.1073741830.484394724905631&amp;type=1&amp;l=5e5f0ccdf2">Sessions, September 20, 2013</a>
+<li><a href="https://www.facebook.com/media/set/?set=a.674315479246887.1073741830.484394724905631&type=1&l=5e5f0ccdf2">Sessions, September 20, 2013</a>
 </li>
-<li><a href="https://www.facebook.com/media/set/?set=a.674317992579969.1073741831.484394724905631&amp;type=1&amp;l=84732636b8">After-Party, September 20, 2013</a>
+<li><a href="https://www.facebook.com/media/set/?set=a.674317992579969.1073741831.484394724905631&type=1&l=84732636b8">After-Party, September 20, 2013</a>
 </li>
-<li><a href="https://www.facebook.com/media/set/?set=a.674798672531901.1073741832.484394724905631&amp;type=1&amp;l=d50e526b26">Sessions, September 21, 2013</a>
+<li><a href="https://www.facebook.com/media/set/?set=a.674798672531901.1073741832.484394724905631&type=1&l=d50e526b26">Sessions, September 21, 2013</a>
 </li>
-<li><a href="https://www.facebook.com/media/set/?set=a.674800445865057.1073741833.484394724905631&amp;type=1&amp;l=ba7bd127b1">After-Party, September 21, 2013</a>
+<li><a href="https://www.facebook.com/media/set/?set=a.674800445865057.1073741833.484394724905631&type=1&l=ba7bd127b1">After-Party, September 21, 2013</a>
 </li>
 </ul>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-4-2" class="outline-3">
+<div id="outline-container-sec-4-2" class="outline-3">
 <h3 id="sec-4-2">Flickr</h3>
 <div class="outline-text-3" id="text-4-2">
-
-<p>I uploaded the full set of 2560 pixel images here. This has the half not shown
+<p>
+I uploaded the full set of 2560 pixel images here. This has the half not shown
 on Facebook.
-</p><ul>
+</p>
+<ul class="org-ul">
 <li><a href="http://www.flickr.com/photos/justingordon/sets/72157635909414895/">First 200</a>: Pre-party, conference day 1, some of first after-party.
 </li>
 <li><a href="http://www.flickr.com/photos/justingordon/sets/72157635909144156/">Next 200</a>: Conference day 2.
@@ -194,30 +169,33 @@ on Facebook.
 </li>
 </ul>
 
-
-
-
 <a target=_ href=https://www.facebook.com/photo.php?fbid=674800812531687&set=a.674800445865057.1073741833.484394724905631&type= >
 <p>
 <img src="http://www.railsonmaui.com//images/2013-09-22-gogaruco-2013/GoGaRuCo2.jpg">
+</p>
 </a>
 
 <a target=_ href=https://www.facebook.com/photo.php?fbid=674319075913194&set=a.674317992579969.1073741831.484394724905631&type=1 >
+<p>
 <img src="http://www.railsonmaui.com//images/2013-09-22-gogaruco-2013/GoGaRuCo3.jpg">
+</p>
 </a>
 
 
 <a target=_ href=https://www.facebook.com/photo.php?fbid=674799195865182&set=a.674798672531901.1073741832.484394724905631&type=1 >
+<p>
 <img src="http://www.railsonmaui.com//images/2013-09-22-gogaruco-2013/GoGaRuCo4.jpg">
+</p>
 </a>
 
 <a target=_ href=https://www.facebook.com/photo.php?fbid=674321559246279&set=a.674317992579969.1073741831.484394724905631&type=1 >
+<p>
 <img src="http://www.railsonmaui.com//images/2013-09-22-gogaruco-2013/GoGaRuCo5.jpg">
+</p>
 </a>
-</p></div>
 </div>
 </div>
-
+</div>
 ]]></content>
   </entry>
   
@@ -233,10 +211,9 @@ is difficult. I delayed upgrading due to this. However, my concerns were
 unfounded, as it was very painless to upgrade Octopress.
 </p>
 
-
 <p>
 The instructions boil down to this short help page on <a href="http://octopress.org/docs/updating/">Updating Octopress</a>:
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -247,7 +224,7 @@ The instructions boil down to this short help page on <a href="http://octopress.
 </span><span class='line'>rake update_style             <span class="c"># update the template&#39;s style</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
+<p>
 The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
 resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
 below) showing you how these tools helped with this process. Besides some minor
@@ -256,46 +233,39 @@ eventful about the upgrade, which means that the current process is really quite
 OK.
 </p>
 
-
 <p>
 I hope a few people find this demo of the RubyMine git conflict resolution tool
 helpful. The key takeaways from this video are:
 </p>
 
-
-<ol>
+<ol class="org-ol">
 <li>Merge conflicts show up as red in the list of changes.
-   <img src="http://www.railsonmaui.com//images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
-
+<img src="http://www.railsonmaui.com//images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
 </li>
+
 <li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
-   the 3 way merge.
-   <img src="http://www.railsonmaui.com//images/2013-09-15-upgrading-octopress/merge-window.jpg">
+the 3 way merge.
+<img src="http://www.railsonmaui.com//images/2013-09-15-upgrading-octopress/merge-window.jpg">
 </li>
 </ol>
-
-
-
 
 <p>
 3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
    or, in this case, the changes in the main Octopress development branch.
 </p>
 
-
 <p>
 Did the upgrade work? You&#8217;re looking at the results of it.
 </p>
 
-
 <p>
 It&#8217;s worth noting that I had one slight snag. When I merged sass/screen.scss, I
 accidentally removed this line, which is used for the youtube plugin.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="s2">&quot;custom/rve&quot;</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
-
+<p>
 I could have figured this out by examining the history of the file and noting
 that I had added this line, rather than it being part of Octopress. So yes, it
 would be bit better if there was a cleaner separation between the Octopress
@@ -303,13 +273,9 @@ code and any enhancements. However, the current mechanism works, and it&#8217;s 
 thousands of times better than WordPress. 
 </p>
 
-
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
 </p>
-
-
-
 ]]></content>
   </entry>
   
@@ -318,30 +284,31 @@ thousands of times better than WordPress.
     <link href="http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/"/>
     <updated>2013-08-06T21:38:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs</id>
-    <content type="html"><![CDATA[<div id="outline-container-1" class="outline-2">
+    <content type="html"><![CDATA[<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Motivation</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>Today I migrated a medium size test suite from <a href="https://github.com/thoughtbot/capybara-webkit">capybara-webkit</a> to <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>
+<p>
+Today I migrated a medium size test suite from <a href="https://github.com/thoughtbot/capybara-webkit">capybara-webkit</a> to <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>
 with <a href="http://phantomjs.org/index.html">PhantomJS</a>. I had two main motivations for switching:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>PhantomJS is more sensitive to avoiding false positives. For example, in the
-   past, one could click on non-visible DOM elements with capybara-webkit.
-   While this may not currently be true with the latest Capybara, I&#8217;ve had good
-   luck with PhantomJS in the past.
+past, one could click on non-visible DOM elements with capybara-webkit.
+While this may not currently be true with the latest Capybara, I&#8217;ve had good
+luck with PhantomJS in the past.
 </li>
 <li>Speed. When I last checked, PhantomJS was faster. Speed is critical for slow
-   feature tests.
+feature tests.
 </li>
 </ol>
-
 
 <p>
 Here&#8217;s one reason that Poltergeist is more accurate and <a href="https://github.com/jonleighton/poltergeist">sensitive to failure</a>: 
 </p>
-<blockquote>
 
-<p>When Poltergeist clicks on an element, rather than generating a DOM click event,
+<blockquote>
+<p>
+When Poltergeist clicks on an element, rather than generating a DOM click event,
 it actually generates a &#8220;proper&#8221; click. This is much closer to what happens when
 a real user clicks on the page - but it means that Poltergeist must scroll the
 page to where the element is, and work out the correct co-ordinates to click. If
@@ -350,27 +317,16 @@ good thing - because your user won&#8217;t be able to click a covered up element
 either).
 </p>
 </blockquote>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Tips for Migrating</h2>
 <div class="outline-text-2" id="text-2">
-
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
+</div><div id="outline-container-sec-2-1" class="outline-3">
 <h3 id="sec-2-1">Upgrade Gems First</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<p>At first, I lost time due to timing issues where I was clicking on elements of a
+<p>
+At first, I lost time due to timing issues where I was clicking on elements of a
 hidden dialog that was not finished showing. Capybara-webkit was not bothered by
 the fact that the dialog was actually hidden and being loaded. PhantomJS bombed
 out. However, after I worked around the issue, I realized that my gems were
@@ -379,57 +335,53 @@ sense to get on the latest versions of the testing gems. The gems you want to
 upgrade are: rspec, rspec-rails, Capybara, and poltergeist. 
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
+<div id="outline-container-sec-2-2" class="outline-3">
 <h3 id="sec-2-2">Visible Option</h3>
 <div class="outline-text-3" id="text-2-2">
-
-<p>After upgrading the gems, my workarounds were no longer necessary. However, the
+<p>
+After upgrading the gems, my workarounds were no longer necessary. However, the
 change from Capybara 2.0 to 2.1 had a big change in the way that it handles
 finding dom elements that are <b>not visible</b>. Previously, Capybara would not care
 if the dom element was hidden. For my tests, this resulted in breaking any tests
 that queried any non-visible DOM elements, such as scripts, meta tags, and
 links.
 </p>
+
 <p>
 The key thing to be aware of is that you might get this obscure error message,
 and the fix is to add the <code>visible: false</code> optional parameter so that Capybara
 is not filtering by <code>visible: true</code>. The <code>visible</code> parameter is available to
 most finder methods in Capybara.
 </p>
+
 <p>
 The obscure error you might see is something like this:
 </p>
-
-
-<pre class="example">#=&gt; Capybara::ExpectationNotMet Exception: expected to find xpath "//title" with text "Title Text." but there were no matches. Also found "", which matched the selector but not all filters.
+<pre class="example">
+#=&gt; Capybara::ExpectationNotMet Exception: expected to find xpath "//title" with text "Title Text." but there were no matches. Also found "", which matched the selector but not all filters.
 </pre>
-
 
 <p>
 The reason is the title element is not visible, and &#8220;visible&#8221; is the &#8220;not all
 filters&#8221; part of the error message.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-2-3" class="outline-3">
+<div id="outline-container-sec-2-3" class="outline-3">
 <h3 id="sec-2-3">Debugging Capybara Tests</h3>
 <div class="outline-text-3" id="text-2-3">
-
-<p>The main reasons that previously passing feature tests will fail when migrating
+<p>
+The main reasons that previously passing feature tests will fail when migrating
 to Poltergeist is due to timing and visibility. The two main techniques for
 debugging Capybara tests are:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Using screen shots (<code>render_page</code> below)
 </li>
 <li>Using HTML dumps (=page! below)
 </li>
 </ol>
-
 
 <p>
 Keep in mind that these methods will not wait for elements to load. Thus, you
@@ -437,6 +389,7 @@ should either have a Capybara statement that will wait for some DOM element to
 load or you might want to put in a <code>sleep 10</code> to sleep for 10 seconds before
 capturing the screen shot or dumping the HTML.
 </p>
+
 <p>
 If you use the helper methods specified below, and you should be able to work
 through why Poltergeist is not doing what you think it should be doing. So far,
@@ -446,44 +399,36 @@ In many cases, you&#8217;ll be somewhat pleasantly surprised that you&#8217;ll b
 false positive.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-2-4" class="outline-3">
+<div id="outline-container-sec-2-4" class="outline-3">
 <h3 id="sec-2-4">Capybara&#8217;s Wait Strategy</h3>
 <div class="outline-text-3" id="text-2-4">
-
-<p>Be sure to carefully read the <a href="https://github.com/jnicklas/capybara">Capybara documentation</a>, especially the part
+<p>
+Be sure to carefully read the <a href="https://github.com/jnicklas/capybara">Capybara documentation</a>, especially the part
 titled &#8220;Asynchronous JavaScript&#8221;. That section explains how Capybara cleverly
 will wait until the page or ajax call finished so that the element expected
 appears. There&#8217;s a configurable timeout (<code>Capybara.default_wait_time</code>) for
 changing the default wait time before a test bombs out.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-2-5" class="outline-3">
+<div id="outline-container-sec-2-5" class="outline-3">
 <h3 id="sec-2-5">Xpath Tip</h3>
 <div class="outline-text-3" id="text-2-5">
-
-<p>Be sure to understand the difference between <code>//something</code> and <code>.//something</code>.
+<p>
+Be sure to understand the difference between <code>//something</code> and <code>.//something</code>.
 The later can be used inside a <code>within</code> block. The former will find the tag
 anywhere on the page, even when used inside of a <code>within</code> block!
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-2-6" class="outline-3">
+<div id="outline-container-sec-2-6" class="outline-3">
 <h3 id="sec-2-6">Setup and Utility Debugging Methods</h3>
 <div class="outline-text-3" id="text-2-6">
-
-<p>Here&#8217;s the setup and a couple utility methods that I use. Put these in a file in your helpers
+<p>
+Here&#8217;s the setup and a couple utility methods that I use. Put these in a file in your helpers
 directory, such spec/helpers/capybara.rb.
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -534,14 +479,9 @@ directory, such spec/helpers/capybara.rb.
 </span><span class='line'>  <span class="n">save_and_open_page</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-
-
 </div>
 </div>
 </div>
-
 ]]></content>
   </entry>
   
@@ -556,23 +496,19 @@ I updated my previous post <a href="http://www.railsonmaui.com/blog/2013/05/26/e
 EmberJs.
 </p>
 
-
 <p>
 Ember is really gaining some traction. For example, <a href="http://boingboing.net/">boing boing</a> just moved it&#8217;s
 comments to Discourse, which is based on EmberJs. You can read about it at
 boing boing: <a href="http://boingboing.net/2013/06/27/can-we-talk.html">Can we talk?</a>.
 </p>
 
-
 <p>
 Please let me know if this walkthrough is helpful. Comments are always welcome.
 </p>
 
-
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/vV6zzxi3JOc "></iframe></div>
 </p>
-
 ]]></content>
   </entry>
   
@@ -589,92 +525,74 @@ amount of Ember and Rails code to make this example is almost completely
 included in this article. It&#8217;s that tiny!
 </p>
 
-
 <p>
 The source code for the completed example can be found on GitHub:
 <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. I carefully crafted the commits
 to explain the steps.
 </p>
 
-
 <p>
 You can try out the application on Heroku at:
 <a href="http://railsonmaui-emberjs-rails4.herokuapp.com/">http://railsonmaui-emberjs-rails4.herokuapp.com/</a>
 </p>
-
 
 <p>
 I put many more details in this <a href="http://youtu.be/ac1mYhCMRNc">comprehensive screencast</a> of how to go from a
 brand new Rails 4 app to an Ember.js app deployed on Heroku.
 </p>
 
-
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/ac1mYhCMRNc "></iframe></div>
 </p>
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Key Tips</h2>
 <div class="outline-text-2" id="text-1">
-
-<ol>
+<ol class="org-ol">
 <li>Be sure to update the <code>ember</code> and <code>ember-data</code> javascript files with the
-   command from the ember-rails gem (see below). Keeping these files at
-   appropriate versions is key while the API is changing, especially for
-   ember-data.
+command from the ember-rails gem (see below). Keeping these files at
+appropriate versions is key while the API is changing, especially for
+ember-data.
 </li>
 <li>If you specify the Router property for both <code>model</code> and <code>setupController</code>,
-   you can have some very confusing results (details below).
+you can have some very confusing results (details below).
 </li>
 <li>Get comfortable with Ember&#8217;s naming conventions. Ember does a ton with
-   default naming. It&#8217;s basically got the same philosophy of &#8220;Convention over
-   Configuration&#8221; of Rails. So it&#8217;s especially important to try to grok when the
-   Ember examples are doing something implicitly versus explicitly. This is a
-   bit like Rails. At first it seems like magic, like &#8220;How the heck is that
-   happening&#8221;, and then one gets accustomed to the naming conventions and
-   appreciates how much code it saves.
+default naming. It&#8217;s basically got the same philosophy of &#8220;Convention over
+Configuration&#8221; of Rails. So it&#8217;s especially important to try to grok when the
+Ember examples are doing something implicitly versus explicitly. This is a
+bit like Rails. At first it seems like magic, like &#8220;How the heck is that
+happening&#8221;, and then one gets accustomed to the naming conventions and
+appreciates how much code it saves.
 </li>
 <li>Be mindful that some Ember.js commands run asynchronously, such as commit.
 </li>
 </ol>
 
-
-
-
 <!-- more -->
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Building the Hello World without Persistence</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>The steps for this can be found in the git history up to tag <code>no-persistence</code>.
+<p>
+The steps for this can be found in the git history up to tag <code>no-persistence</code>.
 Thanks to a few gems, the process is relatively simple.
 </p>
 </div>
-
-<div id="outline-container-2-1" class="outline-3">
+<div id="outline-container-sec-2-1" class="outline-3">
 <h3 id="sec-2-1">Basic Setup</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<p>I started off with the instructions here <a href="http://blog.dcxn.com/2013/03/23/getting-started-with-ember-js-on-rails/">The No Nonsense Guide to Ember.js on Rails</a>. This article covers the basic setup, such as gems to include. You want to
+<p>
+I started off with the instructions here <a href="http://blog.dcxn.com/2013/03/23/getting-started-with-ember-js-on-rails/">The No Nonsense Guide to Ember.js on
+Rails</a>. This article covers the basic setup, such as gems to include. You want to
 pay special attention to the <a href="https://github.com/emberjs/ember-rails">README for ember-rails</a>. Depending on the current
 state of the ember-rails gem, you may get the deprecation warning (browser
 console) with the old ember-data.js.
 </p>
 
-
-
-<pre class="example">DEPRECATION: register("store", "main") is now deprecated in-favour of register("store:main");
+<pre class="example">
+DEPRECATION: register("store", "main") is now deprecated in-favour of register("store:main");
         at Object.Container.register (http://0.0.0.0:3000/assets/ember.js?body=1:7296:17)
         at Application.initializer.initialize (http://0.0.0.0:3000/assets/ember-data.js?body=1:5069:19)
         at http://0.0.0.0:3000/assets/ember.js?body=1:27903:7
@@ -683,85 +601,69 @@ console) with the old ember-data.js.
         at Ember.Application.Ember.Namespace.extend.runInitializers (http://0.0.0.0:3000/assets/ember.js?body=1:27900:11)
         at Ember.Application.Ember.Namespace.extend._initialize (http://0.0.0.0:3000/assets/ember.js?body=1:27784:10)
         at Object.Backburner.run (http://0.0.0.0:3000/assets/ember.js?body=1:4612:26)
-        at Object.Ember.run (http://0.0.0.0:3000/assets/ember.js?body=1:5074:26) 
+        at Object.Ember.run (http://0.0.0.0:3000/assets/ember.js?body=1:5074:26)
 </pre>
-
 
 <p>
 Originally, I included a separate version of ember-data in the git repository.
 Instead, I should have updated the versions of ember and ember-data with this
 command from the <a href="https://github.com/emberjs/ember-rails">ember-rails README</a>:
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rails generate ember:install --head
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rails generate ember:install --head
 </span></code></pre></td></tr></table></div></figure>
-
+<p>
 This command puts the ember files in <code>vendor/assets/ember</code>. Pretty sweet. This
 is way better than manually installing the js files.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
+<div id="outline-container-sec-2-2" class="outline-3">
 <h3 id="sec-2-2">Get the no-database fixture example of Ember.js working.</h3>
 <div class="outline-text-3" id="text-2-2">
-
-<p>Next, I migrated the non-rails static example presented in <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
+<p>
+Next, I migrated the non-rails static example presented in <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
 to the rails framework. You can checkout the tag <code>no-persistence</code> and get the
 code to where the static fixture is used and there is no persistence. Scroll to
 the bottom to see this code, as well as some additional code added for persistence.
 </p>
 </div>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Building the Hello World with Persistence</h2>
 <div class="outline-text-2" id="text-3">
-
-
-</div>
-
-<div id="outline-container-3-1" class="outline-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
 <h3 id="sec-3-1">Create the Model for Blog Posts</h3>
 <div class="outline-text-3" id="text-3-1">
-
-<p>You can checkout the git tag <code>persistence-emberjs</code> to get the git repository to
+<p>
+You can checkout the git tag <code>persistence-emberjs</code> to get the git repository to
 the state that persistence works.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rails generate model Post title:string author:string published_at:date intro:text extended:text
 </span><span class='line'><span class="nv">$ </span>rake db:migrate
 </span></code></pre></td></tr></table></div></figure>
 
-
+<p>
 Since Rails comes pre-configured with sqllite3 by default, no database
 configuration is required.
-</p></div>
-
+</p>
+</div>
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
+<div id="outline-container-sec-3-2" class="outline-3">
 <h3 id="sec-3-2">Add the Controller and Serializer</h3>
 <div class="outline-text-3" id="text-3-2">
-
-<p>Note that in Rails 4, you need to use the form for &#8220;strong parameters&#8221;. See the
+<p>
+Note that in Rails 4, you need to use the form for &#8220;strong parameters&#8221;. See the
 definition of <code>post_params</code> below.
 </p>
 </div>
-
-<div id="outline-container-3-2-1" class="outline-4">
+<div id="outline-container-sec-3-2-1" class="outline-4">
 <h4 id="sec-3-2-1">app/models/post.rb</h4>
 <div class="outline-text-4" id="text-3-2-1">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -769,18 +671,11 @@ definition of <code>post_params</code> below.
 </span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:published_at</span><span class="p">,</span> <span class="ss">:author</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-3-2-2" class="outline-4">
+<div id="outline-container-sec-3-2-2" class="outline-4">
 <h4 id="sec-3-2-2">app/serializers/post_serializer.rb</h4>
 <div class="outline-text-4" id="text-3-2-2">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -788,18 +683,11 @@ definition of <code>post_params</code> below.
 </span><span class='line'>  <span class="n">attributes</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">:published_at</span><span class="p">,</span> <span class="ss">:intro</span><span class="p">,</span> <span class="ss">:extended</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-3-2-3" class="outline-4">
+<div id="outline-container-sec-3-2-3" class="outline-4">
 <h4 id="sec-3-2-3">app/controllers/posts_controller.rb</h4>
 <div class="outline-text-4" id="text-3-2-3">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -855,66 +743,52 @@ definition of <code>post_params</code> below.
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-3-3" class="outline-3">
+<div id="outline-container-sec-3-3" class="outline-3">
 <h3 id="sec-3-3">Adding &#8220;Add&#8221; and &#8220;Remove&#8221; Buttons</h3>
 <div class="outline-text-3" id="text-3-3">
-
-<ul>
+<ul class="org-ul">
 <li>To create a new post, <b>use a link, not a button</b>, because we want to change the URL.
 </li>
 <li>Don&#8217;t define both <code>model</code> and <code>setupController</code> on the Route!
-  If you do, you&#8217;ll get this error:
-
-
-
-<pre class="example">Uncaught Error: assertion failed: Cannot delegate set('title', a) to the 'content' property of object proxy &lt;App.PostsNewController:ember392&gt;: its 'content' is undefined.  
+If you do, you&#8217;ll get this error:
+<pre class="example">
+Uncaught Error: assertion failed: Cannot delegate set('title', a) to the 'content' property of object proxy &lt;App.PostsNewController:ember392&gt;: its 'content' is undefined.
 </pre>
-
 <p>
-  I originally had code like this and it took me some time to figure out that
-  the <code>model</code> part was not used. 
-</p></li>
-</ul>
-
-
-
+I originally had code like this and it took me some time to figure out that
+the <code>model</code> part was not used. 
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'>  <span class="nv">App.PostsNewRoute = </span><span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
-</span><span class='line'>    <span class="nv">model: </span><span class="nf">-&gt;</span>
-</span><span class='line'>      <span class="nx">App</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="nv">publishedAt: </span><span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nv">author: </span><span class="s">&quot;current user&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="nv">setupController: </span><span class="nf">(controller) -&gt;</span>
-</span><span class='line'>      <span class="c1"># controller.set(&#39;content&#39;, App.Post.createRecord(publishedAt: new Date(), author: &quot;current user&quot;))</span>
-</span><span class='line'>  <span class="p">)</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">App.PostsNewRoute = </span><span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+</span><span class='line'>  <span class="nv">model: </span><span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nx">App</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="nv">publishedAt: </span><span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nv">author: </span><span class="s">&quot;current user&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">setupController: </span><span class="nf">(controller) -&gt;</span>
+</span><span class='line'>    <span class="c1"># controller.set(&#39;content&#39;, App.Post.createRecord(publishedAt: new Date(), author: &quot;current user&quot;))</span>
+</span><span class='line'><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
+</li>
+</ul>
 </div>
-
 </div>
-
-<div id="outline-container-3-4" class="outline-3">
+<div id="outline-container-sec-3-4" class="outline-3">
 <h3 id="sec-3-4">Update the URL on New with transitionAfterSave Hook</h3>
 <div class="outline-text-3" id="text-3-4">
-
-<p>You can&#8217;t update the URL after a new record is saved directly in the event
+<p>
+You can&#8217;t update the URL after a new record is saved directly in the event
 handler, as the commit will run asynchronously, and until the return value,
 there is no record id, and you would end up using record id <code>null</code> in the URL.
 Here&#8217;s how to handle this situation. Not that the <code>save</code> does the commit, but
 the <code>transitionToRoute</code> is not called until the <code>transitionAfterSave</code> hook is
 run.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -936,25 +810,23 @@ run.
 </span><span class='line'>  <span class="p">)</span><span class="o">.</span><span class="n">observes</span><span class="p">(</span><span class="s1">&#39;content.id&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-</p></div>
-
 </div>
-
-<div id="outline-container-3-5" class="outline-3">
+</div>
+<div id="outline-container-sec-3-5" class="outline-3">
 <h3 id="sec-3-5">Don&#8217;t put the new record, unsaved post in the list of saved posts</h3>
 <div class="outline-text-3" id="text-3-5">
-
-<p>There&#8217;s a slight bug in the adding of new records. If you click on the unsaved
+<p>
+There&#8217;s a slight bug in the adding of new records. If you click on the unsaved
 post link on the left, the URL will have &#8220;null&#8221; as the new post does not yet
 have an ID.
 </p>
+
 <p>
 Here&#8217;s the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4/commit/8c58b6fac8b978f622bf772654258479ba22bae0">commit at github</a>, and the commit description:
-</p><blockquote>
-
-<p>See discussion at
+</p>
+<blockquote>
+<p>
+See discussion at
 <a href="http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record">http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record</a>
 Note the change from iterating over &#8220;each model&#8221; to iterating over &#8220;each post in
 filteredContent&#8221; in index.html.erb. That change requires attributes be
@@ -969,27 +841,22 @@ would not update.
 </p>
 </blockquote>
 
-
 <p>
 This is a really important change that is well documented in the commit as well
 as the <a href="http://youtu.be/ac1mYhCMRNc?t=36m20s">tutorial screencast at 36:20</a>.
 </p>
-
 </div>
 </div>
-
 </div>
 
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Heroku Deployment</h2>
 <div class="outline-text-2" id="text-4">
-
-<p>Heroku has listed many tips at <a href="https://devcenter.heroku.com/articles/rails4">Getting Started with Rails 4.x on Heroku</a>. And you
+<p>
+Heroku has listed many tips at <a href="https://devcenter.heroku.com/articles/rails4">Getting Started with Rails 4.x on Heroku</a>. And you
 can look at the commits leading up to tag <code>heroku</code>. The basic steps are:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Change a few gems
 </li>
 <li>Switch from sqllite to postgres.
@@ -997,49 +864,34 @@ can look at the commits leading up to tag <code>heroku</code>. The basic steps a
 <li>Add a ProcFile to use Puma for the webserver.
 </li>
 <li>Be sure that production.rb contains:
-</li>
-</ol>
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">config</span><span class="o">.</span><span class="n">ember</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:production</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">ember</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:production</span>
 </span></code></pre></td></tr></table></div></figure>
-
 <p>
-   If you don&#8217;t, you&#8217;ll see this error:
+If you don&#8217;t, you&#8217;ll see this error:
 </p>
-
-
-<pre class="example">RAILS_ENV=production bin/rake assets:precompile
+<pre class="example">
+RAILS_ENV=production bin/rake assets:precompile
 rake aborted!
 couldn't find file 'handlebars'
   (in /Users/justin/j/emberjs/ember-js-guides-railsonmaui-rails4/app/app/assets/javascripts/application.js:18)
 </pre>
-
+</li>
+</ol>
+</div>
 </div>
 
-</div>
-
-
-
-
-<div id="outline-container-5" class="outline-2">
+<div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5">Examples that Inspired this Tutorial</h2>
 <div class="outline-text-2" id="text-5">
-
-
-</div>
-
-<div id="outline-container-5-1" class="outline-3">
+</div><div id="outline-container-sec-5-1" class="outline-3">
 <h3 id="sec-5-1">RailsCasts</h3>
 <div class="outline-text-3" id="text-5-1">
-
-<ul>
+<ul class="org-ul">
 <li>The two RailsCasts episodes complement the <a href="http://www.youtube.com/watch?v=Ga99hMi7wfY">first tutorial by Tom Dale</a> by
-  showing how to add persistence via the <code>rails-ember</code> gem. The serializers
-  episode is also useful.
-<ul>
+showing how to add persistence via the <code>rails-ember</code> gem. The serializers
+episode is also useful.
+<ul class="org-ul">
 <li><a href="http://railscasts.com/episodes/408-ember-part-1">#408 Ember Part 1</a> (pro)
 </li>
 <li><a href="http://railscasts.com/episodes/410-ember-part-2">#410 Ember Part 2</a> (pro)
@@ -1047,53 +899,38 @@ couldn't find file 'handlebars'
 <li><a href="http://railscasts.com/episodes/409-active-model-serializers?view=comments">#409 Active Model Serializers</a>
 </li>
 </ul>
-
 </li>
 <li>Tip: Using Chrome to watch the videos: I found that the left/right arrow and
-  space bar keys are amazing for pausing and rewinding the RailsCasts so that I
-  could get all the nuances of the Ember naming schemes.
+space bar keys are amazing for pausing and rewinding the RailsCasts so that I
+could get all the nuances of the Ember naming schemes.
 </li>
 </ul>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-5-2" class="outline-3">
+<div id="outline-container-sec-5-2" class="outline-3">
 <h3 id="sec-5-2">ember_data_example</h3>
 <div class="outline-text-3" id="text-5-2">
-
-<ul>
+<ul class="org-ul">
 <li><a href="https://github.com/dgeb/ember_data_example">ember_data_example</a> on GitHub is a nice full featured ember app with a parent
-  child relationship of contacts and phone numbers. It even has some examples
-  of using <a href="https://github.com/jfirebaugh/konacha">Konacha for testing Ember JavaScript code</a>.
+child relationship of contacts and phone numbers. It even has some examples
+of using <a href="https://github.com/jfirebaugh/konacha">Konacha for testing Ember JavaScript code</a>.
 </li>
 </ul>
-
-
 </div>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-6" class="outline-2">
+<div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6">Source Code for Views and JavaScript</h2>
 <div class="outline-text-2" id="text-6">
-
-<p>I purposefully kept these to just 2 files to make this example simple. In a
+<p>
+I purposefully kept these to just 2 files to make this example simple. In a
 real world application, this would be broken into many files.
 </p>
 </div>
-
-<div id="outline-container-6-1" class="outline-3">
+<div id="outline-container-sec-6-1" class="outline-3">
 <h3 id="sec-6-1">View Code: app/viws/static/index.html.erb</h3>
 <div class="outline-text-3" id="text-6-1">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1275,20 +1112,16 @@ real world application, this would be broken into many files.
 </span><span class='line'>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{{</span><span class="nx">view</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">TextArea</span> <span class="nx">valueBinding</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span> <span class="nx">cols</span><span class="o">=</span><span class="s2">&quot;80&quot;</span> <span class="nx">rows</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
 </span><span class='line'><span class="nt">&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-6-2" class="outline-3">
+<div id="outline-container-sec-6-2" class="outline-3">
 <h3 id="sec-6-2">CoffeeScript: app/assets/javascripts/app.js.coffee.</h3>
 <div class="outline-text-3" id="text-6-2">
-
-<p>Here&#8217;s the entire set of CoffeeScript to build this application. As you can see,
+<p>
+Here&#8217;s the entire set of CoffeeScript to build this application. As you can see,
 it&#8217;s not much! I intentionally left this in one file to make the example a bit
 simpler. A real application would break this out into separate files.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1456,31 +1289,24 @@ simpler. A real application would break this out into separate files.
 </span><span class='line'>      <span class="nv">path: </span><span class="s">&quot;:post_id&quot;</span>
 </span><span class='line'>    <span class="nx">@route</span> <span class="s">&quot;new&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</p>
 </div>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-7" class="outline-2">
+<div id="outline-container-sec-7" class="outline-2">
 <h2 id="sec-7">Conclusion</h2>
 <div class="outline-text-2" id="text-7">
-
-<p>Ember does quite a lot with just a few lines of code. Definitely check out the
+<p>
+Ember does quite a lot with just a few lines of code. Definitely check out the
 source code for the completed example github:
 <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. Please take a look at the
 screencast, as I put many details beyond this article.
 </p>
+
 <p>
 I welcome comments and suggestions.
 </p>
 </div>
 </div>
-
 ]]></content>
   </entry>
   
@@ -1492,38 +1318,30 @@ I welcome comments and suggestions.
     <content type="html"><![CDATA[<p>
 Articles and Quick Summaries:
 </p>
-
-
-<ul>
+<ul class="org-ul">
 <li><a href="http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/">RailsConf 2013 Keynotes: Rails 4 vs Ember.js</a>: DHH on server side vs. Yehuda on
-  the client side.
+the client side.
 </li>
 <li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">Improving performance on twitter.com</a>: Twitter&#8217;s retreat from client side js.
 </li>
 <li><a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">How Basecamp Next got to be so damn fast without using much client-side UI</a>:
-  DHH on the Rails features the preclude the use of client side js.
+DHH on the Rails features the preclude the use of client side js.
 </li>
 </ul>
-
 
 
 
 <p>
 <a href="http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html">Why Discourse uses Ember.js</a>: 
 </p>
-
-
 <blockquote>
-
-<p>Ask yourself how interactive your web application needs to be. On the less
+<p>
+Ask yourself how interactive your web application needs to be. On the less
 interactive side of the scale, there are huge wins with server side rendered
 HTML. The more interactive your application becomes, the more you’ll benefit
 from a client side MVC framework.
 </p>
 </blockquote>
-
-
-
 ]]></content>
   </entry>
   
@@ -1537,14 +1355,11 @@ Here&#8217;s 3 useful tools for using <a href="http://coffeescript.org/">CoffeeS
 Rails and EmberJs. All 3 tools are useful for different purposes. 
 </p>
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">CoffeeScript Source Maps: Debugging CoffeeScript Directly</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>With Source Maps, you don&#8217;t have to mentally convert your CoffeeScript code into
+<p>
+With Source Maps, you don&#8217;t have to mentally convert your CoffeeScript code into
 JavaScript code in the debugger. Instead, you can now see your CoffeeScript
 code, even with correct line numbers. This rails gem, <a href="https://github.com/markbates/coffee-rails-source-maps">coffee-rails-source-maps</a>,
 makes it easy to include CoffeeScript source maps as part of your rails
@@ -1554,57 +1369,32 @@ the <code>-m</code> flag with the <code>coffee</code> command.
 <img src="http://www.railsonmaui.com//images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Try CoffeeScript Chrome Extension: Converting between CoffeeScript and JavaScript</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>The <a href="https://chrome.google.com/webstore/detail/try-coffeescript-enhanced/fldhkfldchaibgaheaogapecjmnkaepe?hl=en">Try CoffeeScript Enhanced</a> Chrome extension is pretty nice for converting
+<p>
+The <a href="https://chrome.google.com/webstore/detail/try-coffeescript-enhanced/fldhkfldchaibgaheaogapecjmnkaepe?hl=en">Try CoffeeScript Enhanced</a> Chrome extension is pretty nice for converting
 between JavaScript and CoffeeScript. The main advantage over
 <a href="http://js2coffee.org">http://js2coffee.org</a> is that the you don&#8217;t have to open a new browser tab, and
 you can enter either CoffeeScript or JavaScript.
 </p>
+
 <p>
 <img src="http://www.railsonmaui.com//images/2013-05-27-coffeescript-chrome-extensions/try-coffeescript.png">
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Coffee Console Developer Tool: Executing CoffeeScript in Chrome</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>&#8220;<a href="http://snook.ca/archives/browsers/coffeeconsole">Coffeeconsole: A Chrome Extension</a>&#8221; provides a place to execute CoffeeScript in
+<p>
+&#8221;<a href="http://snook.ca/archives/browsers/coffeeconsole">Coffeeconsole: A Chrome Extension</a>&#8221; provides a place to execute CoffeeScript in
 the Web Inspector.
 <img src="http://www.railsonmaui.com//images/2013-05-27-coffeescript-chrome-extensions/coffee-console.png">
 </p>
-
-
 </div>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ember.js Notes]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes/"/>
-    <updated>2013-05-26T19:42:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-notes</id>
-    <content type="html"><![CDATA[<p>
-<a href="http://emberjs.com/guides/controllers/">Controllers</a>
-&#8220;From the template&#8217;s perspective, a controller is simply an object that provides its data.&#8221;
-</p>
-
 ]]></content>
   </entry>
   
@@ -1613,11 +1403,10 @@ the Web Inspector.
     <link href="http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-hello-world/"/>
     <updated>2013-05-26T09:53:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-hello-world</id>
-    <content type="html"><![CDATA[<div id="outline-container-1" class="outline-2">
+    <content type="html"><![CDATA[<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">TLDR</h2>
 <div class="outline-text-2" id="text-1">
-
-<ol>
+<ol class="org-ol">
 <li><a href="http://emberjs.com/guides/">Tom Dale&#8217;s Intro Tutorial Video</a> on EmberJs is awesome.
 </li>
 <li>Git repos of the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-start">start</a> and the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">finish</a> of the Tom Dale EmberJsTutorial.
@@ -1627,27 +1416,21 @@ the Web Inspector.
 <li><a href="http://youtu.be/vV6zzxi3JOc">Screencast of me explaining the completed example</a>.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Details</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>Ember.js is really amazing. The place to start is <a href="http://emberjs.com/guides/">Tom Dale&#8217;s Intro Tutorial Video</a>
-(on <a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=Ga99hMi7wfY">Youtube</a>). In the 30 minute video you build the app shown here in this
+<p>
+Ember.js is really amazing. The place to start is <a href="http://emberjs.com/guides/">Tom Dale&#8217;s Intro Tutorial Video</a>
+(on <a href="http://www.youtube.com/watch?feature=player_embedded&v=Ga99hMi7wfY">Youtube</a>). In the 30 minute video you build the app shown here in this
 iframe. Some of the features you&#8217;ll learn include:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Basic setup for an Ember.js app.
 </li>
 <li>Nested views. You can click on the articles on the left, and see the
-   articles on the right.
+articles on the right.
 </li>
 <li>Ember helpers which provide markdown and date conversion with a tiny bit of code.
 </li>
@@ -1655,81 +1438,80 @@ iframe. Some of the features you&#8217;ll learn include:
 </li>
 </ol>
 
-
 <p>
 If a picture is worth a thousand words, here&#8217;s what you build in the video (you
 can try in the iframe below or a <a href="http://www.railsonmaui.com/tutorials/ember-js-guides-railsonmaui/index.html">separate tab</a>). The dynamic mvc nature of the
 bindings is neat. Try this:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Click on the article &#8220;Octopress&#8221; on the left.
 </li>
 <li>Click Edit, change the markdown in the 2nd field, and see it change below
-      dynamically!
+dynamically!
 </li>
 </ol>
-
-
 <div><iframe src='http://www.railsonmaui.com//tutorials/ember-js-guides-railsonmaui/index.html' width='100%' height='600px'></iframe></div>
 
 <p>
-Then try out the &#8220;Ember Inspector for Chrome&#8221;. Yehuda does a nice <a href="https://www.youtube.com/watch?v=18OSYuhk0Yo">demo of it on youtube</a> (more <a href="http://www.youtube.com/user/wycats/videos">here</a>). You can follow the <a href="http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/">installation instructions from Kasper Tidemann</a>.
+Then try out the &#8220;Ember Inspector for Chrome&#8221;. Yehuda does a nice <a href="https://www.youtube.com/watch?v=18OSYuhk0Yo">demo of it on
+youtube</a> (more <a href="http://www.youtube.com/user/wycats/videos">here</a>). You can follow the <a href="http://www.kaspertidemann.com/how-to-try-out-the-ember-inspector-in-google-chrome/">installation instructions from Kasper Tidemann</a>.
 Basically you want to install the chrome extension files from
 <a href="https://github.com/tildeio/ember-extension">github.com/tildeio/ember-extension</a>.
 </p>
+
 <p>
 Once you do that, you can browse to open the sample on <a href="http://www.railsonmaui.com/tutorials/ember-js-guides-railsonmaui/index.html">separate tab</a> and see
 this:
 </p>
+
 <p>
 <img src="http://www.railsonmaui.com//images/2013-05-26-ember-dot-js-hello-world/ember-inspector.png">
 </p>
+
 <p>
 You can click on most of the purple text to dig into the ember objects:
 <img src="http://www.railsonmaui.com//images/2013-05-26-ember-dot-js-hello-world/ember-inspector-2.png">
 </p>
+
 <p>
 You can view <i>&lt;computed&gt;</i> values:
 <img src="http://www.railsonmaui.com//images/2013-05-26-ember-dot-js-hello-world/ember-inspector-3.png">
 </p>
+
 <p>
 To make it easier for you, I created git repos of the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-start">start</a> and the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">finish</a>,
 minus the REST interface. 
 </p>
+
 <p>
 To maximize your learning efficiency: 
-</p><ul>
+</p>
+<ul class="org-ul">
 <li>Start with the files in the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-start">starter repo that I created</a>. The Ember.js files
-  are still changing, so your combination of js files is critical. There&#8217;s heaps
-  of comments on the youtube video about how frustrating it can be to have the
-  wrong combination of js files.
+are still changing, so your combination of js files is critical. There&#8217;s heaps
+of comments on the youtube video about how frustrating it can be to have the
+wrong combination of js files.
 </li>
 <li>Try building the app yourself by following the video. If you&#8217;re short on time,
-  watch the demo once and say &#8220;that&#8217;s damn cool&#8221;. But you won&#8217;t truly absorb the
-  content without following along. Plus, it&#8217;s super cool to enter some
-  statements in the console and see the magic of ember happen. (16:52 in the
-  video).
+watch the demo once and say &#8220;that&#8217;s damn cool&#8221;. But you won&#8217;t truly absorb the
+content without following along. Plus, it&#8217;s super cool to enter some
+statements in the console and see the magic of ember happen. (16:52 in the
+video).
 </li>
 <li>When you have an error in your code (which you will if you&#8217;re practicing
-  this), you need to know that you look for errors in the browser&#8217;s console.
+this), you need to know that you look for errors in the browser&#8217;s console.
 </li>
 </ul>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Explanation of the Completed Code</h2>
 <div class="outline-text-2" id="text-3">
-
-<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/vV6zzxi3JOc "></iframe></div>
-</p></div>
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/vV6zzxi3JOc "></iframe></div>
+</p>
 </div>
-
+</div>
 ]]></content>
   </entry>
   
@@ -1742,39 +1524,31 @@ To maximize your learning efficiency:
 Looking for a great open source example of a <i>production quality</i>
 rails, emberjs, and single-page-application project? Check out <a href="https://github.com/discourse/discourse">Discourse</a>.
 </p>
-
-
 <blockquote>
-
-<p>Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
+<p>
+Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
 </p>
 </blockquote>
-
-
-
-
 <p>
-Here&#8217;s a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+Here&#8217;s a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for
+Discourse to use JavaScript or CoffeeScript?</a>
 </p>
-
-
-
 
 <!-- more -->
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Production Quality, not a Tutorial</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>Note, this is an example of a <i>production quality</i> application, rather than a
+<p>
+Note, this is an example of a <i>production quality</i> application, rather than a
 useful tutorial sample application. What&#8217;s the difference? The Discourse
 codebase is the real deal, including all the gory details, such as performance
-optimizations. If you want a superb sample rails application, check out <a href="https://github.com/railstutorial/sample_app_2nd_ed">Rails Tutorial, 2nd Ediition</a> and read the book <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">Ruby on Rails Tutorial, Learn Web Development with Rails, Michael Hartl</a>. There&#8217;s even an interesting discussion on
+optimizations. If you want a superb sample rails application, check out <a href="https://github.com/railstutorial/sample_app_2nd_ed">Rails
+Tutorial, 2nd Ediition</a> and read the book <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">Ruby on Rails Tutorial, Learn Web
+Development with Rails, Michael Hartl</a>. There&#8217;s even an interesting discussion on
 the Discourse blog about <a href="http://blog.discourse.org/2013/04/discourse-as-your-first-rails-app/">Discourse as Your First Rails App</a>, which it shouldn&#8217;t be.
 </p>
+
 <p>
 That being said, the Discourse code base is probably as good as or, in many
 cases, better than what you&#8217;ll find in many software-as-a-service companies.
@@ -1784,56 +1558,46 @@ developer, it&#8217;s worth your time to install the source of discourse and exp
 and run it. I just did that and I&#8217;m impressed.
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Why Explore Discourse&#8217;s Source?</h2>
 <div class="outline-text-2" id="text-2">
-
-<ol>
+<ol class="org-ol">
 <li>Example of EmberJs Single-Page-Application.
 </li>
-<li>Design decisions are discussed at <a href="http://meta.discourse.org/">meta.discourse.org</a>, such as <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+<li>Design decisions are discussed at <a href="http://meta.discourse.org/">meta.discourse.org</a>, such as <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better
+for Discourse to use JavaScript or CoffeeScript?</a>
 </li>
 <li>Solid project, from code quality to organization.
 </li>
 <li>Co-Founded by Jeff Atwood, who created <a href="http://stackoverflow.com/">Stack Overflow</a>. Jeff wrote a article
-   introducing the discourse project: <a href="http://www.codinghorror.com/blog/2013/02/civilized-discourse-construction-kit.html">Civilized Discourse Construction Kit</a>.
+introducing the discourse project: <a href="http://www.codinghorror.com/blog/2013/02/civilized-discourse-construction-kit.html">Civilized Discourse Construction Kit</a>.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Setup Tips</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>Basically, there&#8217;s a few dependencies to install, some of which you probably already
+<p>
+Basically, there&#8217;s a few dependencies to install, some of which you probably already
 have installed, such as Postgres and Redis. The main gotcha I faced was to make
-sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development database</a>, rather than using the rake task. Then you can install the seed data:
-
+sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development
+database</a>, rather than using the rake task. Then you can install the seed data:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
 </span></code></pre></td></tr></table></div></figure>
 
 
-
+<p>
 The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
 rather some tiny bit of &#8220;seed&#8221; data (like post action types).
 </p>
+
 <p>
 Once you have the test data installed, then run these commands.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -1846,37 +1610,32 @@ Once you have the test data installed, then run these commands.
 </span><span class='line'>bundle <span class="nb">exec </span>rspec <span class="c"># All specs should pass</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
+<p>
 You should have installed <a href="http://mailcatcher.me/">MailCatcher</a>, so that you don&#8217;t have to configure any
 smtp server. Then you just have to visit <a href="http://localhost:1080">http://localhost:1080</a> to see the mail
 messages that Discourse sends.
 </p>
+
 <p>
 Then to run the Discourse application (assuming postgres and redis are running)
 open up two tabs. Cd each to the disource directory. 
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rails server
 </span></code></pre></td></tr></table></div></figure>
 
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>sidekiq
 </span></code></pre></td></tr></table></div></figure>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>clockwork config/clock.rb
 </span></code></pre></td></tr></table></div></figure>
 
 
-
+<p>
 Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1886,24 +1645,17 @@ Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>P
 </span><span class='line'>foreman start
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>
 If you got this working, you&#8217;ll see this:
 <img src="http://www.railsonmaui.com//images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png">
 </p>
-
+</div>
 </div>
 
-</div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Links</h2>
 <div class="outline-text-2" id="text-4">
-
-<ul>
+<ul class="org-ul">
 <li><a href="https://github.com/discourse/discourse">Discourse on Github</a>
 </li>
 <li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPER-ADVANCED.md">Discourse Advanced Developer Guide</a>
@@ -1915,28 +1667,8 @@ If you got this working, you&#8217;ll see this:
 <li>Discourse discussing itself: <a href="http://meta.discourse.org/">meta.discourse.org</a>
 </li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 </div>
-
 ]]></content>
   </entry>
   
@@ -1955,23 +1687,18 @@ application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
 </p>
 
-
-
-
 <!-- more -->
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Your Code Depends on Outside Systems (That Might Raise Errors)</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>Suppose you&#8217;ve created the super-duper Rails storefront application that takes
+<p>
+Suppose you&#8217;ve created the super-duper Rails storefront application that takes
 online payments. You may even have some unit tests that verify the code. Then
 you get the dreaded call that customers are being charged twice and their
 orders are not processed. WTF?
 </p>
+
 <p>
 It&#8217;s not entirely obvious how to verify proper error handling when outside
 systems fail, or even when odd errors are raised from your own code. Payment
@@ -1983,27 +1710,21 @@ nothing saves. While code review and manual testing are good first steps, you
 should consider a few extra steps with error handling for sensitive parts of
 your application.
 </p>
-
+</div>
 </div>
 
-</div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Verification of Error Handling Strategy</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>Typically, error handling code is not well tested. It&#8217;s much more common to test
+<p>
+Typically, error handling code is not well tested. It&#8217;s much more common to test
 the &#8220;happy path&#8221; of everything going right.
 </p>
+
 <p>
 Let&#8217;s look at hypothetical example and some tests that can flush out some
 errors.
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2035,29 +1756,25 @@ errors.
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>
 So what can go wrong?
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Payment Processing is Like a 2-Phase Commit</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>Conceptually, you want a transaction, such that it&#8217;s all or nothing. If the
+<p>
+Conceptually, you want a transaction, such that it&#8217;s all or nothing. If the
 charge goes through, then so does everything else. Payment processing like a
 2-phase commit, except one has to handle all the what-ifs to be sure that it&#8217;s
 handled correctly.
 </p>
+
 <p>
 The general steps of payment processing are like this:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Connect to outside resource to make charge.
 </li>
 <li>Update database records indicating charge successful.
@@ -2066,38 +1783,32 @@ The general steps of payment processing are like this:
 </li>
 </ol>
 
-
 <p>
 Rails transactions work such than any exception in the block will cause the
 transaction to be rolled back. The problem with the above code is what happens
 if fulfill_order throws an exception? The customer has been charged, the order
 was updated to reflect payment, but then <b>ka-boom</b> and an exception is raised,
-and any database updates to the order are rolled back, <b>but the payment is not refunded</b>. The customer is confused as there is a charge but nothing else. How
+and any database updates to the order are rolled back, <b>but the payment is not
+refunded</b>. The customer is confused as there is a charge but nothing else. How
 could you have tested (and avoided) this?
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Brute Force Methodology</h2>
 <div class="outline-text-2" id="text-4">
-
-<p>You can simulate error conditions by manually placing =raise &#8220;any error message&#8221;=
+<p>
+You can simulate error conditions by manually placing =raise &#8220;any error message&#8221;=
 statements in your code, and then testing, say in the UI manually. This is a
 good first step to verify that your error handling is working correctly. You
 might raise a specific error, if say your payment processor throws a specific
 type of error.
 </p>
+
 <p>
 For the above example, the different methods referenced, such as <code>process_order</code>
 can get modified with a single line at the beginning, which would be:
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2109,10 +1820,10 @@ can get modified with a single line at the beginning, which would be:
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>
 Then go into the UI and test placing an order. Consider the following questions:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Was the right error message displayed to the user?
 </li>
 <li>Was the right information logged at the correct log level?
@@ -2121,10 +1832,10 @@ Then go into the UI and test placing an order. Consider the following questions:
 </li>
 </ol>
 
-
 <p>
 See my prior article <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">Saner Rails Logging</a> for the answers to #2 and #3.
 </p>
+
 <p>
 By applying this technique to each of the components of completing a purchase,
 one can flush out (and handle) nearly all of the different possible errors that
@@ -2134,22 +1845,15 @@ the above code, let&#8217;s see if we can write unit and feature tests on our er
 handling.
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-5" class="outline-2">
+<div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5">RSpec Unit Testing of Errors</h2>
 <div class="outline-text-2" id="text-5">
-
-<p>It turns out that with stubbing in <code>rspec</code>, it&#8217;s easy to test error handling!
+<p>
+It turns out that with stubbing in <code>rspec</code>, it&#8217;s easy to test error handling!
 <a href="https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs">RSpec provides a nice mocking library</a>. The test code would look something like
 this. Pay attention to the call to <b>stub</b>.
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2195,15 +1899,15 @@ this. Pay attention to the call to <b>stub</b>.
 </span><span class='line'>    <span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>
 This test code ensures that the error handling of purchase_cart will catch an
 error from fulfill_order, and properly refund the payment and rollback any
 changes to the order record.
 </p>
+
 <p>
 Here&#8217;s an improved version of the Order#payment_method above:
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -2242,35 +1946,31 @@ Here&#8217;s an improved version of the Order#payment_method above:
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
+<p>
 Here are the key points to the improved code:
 </p>
-<ol>
-<li>There&#8217;s a block to catch the exception which is <i>separate from the    transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
-   being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
-   that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for Utlity.logException</a>).
+
+<ol class="org-ol">
+<li>There&#8217;s a block to catch the exception which is <i>separate from the
+transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
+being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
+that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for
+Utlity.logException</a>).
 </li>
 <li>fulfill_order is moved outside of the transaction block. This allows the
-   transaction to complete, and then the order_fulfillment takes place. If
-   there&#8217;s an issue in fulfilling the order, that can be dealt with separately
-   from the original charge. In other words, the customer can successfully pay
-   for the order, and the store can deal with the failure to fulfill the order.
+transaction to complete, and then the order_fulfillment takes place. If
+there&#8217;s an issue in fulfilling the order, that can be dealt with separately
+from the original charge. In other words, the customer can successfully pay
+for the order, and the store can deal with the failure to fulfill the order.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-6" class="outline-2">
+<div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6">RSpec Capybara Feature (Integration) Tests of UI Errors</h2>
 <div class="outline-text-2" id="text-6">
-
-<p>It&#8217;s possibly more important and sometimes easier to do the verification at the
+<p>
+It&#8217;s possibly more important and sometimes easier to do the verification at the
 integration level in RSpec feature specs using <a href="https://github.com/jnicklas/capybara">Capybara</a> with <a href="http://phantomjs.org/">PhantomJs</a> and
 <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>. The secret sauce is the same use of the same stubbing technique as
 above to replace some key methods such that they throw an exception. This sort
@@ -2278,63 +1978,49 @@ of technique works amazingly well to ensure that application will do the right
 then when an unexpected failure occurs, from the logging and emailing of the
 error message to the browser display to then end user.
 </p>
+
 <p>
 I tend to develop such a test in an iterative manner:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Make sure you&#8217;ve got tests on the &#8220;happy&#8221; case where the story goes as
-   planned.
+planned.
 </li>
 <li>Then introduce test cases where have bits of code like this that will raise
-   an error at an opportune time.
-</li>
-</ol>
-
-
-
+an error at an opportune time.
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>     <span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
-
-<ol>
+</li>
 <li>Allow the test cases to fail, and put in screen shots (in Capybara with
-   phantomjs, that looks like this:
-</li>
-</ol>
-
-
-
+phantomjs, that looks like this:
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">render_page</span> <span class="s2">&quot;a-descriptive-name&quot;</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">render_page</span> <span class="s2">&quot;a-descriptive-name&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
-
 <p>
-   Setup this method <code>render_page</code> in a spec helper file like this:
-
+Setup this method <code>render_page</code> in a spec helper file like this:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="k">def</span> <span class="nf">render_page</span> <span class="nb">name</span>
-</span><span class='line'>     <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span>
-</span><span class='line'>     <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span class='line'>   <span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">render_page</span> <span class="nb">name</span>
+</span><span class='line'>  <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span>
+</span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</p><ol>
+</li>
 <li>Put in some assertions that the page shows the correct error and the records
-   in the database have the right values.
+in the database have the right values.
 </li>
 <li>You can even
 </li>
 </ol>
 
-
 <p>
 Here&#8217;s an example that tests a failure of the Stripe payment API, including
 verification that an email was sent signifying an error:
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2372,69 +2058,64 @@ verification that an email was sent signifying an error:
 <span class='line-number'>34</span>
 <span class='line-number'>35</span>
 <span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1"># using gem vcr to record http communication for faster performance</span>
-</span><span class='line'>  <span class="n">let</span><span class="p">(</span><span class="ss">:order</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span> <span class="ss">:order</span> <span class="p">}</span> <span class="c1"># lots of setup in factory girl for non-purchased order</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="c1"># using gem vcr to record http communication for faster performance</span>
+</span><span class='line'> <span class="n">let</span><span class="p">(</span><span class="ss">:order</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span> <span class="ss">:order</span> <span class="p">}</span> <span class="c1"># lots of setup in factory girl for non-purchased order</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="n">scenario</span> <span class="s2">&quot;Purchase cart, Strip payment error&quot;</span><span class="p">,</span> <span class="ss">:vcr</span> <span class="k">do</span>
-</span><span class='line'>    <span class="c1"># Setup the stub -- the secret sauce to this test</span>
-</span><span class='line'>    <span class="n">error_content</span> <span class="o">=</span> <span class="s2">&quot;Testing error handling exception message&quot;</span>
-</span><span class='line'>    <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="ss">Stripe</span><span class="p">:</span><span class="ss">:InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>    <span class="n">place_order</span>
-</span><span class='line'>    <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="n">error_content</span>
-</span><span class='line'>    <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="s2">&quot;Error purchasing&quot;</span>
-</span><span class='line'>    <span class="n">order</span><span class="o">.</span><span class="n">reload</span>
-</span><span class='line'>    <span class="n">order</span><span class="o">.</span><span class="n">purchased</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">place_order</span>
-</span><span class='line'>   <span class="n">login_as</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="ss">:scope</span> <span class="o">=&gt;</span> <span class="ss">:user</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">visit</span> <span class="n">shopping_cart_path</span>
-</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
-</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-1&quot;</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">click_link</span> <span class="s2">&quot;CHECKOUT&quot;</span>
-</span><span class='line'>   <span class="n">fill_in_credit_card_info</span> <span class="c1"># utility test method to fill in credit card data</span>
-</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
-</span><span class='line'>   <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-with-payment-info-2&quot;</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">click_on</span> <span class="s2">&quot;PURCHASE&quot;</span>
-</span><span class='line'>   <span class="n">wait_for_spinners</span> <span class="c1"># method to wait for the busy spinner to stop</span>
-</span><span class='line'>   <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-after-click-purchase-3&quot;</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">validate_error_emailed</span>
+</span><span class='line'> <span class="n">scenario</span> <span class="s2">&quot;Purchase cart, Strip payment error&quot;</span><span class="p">,</span> <span class="ss">:vcr</span> <span class="k">do</span>
+</span><span class='line'>   <span class="c1"># Setup the stub -- the secret sauce to this test</span>
+</span><span class='line'>   <span class="n">error_content</span> <span class="o">=</span> <span class="s2">&quot;Testing error handling exception message&quot;</span>
+</span><span class='line'>   <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="ss">Stripe</span><span class="p">:</span><span class="ss">:InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>   <span class="n">place_order</span>
+</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="n">error_content</span>
+</span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="s2">&quot;Error purchasing&quot;</span>
+</span><span class='line'>   <span class="n">order</span><span class="o">.</span><span class="n">reload</span>
+</span><span class='line'>   <span class="n">order</span><span class="o">.</span><span class="n">purchased</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be</span>
 </span><span class='line'> <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'> <span class="c1"># example of how you verify that an error was emailed</span>
-</span><span class='line'> <span class="k">def</span> <span class="nf">validate_error_emailed</span>
-</span><span class='line'>   <span class="n">email</span> <span class="o">=</span> <span class="ss">ActionMailer</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
-</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
-</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
-</span><span class='line'> <span class="k">end</span>
+</span><span class='line'> <span class="k">def</span> <span class="nf">place_order</span>
+</span><span class='line'>  <span class="n">login_as</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="ss">:scope</span> <span class="o">=&gt;</span> <span class="ss">:user</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">visit</span> <span class="n">shopping_cart_path</span>
+</span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
+</span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-1&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">click_link</span> <span class="s2">&quot;CHECKOUT&quot;</span>
+</span><span class='line'>  <span class="n">fill_in_credit_card_info</span> <span class="c1"># utility test method to fill in credit card data</span>
+</span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_selector</span><span class="p">(</span><span class="s1">&#39;.total .price&#39;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="n">in_dollars</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">total</span><span class="p">))</span>
+</span><span class='line'>  <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-with-payment-info-2&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">click_on</span> <span class="s2">&quot;PURCHASE&quot;</span>
+</span><span class='line'>  <span class="n">wait_for_spinners</span> <span class="c1"># method to wait for the busy spinner to stop</span>
+</span><span class='line'>  <span class="n">render_page</span><span class="p">(</span><span class="s2">&quot;purchase-cart-after-click-purchase-3&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">validate_error_emailed</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># example of how you verify that an error was emailed</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">validate_error_emailed</span>
+</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="ss">ActionMailer</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
+</span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-7" class="outline-2">
+<div id="outline-container-sec-7" class="outline-2">
 <h2 id="sec-7">Conclusion</h2>
 <div class="outline-text-2" id="text-7">
-
-<p>If you aren&#8217;t simulating how your application responds to errors, then you&#8217;ll
+<p>
+If you aren&#8217;t simulating how your application responds to errors, then you&#8217;ll
 eventually find out, and the result might not be as good as you&#8217;d prefer. You
 can simulate errors with the very simple and quick technique of a well placed
 =raise &#8220;some error&#8221;=, and then testing in a UI. Or you might prefer the
 robustness of unit or feature tests using stubbing. Either way, the key message
 is to check how your application handles errors, before your customers do.
 </p>
+
 <p>
 Related Post:
-<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a>
-</p></div>
+<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies
+for Rails Logging and Error Handling</a>
+</p>
 </div>
-
+</div>
 ]]></content>
   </entry>
   
@@ -2448,60 +2129,44 @@ TLDR: Clean logging and error handling is a critical aspect of a RoR app.
 What&#8217;s a good strategy? Why does this matter?
 </p>
 
-
 <p>
 A Rails app can have awesome unit and functional tests, and then in production,
 something goes wrong and the right error handling does not happen, making
 a bad situation worse. By this, I mean, it&#8217;s bad enough that something went
 wrong in production. It&#8217;s even worse if:
 </p>
-
-
-<ol>
+<ol class="org-ol">
 <li>You don&#8217;t have clear log messages that identify exactly what went wrong.
 </li>
 <li>You didn&#8217;t get automatically notified via email that something went wrong.
-   Instead, the customer told the customer service rep that there&#8217;s an issue.
-   Ideally, when an error happens, the responsible developers should be
-   notified.
+Instead, the customer told the customer service rep that there&#8217;s an issue.
+Ideally, when an error happens, the responsible developers should be
+notified.
 </li>
 </ol>
-
-
-
 
 <p>
 Here&#8217;s some tips on logging setup and error handling, including a utility
 method to log the stack trace and send an email.
 </p>
 
-
 <p>
 The next article,
-<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>, will show you how to verify that your error handling strategy
+<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing
+Error Handling</a>, will show you how to verify that your error handling strategy
 is properly implemented, includind with rspec tests.
 </p>
 
-
-
-
 <!-- more -->
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Log Setup</h2>
 <div class="outline-text-2" id="text-1">
-
-
-</div>
-
-<div id="outline-container-1-1" class="outline-3">
+</div><div id="outline-container-sec-1-1" class="outline-3">
 <h3 id="sec-1-1">Notification of any Exceptions via Email with Gem exception_notification</h3>
 <div class="outline-text-3" id="text-1-1">
-
-<p>Check out the gem <a href="http://smartinez87.github.io/exception_notification/">exception_notification</a>. It works great. One things the docs
+<p>
+Check out the gem <a href="http://smartinez87.github.io/exception_notification/">exception_notification</a>. It works great. One things the docs
 don&#8217;t point out is that it works great with <a href="http://mailcatcher.me/">MailCatcher</a>. This allows you to
 &#8220;test&#8221; that your exception notification emails are being sent as expected
 without using a real mail account. Thus, <i>do</i> enable exception logging in
@@ -2509,47 +2174,43 @@ development mode, contrary to the basic setup. Here&#8217;s a config example at 
 post on <a href="http://www.mikeperham.com/2012/12/09/12-gems-of-christmas-4-mailcatcher-and-mail_view/">MailCatcher and mail_view</a>.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-1-2" class="outline-3">
+<div id="outline-container-sec-1-2" class="outline-3">
 <h3 id="sec-1-2">Log the Browser Details with Gem &#8216;browser_details&#8217;</h3>
 <div class="outline-text-3" id="text-1-2">
-
-<p>The gem <a href="https://github.com/gshutler/browser_details">browser_details</a> will tell you what type of browser was used, which
+<p>
+The gem <a href="https://github.com/gshutler/browser_details">browser_details</a> will tell you what type of browser was used, which
 can be very important when errors occur. I cracked up when I read this from the
 gem info page: 
-</p><blockquote>
-
-<p>Have you ever had the conversation:
 </p>
+<blockquote>
+<p>
+Have you ever had the conversation:
+</p>
+
 <p>
 Your site doesn&#8217;t work.
 What browser are you using and do you have Javascript enabled?
 </p>
+
 <p>
 What&#8217;s a browser?
 </p>
 </blockquote>
-
-
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-1-3" class="outline-3">
+<div id="outline-container-sec-1-3" class="outline-3">
 <h3 id="sec-1-3">Control Rails Log Verbosity with Gem lograge</h3>
 <div class="outline-text-3" id="text-1-3">
-
-<p>Sometimes too much of a good thing (log info) is a bad thing, and that&#8217;s true
+<p>
+Sometimes too much of a good thing (log info) is a bad thing, and that&#8217;s true
 with Rails default logging. Check out the gem &#8217;<a href="https://github.com/roidrage/lograge">lograge</a>&#8217;. The big difference is
 that a single request will take a single line. To quote the README, instead of
 logs like this:
 </p>
-
-
-<pre class="example">Started GET "/" for 127.0.0.1 at 2012-03-10 14:28:14 +0100
+<pre class="example">
+Started GET "/" for 127.0.0.1 at 2012-03-10 14:28:14 +0100
 Processing by HomeController#index as HTML
   Rendered text template within layouts/application (0.0ms)
   Rendered layouts/_assets.html.erb (2.0ms)
@@ -2559,36 +2220,31 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
 </pre>
 
-
 <p>
 After installing lograge, you&#8217;ll have one line for the request:
 </p>
-
-
-<pre class="example">method=GET path=/jobs/833552.json format=json controller=jobs action=show status=200 duration=58.33 view=40.43 db=15.26
+<pre class="example">
+method=GET path=/jobs/833552.json format=json controller=jobs action=show status=200 duration=58.33 view=40.43 db=15.26
 </pre>
-
 
 <p>
 The one issue with <code>lograge</code> is that the default configuration does not log
-request parameters, which can be useful for debugging. This blog post, <a href="http://ionrails.com/2013/03/26/how-to-add-the-request-parameters-along-with-full-url-request-in-lograge-outputted-files/">How to add request parameters to lograge logs</a>, addresses that shortcoming.
+request parameters, which can be useful for debugging. This blog post, <a href="http://ionrails.com/2013/03/26/how-to-add-the-request-parameters-along-with-full-url-request-in-lograge-outputted-files/">How to add
+request parameters to lograge logs</a>, addresses that shortcoming.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-1-4" class="outline-3">
+<div id="outline-container-sec-1-4" class="outline-3">
 <h3 id="sec-1-4">Utility Method to Log Exceptions</h3>
 <div class="outline-text-3" id="text-1-4">
-
-<p>This sample method <code>Utility.log_exception</code> takes care of logging an exception along with sending out an
+<p>
+This sample method <code>Utility.log_exception</code> takes care of logging an exception along with sending out an
 email notification.
 </p>
+
 <p>
 Example of calling <code>Utility.log_exception</code>:
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2602,12 +2258,9 @@ Example of calling <code>Utility.log_exception</code>:
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>
 Definition of <code>Utility.log_exception</code>:
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2656,78 +2309,64 @@ Definition of <code>Utility.log_exception</code>:
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Strategy: Error Handling and Logging</h2>
 <div class="outline-text-2" id="text-2">
-
-<ol>
+<ol class="org-ol">
 <li>Avoid rescuing/catching if you can&#8217;t do anything with the exception. For
-   example, in a model method, you might be calling that from a controller, but
-   you also might be calling that from some scheduled job. Thus, it&#8217;s hard to
-   say what the right action should be. A special case is calling <code>raise</code> without
-   arguments: sometimes it is reasonable to catch all exceptions, logging the
-   exception, and then re-raising it like it was never caught.
+example, in a model method, you might be calling that from a controller, but
+you also might be calling that from some scheduled job. Thus, it&#8217;s hard to
+say what the right action should be. A special case is calling <code>raise</code> without
+arguments: sometimes it is reasonable to catch all exceptions, logging the
+exception, and then re-raising it like it was never caught.
 </li>
 <li>If you catch an exception, consider if you should re-throw the exception
-   because code at a different level will be able to handle the exception more
-   properly.
+because code at a different level will be able to handle the exception more
+properly.
 </li>
 <li>Consider how the code is being invoked, such as from a call to generate
-   HTML or an ajax request, or maybe a batch job. All of these cases have very
-   different needs for how the error should be handled.
+HTML or an ajax request, or maybe a batch job. All of these cases have very
+different needs for how the error should be handled.
 </li>
 <li>Be sure you understand the order of your rescue clauses matter. This article
-   <a href="http://blog.rubybestpractices.com/posts/rklemme/003-The_Universe_between_begin_and_end.html">The Universe between <code>begin</code> and <code>end</code></a> provides a good explanation.
-   Basically put the most specific exception types first and something like
-   <code>rescue =&gt; e</code> last.
+<a href="http://blog.rubybestpractices.com/posts/rklemme/003-The_Universe_between_begin_and_end.html">The Universe between <code>begin</code> and <code>end</code></a> provides a good explanation.
+Basically put the most specific exception types first and something like
+<code>rescue =&gt; e</code> last.
 </li>
 <li>Ruby does not support the concept of a &#8220;cause&#8221; with an exception. Thus, if
-   you catch an exception and are going to rethrow a different exception, then
-   it&#8217;s important to log the stack of the original exception, or else that
-   information will be lost.
+you catch an exception and are going to rethrow a different exception, then
+it&#8217;s important to log the stack of the original exception, or else that
+information will be lost.
 </li>
 <li>Test the logging of the exception in both development and production mode.
-   You want to ensure that any exception prints clearly regardless of Rails
-   environment.
+You want to ensure that any exception prints clearly regardless of Rails
+environment.
 </li>
-<li>A good way to test error handling is to temporarily put in <code>raise    ArgumentError</code> (or whatever other error), and see how the exception is
-   handled, both by the logger and the UI.
+<li>A good way to test error handling is to temporarily put in <code>raise
+   ArgumentError</code> (or whatever other error), and see how the exception is
+handled, both by the logger and the UI.
 </li>
 <li>The worst scenario is catching an exception and failing to log any messages.
-   This can make troubleshooting a problem very tricky.
+This can make troubleshooting a problem very tricky.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Verification and Testing</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>The next article,
-<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a>, will show you how to verify that your error handling strategy
+<p>
+The next article,
+<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing
+Error Handling</a>, will show you how to verify that your error handling strategy
 is properly implemented, and how to add rspec unit and functional tests on error
 handling.
 </p>
 </div>
 </div>
-
 ]]></content>
   </entry>
   
@@ -2740,107 +2379,84 @@ handling.
 Here&#8217;s a few tips on buying Apple gear and credit card extended warranties. The
 bottom line is:
 </p>
-
-
-<ul>
+<ul class="org-ul">
 <li>Consider buying <b>AppleCare</b> with <b>American Express</b> to get an extended warranty that
-  extends 12 months past AppleCare&#8217;s 3 years. That&#8217;s 4 years total! Visa and
-  MasterCard <b>do not</b> extend AppleCare&#8217;s 3 years.
+extends 12 months past AppleCare&#8217;s 3 years. That&#8217;s 4 years total! Visa and
+MasterCard <b>do not</b> extend AppleCare&#8217;s 3 years.
 </li>
 <li>If you don&#8217;t need AppleCare, then try to buy with American Express, as you know you&#8217;ll
-  still get an extra 12 months. Visa or MasterCard may or may not offer a
-  warranty extension depending on your card.
+still get an extra 12 months. Visa or MasterCard may or may not offer a
+warranty extension depending on your card.
 </li>
 <li>Avoid buying AppleCare with a Visa or MasterCard if the card already has a
-  warranty extension. You would get 24 months of basic coverage (one year
-  original plus one year card). For the price of AppleCare, you get only an
-  extra 12 months, although some will want the telephone question coverage of
-  AppleCare.
+warranty extension. You would get 24 months of basic coverage (one year
+original plus one year card). For the price of AppleCare, you get only an
+extra 12 months, although some will want the telephone question coverage of
+AppleCare.
 </li>
 </ul>
 
-
-
-
 <!-- more -->
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Buying Tips</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>Buy products when they just come out, or wait until the next version comes out.
+<p>
+Buy products when they just come out, or wait until the next version comes out.
 It seems like Apple products don&#8217;t really go on sale, so you might as well get
-the newest stuff, or wait if you can. A good place to check is <a href="http://buyersguide.macrumors.com/">MacRumors Buyers Guide</a>. That being said, if you need something, then you need it, so just buy
+the newest stuff, or wait if you can. A good place to check is <a href="http://buyersguide.macrumors.com/">MacRumors Buyers
+Guide</a>. That being said, if you need something, then you need it, so just buy
 it. If you&#8217;re not sure, then you can probably wait.
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">AppleCare</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>In general, you&#8217;d probably be off without extended warranties unless there&#8217;s
+<p>
+In general, you&#8217;d probably be off without extended warranties unless there&#8217;s
 something special about your situation that suggest one is worth it. Plus, if
 you buy with the right credit card, you&#8217;ll get one year extension, giving you a
-full years without paying a cent. Here&#8217;s an article on <a href="http://lifehacker.com/5697141/skip-the-extended-warranty-use-a-good-credit-card-instead">LifeHacker: Skip the Extended Warranty; Use a Good Credit Card Instead</a>. I live on the beach, so
+full years without paying a cent. Here&#8217;s an article on <a href="http://lifehacker.com/5697141/skip-the-extended-warranty-use-a-good-credit-card-instead">LifeHacker: Skip the
+Extended Warranty; Use a Good Credit Card Instead</a>. I live on the beach, so
 everything tends to rust, so I tend to buy extended warranties for this reason.
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">American Express, not Mastercard, if you buy AppleCare</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>Both American Express and Mastercard offer warranty extensions of up to one year for using
+<p>
+Both American Express and Mastercard offer warranty extensions of up to one year for using
 their cards. However, there&#8217;s a huge difference in their policies. American Express
 specifically states that they extend past supplemental warranty extensions like
 AppleCare. MasterCard explicitly says they do not. Visa is ambiguous. I quoted
 the details below. American Express will provide up to one year additional for warranties
 up to 5 years. MasterCard only goes to one year. Visa goes to 3 years.
 </p>
-
+</div>
 </div>
 
-</div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Details (the fine print)</h2>
 <div class="outline-text-2" id="text-4">
-
-
-</div>
-
-<div id="outline-container-4-1" class="outline-3">
+</div><div id="outline-container-sec-4-1" class="outline-3">
 <h3 id="sec-4-1">American Express</h3>
 <div class="outline-text-3" id="text-4-1">
-
-<p>I&#8217;ve got the Costco True Earnings card. The details of the plan are
+<p>
+I&#8217;ve got the Costco True Earnings card. The details of the plan are
 here:<a href="http://www.americanexpress.com/us/content/pdf/card-benefits/TrueEarningsCardfromCostcoandAmericanExpress/EW-DOC-CCSG.pdf">EXTENDED WARRANTY DESCRIPTION OF COVERAGE</a>. Kudos to the American Express for website
 for making it easy to find the information (unlike MasterCard).
 </p>
+
 <p>
 Just to be sure, I found the spot which ensures that I get one year past when
 AppleCare ends:
 </p>
-<blockquote>
 
-<p>Where a Loss has occurred during this Plan&#8217;s extended warranty time period of up
+<blockquote>
+<p>
+Where a Loss has occurred during this Plan&#8217;s extended warranty time period of up
 to one (1) additional year, We will provide a benefit equal to the coverage of
 the original manufacturer&#8217;s warranty on warranties of up to five (5) years. We
 will pay up to the actual amount charged to Your Account for the product for
@@ -2853,24 +2469,22 @@ warranty and the purchased service contract exceed five (5) years, the product
 purchased is not eligible under this Plan and no coverage applies.
 </p>
 </blockquote>
-
-
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-4-2" class="outline-3">
+<div id="outline-container-sec-4-2" class="outline-3">
 <h3 id="sec-4-2">MasterCard</h3>
 <div class="outline-text-3" id="text-4-2">
-
-<p>Your bank&#8217;s website will not have any information about any extended warranty.
-You have to go to MasterCard&#8217;s website: <a href="http://www.mastercard.com/us/personal/en/cardholderservices/guidetobenefits/pdf/489247_extended_warranty_v2.pdf">Guide to Benefits EXTENDED WARRANTY COVERAGE</a>. MasterCard is the stingiest. If the product has more than a one year
+<p>
+Your bank&#8217;s website will not have any information about any extended warranty.
+You have to go to MasterCard&#8217;s website: <a href="http://www.mastercard.com/us/personal/en/cardholderservices/guidetobenefits/pdf/489247_extended_warranty_v2.pdf">Guide to Benefits EXTENDED WARRANTY
+COVERAGE</a>. MasterCard is the stingiest. If the product has more than a one year
 warranty, then MasterCard does not help.
 </p>
-<blockquote>
 
-<p>&gt; Extended Warranty doubles the original warranty time period and duplicates the coverage of
+<blockquote>
+<p>
+&gt; Extended Warranty doubles the original warranty time period and duplicates the coverage of
 the original manufacturer’s (or U.S. store brand) warranty up to a maximum of twelve (12)
 months on most items you purchase. For products with multiple warranty components,
 each warranty time period will be duplicated up to a maximum of twelve (12) months.
@@ -2880,6 +2494,7 @@ the manufacturer. An example of a product with multiple warranty components incl
 appliance with original manufacturer’s (or U.S. store brand) warranties that differ for parts,
 labor, compressor, etc.
 </p>
+
 <p>
 &gt; If you purchase a service contract or an optional extended warranty of twelve (12) months
 or less on your item, Extended Warranty will cover up to an additional twelve (12) months
@@ -2887,34 +2502,33 @@ after both the original manufacturer’s (or U.S. store brand) warranty and the 
 service contract or extended warranty coverage period end. If your service contract or
 extended warranty exceeds twelve (12) months, this coverage does not apply.
 </p>
+
 <p>
 &gt; If you do not have an additional service contract or an optional extended warranty, this
 Extended Warranty benefit commences the day after your original manufacturer’s (or U.S.
 store brand) warranty expires.
 </p>
+
 <p>
 &gt; If either the original manufacturer’s (or U.S. store brand) warranty or the service contract
 covers more than twelve (12) months, Extended Warranty benefits will not apply.
 </p>
 </blockquote>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-4-3" class="outline-3">
+<div id="outline-container-sec-4-3" class="outline-3">
 <h3 id="sec-4-3">Visa</h3>
 <div class="outline-text-3" id="text-4-3">
-
-<p>Here&#8217;s the Visa benefits for one type of card: <a href="http://usa.visa.com/business/why-pay-with-visa/security-benefits/bft-purchase-security.html">VISA PURCHASE PROTECTION</a>. Note,
+<p>
+Here&#8217;s the Visa benefits for one type of card: <a href="http://usa.visa.com/business/why-pay-with-visa/security-benefits/bft-purchase-security.html">VISA PURCHASE PROTECTION</a>. Note,
 each Visa card may be different. Visa is a lot better than MasterCard in that
 if your product has more than a 1 year warranty, Visa still gives you an extra
 year.
 </p>
-<blockquote>
 
-<p>Extended Protection Yes, as long as you purchased the item entirely with your
+<blockquote>
+<p>
+Extended Protection Yes, as long as you purchased the item entirely with your
 eligible U.S.- issued Visa Business card and the eligible item has a valid
 original manufacturer’s written U.S. repair warranty or assembler warranty of
 three (3) years or less.
@@ -2924,21 +2538,18 @@ three (3) years or less.
 
 
 
-
-<ul>
+<ul class="org-ul">
 <li>Here&#8217;s a good article with more details on why you should American Express for all
-  extended warranties: <a href="http://www.cardhub.com/edu/credit-card-extended-warranty-study/">2012 Credit Card Extended Warranty Study</a>
+extended warranties: <a href="http://www.cardhub.com/edu/credit-card-extended-warranty-study/">2012 Credit Card Extended Warranty Study</a>
 </li>
 <li>Another comparison, from the NYT: <a href="http://bucks.blogs.nytimes.com/2012/08/01/credit-cards-with-the-best-extended-warranties/">Credit Cards With the Best Extended Warranties</a>
 </li>
 <li>LifeHacker: <a href="http://lifehacker.com/5871487/are-extended-warranties-worth-it">Are Extended Warranties Worth It?</a>
 </li>
 </ul>
-
 </div>
 </div>
 </div>
-
 ]]></content>
   </entry>
   
@@ -2949,7 +2560,8 @@ three (3) years or less.
     <id>http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
     <content type="html"><![CDATA[<p>
 WordPress seemed like a good blogging platform, but it just didn&#8217;t feel right. I
-spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org Mode</a> for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
+spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org
+Mode</a> for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
 Markdown mode on steroids. You can have a numbered list in Markdown, but
 org-mode lets you re-order the list, and that&#8217;s just the beginning. Editing blog
 documents in the WordPress editor felt almost as bad as being told to use MS
@@ -2958,14 +2570,12 @@ versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a
 creative thoughts so much more enjoyable.
 </p>
 
-
 <p>
 So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You&#8217;re looking at the
 results of this endeavor, including my first Octopress article, and the latest
 tips on recreating this sort of blog using Octopress with Org Mode authoring,
 using LiveReload, and deployed at no charge on github.com.
 </p>
-
 
 <p>
 If you used to writing real web applications, rather than know the intricacies
@@ -2975,45 +2585,35 @@ philosophy that so many of us love, which is small and modular, rather than
 monolithic.
 </p>
 
-
-
-
 <!-- more -->
-
-
-
 
 <p>
 I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson&#8217;s summary</a> (noting Org Mode plus Emacs):
 </p>
 
-
-<blockquote><p><a href="http://octopress.org/">Octopress</a> is a blogging framework written by <a href="http://brandonmathis.com/">Brandon Mathis</a>
-(<a href="https://twitter.com/#!/imathis">@imathis</a>) which sits on top of <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is
-a static site generator, meaning there&rsquo;s no database associated with your blog. Instead of writing everything in a
+> [Octopress](http://octopress.org/) is a blogging framework written by [Brandon Mathis](http://brandonmathis.com/)
+([@imathis](https://twitter.com/#!/imathis)) which sits on top of [Jekyll](https://github.com/mojombo/jekyll). Jekyll is
+a static site generator, meaning there&#8217;s no database associated with your blog. Instead of writing everything in a
 WSYWIG linked to MySQL (like Wordpress or Blogger) you produce text files using Markdown which are then converted to
 static HTML. There are 3 huge benefits to this approach. First, writing in
-Markdown [<em>org-mode</em> for Justin] is awesome. Once you learn the
-syntax it&rsquo;s incredibly fast and you don&rsquo;t have to spend time playing with a tiny little editor window just to
-<s>add</s> <em>some</em> <strong>style</strong> to your posts. Second, writing in your favorite text editor is also awesome. I produce
-everything in <a href="http://www.sublimetext.com/2">Sublime Text 2</a> [<em>Emacs</em> for Justin] and every day I discover new tricks to make the process
-better. If you&rsquo;ve ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
-this feature. And lastly, static HTML is <em>fast</em>.</p></blockquote>
+Markdown [*org-mode* for Justin] is awesome. Once you learn the
+syntax it&#8217;s incredibly fast and you don&#8217;t have to spend time playing with a tiny little editor window just to
+<s>add</s> *some* **style** to your posts. Second, writing in your favorite text editor is also awesome. I produce
+everything in [Sublime Text 2](http://www.sublimetext.com/2) [*Emacs* for Justin] and every day I discover new tricks to make the process
+better. If you&#8217;ve ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
+this feature. And lastly, static HTML is *fast*.
 
 <p>
 I found it totally neat that I could embed markdown inside the org-mode
 document. See below for how this is done.
 </p>
 
-
 <p>
 This article should be useful for:
 </p>
-
-
-<ol>
+<ol class="org-ol">
 <li>Any interest in using org-mode to publish to Octopress including some
-     reasons I use Org Mode (with Emacs).
+reasons I use Org Mode (with Emacs).
 </li>
 <li>Some explanation of what Octopress and git are doing.
 </li>
@@ -3023,237 +2623,194 @@ This article should be useful for:
 </li>
 </ol>
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Basic setup</h2>
 <div class="outline-text-2" id="text-1">
-
-<ol>
+<ol class="org-ol">
 <li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
-   on April 30th, 2012. There are a few differences worth noting:
-<ol>
+on April 30th, 2012. There are a few differences worth noting:
+<ol class="org-ol">
 <li>You may wish to change the .rvmrc to a .ruby-version file
 </li>
 <li>Github recommends your deployment repository be named <code>yourname.github.io</code>,
-      not <code>yourname.github.com</code>.
+not <code>yourname.github.com</code>.
 </li>
-<li>After you run <code>rake setup_github_pages</code> and before running <code>rake       generate</code>, you should run <code>rake install</code>. If you forget, there&#8217;s a clear
-      message indicating this omission.
+<li>After you run <code>rake setup_github_pages</code> and before running <code>rake
+      generate</code>, you should run <code>rake install</code>. If you forget, there&#8217;s a clear
+message indicating this omission.
 </li>
 </ol>
-
 </li>
 <li>Customize <code>octopress/_config.yml</code>. The yaml file contains descriptions.
 </li>
-<li>Update the DNS to use your custom domain if you wish: <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a>
+<li>Update the DNS to use your custom domain if you wish: <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on
+setting up a custom domain</a>
 </li>
 <li>At this point, you can create a post:
-</li>
-</ol>
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake new_post<span class="o">[</span><span class="s2">&quot;my post name&quot;</span><span class="o">]</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;my post name&quot;</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
-
 
 <p>
-  Create a page:
-
+Create a page:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;my page name&quot;</span><span class="o">]</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_page<span class="o">[</span><span class="s2">&quot;my page name&quot;</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-  Generate and deploy:
-
+<p>
+Generate and deploy:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake gen_deploy
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake gen_deploy
 </span></code></pre></td></tr></table></div></figure>
 
-
-  Watch the site and regenerate when it changes:
-
+<p>
+Watch the site and regenerate when it changes:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake watch
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake watch
 </span></code></pre></td></tr></table></div></figure>
 
-
-  Preview the site in a web browser:
-
+<p>
+Preview the site in a web browser:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake preview
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake preview
 </span></code></pre></td></tr></table></div></figure>
 
-
-  See all the available rake options:
-
+<p>
+See all the available rake options:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rake -T
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake -T
 </span></code></pre></td></tr></table></div></figure>
 
-
-  Save changes to source branch:
-
+<p>
+Save changes to source branch:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  git add .
-</span><span class='line'>  git commit -m <span class="s2">&quot;save changes to source&quot;</span>
-</span><span class='line'>  git push origin <span class="nb">source</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add .
+</span><span class='line'>git commit -m <span class="s2">&quot;save changes to source&quot;</span>
+</span><span class='line'>git push origin <span class="nb">source</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-</p></div>
-
+</li>
+</ol>
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+</div>
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Some Perspectives on how Octopress Works</h2>
 <div class="outline-text-2" id="text-2">
-
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
+</div><div id="outline-container-sec-2-1" class="outline-3">
 <h3 id="sec-2-1">Posts</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<p><b>Posts</b> are created using the rake task <code>rake new_post["Post Title"]</code>. The key things about a post are:
-</p><ol>
+<p>
+<b>Posts</b> are created using the rake task <code>rake new_post["Post Title"]</code>. The key things about a post are:
+</p>
+<ol class="org-ol">
 <li>File is located in =source/_posts.
 </li>
 <li>File has a header containing the meta-data for the post. The post URL and
-   date are determined by the by the <code>title</code> and <code>date</code> fields. If you want to
-   change the date of your post, then you change the meta-data. Changing the
-   file name is useful only for file navigation. Here&#8217;s a <a href="https://gist.github.com/justin808/5550381">gist for a rake task to update the file names to match the metadata</a>.
+date are determined by the by the <code>title</code> and <code>date</code> fields. If you want to
+change the date of your post, then you change the meta-data. Changing the
+file name is useful only for file navigation. Here&#8217;s a <a href="https://gist.github.com/justin808/5550381">gist for a rake task
+to update the file names to match the metadata</a>.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
+<div id="outline-container-sec-2-2" class="outline-3">
 <h3 id="sec-2-2">Pages</h3>
 <div class="outline-text-3" id="text-2-2">
-
-<p><b>Pages</b> are created using the rake task <code>rake new_page["Page Title"]</code>. The key
+<p>
+<b>Pages</b> are created using the rake task <code>rake new_page["Page Title"]</code>. The key
 things about a page are:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Files are located in =source/page-title
 </li>
 <li>File has a header containing the meta-data for the post. The post URL and
 </li>
 </ol>
-
-
-
-
-
 </div>
 </div>
-
 </div>
 
 
 
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">POW</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>POW allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your local,
+<p>
+POW allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your local,
 unpublished Octopress website. It&#8217;s very convenient to not have to remember to
 run a local server, and it works great with LiveReload. Scroll to the bottom of
-this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake preview</code> and then point your browser at <code>http://0.0.0.0:4000</code> (or whatever port
+this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake
+preview</code> and then point your browser at <code>http://0.0.0.0:4000</code> (or whatever port
 you configured).
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">LiveReload</h2>
 <div class="outline-text-2" id="text-4">
-
-<p>LiveReload is a <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Chrome browser extension</a> that will automatically refresh
+<p>
+LiveReload is a <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Chrome browser extension</a> that will automatically refresh
 the browser after you publish your file. This works with or without POW.
-</p><ul>
+</p>
+<ul class="org-ul">
 <li><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">Install the browser extension</a> for your type of browser.
 </li>
 <li>Add these two entries to your <code>Gemfile</code>, in the :development group:
-</li>
-</ul>
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'>   <span class="n">gem</span> <span class="s1">&#39;guard-livereload&#39;</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-livereload&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Create a file called <code>Guardfile</code> containing something like:
 </li>
-</ul>
 
-
-
+<li>Create a file called <code>Guardfile</code> containing something like:
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>     <span class="n">guard</span> <span class="s1">&#39;livereload&#39;</span> <span class="k">do</span>
-</span><span class='line'>       <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/generated}</span><span class="p">)</span>
-</span><span class='line'>       <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/.+\.(css|js|html)}</span><span class="p">)</span>
-</span><span class='line'>     <span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">guard</span> <span class="s1">&#39;livereload&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/generated}</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/.+\.(css|js|html)}</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
+</li>
 
-
-<ul>
 <li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
-   and <code>guard</code>
+and <code>guard</code>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; rake generate <span class="o">&amp;&amp;</span> rake watch
+</span></code></pre></td></tr></table></div></figure>
+<p>
+This screen shot shows <code>watch</code> updating the deployment files.
+<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
+start guard LiveReload
+</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; guard
+</span></code></pre></td></tr></table></div></figure>
+<p>
+This screen grab shows guard detecting the browser and telling the
+browser to update.
+<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png">
+</p>
 </li>
 </ul>
 
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>     &gt; rake generate <span class="o">&amp;&amp;</span> rake watch
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-   This screen shot shows <code>watch</code> updating the deployment files.
-   <img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
-   start guard LiveReload
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>     &gt; guard
-</span></code></pre></td></tr></table></div></figure>
-
-   This screen grab shows guard detecting the browser and telling the
-   browser to update.
-   <img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png">
-</p>
 <p>
 It&#8217;s neat to get LiveReload working with Octopress. However, the generation can
 finish after your page does a reload, so you won&#8217;t see your latest changes. I&#8217;ll
 update this blog post when I figure out a solution to that one. Until then, you
 may find it more convenient to manually refresh the blog page yourself.
 </p>
+
 <p>
 It&#8217;s worth noting that if you&#8217;re running any other instance of guard-
 LiveReload, then one of these two copies will win and one won&#8217;t work. If you
@@ -3261,31 +2818,27 @@ run a rails server this way, then this can bite you. It took me a bit of time
 to figure out why guard wasn&#8217;t working.
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-5" class="outline-2">
+<div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5">Org-Mode</h2>
 <div class="outline-text-2" id="text-5">
-
-<p>You can skip this section if you&#8217;re not interested in org-mode. However, it&#8217;s
+<p>
+You can skip this section if you&#8217;re not interested in org-mode. However, it&#8217;s
 super cool!
 </p>
 </div>
-
-<div id="outline-container-5-1" class="outline-3">
+<div id="outline-container-sec-5-1" class="outline-3">
 <h3 id="sec-5-1">Why org-mode for blog publishing?</h3>
 <div class="outline-text-3" id="text-5-1">
-
-<p><a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s delight</b> for note taking and authoring of blog articles. Down below I list a few
+<p>
+<a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s
+delight</b> for note taking and authoring of blog articles. Down below I list a few
 reasons why org-mode. Here&#8217;s a few org-mode features I love (Some are Emacs
 ones):
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>All headers and list items can be reordered with minimal keystrokes (think
-   super powerful outliner).
+super powerful outliner).
 </li>
 <li>Numbered lists.
 </li>
@@ -3296,129 +2849,108 @@ ones):
 <li>Includes the basics of markdown, such as source code blocks and much more.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-5-2" class="outline-3">
+<div id="outline-container-sec-5-2" class="outline-3">
 <h3 id="sec-5-2">Org-mode Integration</h3>
 <div class="outline-text-3" id="text-5-2">
-
-<p>I found a plugin that automates the process of converting an org-mode document
+<p>
+I found a plugin that automates the process of converting an org-mode document
 (<code>.org</code> file) in <code>source/org_posts</code> into a <code>.markdown</code> document in
-<code>source/_posts</code>. Once the markdown document is saved in _posts, the <code>rake watch</code> task picks up the change and deploys the file, and LiveReload can then
+<code>source/_posts</code>. Once the markdown document is saved in _posts, the <code>rake
+watch</code> task picks up the change and deploys the file, and LiveReload can then
 automatically update your web browser. <b>Neat!</b>
 </p>
+
 <p>
 Here are the basic steps:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
 </li>
 <li>At the time of this article, April 27, there&#8217;s a bug with the latest
-   org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
-   won&#8217;t need that tip.
+org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
+won&#8217;t need that tip.
 </li>
 <li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
-   inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
-   <img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png">
+inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
+<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png">
 </li>
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
-   inclusion of images in org-mode results in broken paths at deployment. The
-   workaround is to embed the <a href="http://octopress.org/docs/plugins/image-tag/">Octopress syntax for an image</a>, and to place the
-   images under source/images. Note, you&#8217;ll want to be sure to use an absolute
-   path, or else your article might look OK on the home page, but might now work
-   in the postings directory. If I&#8217;m creating a document with many images, I&#8217;ll
-   group the images for that document in a sub-directory of images named like
-   the document. This is how it should look. The trick is to place the
-   octopress <code>img</code> directive within a HTML begin/end block.
+inclusion of images in org-mode results in broken paths at deployment. The
+workaround is to embed the <a href="http://octopress.org/docs/plugins/image-tag/">Octopress syntax for an image</a>, and to place the
+images under source/images. Note, you&#8217;ll want to be sure to use an absolute
+path, or else your article might look OK on the home page, but might now work
+in the postings directory. If I&#8217;m creating a document with many images, I&#8217;ll
+group the images for that document in a sub-directory of images named like
+the document. This is how it should look. The trick is to place the
+octopress <code>img</code> directive within a HTML begin/end block.
 
 <p>
-   <img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
-</p></li>
-<li><b>Links</b>: Links for relative pages are simple.
-
-
-
-<pre class="example">[[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
-</pre>
-
-<p>
-   Links from a <i>page</i> to a <i>post</i> can use a relative link like this:
+<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
 </p>
-
-
-<pre class="example">[[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]]
-</pre>
-
-<p>
-   <b>However</b>, links from posts to other posts require an absolute URL. The big
-   gotcha is blog posts due to the nested URL structure that does not map to the
-   where you&#8217;re putting your org-posts. To avoid trouble, you need to follow a
-   format as this example shows. It&#8217;s easiest to copy the URL from the browser
-   address bar.
-</p>
-
-
-<pre class="example">[[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
-</pre>
-
-<p>
-   I tried using a <code>file:../blog</code> syntax, but that either would work on the home
-   page or in the specific blog article, but not both. <code>http:/blog</code> links would
-   work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
-   not work if the link is within a block level html tag (i.e., a paragraph).
-   Hopefully, one day we&#8217;ll be able to specify relative links from blog article
-   to blog article.
-</p></li>
-<li>Bold styling (text inside of stars) was a bit of mystery using the standard theme. I had to add
-   this line to _typography.scss:
 </li>
-</ol>
-
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<li><b>Links</b>: Links for relative pages are simple.
+<pre class="example">
+[[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
+</pre>
 <p>
-   Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
-   the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
-
+Links from a <i>page</i> to a <i>post</i> can use a relative link like this:
+</p>
+<pre class="example">
+[[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]]
+</pre>
+<p>
+<b>However</b>, links from posts to other posts require an absolute URL. The big
+gotcha is blog posts due to the nested URL structure that does not map to the
+where you&#8217;re putting your org-posts. To avoid trouble, you need to follow a
+format as this example shows. It&#8217;s easiest to copy the URL from the browser
+address bar.
+</p>
+<pre class="example">
+[[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
+</pre>
+<p>
+I tried using a <code>file:../blog</code> syntax, but that either would work on the home
+page or in the specific blog article, but not both. <code>http:/blog</code> links would
+work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
+not work if the link is within a block level html tag (i.e., a paragraph).
+Hopefully, one day we&#8217;ll be able to specify relative links from blog article
+to blog article.
+</p>
+</li>
+<li>Bold styling (text inside of stars) was a bit of mystery using the standard theme. I had to add
+this line to _typography.scss:
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
+the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'>   <span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span>
-</span><span class='line'>   <span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
-</span><span class='line'>     <span class="n">code</span> <span class="err">{</span>
-</span><span class='line'>       <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span>
+</span><span class='line'><span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">code</span> <span class="err">{</span>
+</span><span class='line'>    <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-</p></div>
+</li>
+</ol>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-6" class="outline-2">
+</div>
+<div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6">Useful Scripts</h2>
 <div class="outline-text-2" id="text-6">
-
-<ul>
+<ul class="org-ul">
 <li>Just configure <code>OCTO_HOME</code>
 </li>
 <li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>.
 </li>
 </ul>
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -3480,25 +3012,19 @@ Here are the basic steps:
 </span><span class='line'>  <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-7" class="outline-2">
+<div id="outline-container-sec-7" class="outline-2">
 <h2 id="sec-7">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
 <div class="outline-text-2" id="text-7">
-
-<p>Github offers free hosting of both the blog deployment and source. You&#8217;re
+<p>
+Github offers free hosting of both the blog deployment and source. You&#8217;re
 looking at the deployment right now. You can find the source here at
 <a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
 convenience. You can look inside of this repo, clone it, etc. and you have
 everything that it took to make this blog.
 </p>
+
 <p>
 I originally was quite confused by the concept of using two separate git
 branches to make up what gets deployed on the live website versus the git
@@ -3507,55 +3033,56 @@ that you clone when starting out. Eventually, I figured out that the two branche
 simply contain different files, with one containing the original Octopress
 files. Here&#8217;s a few screen grabs that might clarify the situation for you.
 </p>
+
 <p>
-Don&#8217;t forget that you never push to the master branch, but rather the <code>rake deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
+Don&#8217;t forget that you never push to the master branch, but rather the <code>rake
+deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
 the content of your blog to github.
 </p>
+
 <p>
 The <code>octopress/public</code> directory corresponds to what you&#8217;ll find on the github
 site for your deployment (master branch).
 </p>
+
 <p>
 <img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png">
 </p>
+
 <p>
 The octopress/.gitignore file contains entries like <code>public</code>, which essentially
 keeps the <code>rake generate</code> files out of the source branch.
 </p>
+
 <p>
 Here&#8217;s the github master branch right after creation. Note the correspondence
 with <code>public</code>. This is what gets deployed as your blog.
 <img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
 </p>
+
 <p>
 Here&#8217;s the github source branch. This contains the octopress environment, as
 well as your customizations and blog posts.
+</p>
 <img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
-
-</p></div>
-
 </div>
-
-
-
-
-<div id="outline-container-8" class="outline-2">
+</div>
+<div id="outline-container-sec-8" class="outline-2">
 <h2 id="sec-8">Useful Links</h2>
 <div class="outline-text-2" id="text-8">
-
-<ol>
+<ol class="org-ol">
 <li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
-   March 2013.
+March 2013.
 </li>
 <li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
-   posting on April 30th, 2012.
+posting on April 30th, 2012.
 </li>
 <li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>: Use Jekyll? You Really Should Be Using Octopress
 </li>
 <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a>
 </li>
 <li><a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">dblock.org Article on Octopress</a>: A good explanation from Jan 17, 2012,
-   especially on the difference of the source and master branches.
+especially on the difference of the source and master branches.
 </li>
 <li><a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>: For org-mode. See below.
 </li>
@@ -3564,25 +3091,18 @@ well as your customizations and blog posts.
 <li><a href="http://odino.org/bash-aliases-for-octopress/">Shell Aliases for Octopress</a>: Save time with these shortcuts
 </li>
 </ol>
-
-
-
+</div>
 </div>
 
-</div>
-
-
-
-
-<div id="outline-container-9" class="outline-2">
-<h2 id="sec-9">Parting words&hellip;</h2>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">Parting words&#x2026;</h2>
 <div class="outline-text-2" id="text-9">
-
-<p>Thanks in advance for any suggestions on this article. I hope you find it
+<p>
+Thanks in advance for any suggestions on this article. I hope you find it
 helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@RailsOnMaui</a>.
-</p></div>
+</p>
 </div>
-
+</div>
 ]]></content>
   </entry>
   

@@ -115,39 +115,31 @@
 Looking for a great open source example of a <i>production quality</i>
 rails, emberjs, and single-page-application project? Check out <a href="https://github.com/discourse/discourse">Discourse</a>.
 </p>
-
-
 <blockquote>
-
-<p>Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
+<p>
+Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
 </p>
 </blockquote>
-
-
-
-
 <p>
-Here&#8217;s a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+Here&#8217;s a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for
+Discourse to use JavaScript or CoffeeScript?</a>
 </p>
-
-
-
 
 <!-- more -->
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Production Quality, not a Tutorial</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>Note, this is an example of a <i>production quality</i> application, rather than a
+<p>
+Note, this is an example of a <i>production quality</i> application, rather than a
 useful tutorial sample application. What&#8217;s the difference? The Discourse
 codebase is the real deal, including all the gory details, such as performance
-optimizations. If you want a superb sample rails application, check out <a href="https://github.com/railstutorial/sample_app_2nd_ed">Rails Tutorial, 2nd Ediition</a> and read the book <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">Ruby on Rails Tutorial, Learn Web Development with Rails, Michael Hartl</a>. There&#8217;s even an interesting discussion on
+optimizations. If you want a superb sample rails application, check out <a href="https://github.com/railstutorial/sample_app_2nd_ed">Rails
+Tutorial, 2nd Ediition</a> and read the book <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">Ruby on Rails Tutorial, Learn Web
+Development with Rails, Michael Hartl</a>. There&#8217;s even an interesting discussion on
 the Discourse blog about <a href="http://blog.discourse.org/2013/04/discourse-as-your-first-rails-app/">Discourse as Your First Rails App</a>, which it shouldn&#8217;t be.
 </p>
+
 <p>
 That being said, the Discourse code base is probably as good as or, in many
 cases, better than what you&#8217;ll find in many software-as-a-service companies.
@@ -157,56 +149,46 @@ developer, it&#8217;s worth your time to install the source of discourse and exp
 and run it. I just did that and I&#8217;m impressed.
 </p>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Why Explore Discourse&#8217;s Source?</h2>
 <div class="outline-text-2" id="text-2">
-
-<ol>
+<ol class="org-ol">
 <li>Example of EmberJs Single-Page-Application.
 </li>
-<li>Design decisions are discussed at <a href="http://meta.discourse.org/">meta.discourse.org</a>, such as <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for Discourse to use JavaScript or CoffeeScript?</a>
+<li>Design decisions are discussed at <a href="http://meta.discourse.org/">meta.discourse.org</a>, such as <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better
+for Discourse to use JavaScript or CoffeeScript?</a>
 </li>
 <li>Solid project, from code quality to organization.
 </li>
 <li>Co-Founded by Jeff Atwood, who created <a href="http://stackoverflow.com/">Stack Overflow</a>. Jeff wrote a article
-   introducing the discourse project: <a href="http://www.codinghorror.com/blog/2013/02/civilized-discourse-construction-kit.html">Civilized Discourse Construction Kit</a>.
+introducing the discourse project: <a href="http://www.codinghorror.com/blog/2013/02/civilized-discourse-construction-kit.html">Civilized Discourse Construction Kit</a>.
 </li>
 </ol>
-
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Setup Tips</h2>
 <div class="outline-text-2" id="text-3">
-
-<p>Basically, there&#8217;s a few dependencies to install, some of which you probably already
+<p>
+Basically, there&#8217;s a few dependencies to install, some of which you probably already
 have installed, such as Postgres and Redis. The main gotcha I faced was to make
-sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development database</a>, rather than using the rake task. Then you can install the seed data:
-
+sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development
+database</a>, rather than using the rake task. Then you can install the seed data:
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
 </span></code></pre></td></tr></table></div></figure>
 
 
-
+<p>
 The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
 rather some tiny bit of &#8220;seed&#8221; data (like post action types).
 </p>
+
 <p>
 Once you have the test data installed, then run these commands.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -219,37 +201,32 @@ Once you have the test data installed, then run these commands.
 </span><span class='line'>bundle <span class="nb">exec </span>rspec <span class="c"># All specs should pass</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
+<p>
 You should have installed <a href="http://mailcatcher.me/">MailCatcher</a>, so that you don&#8217;t have to configure any
 smtp server. Then you just have to visit <a href="http://localhost:1080">http://localhost:1080</a> to see the mail
 messages that Discourse sends.
 </p>
+
 <p>
 Then to run the Discourse application (assuming postgres and redis are running)
 open up two tabs. Cd each to the disource directory. 
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rails server
 </span></code></pre></td></tr></table></div></figure>
 
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>sidekiq
 </span></code></pre></td></tr></table></div></figure>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>clockwork config/clock.rb
 </span></code></pre></td></tr></table></div></figure>
 
 
-
+<p>
 Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
 </p>
-
-
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -259,24 +236,17 @@ Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>P
 </span><span class='line'>foreman start
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>
 If you got this working, you&#8217;ll see this:
 <img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png">
 </p>
-
+</div>
 </div>
 
-</div>
-
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Links</h2>
 <div class="outline-text-2" id="text-4">
-
-<ul>
+<ul class="org-ul">
 <li><a href="https://github.com/discourse/discourse">Discourse on Github</a>
 </li>
 <li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPER-ADVANCED.md">Discourse Advanced Developer Guide</a>
@@ -288,28 +258,8 @@ If you got this working, you&#8217;ll see this:
 <li>Discourse discussing itself: <a href="http://meta.discourse.org/">meta.discourse.org</a>
 </li>
 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 </div>
-
 </div>
 
 
@@ -379,7 +329,7 @@ If you got this working, you&#8217;ll see this:
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h2>About Me</h2>
   <p>I'm Justin Gordon. I'm a Ruby on Rails consultant based in Maui. Full stack
   development is my passion. Feel free to contact me on gmail
   as <code>justin.gordon</code>. I'm also on
@@ -476,7 +426,7 @@ If you got this working, you&#8217;ll see this:
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Justin Gordon -
+  Copyright &copy; 2014 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

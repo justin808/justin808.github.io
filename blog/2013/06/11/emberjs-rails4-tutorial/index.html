@@ -119,92 +119,74 @@ amount of Ember and Rails code to make this example is almost completely
 included in this article. It&#8217;s that tiny!
 </p>
 
-
 <p>
 The source code for the completed example can be found on GitHub:
 <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. I carefully crafted the commits
 to explain the steps.
 </p>
 
-
 <p>
 You can try out the application on Heroku at:
 <a href="http://railsonmaui-emberjs-rails4.herokuapp.com/">http://railsonmaui-emberjs-rails4.herokuapp.com/</a>
 </p>
-
 
 <p>
 I put many more details in this <a href="http://youtu.be/ac1mYhCMRNc">comprehensive screencast</a> of how to go from a
 brand new Rails 4 app to an Ember.js app deployed on Heroku.
 </p>
 
-
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/ac1mYhCMRNc "></iframe></div>
 </p>
 
-
-
-
-<div id="outline-container-1" class="outline-2">
+<div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Key Tips</h2>
 <div class="outline-text-2" id="text-1">
-
-<ol>
+<ol class="org-ol">
 <li>Be sure to update the <code>ember</code> and <code>ember-data</code> javascript files with the
-   command from the ember-rails gem (see below). Keeping these files at
-   appropriate versions is key while the API is changing, especially for
-   ember-data.
+command from the ember-rails gem (see below). Keeping these files at
+appropriate versions is key while the API is changing, especially for
+ember-data.
 </li>
 <li>If you specify the Router property for both <code>model</code> and <code>setupController</code>,
-   you can have some very confusing results (details below).
+you can have some very confusing results (details below).
 </li>
 <li>Get comfortable with Ember&#8217;s naming conventions. Ember does a ton with
-   default naming. It&#8217;s basically got the same philosophy of &#8220;Convention over
-   Configuration&#8221; of Rails. So it&#8217;s especially important to try to grok when the
-   Ember examples are doing something implicitly versus explicitly. This is a
-   bit like Rails. At first it seems like magic, like &#8220;How the heck is that
-   happening&#8221;, and then one gets accustomed to the naming conventions and
-   appreciates how much code it saves.
+default naming. It&#8217;s basically got the same philosophy of &#8220;Convention over
+Configuration&#8221; of Rails. So it&#8217;s especially important to try to grok when the
+Ember examples are doing something implicitly versus explicitly. This is a
+bit like Rails. At first it seems like magic, like &#8220;How the heck is that
+happening&#8221;, and then one gets accustomed to the naming conventions and
+appreciates how much code it saves.
 </li>
 <li>Be mindful that some Ember.js commands run asynchronously, such as commit.
 </li>
 </ol>
 
-
-
-
 <!-- more -->
-
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-2" class="outline-2">
+<div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2">Building the Hello World without Persistence</h2>
 <div class="outline-text-2" id="text-2">
-
-<p>The steps for this can be found in the git history up to tag <code>no-persistence</code>.
+<p>
+The steps for this can be found in the git history up to tag <code>no-persistence</code>.
 Thanks to a few gems, the process is relatively simple.
 </p>
 </div>
-
-<div id="outline-container-2-1" class="outline-3">
+<div id="outline-container-sec-2-1" class="outline-3">
 <h3 id="sec-2-1">Basic Setup</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<p>I started off with the instructions here <a href="http://blog.dcxn.com/2013/03/23/getting-started-with-ember-js-on-rails/">The No Nonsense Guide to Ember.js on Rails</a>. This article covers the basic setup, such as gems to include. You want to
+<p>
+I started off with the instructions here <a href="http://blog.dcxn.com/2013/03/23/getting-started-with-ember-js-on-rails/">The No Nonsense Guide to Ember.js on
+Rails</a>. This article covers the basic setup, such as gems to include. You want to
 pay special attention to the <a href="https://github.com/emberjs/ember-rails">README for ember-rails</a>. Depending on the current
 state of the ember-rails gem, you may get the deprecation warning (browser
 console) with the old ember-data.js.
 </p>
 
-
-
-<pre class="example">DEPRECATION: register("store", "main") is now deprecated in-favour of register("store:main");
+<pre class="example">
+DEPRECATION: register("store", "main") is now deprecated in-favour of register("store:main");
         at Object.Container.register (http://0.0.0.0:3000/assets/ember.js?body=1:7296:17)
         at Application.initializer.initialize (http://0.0.0.0:3000/assets/ember-data.js?body=1:5069:19)
         at http://0.0.0.0:3000/assets/ember.js?body=1:27903:7
@@ -213,85 +195,69 @@ console) with the old ember-data.js.
         at Ember.Application.Ember.Namespace.extend.runInitializers (http://0.0.0.0:3000/assets/ember.js?body=1:27900:11)
         at Ember.Application.Ember.Namespace.extend._initialize (http://0.0.0.0:3000/assets/ember.js?body=1:27784:10)
         at Object.Backburner.run (http://0.0.0.0:3000/assets/ember.js?body=1:4612:26)
-        at Object.Ember.run (http://0.0.0.0:3000/assets/ember.js?body=1:5074:26) 
+        at Object.Ember.run (http://0.0.0.0:3000/assets/ember.js?body=1:5074:26)
 </pre>
-
 
 <p>
 Originally, I included a separate version of ember-data in the git repository.
 Instead, I should have updated the versions of ember and ember-data with this
 command from the <a href="https://github.com/emberjs/ember-rails">ember-rails README</a>:
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>  rails generate ember:install --head
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rails generate ember:install --head
 </span></code></pre></td></tr></table></div></figure>
-
+<p>
 This command puts the ember files in <code>vendor/assets/ember</code>. Pretty sweet. This
 is way better than manually installing the js files.
 </p>
 </div>
-
 </div>
-
-<div id="outline-container-2-2" class="outline-3">
+<div id="outline-container-sec-2-2" class="outline-3">
 <h3 id="sec-2-2">Get the no-database fixture example of Ember.js working.</h3>
 <div class="outline-text-3" id="text-2-2">
-
-<p>Next, I migrated the non-rails static example presented in <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
+<p>
+Next, I migrated the non-rails static example presented in <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>
 to the rails framework. You can checkout the tag <code>no-persistence</code> and get the
 code to where the static fixture is used and there is no persistence. Scroll to
 the bottom to see this code, as well as some additional code added for persistence.
 </p>
 </div>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-3" class="outline-2">
+<div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">Building the Hello World with Persistence</h2>
 <div class="outline-text-2" id="text-3">
-
-
-</div>
-
-<div id="outline-container-3-1" class="outline-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
 <h3 id="sec-3-1">Create the Model for Blog Posts</h3>
 <div class="outline-text-3" id="text-3-1">
-
-<p>You can checkout the git tag <code>persistence-emberjs</code> to get the git repository to
+<p>
+You can checkout the git tag <code>persistence-emberjs</code> to get the git repository to
 the state that persistence works.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rails generate model Post title:string author:string published_at:date intro:text extended:text
 </span><span class='line'><span class="nv">$ </span>rake db:migrate
 </span></code></pre></td></tr></table></div></figure>
 
-
+<p>
 Since Rails comes pre-configured with sqllite3 by default, no database
 configuration is required.
-</p></div>
-
+</p>
+</div>
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
+<div id="outline-container-sec-3-2" class="outline-3">
 <h3 id="sec-3-2">Add the Controller and Serializer</h3>
 <div class="outline-text-3" id="text-3-2">
-
-<p>Note that in Rails 4, you need to use the form for &#8220;strong parameters&#8221;. See the
+<p>
+Note that in Rails 4, you need to use the form for &#8220;strong parameters&#8221;. See the
 definition of <code>post_params</code> below.
 </p>
 </div>
-
-<div id="outline-container-3-2-1" class="outline-4">
+<div id="outline-container-sec-3-2-1" class="outline-4">
 <h4 id="sec-3-2-1">app/models/post.rb</h4>
 <div class="outline-text-4" id="text-3-2-1">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -299,18 +265,11 @@ definition of <code>post_params</code> below.
 </span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:published_at</span><span class="p">,</span> <span class="ss">:author</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-3-2-2" class="outline-4">
+<div id="outline-container-sec-3-2-2" class="outline-4">
 <h4 id="sec-3-2-2">app/serializers/post_serializer.rb</h4>
 <div class="outline-text-4" id="text-3-2-2">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -318,18 +277,11 @@ definition of <code>post_params</code> below.
 </span><span class='line'>  <span class="n">attributes</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">:published_at</span><span class="p">,</span> <span class="ss">:intro</span><span class="p">,</span> <span class="ss">:extended</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-3-2-3" class="outline-4">
+<div id="outline-container-sec-3-2-3" class="outline-4">
 <h4 id="sec-3-2-3">app/controllers/posts_controller.rb</h4>
 <div class="outline-text-4" id="text-3-2-3">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -385,66 +337,52 @@ definition of <code>post_params</code> below.
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
 </div>
-
 </div>
-
-<div id="outline-container-3-3" class="outline-3">
+<div id="outline-container-sec-3-3" class="outline-3">
 <h3 id="sec-3-3">Adding &#8220;Add&#8221; and &#8220;Remove&#8221; Buttons</h3>
 <div class="outline-text-3" id="text-3-3">
-
-<ul>
+<ul class="org-ul">
 <li>To create a new post, <b>use a link, not a button</b>, because we want to change the URL.
 </li>
 <li>Don&#8217;t define both <code>model</code> and <code>setupController</code> on the Route!
-  If you do, you&#8217;ll get this error:
-
-
-
-<pre class="example">Uncaught Error: assertion failed: Cannot delegate set('title', a) to the 'content' property of object proxy &lt;App.PostsNewController:ember392&gt;: its 'content' is undefined.  
+If you do, you&#8217;ll get this error:
+<pre class="example">
+Uncaught Error: assertion failed: Cannot delegate set('title', a) to the 'content' property of object proxy &lt;App.PostsNewController:ember392&gt;: its 'content' is undefined.
 </pre>
-
 <p>
-  I originally had code like this and it took me some time to figure out that
-  the <code>model</code> part was not used. 
-</p></li>
-</ul>
-
-
-
+I originally had code like this and it took me some time to figure out that
+the <code>model</code> part was not used. 
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'>  <span class="nv">App.PostsNewRoute = </span><span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
-</span><span class='line'>    <span class="nv">model: </span><span class="nf">-&gt;</span>
-</span><span class='line'>      <span class="nx">App</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="nv">publishedAt: </span><span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nv">author: </span><span class="s">&quot;current user&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="nv">setupController: </span><span class="nf">(controller) -&gt;</span>
-</span><span class='line'>      <span class="c1"># controller.set(&#39;content&#39;, App.Post.createRecord(publishedAt: new Date(), author: &quot;current user&quot;))</span>
-</span><span class='line'>  <span class="p">)</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">App.PostsNewRoute = </span><span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+</span><span class='line'>  <span class="nv">model: </span><span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nx">App</span><span class="p">.</span><span class="nx">Post</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="nv">publishedAt: </span><span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nv">author: </span><span class="s">&quot;current user&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">setupController: </span><span class="nf">(controller) -&gt;</span>
+</span><span class='line'>    <span class="c1"># controller.set(&#39;content&#39;, App.Post.createRecord(publishedAt: new Date(), author: &quot;current user&quot;))</span>
+</span><span class='line'><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
+</li>
+</ul>
 </div>
-
 </div>
-
-<div id="outline-container-3-4" class="outline-3">
+<div id="outline-container-sec-3-4" class="outline-3">
 <h3 id="sec-3-4">Update the URL on New with transitionAfterSave Hook</h3>
 <div class="outline-text-3" id="text-3-4">
-
-<p>You can&#8217;t update the URL after a new record is saved directly in the event
+<p>
+You can&#8217;t update the URL after a new record is saved directly in the event
 handler, as the commit will run asynchronously, and until the return value,
 there is no record id, and you would end up using record id <code>null</code> in the URL.
 Here&#8217;s how to handle this situation. Not that the <code>save</code> does the commit, but
 the <code>transitionToRoute</code> is not called until the <code>transitionAfterSave</code> hook is
 run.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -466,25 +404,23 @@ run.
 </span><span class='line'>  <span class="p">)</span><span class="o">.</span><span class="n">observes</span><span class="p">(</span><span class="s1">&#39;content.id&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-</p></div>
-
 </div>
-
-<div id="outline-container-3-5" class="outline-3">
+</div>
+<div id="outline-container-sec-3-5" class="outline-3">
 <h3 id="sec-3-5">Don&#8217;t put the new record, unsaved post in the list of saved posts</h3>
 <div class="outline-text-3" id="text-3-5">
-
-<p>There&#8217;s a slight bug in the adding of new records. If you click on the unsaved
+<p>
+There&#8217;s a slight bug in the adding of new records. If you click on the unsaved
 post link on the left, the URL will have &#8220;null&#8221; as the new post does not yet
 have an ID.
 </p>
+
 <p>
 Here&#8217;s the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4/commit/8c58b6fac8b978f622bf772654258479ba22bae0">commit at github</a>, and the commit description:
-</p><blockquote>
-
-<p>See discussion at
+</p>
+<blockquote>
+<p>
+See discussion at
 <a href="http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record">http://stackoverflow.com/questions/14705124/creating-a-record-with-ember-js-ember-data-rails-and-handling-list-of-record</a>
 Note the change from iterating over &#8220;each model&#8221; to iterating over &#8220;each post in
 filteredContent&#8221; in index.html.erb. That change requires attributes be
@@ -499,27 +435,22 @@ would not update.
 </p>
 </blockquote>
 
-
 <p>
 This is a really important change that is well documented in the commit as well
 as the <a href="http://youtu.be/ac1mYhCMRNc?t=36m20s">tutorial screencast at 36:20</a>.
 </p>
-
 </div>
 </div>
-
 </div>
 
-
-
-
-<div id="outline-container-4" class="outline-2">
+<div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4">Heroku Deployment</h2>
 <div class="outline-text-2" id="text-4">
-
-<p>Heroku has listed many tips at <a href="https://devcenter.heroku.com/articles/rails4">Getting Started with Rails 4.x on Heroku</a>. And you
+<p>
+Heroku has listed many tips at <a href="https://devcenter.heroku.com/articles/rails4">Getting Started with Rails 4.x on Heroku</a>. And you
 can look at the commits leading up to tag <code>heroku</code>. The basic steps are:
-</p><ol>
+</p>
+<ol class="org-ol">
 <li>Change a few gems
 </li>
 <li>Switch from sqllite to postgres.
@@ -527,49 +458,34 @@ can look at the commits leading up to tag <code>heroku</code>. The basic steps a
 <li>Add a ProcFile to use Puma for the webserver.
 </li>
 <li>Be sure that production.rb contains:
-</li>
-</ol>
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>   <span class="n">config</span><span class="o">.</span><span class="n">ember</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:production</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">ember</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:production</span>
 </span></code></pre></td></tr></table></div></figure>
-
 <p>
-   If you don&#8217;t, you&#8217;ll see this error:
+If you don&#8217;t, you&#8217;ll see this error:
 </p>
-
-
-<pre class="example">RAILS_ENV=production bin/rake assets:precompile
+<pre class="example">
+RAILS_ENV=production bin/rake assets:precompile
 rake aborted!
 couldn't find file 'handlebars'
   (in /Users/justin/j/emberjs/ember-js-guides-railsonmaui-rails4/app/app/assets/javascripts/application.js:18)
 </pre>
-
+</li>
+</ol>
+</div>
 </div>
 
-</div>
-
-
-
-
-<div id="outline-container-5" class="outline-2">
+<div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5">Examples that Inspired this Tutorial</h2>
 <div class="outline-text-2" id="text-5">
-
-
-</div>
-
-<div id="outline-container-5-1" class="outline-3">
+</div><div id="outline-container-sec-5-1" class="outline-3">
 <h3 id="sec-5-1">RailsCasts</h3>
 <div class="outline-text-3" id="text-5-1">
-
-<ul>
+<ul class="org-ul">
 <li>The two RailsCasts episodes complement the <a href="http://www.youtube.com/watch?v=Ga99hMi7wfY">first tutorial by Tom Dale</a> by
-  showing how to add persistence via the <code>rails-ember</code> gem. The serializers
-  episode is also useful.
-<ul>
+showing how to add persistence via the <code>rails-ember</code> gem. The serializers
+episode is also useful.
+<ul class="org-ul">
 <li><a href="http://railscasts.com/episodes/408-ember-part-1">#408 Ember Part 1</a> (pro)
 </li>
 <li><a href="http://railscasts.com/episodes/410-ember-part-2">#410 Ember Part 2</a> (pro)
@@ -577,53 +493,38 @@ couldn't find file 'handlebars'
 <li><a href="http://railscasts.com/episodes/409-active-model-serializers?view=comments">#409 Active Model Serializers</a>
 </li>
 </ul>
-
 </li>
 <li>Tip: Using Chrome to watch the videos: I found that the left/right arrow and
-  space bar keys are amazing for pausing and rewinding the RailsCasts so that I
-  could get all the nuances of the Ember naming schemes.
+space bar keys are amazing for pausing and rewinding the RailsCasts so that I
+could get all the nuances of the Ember naming schemes.
 </li>
 </ul>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-5-2" class="outline-3">
+<div id="outline-container-sec-5-2" class="outline-3">
 <h3 id="sec-5-2">ember_data_example</h3>
 <div class="outline-text-3" id="text-5-2">
-
-<ul>
+<ul class="org-ul">
 <li><a href="https://github.com/dgeb/ember_data_example">ember_data_example</a> on GitHub is a nice full featured ember app with a parent
-  child relationship of contacts and phone numbers. It even has some examples
-  of using <a href="https://github.com/jfirebaugh/konacha">Konacha for testing Ember JavaScript code</a>.
+child relationship of contacts and phone numbers. It even has some examples
+of using <a href="https://github.com/jfirebaugh/konacha">Konacha for testing Ember JavaScript code</a>.
 </li>
 </ul>
-
-
 </div>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-6" class="outline-2">
+<div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6">Source Code for Views and JavaScript</h2>
 <div class="outline-text-2" id="text-6">
-
-<p>I purposefully kept these to just 2 files to make this example simple. In a
+<p>
+I purposefully kept these to just 2 files to make this example simple. In a
 real world application, this would be broken into many files.
 </p>
 </div>
-
-<div id="outline-container-6-1" class="outline-3">
+<div id="outline-container-sec-6-1" class="outline-3">
 <h3 id="sec-6-1">View Code: app/viws/static/index.html.erb</h3>
 <div class="outline-text-3" id="text-6-1">
-
-
-
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -805,20 +706,16 @@ real world application, this would be broken into many files.
 </span><span class='line'>  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{{</span><span class="nx">view</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">TextArea</span> <span class="nx">valueBinding</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span> <span class="nx">cols</span><span class="o">=</span><span class="s2">&quot;80&quot;</span> <span class="nx">rows</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
 </span><span class='line'><span class="nt">&lt;/script&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
 </div>
-
 </div>
-
-<div id="outline-container-6-2" class="outline-3">
+<div id="outline-container-sec-6-2" class="outline-3">
 <h3 id="sec-6-2">CoffeeScript: app/assets/javascripts/app.js.coffee.</h3>
 <div class="outline-text-3" id="text-6-2">
-
-<p>Here&#8217;s the entire set of CoffeeScript to build this application. As you can see,
+<p>
+Here&#8217;s the entire set of CoffeeScript to build this application. As you can see,
 it&#8217;s not much! I intentionally left this in one file to make the example a bit
 simpler. A real application would break this out into separate files.
-
+</p>
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -986,31 +883,24 @@ simpler. A real application would break this out into separate files.
 </span><span class='line'>      <span class="nv">path: </span><span class="s">&quot;:post_id&quot;</span>
 </span><span class='line'>    <span class="nx">@route</span> <span class="s">&quot;new&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</p>
 </div>
 </div>
-
 </div>
-
-
-
-
-<div id="outline-container-7" class="outline-2">
+<div id="outline-container-sec-7" class="outline-2">
 <h2 id="sec-7">Conclusion</h2>
 <div class="outline-text-2" id="text-7">
-
-<p>Ember does quite a lot with just a few lines of code. Definitely check out the
+<p>
+Ember does quite a lot with just a few lines of code. Definitely check out the
 source code for the completed example github:
 <a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. Please take a look at the
 screencast, as I put many details beyond this article.
 </p>
+
 <p>
 I welcome comments and suggestions.
 </p>
 </div>
 </div>
-
 </div>
 
 
@@ -1080,7 +970,7 @@ I welcome comments and suggestions.
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h2>About Me</h2>
   <p>I'm Justin Gordon. I'm a Ruby on Rails consultant based in Maui. Full stack
   development is my passion. Feel free to contact me on gmail
   as <code>justin.gordon</code>. I'm also on
@@ -1177,7 +1067,7 @@ I welcome comments and suggestions.
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Justin Gordon -
+  Copyright &copy; 2014 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
