@@ -1,14 +1,22 @@
 #+BEGIN_HTML
 ---
 layout: post
-title: "Simple Form and Disable Processing by Default"
+title: "Simple Form and Disabling Buttons on Submit by Default"
 date: 2014-02-23 21:43
 comments: true
 categories: [rails, simple_form]
 keywords: simple_form, rails, disable_processing
-description: Fixing RecordNotUnique errors by turning on disable_processing by default for all submit buttons using simple_form.
+description: Fixing RecordNotUnique errors by turning on disable_with by default for all submit buttons using simple_form.
 ---
 #+END_HTML
+
+* TLDR
+Here's an easy way to have all your SimpleForm submit buttons default to setting
+=data-disable-with= so that you don't get errors when users double click on
+submit buttons. If you've gotten a few =ActiveRecord::RecordNotUnique= errors
+that were hard to reproduce, then here's your solution, with our without
+SimpleForm. Additionally, using =data-disable-with= provides the user with nice
+feedback once a button is clicked.
 
 * ActiveRecord::RecordNotUnique Error!
 If you're using Devise, and you get a =ActiveRecord::RecordNotUnique= error when
@@ -43,8 +51,15 @@ So then I tried to double click the =SAVE= button, and, *BOOM*, I got the same e
 A little bit of googling quickly revealed some handy rails techniques disabling
 a submit button after being clicked, namely the setting of attribute
 data-disable-with: "Some Message..." on both links and buttons. This works
-nicely to fix the double submit RecordNotUnique error.
+nicely to fix the double submit RecordNotUnique error, and it provides some
+sweet user feedback upon clicking a button. Here's an example of a =SAVE= button.
 
+{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-before-clicking.jpg %}
+
+Immediately after clicking the =SAVE= button, the button disables and the text changes.
+
+{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-disabled.jpg %}
+   
 ** Buttons
 Example and API: [[http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-button_tag][button_tag]]
 #+BEGIN_SRC html
@@ -97,14 +112,6 @@ when the =SAVE= button is clicked.
     = f.button :submit, "SAVE", class: "submit", data: { disable_with: "Creating New Account..." }
 #+END_SRC
 
-Before clicking the =SAVE= button:
-
-{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-before-clicking.jpg %}
-
-Immediately after clicking the =SAVE= button:
-
-{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-disabled.jpg %}
-   
 Now go and click on some of your submit buttons, and they will all disable and
 display "Processing...". On a remote form that returned =js.erb=, I had to send
 back this line to reset the submit button:
