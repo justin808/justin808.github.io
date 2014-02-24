@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using RubyMine/IntelliJ Regexp Search/Replace - Rails on Maui</title>
+  <meta name="author" content="Justin Gordon">
+
+  
+  <meta name="description" content="Tutorial and example of using Jetbrain's RubyMine and IntelliJ's interactive regexp search and replace.">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40522944-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rails on Maui</a></h1>
+  
+    <h2>Programming in Paradise</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/railsonmaui" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=RailsOnMaui&amp;loc=en_US" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.railsonmaui.com/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="/blog/categories.html">Categories</a></li>
+  <li><a href="/tips/">Tips</a></li>
+  <li><a href="/meta/">Meta</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using RubyMine/IntelliJ Regexp Search/Replace</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-25T09:05:00-10:00" pubdate data-updated="true">Jan 25<span>th</span>, 2014</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>
+RubyMine&#8217;s interactive search/replace is awesome. The Regexp feature is
+especially useful. Not only will it help you edit faster, but it will improve
+your ability to write RegExp&#8217;s in your code. When do you need to use a regexp?
+Whenever a standard find/replace won&#8217;t cut it. For example, if you changing the
+rspec syntax from one form to another, such as from:
+</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
+</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
+</span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+The following screencast shows how you can interactively use the Regexp feature
+to figure out the right regexp to search for as well as the right replacement.
+</p>
+
+<p>
+In this example, I&#8217;m replacing one rspec syntax with a replacement one.
+</p>
+
+<pre class="example">
+it \{ expect\(my_subject\.(\w+)\)\.to eq\((.*)\) }
+</pre>
+
+<p>
+Replace with:
+</p>
+<pre class="example">
+its(:$1) { should eq($2) }
+</pre>
+
+<p>
+Here&#8217;s a few key tips:
+</p>
+<ol class="org-ol">
+<li>Be sure to first check the regexp check-box if you&#8217;ll need that.
+</li>
+<li>As you type each character into the search box, observe if you&#8217;re increasing
+your match area to get what you want.
+</li>
+<li>If a character doesn&#8217;t match, then try escaping the character. For example,
+I had to escape the <code>{</code> and <code>(</code> as those characters have special meaning in
+the regexp.
+</li>
+<li>Once you get a match with the right groupings for replacement, then put in
+the <code>$1</code>, <code>$2</code>, etc. into the replacement box to refine your replacement string.
+</li>
+<li>Then hit Opt-P (or Alt-P) to replace.
+</li>
+</ol>
+
+<p>
+This is best shown with this 2 minute screencast.
+</p>
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/U_UaOjcR4wQ "></iframe></div>
+</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-25T09:05:00-10:00" pubdate data-updated="true">Jan 25<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rubymine/'>rubymine</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/01/04/migrating-from-bash-to-zsh/" title="Previous Post: Migrating from Bash to Zsh">&laquo; Migrating from Bash to Zsh</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/02/23/simple-form-and-disable-processing-by-default/" title="Next Post: Simple Form and Disable Processing by Default">Simple Form and Disable Processing by Default &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h2>About Me</h2>
+  <p>I'm Justin Gordon. I'm a Ruby on Rails consultant based in Maui. Full stack
+  development is my passion. Feel free to contact me on gmail
+  as <code>justin.gordon</code>. I'm also on
+  <a href='http://www.linkedin.com/pub/justin-gordon/1/a41/286'>Linked In</a>.
+  <a href='http://www.railsonmaui.com/about/justin-gordon-resume.html'>Resume</a>.</p>
+</section>
+
+<section>
+  <div>
+    <a href="http://twitter.com/railsonmaui" class="twitter-follow-button" data-show-count="">Follow @railsonmaui</a>
+  </div>
+</section>
+
+<section>
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/simple-form-and-disable-processing-by-default/">Simple Form and Disable Processing by Default</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/">Using RubyMine/IntelliJ Regexp Search/Replace</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/04/migrating-from-bash-to-zsh/">Migrating From Bash to Zsh</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community > Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/29/update-to-emberjs-hello-world/">Update to EmberJs Hello World</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h2>GitHub Repos</h2>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/justin808">@justin808</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'justin808',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="googleplus">
+  <h2>
+    <a href="https://plus.google.com/102850786590145072082?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h2>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Justin Gordon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'railsonmaui';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

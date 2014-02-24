@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rubymine | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rubymine/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-01-04T19:51:14-10:00</updated>
+  <updated>2014-02-23T22:50:22-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using RubyMine/IntelliJ Regexp Search/Replace]]></title>
+    <link href="http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/"/>
+    <updated>2014-01-25T09:05:00-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace</id>
+    <content type="html"><![CDATA[<p>
+RubyMine's interactive search/replace is awesome. The Regexp feature is
+especially useful. Not only will it help you edit faster, but it will improve
+your ability to write RegExp's in your code. When do you need to use a regexp?
+Whenever a standard find/replace won't cut it. For example, if you changing the
+rspec syntax from one form to another, such as from:
+</p>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
+</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
+</span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>
+The following screencast shows how you can interactively use the Regexp feature
+to figure out the right regexp to search for as well as the right replacement.
+</p>
+
+
+
+
+<p>
+In this example, I'm replacing one rspec syntax with a replacement one.
+</p>
+
+
+
+
+<pre class="example">
+it \{ expect\(my_subject\.(\w+)\)\.to eq\((.*)\) }
+</pre>
+
+
+
+
+<p>
+Replace with:
+</p>
+
+
+<pre class="example">
+its(:$1) { should eq($2) }
+</pre>
+
+
+
+
+<p>
+Here's a few key tips:
+</p>
+
+
+<ol class="org-ol">
+<li>Be sure to first check the regexp check-box if you'll need that.
+</li>
+<li>As you type each character into the search box, observe if you're increasing
+your match area to get what you want.
+</li>
+<li>If a character doesn't match, then try escaping the character. For example,
+I had to escape the <code>{</code> and <code>(</code> as those characters have special meaning in
+the regexp.
+</li>
+<li>Once you get a match with the right groupings for replacement, then put in
+the <code>$1</code>, <code>$2</code>, etc. into the replacement box to refine your replacement string.
+</li>
+<li>Then hit Opt-P (or Alt-P) to replace.
+</li>
+</ol>
+
+
+
+
+<p>
+This is best shown with this 2 minute screencast.
+</p>
+
+
+
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/U_UaOjcR4wQ "></iframe></div>
+</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Upgrading Octopress]]></title>
