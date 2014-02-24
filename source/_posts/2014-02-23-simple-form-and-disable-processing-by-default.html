@@ -1,16 +1,29 @@
 ---
 layout: post
-title: "Simple Form and Disable Processing by Default"
+title: "Simple Form and Disabling Buttons on Submit by Default"
 date: 2014-02-23 21:43
 comments: true
 categories: [rails, simple_form]
 keywords: simple_form, rails, disable_processing
-description: Fixing RecordNotUnique errors by turning on disable_processing by default for all submit buttons using simple_form.
+description: Fixing RecordNotUnique errors by turning on disable_with by default for all submit buttons using simple_form.
 ---
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">ActiveRecord::RecordNotUnique Error!</h2>
+<h2 id="sec-1">TLDR</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+Here's an easy way to have all your SimpleForm submit buttons default to setting
+<code>data-disable-with</code> so that you don't get errors when users double click on
+submit buttons. If you've gotten a few <code>ActiveRecord::RecordNotUnique</code> errors
+that were hard to reproduce, then here's your solution, with our without
+SimpleForm. Additionally, using <code>data-disable-with</code> provides the user with nice
+feedback once a button is clicked.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">ActiveRecord::RecordNotUnique Error!</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 If you're using Devise, and you get a <code>ActiveRecord::RecordNotUnique</code> error when
 a new user is signing up, where do you look?
@@ -48,20 +61,33 @@ So then I tried to double click the <code>SAVE</code> button, and, <b>BOOM</b>, 
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">data-disable-with='Processing&#x2026;'</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">data-disable-with='Processing&#x2026;'</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 A little bit of googling quickly revealed some handy rails techniques disabling
 a submit button after being clicked, namely the setting of attribute
 data-disable-with: "Some Message&#x2026;" on both links and buttons. This works
-nicely to fix the double submit RecordNotUnique error.
+nicely to fix the double submit RecordNotUnique error, and it provides some
+sweet user feedback upon clicking a button. Here's an example of a <code>SAVE</code> button.
+</p>
+
+<p>
+{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-before-clicking.jpg %}
+</p>
+
+<p>
+Immediately after clicking the <code>SAVE</code> button, the button disables and the text changes.
+</p>
+
+<p>
+{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-disabled.jpg %}
 </p>
 </div>
 
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Buttons</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Buttons</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 Example and API: <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-button_tag">button_tag</a>
 </p>
@@ -70,9 +96,9 @@ Example and API: <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/
 {% endcodeblock %}
 </div>
 </div>
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Links</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Links</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 Example and API: <a href="http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to?q=link_to">link_to</a>
 </p>
@@ -81,9 +107,9 @@ Example and API: <a href="http://apidock.com/rails/ActionView/Helpers/UrlHelper/
 {% endcodeblock %}
 </div>
 </div>
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">SimpleForm Submit Buttons</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">SimpleForm Submit Buttons</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 Even better, this can be done in one place for all SimpleForm submit buttons!
 </p>
@@ -137,22 +163,6 @@ when the <code>SAVE</code> button is clicked.
 {% endcodeblock %}
 
 <p>
-Before clicking the <code>SAVE</code> button:
-</p>
-
-<p>
-{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-before-clicking.jpg %}
-</p>
-
-<p>
-Immediately after clicking the <code>SAVE</code> button:
-</p>
-
-<p>
-{% img /images/2014-02-23-simple-form-and-disable-processing-by-default/button-disabled.jpg %}
-</p>
-
-<p>
 Now go and click on some of your submit buttons, and they will all disable and
 display "Processing&#x2026;". On a remote form that returned <code>js.erb</code>, I had to send
 back this line to reset the submit button:
@@ -164,9 +174,9 @@ $("#js-some-button").removeAttr("disabled").attr('value', 'ORIGINAL BUTTON TEXT'
 </div>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">References</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">References</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 Stack Overflow Discussions:
 </p>
