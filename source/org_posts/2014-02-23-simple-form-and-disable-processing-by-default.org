@@ -80,7 +80,7 @@ What the bit of code above does is that it:
    allowing the default to be overridden by any individual button.
 3. Calls [[http://apidock.com/rails/Module/alias_method_chain][alias_method_chain]] which makes is so that a call to submit actually
    calls =submit_with_override= and that method can call
-   =submit_without_override=, which is the original submit method. The pattern
+   =submit_without_override=, which is the original =submit= method. The pattern
    of naming the methods =with_override= and =without_override= is part of the
    =alias_method_chain= call. Pretty darn cool!
 
@@ -112,7 +112,6 @@ back this line to reset the submit button:
 #+BEGIN_SRC javascript
 $("#js-some-button").removeAttr("disabled").attr('value', 'ORIGINAL BUTTON TEXT');
 #+END_SRC
-
 
 * References
 Stack Overflow Discussions:
