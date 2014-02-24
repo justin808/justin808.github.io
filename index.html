@@ -229,7 +229,7 @@ allowing the default to be overridden by any individual button.
 </li>
 <li>Calls <a href="http://apidock.com/rails/Module/alias_method_chain">alias_method_chain</a> which makes is so that a call to submit actually
 calls <code>submit_with_override</code> and that method can call
-<code>submit_without_override</code>, which is the original submit method. The pattern
+<code>submit_without_override</code>, which is the original <code>submit</code> method. The pattern
 of naming the methods <code>with_override</code> and <code>without_override</code> is part of the
 <code>alias_method_chain</code> call. Pretty darn cool!
 </li>
@@ -284,7 +284,6 @@ back this line to reset the submit button:
 </div>
 </div>
 </div>
-
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3">References</h2>
 <div class="outline-text-2" id="text-3">
