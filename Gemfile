@@ -2,7 +2,10 @@ source "https://rubygems.org"
 
 group :development do
   gem 'rake', '~> 0.9'
-  gem 'jekyll', '~> 0.12'
+  # gem 'jekyll', '~> 0.12'
+  # Use version patched with file globbing for include/exclude
+  gem 'jekyll',  github: 'justin808/jekyll', branch: '0.12.1-release-justin808'
+
   gem 'rdiscount', '~> 2.0.7'
   gem 'pygments.rb', '~> 0.3.4'
   gem 'RedCloth', '~> 4.2.9'
@@ -15,6 +18,9 @@ group :development do
   gem 'stringex', '~> 1.4.0'
   gem 'liquid', '~> 2.3.0'
   gem 'directory_watcher', '1.4.1'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-inotify'
 end
 
 gem 'sinatra', '~> 1.4.2'
