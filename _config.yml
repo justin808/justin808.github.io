@@ -29,6 +29,7 @@ email: justin.gordon@gmail.com
 root: /
 permalink: /blog/:year/:month/:day/:title/
 source: source
+exclude: [ '**/*.org', org_posts ]
 destination: public
 plugins: plugins
 code_dir: downloads/code
