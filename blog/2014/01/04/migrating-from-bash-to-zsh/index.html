@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Migrating from Bash to Zsh - Rails on Maui</title>
+  <title>Migrating From Bash to Zsh - Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
@@ -24,7 +24,7 @@
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -104,7 +104,8 @@
 
 <time datetime="2014-01-04T04:00:00-10:00" pubdate data-updated="true">Jan 4<span>th</span>, 2014</time>
         
-         | <a href="#disqus_thread">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com/">Comments</a>
         
       </p>
     
@@ -181,7 +182,7 @@ that within my octopress branch.
 <p>
 In the third line of this function, I had to escape the <code>[</code> and the <code>]</code>.
 </p>
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -227,7 +228,7 @@ This is what it looks like in my .zshrc file. The first line is because I moved
 my ZSH configuration files.
 </p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">ZSH</span><span class="o">=</span><span class="nv">$HOME</span>/.oh-my-zsh
 </span><span class='line'><span class="nb">export </span><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&quot;justin808&quot;</span>
@@ -236,7 +237,7 @@ my ZSH configuration files.
 <p>
 Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
 </p>
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -380,6 +381,10 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/">Org-Mode Octopress Setup V2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/23/simple-form-and-disable-processing-by-default/">Simple Form and Disabling Buttons on Submit by Default</a>
       </li>
     
@@ -401,10 +406,6 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
     
       <li class="post">
         <a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/29/update-to-emberjs-hello-world/">Update to EmberJs Hello World</a>
       </li>
     
   </ul>
@@ -476,7 +477,7 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

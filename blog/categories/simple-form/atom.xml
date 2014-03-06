@@ -4,7 +4,7 @@
   <title><![CDATA[Category: simple_form | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/simple-form/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-02-24T10:27:35-10:00</updated>
+  <updated>2014-03-06T00:11:57-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -59,7 +59,7 @@ insensitive. I started going down the road of converting my normal unique index
 on users.email to this index:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">CREATE</span> <span class="k">UNIQUE</span> <span class="k">INDEX</span> <span class="n">users_email_ci_idx</span> <span class="k">ON</span> <span class="n">users</span> <span class="p">((</span><span class="k">lower</span><span class="p">(</span><span class="n">email</span><span class="p">)));</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
@@ -105,7 +105,7 @@ Immediately after clicking the <code>SAVE</code> button, the button disables and
 <p>
 Example and API: <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-button_tag">button_tag</a>
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='html'><span class='line'><span class="err">&lt;</span>%= button_tag &quot;Checkout&quot;, data: { disable_with =&gt; &quot;Please wait...&quot; } %&gt;
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
@@ -116,7 +116,7 @@ Example and API: <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/
 <p>
 Example and API: <a href="http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to?q=link_to">link_to</a>
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='html'><span class='line'><span class="err">&lt;</span>%= link_to &quot;Profile&quot;, profile_path(@profile), data: { disable_with: &quot;Processsing...&quot; } %&gt;
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
@@ -132,7 +132,7 @@ Even better, this can be done in one place for all SimpleForm submit buttons!
 In a file like <code>config/simple_form.rb</code>, place this initialization code:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -173,7 +173,7 @@ Here's a sample sign-up form that overrides the default "Processing&#x2026;" lab
 when the <code>SAVE</code> button is clicked.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -195,7 +195,7 @@ display "Processing&#x2026;". On a remote form that returned <code>js.erb</code>
 back this line to reset the submit button:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#js-some-button&quot;</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;ORIGINAL BUTTON TEXT&#39;</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>

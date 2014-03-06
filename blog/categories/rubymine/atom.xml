@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rubymine | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rubymine/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-02-24T10:27:35-10:00</updated>
+  <updated>2014-03-06T00:11:57-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -27,13 +27,13 @@ rspec syntax from one form to another, such as from:
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span>
@@ -132,7 +132,7 @@ The instructions boil down to this short help page on <a href="http://octopress.
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -197,7 +197,7 @@ accidentally removed this line, which is used for the youtube plugin.
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="nt">custom</span><span class="o">/</span><span class="nt">rve</span><span class="k">&amp;</span><span class="nt">rdquo</span><span class="o">;;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 

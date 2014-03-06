@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emberjs | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/emberjs/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-02-24T10:27:35-10:00</updated>
+  <updated>2014-03-06T00:11:57-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -164,7 +164,7 @@ Originally, I included a separate version of ember-data in the git repository.
 Instead, I should have updated the versions of ember and ember-data with this
 command from the <a href="https://github.com/emberjs/ember-rails">ember-rails README</a>:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rails generate ember:install --head
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>
@@ -197,7 +197,7 @@ the bottom to see this code, as well as some additional code added for persisten
 You can checkout the git tag <code>persistence-emberjs</code> to get the git repository to
 the state that persistence works.
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>rails generate model Post title:string author:string published_at:date intro:text extended:text
 </span><span class='line'><span class="nv">$ </span>rake db:migrate
@@ -221,7 +221,7 @@ definition of <code>post_params</code> below.
 <div id="outline-container-sec-3-2-1" class="outline-4">
 <h4 id="sec-3-2-1">app/models/post.rb</h4>
 <div class="outline-text-4" id="text-3-2-1">
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
@@ -233,7 +233,7 @@ definition of <code>post_params</code> below.
 <div id="outline-container-sec-3-2-2" class="outline-4">
 <h4 id="sec-3-2-2">app/serializers/post_serializer.rb</h4>
 <div class="outline-text-4" id="text-3-2-2">
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">PostSerializer</span> <span class="o">&lt;</span> <span class="ss">ActiveModel</span><span class="p">:</span><span class="ss">:Serializer</span>
@@ -245,7 +245,7 @@ definition of <code>post_params</code> below.
 <div id="outline-container-sec-3-2-3" class="outline-4">
 <h4 id="sec-3-2-3">app/controllers/posts_controller.rb</h4>
 <div class="outline-text-4" id="text-3-2-3">
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -318,7 +318,7 @@ Uncaught Error: assertion failed: Cannot delegate set('title', a) to the 'conten
 I originally had code like this and it took me some time to figure out that
 the <code>model</code> part was not used. 
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -346,7 +346,7 @@ Here's how to handle this situation. Not that the <code>save</code> does the com
 the <code>transitionToRoute</code> is not called until the <code>transitionAfterSave</code> hook is
 run.
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -424,7 +424,7 @@ can look at the commits leading up to tag <code>heroku</code>. The basic steps a
 <li>Add a ProcFile to use Puma for the webserver.
 </li>
 <li>Be sure that production.rb contains:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">ember</span><span class="o">.</span><span class="n">variant</span> <span class="o">=</span> <span class="ss">:production</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>
@@ -496,7 +496,7 @@ real world application, this would be broken into many files.
 <div id="outline-container-sec-6-1" class="outline-3">
 <h3 id="sec-6-1">View Code: app/viws/static/index.html.erb</h3>
 <div class="outline-text-3" id="text-6-1">
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -687,7 +687,7 @@ Here's the entire set of CoffeeScript to build this application. As you can see,
 it's not much! I intentionally left this in one file to make the example a bit
 simpler. A real application would break this out into separate files.
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1084,7 +1084,7 @@ have installed, such as Postgres and Redis. The main gotcha I faced was to make
 sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development
 database</a>, rather than using the rake task. Then you can install the seed data:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
@@ -1097,7 +1097,7 @@ rather some tiny bit of "seed" data (like post action types).
 <p>
 Once you have the test data installed, then run these commands.
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1119,15 +1119,15 @@ messages that Discourse sends.
 Then to run the Discourse application (assuming postgres and redis are running)
 open up two tabs. Cd each to the disource directory. 
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rails server
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>sidekiq
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>clockwork config/clock.rb
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
@@ -1136,7 +1136,7 @@ open up two tabs. Cd each to the disource directory.
 Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PORT</span><span class="o">=</span>3000

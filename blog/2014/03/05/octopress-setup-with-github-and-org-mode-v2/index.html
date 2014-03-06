@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress Setup With Github, Org Mode, and LiveReload - Rails on Maui</title>
+  <title>Org-Mode Octopress Setup V2 - Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Installing Octopress with github hosting, Org Mode markup, and Live-Reload">
+  <meta name="description" content="Installing Octopress with github hosting, Org Mode markup, and Live-Reload, updated for org-mode 8.2x and Emacs 24">
   <meta name="keywords" content="octopress, github, org-mode, emacs, livereload">
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode">
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -86,7 +86,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress Setup With Github, Org Mode, and LiveReload</h1>
+      <h1 class="entry-title">Org-Mode Octopress Setup V2</h1>
     
     
       <p class="meta">
@@ -102,7 +102,7 @@
   
 
 
-<time datetime="2013-04-27T22:46:00-10:00" pubdate data-updated="true">Apr 27<span>th</span>, 2013</time>
+<time datetime="2014-03-05T19:37:00-10:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://www.railsonmaui.com/">Comments</a>
@@ -113,9 +113,13 @@
 
 
 <div class="entry-content"><p>
+<i>Note: This is a refresh of my original post from April, 2013 to adjust for Emacs 24.3 and org-mode 8.2.x</i>
+</p>
+
+<p>
 WordPress seemed like a good blogging platform, but it just didn&#8217;t feel right. I
-spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org
-Mode</a> for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
+spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org Mode</a>
+for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
 Markdown mode on steroids. You can have a numbered list in Markdown, but
 org-mode lets you re-order the list, and that&#8217;s just the beginning. Editing blog
 documents in the WordPress editor felt almost as bad as being told to use MS
@@ -125,10 +129,11 @@ creative thoughts so much more enjoyable.
 </p>
 
 <p>
-So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You&#8217;re looking at the
-results of this endeavor, including my first Octopress article, and the latest
-tips on recreating this sort of blog using Octopress with Org Mode authoring,
-using LiveReload, and deployed at no charge on github.com.
+So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>, publishing my first
+article, <a href="http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup with Github, Org Mode, and LiveReload</a>. The solution
+presented in that article <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a> stopped
+working when I upgraded Emacs to 24.3 and org-mode to 8.2.x. Here&#8217;s a rehash of
+my original article updated to the latest software versions as of March, 2014.
 </p>
 
 <p>
@@ -145,22 +150,22 @@ monolithic.
 I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson&#8217;s summary</a> (noting Org Mode plus Emacs):
 </p>
 
-> [Octopress](http://octopress.org/) is a blogging framework written by [Brandon Mathis](http://brandonmathis.com/)
-([@imathis](https://twitter.com/#!/imathis)) which sits on top of [Jekyll](https://github.com/mojombo/jekyll). Jekyll is
-a static site generator, meaning there&#8217;s no database associated with your blog. Instead of writing everything in a
-WSYWIG linked to MySQL (like Wordpress or Blogger) you produce text files using Markdown which are then converted to
-static HTML. There are 3 huge benefits to this approach. First, writing in
-Markdown [*org-mode* for Justin] is awesome. Once you learn the
-syntax it&#8217;s incredibly fast and you don&#8217;t have to spend time playing with a tiny little editor window just to
-<s>add</s> *some* **style** to your posts. Second, writing in your favorite text editor is also awesome. I produce
-everything in [Sublime Text 2](http://www.sublimetext.com/2) [*Emacs* for Justin] and every day I discover new tricks to make the process
-better. If you&#8217;ve ever had to write a blog post using one of those horrible little TinyMCE editors you will appreciate
-this feature. And lastly, static HTML is *fast*.
-
-<p>
-I found it totally neat that I could embed markdown inside the org-mode
-document. See below for how this is done.
-</p>
+<ul class="org-ul">
+<li><a href="http://octopress.org/">Octopress</a> is a blogging framework written by <a href="http://brandonmathis.com/">Brandon Mathis</a> (<a href="https://twitter.com/#!/imathis">@imathis</a>) which
+sits on top of <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is a static site generator, meaning there&#8217;s no
+database associated with your blog. Instead of writing everything in a WSYWIG
+linked to MySQL (like Wordpress or Blogger) you produce text files using
+Markdown which are then converted to static HTML. There are 3 huge benefits to
+this approach. First, writing in Markdown (<b>org-mode</b> for me) is awesome. Once
+you learn the syntax it&#8217;s incredibly fast and you don&#8217;t have to spend time
+playing with a tiny little editor window just to add <i>some</i> <b>style</b> to your
+posts. Second, writing in your favorite text editor is also awesome. I produce
+everything in Sublime Text 2 (<b>Emacs</b> for me) and every day I discover new
+tricks to make the process better. If you&#8217;ve ever had to write a blog post
+using one of those horrible little TinyMCE editors you will appreciate this
+feature. And lastly, static HTML is <b>fast</b>.
+</li>
+</ul>
 
 <p>
 This article should be useful for:
@@ -171,11 +176,15 @@ reasons I use Org Mode (with Emacs).
 </li>
 <li>Some explanation of what Octopress and git are doing.
 </li>
-<li>How to use LiveReload with Octopress and Org Mode.
-</li>
 <li>Anybody curious about how using free github pages works to host Octopress.
 </li>
 </ol>
+
+<p>
+Incidentally, since my blog is hosted using github pages, the source code and
+configuration I use to generate it can all be found <a href="https://github.com/justin808/justin808.github.io">here</a>. See the notes below on
+the difference between the <code>source</code> and <code>master</code> branches.
+</p>
 
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Basic setup</h2>
@@ -184,7 +193,7 @@ reasons I use Org Mode (with Emacs).
 <li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
 on April 30th, 2012. There are a few differences worth noting:
 <ol class="org-ol">
-<li>You may wish to change the .rvmrc to a .ruby-version file
+<li>You should change the .rvmrc to a .ruby-version file
 </li>
 <li>Github recommends your deployment repository be named <code>yourname.github.io</code>,
 not <code>yourname.github.com</code>.
@@ -288,6 +297,10 @@ things about a page are:
 <li>File has a header containing the meta-data for the post.
 </li>
 </ol>
+
+<p>
+I use &#8220;Pages&#8221; for things like <a href="http://www.railsonmaui.com/about">my &#8220;about&#8221; page.</a>
+</p>
 </div>
 </div>
 </div>
@@ -305,68 +318,11 @@ you configured).
 </div>
 </div>
 <div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">LiveReload</h2>
+<h2 id="sec-4">Automatically Generating the Site</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-LiveReload is a <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Chrome browser extension</a> that will automatically refresh
-the browser after you publish your file. This works with or without POW.
-</p>
-<ul class="org-ul">
-<li><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">Install the browser extension</a> for your type of browser.
-</li>
-<li>Add these two entries to your <code>Gemfile</code>, in the :development group:
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-livereload&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
-
-<li>Create a file called <code>Guardfile</code> containing something like:
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">guard</span> <span class="s1">&#39;livereload&#39;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/generated}</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/.+\.(css|js|html)}</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
-
-<li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
-and <code>guard</code>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; rake generate <span class="o">&amp;&amp;</span> rake watch
-</span></code></pre></td></tr></table></div></figure>
-<p>
-This screen shot shows <code>watch</code> updating the deployment files.
-<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
-start guard LiveReload
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; guard
-</span></code></pre></td></tr></table></div></figure>
-<p>
-This screen grab shows guard detecting the browser and telling the
-browser to update.
-<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/guard-console.png">
-</p>
-</li>
-</ul>
-
-<p>
-It&#8217;s neat to get LiveReload working with Octopress. However, the generation can
-finish after your page does a reload, so you won&#8217;t see your latest changes. I&#8217;ll
-update this blog post when I figure out a solution to that one. Until then, you
-may find it more convenient to manually refresh the blog page yourself.
-</p>
-
-<p>
-It&#8217;s worth noting that if you&#8217;re running any other instance of guard-
-LiveReload, then one of these two copies will win and one won&#8217;t work. If you
-run a rails server this way, then this can bite you. It took me a bit of time
-to figure out why guard wasn&#8217;t working.
+Start a shell tab running this command: <code>rake generate &amp;&amp; rake watch</code>. Edit a
+file in markdown or follow the instructions below to use org-mode.
 </p>
 </div>
 </div>
@@ -406,26 +362,25 @@ super powerful outliner).
 <h3 id="sec-5-2">Org-mode Integration</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
-I found a plugin that automates the process of converting an org-mode document
-(<code>.org</code> file) in <code>source/org_posts</code> into a <code>.markdown</code> document in
-<code>source/_posts</code>. Once the markdown document is saved in _posts, the <code>rake
-watch</code> task picks up the change and deploys the file, and LiveReload can then
-automatically update your web browser. <b>Neat!</b>
+The <a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress</a> plugin automates the process of converting an org-mode
+document (<code>.org</code> file) in <code>source/org_posts</code> into a <code>.html</code> document in
+<code>source/_posts</code>. Once the html document is saved in _posts, the <code>rake watch</code>
+task picks up the change and deploys the file. <b>Neat!</b>
 </p>
 
 <p>
 Here are the basic steps:
 </p>
 <ol class="org-ol">
-<li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
+<li>Install Emacs 24.3 and use the package manager to install org-mode and
+   <a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress</a>.
 </li>
-<li>At the time of this article, April 27, there&#8217;s a bug with the latest
-org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
-won&#8217;t need that tip.
+<li>See my Emacs configuration below.
 </li>
-<li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
-inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
-<img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/quoting-markdown-in-org-mode.png">
+<li>Note, there are two ways to use org-octopress. I do not use its features to
+automate the setup of the directories. This automated setup does not provide
+a way to have &#8220;pages&#8221;. As of March, 2014, you can only have &#8220;posts&#8221;. Instead,
+my configuration below handles the mapping of directories.
 </li>
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
 inclusion of images in org-mode results in broken paths at deployment. The
@@ -470,20 +425,26 @@ Hopefully, one day we&#8217;ll be able to specify relative links from blog artic
 to blog article.
 </p>
 </li>
-<li>Bold styling (text inside of stars) was a bit of mystery using the standard theme. I had to add
-this line to _typography.scss:
+<li>Bold and italic styling (text inside of stars and /) was a bit of mystery
+using the standard theme. Octopress has styling for <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>. Org-mode spits out <code>&lt;b&gt;</code> and
+<code>&lt;i&gt;</code> tags.
+Add this to <code>sass/custom/_fonts.scss</code>.
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">i</span> <span class="p">{</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
+
 <p>
 Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
-the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
+the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>. You&#8217;re just adding
+the <code>div</code> selector.
 </p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span><span class="o">,</span> <span class="nt">so</span> <span class="nt">add</span> <span class="nt">div</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">mix</span>
 </span><span class='line'><span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
 </span><span class='line'>  <span class="n">code</span> <span class="err">{</span>
 </span><span class='line'>    <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
@@ -493,6 +454,7 @@ the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 </div>
 </div>
 </div>
+
 <div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6">Useful Scripts</h2>
 <div class="outline-text-2" id="text-6">
@@ -566,8 +528,145 @@ the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 </div>
 </div>
 <div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
+<h2 id="sec-7">Emacs setup</h2>
 <div class="outline-text-2" id="text-7">
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;; Justin&#39;s customized org to octopress publishing</span>
+</span><span class='line'><span class="c1">;; Based on</span>
+</span><span class='line'><span class="c1">;; org-mode 8.x+</span>
+</span><span class='line'><span class="c1">;; http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/</span>
+</span><span class='line'><span class="c1">;; https://github.com/yoshinari-nomura/org-octopress</span>
+</span><span class='line'><span class="c1">;; See http://wwww.railsonmaui.com</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; the converter from org to jekyll html files</span>
+</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;ox-jekyll</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; I prefer to use the plugin for source formatting. More colors!</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-jekyll-use-src-plugin</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; We&#39;re going to create the yaml-front-matter in the rake task</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-jekyll-include-yaml-front-matter</span> <span class="no">nil</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">save-then-publish</span> <span class="p">()</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">save-buffer</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">org-save-all-org-buffers</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">org-publish-current-project</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-export-with-sub-superscripts</span> <span class="o">`</span><span class="nv">{}</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">my-common-octopress-settings</span>
+</span><span class='line'>      <span class="o">&#39;</span><span class="p">(</span><span class="ss">:base-extension</span> <span class="s">&quot;org&quot;</span>
+</span><span class='line'>                        <span class="ss">:with-toc</span> <span class="no">nil</span>
+</span><span class='line'>                        <span class="ss">:with-sub-superscript</span> <span class="no">nil</span>
+</span><span class='line'>                        <span class="ss">:section-numbers</span> <span class="no">nil</span>
+</span><span class='line'>                        <span class="ss">:recursive</span> <span class="no">t</span>
+</span><span class='line'>                        <span class="ss">:publishing-function</span> <span class="nv">org-jekyll-publish-to-html</span>
+</span><span class='line'>                        <span class="ss">:headline-levels</span> <span class="mi">4</span>
+</span><span class='line'>                        <span class="ss">:body-only</span> <span class="no">t</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">my-static-directories</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;about&quot;</span> <span class="s">&quot;meta&quot;</span> <span class="s">&quot;tips&quot;</span><span class="p">))</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">my-base-directory</span> <span class="s">&quot;~/j/railsonmaui-octopress/source&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-create-octopress-static</span> <span class="p">(</span><span class="nv">prj</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">base-dir</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="nv">prj</span><span class="p">)))</span>
+</span><span class='line'>    <span class="o">`</span><span class="p">(</span><span class="o">,</span><span class="nv">prj</span> <span class="o">.</span> <span class="p">(</span><span class="ss">:base-directory</span> <span class="o">,</span><span class="nv">base-dir</span>
+</span><span class='line'>                              <span class="ss">:publishing-directory</span> <span class="o">,</span><span class="nv">base-dir</span>
+</span><span class='line'>                              <span class="o">,@</span><span class="nv">my-common-octopress-settings</span><span class="p">))))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-static-components</span> <span class="p">()</span>
+</span><span class='line'>  <span class="p">(</span><span class="nb">mapcar</span> <span class="ss">&#39;my-create-octopress-static</span> <span class="nv">my-static-directories</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">default-directory</span> <span class="nv">my-base-directory</span><span class="p">))</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-publish-project-alist</span>
+</span><span class='line'>      <span class="o">`</span><span class="p">(</span>
+</span><span class='line'>        <span class="c1">;; components</span>
+</span><span class='line'>        <span class="p">(</span><span class="s">&quot;blog&quot;</span> <span class="o">.</span> <span class="p">(</span><span class="ss">:components</span> <span class="p">(</span><span class="s">&quot;blog-org&quot;</span> <span class="s">&quot;blog-extra&quot;</span> <span class="s">&quot;about&quot;</span> <span class="s">&quot;meta&quot;</span> <span class="s">&quot;tips&quot;</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">;; blog articles</span>
+</span><span class='line'>        <span class="p">(</span><span class="s">&quot;blog-org&quot;</span> <span class="o">.</span>  <span class="p">(</span><span class="ss">:base-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;org_posts&quot;</span><span class="p">)</span>
+</span><span class='line'>                                        <span class="ss">:publishing-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;_posts&quot;</span><span class="p">)</span>
+</span><span class='line'>                                        <span class="o">,@</span><span class="nv">my-common-octopress-settings</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">(</span><span class="s">&quot;blog-extra&quot;</span> <span class="o">.</span> <span class="p">(</span><span class="ss">:base-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;org_posts&quot;</span><span class="p">)</span>
+</span><span class='line'>                                         <span class="ss">:publishing-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
+</span><span class='line'>                                         <span class="ss">:base-extension</span> <span class="s">&quot;css\\|pdf\\|png\\|jpg\\|gif\\|svg&quot;</span>
+</span><span class='line'>                                         <span class="ss">:publishing-function</span> <span class="nv">org-publish-attachment</span>
+</span><span class='line'>                                         <span class="ss">:recursive</span> <span class="no">t</span>
+</span><span class='line'>                                         <span class="ss">:author</span> <span class="no">nil</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">;; static articles</span>
+</span><span class='line'>        <span class="o">,@</span><span class="p">(</span><span class="nv">my-static-components</span><span class="p">))))</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 Github offers free hosting of both the blog deployment and source. You&#8217;re
 looking at the deployment right now. You can find the source here at
@@ -618,9 +717,9 @@ well as your customizations and blog posts.
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
 </div>
 </div>
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8">Useful Links</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">Useful Links</h2>
+<div class="outline-text-2" id="text-9">
 <ol class="org-ol">
 <li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
 March 2013.
@@ -641,16 +740,28 @@ especially on the difference of the source and master branches.
 </li>
 <li><a href="http://odino.org/bash-aliases-for-octopress/">Shell Aliases for Octopress</a>: Save time with these shortcuts
 </li>
+<li><a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress package</a>: The connection between emacs/org-mode and octopress.
+</li>
 </ol>
 </div>
 </div>
-
-<div id="outline-container-sec-9" class="outline-2">
-<h2 id="sec-9">Parting words&#x2026;</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">Live Reload</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Previously, I tried to get Live Reload to work. It would be neat it worked, but
+I ran into a snag. The browser gets triggered to update before the Jekyll page
+is generated. I tried some various techniques for working around this, but
+nothing seemed reliable. If you figure out how to fix this, please let me know.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">Parting words&#x2026;</h2>
+<div class="outline-text-2" id="text-11">
 <p>
 Thanks in advance for any suggestions on this article. I hope you find it
-helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@RailsOnMaui</a>.
+helpful. 
 </p>
 </div>
 </div>
@@ -676,7 +787,7 @@ helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@Rail
   
 
 
-<time datetime="2013-04-27T22:46:00-10:00" pubdate data-updated="true">Apr 27<span>th</span>, 2013</time>
+<time datetime="2014-03-05T19:37:00-10:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
       
 
 <span class="categories">
@@ -690,7 +801,7 @@ helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@Rail
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -703,8 +814,8 @@ helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@Rail
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/02/23/simple-form-and-disable-processing-by-default/" title="Previous Post: Simple Form and Disabling Buttons on Submit by Default">&laquo; Simple Form and Disabling Buttons on Submit by Default</a>
       
-        <a class="basic-alignment right" href="/blog/2013/05/07/buying-apple-products-with-amex/" title="Next Post: Buy Apple Products with American Express">Buy Apple Products with American Express &raquo;</a>
       
     </p>
   </footer>
@@ -830,8 +941,8 @@ helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@Rail
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/';
-        var disqus_url = 'http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/';
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/';
         var disqus_script = 'embed.js';
       
     (function () {

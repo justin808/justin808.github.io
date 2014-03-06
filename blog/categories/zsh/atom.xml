@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zsh | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/zsh/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-02-24T10:27:35-10:00</updated>
+  <updated>2014-03-06T00:11:57-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -95,7 +95,7 @@ that within my octopress branch.
 <p>
 In the third line of this function, I had to escape the <code>[</code> and the <code>]</code>.
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -141,7 +141,7 @@ This is what it looks like in my .zshrc file. The first line is because I moved
 my ZSH configuration files.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">ZSH</span><span class="o">=</span><span class="nv">$HOME</span>/.oh-my-zsh
 </span><span class='line'><span class="nb">export </span><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&quot;justin808&quot;</span>
@@ -150,7 +150,7 @@ my ZSH configuration files.
 <p>
 Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

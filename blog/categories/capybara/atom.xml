@@ -4,7 +4,7 @@
   <title><![CDATA[Category: capybara | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/capybara/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-02-24T10:27:35-10:00</updated>
+  <updated>2014-03-06T00:11:57-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -76,7 +76,7 @@ Let's look at hypothetical example and some tests that can flush out some
 errors.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -164,7 +164,7 @@ For the above example, the different methods referenced, such as <code>process_o
 can get modified with a single line at the beginning, which would be:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -211,7 +211,7 @@ It turns out that with stubbing in <code>rspec</code>, it's easy to test error h
 this. Pay attention to the call to <b>stub</b>.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -264,7 +264,7 @@ changes to the order record.
 <p>
 Here's an improved version of the Order#payment_method above:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -346,19 +346,19 @@ planned.
 </li>
 <li>Then introduce test cases where have bits of code like this that will raise
 an error at an opportune time.
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </li>
 <li>Allow the test cases to fail, and put in screen shots (in Capybara with
 phantomjs, that looks like this:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">render_page</span> <span class="s2">&quot;a-descriptive-name&quot;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 <p>
 Setup this method <code>render_page</code> in a spec helper file like this:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -380,7 +380,7 @@ Here's an example that tests a failure of the Stripe payment API, including
 verification that an email was sent signifying an error:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

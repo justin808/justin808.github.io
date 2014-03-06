@@ -24,7 +24,7 @@
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -104,7 +104,8 @@
 
 <time datetime="2014-01-25T09:05:00-10:00" pubdate data-updated="true">Jan 25<span>th</span>, 2014</time>
         
-         | <a href="#disqus_thread">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com/">Comments</a>
         
       </p>
     
@@ -119,13 +120,13 @@ Whenever a standard find/replace won&#8217;t cut it. For example, if you changin
 rspec syntax from one form to another, such as from:
 </p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
@@ -266,6 +267,10 @@ This is best shown with this 2 minute screencast.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/">Org-Mode Octopress Setup V2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/23/simple-form-and-disable-processing-by-default/">Simple Form and Disabling Buttons on Submit by Default</a>
       </li>
     
@@ -287,10 +292,6 @@ This is best shown with this 2 minute screencast.
     
       <li class="post">
         <a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/29/update-to-emberjs-hello-world/">Update to EmberJs Hello World</a>
       </li>
     
   </ul>
@@ -362,7 +363,7 @@ This is best shown with this 2 minute screencast.
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
