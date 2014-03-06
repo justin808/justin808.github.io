@@ -32,6 +32,10 @@ server_port     = "4001"      # port for preview server eg. localhost:4000
 org_posts_dir   = "org_posts"
 exclude         = ["org_posts", "*.org"] # we don't want to generate any jekyll files from here. This works for posts. Issue is for pages, every save will generate the website
 
+if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+  puts '## Set the codepage to 65001 for Windows machines'
+  `chcp 65001`
+end
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
 task :install, :theme do |t, args|
@@ -114,7 +118,7 @@ task :new_post, :title do |t, args|
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
-    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
     post.puts "comments: true"
     post.puts "categories: "
     post.puts "keywords: "
@@ -195,7 +199,7 @@ task :update_style, :theme do |t, args|
   mv "sass", "sass.old"
   puts "## Moved styles into sass.old/"
   cp_r "#{themes_dir}/"+theme+"/sass/", "sass"
-  cp_r "sass.old/custom/.", "sass/custom"
+  cp_r "sass/custom/.", "sass.old/custom"
   puts "## Updated Sass ##"
 end
 
@@ -268,7 +272,7 @@ multitask :push do
   cp_r "#{public_dir}/.", deploy_dir
   cd "#{deploy_dir}" do
     system "git add -A"
-    puts "\n## Commiting: Site updated at #{Time.now.utc}"
+    puts "\n## Committing: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated #{deploy_dir} website"
