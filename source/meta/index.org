@@ -11,7 +11,7 @@ footer: true
 
 Here's a list of customizations that I applied to Octopress.
 
-Initial setup: [[file:~/j/railsonmaui-octopress/source/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/index.html][Octopress Setup With Github, Org Mode, and LiveReload]].
+Initial setup: [[http://www.railsonmaui.com/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/][Octopress Setup With Github and Org Mode, v2]].
 
 * Plugins Installed
 + [[https://github.com/optikfluffel/octopress-responsive-video-embed][octopress-responsive-video-embed]]: No issues. Easy to embed youtube video.
