@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-03-07T10:08:53-10:00</updated>
+  <updated>2014-03-07T10:32:37-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -214,7 +214,7 @@ I use &#8220;Pages&#8221; for things like <a href="http://www.railsonmaui.com/ab
 <h2 id="sec-3">POW</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-POW allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your local,
+POW allows you to point your browser to <code>http://octopress.dev</code> to see your local,
 unpublished Octopress website. It&#8217;s very convenient to not have to remember to
 run a local server, and it works great with LiveReload. Scroll to the bottom of
 this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake
@@ -675,6 +675,9 @@ especially on the difference of the source and master branches.
 <li><a href="http://odino.org/bash-aliases-for-octopress/">Shell Aliases for Octopress</a>: Save time with these shortcuts
 </li>
 <li><a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress package</a>: The connection between emacs/org-mode and octopress.
+</li>
+<li><a href="http://www.brokenlinkcheck.com/broken-links.php">Check your blog for broken links</a>: Super useful to scan for broken links.
+This link is more efficient than the <a href="http://validator.w3.org/checklink">W3C Link Checker</a>
 </li>
 </ol>
 </div>
@@ -1236,7 +1239,7 @@ applications, Discourse.
 <li>Everything I wanted to know about Ruby, and my co-worker&#8217;s compensation, but
 was afraid to ask.
 </li>
-<li><a href="http://www.youtube.com/watch?v=Yfay4cM5Qxk&feature=youtu.be&a">Who is @JEG2?</a>
+<li><a href="https://www.youtube.com/watch?v=6cdbx1BmboQ">Who is @JEG2?</a>
 </li>
 <li>Plenty of break time between talks made for lots of conversation.
 </li>
@@ -2463,41 +2466,6 @@ I welcome comments and suggestions.
 </p>
 </div>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How Much Client Side JavaScript in Rails 4?]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/"/>
-    <updated>2013-05-28T15:22:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4</id>
-    <content type="html"><![CDATA[<p>
-Articles and Quick Summaries:
-</p>
-<ul class="org-ul">
-<li><a href="http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/">RailsConf 2013 Keynotes: Rails 4 vs Ember.js</a>: DHH on server side vs. Yehuda on
-the client side.
-</li>
-<li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">Improving performance on twitter.com</a>: Twitter&#8217;s retreat from client side js.
-</li>
-<li><a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">How Basecamp Next got to be so damn fast without using much client-side UI</a>:
-DHH on the Rails features the preclude the use of client side js.
-</li>
-</ul>
-
-
-
-<p>
-<a href="http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html">Why Discourse uses Ember.js</a>: 
-</p>
-<blockquote>
-<p>
-Ask yourself how interactive your web application needs to be. On the less
-interactive side of the scale, there are huge wins with server side rendered
-HTML. The more interactive your application becomes, the more you’ll benefit
-from a client side MVC framework.
-</p>
-</blockquote>
 ]]></content>
   </entry>
   
@@ -3901,7 +3869,7 @@ things about a page are:
 <h2 id="sec-3">POW</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-POW allows you to point your browser to <a href="http://octopress.dev">http://octopress.dev</a> to see your local,
+POW allows you to point your browser to <code>http://octopress.dev</code> to see your local,
 unpublished Octopress website. It&#8217;s very convenient to not have to remember to
 run a local server, and it works great with LiveReload. Scroll to the bottom of
 this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake
@@ -4256,7 +4224,7 @@ especially on the difference of the source and master branches.
 <div class="outline-text-2" id="text-9">
 <p>
 Thanks in advance for any suggestions on this article. I hope you find it
-helpful. Check me out on Twitter: <a href="http://twitter.com/railsonmaui">@RailsOnMaui</a>.
+helpful. Check me out on Twitter: <a href="https://twitter.com/railsonmaui">@RailsOnMaui</a>.
 </p>
 </div>
 </div>

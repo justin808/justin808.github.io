@@ -15,6 +15,8 @@ footer: true
 * Octopress
 + [[http://www.railsonmaui.com/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/][Org-Mode Octopress Setup V2]]
 + [[file:renaming-redating-blog-posts.html][Renaming, Redating Blog Posts]]
++ [[http://www.brokenlinkcheck.com/broken-links.php][Check your blog for broken links]]: Super useful to scan for broken links. This
+  link is more efficient than the [[http://validator.w3.org/checklink][W3C Link Checker]].
 
 * General Mac Tips
 + [[file:alfred-tips.html][Alfred (Productivity App)]]
