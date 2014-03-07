@@ -400,6 +400,8 @@ well as your customizations and blog posts.
 7. [[http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/][18 Months of Octopress]]: Nice article on why Octopress was worth the switch.
 8. [[http://odino.org/bash-aliases-for-octopress/][Shell Aliases for Octopress]]: Save time with these shortcuts
 9. [[https://github.com/yoshinari-nomura/org-octopress][org-octopress package]]: The connection between emacs/org-mode and octopress.
+10. [[http://www.brokenlinkcheck.com/broken-links.php][Check your blog for broken links]]: Super useful to scan for broken links.
+    This link is more efficient than the [[http://validator.w3.org/checklink][W3C Link Checker]]
 
 * Live Reload
 Previously, I tried to get Live Reload to work. It would be neat it worked, but
