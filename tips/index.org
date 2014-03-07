@@ -10,12 +10,12 @@ footer: true
 #+END_HTML
 
 * Software Development
-+ [[http:/tips/rubymine.html][RubyMine]]
++ [[file:./rubymine/index.html][RubyMine]]
 
 * Octopress
-  + [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/][Octopress Setup With Github, Org Mode, and LiveReload]]
-  + [[http:/tips/renaming-redating-blog-posts.html][Renaming, redating blog posts]]
++ [[file:../blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2.org][Octopress Setup With Github, Org Mode, and LiveReload]]
++ [[file:./renaming-redating-blog-posts.html][Renaming, redating blog posts]]
 
 * General Mac Tips
-  + [[http:/tips/alfred-tips.html][Alfred (Productivity App)]]
++ [[http://www.railsonmaui.com/tips/alfred-tips.html][Alfred (Productivity App)]]
   

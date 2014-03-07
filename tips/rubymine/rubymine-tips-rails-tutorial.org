@@ -10,11 +10,13 @@ categories: [RubyMine, Vim]
 keywords: RubyMine, RailsTutorial.org, Tips, Productivity, Rails, IdeaVim
 published: true
 description: Here's a video of my favorite RubyMine tips. 
+alias: /tips/rubymine.html
 ---
 #+END_HTML
 
-Here's a video of my favorite RubyMine tips. I'll be updating this post shortly
-with an improved version of this video, and details on the tips.
+/See parent page [[http://www.railsonmaui.com/tips/rubymine/index.html][RubyMine Tips]] for a summary of articles on RubyMine./
+
+Here's a video of my favorite RubyMine tips with details below.
 
 {% youtube LnN-JIxDRCg %}
 
@@ -162,7 +164,7 @@ method separators.
 1. To find a setting, type in a keyword. I typed in "method".
 2. Click on the matches. The matches for the keyword are highlighted.
 
-{% img /tips/rubymine-preferences-method-separators.png %}
+{% img /images/rubymine/rubymine-preferences-method-separators.png %}
 
 
 * Debugging a Rake Task in RubyMine
@@ -177,6 +179,6 @@ then the rake command will be in your run menu in the toolbar. Then hit the
 debugger icon next to it. Of course, you have already set a breakpoint in the
 rake test you wish to debug.
 
-{% img /tips/rubymine-debug-rake-task.png %}
+{% img /images/rubymine/rubymine-debug-rake-task.png %}
 
 

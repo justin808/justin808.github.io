@@ -1,0 +1,74 @@
+#+BEGIN_HTML
+---
+layout: page
+title: "Why RubyMine?"
+sharing: true
+footer: true
+date: 2014-03-07 17:57
+comments: true
+categories: [RubyMine]
+keywords: RubyMine, Tips, Productivity, Rails, IdeaVim
+published: true
+description: Why I Use RubyMine
+---
+#+END_HTML
+
+In 2013, I started to consulting to JetBrains as the RubyMine Technical
+Evangelist. /That is not why I use RubyMine./ To the contrary, JetBrains picked
+me for this role due to my passion for sharing my productivity tips with
+RubyMine in this article: [[file:rubymine-tips-rails-tutorial.html][Favorite RubyMine Tips]], as well as for providing
+product feedback ([[http://youtrack.jetbrains.com/issues/RUBY?q%3D%2523User%2B%2523Justin.Gordon%2B][RubyMine bug & feature requests]]). While they may provide some
+financial support for my writings, I personally guarantee that any RubyMine tips
+provided here come from my heart and they have one purpose: to make you a more
+productive developer. As you can see below, I'm not going to sugarcoat any
+shortcomings of RubyMine.
+
+* Why Do I Use RubyMine?
+RubyMine is the only editor I personally use for Rails development. Why?
+1. *IntelliJ Idea*. If you know IntelliJ Idea for Java or other JetBrains tools, they
+   share lots of useful core functionality.
+2. *Visuals*. I'm a power Emacs user, and the visual presentation of RubyMine of
+   both code and especially diffs is far above what I can do in Emacs.
+3. *Key bindings*. Whether you like [[https://github.com/JetBrains/ideavim][Vim]] or Emacs key bindings, RubyMine has you
+   covered. 
+3. The tips I've published at [[file:~/j/railsonmaui-octopress/source/tips/index.html][Ruby Tips]] and [[file:rubymine-tips-rails-tutorial.html][Favorite RubyMine Tips]] conveys my
+   passion for many features of the RubyMine product.
+
+* Considerations for You
+1. *Tried it recently?* If you haven't tried RubyMine in the last couple of
+   years, you may consider giving it another try. I started using RubyMine in
+   2011, and by 2012, I saw some huge improvements in the stability of the
+   product. In 2014, it's very stable. I use the EAP (aka beta) versions as soon
+   as they appear for my client work.
+2. *Use good hardware.* Don't use RubyMine if you have limited hardware. I run
+   RubyMine on a 2013 MacBook Pro Retina with 16gb of RAM and a SSD, and it
+   works great on that setup. Yes, RubyMine will suck up more CPU and RAM than
+   simple editors. If you can get your hands on sufficient hardware, by all
+   means try RubyMine! And if you did not like RubyMine on your older hardware,
+   but you've since upgraded, give RubyMine a try again.
+3. *Don't use some features of RubyMine*. While RubyMine is excellent in many
+   areas, certain areas of RubyMine are limited due to the fact that Ruby and
+   Javascript/CoffeeScript are interpreted and dynamically typed rather than
+   compiled and statically typed. So I don't depend on RubyMine to have more
+   than rudimentary understanding of what my code is doing.
+   1. Turn off auto-completion pop-ups, and try to use auto-completion only when
+      it's likely to work, which is:
+      1. Static class methods.
+      2. Longish method and variable names.
+   2. What applies to auto-completion also applies to documentation.
+   That being said, I very frequently use "Goto Declaration" and "Find In Path"
+   to view the source code of a given method/class. Sure, it would be better if
+   RubyMine did a better job at what they call "Code Insight". However, don't
+   give up on RubyMine because of this shortcoming.
+
+   *Consequently, I recommend turning off auto-popups.* This is critical if you
+   use IdeaVim for Vim bindings, as the popup will tend to capture the escape
+   key, rather than the escape being used for Vim.
+
+   {% img /images/rubymine/rubymine-turn-off-autopopups.png %}
+
+* Recommendation
+If you've got a reasonably fast machine, give RubyMine a try ([[http://www.jetbrains.com/ruby/download/][free 30-day
+trial]]), and go gently on your expectations for it's "code insight" to work as
+well as it does for statically typed, compiled languages. There's so much other
+awesomeness!

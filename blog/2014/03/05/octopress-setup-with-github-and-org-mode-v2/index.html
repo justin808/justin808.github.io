@@ -396,22 +396,51 @@ octopress <code>img</code> directive within a HTML begin/end block.
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
 </p>
 </li>
-<li><b>Links</b>: Links for relative pages are simple.
+<li><b>Links</b>: This is key thing to get right. It&#8217;s critical to understand the
+issues links, or else you&#8217;ll have one of these issues:
+<ol class="org-ol">
+<li>Links work when you test your blog locally using <code>pow</code>, but not when you
+go to your published website. This happens if you use a relative link from
+blog articles, because blog articles sometimes appear on your home page
+and sometimes under the <code>/blog</code> directory. You have to use your domain
+address to link from blog articles to other articles on your blog.
+</li>
+<li>You&#8217;d like your local links to point to the correct local spot. You can do
+this for links on static pages, but just not blog articles. Thus, for
+non-blog articles, it&#8217;s preferable to use the <code>file:</code> relative path format
+(just not <code>file:/</code> absolute path).
+</li>
+</ol>
+<p>
+<b>Here&#8217;s the rules:</b>
+</p>
+
+<p>
+Links for relative static pages to pages and posts. Ensure that there&#8217;s no
+<code>/</code> immediately following <code>file:</code>. For example:
+</p>
 <pre class="example">
 [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
 </pre>
 <p>
-Links from a <i>page</i> to a <i>post</i> can use a relative link like this:
+Or if the link is one level under the current directory:
+</p>
+<pre class="example">
+[[file:misc/telecommuting.html][Why telecommuting works and how I maximize productivity]]
+</pre>
+<p>
+Links from a <i>page</i> to a <i>post</i> can use a relative link like this.
+<i>Important: you must use the <code>YYYY/MM/DD/blog-title/index.html</code> format!</i>
 </p>
 <pre class="example">
 [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]]
 </pre>
 <p>
-<b>However</b>, links from posts to other posts require an absolute URL. The big
-gotcha is blog posts due to the nested URL structure that does not map to the
-where you&#8217;re putting your org-posts. To avoid trouble, you need to follow a
-format as this example shows. It&#8217;s easiest to copy the URL from the browser
-address bar.
+<b>However</b>, links from posts to other posts require an absolute URL using your
+published domain name. The big gotcha is blog posts due to the nested URL
+structure that does not map to the where you&#8217;re putting your org-posts. To
+avoid trouble, you need to follow a format as this example shows. It&#8217;s
+easiest to copy the URL from the browser address bar.
 </p>
 <pre class="example">
 [[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
@@ -419,10 +448,9 @@ address bar.
 <p>
 I tried using a <code>file:../blog</code> syntax, but that either would work on the home
 page or in the specific blog article, but not both. <code>http:/blog</code> links would
-work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
-not work if the link is within a block level html tag (i.e., a paragraph).
-Hopefully, one day we&#8217;ll be able to specify relative links from blog article
-to blog article.
+work in Chrome but not mobile Safari. Hopefully, one day we&#8217;ll be able to
+specify relative links from blog article to blog article. <i>For now, this is a
+big <b>gotcha</b>.</i>
 </p>
 </li>
 <li>Bold and italic styling (text inside of stars and /) was a bit of mystery
