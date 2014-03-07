@@ -184,28 +184,46 @@ Here are the basic steps:
    octopress =img= directive within a HTML begin/end block.
 
    {% img /images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png %}
-5. *Links*: Links for relative pages are simple.
+5. *Links*: This is key thing to get right. It's critical to understand the
+   issues links, or else you'll have one of these issues:
+   1. Links work when you test your blog locally using =pow=, but not when you
+      go to your published website. This happens if you use a relative link from
+      blog articles, because blog articles sometimes appear on your home page
+      and sometimes under the =/blog= directory. You have to use your domain
+      address to link from blog articles to other articles on your blog.
+   2. You'd like your local links to point to the correct local spot. You can do
+      this for links on static pages, but just not blog articles. Thus, for
+      non-blog articles, it's preferable to use the =file:= relative path format
+      (just not =file:/= absolute path).
+   *Here's the rules:*
+    
+   Links for relative static pages to pages and posts. Ensure that there's no
+   =/= immediately following =file:=. For example:
    #+BEGIN_EXAMPLE
    [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
    #+END_EXAMPLE
-   Links from a /page/ to a /post/ can use a relative link like this:
+   Or if the link is one level under the current directory:
+   #+BEGIN_EXAMPLE
+   [[file:misc/telecommuting.html][Why telecommuting works and how I maximize productivity]]
+   #+END_EXAMPLE
+   Links from a /page/ to a /post/ can use a relative link like this.
+   /Important: you must use the =YYYY/MM/DD/blog-title/index.html= format!/
    #+BEGIN_EXAMPLE
    [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]]
    #+END_EXAMPLE 
-   *However*, links from posts to other posts require an absolute URL. The big
-   gotcha is blog posts due to the nested URL structure that does not map to the
-   where you're putting your org-posts. To avoid trouble, you need to follow a
-   format as this example shows. It's easiest to copy the URL from the browser
-   address bar.
+   *However*, links from posts to other posts require an absolute URL using your
+   published domain name. The big gotcha is blog posts due to the nested URL
+   structure that does not map to the where you're putting your org-posts. To
+   avoid trouble, you need to follow a format as this example shows. It's
+   easiest to copy the URL from the browser address bar.
    #+BEGIN_EXAMPLE
    [[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
    #+END_EXAMPLE
    I tried using a =file:../blog= syntax, but that either would work on the home
    page or in the specific blog article, but not both. =http:/blog= links would
-   work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
-   not work if the link is within a block level html tag (i.e., a paragraph).
-   Hopefully, one day we'll be able to specify relative links from blog article
-   to blog article.
+   work in Chrome but not mobile Safari. Hopefully, one day we'll be able to
+   specify relative links from blog article to blog article. /For now, this is a
+   big *gotcha*./
 6. Bold and italic styling (text inside of stars and /) was a bit of mystery
    using the standard theme. Octopress has styling for =<strong>= and =<em>=. Org-mode spits out =<b>= and
    =<i>= tags.

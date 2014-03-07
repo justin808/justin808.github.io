@@ -1,0 +1,22 @@
+#+BEGIN_HTML
+---
+layout: page
+title: "RubyMine Tips"
+sharing: true
+footer: true
+date: 2014-03-07 17:57
+comments: true
+categories: [RubyMine, Vim]
+keywords: RubyMine, RailsTutorial.org, Tips, Productivity, Rails, IdeaVim
+published: true
+description: Landing page for rubymine tips.
+---
+#+END_HTML
+
+# [[file:why-rubymine.html][Why RubyMine?]]
+# Why do I use RubyMine?
+
+* [[file:rubymine-tips-rails-tutorial.html][Favorite RubyMine Tips]]
+Screencast and list of my favorite RubyMine tips.
+
+# * Short Tips
