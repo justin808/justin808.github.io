@@ -6,7 +6,7 @@ sharing: true
 footer: true
 date: 2014-03-07 17:57
 comments: true
-categories: [RubyMine]
+# categories: [RubyMine]
 keywords: RubyMine, Tips, Productivity, Rails, IdeaVim
 published: true
 description: Why I Use RubyMine
