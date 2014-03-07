@@ -207,9 +207,9 @@ Here are the basic steps:
    [[file:misc/telecommuting.html][Why telecommuting works and how I maximize productivity]]
    #+END_EXAMPLE
    Links from a /page/ to a /post/ can use a relative link like this.
-   /Important: you must use the =YYYY/MM/DD/blog-title/index.html= format!/
+   /Important: you must use the =YYYY/MM/DD/blog-title/index.html= format! and you must specify the article title./
    #+BEGIN_EXAMPLE
-   [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]]
+   [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][Org-Mode Octopress Setup V2]]
    #+END_EXAMPLE 
    *However*, links from posts to other posts require an absolute URL using your
    published domain name. The big gotcha is blog posts due to the nested URL
