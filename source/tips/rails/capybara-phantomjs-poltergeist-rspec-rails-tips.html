@@ -1,0 +1,446 @@
+---
+layout: page
+title: Capybara, PhantomJs, Poltergeist, and Rspec Tips
+sharing: true
+footer: true
+date: 2014-03-09 17:00
+comments: true
+# categories: [git, vim]
+keywords: Capybara, PhantomJs, Poltergeist, and Rspec Tips
+published: true
+description: Capybara, PhantomJs, Poltergeist, and Rspec Tips for Rails Integration Testing.
+---
+
+<p>
+I'm a huge fan of the integration tests on Rails. Yes, they can be a bit slow,
+and they can be bit difficult to write and maintain, but these disadvantages far
+outweigh the comfort in being able to deploy code with no QA staff. This page
+will summarize my tips for successful integration testing on Rails. I'll try to
+keep this page updated with my current best setup. I look forward to your comments.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Configuration</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Here are the gems I'm currently using for testing. I'm using an two test
+environments: test and ci. The reason for two is that I've got guard constantly
+running specs, and sometimes I use a debugger. If guard and the debugger use the
+same database, then hangs occur due to transaction issues with database cleaner. 
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Gems</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Unless the gem has a version specified, I try to keep my testing gems up to date
+with the latest.
+</p>
+
+<p>
+{% gist 9460979 %}
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">spec_helper.rb</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+{% gist 9460750 %}
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">.rspec file</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+This file configures the defaults for running tests. I really like the
+instalfail gem so that I can see errors immediately.
+</p>
+<pre class="example">
+--color
+--require spec_helper
+--require rspec/instafail
+--format RSpec::Instafail
+--backtrace
+--format documentation
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Using :focus with guard-rspec</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+My favorite way to run specs is using <a href="https://github.com/burke/zeus">Zeus</a>, <a href="https://github.com/guard/guard">Guard</a>, and finally with
+<a href="https://github.com/grosser/parallel_tests">parallel_tests</a>.
+</p>
+
+<p>
+Here's the part of my Guardfile for my <code>spec</code> group:
+</p>
+
+<p>
+{% gist 9461114 %}
+</p>
+
+<p>
+Here's my workflow for refining a test, and then running all tests in parallel:
+</p>
+<ol class="org-ol">
+<li>Flag test (either <code>describe</code>, <code>context</code>, <code>it</code>, <code>feature</code>, or <code>scenario</code>)
+with <code>:focus</code> like this:
+{% codeblock lang:ruby %}
+feature "Users", :js, :focus do
+scenario "signup failure should not make a new user", :focus do
+{% endcodeblock %}
+</li>
+<li>In guard console for your specs, run command <code>a</code> for all tests (or just hit
+return). That will run only the tests you've marked with <code>:focus</code>.
+</li>
+<li>Sometimes guard picks up the changes and re-runs your test automatically.
+Many times, I just cmd-tab to iterm2 and hit return, which runs the default
+command of all specs.
+</li>
+<li>Be sure to search and replace for ", :focus" so that you can run the whole
+test suite. If you forget to remove a :focus, then you'll
+see that the total number of tests is less than you expect.
+</li>
+<li>Once your new tests pass, run the whole test suite in parallel with the
+command <code>zps</code>, defined below.    
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Debugging Integration (aka Feature) Tests</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>First, try to manually do test actions in the browser.
+</li>
+<li>Test out your CSS and xpath selectors in the chrome console.
+a. <code>$("css selector")</code>
+b. <code>$x("xpath-selector")</code> 
+</li>
+<li>Call <code>page!</code> in your test right before the error and a browser will
+open up with the page contents.
+</li>
+<li>Call render_page("some_name", true) to print out a screenshot. Usually,
+either the <code>html</code> or the <code>png</code> version of a page will tell you where your
+integration test is losing the plot.
+</li>
+</ol>
+
+<p>
+Here's a couple convenient helper methods, page! and render_page:
+</p>
+{% codeblock lang:ruby %}
+def page!
+  save_and_open_page
+end
+
+# Saves page to place specfied at in configuration.
+# NOTE: you must pass js: true for the feature definition (or else you'll see that render doesn't exist!)
+# call force = true, or set ENV[RENDER_SCREENSHOTS] == 'YES'
+def render_page(name, force = false)
+  if force || (ENV['RENDER_SCREENSHOTS'] == 'YES')
+    path = File.join Rails.application.config.integration_test_render_dir, "#{name}.png"
+    page.driver.render(path)
+  end
+end
+{% endcodeblock %}
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Xpath</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Sometimes a Capybara test requires an xpath for more advanced finding of just
+the right dom node. For example, here's a useful xpath snippet for finding the xpath to the page one link.
+</p>
+
+{% codeblock lang:ruby %}
+page_1 = find(:xpath, '//div[contains(@class,"pagination")]//a[normalize-space(.)="1"]')
+{% endcodeblock %}
+
+<p>
+If you use a context ("within"), then be sure to use ".//" and not "<i>/" as "/</i>" means
+anywhere on the page, not just in the current context!
+</p>
+
+<p>
+Another case where I had to use an xpath was to find the parent of a node. While
+the Capybara node object has a method <code>parent</code>, that does not give you the same
+sort of dome node parent that jQuery would. Thus, you can use an xpath like
+this, which finds an anchor with attribute <code>data-something</code> having value in ruby
+variable <code>data_value</code>.
+</p>
+
+{% codeblock lang:ruby %}
+the_node = find(:xpath, "//a[@data-something='#{data_value}']/..")
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Debugger vs. Print Statements</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+80% of the time, I use print statements for debugging, rather than the awesome RubyMine
+debugger. Here are the pros and cons of each:
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">Print Statements</h3>
+<div class="outline-text-3" id="text-3-3">
+<ol class="org-ol">
+<li>Very fast to see exactly the data you need.
+</li>
+<li>No issues with multiple threads when running integration tests.
+</li>
+<li>Print statements help with the coffeescript code. Just do a:
+{% codeblock lang:coffeescript %}
+console.log "some message, my_var #{my_var}"
+{% endcodeblock %}
+</li>
+<li>With Zeus running, it's much faster to re-run a test and get the print
+statements rather than starting the RubyMine debugger.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4">Debugger</h3>
+<div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>For tough problems, the debugger can really help.
+</li>
+<li>Allows you to evaluate code and dig into variables.
+</li>
+<li>I'll tend to use the RubyMine debugger more for running the Rails server,
+since there's no waiting for the process to start if the debugger is already
+running the server.
+</li>
+<li>It's key to set breakpoints where you think you'll need them, start your
+test, and then move your cursor to some point where the problem is
+manifesting. The hit menu choice "Run -&gt; Force Run to Cursor". That is a
+<b>HUGE</b> time saver.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Database Cleaner</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+It's pretty critical to use Database Cleaner correctly when using Capybara with
+Poltergeist. Here's my setup. The only thing specific is that I have a couple
+tables that are seeded when the database is created.
+</p>
+
+<p>
+{% gist 9461052 %}
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Tricky Testing</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">AJAX</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+This is well documented on the <a href="https://github.com/jnicklas/capybara">Capybara website</a>. Read the part about AJAX very
+closely. The key thing is to think of what will change on the page once your
+AJAX response comes back. Then use a statement like:
+</p>
+{% codeblock lang:ruby %}
+expect(page).to have_content("some value")
+{% endcodeblock %}
+<p>
+Capybara will be smart about waiting until that condition is true. However, you
+have to be clever to come up with just the right condition.
+</p>
+
+<p>
+Be sure to understand how <code>expect(page).to have_content("blah")</code> will poll the
+page until the timeout or "blah" appears. On the contrary, <code>expect(page).to_not
+have_content contain("blah")</code> will not poll! So be sure to use a positive
+expectation after you take some action invoking an AJAX request (or even an
+animation). Or else you may get a false positive that something is not on the
+page just because the page has not finished loading.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">Auto-complete dropdowns with Capybara and Poltergeist</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+I'm using <a href="http://twitter.github.io/typeahead.js/">typeahead.js</a> with <a href="http://getbootstrap.com/">Twitter Bootstrap 3</a>, both of which rock!
+</p>
+
+<p>
+Here's the secret sauce for doing capybara feature tests with the typeahead.js
+auto-complete. This technique should work for other types of auto-complete as
+well.
+</p>
+
+<p>
+To make this work for your code, modify the <code>.tt-suggestion</code> selector depending
+on how you choose to render drop downs.
+</p>
+
+<p>
+{% gist 9461067 %}
+</p>
+
+<p>
+Here's the most relevant links on this topic:
+</p>
+<ol class="org-ol">
+<li><a href="http://ruby-journal.com/how-to-do-jqueryui-autocomplete-with-capybara-2/?utm_source=rubyweekly&utm_medium=email">How to Do jQuery UI Autocomplete With Capybara 2</a>
+</li>
+<li>Poltergeist github issues: <a href="https://github.com/jonleighton/poltergeist/issues/439">439</a>, <a href="https://github.com/jonleighton/poltergeist/issues/274">274</a>, <a href="https://github.com/jonleighton/poltergeist/issues/43">43</a>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3">Hover effects</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Here's how you test a mouseover effect. This was recently fixed for Capybara and
+Poltergeist and this absolutely rocks!
+</p>
+
+{% codeblock lang:ruby %}
+some_node = find("css selector")
+some_node.hover
+expect(page).to have_selector("some other css_selector")
+{% endcodeblock %}
+
+<p>
+For fun, you can put some console.log in your event handler, and run the tests,
+and see in your console output that Capybara triggers the event. 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Unreliable Tests: rspec-retry Gem Handles Intermittent Phantomjs Issues</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+It's not perfect that I have to use <a href="https://github.com/y310/rspec-retry">rspec-retry</a> to get past random failures with
+PhantomJs. However, it's way better than to let rspec simply retry before
+considering the test a failure. Note, you don't to have the <code>:retry_count</code> at
+anything other than 1 when you're re-running a test while developing it, as that
+would really slow you down.
+</p>
+{% codeblock lang:ruby %}
+# Discussion of retry
+# https://github.com/rspec/rspec-core/issues/456
+RSpec.configure do |config|
+  config.verbose_retry       = true # show retry status in spec process
+  retry_count                = ENV['RSPEC_RETRY_COUNT']
+  config.default_retry_count = retry_count.try(:to_i) || 1
+  puts "RSpec retry count is #{config.default_retry_count}"
+end
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Testing with Zeus</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Overall, I'm quite pleased with the performance boost of Zeus, especially for
+rake tasks, running specs, and running specs in parallel (stunning difference).
+</li>
+<li>It's super important to remember that you have to <b>restart Zeus</b> whenever you want
+files like test.rb or spec_helper.rb (and maybe factories.rb or Gemfile) to be
+re-evaluated. This can cause some very confusing results until you restart Zeus.
+</li>
+</ul>
+
+<p>
+Here's my <code>zeus.json</code> file, configured to work with parallel-tests.
+</p>
+
+{% codeblock lang:json %}
+{
+  "command": "ruby -rubygems -r./custom_plan -eZeus.go",
+
+  "plan": {
+    "boot": {
+      "default_bundle": {
+        "development_environment": {
+          "prerake": {
+            "rake": []
+          },
+          "runner": ["r"],
+          "console": ["c"],
+          "server": ["s"],
+          "generate": ["g"],
+          "destroy": ["d"],
+          "dbconsole": ["db"],
+          "parallel_rspec": []
+        },
+        "test_environment": {
+          "test_helper": {
+            "test": ["rspec"],
+            "parallel_rspec_worker": []
+          }
+        }
+      }
+    }
+  }
+}
+{% endcodeblock %}
+
+<p>
+Every once in a while, my setup borks, and I need to kill all my zeus, guard,
+phantomjs processes at once. Here's a couple useful zsh functions:
+</p>
+{% codeblock lang:bash %}
+pgr() {
+  for x in rails phantomjs zeus; do 
+    pgrep -fl $x;
+  done 
+}
+
+pgk() {
+  for x in rails phantomjs zeus; do 
+    pkill -fl $x;
+  done 
+}
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">Parallel Tests</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+As mentioned above, I got a stunning performance difference using the
+<a href="https://github.com/grosser/parallel_tests">parallel_tests</a> gem. However, it defaults to using as many threads as one has
+processors (8 on my Macbook). Since that is too many if you want to keep using
+your Mac, I use this zsh function, which defaults to 6 processors.
+</p>
+
+{% codeblock lang:bash %}
+zps () {
+  p=${1:-6}
+  echoRun "zeus parallel_rspec -n $p spec"
+}
+{% endcodeblock %}
+
+<p>
+The trickiest part of the parallel_tests gem is setting up and migrating the
+extra test databases. Here's my rake task for doing migrations, which updates
+test, development, and my parallel test databases, and annotates.
+</p>
+
+<p>
+{% gist 9461522 %}
+</p>
+</div>
+</div>

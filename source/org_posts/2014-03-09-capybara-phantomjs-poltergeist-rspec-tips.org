@@ -1,0 +1,26 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Capybara PhantomJs Poltergeist Rspec Tips"
+date: 2014-03-09 18:50:19 -1000
+comments: true
+categories: 
+keywords: 
+description: 
+---
+#+END_HTML
+
+I've added a page of [[http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html][tips on integration (aka feature spec) testing using Capybara, PhantomJs,
+Poltergeist, and Rspec]].
+
+Some of the tips include:
+1. Favorite test configuration (gems, spec_helper, etc.) for feature specs.
+2. How to troubleshoot and debug feature specs
+3. My setup for using Zeus with parallel-tests, including a rake task for
+   setting up the databases.
+4. Tricky testing:
+   a. Auto-complete dropdowns (some handy utility methods).
+   b. Hover effects (easy now!)
+   c. AJAX
+
+I'll try to keep this page of tips updated as my test configuration evolves.
