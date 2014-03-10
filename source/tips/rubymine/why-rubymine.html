@@ -1,0 +1,120 @@
+---
+layout: page
+title: "Why RubyMine?"
+sharing: true
+footer: true
+date: 2014-03-07 17:57
+comments: true
+# categories: [RubyMine]
+keywords: RubyMine, Tips, Productivity, Rails, IdeaVim
+published: true
+description: Why I Use RubyMine
+---
+
+<p>
+In 2013, I started to consulting to JetBrains as the RubyMine Technical
+Evangelist. <i>That is not why I use RubyMine.</i> To the contrary, JetBrains picked
+me for this role due to my passion for sharing my productivity tips with
+RubyMine in this article: <a href="rubymine-tips-rails-tutorial.html">Favorite RubyMine Tips</a>, as well as for providing
+product feedback (<a href="http://youtrack.jetbrains.com/issues/RUBY?q=%2523User+%2523Justin.Gordon+">RubyMine bug &amp; feature requests</a>). While they may provide some
+financial support for my writings, I personally guarantee that any RubyMine tips
+provided here come from my heart and they have one purpose: to make you a more
+productive developer. As you can see below, I'm not going to sugarcoat any
+shortcomings of RubyMine.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Why Do I Use RubyMine?</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+RubyMine is the only editor I personally use for Rails development. Why?
+</p>
+<ol class="org-ol">
+<li><b>IntelliJ Idea</b>. If you know IntelliJ Idea for Java or other JetBrains tools, they
+share lots of useful core functionality.
+</li>
+<li><b>Visuals</b>. I'm a power Emacs user, and the visual presentation of RubyMine of
+both code and especially diffs is far above what I can do in Emacs.
+</li>
+<li><b>Key bindings</b>. Whether you like <a href="https://github.com/JetBrains/ideavim">Vim</a> or Emacs key bindings, RubyMine has you
+covered. 
+</li>
+<li>The tips I've published at <a href="file:///Users/justin/j/railsonmaui-octopress/source/tips/index.html">Ruby Tips</a> and <a href="rubymine-tips-rails-tutorial.html">Favorite RubyMine Tips</a> conveys my
+passion for many features of the RubyMine product.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Considerations for You</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><b>Tried it recently?</b> If you haven't tried RubyMine in the last couple of
+years, you may consider giving it another try. I started using RubyMine in
+2011, and by 2012, I saw some huge improvements in the stability of the
+product. In 2014, it's very stable. I use the EAP (aka beta) versions as soon
+as they appear for my client work.
+</li>
+<li><b>Use good hardware.</b> Don't use RubyMine if you have limited hardware. I run
+RubyMine on a 2013 MacBook Pro Retina with 16gb of RAM and a SSD, and it
+works great on that setup. Yes, RubyMine will suck up more CPU and RAM than
+simple editors. If you can get your hands on sufficient hardware, by all
+means try RubyMine! And if you did not like RubyMine on your older hardware,
+but you've since upgraded, give RubyMine a try again.
+</li>
+<li><b>Don't use some features of RubyMine</b>. While RubyMine is excellent in many
+areas, certain areas of RubyMine are limited due to the fact that Ruby and
+Javascript/CoffeeScript are interpreted and dynamically typed rather than
+compiled and statically typed. So I rarely depend on RubyMine's "code
+insight" to auto-complete method names. When refactoring, be careful and
+examine the suggested changes. In IntelliJ Idea for Java, I could refactor
+mercilessly and just depended on compilation to verify refactorings.
+</li>
+<li><b>Use Find and Replace in Path all the time</b>, rather than depending on code
+insight, or navigating the project. RubyMine does an amazing job of indexing,
+so Find is super fast. Get really good at understanding all the options of
+the Find in Path dialog, and especially take the time to learn how to use
+regexps for both Find and Replace. <i>Pro tip: the regexp find and replace
+within a file is great for practicing.</i>
+</li>
+<li><b>Goto Declaration</b> works well, but you are often given a list of
+choices, so it requires a bit of manual intervention unless the name is
+highly unique. If you are given a list of matches, start typing some text
+identifying the place of interest. Gem names and subdirectories in your
+project work well for this purpose. Similarly, <code>Show References</code> is useful
+and mostly accurate.
+</li>
+<li><b>Adjust RubyMine's default settings by turning off auto-popups.</b> This is
+critical if you use IdeaVim for Vim bindings, as the popup will tend to
+capture the escape key, rather than the escape being used for Vim.
+<ol class="org-ol">
+<li>Turn off auto-completion pop-ups, and try to use auto-completion only when
+it's likely to work, which is:
+<ol class="org-ol">
+<li>Static class methods.
+</li>
+<li>Longish method and variable names.
+</li>
+</ol>
+</li>
+<li>What applies to auto-completion also applies to documentation.
+</li>
+</ol>
+<p>
+{% img /images/rubymine/rubymine-turn-off-autopopups.png %}
+</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Recommendation</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+If you've got a reasonably fast machine, give RubyMine a try (<a href="http://www.jetbrains.com/ruby/download/">free 30-day
+trial</a>), and go gently on your expectations for it's "code insight" to work as
+well as it does for statically typed, compiled languages. There's so much other
+awesomeness!
+</p>
+</div>
+</div>
