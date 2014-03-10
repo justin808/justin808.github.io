@@ -13,14 +13,14 @@ description: Landing page for rubymine tips.
 ---
 #+END_HTML
 
-# [[file:why-rubymine.html][Why RubyMine?]]
-# Why do I use RubyMine?
+* [[file:why-rubymine.html][Why RubyMine?]]
+Why do I use RubyMine?
 
 * [[file:rubymine-tips-rails-tutorial.html][Favorite RubyMine Tips]]
 Screencast and list of my favorite RubyMine tips.
 
-# * Short Tips 
-* [[http://www.railsonmaui.com/blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/][Using RubyMine/IntelliJ Regexp Search/Replace]]
+* Short Tips 
+** [[http://www.railsonmaui.com/blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/][Using RubyMine/IntelliJ Regexp Search/Replace]]
 RubyMine’s interactive search/replace is awesome. The Regexp feature is
 especially useful. Not only will it help you edit faster, but it will improve
 your ability to write RegExp’s in your code. When do you need to use a regexp?

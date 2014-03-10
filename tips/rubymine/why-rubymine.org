@@ -50,21 +50,24 @@ RubyMine is the only editor I personally use for Rails development. Why?
    areas, certain areas of RubyMine are limited due to the fact that Ruby and
    Javascript/CoffeeScript are interpreted and dynamically typed rather than
    compiled and statically typed. So I rarely depend on RubyMine's "code
-   insight" to complete method names. When refactoring, be careful and examine
-   the suggested changes. In IntelliJ Idea for Java, I could refactor
+   insight" to auto-complete method names. When refactoring, be careful and
+   examine the suggested changes. In IntelliJ Idea for Java, I could refactor
    mercilessly and just depended on compilation to verify refactorings.
-4. *Use Find and Replace in Path all the time,* rather than depending on code
-   insight. RubyMine does an amazing job of indexing, so Find is super fast. Get
-   really good at understanding all the options of the Find in Path dialog, and
-   especially take the time to learn how to use regexps for both Find and
-   Replace. Pro tip: the regexp find and replace within a file is great for
-   practicing. =Goto Declaration= also works reasonably well, but you are often
-   given a list of choices, so it requires a bit of manual intervention unless
-   the name is highly unique.
-5. *Adjust RubyMine's default settings by turning off auto-popups.* This is
+4. *Use Find and Replace in Path all the time*, rather than depending on code
+   insight, or navigating the project. RubyMine does an amazing job of indexing,
+   so Find is super fast. Get really good at understanding all the options of
+   the Find in Path dialog, and especially take the time to learn how to use
+   regexps for both Find and Replace. /Pro tip: the regexp find and replace
+   within a file is great for practicing./
+5. *Goto Declaration* works well, but you are often given a list of
+   choices, so it requires a bit of manual intervention unless the name is
+   highly unique. If you are given a list of matches, start typing some text
+   identifying the place of interest. Gem names and subdirectories in your
+   project work well for this purpose. Similarly, =Show References= is useful
+   and mostly accurate.
+7. *Adjust RubyMine's default settings by turning off auto-popups.* This is
    critical if you use IdeaVim for Vim bindings, as the popup will tend to
    capture the escape key, rather than the escape being used for Vim.
-   
    1. Turn off auto-completion pop-ups, and try to use auto-completion only when
       it's likely to work, which is:
       1. Static class methods.

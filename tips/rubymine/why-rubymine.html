@@ -38,7 +38,7 @@
 
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -156,23 +156,27 @@ but you&#8217;ve since upgraded, give RubyMine a try again.
 areas, certain areas of RubyMine are limited due to the fact that Ruby and
 Javascript/CoffeeScript are interpreted and dynamically typed rather than
 compiled and statically typed. So I rarely depend on RubyMine&#8217;s &#8220;code
-insight&#8221; to complete method names. When refactoring, be careful and examine
-the suggested changes. In IntelliJ Idea for Java, I could refactor
+insight&#8221; to auto-complete method names. When refactoring, be careful and
+examine the suggested changes. In IntelliJ Idea for Java, I could refactor
 mercilessly and just depended on compilation to verify refactorings.
 </li>
-<li>*Use Find and Replace in Path all the time,* rather than depending on code
-insight. RubyMine does an amazing job of indexing, so Find is super fast. Get
-really good at understanding all the options of the Find in Path dialog, and
-especially take the time to learn how to use regexps for both Find and
-Replace. Pro tip: the regexp find and replace within a file is great for
-practicing. <code>Goto Declaration</code> also works reasonably well, but you are often
-given a list of choices, so it requires a bit of manual intervention unless
-the name is highly unique.
+<li><b>Use Find and Replace in Path all the time</b>, rather than depending on code
+insight, or navigating the project. RubyMine does an amazing job of indexing,
+so Find is super fast. Get really good at understanding all the options of
+the Find in Path dialog, and especially take the time to learn how to use
+regexps for both Find and Replace. <i>Pro tip: the regexp find and replace
+within a file is great for practicing.</i>
+</li>
+<li><b>Goto Declaration</b> works well, but you are often given a list of
+choices, so it requires a bit of manual intervention unless the name is
+highly unique. If you are given a list of matches, start typing some text
+identifying the place of interest. Gem names and subdirectories in your
+project work well for this purpose. Similarly, <code>Show References</code> is useful
+and mostly accurate.
 </li>
 <li><b>Adjust RubyMine&#8217;s default settings by turning off auto-popups.</b> This is
 critical if you use IdeaVim for Vim bindings, as the popup will tend to
 capture the escape key, rather than the escape being used for Vim.
-
 <ol class="org-ol">
 <li>Turn off auto-completion pop-ups, and try to use auto-completion only when
 it&#8217;s likely to work, which is:
