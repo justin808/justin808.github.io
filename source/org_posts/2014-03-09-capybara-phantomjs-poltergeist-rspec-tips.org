@@ -19,8 +19,8 @@ Some of the tips include:
 3. My setup for using Zeus with parallel-tests, including a rake task for
    setting up the databases.
 4. Tricky testing:
-   a. Auto-complete dropdowns (some handy utility methods).
-   b. Hover effects (easy now!)
-   c. AJAX
+   1) Auto-complete dropdowns (some handy utility methods).
+   2) Hover effects (easy now!)
+   3) AJAX
 
 I'll try to keep this page of tips updated as my test configuration evolves.
