@@ -1,0 +1,301 @@
+#+BEGIN_HTML
+---
+layout: page
+title: Capybara, PhantomJs, Poltergeist, and Rspec Tips
+sharing: true
+footer: true
+date: 2014-03-09 17:00
+comments: true
+# categories: [git, vim]
+keywords: Capybara, PhantomJs, Poltergeist, and Rspec Tips
+published: true
+description: Capybara, PhantomJs, Poltergeist, and Rspec Tips for Rails Integration Testing.
+---
+#+END_HTML
+
+I'm a huge fan of the integration tests on Rails. Yes, they can be a bit slow,
+and they can be bit difficult to write and maintain, but these disadvantages far
+outweigh the comfort in being able to deploy code with no QA staff. This page
+will summarize my tips for successful integration testing on Rails. I'll try to
+keep this page updated with my current best setup. I look forward to your comments.
+
+* Configuration
+Here are the gems I'm currently using for testing. I'm using an two test
+environments: test and ci. The reason for two is that I've got guard constantly
+running specs, and sometimes I use a debugger. If guard and the debugger use the
+same database, then hangs occur due to transaction issues with database cleaner. 
+
+** Gems
+Unless the gem has a version specified, I try to keep my testing gems up to date
+with the latest.
+
+{% gist 9460979 %}
+
+** spec_helper.rb
+{% gist 9460750 %}
+
+** .rspec file
+This file configures the defaults for running tests. I really like the
+instalfail gem so that I can see errors immediately.
+#+BEGIN_EXAMPLE
+--color
+--require spec_helper
+--require rspec/instafail
+--format RSpec::Instafail
+--backtrace
+--format documentation
+#+END_EXAMPLE
+
+* Using :focus with guard-rspec
+My favorite way to run specs is using [[https://github.com/burke/zeus][Zeus]], [[https://github.com/guard/guard][Guard]], and finally with
+[[https://github.com/grosser/parallel_tests][parallel_tests]].
+
+Here's the part of my Guardfile for my =spec= group:
+
+{% gist 9461114 %}
+
+Here's my workflow for refining a test, and then running all tests in parallel:
+1. Flag test (either =describe=, =context=, =it=, =feature=, or =scenario=)
+   with =:focus= like this:
+   #+BEGIN_SRC ruby
+    feature "Users", :js, :focus do
+    scenario "signup failure should not make a new user", :focus do
+   #+END_SRC
+2. In guard console for your specs, run command =a= for all tests (or just hit
+   return). That will run only the tests you've marked with =:focus=.
+3. Sometimes guard picks up the changes and re-runs your test automatically.
+   Many times, I just cmd-tab to iterm2 and hit return, which runs the default
+   command of all specs.
+4. Be sure to search and replace for ", :focus" so that you can run the whole
+   test suite. If you forget to remove a :focus, then you'll
+   see that the total number of tests is less than you expect.
+5. Once your new tests pass, run the whole test suite in parallel with the
+   command =zps=, defined below.    
+
+* Debugging Integration (aka Feature) Tests
+1. First, try to manually do test actions in the browser.
+2. Test out your CSS and xpath selectors in the chrome console.
+   a. =$("css selector")=
+   b. =$x("xpath-selector")= 
+3. Call =page!= in your test right before the error and a browser will
+   open up with the page contents.
+4. Call render_page("some_name", true) to print out a screenshot. Usually,
+   either the =html= or the =png= version of a page will tell you where your
+   integration test is losing the plot.
+
+Here's a couple convenient helper methods, page! and render_page:
+#+BEGIN_SRC ruby
+def page!
+  save_and_open_page
+end
+
+# Saves page to place specfied at in configuration.
+# NOTE: you must pass js: true for the feature definition (or else you'll see that render doesn't exist!)
+# call force = true, or set ENV[RENDER_SCREENSHOTS] == 'YES'
+def render_page(name, force = false)
+  if force || (ENV['RENDER_SCREENSHOTS'] == 'YES')
+    path = File.join Rails.application.config.integration_test_render_dir, "#{name}.png"
+    page.driver.render(path)
+  end
+end
+#+END_SRC
+** Xpath
+Sometimes a Capybara test requires an xpath for more advanced finding of just
+the right dom node. For example, here's a useful xpath snippet for finding the xpath to the page one link.
+
+#+BEGIN_SRC ruby
+page_1 = find(:xpath, '//div[contains(@class,"pagination")]//a[normalize-space(.)="1"]')
+#+END_SRC
+
+If you use a context ("within"), then be sure to use ".//" and not "//" as "//" means
+anywhere on the page, not just in the current context!
+
+Another case where I had to use an xpath was to find the parent of a node. While
+the Capybara node object has a method =parent=, that does not give you the same
+sort of dome node parent that jQuery would. Thus, you can use an xpath like
+this, which finds an anchor with attribute =data-something= having value in ruby
+variable =data_value=.
+
+#+BEGIN_SRC ruby
+    the_node = find(:xpath, "//a[@data-something='#{data_value}']/..")
+#+END_SRC
+
+** Debugger vs. Print Statements
+80% of the time, I use print statements for debugging, rather than the awesome RubyMine
+debugger. Here are the pros and cons of each:
+
+** Print Statements
+1. Very fast to see exactly the data you need.
+2. No issues with multiple threads when running integration tests.
+3. Print statements help with the coffeescript code. Just do a:
+    #+BEGIN_SRC coffeescript
+    console.log "some message, my_var #{my_var}"
+    #+END_SRC
+4. With Zeus running, it's much faster to re-run a test and get the print
+   statements rather than starting the RubyMine debugger.
+
+** Debugger
+1. For tough problems, the debugger can really help.
+2. Allows you to evaluate code and dig into variables.
+3. I'll tend to use the RubyMine debugger more for running the Rails server,
+   since there's no waiting for the process to start if the debugger is already
+   running the server.
+4. It's key to set breakpoints where you think you'll need them, start your
+   test, and then move your cursor to some point where the problem is
+   manifesting. The hit menu choice "Run -> Force Run to Cursor". That is a
+   *HUGE* time saver.
+
+* Database Cleaner
+It's pretty critical to use Database Cleaner correctly when using Capybara with
+Poltergeist. Here's my setup. The only thing specific is that I have a couple
+tables that are seeded when the database is created.
+
+{% gist 9461052 %}
+
+* Tricky Testing
+** AJAX
+This is well documented on the [[https://github.com/jnicklas/capybara][Capybara website]]. Read the part about AJAX very
+closely. The key thing is to think of what will change on the page once your
+AJAX response comes back. Then use a statement like:
+#+BEGIN_SRC ruby
+expect(page).to have_content("some value")
+#+END_SRC
+Capybara will be smart about waiting until that condition is true. However, you
+have to be clever to come up with just the right condition.
+
+Be sure to understand how =expect(page).to have_content("blah")= will poll the
+page until the timeout or "blah" appears. On the contrary, =expect(page).to_not
+have_content contain("blah")= will not poll! So be sure to use a positive
+expectation after you take some action invoking an AJAX request (or even an
+animation). Or else you may get a false positive that something is not on the
+page just because the page has not finished loading.
+
+** Auto-complete dropdowns with Capybara and Poltergeist
+I'm using [[http://twitter.github.io/typeahead.js/][typeahead.js]] with [[http://getbootstrap.com/][Twitter Bootstrap 3]], both of which rock!
+
+Here's the secret sauce for doing capybara feature tests with the typeahead.js
+auto-complete. This technique should work for other types of auto-complete as
+well.
+
+To make this work for your code, modify the =.tt-suggestion= selector depending
+on how you choose to render drop downs.
+
+{% gist 9461067 %}
+
+Here's the most relevant links on this topic:
+1. [[http://ruby-journal.com/how-to-do-jqueryui-autocomplete-with-capybara-2/?utm_source=rubyweekly&utm_medium=email][How to Do jQuery UI Autocomplete With Capybara 2]]
+2. Poltergeist github issues: [[https://github.com/jonleighton/poltergeist/issues/439][439]], [[https://github.com/jonleighton/poltergeist/issues/274][274]], [[https://github.com/jonleighton/poltergeist/issues/43][43]]
+
+** Hover effects
+Here's how you test a mouseover effect. This was recently fixed for Capybara and
+Poltergeist and this absolutely rocks!
+
+#+BEGIN_SRC ruby
+    some_node = find("css selector")
+    some_node.hover
+    expect(page).to have_selector("some other css_selector")
+#+END_SRC
+
+For fun, you can put some console.log in your event handler, and run the tests,
+and see in your console output that Capybara triggers the event. 
+
+* Unreliable Tests: rspec-retry Gem Handles Intermittent Phantomjs Issues
+It's not perfect that I have to use [[https://github.com/y310/rspec-retry][rspec-retry]] to get past random failures with
+PhantomJs. However, it's way better than to let rspec simply retry before
+considering the test a failure. Note, you don't to have the =:retry_count= at
+anything other than 1 when you're re-running a test while developing it, as that
+would really slow you down.
+#+BEGIN_SRC ruby
+# Discussion of retry
+# https://github.com/rspec/rspec-core/issues/456
+RSpec.configure do |config|
+  config.verbose_retry       = true # show retry status in spec process
+  retry_count                = ENV['RSPEC_RETRY_COUNT']
+  config.default_retry_count = retry_count.try(:to_i) || 1
+  puts "RSpec retry count is #{config.default_retry_count}"
+end
+#+END_SRC
+
+* Testing with Zeus
++ Overall, I'm quite pleased with the performance boost of Zeus, especially for
+  rake tasks, running specs, and running specs in parallel (stunning difference).
++ It's super important to remember that you have to *restart Zeus* whenever you want
+  files like test.rb or spec_helper.rb (and maybe factories.rb or Gemfile) to be
+  re-evaluated. This can cause some very confusing results until you restart Zeus.
+
+Here's my =zeus.json= file, configured to work with parallel-tests.
+
+#+BEGIN_SRC json
+{
+  "command": "ruby -rubygems -r./custom_plan -eZeus.go",
+
+  "plan": {
+    "boot": {
+      "default_bundle": {
+        "development_environment": {
+          "prerake": {
+            "rake": []
+          },
+          "runner": ["r"],
+          "console": ["c"],
+          "server": ["s"],
+          "generate": ["g"],
+          "destroy": ["d"],
+          "dbconsole": ["db"],
+          "parallel_rspec": []
+        },
+        "test_environment": {
+          "test_helper": {
+            "test": ["rspec"],
+            "parallel_rspec_worker": []
+          }
+        }
+      }
+    }
+  }
+}
+#+END_SRC
+
+Every once in a while, my setup borks, and I need to kill all my zeus, guard,
+phantomjs processes at once. Here's a couple useful zsh functions:
+#+BEGIN_SRC bash
+pgr() {
+  for x in rails phantomjs zeus; do 
+    pgrep -fl $x;
+  done 
+}
+
+pgk() {
+  for x in rails phantomjs zeus; do 
+    pkill -fl $x;
+  done 
+}
+#+END_SRC
+
+* Parallel Tests
+As mentioned above, I got a stunning performance difference using the
+[[https://github.com/grosser/parallel_tests][parallel_tests]] gem. However, it defaults to using as many threads as one has
+processors (8 on my Macbook). Since that is too many if you want to keep using
+your Mac, I use this zsh function, which defaults to 6 processors.
+
+#+BEGIN_SRC bash
+zps () {
+	p=${1:-6}
+	echoRun "zeus parallel_rspec -n $p spec"
+}
+#+END_SRC
+
+The trickiest part of the parallel_tests gem is setting up and migrating the
+extra test databases. Here's my rake task for doing migrations, which updates
+test, development, and my parallel test databases, and annotates.
+
+{% gist 9461522 %}
+
+
+
+
+
+
+
+
+

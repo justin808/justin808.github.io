@@ -155,8 +155,24 @@ but you&#8217;ve since upgraded, give RubyMine a try again.
 <li><b>Don&#8217;t use some features of RubyMine</b>. While RubyMine is excellent in many
 areas, certain areas of RubyMine are limited due to the fact that Ruby and
 Javascript/CoffeeScript are interpreted and dynamically typed rather than
-compiled and statically typed. So I don&#8217;t depend on RubyMine to have more
-than rudimentary understanding of what my code is doing.
+compiled and statically typed. So I rarely depend on RubyMine&#8217;s &#8220;code
+insight&#8221; to complete method names. When refactoring, be careful and examine
+the suggested changes. In IntelliJ Idea for Java, I could refactor
+mercilessly and just depended on compilation to verify refactorings.
+</li>
+<li>*Use Find and Replace in Path all the time,* rather than depending on code
+insight. RubyMine does an amazing job of indexing, so Find is super fast. Get
+really good at understanding all the options of the Find in Path dialog, and
+especially take the time to learn how to use regexps for both Find and
+Replace. Pro tip: the regexp find and replace within a file is great for
+practicing. <code>Goto Declaration</code> also works reasonably well, but you are often
+given a list of choices, so it requires a bit of manual intervention unless
+the name is highly unique.
+</li>
+<li><b>Adjust RubyMine&#8217;s default settings by turning off auto-popups.</b> This is
+critical if you use IdeaVim for Vim bindings, as the popup will tend to
+capture the escape key, rather than the escape being used for Vim.
+
 <ol class="org-ol">
 <li>Turn off auto-completion pop-ups, and try to use auto-completion only when
 it&#8217;s likely to work, which is:
@@ -170,19 +186,6 @@ it&#8217;s likely to work, which is:
 <li>What applies to auto-completion also applies to documentation.
 </li>
 </ol>
-<p>
-That being said, I very frequently use &#8220;Goto Declaration&#8221; and &#8220;Find In Path&#8221;
-to view the source code of a given method/class. Sure, it would be better if
-RubyMine did a better job at what they call &#8220;Code Insight&#8221;. However, don&#8217;t
-give up on RubyMine because of this shortcoming.
-</p>
-
-<p>
-<b>Consequently, I recommend turning off auto-popups.</b> This is critical if you
-use IdeaVim for Vim bindings, as the popup will tend to capture the escape
-key, rather than the escape being used for Vim.
-</p>
-
 <p>
 <img src="/images/rubymine/rubymine-turn-off-autopopups.png">
 </p>
@@ -269,6 +272,10 @@ awesomeness!
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/">Capybara PhantomJs Poltergeist Rspec Tips</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/">Org-Mode Octopress Setup V2</a>
       </li>
     
@@ -290,10 +297,6 @@ awesomeness!
     
       <li class="post">
         <a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</a>
       </li>
     
   </ul>

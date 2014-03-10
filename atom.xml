@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-03-07T10:51:54-10:00</updated>
+  <updated>2014-03-09T23:11:27-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Capybara PhantomJs Poltergeist Rspec Tips]]></title>
+    <link href="http://www.railsonmaui.com//blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/"/>
+    <updated>2014-03-09T18:50:19-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips</id>
+    <content type="html"><![CDATA[<p>
+I&#8217;ve added a page of <a href="http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html">tips on integration (aka feature spec) testing using Capybara, PhantomJs,
+Poltergeist, and Rspec</a>.
+</p>
+
+<p>
+Some of the tips include:
+</p>
+<ol class="org-ol">
+<li>Favorite test configuration (gems, spec_helper, etc.) for feature specs.
+</li>
+<li>How to troubleshoot and debug feature specs
+</li>
+<li>My setup for using Zeus with parallel-tests, including a rake task for
+setting up the databases.
+</li>
+<li>Tricky testing:
+a. Auto-complete dropdowns (some handy utility methods).
+b. Hover effects (easy now!)
+c. AJAX
+</li>
+</ol>
+
+<p>
+I&#8217;ll try to keep this page of tips updated as my test configuration evolves.
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Org-Mode Octopress Setup V2]]></title>

@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Capybara, PhantomJs, Poltergeist, and Rspec Tips - Rails on Maui</title>
+  <meta name="author" content="Justin Gordon">
+
+  
+  <meta name="description" content="Capybara, PhantomJs, Poltergeist, and Rspec Tips for Rails Integration Testing.">
+  <meta name="keywords" content="Capybara, PhantomJs, Poltergeist, and Rspec Tips">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.railsonmaui.com//tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40522944-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rails on Maui</a></h1>
+  
+    <h2>Programming in Paradise</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="http://feeds.feedburner.com/railsonmaui" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=RailsOnMaui&amp;loc=en_US" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.railsonmaui.com/" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives/">Archives</a></li>
+  <li><a href="/blog/categories.html">Categories</a></li>
+  <li><a href="/tips/">Tips</a></li>
+  <li><a href="/meta/">Meta</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Capybara, PhantomJs, Poltergeist, and Rspec Tips</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-09T17:00:00-10:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time></p>
+  </header>
+  
+  <p>
+I&#8217;m a huge fan of the integration tests on Rails. Yes, they can be a bit slow,
+and they can be bit difficult to write and maintain, but these disadvantages far
+outweigh the comfort in being able to deploy code with no QA staff. This page
+will summarize my tips for successful integration testing on Rails. I&#8217;ll try to
+keep this page updated with my current best setup. I look forward to your comments.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Configuration</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Here are the gems I&#8217;m currently using for testing. I&#8217;m using an two test
+environments: test and ci. The reason for two is that I&#8217;ve got guard constantly
+running specs, and sometimes I use a debugger. If guard and the debugger use the
+same database, then hangs occur due to transaction issues with database cleaner. 
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Gems</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Unless the gem has a version specified, I try to keep my testing gems up to date
+with the latest.
+</p>
+
+<p>
+<div><script src='https://gist.github.com/9460979.js'></script>
+<noscript><pre><code>
+# http://soupmatt.com/fixing-bundlewithout-on-heroku-cedar
+# Hack to make heroku work. Works b/c on heroku, the ENV[&#39;HOME&#39;] will be &#39;app&#39;
+                # and this will then return test, which heroku knows to exclude
+def hg(g)
+  (ENV[&#39;HOME&#39;].gsub(&#39;/&#39;, &#39;&#39;) == &#39;app&#39; ? &#39;test&#39; : g)
+end
+
+group :test, hg(:ci) do
+  gem &#39;simplecov&#39;, require: false
+  gem &#39;database_cleaner&#39;
+  gem &#39;turn&#39;, require: false
+  gem &#39;factory_girl_rails&#39;
+  gem &#39;launchy&#39; # this lets us call save_and_open_page to see what&#39;s on a page for debugging capybara tests
+  gem &#39;capybara&#39;
+  gem &#39;capybara-screenshot&#39;, github: &#39;parndt/capybara-screenshot&#39;, branch: &#39;fix-rspec-3-0-0-deprecation&#39;
+  gem &#39;show_me_the_cookies&#39;
+  gem &#39;rspec-instafail&#39;
+  gem &#39;shoulda-matchers&#39;
+  gem &#39;poltergeist&#39;
+  gem &#39;rspec-retry&#39;, github: &#39;justin808/rspec-retry&#39;, branch: &#39;justin808-rspec-299&#39;
+  gem &#39;resque_spec&#39;, github: &#39;justin808/resque_spec&#39;, branch: &#39;fix-for-resque-heroku&#39;
+  gem &#39;vcr&#39;
+  gem &#39;fakeweb&#39;
+  gem &#39;zeus&#39;, &#39;~&gt; 0.13.4.pre2&#39;
+end
+
+group :test, :development do
+  # http://railscasts.com/episodes/413-fast-tests
+  gem &#39;rspec-rails&#39;, &#39;~&gt; 2.99.0.beta2&#39;
+  gem &#39;rspec&#39;, &#39;&gt;= 2.9.9.beta2&#39;
+  gem &#39;rspec-its&#39;, &#39;~&gt; 1.0.0&#39;
+  gem &#39;parallel_tests&#39;
+  gem &#39;zeus-parallel_tests&#39;
+  gem &#39;heroku_san&#39;, &#39;~&gt; 4.3.2&#39;
+end</code></pre></noscript></div>
+
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">spec_helper.rb</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<div><script src='https://gist.github.com/9460750.js'></script>
+<noscript><pre><code># IMPT:
+# Configure ENV[&#39;LOG_LEVEL&#39;] to be one of DEBUG, INFO, WARN, ERROR, FATAL
+
+# figure out where we are being loaded from
+if $LOADED_FEATURES.grep(/spec\/spec_helper\.rb/).any?
+  begin
+    raise &quot;foo&quot;
+  rescue =&gt; e
+    puts &lt;&lt;-MSG
+  ===================================================
+  It looks like spec_helper.rb has been loaded
+  multiple times. Normalize the require to:
+
+    require &quot;spec/spec_helper&quot;
+
+  Things like File.join and File.expand_path will
+  cause it to be loaded multiple times.
+
+  Loaded this time from:
+
+    #{e.backtrace.join(&quot;\n    &quot;)}
+  ===================================================
+    MSG
+  end
+end
+
+if ENV[&quot;RUBYMINE_HOME&quot;]
+  # this is necessary to run tests in rubymine in case guard is running
+  $:.unshift(File.expand_path(&quot;rb/testing/patch/common&quot;, ENV[&quot;RUBYMINE_HOME&quot;]))
+  $:.unshift(File.expand_path(&quot;rb/testing/patch/bdd&quot;, ENV[&quot;RUBYMINE_HOME&quot;]))
+end
+
+# if below line is used, then warning messages from zeus
+# But if line is not used and no ENV is set in the shell, then factory girl won&#39;t load
+ENV[&quot;RAILS_ENV&quot;] ||= &#39;test&#39;
+
+require File.expand_path(&quot;../../config/environment&quot;, __FILE__)
+require &#39;rspec/rails&#39;
+require &#39;capybara-screenshot/rspec&#39;
+require &#39;resque_spec/scheduler&#39;
+
+# Requires supporting files with custom matchers and macros, etc,
+# in ./support/ and its subdirectories.
+Dir[Rails.root.join(&quot;spec/support/**/*.rb&quot;)].each { |f| require f }
+RSpec.configure do |config|
+  config.order = &#39;random&#39;
+  config.mock_with :rspec
+  config.fixture_path               = &quot;#{::Rails.root}/spec/fixtures&quot;
+# If you&#39;re not using ActiveRecord, or you&#39;d prefer not to run each of your
+# examples within a transaction, comment the following line or assign false
+# instead of true.
+#    config.use_transactional_fixtures = true
+# http://rainux.github.com/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/
+  config.use_transactional_fixtures = false
+
+  config.include IntegrationSpecHelper, :type =&gt; :request
+  config.include Devise::TestHelpers, :type =&gt; :controller
+  config.include ControllerMacros, :type =&gt; :controller
+
+  config.include FactoryGirl::Syntax::Methods
+  config.include ShowMeTheCookies, :type =&gt; :feature
+
+  # VCR setup
+  # so we can use :vcr rather than :vcr =&gt; true;
+  # in RSpec 3 this will no longer be necessary.
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+
+  config.include(MailerMacros)
+  config.before(:each) { reset_email }
+
+  # http://railscasts.com/episodes/413-fast-tests
+  config.filter_run :focus unless ENV[&quot;SKIP_RSPEC_FOCUS&quot;].present?
+  config.run_all_when_everything_filtered = true
+  config.before(:all) { DeferredGarbageCollection.start }
+  config.after(:all) { DeferredGarbageCollection.reconsider }
+
+  config.mock_with :rspec do |c|
+    c.yield_receiver_to_any_instance_implementation_blocks = true
+  end
+end
+
+
+
+</code></pre></noscript></div>
+
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">.rspec file</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+This file configures the defaults for running tests. I really like the
+instalfail gem so that I can see errors immediately.
+</p>
+<pre class="example">
+--color
+--require spec_helper
+--require rspec/instafail
+--format RSpec::Instafail
+--backtrace
+--format documentation
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Using :focus with guard-rspec</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+My favorite way to run specs is using <a href="https://github.com/burke/zeus">Zeus</a>, <a href="https://github.com/guard/guard">Guard</a>, and finally with
+<a href="https://github.com/grosser/parallel_tests">parallel_tests</a>.
+</p>
+
+<p>
+Here&#8217;s the part of my Guardfile for my <code>spec</code> group:
+</p>
+
+<p>
+<div><script src='https://gist.github.com/9461114.js'></script>
+<noscript><pre><code>group :spec do
+  guard(&#39;rspec&#39;, all_on_start: false,
+        all_after_pass: false,
+        run_all: { parallel: true, parallel_cli: &#39;-n 4&#39; },
+        cmd: &#39;zeus rspec&#39;,
+        notification: true,
+        failed_mode: :keep) do
+    watch(%r{^spec/.+_spec\.rb$})
+    watch(%r{^lib/(.+)\.rb$}) { |m| &quot;spec/lib/#{m[1]}_spec.rb&quot; }
+    watch(&quot;spec/spec_helper.rb&quot;) { &quot;spec&quot; }
+
+    watch(%r{^app/(.+)\.rb$}) { |m| &quot;spec/#{m[1]}_spec.rb&quot; }
+    watch(%r{^app/(.*)(\.erb|\.slim|\.haml)$}) { |m| &quot;spec/#{m[1]}#{m[2]}_spec.rb&quot; }
+    watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| [&quot;spec/routing/#{m[1]}_routing_spec.rb&quot;, &quot;spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb&quot;, &quot;spec/acceptance/#{m[1]}_spec.rb&quot;] }
+    watch(%r{^spec/support/(.+)\.rb$}) { &quot;spec&quot; }
+    watch(&quot;config/routes.rb&quot;) { &quot;spec/routing&quot; }
+    watch(&quot;app/controllers/application_controller.rb&quot;) { &quot;spec/controllers&quot; }
+
+    watch(%r{^app/views/(.+)/.*\.(erb|slim|haml)$}) { |m| &quot;spec/features/#{m[1]}_spec.rb&quot; }
+  end
+end
+</code></pre></noscript></div>
+
+</p>
+
+<p>
+Here&#8217;s my workflow for refining a test, and then running all tests in parallel:
+</p>
+<ol class="org-ol">
+<li>Flag test (either <code>describe</code>, <code>context</code>, <code>it</code>, <code>feature</code>, or <code>scenario</code>)
+with <code>:focus</code> like this:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">feature</span> <span class="s2">&quot;Users&quot;</span><span class="p">,</span> <span class="ss">:js</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
+</span><span class='line'><span class="n">scenario</span> <span class="s2">&quot;signup failure should not make a new user&quot;</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>In guard console for your specs, run command <code>a</code> for all tests (or just hit
+return). That will run only the tests you&#8217;ve marked with <code>:focus</code>.
+</li>
+<li>Sometimes guard picks up the changes and re-runs your test automatically.
+Many times, I just cmd-tab to iterm2 and hit return, which runs the default
+command of all specs.
+</li>
+<li>Be sure to search and replace for &#8220;, :focus&#8221; so that you can run the whole
+test suite. If you forget to remove a :focus, then you&#8217;ll
+see that the total number of tests is less than you expect.
+</li>
+<li>Once your new tests pass, run the whole test suite in parallel with the
+command <code>zps</code>, defined below.    
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Debugging Integration (aka Feature) Tests</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>First, try to manually do test actions in the browser.
+</li>
+<li>Test out your CSS and xpath selectors in the chrome console.
+a. <code>$("css selector")</code>
+b. <code>$x("xpath-selector")</code> 
+</li>
+<li>Call <code>page!</code> in your test right before the error and a browser will
+open up with the page contents.
+</li>
+<li>Call render_page(&#8220;some_name&#8221;, true) to print out a screenshot. Usually,
+either the <code>html</code> or the <code>png</code> version of a page will tell you where your
+integration test is losing the plot.
+</li>
+</ol>
+
+<p>
+Here&#8217;s a couple convenient helper methods, page! and render_page:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">page!</span>
+</span><span class='line'>  <span class="n">save_and_open_page</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Saves page to place specfied at in configuration.</span>
+</span><span class='line'><span class="c1"># NOTE: you must pass js: true for the feature definition (or else you&#39;ll see that render doesn&#39;t exist!)</span>
+</span><span class='line'><span class="c1"># call force = true, or set ENV[RENDER_SCREENSHOTS] == &#39;YES&#39;</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">render_page</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">force</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">force</span> <span class="o">||</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;RENDER_SCREENSHOTS&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;YES&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span>
+</span><span class='line'>    <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Xpath</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Sometimes a Capybara test requires an xpath for more advanced finding of just
+the right dom node. For example, here&#8217;s a useful xpath snippet for finding the xpath to the page one link.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">page_1</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="ss">:xpath</span><span class="p">,</span> <span class="s1">&#39;//div[contains(@class,&quot;pagination&quot;)]//a[normalize-space(.)=&quot;1&quot;]&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+If you use a context (&#8220;within&#8221;), then be sure to use &#8220;.//&#8221; and not &#8221;<i>/&#8221; as &#8220;/</i>&#8221; means
+anywhere on the page, not just in the current context!
+</p>
+
+<p>
+Another case where I had to use an xpath was to find the parent of a node. While
+the Capybara node object has a method <code>parent</code>, that does not give you the same
+sort of dome node parent that jQuery would. Thus, you can use an xpath like
+this, which finds an anchor with attribute <code>data-something</code> having value in ruby
+variable <code>data_value</code>.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">the_node</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="ss">:xpath</span><span class="p">,</span> <span class="s2">&quot;//a[@data-something=&#39;</span><span class="si">#{</span><span class="n">data_value</span><span class="si">}</span><span class="s2">&#39;]/..&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Debugger vs. Print Statements</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+80% of the time, I use print statements for debugging, rather than the awesome RubyMine
+debugger. Here are the pros and cons of each:
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">Print Statements</h3>
+<div class="outline-text-3" id="text-3-3">
+<ol class="org-ol">
+<li>Very fast to see exactly the data you need.
+</li>
+<li>No issues with multiple threads when running integration tests.
+</li>
+<li>Print statements help with the coffeescript code. Just do a:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;some message, my_var </span><span class="si">#{</span><span class="nx">my_var</span><span class="si">}</span><span class="s">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>With Zeus running, it&#8217;s much faster to re-run a test and get the print
+statements rather than starting the RubyMine debugger.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4">Debugger</h3>
+<div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>For tough problems, the debugger can really help.
+</li>
+<li>Allows you to evaluate code and dig into variables.
+</li>
+<li>I&#8217;ll tend to use the RubyMine debugger more for running the Rails server,
+since there&#8217;s no waiting for the process to start if the debugger is already
+running the server.
+</li>
+<li>It&#8217;s key to set breakpoints where you think you&#8217;ll need them, start your
+test, and then move your cursor to some point where the problem is
+manifesting. The hit menu choice &#8220;Run -&gt; Force Run to Cursor&#8221;. That is a
+<b>HUGE</b> time saver.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Database Cleaner</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+It&#8217;s pretty critical to use Database Cleaner correctly when using Capybara with
+Poltergeist. Here&#8217;s my setup. The only thing specific is that I have a couple
+tables that are seeded when the database is created.
+</p>
+
+<p>
+<div><script src='https://gist.github.com/9461052.js'></script>
+<noscript><pre><code>RSpec.configure do |config|
+  config.add_setting(:seed_tables)
+  config.seed_tables = %w(seed_table_1 seed_table_2)
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation, except: config.seed_tables)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation, {except: config.seed_tables}
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end
+</code></pre></noscript></div>
+
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Tricky Testing</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">AJAX</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+This is well documented on the <a href="https://github.com/jnicklas/capybara">Capybara website</a>. Read the part about AJAX very
+closely. The key thing is to think of what will change on the page once your
+AJAX response comes back. Then use a statement like:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">page</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_content</span><span class="p">(</span><span class="s2">&quot;some value&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+Capybara will be smart about waiting until that condition is true. However, you
+have to be clever to come up with just the right condition.
+</p>
+
+<p>
+Be sure to understand how <code>expect(page).to have_content("blah")</code> will poll the
+page until the timeout or &#8220;blah&#8221; appears. On the contrary, <code>expect(page).to_not
+have_content contain("blah")</code> will not poll! So be sure to use a positive
+expectation after you take some action invoking an AJAX request (or even an
+animation). Or else you may get a false positive that something is not on the
+page just because the page has not finished loading.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">Auto-complete dropdowns with Capybara and Poltergeist</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+I&#8217;m using <a href="http://twitter.github.io/typeahead.js/">typeahead.js</a> with <a href="http://getbootstrap.com/">Twitter Bootstrap 3</a>, both of which rock!
+</p>
+
+<p>
+Here&#8217;s the secret sauce for doing capybara feature tests with the typeahead.js
+auto-complete. This technique should work for other types of auto-complete as
+well.
+</p>
+
+<p>
+To make this work for your code, modify the <code>.tt-suggestion</code> selector depending
+on how you choose to render drop downs.
+</p>
+
+<p>
+<div><script src='https://gist.github.com/9461067.js'></script>
+<noscript><pre><code>def fill_in_autocomplete(selector, value)
+  script = %Q{ $(&#39;#{selector}&#39;).val(&#39;#{value}&#39;).focus().keypress() }
+  page.execute_script(script)
+end
+
+def choose_autocomplete(text)
+  expect(page).to have_css(&quot;.tt-suggestion p&quot;, text: text, visible: false)
+  script = %Q{ $(&#39;.tt-suggestion:contains(&quot;#{text}&quot;)&#39;).click() }
+  page.execute_script(script)
+end
+</code></pre></noscript></div>
+
+</p>
+
+<p>
+Here&#8217;s the most relevant links on this topic:
+</p>
+<ol class="org-ol">
+<li><a href="http://ruby-journal.com/how-to-do-jqueryui-autocomplete-with-capybara-2/?utm_source=rubyweekly&utm_medium=email">How to Do jQuery UI Autocomplete With Capybara 2</a>
+</li>
+<li>Poltergeist github issues: <a href="https://github.com/jonleighton/poltergeist/issues/439">439</a>, <a href="https://github.com/jonleighton/poltergeist/issues/274">274</a>, <a href="https://github.com/jonleighton/poltergeist/issues/43">43</a>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3">Hover effects</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Here&#8217;s how you test a mouseover effect. This was recently fixed for Capybara and
+Poltergeist and this absolutely rocks!
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">some_node</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;css selector&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">some_node</span><span class="o">.</span><span class="n">hover</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">page</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_selector</span><span class="p">(</span><span class="s2">&quot;some other css_selector&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+For fun, you can put some console.log in your event handler, and run the tests,
+and see in your console output that Capybara triggers the event. 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Unreliable Tests: rspec-retry Gem Handles Intermittent Phantomjs Issues</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+It&#8217;s not perfect that I have to use <a href="https://github.com/y310/rspec-retry">rspec-retry</a> to get past random failures with
+PhantomJs. However, it&#8217;s way better than to let rspec simply retry before
+considering the test a failure. Note, you don&#8217;t to have the <code>:retry_count</code> at
+anything other than 1 when you&#8217;re re-running a test while developing it, as that
+would really slow you down.
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Discussion of retry</span>
+</span><span class='line'><span class="c1"># https://github.com/rspec/rspec-core/issues/456</span>
+</span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">verbose_retry</span>       <span class="o">=</span> <span class="kp">true</span> <span class="c1"># show retry status in spec process</span>
+</span><span class='line'>  <span class="n">retry_count</span>                <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;RSPEC_RETRY_COUNT&#39;</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">default_retry_count</span> <span class="o">=</span> <span class="n">retry_count</span><span class="o">.</span><span class="n">try</span><span class="p">(</span><span class="ss">:to_i</span><span class="p">)</span> <span class="o">||</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;RSpec retry count is </span><span class="si">#{</span><span class="n">config</span><span class="o">.</span><span class="n">default_retry_count</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Testing with Zeus</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Overall, I&#8217;m quite pleased with the performance boost of Zeus, especially for
+rake tasks, running specs, and running specs in parallel (stunning difference).
+</li>
+<li>It&#8217;s super important to remember that you have to <b>restart Zeus</b> whenever you want
+files like test.rb or spec_helper.rb (and maybe factories.rb or Gemfile) to be
+re-evaluated. This can cause some very confusing results until you restart Zeus.
+</li>
+</ul>
+
+<p>
+Here&#8217;s my <code>zeus.json</code> file, configured to work with parallel-tests.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;ruby -rubygems -r./custom_plan -eZeus.go&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;plan&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;boot&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;default_bundle&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;development_environment&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nt">&quot;prerake&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;rake&quot;</span><span class="p">:</span> <span class="p">[]</span>
+</span><span class='line'>          <span class="p">},</span>
+</span><span class='line'>          <span class="nt">&quot;runner&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">],</span>
+</span><span class='line'>          <span class="nt">&quot;console&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">],</span>
+</span><span class='line'>          <span class="nt">&quot;server&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;s&quot;</span><span class="p">],</span>
+</span><span class='line'>          <span class="nt">&quot;generate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span>
+</span><span class='line'>          <span class="nt">&quot;destroy&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">],</span>
+</span><span class='line'>          <span class="nt">&quot;dbconsole&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">],</span>
+</span><span class='line'>          <span class="nt">&quot;parallel_rspec&quot;</span><span class="p">:</span> <span class="p">[]</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="nt">&quot;test_environment&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nt">&quot;test_helper&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;rspec&quot;</span><span class="p">],</span>
+</span><span class='line'>            <span class="nt">&quot;parallel_rspec_worker&quot;</span><span class="p">:</span> <span class="p">[]</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Every once in a while, my setup borks, and I need to kill all my zeus, guard,
+phantomjs processes at once. Here&#8217;s a couple useful zsh functions:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pgr<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">for </span>x in rails phantomjs zeus; <span class="k">do </span>
+</span><span class='line'><span class="k">    </span>pgrep -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">done</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>pgk<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">for </span>x in rails phantomjs zeus; <span class="k">do </span>
+</span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">done</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">Parallel Tests</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+As mentioned above, I got a stunning performance difference using the
+<a href="https://github.com/grosser/parallel_tests">parallel_tests</a> gem. However, it defaults to using as many threads as one has
+processors (8 on my Macbook). Since that is too many if you want to keep using
+your Mac, I use this zsh function, which defaults to 6 processors.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>zps <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nv">p</span><span class="o">=</span><span class="k">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">6</span><span class="k">}</span>
+</span><span class='line'>  echoRun <span class="s2">&quot;zeus parallel_rspec -n $p spec&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+The trickiest part of the parallel_tests gem is setting up and migrating the
+extra test databases. Here&#8217;s my rake task for doing migrations, which updates
+test, development, and my parallel test databases, and annotates.
+</p>
+
+<p>
+<div><script src='https://gist.github.com/9461522.js'></script>
+<noscript><pre><code>def run_command_raise_if_error(command)
+  puts &quot;Executing: #{command}&quot;
+  result = %x[#{command}]
+  raise &quot;rake task failed..........\n#{result}&quot; if result.include?(&#39;rake aborted!&#39;)
+end
+
+def run_rake_command_raise_if_error(command)
+  run_command_raise_if_error(&quot;bundle exec rake #{command}&quot;)
+end
+
+namespace :db do
+  desc &quot;Migrate DBs for envs test, ci, development. Then setup parallel.&quot;
+  task migrate_all: :environment do |t, args|
+    unless Rails.env.development?
+       raise &quot;Can only run under development environment, but specified env was #{Rails.env}&quot;
+    end
+
+    envs = %W(test ci development)
+    envs.each do |env|
+      run_rake_command_raise_if_error(&quot;RAILS_ENV=#{env} db:migrate&quot;)
+    end
+
+    run_rake_command_raise_if_error(&quot;parallel:create&quot;)
+    run_rake_command_raise_if_error(&quot;parallel:prepare&quot;)
+    run_rake_command_raise_if_error(&quot;parallel:rake[db:globals]&quot;)
+    run_command_raise_if_error(&quot;annotate -e \[tests\] -i&quot;)
+  end
+
+  desc &quot;Update seed data in all test/dev databases&quot;
+  task seed_all: :environment do |t, args|
+    unless Rails.env.development?
+      raise &quot;Can only run under development environment, but specified env was #{Rails.env}&quot;
+    end
+    envs = %W(test ci development)
+    envs.each do |env|
+      run_rake_command_raise_if_error(&quot;RAILS_ENV=#{env} db:seed&quot;)
+    end
+    run_rake_command_raise_if_error(&quot;parallel:rake[db:seed]&quot;)
+  end
+end
+</code></pre></noscript></div>
+
+</p>
+</div>
+</div>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-09T17:00:00-10:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h2>About Me</h2>
+  <p>I'm Justin Gordon. I'm a Ruby on Rails consultant based in Maui. Full stack
+  development is my passion. Feel free to contact me on gmail
+  as <code>justin.gordon</code>. I'm also on
+  <a href='http://www.linkedin.com/pub/justin-gordon/1/a41/286'>Linked In</a>.
+  <a href='http://www.railsonmaui.com/about/justin-gordon-resume.html'>Resume</a>.</p>
+</section>
+
+<section>
+  <div>
+    <a href="http://twitter.com/railsonmaui" class="twitter-follow-button" data-show-count="">Follow @railsonmaui</a>
+  </div>
+</section>
+
+<section>
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/">Capybara PhantomJs Poltergeist Rspec Tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/">Org-Mode Octopress Setup V2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/simple-form-and-disable-processing-by-default/">Simple Form and Disabling Buttons on Submit by Default</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/">Using RubyMine/IntelliJ Regexp Search/Replace</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/04/migrating-from-bash-to-zsh/">Migrating From Bash to Zsh</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community > Code</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h2>GitHub Repos</h2>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/justin808">@justin808</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'justin808',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="googleplus">
+  <h2>
+    <a href="https://plus.google.com/102850786590145072082?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h2>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Justin Gordon -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'railsonmaui';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.railsonmaui.com//tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html';
+        var disqus_url = 'http://www.railsonmaui.com//tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
