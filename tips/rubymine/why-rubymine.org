@@ -31,7 +31,7 @@ RubyMine is the only editor I personally use for Rails development. Why?
    both code and especially diffs is far above what I can do in Emacs.
 3. *Key bindings*. Whether you like [[https://github.com/JetBrains/ideavim][Vim]] or Emacs key bindings, RubyMine has you
    covered. 
-3. The tips I've published at [[file:~/j/railsonmaui-octopress/source/tips/index.html][Ruby Tips]] and [[file:rubymine-tips-rails-tutorial.html][Favorite RubyMine Tips]] conveys my
+3. The tips I've published at [[file:index.org][Ruby Mine Tips]] and [[file:rubymine-tips-rails-tutorial.org][Favorite RubyMine Tips]] conveys my
    passion for many features of the RubyMine product.
 
 * Considerations for You

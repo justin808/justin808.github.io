@@ -4,7 +4,7 @@
   <title><![CDATA[Category: org-mode | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/org-mode/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-03-10T08:09:17-10:00</updated>
+  <updated>2014-03-10T19:25:10-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -351,7 +351,7 @@ address to link from blog articles to other articles on your blog.
 <li>You'd like your local links to point to the correct local spot. You can do
 this for links on static pages, but just not blog articles. Thus, for
 non-blog articles, it's preferable to use the <code>file:</code> relative path format
-(just not <code>file:/</code> absolute path).
+(just not <code>file:/</code> absolute path and not <code>file:~/</code>).
 </li>
 </ol>
 <p>
@@ -359,8 +359,8 @@ non-blog articles, it's preferable to use the <code>file:</code> relative path f
 </p>
 
 <p>
-Links for relative static pages to pages and posts. Ensure that there's no
-<code>/</code> immediately following <code>file:</code>. For example:
+Links from static pages, relatively specified to other static pages and to
+posts. Ensure that there's no <code>/</code> immediately following <code>file:</code>. For example:
 </p>
 <pre class="example">
 [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
@@ -380,10 +380,10 @@ Links from a <i>page</i> to a <i>post</i> can use a relative link like this.
 </pre>
 <p>
 <b>However</b>, links from posts to other posts require an absolute URL using your
-published domain name. The big gotcha is blog posts due to the nested URL
-structure that does not map to the where you're putting your org-posts. To
-avoid trouble, you need to follow a format as this example shows. It's
-easiest to copy the URL from the browser address bar.
+published domain name. The big gotcha is that blog posts sometimes are shown
+on the home page and sometimes inside of the blog directory. To avoid
+trouble, you need to follow a format as this example shows. It's easiest to
+copy the URL from the browser address bar.
 </p>
 <pre class="example">
 [[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
@@ -394,6 +394,15 @@ page or in the specific blog article, but not both. <code>http:/blog</code> link
 work in Chrome but not mobile Safari. Hopefully, one day we'll be able to
 specify relative links from blog article to blog article. <i>For now, this is a
 big <b>gotcha</b>.</i>
+<b>Tip</b>: You can specify relative links between org pages using the <code>.org</code> file
+suffix, rather than html. The earlier example could have been specified as:
+</p>
+<pre class="example">
+[[file:misc/telecommuting.org][Why telecommuting works and how I maximize productivity]]
+</pre>
+<p>
+That allows you to put your cursor on the link in emacs, and hit F12 to go
+the org file! I've got <code>F12</code> mapped to <code>org-open-at-point</code>. Awesome!
 </p>
 </li>
 <li>Bold and italic styling (text inside of stars and /) was a bit of mystery

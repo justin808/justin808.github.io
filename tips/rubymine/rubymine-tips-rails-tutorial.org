@@ -14,7 +14,8 @@ alias: /tips/rubymine.html
 ---
 #+END_HTML
 
-/See parent page [[http://www.railsonmaui.com/tips/rubymine/index.html][RubyMine Tips]] for a summary of articles on RubyMine./
+/See parent page [[http://www.railsonmaui.com/tips/rubymine/index.html][RubyMine Tips]] for a summary of articles on RubyMine. Note, this article was published in May of 2013, so I've changed a couple ways that I do
+things, namely switching from Spork to Zeus./
 
 Here's a video of my favorite RubyMine tips with details below.
 
