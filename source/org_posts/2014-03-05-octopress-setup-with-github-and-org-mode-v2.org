@@ -194,11 +194,11 @@ Here are the basic steps:
    2. You'd like your local links to point to the correct local spot. You can do
       this for links on static pages, but just not blog articles. Thus, for
       non-blog articles, it's preferable to use the =file:= relative path format
-      (just not =file:/= absolute path).
+      (just not =file:/= absolute path and not =file:~/=).
    *Here's the rules:*
     
-   Links for relative static pages to pages and posts. Ensure that there's no
-   =/= immediately following =file:=. For example:
+   Links from static pages, relatively specified to other static pages and to
+   posts. Ensure that there's no =/= immediately following =file:=. For example:
    #+BEGIN_EXAMPLE
    [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
    #+END_EXAMPLE
@@ -212,10 +212,10 @@ Here are the basic steps:
    [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][Org-Mode Octopress Setup V2]]
    #+END_EXAMPLE 
    *However*, links from posts to other posts require an absolute URL using your
-   published domain name. The big gotcha is blog posts due to the nested URL
-   structure that does not map to the where you're putting your org-posts. To
-   avoid trouble, you need to follow a format as this example shows. It's
-   easiest to copy the URL from the browser address bar.
+   published domain name. The big gotcha is that blog posts sometimes are shown
+   on the home page and sometimes inside of the blog directory. To avoid
+   trouble, you need to follow a format as this example shows. It's easiest to
+   copy the URL from the browser address bar.
    #+BEGIN_EXAMPLE
    [[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
    #+END_EXAMPLE
@@ -224,6 +224,13 @@ Here are the basic steps:
    work in Chrome but not mobile Safari. Hopefully, one day we'll be able to
    specify relative links from blog article to blog article. /For now, this is a
    big *gotcha*./
+   *Tip*: You can specify relative links between org pages using the =.org= file
+   suffix, rather than html. The earlier example could have been specified as:
+   #+BEGIN_EXAMPLE
+   [[file:misc/telecommuting.org][Why telecommuting works and how I maximize productivity]]
+   #+END_EXAMPLE
+   That allows you to put your cursor on the link in emacs, and hit F12 to go
+   the org file! I've got =F12= mapped to =org-open-at-point=. Awesome!
 6. Bold and italic styling (text inside of stars and /) was a bit of mystery
    using the standard theme. Octopress has styling for =<strong>= and =<em>=. Org-mode spits out =<b>= and
    =<i>= tags.
