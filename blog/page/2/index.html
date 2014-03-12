@@ -9,8 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Here&#8217;s a few tips on buying Apple gear and credit card extended warranties. The
-bottom line is: Consider buying AppleCare with American &hellip;">
+  <meta name="description" content="How do ensure that your application properly handles errors, especially when
+relying on third parties, such as payment processors? Is it easy to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,133 @@ bottom line is: Consider buying AppleCare with American &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-11T00:01:00-10:00" pubdate data-updated="true">May 11<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/05/11/testing-error-handling/#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+How do ensure that your application properly handles errors, especially when
+relying on third parties, such as payment processors? Is it easy to verify that
+the right things happen when the wrong things happen? Last week&#8217;s article
+<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
+setup a good error handling strategy. Here&#8217;s some techniques to verify that your
+application does what you expect it to do when things go wrong. The key message
+is to check how your application handles errors, before your customers do.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/11/testing-error-handling/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-08T17:41:00-10:00" pubdate data-updated="true">May 8<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+What&#8217;s a good strategy? Why does this matter?
+</p>
+
+<p>
+A Rails app can have awesome unit and functional tests, and then in production,
+something goes wrong and the right error handling does not happen, making
+a bad situation worse. By this, I mean, it&#8217;s bad enough that something went
+wrong in production. It&#8217;s even worse if:
+</p>
+<ol class="org-ol">
+<li>You don&#8217;t have clear log messages that identify exactly what went wrong.
+</li>
+<li>You didn&#8217;t get automatically notified via email that something went wrong.
+Instead, the customer told the customer service rep that there&#8217;s an issue.
+Ideally, when an error happens, the responsible developers should be
+notified.
+</li>
+</ol>
+
+<p>
+Here&#8217;s some tips on logging setup and error handling, including a utility
+method to log the stack trace and send an email.
+</p>
+
+<p>
+The next article,
+<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing
+Error Handling</a>, will show you how to verify that your error handling strategy
+is properly implemented, includind with rspec tests.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -251,6 +378,10 @@ monolithic.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/">Rocking With Tmux, Tmuxinator, Guard, Zeus, and iTerm2 for Rails Development</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/">Capybara PhantomJs Poltergeist Rspec Tips</a>
       </li>
     
@@ -272,10 +403,6 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community > Code</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a>
       </li>
     
   </ul>
