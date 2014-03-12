@@ -1,0 +1,105 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Rocking with tmux, tmuxinator, Guard, Zeus, and iTerm2 for Rails Development"
+date: 2014-03-11 21:01:13 -1000
+comments: true
+categories: tmux, zsh
+keywords: tmux, tmuxinator, iTerm2, rails 
+description: tmux, tmuxinator, and iTerm2 tips for productivity with Rails Development
+---
+#+END_HTML
+
+What's the most effective way to:
+1. Start several different processes for Rails, such as Zeus, Rails server, rspec,
+   resque, and the scheduler.
+2. Have the output for each process in a separate tab.
+3. Not have the process pause when you scroll the output, as happens in tmux.
+
+* Why Guard?
+I use [[https://github.com/guard/guard][Guard]] for:
+1. Automatically running rspec tests based on changes in either tests or source
+   files. Together with [[https://github.com/burke/zeus][Zeus]], I haven't found a faster way to get immediate
+   feedback from tests. /Pro tip: Learn how to use =:focus= with your specs to configure exactly what tests to have guard run./
+2. Automatically restarting the server when needed. For example, if you change
+   gems or routes, you need to restart the server.
+
+While I love running Guard with Zeus, [[https://github.com/rails/spring][Spring]] is the default in Rails 4.1, so
+I'll probably give that a try in the near future.
+
+* Why Tmuxinator and Tmux?
+[[https://github.com/tmuxinator/tmuxinator][Tmuxinator]] is awesome for configuring the layout of several processes.
+
+Here's a sample tmuxinator file.
+
+{% gist 9502375 %}
+
+When I run the command
+
+#+BEGIN_SRC bash
+mux my_project
+#+END_SRC
+
+And then I see the following. This is way easier than opening up tabs in iTerm2
+and running commands every time.
+
+{% img /images/2014-03-11-rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/tmuxinator-start.png %}
+
+The main problem with this setup is that if you scroll a window backwards (using
+the tmux keyboard bindings), and you don't un-scroll, then the process pauses,
+such as the Rails server. *That's super annoying*. Often I'm running specs, and
+I want to scroll back to see a stack trace, but that prevents the continuation
+of the test run! Here's a [[http://stackoverflow.com/questions/13924365/rails-freezes-when-searching-through-tmux-output-buffer][short discussion of the issue]].
+
+#+begin_html
+<!-- more -->
+#+end_html
+
+* iTerm2 with tmux to the Rescue!
+iTerm2 has [[https://code.google.com/p/iterm2/wiki/TmuxIntegration][wonderful tmux integration]]. Here's the steps I take:
+1. Be sure have the latest versions of tmux, tmuxinator and iTerm2. As of this
+   article, I'm using: tmux: 1.9a, tmuxinator: 0.6.7, iTerm2: Build
+   1.0.0.20140112.
+2. Configure your Tmux to open tabs rather than windows. This is key to getting
+   the iTerm2 version to look like your original tmux session.
+
+{% img /images/2014-03-11-rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/tmuxinator-configuration.png %}
+
+Once you have the setup done, this is how I start my iTerm2-tmuxinator session:
+
+1. Start tmuxinator with command =mux my_project=
+2. Hit =ctrl-a, d= to detach the tmux process.
+3. Run command =tmux -CC attach"
+
+Here's how it will look:
+
+{% img /images/2014-03-11-rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/tmuxinator-iterm2-started.png %}
+
+If you want to kill the session, you can run this command:
+#+BEGIN_SRC bash
+tmux kill-session -t my_project
+#+END_SRC
+
+However, that sometimes does not kill all the processes. I often use these two
+zsh scripts to ensure that everything is killed. It's super important to kill
+Zeus before running db migrations or gem updates.
+
+#+BEGIN_SRC bash
+pgr() {
+  for x in rails phantomjs zeus; do 
+    pgrep -fl $x;
+  done 
+}
+
+pgk() {
+  for x in rails phantomjs zeus; do 
+    pkill -fl $x;
+  done 
+}
+#+END_SRC
+
+* Why Tmuxinator/tmux and not Foreman?
+I use [[https://github.com/ddollar/foreman][Foreman]] with Heroku and for running my rails server in production mode.
+However, I prefer having different tabs provide console output for each of the
+processes, rather than having all the console output blended together as Foreman
+does. I'm also not sure if Foreman integrates with Guard.
