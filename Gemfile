@@ -21,6 +21,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'rb-inotify'
+  # gem 'guard-jekyll-plus'
 end
 
 gem 'sinatra', '~> 1.4.2'

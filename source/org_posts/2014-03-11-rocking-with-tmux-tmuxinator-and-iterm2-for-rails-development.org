@@ -16,6 +16,11 @@ What's the most effective way to:
 2. Have the output for each process in a separate tab.
 3. Not have the process pause when you scroll the output, as happens in tmux.
 
+Here's a short demo of using tmuxinator to get a project running in several
+iterm2 tabs:
+
+{% youtube 15Bxhu6-Xjc %}
+
 * Why Guard?
 I use [[https://github.com/guard/guard][Guard]] for:
 1. Automatically running rspec tests based on changes in either tests or source
