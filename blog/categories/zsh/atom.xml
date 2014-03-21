@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zsh | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/zsh/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-03-11T23:43:13-10:00</updated>
+  <updated>2014-03-21T07:41:44-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -32,6 +32,21 @@ resque, and the scheduler.
 <li>Not have the process pause when you scroll the output, as happens in tmux.
 </li>
 </ol>
+
+
+
+
+<p>
+Here's a short demo of using tmuxinator to get a project running in several
+iterm2 tabs:
+</p>
+
+
+
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/15Bxhu6-Xjc "></iframe></div>
+</p>
 
 
 
