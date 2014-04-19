@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-03-21T07:41:44-10:00</updated>
+  <updated>2014-04-19T06:01:35-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -2723,41 +2723,6 @@ I welcome comments and suggestions.
 </p>
 </div>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How Much Client Side JavaScript in Rails 4?]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/"/>
-    <updated>2013-05-28T15:22:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4</id>
-    <content type="html"><![CDATA[<p>
-Articles and Quick Summaries:
-</p>
-<ul class="org-ul">
-<li><a href="http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/">RailsConf 2013 Keynotes: Rails 4 vs Ember.js</a>: DHH on server side vs. Yehuda on
-the client side.
-</li>
-<li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">Improving performance on twitter.com</a>: Twitter&#8217;s retreat from client side js.
-</li>
-<li><a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">How Basecamp Next got to be so damn fast without using much client-side UI</a>:
-DHH on the Rails features the preclude the use of client side js.
-</li>
-</ul>
-
-
-
-<p>
-<a href="http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html">Why Discourse uses Ember.js</a>: 
-</p>
-<blockquote>
-<p>
-Ask yourself how interactive your web application needs to be. On the less
-interactive side of the scale, there are huge wins with server side rendered
-HTML. The more interactive your application becomes, the more you’ll benefit
-from a client side MVC framework.
-</p>
-</blockquote>
 ]]></content>
   </entry>
   
