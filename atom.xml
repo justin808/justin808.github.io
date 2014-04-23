@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-04-23T09:01:56-05:00</updated>
+  <updated>2014-04-23T09:09:47-05:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -48,7 +48,7 @@ day on Wednesday and Thursday, aside from being at the AirPair booth from
 </p>
 
 <p>
-<img src="http://www.railsonmaui.com//images/2014-04-23-RailsConf/railsconf-fat-models-book-title.jpg">
+<img src="http://www.railsonmaui.com//images/2014-04-23-RailsConf/railsconf-fat-models-book-title.JPG">
 </p>
 </div>
 </div>
@@ -72,6 +72,10 @@ please let me know!
 
 <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
 <div class="fb-post" data-href="https://www.facebook.com/photo.php?fbid=788591081152659&amp;set=a.788590134486087.1073741837.484394724905631&amp;type=1" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/photo.php?fbid=788591081152659&amp;set=a.788590134486087.1073741837.484394724905631&amp;type=1">Post</a> by <a href="https://www.facebook.com/railsonmaui">Rails On Maui</a>.</div></div>
+
+<p>
+I hope you like the pictures.
+</p>
 </div>
 </div>
 ]]></content>
