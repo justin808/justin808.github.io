@@ -26,7 +26,7 @@ I created in RubyMine using the Vim plugin. I'll be at the RubyMine booth all
 day on Wednesday and Thursday, aside from being at the AirPair booth from
 11:00am to 11:30am on Wednesday, April 23, 2014.
 
-{% img /images/2014-04-23-RailsConf/railsconf-fat-models-book-title.jpg %}
+{% img /images/2014-04-23-RailsConf/railsconf-fat-models-book-title.JPG %}
 
 * Pictures
 Please tag yourself and your friends. If you want me to grab a picture for you,
@@ -45,3 +45,4 @@ please let me know!
 <div class="fb-post" data-href="https://www.facebook.com/photo.php?fbid=788591081152659&amp;set=a.788590134486087.1073741837.484394724905631&amp;type=1" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/photo.php?fbid=788591081152659&amp;set=a.788590134486087.1073741837.484394724905631&amp;type=1">Post</a> by <a href="https://www.facebook.com/railsonmaui">Rails On Maui</a>.</div></div>
 #+end_html
 
+I hope you like the pictures.
