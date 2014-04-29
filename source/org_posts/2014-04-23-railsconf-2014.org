@@ -11,8 +11,14 @@ description: RailsConf Notes
 #+END_HTML
 
 * My Talk: Concerns, Decorators, Presenters, Service Objects, Helpers, Help me Decide
-- [[https://www.icloud.com/iw/#keynote/BALu9Dy-Dcbu1PvWluyB_G-jq5C6URGmij2F/RailsConf-2014-Concerns-Decorators-Presenters-Service-Objects-Helpers-Help-Me-Decide-April-22-2014][Slides]]
-- [[https://github.com/justin808/fat-code-refactoring-techniques][Fat Code Refactoring Techniques on Github]]
+#+begin_html
+<script async class="speakerdeck-embed" data-slide="2" data-id="3e567380b1ea013103f01263d01a0296" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+#+end_html
+
+{% img /images/2014-04-23-RailsConf/railsconf-fat-models-book-title.JPG %}
+
+- [[https://github.com/justin808/fat-code-refactoring-techniques][Fat Code Refactoring Techniques Code Samples on Github]]
+- [[https://www.icloud.com/iw/#keynote/BALu9Dy-Dcbu1PvWluyB_G-jq5C6URGmij2F/RailsConf-2014-Concerns-Decorators-Presenters-Service-Objects-Helpers-Help-Me-Decide-April-22-2014][Keynote Slides with Animations]]
 
 
 * (Lack of) Live Coding in my Talk
@@ -20,29 +26,29 @@ Due to time constraints, I chose to skip the live coding I had prepared to do in
 my talk. [[emailto:justin@railsonmaui.com][Please let me know]] if you'd be interested in a screencast walking
 through the sample code. I will create one if there is sufficient demand.
 
-*If you really wanted to see me doing live coding, you're in luck!* I'm
-available all day today and tomorrow to do nothing but go over the code samples
-I created in RubyMine using the Vim plugin. I'll be at the RubyMine booth all
-day on Wednesday and Thursday, aside from being at the AirPair booth from
-11:00am to 11:30am on Wednesday, April 23, 2014.
+* RailsConf 2014 Pictures
+- Please share, so long as you don't remove the watermark.
+- [[emailto:justin@railsonmaui.com][Email me]] if you'd like any full size, non-watermarked copies.
 
-{% img /images/2014-04-23-RailsConf/railsconf-fat-models-book-title.JPG %}
+** Photos on Flickr:
+- [[https://www.flickr.com/photos/justingordon/sets/72157644405839722/][RailsConf 2014 All Photos in one Album]]
+- [[https://www.flickr.com/photos/justingordon/sets/72157644406117431/][RailsConf 2014 Speaker Dinner]]
+- [[https://www.flickr.com/photos/justingordon/sets/72157644419361535/][RailsConf 2014 Day 1]]
+- [[https://www.flickr.com/photos/justingordon/sets/72157644406165341/][RailsConf 2014 Day 2]]
+- [[https://www.flickr.com/photos/justingordon/sets/72157644419407845/][RailsConf 2014 Day 2 BaseCamp Party]]
+- [[https://www.flickr.com/photos/justingordon/sets/72157644406193641/][RailsConf 2014 Day 3]]
+- [[https://www.flickr.com/photos/justingordon/sets/72157644460514123/][RailsConf 2014 Day 3 Public House Party]]
+- [[https://www.flickr.com/photos/justingordon/sets/72157644365234506/][RailsConf 2014 Day 4]]
 
-* Pictures
-Please tag yourself and your friends. If you want me to grab a picture for you,
-please let me know!
-
-- [[https://www.facebook.com/media/set/?set%3Da.788587014486399.1073741836.484394724905631&type%3D3][Day 0, speaker dinner]] 
-- [[https://www.facebook.com/media/set/?set%3Da.788590134486087.1073741837.484394724905631&type%3D3&uploaded%3D52][Day 1, including after parter at the Public House]]
-
-#+begin_html
-<div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-post" data-href="https://www.facebook.com/photo.php?fbid=788587434486357&amp;set=a.788587014486399.1073741836.484394724905631&amp;type=1" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/photo.php?fbid=788587434486357&amp;set=a.788587014486399.1073741836.484394724905631&amp;type=1">Post</a> by <a href="https://www.facebook.com/railsonmaui">Rails On Maui</a>.</div></div>
-#+end_html
-
-#+begin_html
-<div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-post" data-href="https://www.facebook.com/photo.php?fbid=788591081152659&amp;set=a.788590134486087.1073741837.484394724905631&amp;type=1" data-width="466"><div class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/photo.php?fbid=788591081152659&amp;set=a.788590134486087.1073741837.484394724905631&amp;type=1">Post</a> by <a href="https://www.facebook.com/railsonmaui">Rails On Maui</a>.</div></div>
-#+end_html
+** Photos on Facebook
+The same photo albums on my [[https://www.facebook.com/railsonmaui][Rails on Maui Facebook Page]]. Please tag yourself and
+your friends.
+- [[https://www.facebook.com/media/set/?set%3Da.788587014486399.1073741836.484394724905631&type%3D3][RailsConf 2014 Day 0, speaker dinner]] 
+- [[https://www.facebook.com/media/set/?set%3Da.788590134486087.1073741837.484394724905631&type%3D3&uploaded%3D52][RailsConf 2014 Day 1, including after party at the Public House]]
+- [[https://www.facebook.com/media/set/?set%3Da.791901107488323.1073741839.484394724905631][RailsConf 2014 Day 2]]
+- [[https://www.facebook.com/media/set/?set%3Da.788967167781717.1073741838.484394724905631&type%3D3][RailsConf 2014 Day 2, Basecamp Party]]
+- [[https://www.facebook.com/media/set/?set%3Da.791902674154833.1073741840.484394724905631&type%3D3][RailsConf 2014 Day 3]]
+- [[https://www.facebook.com/media/set/?set%3Da.791912494153851.1073741841.484394724905631][RailsConf 2014 Day 3, Public House Party]]
+- [[https://www.facebook.com/media/set/?set%3Da.791913407487093.1073741842.484394724905631][RailsConf 2014 Day 4]]
 
 I hope you like the pictures.
