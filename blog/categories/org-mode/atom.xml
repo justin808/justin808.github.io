@@ -4,7 +4,7 @@
   <title><![CDATA[Category: org-mode | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/org-mode/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-04-23T09:09:47-05:00</updated>
+  <updated>2014-04-29T07:34:58-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Org-Mode Octopress Setup v2]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/"/>
-    <updated>2014-03-05T19:37:00-06:00</updated>
+    <updated>2014-03-05T19:37:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is a refresh of my original post from April, 2013 to adjust for Emacs 24.3 and org-mode 8.2.x</i>
@@ -769,7 +769,7 @@ helpful.
   <entry>
     <title type="html"><![CDATA[Octopress Setup with Github, Org Mode, and LiveReload]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
-    <updated>2013-04-27T22:46:00-05:00</updated>
+    <updated>2013-04-27T22:46:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is post applies to Emacs 23 with org-mode 7.8.x. See <a href="http://www.railsonmaui.com/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/index.html">Org-Mode Octopress Setup v2</a> for the updated version applying to Emacs 24.3 and org-mode 8.2.x</i>
