@@ -17,8 +17,7 @@ optimized for productivity.
 #+end_html
 
 * Some Famous Authors on Telecommuting
-Jeff Attwood (who started Stack Overflow) has a great article on this topic, [[http://www.codinghorror.com/blog/2010/05/on-working-remotely.html][On
-Working Remotely]]:
+Jeff Attwood (who started Stack Overflow) has a great article on this topic, [[http://www.codinghorror.com/blog/2010/05/on-working-remotely.html][On Working Remotely]]:
 #+begin_quote
 The reason remote development worked for us, in retrospect, wasn't just shared
 love of code. I picked developers who I knew -- I had incontrovertible proof --
@@ -32,9 +31,8 @@ remotely with anyone who doesn't freakin' bleed ones and zeros, and has a proven
 track record of getting things done.
 #+end_quote
 
-Jason Freid and David Heinemeier Hansson (aka DHH) have an upcoming book on the topic: [[http://www.amazon.com/Remote-Office-Required-Jason-Fried/dp/0804137501][Remote:
-Office Not Required]]. These are the guys that wrote [[http://www.amazon.com/Rework-Jason-Fried/dp/0307463745/ref%3Dpd_sim_b_1][Rework]]. Here's a quote from
-that book:
+Jason Freid and David Heinemeier Hansson (aka DHH) have an upcoming book on the topic: [[http://www.amazon.com/Remote-Office-Required-Jason-Fried/dp/0804137501][Remote: Office Not Required]]. 
+These are the guys that wrote [[http://www.amazon.com/Rework-Jason-Fried/dp/0307463745/ref%3Dpd_sim_b_1][Rework]]. Here's a quote from that book:
 #+begin_quote
 It's crazy not to hire the best people just because they live far away.
 Especially now that there's so much technology out there making it easier to
@@ -77,6 +75,7 @@ And they were like, “Maybe we should rethink this.” [Chuckles]
   didn't care much for bagged green tea.
 
 * Tips
++ [[http://www.railsonmaui.com/blog/2014/05/06/remote-pair-programming-tips-using-screenhero/][Remote Pair Programming Tips using RubyMine and Screenhero]]
 + I've got a sign on my door that really seems to cut down on disturbances from
   the family. That's critical to getting into a state of "flow".
   #+begin_html
