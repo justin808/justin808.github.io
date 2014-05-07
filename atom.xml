@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-05-06T23:22:30-10:00</updated>
+  <updated>2014-05-07T08:59:12-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -41,8 +41,13 @@ was nearly perfect. Yes, when scrolling and switching apps, there is a slight
 delay, but it was extremely manageable to the point that I almost would forget
 that I&#8217;m working on a computer 3000 miles away. Although there&#8217;s a slight
 slowness in seeing keys that you type, it&#8217;s minor enough that it&#8217;s not a
-nuisance.
+nuisance. The dual cursor support works great. Here&#8217;s a <a href="https://www.youtube.com/watch?v=_BojQaD64GU">video demo of the dual cursor support</a>.
+
+<p>
+<img src="http://www.railsonmaui.com//images/2014-05-06-remote-pair-programming-tips-using-screenhero/rubymine-screenhero-dual-cursors.jpg">
+</p>
 </li>
+
 <li><b>RubyMine IDE</b>: Both I and my pairing partners were already using RubyMine, so
 using RubyMine was a natural choice over trying to pair with the conventional
 remote pairing setup of tmux and Vim. RubyMine combined with Screenhero, the
@@ -134,6 +139,10 @@ or Facetime.
 <li>Don&#8217;t forget to take a break for water, stretch, etc. every so often!
 </li>
 </ol>
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/_BojQaD64GU "></iframe></div>
+</p>
 
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/L57xOTXF78w "></iframe></div>
