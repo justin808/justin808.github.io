@@ -10,13 +10,13 @@ description: Tips for successful remote pair programming.
 ---
 #+END_HTML
 
-Today I spent the entire workday remote pair programming from my office in Maui
-to an office in San Francisco. We used our normal tools of RubyMine, Chrome, and
-iTerm2 on a shared 27" Cinema Display. While remote will probably never be 100%
-as good as true in-person pairing, it's getting very close! Here's some tips for
-effective remote pair programming. Scroll down to the bottom for the TLDR if
-you're short on time. Overall, I would highly recommend remote pairing with
-RubyMine on a full 27" Cinema Display!
+A few days ago, I spent the entire workday remote pair programming from my
+office in Maui with a San Francisco client from [[http://www.cloudcity.io/][Cloud City Development]]. We used our
+normal tools of RubyMine, Chrome, and iTerm2 on a shared 27" Cinema Display.
+While remote will probably never be 100% as good as true in-person pairing, it's
+getting very close! Here's some tips for effective remote pair programming.
+Scroll down to the bottom for the TLDR if you're short on time. Overall, I would
+highly recommend remote pairing with RubyMine on a full 27" Cinema Display!
 
 ** Setup
 - *Screenhero*. We both used [[http://screenhero.com/][Screenhero]] on Macs. I've done plenty of remote pair
