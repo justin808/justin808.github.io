@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pair-programming | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pair-programming/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-05-07T08:59:12-10:00</updated>
+  <updated>2014-05-07T12:41:09-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -19,13 +19,13 @@
     <updated>2014-05-06T19:36:22-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero</id>
     <content type="html"><![CDATA[<p>
-Today I spent the entire workday remote pair programming from my office in Maui
-to an office in San Francisco. We used our normal tools of RubyMine, Chrome, and
-iTerm2 on a shared 27" Cinema Display. While remote will probably never be 100%
-as good as true in-person pairing, it's getting very close! Here's some tips for
-effective remote pair programming. Scroll down to the bottom for the TLDR if
-you're short on time. Overall, I would highly recommend remote pairing with
-RubyMine on a full 27" Cinema Display!
+A few days ago, I spent the entire workday remote pair programming from my
+office in Maui with a San Francisco client from <a href="http://www.cloudcity.io/">Cloud City Development</a>. We used our
+normal tools of RubyMine, Chrome, and iTerm2 on a shared 27" Cinema Display.
+While remote will probably never be 100% as good as true in-person pairing, it's
+getting very close! Here's some tips for effective remote pair programming.
+Scroll down to the bottom for the TLDR if you're short on time. Overall, I would
+highly recommend remote pairing with RubyMine on a full 27" Cinema Display!
 </p>
 
 
