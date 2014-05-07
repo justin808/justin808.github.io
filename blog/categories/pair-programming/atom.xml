@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pair-programming | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pair-programming/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-05-06T22:55:46-10:00</updated>
+  <updated>2014-05-06T23:01:08-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -123,8 +123,10 @@ on this.
 </li>
 <li>A good audio setup is well worth it.
 </li>
-<li>If the person sharing the desktop has multiple enabled, monitors, then the
-viewer might not be able to use command-tab to switch applications.
+<li>If the computer sharing the desktop has multiple monitors enabled, then the
+remote sharing viewer might not be able to use command-tab to switch
+applications. This problem went away when there was only one monitor on the
+computer doing the sharing.
 </li>
 <li>If using RubyMine, install your pair's keybinding into your RubyMine
 preferences. You can copy the keybinding xml file located in
