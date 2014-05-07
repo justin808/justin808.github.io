@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-05-05T10:11:18-10:00</updated>
+  <updated>2014-05-06T22:55:46-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,134 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Remote Pair Programming Tips Using RubyMine and ScreenHero]]></title>
+    <link href="http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero/"/>
+    <updated>2014-05-06T19:36:22-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero</id>
+    <content type="html"><![CDATA[<p>
+Today I spent the entire workday remote pair programming from my office in Maui
+to an office in San Francisco. We used our normal tools of RubyMine, Chrome, and
+iTerm2 on a shared 27&#8221; Cinema Display. While remote will probably never be 100%
+as good as true in-person pairing, it&#8217;s getting very close! Here&#8217;s some tips for
+effective remote pair programming. Scroll down to the bottom for the TLDR if
+you&#8217;re short on time. Overall, I would highly recommend remote pairing with
+RubyMine on a full 27&#8221; Cinema Display!
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Setup</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><b>Screenhero</b>. We both used <a href="http://screenhero.com/">Screenhero</a> on Macs. I&#8217;ve done plenty of remote pair
+programming using Google Hangouts, but typically only one person sharing the
+screen drives the code. Screenhero allows true screen sharing such that both
+programmers can do the typing and mousing. With the shared screen being a 27&#8221;
+Cinema display, I set my Screenhero window to <i>full screen</i> and the resolution
+was nearly perfect. Yes, when scrolling and switching apps, there is a slight
+delay, but it was extremely manageable to the point that I almost would forget
+that I&#8217;m working on a computer 3000 miles away. Although there&#8217;s a slight
+slowness in seeing keys that you type, it&#8217;s minor enough that it&#8217;s not a
+nuisance.
+</li>
+<li><b>RubyMine IDE</b>: Both I and my pairing partners were already using RubyMine, so
+using RubyMine was a natural choice over trying to pair with the conventional
+remote pairing setup of tmux and Vim. RubyMine combined with Screenhero, the
+same size big screens, fast computers, and very good broadband resulted in a
+productive pairing setup. One thing I hear about Vim setups is that pair
+programmers tend to not customize their Vim keymaps. With RubyMine, that&#8217;s not
+an issue thanks to a feature called &#8220;Quick Switch Scheme&#8221; which allows very
+fast switching of keyboard bindings. I&#8217;m a Vim user (IdeaVim), and I would
+have been crippled without my favorite RubyMine Vim bindings. I like the
+&#8220;Quick Switch&#8221; feature so much that I made <a href="https://www.youtube.com/watch?v=L57xOTXF78w&noredirect=1">a short screencast on this feature</a>,
+displayed below.
+</li>
+</ul>
+<!-- more -->
+<ul class="org-ul">
+<li><b>Fast Broadband</b>: I use a combination of the fastest cable and the fastest DSL
+I can buy in Maui, served on a load-balancing <a href="http://www.amazon.com/ZyXEL-Internet-Security-Firewall-Dual-WAN/dp/B0042WCFI2">ZyXEL ZyWall USG 50 Router</a>. DSL
+is far slower than the cable service, but I still keep it for the one day that
+cable is not working right. As an additional backup, I have a Verizon LTE
+tethering plan for my iPhone 5, so the chances that I&#8217;m totally out of
+Internet are low. Here&#8217;s a screenshot from <a href="http://www.speedtest.net/">http://www.speedtest.net/</a> 
+
+<p>
+<img src="http://www.railsonmaui.com//images/2014-05-06-remote-pair-programming-tips-using-screenhero/broadband-speed-maui.jpg">
+</p>
+</li>
+
+<li><b>Same Big Monitors</b>: We both used <a href="https://www.apple.com/displays/">Apple 27&#8221; Cinema Displays</a>. On the receiving
+side of the share, I&#8217;m using a 2012 loaded Retina MacBook Pro with SSD.
+</li>
+<li><b>Audio Setup</b>: I use a <a href="http://www.amazon.com/Blue-Microphones-Yeti-USB-Microphone/dp/B002VA464S/ref=sr_1_1?s=electronics&ie=UTF8&qid=1399442515&sr=1-1&keywords=blue+yeti+microphone">Blue Yeti USB Microphone Silver Edition</a> mounted on a
+<a href="http://www.amazon.com/Heil-Sound-PL-2T-Overhead-Broadcast/dp/B000SZVZ74/ref=sr_1_1?s=electronics&ie=UTF8&qid=1399442457&sr=1-1&keywords=heil+pl2t">Heil PL-2T Overhead Broadcast Boom</a> with a <a href="http://www.amazon.com/Blue-Microphones-Pop-Universal-Filter/dp/B0002H0H4A/ref=sr_1_1?s=electronics&ie=UTF8&qid=1399442563&sr=1-1&keywords=blue+yeti+pop+filter">Blue Microphones The Pop Universal Pop Filter</a>.
+(At the time of writing this article, the pop filter is only
+$25.22 on Amazon Prime, regular price $79.00, totally worth it!). This is the
+setup I use for podcasting so it&#8217;s more than adequate for pairing. I use the
+audio from the Display Monitor (Cinema Screen), as that&#8217;s behind the mic, so
+as not to cause any echoing. Naturally, this only works in a private office.
+In a shared office, it&#8217;s critical to have a very good mic/headset combo. I did
+a quick search on Amazon to see what&#8217;s available. If budget allows (and if
+you&#8217;re spending a fair bit of time pairing), I&#8217;d consider the <a href="http://www.amazon.com/V-MODA-Crossfade-Over-Ear-Noise-Isolating-Headphone/dp/B003BYRGKY/ref=sr_1_1?s=aht&ie=UTF8&qid=1399443063&sr=1-1&keywords=headset+with+microphone">V-MODA Crossfade LP Over-Ear Noise-Isolating Metal Headphone (Gunmetal Black)</a> 
+plus the <a href="http://www.amazon.com/V-MODA-BoomPro-Gaming-Headset-Headphone/dp/B00BJ17WKK/ref=pd_bxgy_e_img_y">V-MODA BoomPro Gaming, VoIP Headset Headphone with Mic, Black</a> as both have a very
+high number of 4+ reviews. It&#8217;s suspect that with the right audio setup, the
+avoidance of distractions for an in-office/remote pair combo might be superior
+to that of the in-office pair combo. Please post into the comments if you have
+advice on the best headset for pairing.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">What I&#8217;d Like to Try Next time</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Screenhero worked awesomely for the screen-sharing and audio. However, it does
+not have video. I&#8217;d like to try out using iPads and either FaceTime or Google
+Hangouts to add the video face-to-face communication. I can&#8217;t yet say if this
+will noticeably slow down the Screenhero performance. Stay tuned for an update
+on this.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">TLDR Miscellaneous Tips</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>Use Screenhero.
+</li>
+<li>Don&#8217;t be afraid to try your regular tools, such as RubyMine.
+</li>
+<li>Use fast broadband, fast Macs, same size monitors.
+</li>
+<li>A good audio setup is well worth it.
+</li>
+<li>If the person sharing the desktop has multiple enabled, monitors, then the
+viewer might not be able to use command-tab to switch applications.
+</li>
+<li>If using RubyMine, install your pair&#8217;s keybinding into your RubyMine
+preferences. You can copy the keybinding xml file located in
+<code>~/Library/Preferences/RubyMine60/keymaps</code> and then restart RubyMine.
+</li>
+<li>Put Screenhero in Full Screen mode to avoid any compression of the window
+pixels.
+</li>
+<li>Figure out a way to share video of each other, such as using a Google Hangout
+or Facetime.
+</li>
+<li>Don&#8217;t forget to take a break for water, stretch, etc. every so often!
+</li>
+</ol>
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/L57xOTXF78w "></iframe></div>
+</p>
+</div>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RailsConf 2014]]></title>
@@ -2827,41 +2955,6 @@ I welcome comments and suggestions.
 </p>
 </div>
 </div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How Much Client Side JavaScript in Rails 4?]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/"/>
-    <updated>2013-05-28T15:22:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4</id>
-    <content type="html"><![CDATA[<p>
-Articles and Quick Summaries:
-</p>
-<ul class="org-ul">
-<li><a href="http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/">RailsConf 2013 Keynotes: Rails 4 vs Ember.js</a>: DHH on server side vs. Yehuda on
-the client side.
-</li>
-<li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">Improving performance on twitter.com</a>: Twitter&#8217;s retreat from client side js.
-</li>
-<li><a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">How Basecamp Next got to be so damn fast without using much client-side UI</a>:
-DHH on the Rails features the preclude the use of client side js.
-</li>
-</ul>
-
-
-
-<p>
-<a href="http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html">Why Discourse uses Ember.js</a>: 
-</p>
-<blockquote>
-<p>
-Ask yourself how interactive your web application needs to be. On the less
-interactive side of the scale, there are huge wins with server side rendered
-HTML. The more interactive your application becomes, the more you’ll benefit
-from a client side MVC framework.
-</p>
-</blockquote>
 ]]></content>
   </entry>
   
