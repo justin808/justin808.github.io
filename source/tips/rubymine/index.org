@@ -18,7 +18,7 @@ Why do I use RubyMine?
 
 * [[file:rubymine-tips-rails-tutorial.html][Favorite RubyMine Tips]]
 Screencast and list of my favorite RubyMine tips.
-* [[http://www.railsonmaui.com/blog/2014/05/06/remote-pair-programming-tips-using-screenhero/][Remote Pair Programming Tips using RubyMine and ScreenHero]]
+* [[http://www.railsonmaui.com/blog/2014/05/06/remote-pair-programming-tips-using-screenhero/][Remote Pair Programming Tips using RubyMine and Screenhero]]
 RubyMine works great for Remote Pairing!  
 
 * Short Tips 

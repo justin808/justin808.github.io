@@ -22,4 +22,5 @@ footer: true
 
 * General Mac Tips
 + [[file:alfred-tips.html][Alfred (Productivity App)]]
-  
+* Pair Programming
++ [[http://www.railsonmaui.com/blog/2014/05/06/remote-pair-programming-tips-using-screenhero/][Remote Pair Programming Tips using RubyMine and Screenhero]]
