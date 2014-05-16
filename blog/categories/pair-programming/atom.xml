@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pair-programming | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pair-programming/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-05-14T09:50:46-10:00</updated>
+  <updated>2014-05-15T23:32:37-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -26,6 +26,13 @@ While remote will probably never be 100% as good as true in-person pairing, it's
 getting very close! Here's some tips for effective remote pair programming.
 Scroll down to the bottom for the TLDR if you're short on time. Overall, I would
 highly recommend remote pairing with RubyMine on a full 27" Cinema Display!
+</p>
+
+
+
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/FkDhVrFgZAQ "></iframe></div>
 </p>
 
 
@@ -121,6 +128,9 @@ on this.
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>Use Screenhero.
+</li>
+<li>Use an tablet and Google Hangouts. Prefer that over using Google Hangouts on
+your computer due to CPU usage of Google Hangouts.
 </li>
 <li>Don't be afraid to try your regular tools, such as RubyMine.
 </li>
