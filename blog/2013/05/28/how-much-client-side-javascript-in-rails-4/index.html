@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>CoffeeScript Chrome Extensions - Rails on Maui</title>
+  <title>How Much Client Side JavaScript in Rails 4? - Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Useful tools for Chrome with CoffeeScript">
-  <meta name="keywords" content="coffeescript">
+  <meta name="description" content="Articles and Quick Summaries: RailsConf 2013 Keynotes: Rails 4 vs Ember.js: DHH on server side vs. Yehuda on
+the client side. Improving performance &hellip;">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions">
+  <link rel="canonical" href="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -85,7 +86,7 @@
   
   <header>
     
-      <h1 class="entry-title">CoffeeScript Chrome Extensions</h1>
+      <h1 class="entry-title">How Much Client Side JavaScript in Rails 4?</h1>
     
     
       <p class="meta">
@@ -101,7 +102,7 @@
   
 
 
-<time datetime="2013-05-27T17:16:00-10:00" pubdate data-updated="true">May 27<span>th</span>, 2013</time>
+<time datetime="2013-05-28T15:22:00-10:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://www.railsonmaui.com/">Comments</a>
@@ -112,50 +113,32 @@
 
 
 <div class="entry-content"><p>
-Here&#8217;s 3 useful tools for using <a href="http://coffeescript.org/">CoffeeScript</a> for web development, possibly with
-Rails and EmberJs. All 3 tools are useful for different purposes. 
+Articles and Quick Summaries:
 </p>
+<ul class="org-ul">
+<li><a href="http://blog.scriptybooks.com/railsconf-2013-keynotes-rails-4-vs-ember-dot-js/">RailsConf 2013 Keynotes: Rails 4 vs Ember.js</a>: DHH on server side vs. Yehuda on
+the client side.
+</li>
+<li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">Improving performance on twitter.com</a>: Twitter&#8217;s retreat from client side js.
+</li>
+<li><a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">How Basecamp Next got to be so damn fast without using much client-side UI</a>:
+DHH on the Rails features the preclude the use of client side js.
+</li>
+</ul>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">CoffeeScript Source Maps: Debugging CoffeeScript Directly</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-With Source Maps, you don&#8217;t have to mentally convert your CoffeeScript code into
-JavaScript code in the debugger. Instead, you can now see your CoffeeScript
-code, even with correct line numbers. This rails gem, <a href="https://github.com/markbates/coffee-rails-source-maps">coffee-rails-source-maps</a>,
-makes it easy to include CoffeeScript source maps as part of your rails
-application. Note, the <code>Rails.env.development?</code> is hard coded, so this only works
-when you use that specific environment. You can also do it manually, by using
-the <code>-m</code> flag with the <code>coffee</code> command.
-<img src="/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Try CoffeeScript Chrome Extension: Converting between CoffeeScript and JavaScript</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-The <a href="https://chrome.google.com/webstore/detail/try-coffeescript-enhanced/fldhkfldchaibgaheaogapecjmnkaepe?hl=en">Try CoffeeScript Enhanced</a> Chrome extension is pretty nice for converting
-between JavaScript and CoffeeScript. The main advantage over
-<a href="http://js2coffee.org">http://js2coffee.org</a> is that the you don&#8217;t have to open a new browser tab, and
-you can enter either CoffeeScript or JavaScript.
-</p>
+
 
 <p>
-<img src="/images/2013-05-27-coffeescript-chrome-extensions/try-coffeescript.png">
+<a href="http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html">Why Discourse uses Ember.js</a>: 
 </p>
-</div>
-</div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Coffee Console Developer Tool: Executing CoffeeScript in Chrome</h2>
-<div class="outline-text-2" id="text-3">
+<blockquote>
 <p>
-&#8221;<a href="http://snook.ca/archives/browsers/coffeeconsole">Coffeeconsole: A Chrome Extension</a>&#8221; provides a place to execute CoffeeScript in
-the Web Inspector.
-<img src="/images/2013-05-27-coffeescript-chrome-extensions/coffee-console.png">
+Ask yourself how interactive your web application needs to be. On the less
+interactive side of the scale, there are huge wins with server side rendered
+HTML. The more interactive your application becomes, the more you’ll benefit
+from a client side MVC framework.
 </p>
-</div>
-</div>
+</blockquote>
 </div>
 
 
@@ -178,21 +161,15 @@ the Web Inspector.
   
 
 
-<time datetime="2013-05-27T17:16:00-10:00" pubdate data-updated="true">May 27<span>th</span>, 2013</time>
+<time datetime="2013-05-28T15:22:00-10:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/coffeescript/'>coffeescript</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -205,10 +182,10 @@ the Web Inspector.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/05/26/ember-dot-js-hello-world/" title="Previous Post: Ember.js Hello World">&laquo; Ember.js Hello World</a>
+        <a class="basic-alignment left" href="/blog/2013/05/27/coffeescript-chrome-extensions/" title="Previous Post: CoffeeScript Chrome Extensions">&laquo; CoffeeScript Chrome Extensions</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/05/28/how-much-client-side-javascript-in-rails-4/" title="Next Post: How Much Client Side JavaScript in Rails 4?">How Much Client Side JavaScript in Rails 4? &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/06/11/emberjs-rails4-tutorial/" title="Next Post: Ember.js Tutorial with Rails 4">Ember.js Tutorial with Rails 4 &raquo;</a>
       
     </p>
   </footer>
@@ -341,8 +318,8 @@ the Web Inspector.
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/';
-        var disqus_url = 'http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/';
+        var disqus_identifier = 'http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/';
+        var disqus_url = 'http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/';
         var disqus_script = 'embed.js';
       
     (function () {
