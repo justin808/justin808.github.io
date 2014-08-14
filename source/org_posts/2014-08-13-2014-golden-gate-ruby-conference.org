@@ -1,12 +1,12 @@
 #+BEGIN_HTML
 ---
 layout: post
-title: "2014 Golden Gate Ruby Conference"
+title: "2014 Golden Gate Ruby Conference: Top 10 Reasons to Attend"
 date: 2014-08-13 14:25:57 -1000
 comments: true
-categories: 
-keywords: 
-description: 
+categories: [rails, conferences] 
+keywords: Rails, GoGaRuCo, Golden Gate Ruby Conference, Conference
+description: My top reasons to attend the 2014 Golden Gate Ruby Conference (GoGaRuCo).
 ---
 #+END_HTML
 
