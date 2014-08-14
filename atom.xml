@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-05-21T21:57:32-10:00</updated>
+  <updated>2014-08-13T20:34:46-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,109 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2014 Golden Gate Ruby Conference]]></title>
+    <link href="http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/"/>
+    <updated>2014-08-13T14:25:57-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference</id>
+    <content type="html"><![CDATA[<p>
+Woo hoo! I&#8217;m going to the <a href="http://gogaruco.com/">2014 Golden Gate Ruby Conference</a>. I wrote an article
+about my experience last year, <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community &gt; Code</a>. If you&#8217;re on the
+fence, here&#8217;s my top reasons on why you should consider attending. I recommend
+not delaying <a href="http://gogaruco.com/registration/">signing up</a>, as last year I saw folks begging for tickets once the
+conference sold out.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Top 10 Reasons To Attend GoGaRuCo</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>San Francisco is a great town to visit, and there&#8217;s no better month to visit
+than September as dense fog is least likely!
+</li>
+<li>It&#8217;s relatively small conference, compared to Rails Conf, and I find that
+<b>much more engaging and relaxing</b>. The attendees seem to be a mix of highly
+passionate Rubyists, mostly locals, with a mix from around the world.
+</li>
+<li>A one track conference is nice in that you don&#8217;t have to worry about picking
+which talks to attend.
+</li>
+<li>There&#8217;s a 15 minute break between each talk to socialize with fellow
+attendees or speakers. Socializing is why you come to these talks!
+</li>
+<li>Yehuda will likely come up with some interesting talk!
+</li>
+<li>Ruby programming is really more of an art and passion than work, and the
+people that attend GoGaRuCo reflect this!
+</li>
+<li>You&#8217;ll probably make a few new friends and leave inspired.
+</li>
+<li>The food is super, both at the conference and throughout the city. And the
+evening events last year were great as well.
+</li>
+<li>There&#8217;s probably going to be a job board, just in case that interests you.
+</li>
+<li>You won&#8217;t need any more T-shirts for another year!
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Photography</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I&#8217;m volunteering as the official photographer of GoGaRuCo. My mission is to &#8220;get
+2-3 good shots of each speaker, a couple of audience shots during each days
+lunch and breaks, a shot or two of each exhibitor table, 2-3 team photos, and a
+smattering of everything else.&#8221; So please don&#8217;t be shy and ask to have your
+photograph taken.
+</p>
+
+<p>
+Here&#8217;s a sample of shots I took at GoGaRuCo 2013. Tons more photos are linked
+here: <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community &gt; Code</a>.
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-1.jpg">
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-2.jpg">
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-3.jpg">
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-4.jpg">
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-5.jpg">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Available for Consulting</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+If you&#8217;d like to meet me around the time of GoGaRuCo, don&#8217;t hesitate to email me
+to try to meet up in person. Possibly you might have a project that could use my
+help?
+</p>
+
+<p>
+On a personal note, I spent the better part of my adult-hood in San Francisco,
+so I&#8217;ve got tons of friends there. All my consulting clients tend to be from the
+Bay Area as well.
+</p>
+</div>
+</div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Remote Pair Programming Tips Using RubyMine and Screenhero]]></title>
@@ -4115,189 +4218,6 @@ Error Handling</a>, will show you how to verify that your error handling strateg
 is properly implemented, and how to add rspec unit and functional tests on error
 handling.
 </p>
-</div>
-</div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Buy Apple Products With American Express]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/07/buying-apple-products-with-amex/"/>
-    <updated>2013-05-07T21:53:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/07/buying-apple-products-with-amex</id>
-    <content type="html"><![CDATA[<p>
-Here&#8217;s a few tips on buying Apple gear and credit card extended warranties. The
-bottom line is:
-</p>
-<ul class="org-ul">
-<li>Consider buying <b>AppleCare</b> with <b>American Express</b> to get an extended warranty that
-extends 12 months past AppleCare&#8217;s 3 years. That&#8217;s 4 years total! Visa and
-MasterCard <b>do not</b> extend AppleCare&#8217;s 3 years.
-</li>
-<li>If you don&#8217;t need AppleCare, then try to buy with American Express, as you know you&#8217;ll
-still get an extra 12 months. Visa or MasterCard may or may not offer a
-warranty extension depending on your card.
-</li>
-<li>Avoid buying AppleCare with a Visa or MasterCard if the card already has a
-warranty extension. You would get 24 months of basic coverage (one year
-original plus one year card). For the price of AppleCare, you get only an
-extra 12 months, although some will want the telephone question coverage of
-AppleCare.
-</li>
-</ul>
-
-<!-- more -->
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Buying Tips</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Buy products when they just come out, or wait until the next version comes out.
-It seems like Apple products don&#8217;t really go on sale, so you might as well get
-the newest stuff, or wait if you can. A good place to check is <a href="http://buyersguide.macrumors.com/">MacRumors Buyers
-Guide</a>. That being said, if you need something, then you need it, so just buy
-it. If you&#8217;re not sure, then you can probably wait.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">AppleCare</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-In general, you&#8217;d probably be off without extended warranties unless there&#8217;s
-something special about your situation that suggest one is worth it. Plus, if
-you buy with the right credit card, you&#8217;ll get one year extension, giving you a
-full years without paying a cent. Here&#8217;s an article on <a href="http://lifehacker.com/5697141/skip-the-extended-warranty-use-a-good-credit-card-instead">LifeHacker: Skip the
-Extended Warranty; Use a Good Credit Card Instead</a>. I live on the beach, so
-everything tends to rust, so I tend to buy extended warranties for this reason.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">American Express, not Mastercard, if you buy AppleCare</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-Both American Express and Mastercard offer warranty extensions of up to one year for using
-their cards. However, there&#8217;s a huge difference in their policies. American Express
-specifically states that they extend past supplemental warranty extensions like
-AppleCare. MasterCard explicitly says they do not. Visa is ambiguous. I quoted
-the details below. American Express will provide up to one year additional for warranties
-up to 5 years. MasterCard only goes to one year. Visa goes to 3 years.
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Details (the fine print)</h2>
-<div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1">American Express</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-I&#8217;ve got the Costco True Earnings card. The details of the plan are
-here:<a href="http://www.americanexpress.com/us/content/pdf/card-benefits/TrueEarningsCardfromCostcoandAmericanExpress/EW-DOC-CCSG.pdf">EXTENDED WARRANTY DESCRIPTION OF COVERAGE</a>. Kudos to the American Express for website
-for making it easy to find the information (unlike MasterCard).
-</p>
-
-<p>
-Just to be sure, I found the spot which ensures that I get one year past when
-AppleCare ends:
-</p>
-
-<blockquote>
-<p>
-Where a Loss has occurred during this Plan&#8217;s extended warranty time period of up
-to one (1) additional year, We will provide a benefit equal to the coverage of
-the original manufacturer&#8217;s warranty on warranties of up to five (5) years. We
-will pay up to the actual amount charged to Your Account for the product for
-which a Loss is claimed, but not to exceed $10,000. If the product also is
-covered by a purchased service contract, this Plan’s extended warranty time
-period begins at the end of the service contract and extends the original
-manufacturer’s warranty for a period of time equal to that warranty, up to one
-(1) additional year. If the combined coverage of the original manufacturer’s
-warranty and the purchased service contract exceed five (5) years, the product
-purchased is not eligible under this Plan and no coverage applies.
-</p>
-</blockquote>
-</div>
-</div>
-
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2">MasterCard</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-Your bank&#8217;s website will not have any information about any extended warranty.
-You have to go to MasterCard&#8217;s website: <a href="http://www.mastercard.com/us/personal/en/cardholderservices/guidetobenefits/pdf/489247_extended_warranty_v2.pdf">Guide to Benefits EXTENDED WARRANTY
-COVERAGE</a>. MasterCard is the stingiest. If the product has more than a one year
-warranty, then MasterCard does not help.
-</p>
-
-<blockquote>
-<p>
-&gt; Extended Warranty doubles the original warranty time period and duplicates the coverage of
-the original manufacturer’s (or U.S. store brand) warranty up to a maximum of twelve (12)
-months on most items you purchase. For products with multiple warranty components,
-each warranty time period will be duplicated up to a maximum of twelve (12) months.
-Should you fail to properly register the original warranty as required by manufacturer,
-Extended Warranty will only double the actual warranty time period that you received from
-the manufacturer. An example of a product with multiple warranty components includes an
-appliance with original manufacturer’s (or U.S. store brand) warranties that differ for parts,
-labor, compressor, etc.
-</p>
-
-<p>
-&gt; If you purchase a service contract or an optional extended warranty of twelve (12) months
-or less on your item, Extended Warranty will cover up to an additional twelve (12) months
-after both the original manufacturer’s (or U.S. store brand) warranty and the purchased
-service contract or extended warranty coverage period end. If your service contract or
-extended warranty exceeds twelve (12) months, this coverage does not apply.
-</p>
-
-<p>
-&gt; If you do not have an additional service contract or an optional extended warranty, this
-Extended Warranty benefit commences the day after your original manufacturer’s (or U.S.
-store brand) warranty expires.
-</p>
-
-<p>
-&gt; If either the original manufacturer’s (or U.S. store brand) warranty or the service contract
-covers more than twelve (12) months, Extended Warranty benefits will not apply.
-</p>
-</blockquote>
-</div>
-</div>
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3">Visa</h3>
-<div class="outline-text-3" id="text-4-3">
-<p>
-Here&#8217;s the Visa benefits for one type of card: <a href="http://usa.visa.com/business/why-pay-with-visa/security-benefits/bft-purchase-security.html">VISA PURCHASE PROTECTION</a>. Note,
-each Visa card may be different. Visa is a lot better than MasterCard in that
-if your product has more than a 1 year warranty, Visa still gives you an extra
-year.
-</p>
-
-<blockquote>
-<p>
-Extended Protection Yes, as long as you purchased the item entirely with your
-eligible U.S.- issued Visa Business card and the eligible item has a valid
-original manufacturer’s written U.S. repair warranty or assembler warranty of
-three (3) years or less.
-</p>
-</blockquote>
-
-
-
-
-<ul class="org-ul">
-<li>Here&#8217;s a good article with more details on why you should American Express for all
-extended warranties: <a href="http://www.cardhub.com/edu/credit-card-extended-warranty-study/">2012 Credit Card Extended Warranty Study</a>
-</li>
-<li>Another comparison, from the NYT: <a href="http://bucks.blogs.nytimes.com/2012/08/01/credit-cards-with-the-best-extended-warranties/">Credit Cards With the Best Extended Warranties</a>
-</li>
-<li>LifeHacker: <a href="http://lifehacker.com/5871487/are-extended-warranties-worth-it">Are Extended Warranties Worth It?</a>
-</li>
-</ul>
-</div>
 </div>
 </div>
 ]]></content>
