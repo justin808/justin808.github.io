@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-08-14T09:54:46-10:00</updated>
+  <updated>2014-08-14T11:45:53-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,119 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2014 Golden Gate Ruby Conference: Top 10 Reasons to Attend]]></title>
+    <link href="http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/"/>
+    <updated>2014-08-13T14:25:57-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference</id>
+    <content type="html"><![CDATA[<p>
+Woo hoo! I'm going to the <a href="http://gogaruco.com/">2014 Golden Gate Ruby Conference</a>. It's at UCSF Mission
+Bay, San Francisco, September 19-20, 2014. I wrote an article about my
+experience last year, <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community &gt; Code</a>. If you're on the fence
+about attending, here's my top reasons on why you should consider attending. I
+recommend not delaying <a href="http://gogaruco.com/registration/">signing up</a>, as last year I saw folks begging for tickets
+once the conference sold out. According to <a href="https://twitter.com/wifelette">Leah Silber</a>, one of the <a href="http://gogaruco.com/about/">conference
+organizers</a>, GoGaRuCo has sold out every year, except for <i>maybe</i> year one.
+</p>
+
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Top 10 Reasons To Attend GoGaRuCo</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>San Francisco is a great town to visit, and there's no better month to visit
+than September as dense fog is least likely!
+</li>
+<li>It's relatively small conference, compared to Rails Conf, and I find that
+<b>much more engaging and relaxing</b>. The attendees seem to be a mix of highly
+passionate Rubyists, mostly locals, with a mix from around the world.
+</li>
+<li>A one track conference is nice in that you don't have to worry about picking
+which talks to attend.
+</li>
+<li>There's a 15 minute break between each talk to socialize with fellow
+attendees or speakers. Socializing is why you come to these talks!
+</li>
+<li>Yehuda will likely come up with some interesting talk!
+</li>
+<li>Ruby programming is really more of an art and passion than work, and the
+people that attend GoGaRuCo reflect this!
+</li>
+<li>You'll probably make a few new friends and leave inspired.
+</li>
+<li>The food is super, both at the conference and throughout the city. And the
+evening events last year were great as well.
+</li>
+<li>There's probably going to be a job board, just in case that interests you.
+</li>
+<li>You won't need any more T-shirts for another year!
+</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Photography</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I'm volunteering as the official photographer of GoGaRuCo. My mission is to "get
+2-3 good shots of each speaker, a couple of audience shots during each days
+lunch and breaks, a shot or two of each exhibitor table, 2-3 team photos, and a
+smattering of everything else." So please don't be shy and ask to have your
+photograph taken.
+</p>
+
+<p>
+Here's a sample of shots I took at GoGaRuCo 2013. Tons more photos are linked
+here: <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community &gt; Code</a>.
+</p>
+
+<p>
+<img src="/images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-1.jpg">
+</p>
+
+<p>
+<img src="/images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-2.jpg">
+</p>
+
+<p>
+<img src="/images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-3.jpg">
+</p>
+
+<p>
+<img src="/images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-4.jpg">
+</p>
+
+<p>
+<img src="/images/2014-08-13-2014-golden-gate-ruby-conference/gogaruco-2013-5.jpg">
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Available for Consulting</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+If you'd like to meet me around the time of GoGaRuCo, don't hesitate to email me
+to try to meet up in person. Possibly you might have a project that could use my
+help?
+</p>
+
+<p>
+On a personal note, I spent the better part of my adulthood in San Francisco, so
+I've got tons of friends there. All my consulting clients tend to be from the
+Bay Area as well.
+</p>
+</div>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Simple Form and Disabling Buttons on Submit by Default]]></title>
@@ -1720,279 +1833,6 @@ is to check how your application handles errors, before your customers do.
 Related Post:
 <a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies
 for Rails Logging and Error Handling</a>
-</p>
-</div>
-</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Strategies for Rails Logging and Error Handling]]></title>
-    <link href="http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/"/>
-    <updated>2013-05-08T17:41:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling</id>
-    <content type="html"><![CDATA[<p>
-TLDR: Clean logging and error handling is a critical aspect of a RoR app.
-What's a good strategy? Why does this matter?
-</p>
-
-
-
-
-<p>
-A Rails app can have awesome unit and functional tests, and then in production,
-something goes wrong and the right error handling does not happen, making
-a bad situation worse. By this, I mean, it's bad enough that something went
-wrong in production. It's even worse if:
-</p>
-
-
-<ol class="org-ol">
-<li>You don't have clear log messages that identify exactly what went wrong.
-</li>
-<li>You didn't get automatically notified via email that something went wrong.
-Instead, the customer told the customer service rep that there's an issue.
-Ideally, when an error happens, the responsible developers should be
-notified.
-</li>
-</ol>
-
-
-
-
-<p>
-Here's some tips on logging setup and error handling, including a utility
-method to log the stack trace and send an email.
-</p>
-
-
-
-
-<p>
-The next article,
-<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing
-Error Handling</a>, will show you how to verify that your error handling strategy
-is properly implemented, includind with rspec tests.
-</p>
-
-
-
-
-<!-- more -->
-
-
-
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Log Setup</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">Notification of any Exceptions via Email with Gem exception_notification</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-Check out the gem <a href="http://smartinez87.github.io/exception_notification/">exception_notification</a>. It works great. One things the docs
-don't point out is that it works great with <a href="http://mailcatcher.me/">MailCatcher</a>. This allows you to
-"test" that your exception notification emails are being sent as expected
-without using a real mail account. Thus, <i>do</i> enable exception logging in
-development mode, contrary to the basic setup. Here's a config example at this
-post on <a href="http://www.mikeperham.com/2012/12/09/12-gems-of-christmas-4-mailcatcher-and-mail_view/">MailCatcher and mail_view</a>.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">Log the Browser Details with Gem 'browser_details'</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-The gem <a href="https://github.com/gshutler/browser_details">browser_details</a> will tell you what type of browser was used, which
-can be very important when errors occur. I cracked up when I read this from the
-gem info page: 
-</p>
-<blockquote>
-<p>
-Have you ever had the conversation:
-</p>
-
-<p>
-Your site doesn't work.
-What browser are you using and do you have Javascript enabled?
-</p>
-
-<p>
-What's a browser?
-</p>
-</blockquote>
-</div>
-</div>
-
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">Control Rails Log Verbosity with Gem lograge</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-Sometimes too much of a good thing (log info) is a bad thing, and that's true
-with Rails default logging. Check out the gem '<a href="https://github.com/roidrage/lograge">lograge</a>'. The big difference is
-that a single request will take a single line. To quote the README, instead of
-logs like this:
-</p>
-<pre class="example">
-Started GET "/" for 127.0.0.1 at 2012-03-10 14:28:14 +0100
-Processing by HomeController#index as HTML
-  Rendered text template within layouts/application (0.0ms)
-  Rendered layouts/_assets.html.erb (2.0ms)
-  Rendered layouts/_top.html.erb (2.6ms)
-  Rendered layouts/_about.html.erb (0.3ms)
-  Rendered layouts/_google_analytics.html.erb (0.4ms)
-Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
-</pre>
-
-<p>
-After installing lograge, you'll have one line for the request:
-</p>
-<pre class="example">
-method=GET path=/jobs/833552.json format=json controller=jobs action=show status=200 duration=58.33 view=40.43 db=15.26
-</pre>
-
-<p>
-The one issue with <code>lograge</code> is that the default configuration does not log
-request parameters, which can be useful for debugging. This blog post, <a href="http://ionrails.com/2013/03/26/how-to-add-the-request-parameters-along-with-full-url-request-in-lograge-outputted-files/">How to add
-request parameters to lograge logs</a>, addresses that shortcoming.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">Utility Method to Log Exceptions</h3>
-<div class="outline-text-3" id="text-1-4">
-<p>
-This sample method <code>Utility.log_exception</code> takes care of logging an exception along with sending out an
-email notification.
-</p>
-
-<p>
-Example of calling <code>Utility.log_exception</code>:
-</p>
-
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">my_method_with_error</span> <span class="n">foobar</span>
-</span><span class='line'>  <span class="n">do_something_that_raises</span> <span class="n">foobar</span>
-</span><span class='line'><span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span> <span class="c1"># catches StandardError (don&#39;t use rescue Esception =&gt; e)</span>
-</span><span class='line'>  <span class="no">Utility</span><span class="o">.</span><span class="n">log_exception</span> <span class="n">e</span><span class="p">,</span> <span class="ss">info</span><span class="p">:</span> <span class="s2">&quot;called do_something_that_raises wihh </span><span class="si">#{</span><span class="n">foobar</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>
-Definition of <code>Utility.log_exception</code>:
-</p>
-
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Utility</span>
-</span><span class='line'>  <span class="c1"># Logs and emails exception</span>
-</span><span class='line'>  <span class="c1"># Optional args:</span>
-</span><span class='line'>  <span class="c1"># request: request Used for the ExceptionNotifier</span>
-</span><span class='line'>  <span class="c1"># info: &quot;A descriptive messsage&quot;</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">log_exception</span> <span class="n">e</span><span class="p">,</span> <span class="n">args</span>
-</span><span class='line'>    <span class="n">extra_info</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:info</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span> <span class="n">extra_info</span> <span class="k">if</span> <span class="n">extra_info</span>
-</span><span class='line'>    <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
-</span><span class='line'>    <span class="n">st</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">backtrace</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span> <span class="n">st</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">extra_info</span> <span class="o">||=</span> <span class="s2">&quot;&lt;NO DETAILS&gt;&quot;</span>
-</span><span class='line'>    <span class="n">request</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:request</span><span class="o">]</span>
-</span><span class='line'>    <span class="n">env</span> <span class="o">=</span> <span class="n">request</span> <span class="p">?</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span> <span class="p">:</span> <span class="kp">nil</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">env</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">exception_notification</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">background_exception_notification</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
-</span><span class='line'>     <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Strategy: Error Handling and Logging</h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li>Avoid rescuing/catching if you can't do anything with the exception. For
-example, in a model method, you might be calling that from a controller, but
-you also might be calling that from some scheduled job. Thus, it's hard to
-say what the right action should be. A special case is calling <code>raise</code> without
-arguments: sometimes it is reasonable to catch all exceptions, logging the
-exception, and then re-raising it like it was never caught.
-</li>
-<li>If you catch an exception, consider if you should re-throw the exception
-because code at a different level will be able to handle the exception more
-properly.
-</li>
-<li>Consider how the code is being invoked, such as from a call to generate
-HTML or an ajax request, or maybe a batch job. All of these cases have very
-different needs for how the error should be handled.
-</li>
-<li>Be sure you understand the order of your rescue clauses matter. This article
-<a href="http://blog.rubybestpractices.com/posts/rklemme/003-The_Universe_between_begin_and_end.html">The Universe between <code>begin</code> and <code>end</code></a> provides a good explanation.
-Basically put the most specific exception types first and something like
-<code>rescue =&gt; e</code> last.
-</li>
-<li>Ruby does not support the concept of a "cause" with an exception. Thus, if
-you catch an exception and are going to rethrow a different exception, then
-it's important to log the stack of the original exception, or else that
-information will be lost.
-</li>
-<li>Test the logging of the exception in both development and production mode.
-You want to ensure that any exception prints clearly regardless of Rails
-environment.
-</li>
-<li>A good way to test error handling is to temporarily put in <code>raise
-   ArgumentError</code> (or whatever other error), and see how the exception is
-handled, both by the logger and the UI.
-</li>
-<li>The worst scenario is catching an exception and failing to log any messages.
-This can make troubleshooting a problem very tricky.
-</li>
-</ol>
-</div>
-</div>
-
-
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Verification and Testing</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-The next article,
-<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing
-Error Handling</a>, will show you how to verify that your error handling strategy
-is properly implemented, and how to add rspec unit and functional tests on error
-handling.
 </p>
 </div>
 </div>
