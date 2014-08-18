@@ -99,7 +99,7 @@ task :preview do
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
-desc "Begin a new post in #{source_dir}/#{posts_dir}"
+desc "Begin a new post in #{source_dir}/#{posts_dir}. Note, you cannot use commas!"
 task :new_post, :title do |t, args|
   if args.title
     title = args.title
