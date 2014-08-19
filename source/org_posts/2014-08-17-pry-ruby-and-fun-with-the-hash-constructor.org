@@ -1,0 +1,276 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Pry, Ruby, and Fun with the Hash Constructor"
+date: 2014-08-17 14:51:24 -1000
+comments: true
+categories: 
+keywords: 
+description: 
+---
+#+END_HTML
+
+I recently had a chance to pair with [[https://twitter.com/searls][Justin Searls]] of [[http://testdouble.com/][TestDouble]], and we got
+to chatting about [[https://github.com/pry/pry][pry]] and the odd =Hash[]= constructor. Here's a few tips that you
+might find useful.
+
+The main reason I use pry are:
+1. Testing Ruby syntax.
+2. Documentation and source code browsing.
+3. History support.
+4. =cd= into the an object to change the context, and =ls= to list methods of
+   that object.
+
+* Pry Configuration
+To install pry with rails, place this in your =Gemfile=
+#+BEGIN_SRC ruby
+gem 'pry-rails', :group => :development
+#+END_SRC
+
+Then run =bundle install=. Then run =rails console=. That gets you the default
+pry configuration. At the bottom of this article is my =~/.pryrc= ([[https://gist.github.com/justin808/1fe1dfbecc00a18e7f2a][gist]]). Create
+that file and then run =rails c= (short for =rails console=).
+
+You'll see this useful reminder of the customizations:
+
+#+BEGIN_EXAMPLE
+Helpful shortcuts:
+h  : hist -T 20       Last 20 commands
+hg : hist -T 20 -G    Up to 20 commands matching expression
+hG : hist -G          Commands matching expression ever used
+hr : hist -r          hist -r <command number> to run a command
+Samples variables
+a_array: [1, 2, 3, 4, 5, 6]
+a_hash: { hello: "world", free: "of charge" }
+#+END_EXAMPLE
+
+* Testing syntax: Hash[]
+The =Hash[]= method is one of the odder methods in Ruby, and oh-so-useful if
+you're doing map, reduce types of operations.
+
+For example, how do you transform all the keys in a hash to be uppercase?
+
+How about if we try this in pry (note, a_hash defined in my .pryrc).
+
+#+BEGIN_EXAMPLE
+[1] (pry) main: 0> a_hash
+{
+    :hello => "world",
+     :free => "of charge"
+}
+[2] (pry) main> a_hash.map { |k,v| [k.to_s.upcase, v] }
+[
+    [0] [
+        [0] "HELLO",
+        [1] "world"
+    ],
+    [1] [
+        [0] "FREE",
+        [1] "of charge"
+    ]
+]
+#+END_EXAMPLE
+
+OK, that gives us an Array of tuples.
+
+Then run these two commands. =_= is the value of the last expression.
+
+#+BEGIN_EXAMPLE
+> tmp = _
+> Hash[tmp]
+{
+    "HELLO" => "world",
+     "FREE" => "of charge"
+}
+#+END_EXAMPLE
+
+Bingo! Now let's dig into this a bit more.
+
+* Browsing Documentation and Source
+It's super useful to be able to see the documentation for any method easily,
+which you can do by the =?= command. Similarly, you can also see the source, by
+using =$=.
+
+#+BEGIN_EXAMPLE
+[3] (pry) main> ? Hash[]
+
+From: hash.c (C Method):
+Owner: #<Class:Hash>
+Visibility: public
+Signature: [](*arg1)
+Number of lines: 12
+
+Creates a new hash populated with the given objects.
+
+Similar to the literal { _key_ => _value_, ... }. In the first
+form, keys and values occur in pairs, so there must be an even number of
+arguments.
+
+The second and third form take a single argument which is either an array
+of key-value pairs or an object convertible to a hash.
+
+   Hash["a", 100, "b", 200]             #=> {"a"=>100, "b"=>200}
+   Hash[ [ ["a", 100], ["b", 200] ] ]   #=> {"a"=>100, "b"=>200}
+   Hash["a" => 100, "b" => 200]         #=> {"a"=>100, "b"=>200}
+#+END_EXAMPLE
+
+Hmmmm.... =Hash[]= also takes a plain array. Let's try that:
+
+#+BEGIN_EXAMPLE
+[16] (pry) main: 0> a_array
+[
+    [0] 1,
+    [1] 2,
+    [2] 3,
+    [3] 4,
+    [4] 5,
+    [5] 6
+]
+[17] (pry) main: 0> Hash[*a_array]
+{
+    1 => 2,
+    3 => 4,
+    5 => 6
+}
+#+END_EXAMPLE
+
+Neat!
+
+Also note that you can see instance methods by prefixing the method name with
+=#= or using an actual instance, like this:
+#+BEGIN_EXAMPLE
+[19] (pry) main: 0> ? Hash#keys
+
+From: hash.c (C Method):
+Owner: Hash
+Visibility: public
+Signature: keys()
+Number of lines: 5
+
+Returns a new array populated with the keys from this hash. See also
+Hash#values.
+
+   h = { "a" => 100, "b" => 200, "c" => 300, "d" => 400 }
+   h.keys   #=> ["a", "b", "c", "d"]
+[20] (pry) main: 0> ? a_hash.keys
+#+END_EXAMPLE
+
+* Browsing History
+History expansion in pry is also nice. As mentioned above, my =.pryrc= has 4
+history aliases.
+
+#+BEGIN_EXAMPLE
+h  : hist -T 20       Last 20 commands
+hg : hist -T 20 -G    Up to 20 commands matching expression
+hG : hist -G          Commands matching expression ever used
+hr : hist -r          hist -r <command number> to run a command
+#+END_EXAMPLE
+
+Let's try those out. It's import to note that the =-T= tails results after doing
+the grep of the whole history. I.e., the =-T 20= strips the results down to the
+last 20 that matched.
+
+Show last 20 commands.
+#+BEGIN_EXAMPLE
+[10] (pry) main: 0> h
+1: a_hash
+2: a_hash.map { |k,v| [key.upcase, v] }
+3: a_hash.map { |k,v| [key.to_s.upcase, v] }
+4: a_hash.map { |k,v| [k.upcase, v] }
+5: a_hash.map { |k,v| [k.to_s.upcase, v] }
+6: tmp = _
+7: Hash[tmp]
+8: ? Hash[]
+9: $ Hash[]
+#+END_EXAMPLE
+
+Grep all commands for upcase and show last 20 matches.
+#+BEGIN_EXAMPLE
+[11] (pry) main: 0> hg upcase
+2: a_hash.map { |k,v| [key.upcase, v] }
+3: a_hash.map { |k,v| [key.to_s.upcase, v] }
+4: a_hash.map { |k,v| [k.upcase, v] }
+5: a_hash.map { |k,v| [k.to_s.upcase, v] }
+#+END_EXAMPLE
+
+Grep all commands for upcase and show all. The history of my example is short so
+below is the same as above. If the history were longer, as it typically will be,
+then you might get pages of results!
+
+#+BEGIN_EXAMPLE
+[12] (pry) main: 0> hG upcase
+ 2: a_hash.map { |k,v| [key.upcase, v] }
+ 3: a_hash.map { |k,v| [key.to_s.upcase, v] }
+ 4: a_hash.map { |k,v| [k.upcase, v] }
+ 5: a_hash.map { |k,v| [k.to_s.upcase, v] }
+11: hg upcase
+#+END_EXAMPLE
+
+# Run command with index 5
+[13] (pry) main: 0> hr 5
+[
+    [0] [
+        [0] "HELLO",
+        [1] "world"
+    ],
+    [1] [
+        [0] "FREE",
+        [1] "of charge"
+    ]
+]
+#+END_EXAMPLE
+
+* cd and ls within Pry
+I love to use =cd= and =ls= in =pry=.
+
+1. =cd= changes the context of pry, a bit like the current directory in the
+   shell, except for Ruby objects. And classes are objects too!
+2. =ls= lists methods available on an object, a bit like listing files in the
+   shell.
+
+#+BEGIN_EXAMPLE
+[22] (pry) main: 0> cd a_hash.keys
+[26] (pry) main / #<Array>: 1> length
+2
+[27] (pry) main / #<Array>: 1> first
+:hello
+[28] (pry) main / #<Array>: 1> last
+:free
+[29] (pry) main / #<Array>: 1> ls
+Enumerable#methods:
+  all?  chunk           detect     each_entry  each_with_index   entries   find      flat_map  index_by  lazy   max     member?  min_by  minmax_by  one?           partition  slice_before  sum     to_table
+  any?  collect_concat  each_cons  each_slice  each_with_object  exclude?  find_all  group_by  inject    many?  max_by  min      minmax  none?      original_grep  reduce     sort_by       to_set  to_text_table
+JSON::Ext::Generator::GeneratorMethods::Array#methods: to_json_without_active_support_encoder
+Statsample::VectorShorthands#methods: to_scale  to_vector
+SimpleCov::ArrayMergeHelper#methods: merge_resultset
+Array#methods:
+  &    []=      clear        cycle       drop_while        fill        frozen?       inspect  permutation         push                  reverse       select     slice!      third                          to_gsl_integration_qaws_table        to_qaws_table  unshift
+  *    abbrev   collect      dclone      each              find_index  grep          join     place               rassoc                reverse!      select!    sort        to                             to_gsl_vector                        to_query       values_at
+  +    append   collect!     deep_dup    each_index        first       hash          keep_if  pop                 recode_repeated       reverse_each  shelljoin  sort!       to_a                           to_gslv                              to_s           zip
+  -    as_json  combination  delete      empty?            flatten     in_groups     last     prefix              reject                rindex        shift      sort_by!    to_ary                         to_gv                                to_sentence    |
+  <<   assoc    compact      delete_at   eql?              flatten!    in_groups_of  length   prepend             reject!               rotate        shuffle    split       to_csv                         to_h                                 to_xml
+  <=>  at       compact!     delete_eql  extract_options!  forty_two   include?      map      pretty_print        repeated_combination  rotate!       shuffle!   suffix      to_default_s                   to_json                              transpose
+  ==   blank?   concat       delete_if   fetch             fourth      index         map!     pretty_print_cycle  repeated_permutation  sample        size       take        to_formatted_s                 to_json_with_active_support_encoder  uniq
+  []   bsearch  count        drop        fifth             from        insert        pack     product             replace               second        slice      take_while  to_gsl_integration_qawo_table  to_param                             uniq!
+self.methods: __pry__
+locals: _  __  _dir_  _ex_  _file_  _in_  _out_  _pry_
+#+END_EXAMPLE
+It's worth noting that you can see the modules declaring the methods of the object.
+
+To see more of what pry can do for you, simply type =help= at the command line.
+
+* My ~/.pryrc file
+Create a file in your home directory called =~/.pryrc=.
+{% gist 1fe1dfbecc00a18e7f2a %}
+
+
+
+
+
+
+
+
+
+
+
+
