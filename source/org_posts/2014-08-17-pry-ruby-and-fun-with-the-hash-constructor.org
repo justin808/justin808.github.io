@@ -263,14 +263,3 @@ To see more of what pry can do for you, simply type =help= at the command line.
 Create a file in your home directory called =~/.pryrc=.
 {% gist 1fe1dfbecc00a18e7f2a %}
 
-
-
-
-
-
-
-
-
-
-
-
