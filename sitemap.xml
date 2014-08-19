@@ -33,6 +33,12 @@
         <lastmod>2014-05-15T23:26:19-10:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://www.railsonmaui.com//blog/2013/05/28/how-much-client-side-javascript-in-rails-4/
+        </loc>
+        <lastmod>2014-05-15T23:26:18-10:00</lastmod>
+    </url>
+    <url>
         <loc>http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/</loc>
         <lastmod>2014-05-15T23:26:18-10:00</lastmod>
     </url>
@@ -100,7 +106,13 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/</loc>
-        <lastmod>2014-08-14T11:45:22-10:00</lastmod>
+        <lastmod>2014-08-18T19:09:29-10:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/
+        </loc>
+        <lastmod>2014-08-18T19:09:28-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//about/about-justin-gordon-programming.html</loc>
@@ -108,7 +120,7 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//about/</loc>
-        <lastmod>2014-08-14T11:45:22-10:00</lastmod>
+        <lastmod>2014-08-18T19:09:29-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//about/justin-gordon-resume-1990s.html</loc>
@@ -124,7 +136,7 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/archives/</loc>
-        <lastmod>2014-08-14T11:45:22-10:00</lastmod>
+        <lastmod>2014-08-18T19:09:29-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/categories.html</loc>
@@ -132,11 +144,11 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//</loc>
-        <lastmod>2014-08-14T11:45:22-10:00</lastmod>
+        <lastmod>2014-08-18T19:09:29-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//meta/</loc>
-        <lastmod>2014-08-14T11:45:22-10:00</lastmod>
+        <lastmod>2014-08-18T19:09:29-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//robots.txt</loc>
@@ -152,7 +164,7 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/</loc>
-        <lastmod>2014-08-14T11:45:22-10:00</lastmod>
+        <lastmod>2014-08-18T19:09:29-10:00</lastmod>
     </url>
     <url>
         <loc>
@@ -166,7 +178,7 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/rubymine/</loc>
-        <lastmod>2014-08-14T11:45:22-10:00</lastmod>
+        <lastmod>2014-08-18T19:09:29-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/rubymine/rubymine-tips-rails-tutorial.html</loc>
