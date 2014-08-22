@@ -27,3 +27,19 @@ RubyMine’s interactive search/replace is awesome. The Regexp feature is
 especially useful. Not only will it help you edit faster, but it will improve
 your ability to write RegExp’s in your code. When do you need to use a regexp?
 Whenever a standard find/replace won’t cut it.
+** Configure RubyMine with the better_errors Gem
+1. Create command line launcher in RubyMine, with menu Tools -> Create Command
+   Line Launcher
+2. Add gem and run =bundle=
+   #+BEGIN_SRC ruby
+   group :development do
+     gem 'better_errors'
+   end
+   #+END_SRC
+3. Place this in =development.rb=
+   #+BEGIN_SRC ruby
+     BetterErrors.editor='x-mine://open?file=%{file}&line=%{line}' if defined? BetterErrors
+   #+END_SRC
+4. Enjoy following features:
+   1. Interactive shell in better_errors browser page.
+   2. Click on file link and see file in RubyMine
