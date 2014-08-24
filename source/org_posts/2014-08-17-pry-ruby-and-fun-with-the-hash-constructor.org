@@ -83,8 +83,32 @@ Then run these two commands. =_= is the value of the last expression.
      "FREE" => "of charge"
 }
 #+END_EXAMPLE
-
 Bingo! Now let's dig into this a bit more.
+
+* Memoization with Hash
+Hash has another unusual constructor useful for memoizing a method's return
+value when parameters are involved. Justin Weiss wrote a good article explaining
+it: [[http://www.justinweiss.com/blog/2014/07/28/4-simple-memoization-patterns-in-ruby-and-one-gem/][4 Simple Memoization Patterns in Ruby (and One Gem)]].
+
+Here's a quick sample in Pry:
+#+BEGIN_EXAMPLE
+[5] (pry) main: 0> hh = Hash.new { |h, k| h[k] = k * 2 }
+{}
+[6] (pry) main: 0> hh[2]
+4
+[7] (pry) main: 0> hh[4]
+8
+#+END_EXAMPLE
+
+You can even use an array for the key values:
+#+BEGIN_EXAMPLE
+[8] (pry) main: 0> hh = Hash.new { |h, k| h[k] = k[0] * k[1] }
+{}
+[9] (pry) main: 0> hh[[2,3]]
+6
+[10] (pry) main: 0> hh[[4,5]]
+20
+#+END_EXAMPLE
 
 * Browsing Documentation and Source
 It's super useful to be able to see the documentation for any method easily,

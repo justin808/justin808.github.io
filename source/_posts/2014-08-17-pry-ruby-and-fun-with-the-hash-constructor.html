@@ -112,15 +112,48 @@ Then run these two commands. <code>_</code> is the value of the last expression.
      "FREE" =&gt; "of charge"
 }
 </pre>
-
 <p>
 Bingo! Now let's dig into this a bit more.
 </p>
 </div>
 </div>
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Browsing Documentation and Source</h2>
+<h2 id="sec-3">Memoization with Hash</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+Hash has another unusual constructor useful for memoizing a method's return
+value when parameters are involved. Justin Weiss wrote a good article explaining
+it: <a href="http://www.justinweiss.com/blog/2014/07/28/4-simple-memoization-patterns-in-ruby-and-one-gem/">4 Simple Memoization Patterns in Ruby (and One Gem)</a>.
+</p>
+
+<p>
+Here's a quick sample in Pry:
+</p>
+<pre class="example">
+[5] (pry) main: 0&gt; hh = Hash.new { |h, k| h[k] = k * 2 }
+{}
+[6] (pry) main: 0&gt; hh[2]
+4
+[7] (pry) main: 0&gt; hh[4]
+8
+</pre>
+
+<p>
+You can even use an array for the key values:
+</p>
+<pre class="example">
+[8] (pry) main: 0&gt; hh = Hash.new { |h, k| h[k] = k[0] * k[1] }
+{}
+[9] (pry) main: 0&gt; hh[[2,3]]
+6
+[10] (pry) main: 0&gt; hh[[4,5]]
+20
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Browsing Documentation and Source</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 It's super useful to be able to see the documentation for any method easily,
 which you can do by the <code>?</code> command. Similarly, you can also see the source, by
@@ -198,9 +231,9 @@ Hash#values.
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Browsing History</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Browsing History</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 History expansion in pry is also nice. As mentioned above, my <code>.pryrc</code> has 4
 history aliases.
@@ -262,9 +295,9 @@ then you might get pages of results!
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">cd and ls within Pry</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">cd and ls within Pry</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 I love to use <code>cd</code> and <code>ls</code> in <code>pry</code>.
 </p>
@@ -314,9 +347,9 @@ To see more of what pry can do for you, simply type <code>help</code> at the com
 </p>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">My ~/.pryrc file</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">My ~/.pryrc file</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 Create a file in your home directory called <code>~/.pryrc</code>.
 {% gist 1fe1dfbecc00a18e7f2a %}
