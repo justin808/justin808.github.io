@@ -1,0 +1,332 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Pry, Ruby, Array#zip, CSV, and the Hash[] constructor"
+date: 2014-09-05 11:06:17 -1000
+comments: true
+categories: [pry]
+keywords: Pry, Ruby, Array, zip, CSV, Hash
+description: Example showing how pry demonstrates the usefulness of Array#zip with CSV, and the Hash[] constructor
+---
+#+END_HTML
+
+A couple weeks ago, I wrote a popular article, [[http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/][Pry, Ruby, and Fun With the Hash Constructor]] demonstrating the usefulness of
+[[https://github.com/pry/pry][pry]] with the [[http://ruby-doc.org/core-2.1.2/Hash.html][Hash bracket constructor]]. I just ran into a super fun test example of pry
+that I couldn't resist sharing!
+
+* The Task: Convert CSV File without Headers to Array of Hashes
+
+For example, you want to take a csv file like:
+
+#+BEGIN_EXAMPLE
+|---+--------+--------|
+| 1 | Justin | Gordon |
+| 2 | Tender | Love   |
+|---+--------+--------|
+#+END_EXAMPLE
+
+And create an array of hashes like this with column headers "id", "first_name", "last_name":
+#+BEGIN_SRC ruby
+[
+    [0] {
+               "id," => "1",
+        "first_name" => "Justin",
+         "last_name" => "Gordon"
+    },
+    [1] {
+               "id," => "2",
+        "first_name" => "Tender",
+         "last_name" => "Love"
+    }
+]
+#+END_SRC
+
+You'd think that you could just pass the headers to the =CSV.parse=, but that
+doesn't work:
+
+#+BEGIN_SRC ruby
+[11] (pry) main: 0> col_headers = %w(id, first_name last_name)
+[
+    [0] "id,",
+    [1] "first_name",
+    [2] "last_name"
+]
+[12] (pry) main: 0> csv = CSV.parse(csv_string, headers: col_headers)
+(pry) output error: #<NoMethodError: undefined method `table' for #<Object:0x007fdbfc8d5588>>
+#+END_SRC
+
+* Using Array#zip
+
+I stumbled upon a note about the CSV parser that suggested using =Array#zip= to
+add keys to the results created by the CSV parser when headers don't exist in
+the file.
+
+Using =Array#zip=? What the heck is the =zip= method? Compression?
+
+#+BEGIN_SRC ruby
+[1] (pry) main: 0> ? a_array.zip
+
+From: array.c (C Method):
+Owner: Array
+Visibility: public
+Signature: zip(*arg1)
+Number of lines: 17
+
+Converts any arguments to arrays, then merges elements of self with
+corresponding elements from each argument.
+
+This generates a sequence of ary.size _n_-element arrays,
+where _n_ is one more than the count of arguments.
+
+If the size of any argument is less than the size of the initial array,
+nil values are supplied.
+
+If a block is given, it is invoked for each output array, otherwise an
+array of arrays is returned.
+
+   a = [ 4, 5, 6 ]
+   b = [ 7, 8, 9 ]
+   [1, 2, 3].zip(a, b)   #=> [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+   [1, 2].zip(a, b)      #=> [[1, 4, 7], [2, 5, 8]]
+   a.zip([1, 2], [8])    #=> [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
+#+END_SRC
+
+Hmmmm....Why would that be useful?
+
+Here's some pry command that demonstrate this. I encourage you to follow along
+in pry!
+
+I first created a CSV string from hand like this:
+
+#+BEGIN_SRC ruby
+[2] (pry) main: 0> csv_file = <<-CSV
+[2] (pry) main: 0* 1, "Justin", "Gordon"
+[2] (pry) main: 0* 2, "Avdi", "Grimm"
+[2] (pry) main: 0* CSV
+"1, \"Justin\", \"Gordon\"\n2, \"Avdi\", \"Grimm\"\n"
+[3] (pry) main: 0> CSV.parse(csv_file) { |csv_row| p csv_row }
+CSV::MalformedCSVError: Illegal quoting in line 1.
+from /Users/justin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/csv.rb:1855:in `block (2 levels) in shift'
+#+END_SRC
+
+Doooh!!!! That taught me that creating a legit CSV string is not as easy as it sounds.
+
+Let's create a legit csv string:
+
+#+BEGIN_SRC ruby
+[4] (pry) main: 0> csv_string = CSV.generate do |csv|
+[4] (pry) main: 0*   csv << [1, "Justin", "Gordon"]
+[4] (pry) main: 0*   csv << [2, "Tender", "Love"]
+[4] (pry) main: 0* end
+"1,Justin,Gordon\n2,Tender,Love\n"
+#+END_SRC
+
+Notice, there's no quotes around the single word names!
+
+If I use CSV to parse this, we get the reverse result, the array of arrays,
+back:
+
+#+BEGIN_SRC ruby
+[16] (pry) main: 0> CSV.parse(csv_string)
+[
+    [0] [
+        [0] "1",
+        [1] "Justin",
+        [2] "Gordon"
+    ],
+    [1] [
+        [0] "2",
+        [1] "Tender",
+        [2] "Love"
+    ]
+]
+[17] (pry) main: 0> CSV.parse(csv_string).class
+Array < Object
+#+END_SRC
+
+Ahh...Could we use the Hash[] constructor to convert these arrays into Hashes
+that place the proper keys?
+
+#+BEGIN_SRC ruby
+[18] (pry) main: 0> first_row = CSV.parse(csv_string).first
+[
+    [0] "1",
+    [1] "Justin",
+    [2] "Gordon"
+]
+[19] (pry) main: 0> col_headers = %w(id, first_name last_name)
+[
+    [0] "id,",
+    [1] "first_name",
+    [2] "last_name"
+]
+[20] (pry) main: 0> first_row.zip(col_headers)
+[
+    [0] [
+        [0] "1",
+        [1] "id,"
+    ],
+    [1] [
+        [0] "Justin",
+        [1] "first_name"
+    ],
+    [2] [
+        [0] "Gordon",
+        [1] "last_name"
+    ]
+]
+[21] (pry) main: 0> Hash[ first_row.zip(col_headers) ]
+{
+         "1" => "id,",
+    "Justin" => "first_name",
+    "Gordon" => "last_name"
+}
+#+END_SRC
+
+Bingo!
+
+Now, let's fix the array of arrays, creating an array called =rows= 
+
+#+BEGIN_SRC ruby
+[22] (pry) main: 0> rows = CSV.parse(csv_string)
+[
+    [0] [
+        [0] "1",
+        [1] "Justin",
+        [2] "Gordon"
+    ],
+    [1] [
+        [0] "2",
+        [1] "Tender",
+        [2] "Love"
+    ]
+]
+#+END_SRC
+
+Then the grand finale!
+#+BEGIN_SRC ruby
+[24] (pry) main: 0> rows.map { |row| Hash[ col_headers.zip(row) ] }
+[
+    [0] {
+               "id," => "1",
+        "first_name" => "Justin",
+         "last_name" => "Gordon"
+    },
+    [1] {
+               "id," => "2",
+        "first_name" => "Tender",
+         "last_name" => "Love"
+    }
+]
+#+END_SRC
+
+And sure, you can do this all on one line by inlining the =rows= variable:
+
+#+BEGIN_SRC ruby
+CSV.parse(csv_string).map { |row| Hash[ col_headers.zip(row) ] }
+#+END_SRC
+
+* Using headers option in CSV?
+Well, you'd think that you could just pass the headers to the =CSV.parse=, but
+that doesn't work:
+
+#+BEGIN_SRC ruby
+[12] (pry) main: 0> csv = CSV.parse(csv_string, headers: col_headers)
+(pry) output error: #<NoMethodError: undefined method `table' for #<Object:0x007fdbfc8d5588>>
+#+END_SRC
+
+Well, what's the doc?
+
+#+BEGIN_SRC ruby
+[13] (pry) main: 0> ? CSV.parse
+
+From: /Users/justin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/csv.rb @ line 1278:
+Owner: #<Class:CSV>
+Visibility: public
+Signature: parse(*args, &block)
+Number of lines: 11
+
+:call-seq:
+  parse( str, options = Hash.new ) { |row| ... }
+  parse( str, options = Hash.new )
+
+This method can be used to easily parse CSV out of a String.  You may either
+provide a block which will be called with each row of the String in turn,
+or just use the returned Array of Arrays (when no block is given).
+
+You pass your str to read from, and an optional options Hash containing
+anything CSV::new() understands.
+#+END_SRC
+
+Hmmm...seems that passing the =headers= should have worked.
+
+The [[http://ruby-doc.org/stdlib-2.1.2/libdoc/csv/rdoc/CSV.html#method-c-new][CSV docs clearly state]] that the initialize method takes an option =:headers=
+
+#+begin_quote
+:headers
+If set to :first_row or true, the initial row of the CSV file will be treated as
+a row of headers. If set to an Array, the contents will be used as the headers.
+If set to a String, the String is run through a call of ::parse_line with the
+same :col_sep, :row_sep, and :quote_char as this instance to produce an Array of
+headers. This setting causes #shift to return rows as CSV::Row objects instead
+of Arrays and #read to return CSV::Table objects instead of an Array of Arrays.
+#+end_quote
+
+So, what can we call on a new CSV object? Let's list the methods.
+
+#+BEGIN_SRC ruby
+[25] (pry) main: 0> ls CSV.new(csv_string, headers: col_headers)
+Enumerable#methods:
+  all?            count       each_entry        find        group_by  map      minmax     reject        sum         to_table
+  any?            cycle       each_slice        find_all    include?  max      minmax_by  reverse_each  take        to_text_table
+  as_json         detect      each_with_index   find_index  index_by  max_by   none?      select        take_while  zip
+  chunk           drop        each_with_object  first       inject    member?  one?       slice_before  to_a
+  collect         drop_while  entries           flat_map    lazy      min      partition  sort          to_h
+  collect_concat  each_cons   exclude?          grep        many?     min_by   reduce     sort_by       to_set
+CSV#methods:
+  <<           col_sep            fcntl             header_convert     lineno      readline         skip_blanks?  to_io
+  add_row      convert            field_size_limit  header_converters  path        readlines        skip_lines    truncate
+  binmode      converters         fileno            header_row?        pid         reopen           stat          tty?
+  binmode?     each               flock             headers            pos         return_headers?  string        unconverted_fields?
+  close        encoding           flush             inspect            pos=        rewind           sync          write_headers?
+  close_read   eof                force_quotes?     internal_encoding  puts        row_sep          sync=
+  close_write  eof?               fsync             ioctl              quote_char  seek             tell
+  closed?      external_encoding  gets              isatty             read        shift            to_i
+instance variables:
+  @col_sep     @field_size_limit   @headers  @parsers     @re_chars        @row_sep      @unconverted_fields
+  @converters  @force_quotes       @io       @quote       @re_esc          @skip_blanks  @use_headers
+  @encoding    @header_converters  @lineno   @quote_char  @return_headers  @skip_lines   @write_headers
+#+END_SRC
+
+How about this:
+
+#+BEGIN_SRC ruby
+[14] (pry) main: 0> csv = CSV.new(csv_string, headers: col_headers).to_a
+[
+    [0] #<CSV::Row "id,":"1" "first_name":"Justin" "last_name":"Gordon">,
+    [1] #<CSV::Row "id,":"2" "first_name":"Tender" "last_name":"Love">
+]
+#+END_SRC
+
+Well, that's getting closer.
+
+How about if I just map those rows with a =to_hash=?
+#+BEGIN_SRC ruby
+[16] (pry) main: 0> csv = CSV.new(csv_string, headers: col_headers).map(&:to_hash)
+[
+    [0] {
+               "id," => "1",
+        "first_name" => "Justin",
+         "last_name" => "Gordon"
+    },
+    [1] {
+               "id," => "2",
+        "first_name" => "Tender",
+         "last_name" => "Love"
+    }
+]
+#+END_SRC
+
+Bingo!
+
+I hope you enjoyed this!

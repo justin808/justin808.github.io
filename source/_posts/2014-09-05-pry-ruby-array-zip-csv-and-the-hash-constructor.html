@@ -1,0 +1,396 @@
+---
+layout: post
+title: "Pry, Ruby, Array#zip, CSV, and the Hash[] constructor"
+date: 2014-09-05 11:06:17 -1000
+comments: true
+categories: [pry]
+keywords: Pry, Ruby, Array, zip, CSV, Hash
+description: Example showing how pry demonstrates the usefulness of Array#zip with CSV, and the Hash[] constructor
+---
+
+<p>
+A couple weeks ago, I wrote a popular article, <a href="http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry, Ruby, and Fun With the Hash Constructor</a> demonstrating the usefulness of
+<a href="https://github.com/pry/pry">pry</a> with the <a href="http://ruby-doc.org/core-2.1.2/Hash.html">Hash bracket constructor</a>. I just ran into a super fun test example of pry
+that I couldn't resist sharing!
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">The Task: Convert CSV File without Headers to Array of Hashes</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For example, you want to take a csv file like:
+</p>
+
+<pre class="example">
+|---+--------+--------|
+| 1 | Justin | Gordon |
+| 2 | Tender | Love   |
+|---+--------+--------|
+</pre>
+
+<p>
+And create an array of hashes like this with column headers "id", "first_name", "last_name":
+</p>
+{% codeblock lang:ruby %}
+[
+    [0] {
+               "id," => "1",
+        "first_name" => "Justin",
+         "last_name" => "Gordon"
+    },
+    [1] {
+               "id," => "2",
+        "first_name" => "Tender",
+         "last_name" => "Love"
+    }
+]
+{% endcodeblock %}
+
+<p>
+You'd think that you could just pass the headers to the <code>CSV.parse</code>, but that
+doesn't work:
+</p>
+
+{% codeblock lang:ruby %}
+[11] (pry) main: 0> col_headers = %w(id, first_name last_name)
+[
+    [0] "id,",
+    [1] "first_name",
+    [2] "last_name"
+]
+[12] (pry) main: 0> csv = CSV.parse(csv_string, headers: col_headers)
+(pry) output error: #<NoMethodError: undefined method `table' for #<Object:0x007fdbfc8d5588>>
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Using Array#zip</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I stumbled upon a note about the CSV parser that suggested using <code>Array#zip</code> to
+add keys to the results created by the CSV parser when headers don't exist in
+the file.
+</p>
+
+<p>
+Using <code>Array#zip</code>? What the heck is the <code>zip</code> method? Compression?
+</p>
+
+{% codeblock lang:ruby %}
+[1] (pry) main: 0> ? a_array.zip
+
+From: array.c (C Method):
+Owner: Array
+Visibility: public
+Signature: zip(*arg1)
+Number of lines: 17
+
+Converts any arguments to arrays, then merges elements of self with
+corresponding elements from each argument.
+
+This generates a sequence of ary.size _n_-element arrays,
+where _n_ is one more than the count of arguments.
+
+If the size of any argument is less than the size of the initial array,
+nil values are supplied.
+
+If a block is given, it is invoked for each output array, otherwise an
+array of arrays is returned.
+
+   a = [ 4, 5, 6 ]
+   b = [ 7, 8, 9 ]
+   [1, 2, 3].zip(a, b)   #=> [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+   [1, 2].zip(a, b)      #=> [[1, 4, 7], [2, 5, 8]]
+   a.zip([1, 2], [8])    #=> [[4, 1, 8], [5, 2, nil], [6, nil, nil]]
+{% endcodeblock %}
+
+<p>
+Hmmmm&#x2026;.Why would that be useful?
+</p>
+
+<p>
+Here's some pry command that demonstrate this. I encourage you to follow along
+in pry!
+</p>
+
+<p>
+I first created a CSV string from hand like this:
+</p>
+
+{% codeblock lang:ruby %}
+[2] (pry) main: 0> csv_file = <<-CSV
+[2] (pry) main: 0* 1, "Justin", "Gordon"
+[2] (pry) main: 0* 2, "Avdi", "Grimm"
+[2] (pry) main: 0* CSV
+"1, \"Justin\", \"Gordon\"\n2, \"Avdi\", \"Grimm\"\n"
+[3] (pry) main: 0> CSV.parse(csv_file) { |csv_row| p csv_row }
+CSV::MalformedCSVError: Illegal quoting in line 1.
+from /Users/justin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/csv.rb:1855:in `block (2 levels) in shift'
+{% endcodeblock %}
+
+<p>
+Doooh!!!! That taught me that creating a legit CSV string is not as easy as it sounds.
+</p>
+
+<p>
+Let's create a legit csv string:
+</p>
+
+{% codeblock lang:ruby %}
+[4] (pry) main: 0> csv_string = CSV.generate do |csv|
+[4] (pry) main: 0*   csv << [1, "Justin", "Gordon"]
+[4] (pry) main: 0*   csv << [2, "Tender", "Love"]
+[4] (pry) main: 0* end
+"1,Justin,Gordon\n2,Tender,Love\n"
+{% endcodeblock %}
+
+<p>
+Notice, there's no quotes around the single word names!
+</p>
+
+<p>
+If I use CSV to parse this, we get the reverse result, the array of arrays,
+back:
+</p>
+
+{% codeblock lang:ruby %}
+[16] (pry) main: 0> CSV.parse(csv_string)
+[
+    [0] [
+        [0] "1",
+        [1] "Justin",
+        [2] "Gordon"
+    ],
+    [1] [
+        [0] "2",
+        [1] "Tender",
+        [2] "Love"
+    ]
+]
+[17] (pry) main: 0> CSV.parse(csv_string).class
+Array < Object
+{% endcodeblock %}
+
+<p>
+Ahh&#x2026;Could we use the Hash[] constructor to convert these arrays into Hashes
+that place the proper keys?
+</p>
+
+{% codeblock lang:ruby %}
+[18] (pry) main: 0> first_row = CSV.parse(csv_string).first
+[
+    [0] "1",
+    [1] "Justin",
+    [2] "Gordon"
+]
+[19] (pry) main: 0> col_headers = %w(id, first_name last_name)
+[
+    [0] "id,",
+    [1] "first_name",
+    [2] "last_name"
+]
+[20] (pry) main: 0> first_row.zip(col_headers)
+[
+    [0] [
+        [0] "1",
+        [1] "id,"
+    ],
+    [1] [
+        [0] "Justin",
+        [1] "first_name"
+    ],
+    [2] [
+        [0] "Gordon",
+        [1] "last_name"
+    ]
+]
+[21] (pry) main: 0> Hash[ first_row.zip(col_headers) ]
+{
+         "1" => "id,",
+    "Justin" => "first_name",
+    "Gordon" => "last_name"
+}
+{% endcodeblock %}
+
+<p>
+Bingo!
+</p>
+
+<p>
+Now, let's fix the array of arrays, creating an array called <code>rows</code> 
+</p>
+
+{% codeblock lang:ruby %}
+[22] (pry) main: 0> rows = CSV.parse(csv_string)
+[
+    [0] [
+        [0] "1",
+        [1] "Justin",
+        [2] "Gordon"
+    ],
+    [1] [
+        [0] "2",
+        [1] "Tender",
+        [2] "Love"
+    ]
+]
+{% endcodeblock %}
+
+<p>
+Then the grand finale!
+</p>
+{% codeblock lang:ruby %}
+[24] (pry) main: 0> rows.map { |row| Hash[ col_headers.zip(row) ] }
+[
+    [0] {
+               "id," => "1",
+        "first_name" => "Justin",
+         "last_name" => "Gordon"
+    },
+    [1] {
+               "id," => "2",
+        "first_name" => "Tender",
+         "last_name" => "Love"
+    }
+]
+{% endcodeblock %}
+
+<p>
+And sure, you can do this all on one line by inlining the <code>rows</code> variable:
+</p>
+
+{% codeblock lang:ruby %}
+CSV.parse(csv_string).map { |row| Hash[ col_headers.zip(row) ] }
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Using headers option in CSV?</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Well, you'd think that you could just pass the headers to the <code>CSV.parse</code>, but
+that doesn't work:
+</p>
+
+{% codeblock lang:ruby %}
+[12] (pry) main: 0> csv = CSV.parse(csv_string, headers: col_headers)
+(pry) output error: #<NoMethodError: undefined method `table' for #<Object:0x007fdbfc8d5588>>
+{% endcodeblock %}
+
+<p>
+Well, what's the doc?
+</p>
+
+{% codeblock lang:ruby %}
+[13] (pry) main: 0> ? CSV.parse
+
+From: /Users/justin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/csv.rb @ line 1278:
+Owner: #<Class:CSV>
+Visibility: public
+Signature: parse(*args, &block)
+Number of lines: 11
+
+:call-seq:
+  parse( str, options = Hash.new ) { |row| ... }
+  parse( str, options = Hash.new )
+
+This method can be used to easily parse CSV out of a String.  You may either
+provide a block which will be called with each row of the String in turn,
+or just use the returned Array of Arrays (when no block is given).
+
+You pass your str to read from, and an optional options Hash containing
+anything CSV::new() understands.
+{% endcodeblock %}
+
+<p>
+Hmmm&#x2026;seems that passing the <code>headers</code> should have worked.
+</p>
+
+<p>
+The <a href="http://ruby-doc.org/stdlib-2.1.2/libdoc/csv/rdoc/CSV.html#method-c-new">CSV docs clearly state</a> that the initialize method takes an option <code>:headers</code>
+</p>
+
+<blockquote>
+<p>
+:headers
+If set to :first_row or true, the initial row of the CSV file will be treated as
+a row of headers. If set to an Array, the contents will be used as the headers.
+If set to a String, the String is run through a call of ::parse_line with the
+same :col_sep, :row_sep, and :quote_char as this instance to produce an Array of
+headers. This setting causes #shift to return rows as CSV::Row objects instead
+of Arrays and #read to return CSV::Table objects instead of an Array of Arrays.
+</p>
+</blockquote>
+
+<p>
+So, what can we call on a new CSV object? Let's list the methods.
+</p>
+
+{% codeblock lang:ruby %}
+[25] (pry) main: 0> ls CSV.new(csv_string, headers: col_headers)
+Enumerable#methods:
+  all?            count       each_entry        find        group_by  map      minmax     reject        sum         to_table
+  any?            cycle       each_slice        find_all    include?  max      minmax_by  reverse_each  take        to_text_table
+  as_json         detect      each_with_index   find_index  index_by  max_by   none?      select        take_while  zip
+  chunk           drop        each_with_object  first       inject    member?  one?       slice_before  to_a
+  collect         drop_while  entries           flat_map    lazy      min      partition  sort          to_h
+  collect_concat  each_cons   exclude?          grep        many?     min_by   reduce     sort_by       to_set
+CSV#methods:
+  <<           col_sep            fcntl             header_convert     lineno      readline         skip_blanks?  to_io
+  add_row      convert            field_size_limit  header_converters  path        readlines        skip_lines    truncate
+  binmode      converters         fileno            header_row?        pid         reopen           stat          tty?
+  binmode?     each               flock             headers            pos         return_headers?  string        unconverted_fields?
+  close        encoding           flush             inspect            pos=        rewind           sync          write_headers?
+  close_read   eof                force_quotes?     internal_encoding  puts        row_sep          sync=
+  close_write  eof?               fsync             ioctl              quote_char  seek             tell
+  closed?      external_encoding  gets              isatty             read        shift            to_i
+instance variables:
+  @col_sep     @field_size_limit   @headers  @parsers     @re_chars        @row_sep      @unconverted_fields
+  @converters  @force_quotes       @io       @quote       @re_esc          @skip_blanks  @use_headers
+  @encoding    @header_converters  @lineno   @quote_char  @return_headers  @skip_lines   @write_headers
+{% endcodeblock %}
+
+<p>
+How about this:
+</p>
+
+{% codeblock lang:ruby %}
+[14] (pry) main: 0> csv = CSV.new(csv_string, headers: col_headers).to_a
+[
+    [0] #<CSV::Row "id,":"1" "first_name":"Justin" "last_name":"Gordon">,
+    [1] #<CSV::Row "id,":"2" "first_name":"Tender" "last_name":"Love">
+]
+{% endcodeblock %}
+
+<p>
+Well, that's getting closer.
+</p>
+
+<p>
+How about if I just map those rows with a <code>to_hash</code>?
+</p>
+{% codeblock lang:ruby %}
+[16] (pry) main: 0> csv = CSV.new(csv_string, headers: col_headers).map(&:to_hash)
+[
+    [0] {
+               "id," => "1",
+        "first_name" => "Justin",
+         "last_name" => "Gordon"
+    },
+    [1] {
+               "id," => "2",
+        "first_name" => "Tender",
+         "last_name" => "Love"
+    }
+]
+{% endcodeblock %}
+
+<p>
+Bingo!
+</p>
+
+<p>
+I hope you enjoyed this!
+</p>
+</div>
+</div>
