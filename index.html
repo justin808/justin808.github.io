@@ -9,8 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="I recently had a chance to pair with Justin Searls of TestDouble, and we got
-to chatting about pry and the odd Hash[] constructor. Here&#8217;s a &hellip;">
+  <meta name="description" content="This article describes some tougher issues I faced when upgrading to Rails 4.1,
+Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,6 +23,7 @@ to chatting about pry and the odd Hash[] constructor. Here&#8217;s a &hellip;">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -83,6 +84,355 @@ to chatting about pry and the odd Hash[] constructor. Here&#8217;s a &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/">Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-12T11:20:58-10:00" pubdate data-updated="true">Sep 12<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+This article describes some tougher issues I faced when upgrading to Rails 4.1,
+Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on &#8221;<a href="https://hackhands.com/tips-strategies-upgrading-ruby-gems/">Rails Gem Upgrading Tips and Strategies</a>&#8221;.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Upgrade Links</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+If you&#8217;re upgrading these specific gems, here&#8217;s the must-see upgrade links.
+</p>
+<ol class="org-ol">
+<li>Rails 4.1: <a href="http://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html">A Guide for Upgrading Ruby on Rails</a>.
+</li>
+<li><a href="https://relishapp.com/rspec/docs/upgrade">RSpec 2 to RSpec 3</a>.
+</li>
+<li>Twitter Bootstrap: <a href="http://getbootstrap.com/migration/">Migrating to v3.x</a> is essential if you&#8217;re going from 2.x to 3.x.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Troubleshooting with RubyMine &#8220;Find In Path&#8221; and the Debugger</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+After making the require code changes to address the deprecation errors going to
+rspec 3, I ran into the below obscure error. This one really stumped me, due to
+the fact that the stack trace did not give me a specific line causing the error,
+and when I ran the tests individually, I didn&#8217;t see any errors.
+</p>
+
+<pre class="example">
+Failure/Error: Unable to find matching line from backtrace
+PG::ConnectionBad: connection is closed
+</pre>
+
+<p>
+Here&#8217;s the stack trace:
+</p>
+<pre class="example">
+Failure/Error: Unable to find matching line from backtrace
+PG::ConnectionBad:
+  connection is closed
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `reset'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `reconnect!'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract_adapter.rb:377:in `verify!'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:458:in `block in checkout_and_verify'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activesupport-4.0.8/lib/active_support/callbacks.rb:373:in `_run__2436983933572130156__checkout__callbacks'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activesupport-4.0.8/lib/active_support/callbacks.rb:80:in `run_callbacks'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:457:in `checkout_and_verify'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:358:in `block in checkout'
+# .rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+# .rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_handling.rb:53:in `connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:450:in `create_fixtures'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:899:in `load_fixtures'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:870:in `setup_fixtures'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:712:in `before_setup'
+# .rvm/gems/ruby-2.1.2@bpos/gems/rspec-rails-3.0.2/lib/rspec/rails/adapters.rb:71:in `block (2 levels) in &lt;module:MinitestLifecycleAdapter&gt;'
+...
+</pre>
+
+<p>
+The error was happening in a test that used <code>resque_spec</code>. After much searching,
+I began to suspect that some customization or optimization caused the issue.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">RubyMine Find in Path</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+RubyMine&#8217;s Find in Path, searching Project and Libraries, is extremely useful to
+getting more context around an error message. In this case, RubyMine found the
+error message in a C file.
+</p>
+
+<p>
+<img src="/images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/find-error-1.jpg">
+</p>
+
+<p>
+<img src="/images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/find-error-2.jpg">
+</p>
+
+<p>
+Here&#8217;s the C code containing the error message. The Ruby stack trace did not go
+this far:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> * Fetch the data pointer and check it for sanity.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="n">PGconn</span> <span class="o">*</span>
+</span><span class='line'><span class="nf">pg_get_pgconn</span><span class="p">(</span> <span class="n">VALUE</span> <span class="n">self</span> <span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">PGconn</span> <span class="o">*</span><span class="n">conn</span> <span class="o">=</span> <span class="n">pgconn_check</span><span class="p">(</span> <span class="n">self</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">conn</span> <span class="p">)</span>
+</span><span class='line'>    <span class="n">rb_raise</span><span class="p">(</span> <span class="n">rb_eConnectionBad</span><span class="p">,</span> <span class="s">&quot;connection is closed&quot;</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="n">conn</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+And this is where in the Ruby Code that came from the stack trace:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Disconnects from the database if already connected, and establishes a</span>
+</span><span class='line'><span class="c1"># new connection with the database. Implementors should call super if they</span>
+</span><span class='line'><span class="c1"># override the default implementation.</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">reconnect!</span>
+</span><span class='line'>  <span class="n">clear_cache!</span>
+</span><span class='line'>  <span class="n">reset_transaction</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">RubyMine: Sometimes the Debugger Helps!</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+In the really troubling issue I saw below, I put in breakpoints in the
+connection adapter gem. I correctly guessed the cause of the error was
+<code>disconnect!</code> rather than the <code>reconnect!</code>
+</p>
+
+<p>
+Here&#8217;s a few images that show how the debugger really helped me figure out the
+obscure &#8220;connection is closed&#8221; error:
+</p>
+
+<p>
+<img src="/images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-1.jpg">
+</p>
+
+<p>
+<img src="/images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-2.jpg">
+</p>
+
+<p>
+<img src="/images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-3.jpg">
+</p>
+
+<p>
+That is what led me to try out removing the <code>heroku-resque</code> gem, as I noticed
+that was what was closing the connections in my test runs. Removing that gem
+fixed my rspec errors with the upgrades.
+</p>
+
+<p>
+Note, an alternative to using breakpoints in RubyMine would have been to put in
+a <code>puts caller</code> in the suspect methods of the libraries. However, one would have
+to remember to remove that later! I think the debugger was a good pick for this
+issue. If you don&#8217;t use RubyMine, you might try the ruby debugger or the pry gem.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Rails 4.1 Errors</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">shuffle! removed from ActiveRecord::Relation</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+NoMethodError:
+  undefined method `shuffle!' for #&lt;ActiveRecord::Relation []&gt;
+</pre>
+
+<p>
+The fix for that is to convert the relation to an array before calling shuffle.
+Naturally, you only want to do this with a limited set of data.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Flash changes</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+This one bit me:
+<a href="http://guides.rubyonrails.org/upgrading_ruby_on_rails.html#flash-structure-changes">http://guides.rubyonrails.org/upgrading_ruby_on_rails.html#flash-structure-changes</a>
+</p>
+
+<p>
+I was comparing symbols when converting from the flash type to the bootstrap
+class. Since the keys are always normalized to strings, I changed the code to
+compare to strings.
+</p>
+
+<p>
+<i><b>It&#8217;s a good idea to review all changes in that the <a href="http://guides.rubyonrails.org/upgrading_ruby_on_rails.html">Rails Upgrade Guide</a></b></i>
+</p>
+
+<p>
+Here&#8217;s the method where I was previously comparing the flash type to symbols
+rather than strings:
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">twitterized_type</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1"># http://ruby.zigzo.com/2011/10/02/flash-messages-twitters-bootstrap-css-framework/</span>
+</span><span class='line'>  <span class="k">case</span> <span class="n">type</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;alert&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;warning&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;error&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;danger&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;notice&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;info&quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;success&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;success&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">type</span><span class="o">.</span><span class="n">to_s</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Upgrading Twitter Bootstrap to 3.2 from 3.0</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+I had this bit of code in my scss files from the old Twitter Bootstrap.
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="c1">// Sprite icons path</span>
+</span><span class='line'><span class="c1">// -------------------------</span>
+</span><span class='line'><span class="nv">$iconSpritePath</span><span class="o">:</span> <span class="nf">asset-url</span><span class="p">(</span><span class="s2">&quot;glyphicons-halflings.png&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$iconWhiteSpritePath</span><span class="o">:</span> <span class="nf">asset-url</span><span class="p">(</span><span class="s2">&quot;glyphicons-halflings-white.png&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Since I&#8217;m using the new 3.2 version of <code>bootstrap-sass</code>, I needed to do the
+following, per the details <a href="https://github.com/twbs/bootstrap-sass">here</a>:
+</p>
+<ol class="org-ol">
+<li>Delete the <code>glyphicons-halflings.png</code> and <code>glyphicons-halflings-white.png</code> files.
+</li>
+<li>Remove the reference shown above to the $iconSpritePath
+</li>
+<li>Add this line to my <code>application.css.scss</code>
+</li>
+</ol>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="s2">&quot;bootstrap-sprockets&quot;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<ol class="org-ol">
+<li>Add this line to the Gemfile:
+</li>
+</ol>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;autoprefixer-rails&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Please let me know if this article helped you or if I missed anything!
+</p>
+
+<p>
+Aloha,
+</p>
+
+<p>
+Justin
+</p>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -645,6 +995,687 @@ Bay Area as well.
 </div>
 </div>
   
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/12/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/">Fast Tests: Comparing Zeus With Spring on Rails 4.1 and RSpec 3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-12T17:54:42-10:00" pubdate data-updated="true">Aug 12<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/08/12/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com//blog/2014/08/12/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+What&#8217;s faster? <a href="https://github.com/burke/zeus">Zeus</a> with <a href="https://github.com/grosser/parallel_tests">Parallel Tests</a> or <a href="https://github.com/rails/spring">Spring</a>, in the context of Rails 4.1,
+RSpec 3, Capybara 2.4, and PhantomJs?
+</p>
+
+<p>
+<b>The bottom line is that both work almost equivalently as fast, and the biggest
+difference for me concerned compatibility with the parallel_tests gem.</b> Zeus
+works fine with Parallel Tests, although it makes little difference overall with
+or without Zeus. Spring doesn&#8217;t work with Parallel Tests, but you can work
+around this issue. So stick with Zeus if it works for you.
+</p>
+
+<p>
+And regardless of using Spring or Zeus, the shell scripts provided below called
+<code>pgr</code> and <code>pgk</code> are essential for quickly listing or killing Zeus, Spring,
+Rails, or Phantomjs processes!
+</p>
+
+<p>
+It&#8217;s also worth noting that biggest advantage of using the Zeus or Spring
+pre-loaders is to save the Rails startup time. On my machine, this is about 3 to
+5 seconds. That matters a lot if the test I&#8217;m focusing upon only takes a second or
+two, such as when doing TDD. However, when running a whole test suite taking
+minutes, 3-5 seconds can get swallowed up by other things, such as rspec-retry,
+which retries failing capybara tests.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I&#8217;ve written about my integration testing setup: <a href="http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html">Capybara, PhantomJs, Poltergeist, and Rspec Tips</a>. For a while, I&#8217;ve been eager to upgrade to Rails
+4.1 and RSpec 3. Finally, in August, 2014, the gem ecosystem allowed this to
+happen! I&#8217;ve got a related article on my <a href="http://www.railsonmaui.com/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">tips for upgrading to Rails 4.1 and RSpec 3</a>.
+</p>
+
+<p>
+Once I had upgraded nearly every gem in my client&#8217;s large Rails project to the
+latest gem versions, I was pleasantly surprised that I could once again get
+Zeus, Guard, RSpec, Capybara, Poltergeist, Parallel Tests, etc. to all play
+nicely together.
+</p>
+
+<p>
+Always curious as to the value of the latest defaults in Rails, I decided to try
+out Spring. Both Spring and Zeus preload Rails so that you don&#8217;t have to pay the
+same start up cost for evry test run. Here&#8217;s a RailsCast on the topic: <a href="http://railscasts.com/episodes/412-fast-rails-commands">#412 Fast Rails Commands</a>.
+</p>
+
+<p>
+The end results is that both Zeus and Spring give great results and are very
+similar in many ways. The biggest difference for me is that only Zeus (and not
+Spring) works with Parallel Tests. Interestingly, I got very similar results
+when using Parallel Tests with our without Zeus. It turns out that it is
+possible to run Parallel Tests with Spring installed so long as you disable it
+by setting the environment variable like this: <code>DISABLE_SPRING=TRUE parallel_rspec -n 6 spec</code>.
+</p>
+
+<p>
+The bottom line for me is that I don&#8217;t have any good reason to move away from
+Zeus to Spring, and the fact that Spring is part of stock Rails is not a
+sufficient reason for me. That being said, on another project which is smaller,
+I&#8217;m not motivated to switch from Spring to Zeus.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Performance</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Note in below commands, one must insert <code>zeus</code> in the command to be using zeus.
+If using Spring, be sure that you&#8217;re using the Spring modifed binstub scripts in
+your bin directory by having your path appropriately set or using <code>bin/rake</code> and
+<code>bin/rspec</code> (install <a href="https://github.com/jonleighton/spring-commands-rspec">spring-commands-rspec</a>).
+</p>
+
+<p>
+The times shown below are from both sample runs of a single directory of
+non-integration specs and from the full test suite of 914 tests, many of which
+are Capybara tests, on a 2012, Retina, SSD, 16 GB, MacBook Pro while running
+Emacs, RubyMine, Chrome, etc. Times were gathered by running commands prefixed
+with the <code>time</code> command. Running <code>zeus rspec</code> seems a bit slower than using
+spring. However, when running the integration tests, my test execution time was
+always variable depending on the number of Capybara timeouts and retries.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">command</th>
+<th scope="col" class="right">zeus loader</th>
+<th scope="col" class="right">spring loader</th>
+<th scope="col" class="right">no loader</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">rspec spec/utils</td>
+<td class="right">0:19.1</td>
+<td class="right">0:17.7</td>
+<td class="right">0:22.8</td>
+</tr>
+
+<tr>
+<td class="left">rake spec:utils</td>
+<td class="right">0:15.6</td>
+<td class="right">0:17.9</td>
+<td class="right">0:18.1</td>
+</tr>
+
+<tr>
+<td class="left">rake spec</td>
+<td class="right">6:11.9</td>
+<td class="right">6:15.0</td>
+<td class="right">8:02.5</td>
+</tr>
+
+<tr>
+<td class="left">rspec spec</td>
+<td class="right">5:51:7</td>
+<td class="right">5:28.0</td>
+<td class="right">5:37.2</td>
+</tr>
+
+<tr>
+<td class="left">parallel_rspec -n 6 spec</td>
+<td class="right">2:28.7</td>
+<td class="right">n/a</td>
+<td class="right">2:28.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Zeus and Spring vs. plain RSpec</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Here&#8217;s some advantages and disadvantages of using either either Zeus or Spring
+compared to plain RSpec.
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Advantages</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>Both save time for running basic commands like rspec, rake, rails, etc. The
+performance of both is very similar.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Disadvantages</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li><b>Both can be extremely confusing when they fail to update automatically.</b>
+This tends to happen after updating gems or running database migrations. You
+end up yak shaving when you don&#8217;t see your changes taking effect! I.e., put
+in some print statements, and then you don&#8217;t see them shown when they should.
+Arghhhh!
+</li>
+<li><a href="https://github.com/y310/rspec-retry">Rspec-retry</a> seems essential in dealing with random Capybabara failures with
+either Zeus or Spring. I often see less of these errors when I don&#8217;t use
+Zeus/Spring nor parallel_tests.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Zeus vs. Spring</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">Advantages</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li><a href="https://github.com/burke/zeus">Zeus</a> works with the <a href="https://github.com/grosser/parallel_tests">parallel_tests gem</a>. This more than halves my time for
+running my entire test suite. However, when writing this article, I found
+that it made little difference, at least when slowed down by sporadically
+failing capybara tests that are retried. That being said, I&#8217;m certain that
+Parallel Tests with Zeus is faster or at worse the same as without Zeus.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">Disadvantages</h3>
+<div class="outline-text-3" id="text-4-2">
+<ol class="org-ol">
+<li>You need to start up separate shell process, running <code>zeus start</code>. An
+advantage of this is that if there&#8217;s a problem starting up, the output in the
+Zeus console window is fairly clear.
+</li>
+<li>You run the command &#8220;zeus rake&#8221; rather than just &#8220;rake&#8221;. Consequently, I made
+some shell aliases (see below).
+</li>
+<li>Zeus only uses the environment from when Zeus was started and ignores any
+environment variables when commands are run.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Spring vs. Zeus</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">Advantages</h3>
+<div class="outline-text-3" id="text-5-1">
+<ol class="org-ol">
+<li><a href="https://github.com/rails/spring">Spring</a> is a default part of Rails, so you know it&#8217;s well supported, and bugs
+will be fixed fast.
+</li>
+<li>Slightly simpler to install and use than Zeus.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">Disadvantages</h3>
+<div class="outline-text-3" id="text-5-2">
+<ol class="org-ol">
+<li>Spring lacks support for parallel_tests. See this Github issue: <a href="https://github.com/grosser/parallel_tests/issues/309#issuecomment-45056130">incompatible
+with spring #309</a>. You can, however run parallel_tests so long as run the
+command like this: <code>time DISABLE_SPRING=TRUE parallel_rspec -n 6 spec</code>. I.e.,
+you need to set <code>DISABLE_SPRING</code> so that parallel_rspec does not use Spring.
+</li>
+<li>Spring is a bit opaque in terms of errors given there&#8217;s no console window.
+See <a href="https://github.com/rails/spring">README</a> for how to see the Spring log.
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Miscellaneous Tips</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Be sure to disable either Zeus or Spring when updating gems. Consider restarting
+Zeus or Spring after a database migration. See the below scripts called <code>pgr</code>
+and <code>pgk</code> for seeing and killing Zeus/Spring related processes.
+</p>
+</div>
+
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">Relevant Gems Working For Me</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+The right combination of gems seem pretty critical in getting all the parts to
+play nicely together. As of August 15, 2014 the most recent compatible versions
+of the following gems worked well together. This means running &#8220;bundle update&#8221;
+without locking the gem versions.
+</p>
+
+<pre class="example">
+capybara-screenshot (0.3.21)
+capybara (2.4.1)
+guard (2.6.1)
+guard-bundler (2.0.0)
+guard-livereload (2.3.0)
+guard-rails (0.5.3)
+guard-resque (0.0.5)
+guard-rspec (4.3.1)
+guard-unicorn (0.1.1)
+parallel_tests (1.0.0)
+poltergeist (1.5.1)
+rails (4.1.4)
+resque_spec (0.16.0)
+rspec (3.0.0)
+rspec-instafail (0.2.5)
+rspec-its (1.0.1)
+rspec-mocks (3.0.3)
+rspec-rails (3.0.2)
+rspec-retry (0.3.0)
+vcr (2.9.2)
+webmock (1.18.0)
+zeus (0.13.3)
+zeus-parallel_tests (0.2.4)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Zeus Shell Configuration (ZSH)</h2>
+<div class="outline-text-2" id="text-7">
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>echoRun<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nv">START</span><span class="o">=</span><span class="k">$(</span>date +%s<span class="k">)</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;&gt; $1&quot;</span>
+</span><span class='line'>  <span class="nb">eval time</span> <span class="nv">$1</span>
+</span><span class='line'>  <span class="nv">END</span><span class="o">=</span><span class="k">$(</span>date +%s<span class="k">)</span>
+</span><span class='line'>  <span class="nv">DIFF</span><span class="o">=</span><span class="k">$((</span> <span class="nv">$END</span> <span class="o">-</span> <span class="nv">$START</span> <span class="k">))</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;It took $DIFF seconds&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">alias </span><span class="nv">zr</span><span class="o">=</span><span class="s1">&#39;zeus rake&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">alias </span><span class="nv">parallel_prepare</span><span class="o">=</span><span class="s1">&#39;rake parallel:prepare ; &quot;rake parallel:rake\[db:globals\]&quot; &#39;</span>
+</span><span class='line'>
+</span><span class='line'>zps<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="c"># Run parallel_rspec, using zeus, passing in number of threads, default is 6</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nv">p</span><span class="o">=</span><span class="k">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">6</span><span class="k">}</span>
+</span><span class='line'>  <span class="c"># Skipping zeus b/c env vars don&#39;t work with zeus</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c"># start zeus log level fata </span>
+</span><span class='line'>  <span class="c"># echoRun &quot;SKIP_RSPEC_FOCUS=YES RSPEC_RETRY_COUNT=7 RAILS_LOGGER_LEVEL=4 zeus parallel_rspec -n $p spec&quot;</span>
+</span><span class='line'>  echoRun <span class="s2">&quot;zeus parallel_rspec -n $p spec&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># List processes related to rails</span>
+</span><span class='line'>pgr<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
+</span><span class='line'><span class="k">    </span>pgrep -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">done</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Kill processes related to rails</span>
+</span><span class='line'>pgk<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
+</span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">done</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Please let me know if this article helped you or if I missed anything!
+</p>
+
+<p>
+Aloha,
+</p>
+
+<p>
+Justin
+</p>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">Rails Gem Upgrading Tips and Strategies</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-11T17:04:38-10:00" pubdate data-updated="true">Aug 11<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com//blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+What are the best-practices for upgrading gems to newer versions? What sort of
+tips and techniques can save time and headaches? 
+</p>
+
+<p>
+I built this guide based on my real-world experiences over years of gem
+migrations, including a recent upgrade to Rails 4.1, RSpec 3.0, and Twitter
+Bootstrap 3.2. There are some more specific examples of errors you might
+encounter at this article on the Rails on Maui blog: <a href="http://railsonmaui-octopress.dev/blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/">Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2</a>. 
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Why Update?</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Here&#8217;s my favorite reasons for keeping gems relatively current:
+</p>
+
+<ol class="org-ol">
+<li>If you work on several projects, keeping the gems and ruby version consistent
+makes your coding more productive as you don&#8217;t have to keep adjusting for
+which version is which. Web searches tend to find relatively recent versions
+first. It&#8217;s relatively annoying to be yak shaving issues that turn out to be
+&#8220;oh, that doesn&#8217;t work in that older version of Rails&#8221;.
+</li>
+<li>Recent versions of gems will have fixes for bugs and security issues, in
+addition to new features. With popular open source projects, new bugs are
+quickly discovered and fixed.
+</li>
+<li>Updates are much easier if you stay relatively current. I.e., it&#8217;s much
+easier to update from Rails 4.0 to Rails 4.1 than to go from Rails 3.0 to
+Rails 4.1.
+</li>
+</ol>
+
+<p>
+That being said, recent versions can have new bugs, so it&#8217;s best to avoid
+versions that are unreleased or that haven&#8217;t aged at least a few weeks.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Some Gems Will Be Way More Difficult to Update</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Large libraries, like Rails, RSpec, Twitter Bootstrap, etc. are going to take
+more elbow grease to update. Typically if a major version number is updating,
+like Rails 3.x to 4.x and RSpec 2.x to 3.x, that&#8217;s going to require lots of code
+changes. Semantic versioning also comes into play. Going from Rails 3.x to Rails
+4.x is more difficult than Rails 4.0 to Rails 4.1. There&#8217;s a similar story with
+RSpec 2.x to 2.99, compared to going to RSpec 3.0.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Techniques for Smoother Gem Upgrades</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Locking Gem Versions</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Unless you have a good reason, don&#8217;t lock a gem to a specific version as that
+makes updating gems more difficult. In general, consider only locking the major
+Rails gems, such as rails, RSpec, and bootstrap-sass, as these are the ones that
+will likely have more involved upgrades.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Don&#8217;t Upgrade Major Libraries Too Soon</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1">3 Reasons to wait a bit before gem updates:</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ol class="org-ol">
+<li><b>Dependencies among gem libraries</b> are not yet resolved. I had tried
+upgrading to RSpec 3 and Rails 4.1 a couple months ago, but it was
+apparent that I had to fix to many other gems to get them to work with <code>RSpec
+   3</code>. Thus, I retreated back to RSpec 2.99 for a while. Now, as of August, 2014,
+the gem ecosystem was ripe to move to RSpec 3.0. So unless you have a good
+reason, it&#8217;s best to wait maybe a couple of months after major upgrades are
+released before migrating.
+</li>
+<li><b>Bugs</b> may be lurking in changed code. If you wait a bit, the early adopters
+will find the bugs, saving you time and frustration. The more popular a gem,
+the faster it will be put to rigorous use.
+</li>
+<li>*Security*/ problems may have been introduced. This is pretty much a special
+case of bugs, except that this a possibility of a malicious security change.
+If you wait a bit, hopefully somebody else will discover the issue first.
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Don&#8217;t Use Guard, Zeus, Spring, Spork, Etc. When Upgrading</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Tools that speed up Rails like Zeus and Spring are awesome productivity
+enhancers, <b>except</b> when upgrading gems. I found that they <i>sometimes</i> correctly
+reloaded new versions of gems. That means massive frustration when they are not
+picking up the gems you actually have specified. The corollary to this is to run
+your tests using plain <code>rspec</code> rather than the recommended ways for speeding up
+testing, such as the <code>parallel_tests</code> gem..
+</p>
+
+<p>
+It&#8217;s not necessary to introduce the added complexity of the test accelerators
+when doing major library updates. Once you&#8217;ve updated your gems, then try out
+your favorite techniques for speeding up running tests. I&#8217;ve learned the hard
+way on this one. The <code>pgr</code> and <code>pgk</code> scripts below are awesome for ensuring that
+pre-loaders are <i><b>NOT</b></i> running.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>pgr<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
+</span><span class='line'><span class="k">    </span>pgrep -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">done</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>pgk<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
+</span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">done</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Tests: Try to Keep and Immediately Get Tests Passing</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+There are a lot of discussions about the value or lack of for an emphasis on Test-Driven Development (TDD).
+However, one thing that&#8217;s indisputable is that <i><b>having a large library of tests is absolutely helpful for upgrading your gems</b></i>.
+</p>
+
+<p>
+Naturally, it&#8217;s an iterative process to get tests passing when updating gems.
+First, make sure your tests suite is passing.
+</p>
+
+<p>
+You can try updating the gems one by one until you get a test failure. Then the
+issue becomes one of figuring out which related gems you might want to update to
+fix the test failure.
+</p>
+
+<p>
+If you don&#8217;t have good tests coverage, a great place to start is with
+integration tests that do the basics of your app. At least you&#8217;ll be able to
+quickly verify a good chunk of your app can at least navigate the &#8220;happy path&#8221;
+as you iterate updating your gems.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">Alternate Big or Baby Steps</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+If you&#8217;ve updated gems recently, sometimes you can run <code>bundle update</code> and
+everything works great. Recently, that strategy failed miserably when I tried
+going from Rails 4.0 with RSpec 2.2 to Rails 4.1 and RSpec 3. An eariler attempt
+shortly after the releases of Rails 4.1 and RSpec 3 clearly showed that many
+dependent gems would have to get updated. A few months later, I still had many
+issues with trying to update too much at once.
+</p>
+
+<p>
+When this happens, take small steps and kept tests passing. I.e., don&#8217;t do a
+<code>bundle update</code> without specifying which gems to update. You might update 60
+gems at once! And then when tests fail, you won&#8217;t be able to easily decipher
+which dependency is the problem. Specify which gems to update by running the
+command:
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle update gem1 gem2 etc
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Then after updating a few gems, run <code>rspec</code> and verify your tests pass.
+</p>
+
+<p>
+<b>Then commit your changes.</b> Consider putting a summary of how many tests pass
+and how long it takes. The length of time is useful in case some change greatly
+increases test run time. Or if you notice run time or the number of tests
+dramatically decrease. Plus, this ensures you ran the test before committing!
+</p>
+
+<p>
+On a related note, you can see which gems are outdated with this command:
+<code>bundle outdated</code>.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -2118,393 +3149,6 @@ thousands of times better than WordPress.
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Migrating From Capybara-Webkit to Poltergeist-PhantomJs</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-06T21:38:00-10:00" pubdate data-updated="true">Aug 6<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/#disqus_thread"
-             data-disqus-identifier="http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Motivation</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Today I migrated a medium size test suite from <a href="https://github.com/thoughtbot/capybara-webkit">capybara-webkit</a> to <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>
-with <a href="http://phantomjs.org/index.html">PhantomJS</a>. I had two main motivations for switching:
-</p>
-<ol class="org-ol">
-<li>PhantomJS is more sensitive to avoiding false positives. For example, in the
-past, one could click on non-visible DOM elements with capybara-webkit.
-While this may not currently be true with the latest Capybara, I&#8217;ve had good
-luck with PhantomJS in the past.
-</li>
-<li>Speed. When I last checked, PhantomJS was faster. Speed is critical for slow
-feature tests.
-</li>
-</ol>
-
-<p>
-Here&#8217;s one reason that Poltergeist is more accurate and <a href="https://github.com/jonleighton/poltergeist">sensitive to failure</a>: 
-</p>
-
-<blockquote>
-<p>
-When Poltergeist clicks on an element, rather than generating a DOM click event,
-it actually generates a &#8220;proper&#8221; click. This is much closer to what happens when
-a real user clicks on the page - but it means that Poltergeist must scroll the
-page to where the element is, and work out the correct co-ordinates to click. If
-the element is covered up by another element, the click will fail (this is a
-good thing - because your user won&#8217;t be able to click a covered up element
-either).
-</p>
-</blockquote>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Tips for Migrating</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Upgrade Gems First</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-At first, I lost time due to timing issues where I was clicking on elements of a
-hidden dialog that was not finished showing. Capybara-webkit was not bothered by
-the fact that the dialog was actually hidden and being loaded. PhantomJS bombed
-out. However, after I worked around the issue, I realized that my gems were
-outdated. Since you&#8217;re going to be fixing a bunch of tests anyway, it makes
-sense to get on the latest versions of the testing gems. The gems you want to
-upgrade are: rspec, rspec-rails, Capybara, and poltergeist. 
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Visible Option</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-After upgrading the gems, my workarounds were no longer necessary. However, the
-change from Capybara 2.0 to 2.1 had a big change in the way that it handles
-finding dom elements that are <b>not visible</b>. Previously, Capybara would not care
-if the dom element was hidden. For my tests, this resulted in breaking any tests
-that queried any non-visible DOM elements, such as scripts, meta tags, and
-links.
-</p>
-
-<p>
-The key thing to be aware of is that you might get this obscure error message,
-and the fix is to add the <code>visible: false</code> optional parameter so that Capybara
-is not filtering by <code>visible: true</code>. The <code>visible</code> parameter is available to
-most finder methods in Capybara.
-</p>
-
-<p>
-The obscure error you might see is something like this:
-</p>
-<pre class="example">
-#=&gt; Capybara::ExpectationNotMet Exception: expected to find xpath "//title" with text "Title Text." but there were no matches. Also found "", which matched the selector but not all filters.
-</pre>
-
-<p>
-The reason is the title element is not visible, and &#8220;visible&#8221; is the &#8220;not all
-filters&#8221; part of the error message.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">Debugging Capybara Tests</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-The main reasons that previously passing feature tests will fail when migrating
-to Poltergeist is due to timing and visibility. The two main techniques for
-debugging Capybara tests are:
-</p>
-<ol class="org-ol">
-<li>Using screen shots (<code>render_page</code> below)
-</li>
-<li>Using HTML dumps (=page! below)
-</li>
-</ol>
-
-<p>
-Keep in mind that these methods will not wait for elements to load. Thus, you
-should either have a Capybara statement that will wait for some DOM element to
-load or you might want to put in a <code>sleep 10</code> to sleep for 10 seconds before
-capturing the screen shot or dumping the HTML.
-</p>
-
-<p>
-If you use the helper methods specified below, and you should be able to work
-through why Poltergeist is not doing what you think it should be doing. So far,
-I haven&#8217;t yet run into a case where I have not found out that it&#8217;s been my fault
-rather than a bug in Poltergeist that&#8217;s caused a failure due to the migration.
-In many cases, you&#8217;ll be somewhat pleasantly surprised that you&#8217;ll be fixing a
-false positive.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4">Capybara&#8217;s Wait Strategy</h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-Be sure to carefully read the <a href="https://github.com/jnicklas/capybara">Capybara documentation</a>, especially the part
-titled &#8220;Asynchronous JavaScript&#8221;. That section explains how Capybara cleverly
-will wait until the page or ajax call finished so that the element expected
-appears. There&#8217;s a configurable timeout (<code>Capybara.default_wait_time</code>) for
-changing the default wait time before a test bombs out.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5">Xpath Tip</h3>
-<div class="outline-text-3" id="text-2-5">
-<p>
-Be sure to understand the difference between <code>//something</code> and <code>.//something</code>.
-The later can be used inside a <code>within</code> block. The former will find the tag
-anywhere on the page, even when used inside of a <code>within</code> block!
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6">Setup and Utility Debugging Methods</h3>
-<div class="outline-text-3" id="text-2-6">
-<p>
-Here&#8217;s the setup and a couple utility methods that I use. Put these in a file in your helpers
-directory, such spec/helpers/capybara.rb.
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">default_wait_time</span> <span class="o">=</span> <span class="mi">8</span> <span class="c1"># Seconds to wait before timeout error. Default is 2</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Register slightly larger than default window size...</span>
-</span><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">register_driver</span> <span class="ss">:poltergeist</span> <span class="k">do</span> <span class="o">|</span><span class="n">app</span><span class="o">|</span>
-</span><span class='line'>  <span class="ss">Capybara</span><span class="p">:</span><span class="ss">:Poltergeist</span><span class="o">::</span><span class="no">Driver</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="p">{</span> <span class="ss">debug</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="c1"># change this to true to troubleshoot</span>
-</span><span class='line'>                                           <span class="n">window_size</span><span class="p">:</span> <span class="o">[</span><span class="mi">1300</span><span class="p">,</span> <span class="mi">1000</span><span class="o">]</span> <span class="c1"># this can affect dynamic layout</span>
-</span><span class='line'>  <span class="p">})</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">javascript_driver</span> <span class="o">=</span> <span class="ss">:poltergeist</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Saves page to place specfied at name inside of</span>
-</span><span class='line'><span class="c1"># test.rb definition of:</span>
-</span><span class='line'><span class="c1">#   config.integration_test_render_dir = Rails.root.join(&quot;spec&quot;, &quot;render&quot;)</span>
-</span><span class='line'><span class="c1"># NOTE: you must pass &quot;js:&quot; for the scenario definition (or else you&#39;ll see that render doesn&#39;t exist!)</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">render_page</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">png_name</span> <span class="o">=</span> <span class="nb">name</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\W+/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">png_name</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># shortcut for typing save_and_open_page</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">page!</span>
-</span><span class='line'>  <span class="n">save_and_open_page</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-</div>
-</div>
-</div>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/29/update-to-emberjs-hello-world/">Update to EmberJs Hello World</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-29T15:38:00-10:00" pubdate data-updated="true">Jun 29<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/06/29/update-to-emberjs-hello-world/#disqus_thread"
-             data-disqus-identifier="http://www.railsonmaui.com//blog/2013/06/29/update-to-emberjs-hello-world/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-I updated my previous post <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a> with a video walkthrough of the
-<a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">completed code found on github</a> of the <a href="http://emberjs.com/guides/">Tom Dale&#8217;s Intro Tutorial Video</a> on
-EmberJs.
-</p>
-
-<p>
-Ember is really gaining some traction. For example, <a href="http://boingboing.net/">boing boing</a> just moved it&#8217;s
-comments to Discourse, which is based on EmberJs. You can read about it at
-boing boing: <a href="http://boingboing.net/2013/06/27/can-we-talk.html">Can we talk?</a>.
-</p>
-
-<p>
-Please let me know if this walkthrough is helpful. Comments are always welcome.
-</p>
-
-<p>
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/vV6zzxi3JOc "></iframe></div>
-</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/11/emberjs-rails4-tutorial/">Ember.js Tutorial With Rails 4</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-11T13:00:00-10:00" pubdate data-updated="true">Jun 11<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/06/11/emberjs-rails4-tutorial/#disqus_thread"
-             data-disqus-identifier="http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-The first post in this series, <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>, shows Ember working
-without a persistence backend. This post covers setting up Rails4 as the
-persistence engine behind that example, plus adding and deleting records. The
-amount of Ember and Rails code to make this example is almost completely
-included in this article. It&#8217;s that tiny!
-</p>
-
-<p>
-The source code for the completed example can be found on GitHub:
-<a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. I carefully crafted the commits
-to explain the steps.
-</p>
-
-<p>
-You can try out the application on Heroku at:
-<a href="http://railsonmaui-emberjs-rails4.herokuapp.com/">http://railsonmaui-emberjs-rails4.herokuapp.com/</a>
-</p>
-
-<p>
-I put many more details in this <a href="http://youtu.be/ac1mYhCMRNc">comprehensive screencast</a> of how to go from a
-brand new Rails 4 app to an Ember.js app deployed on Heroku.
-</p>
-
-<p>
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/ac1mYhCMRNc "></iframe></div>
-</p>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Key Tips</h2>
-<div class="outline-text-2" id="text-1">
-<ol class="org-ol">
-<li>Be sure to update the <code>ember</code> and <code>ember-data</code> javascript files with the
-command from the ember-rails gem (see below). Keeping these files at
-appropriate versions is key while the API is changing, especially for
-ember-data.
-</li>
-<li>If you specify the Router property for both <code>model</code> and <code>setupController</code>,
-you can have some very confusing results (details below).
-</li>
-<li>Get comfortable with Ember&#8217;s naming conventions. Ember does a ton with
-default naming. It&#8217;s basically got the same philosophy of &#8220;Convention over
-Configuration&#8221; of Rails. So it&#8217;s especially important to try to grok when the
-Ember examples are doing something implicitly versus explicitly. This is a
-bit like Rails. At first it seems like magic, like &#8220;How the heck is that
-happening&#8221;, and then one gets accustomed to the naming conventions and
-appreciates how much code it saves.
-</li>
-<li>Be mindful that some Ember.js commands run asynchronously, such as commit.
-</li>
-</ol>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/06/11/emberjs-rails4-tutorial/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -2542,6 +3186,10 @@ appreciates how much code it saves.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/">Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry, Ruby, and Fun With the Hash Constructor</a>
       </li>
     
@@ -2550,23 +3198,19 @@ appreciates how much code it saves.
       </li>
     
       <li class="post">
+        <a href="/blog/2014/08/12/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/">Fast Tests: Comparing Zeus With Spring on Rails 4.1 and RSpec 3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">Rails Gem Upgrading Tips and Strategies</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/06/remote-pair-programming-tips-using-screenhero/">Remote Pair Programming Tips Using RubyMine and Screenhero</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/04/23/railsconf-2014/">RailsConf 2014</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/">Rocking With Tmux, Tmuxinator, Guard, Zeus, and iTerm2 for Rails Development</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/">Capybara PhantomJs Poltergeist Rspec Tips</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/">Org-Mode Octopress Setup V2</a>
       </li>
     
   </ul>
