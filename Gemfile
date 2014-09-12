@@ -21,6 +21,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'rb-inotify'
+  gem 'preamble'
   # gem 'guard-jekyll-plus'
 end
 
