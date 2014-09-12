@@ -10,7 +10,7 @@ description: This article describes some tougher issues I faced when upgrading t
 ---
 #+END_HTML
 This article describes some tougher issues I faced when upgrading to Rails 4.1,
-Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on "[[https://hackhands.com/tips-strategies-upgrading-ruby-gems/][Rails Gem Upgrading Tips and Strategies]]".
+Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on [[https://hackhands.com/tips-strategies-upgrading-ruby-gems/][Rails Gem Upgrading Tips and Strategies]].
 
 * Upgrade Links
 If you're upgrading these specific gems, here's the must-see upgrade links.
