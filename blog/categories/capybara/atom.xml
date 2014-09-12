@@ -4,7 +4,7 @@
   <title><![CDATA[Category: capybara | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/capybara/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-12T08:46:54-10:00</updated>
+  <updated>2014-09-12T08:50:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -20,7 +20,7 @@
     <id>http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3</id>
     <content type="html"><![CDATA[<p>
 This article describes some tougher issues I faced when upgrading to Rails 4.1,
-Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on "<a href="https://hackhands.com/tips-strategies-upgrading-ruby-gems/">Rails Gem Upgrading Tips and Strategies</a>".
+Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on <a href="https://hackhands.com/tips-strategies-upgrading-ruby-gems/">Rails Gem Upgrading Tips and Strategies</a>.
 </p>
 
 
