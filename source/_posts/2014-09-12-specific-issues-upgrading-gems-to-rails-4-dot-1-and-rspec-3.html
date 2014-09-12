@@ -1,0 +1,285 @@
+---
+layout: post
+title: "Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2"
+date: 2014-09-12 11:20:58 -1000
+comments: true
+categories: [rails, testing, rspec, capybara] 
+keywords: Rails, rspec, capybara, gems, ruby
+description: This article describes some tougher issues I faced when upgrading to Rails 4.1 and RSpec 3. 
+---
+<p>
+This article describes some tougher issues I faced when upgrading to Rails 4.1,
+Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on "<a href="https://hackhands.com/tips-strategies-upgrading-ruby-gems/">Rails Gem Upgrading Tips and Strategies</a>".
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Upgrade Links</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+If you're upgrading these specific gems, here's the must-see upgrade links.
+</p>
+<ol class="org-ol">
+<li>Rails 4.1: <a href="http://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html">A Guide for Upgrading Ruby on Rails</a>.
+</li>
+<li><a href="https://relishapp.com/rspec/docs/upgrade">RSpec 2 to RSpec 3</a>.
+</li>
+<li>Twitter Bootstrap: <a href="http://getbootstrap.com/migration/">Migrating to v3.x</a> is essential if you're going from 2.x to 3.x.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Troubleshooting with RubyMine "Find In Path" and the Debugger</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+After making the require code changes to address the deprecation errors going to
+rspec 3, I ran into the below obscure error. This one really stumped me, due to
+the fact that the stack trace did not give me a specific line causing the error,
+and when I ran the tests individually, I didn't see any errors.
+</p>
+
+<pre class="example">
+Failure/Error: Unable to find matching line from backtrace
+PG::ConnectionBad: connection is closed
+</pre>
+
+<p>
+Here's the stack trace:
+</p>
+<pre class="example">
+Failure/Error: Unable to find matching line from backtrace
+PG::ConnectionBad:
+  connection is closed
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `reset'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `reconnect!'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract_adapter.rb:377:in `verify!'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:458:in `block in checkout_and_verify'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activesupport-4.0.8/lib/active_support/callbacks.rb:373:in `_run__2436983933572130156__checkout__callbacks'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activesupport-4.0.8/lib/active_support/callbacks.rb:80:in `run_callbacks'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:457:in `checkout_and_verify'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:358:in `block in checkout'
+# .rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+# .rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_handling.rb:53:in `connection'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:450:in `create_fixtures'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:899:in `load_fixtures'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:870:in `setup_fixtures'
+# .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:712:in `before_setup'
+# .rvm/gems/ruby-2.1.2@bpos/gems/rspec-rails-3.0.2/lib/rspec/rails/adapters.rb:71:in `block (2 levels) in &lt;module:MinitestLifecycleAdapter&gt;'
+...
+</pre>
+
+<p>
+The error was happening in a test that used <code>resque_spec</code>. After much searching,
+I began to suspect that some customization or optimization caused the issue.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">RubyMine Find in Path</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+RubyMine's Find in Path, searching Project and Libraries, is extremely useful to
+getting more context around an error message. In this case, RubyMine found the
+error message in a C file.
+</p>
+
+<p>
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/find-error-1.jpg %}
+</p>
+
+<p>
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/find-error-2.jpg %}
+</p>
+
+<p>
+Here's the C code containing the error message. The Ruby stack trace did not go
+this far:
+</p>
+{% codeblock lang:c %}
+/*
+ * Fetch the data pointer and check it for sanity.
+ */
+PGconn *
+pg_get_pgconn( VALUE self )
+{
+  PGconn *conn = pgconn_check( self );
+
+  if ( !conn )
+    rb_raise( rb_eConnectionBad, "connection is closed" );
+
+  return conn;
+}
+{% endcodeblock %}
+
+<p>
+And this is where in the Ruby Code that came from the stack trace:
+</p>
+{% codeblock lang:ruby %}
+# Disconnects from the database if already connected, and establishes a
+# new connection with the database. Implementors should call super if they
+# override the default implementation.
+def reconnect!
+  clear_cache!
+  reset_transaction
+end
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">RubyMine: Sometimes the Debugger Helps!</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+In the really troubling issue I saw below, I put in breakpoints in the
+connection adapter gem. I correctly guessed the cause of the error was
+<code>disconnect!</code> rather than the <code>reconnect!</code>
+</p>
+
+<p>
+Here's a few images that show how the debugger really helped me figure out the
+obscure "connection is closed" error:
+</p>
+
+<p>
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-1.jpg %}
+</p>
+
+<p>
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-2.jpg %}
+</p>
+
+<p>
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-3.jpg %}
+</p>
+
+<p>
+That is what led me to try out removing the <code>heroku-resque</code> gem, as I noticed
+that was what was closing the connections in my test runs. Removing that gem
+fixed my rspec errors with the upgrades.
+</p>
+
+<p>
+Note, an alternative to using breakpoints in RubyMine would have been to put in
+a <code>puts caller</code> in the suspect methods of the libraries. However, one would have
+to remember to remove that later! I think the debugger was a good pick for this
+issue. If you don't use RubyMine, you might try the ruby debugger or the pry gem.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Rails 4.1 Errors</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">shuffle! removed from ActiveRecord::Relation</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+NoMethodError:
+  undefined method `shuffle!' for #&lt;ActiveRecord::Relation []&gt;
+</pre>
+
+<p>
+The fix for that is to convert the relation to an array before calling shuffle.
+Naturally, you only want to do this with a limited set of data.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Flash changes</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+This one bit me:
+<a href="http://guides.rubyonrails.org/upgrading_ruby_on_rails.html#flash-structure-changes">http://guides.rubyonrails.org/upgrading_ruby_on_rails.html#flash-structure-changes</a>
+</p>
+
+<p>
+I was comparing symbols when converting from the flash type to the bootstrap
+class. Since the keys are always normalized to strings, I changed the code to
+compare to strings.
+</p>
+
+<p>
+<i><b>It's a good idea to review all changes in that the <a href="http://guides.rubyonrails.org/upgrading_ruby_on_rails.html">Rails Upgrade Guide</a></b></i>
+</p>
+
+<p>
+Here's the method where I was previously comparing the flash type to symbols
+rather than strings:
+</p>
+
+{% codeblock lang:ruby %}
+def twitterized_type(type)
+  # http://ruby.zigzo.com/2011/10/02/flash-messages-twitters-bootstrap-css-framework/
+  case type
+    when "alert"
+      "warning"
+    when "error"
+      "danger"
+    when "notice"
+      "info"
+    when "success"
+      "success"
+    else
+      type.to_s
+  end
+end
+{% endcodeblock %}
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Upgrading Twitter Bootstrap to 3.2 from 3.0</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+I had this bit of code in my scss files from the old Twitter Bootstrap.
+</p>
+{% codeblock lang:scss %}
+// Sprite icons path
+// -------------------------
+$iconSpritePath: asset-url("glyphicons-halflings.png");
+$iconWhiteSpritePath: asset-url("glyphicons-halflings-white.png");
+{% endcodeblock %}
+
+<p>
+Since I'm using the new 3.2 version of <code>bootstrap-sass</code>, I needed to do the
+following, per the details <a href="https://github.com/twbs/bootstrap-sass">here</a>:
+</p>
+<ol class="org-ol">
+<li>Delete the <code>glyphicons-halflings.png</code> and <code>glyphicons-halflings-white.png</code> files.
+</li>
+<li>Remove the reference shown above to the $iconSpritePath
+</li>
+<li>Add this line to my <code>application.css.scss</code>
+</li>
+</ol>
+{% codeblock lang:scss %}
+@import "bootstrap-sprockets";
+{% endcodeblock %}
+
+<ol class="org-ol">
+<li>Add this line to the Gemfile:
+</li>
+</ol>
+{% codeblock lang:ruby %}
+gem 'autoprefixer-rails'
+{% endcodeblock %}
+
+<p>
+Please let me know if this article helped you or if I missed anything!
+</p>
+
+<p>
+Aloha,
+</p>
+
+<p>
+Justin
+</p>
+</div>
+</div>

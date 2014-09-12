@@ -1,0 +1,194 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2"
+date: 2014-09-12 11:20:58 -1000
+comments: true
+categories: [rails, testing, rspec, capybara] 
+keywords: Rails, rspec, capybara, gems, ruby
+description: This article describes some tougher issues I faced when upgrading to Rails 4.1 and RSpec 3. 
+---
+#+END_HTML
+This article describes some tougher issues I faced when upgrading to Rails 4.1,
+Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on "[[https://hackhands.com/tips-strategies-upgrading-ruby-gems/][Rails Gem Upgrading Tips and Strategies]]".
+
+* Upgrade Links
+If you're upgrading these specific gems, here's the must-see upgrade links.
+1. Rails 4.1: [[http://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html][A Guide for Upgrading Ruby on Rails]].
+2. [[https://relishapp.com/rspec/docs/upgrade][RSpec 2 to RSpec 3]].
+3. Twitter Bootstrap: [[http://getbootstrap.com/migration/][Migrating to v3.x]] is essential if you're going from 2.x to 3.x.
+
+* Troubleshooting with RubyMine "Find In Path" and the Debugger
+After making the require code changes to address the deprecation errors going to
+rspec 3, I ran into the below obscure error. This one really stumped me, due to
+the fact that the stack trace did not give me a specific line causing the error,
+and when I ran the tests individually, I didn't see any errors.
+
+#+BEGIN_EXAMPLE
+     Failure/Error: Unable to find matching line from backtrace
+     PG::ConnectionBad: connection is closed
+#+END_EXAMPLE
+
+Here's the stack trace:
+#+BEGIN_EXAMPLE
+     Failure/Error: Unable to find matching line from backtrace
+     PG::ConnectionBad:
+       connection is closed
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `reset'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/postgresql_adapter.rb:589:in `reconnect!'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract_adapter.rb:377:in `verify!'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:458:in `block in checkout_and_verify'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activesupport-4.0.8/lib/active_support/callbacks.rb:373:in `_run__2436983933572130156__checkout__callbacks'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activesupport-4.0.8/lib/active_support/callbacks.rb:80:in `run_callbacks'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:457:in `checkout_and_verify'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:358:in `block in checkout'
+     # .rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+     # .rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/connection_handling.rb:53:in `connection'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:450:in `create_fixtures'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:899:in `load_fixtures'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:870:in `setup_fixtures'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/activerecord-4.0.8/lib/active_record/fixtures.rb:712:in `before_setup'
+     # .rvm/gems/ruby-2.1.2@bpos/gems/rspec-rails-3.0.2/lib/rspec/rails/adapters.rb:71:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+     ...
+#+END_EXAMPLE
+
+The error was happening in a test that used =resque_spec=. After much searching,
+I began to suspect that some customization or optimization caused the issue.
+
+** RubyMine Find in Path
+RubyMine's Find in Path, searching Project and Libraries, is extremely useful to
+getting more context around an error message. In this case, RubyMine found the
+error message in a C file.
+
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/find-error-1.jpg %}
+
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/find-error-2.jpg %}
+
+Here's the C code containing the error message. The Ruby stack trace did not go
+this far:
+#+BEGIN_SRC c
+/*
+ * Fetch the data pointer and check it for sanity.
+ */
+PGconn *
+pg_get_pgconn( VALUE self )
+{
+	PGconn *conn = pgconn_check( self );
+
+	if ( !conn )
+		rb_raise( rb_eConnectionBad, "connection is closed" );
+
+	return conn;
+}
+#+END_SRC
+
+And this is where in the Ruby Code that came from the stack trace:
+#+BEGIN_SRC ruby
+      # Disconnects from the database if already connected, and establishes a
+      # new connection with the database. Implementors should call super if they
+      # override the default implementation.
+      def reconnect!
+        clear_cache!
+        reset_transaction
+      end
+#+END_SRC
+
+** RubyMine: Sometimes the Debugger Helps!
+In the really troubling issue I saw below, I put in breakpoints in the
+connection adapter gem. I correctly guessed the cause of the error was
+=disconnect!= rather than the =reconnect!=
+
+Here's a few images that show how the debugger really helped me figure out the
+obscure "connection is closed" error:
+
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-1.jpg %}
+
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-2.jpg %}
+
+{% img /images/2014-08-11-upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/debugger-3.jpg %}
+
+That is what led me to try out removing the =heroku-resque= gem, as I noticed
+that was what was closing the connections in my test runs. Removing that gem
+fixed my rspec errors with the upgrades.
+
+Note, an alternative to using breakpoints in RubyMine would have been to put in
+a =puts caller= in the suspect methods of the libraries. However, one would have
+to remember to remove that later! I think the debugger was a good pick for this
+issue. If you don't use RubyMine, you might try the ruby debugger or the pry gem.
+
+* Rails 4.1 Errors
+** shuffle! removed from ActiveRecord::Relation
+#+BEGIN_EXAMPLE
+     NoMethodError:
+       undefined method `shuffle!' for #<ActiveRecord::Relation []>
+#+END_EXAMPLE
+
+The fix for that is to convert the relation to an array before calling shuffle.
+Naturally, you only want to do this with a limited set of data.
+
+** Flash changes
+This one bit me:
+http://guides.rubyonrails.org/upgrading_ruby_on_rails.html#flash-structure-changes
+
+I was comparing symbols when converting from the flash type to the bootstrap
+class. Since the keys are always normalized to strings, I changed the code to
+compare to strings.
+
+/*It's a good idea to review all changes in that the [[http://guides.rubyonrails.org/upgrading_ruby_on_rails.html][Rails Upgrade Guide]]*/
+
+Here's the method where I was previously comparing the flash type to symbols
+rather than strings:
+
+#+BEGIN_SRC ruby
+  def twitterized_type(type)
+    # http://ruby.zigzo.com/2011/10/02/flash-messages-twitters-bootstrap-css-framework/
+    case type
+      when "alert"
+        "warning"
+      when "error"
+        "danger"
+      when "notice"
+        "info"
+      when "success"
+        "success"
+      else
+        type.to_s
+    end
+  end
+#+END_SRC
+
+
+* Upgrading Twitter Bootstrap to 3.2 from 3.0
+I had this bit of code in my scss files from the old Twitter Bootstrap.
+#+BEGIN_SRC scss
+// Sprite icons path
+// -------------------------
+$iconSpritePath: asset-url("glyphicons-halflings.png");
+$iconWhiteSpritePath: asset-url("glyphicons-halflings-white.png");
+#+END_SRC
+
+Since I'm using the new 3.2 version of =bootstrap-sass=, I needed to do the
+following, per the details [[https://github.com/twbs/bootstrap-sass][here]]:
+1. Delete the =glyphicons-halflings.png= and =glyphicons-halflings-white.png= files.
+2. Remove the reference shown above to the $iconSpritePath
+3. Add this line to my =application.css.scss=
+#+BEGIN_SRC scss
+@import "bootstrap-sprockets";
+#+END_SRC
+
+4. Add this line to the Gemfile:
+#+BEGIN_SRC ruby
+gem 'autoprefixer-rails'
+#+END_SRC
+
+Please let me know if this article helped you or if I missed anything!
+
+Aloha,
+
+Justin

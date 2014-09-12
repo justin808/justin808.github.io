@@ -1,0 +1,366 @@
+---
+layout: post
+title: "Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3"
+date: 2014-08-12 17:54:42 -1000
+comments: true
+categories: [rails, testing, rspec, capybara] 
+keywords: 
+description: 
+published: false
+---
+
+<p>
+What's faster? <a href="https://github.com/burke/zeus">Zeus</a> with <a href="https://github.com/grosser/parallel_tests">Parallel Tests</a> or <a href="https://github.com/rails/spring">Spring</a>, in the context of Rails 4.1,
+RSpec 3, Capybara 2.4, and PhantomJs?
+</p>
+
+<p>
+<b>The bottom line is that both work almost equivalently as fast, and the biggest
+difference for me concerned compatibility with the parallel_tests gem.</b> Zeus
+works fine with Parallel Tests, although it makes little difference overall with
+or without Zeus. Spring doesn't work with Parallel Tests, but you can work
+around this issue. So stick with Zeus if it works for you.
+</p>
+
+<p>
+And regardless of using Spring or Zeus, the shell scripts provided below called
+<code>pgr</code> and <code>pgk</code> are essential for quickly listing or killing Zeus, Spring,
+Rails, or Phantomjs processes!
+</p>
+
+<p>
+It's also worth noting that biggest advantage of using the Zeus or Spring
+pre-loaders is to save the Rails startup time. On my machine, this is about 3 to
+5 seconds. That matters a lot if the test I'm focusing upon only takes a second or
+two, such as when doing TDD. However, when running a whole test suite taking
+minutes, 3-5 seconds can get swallowed up by other things, such as rspec-retry,
+which retries failing capybara tests.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I've written about my integration testing setup: <a href="http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html">Capybara, PhantomJs, Poltergeist, and Rspec Tips</a>. For a while, I've been eager to upgrade to Rails
+4.1 and RSpec 3. Finally, in August, 2014, the gem ecosystem allowed this to
+happen! I've got a related article on my <a href="http://www.railsonmaui.com/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">tips for upgrading to Rails 4.1 and RSpec 3</a>.
+</p>
+
+<p>
+Once I had upgraded nearly every gem in my client's large Rails project to the
+latest gem versions, I was pleasantly surprised that I could once again get
+Zeus, Guard, RSpec, Capybara, Poltergeist, Parallel Tests, etc. to all play
+nicely together.
+</p>
+
+<p>
+Always curious as to the value of the latest defaults in Rails, I decided to try
+out Spring. Both Spring and Zeus preload Rails so that you don't have to pay the
+same start up cost for evry test run. Here's a RailsCast on the topic: <a href="http://railscasts.com/episodes/412-fast-rails-commands">#412 Fast Rails Commands</a>.
+</p>
+
+<p>
+The end results is that both Zeus and Spring give great results and are very
+similar in many ways. The biggest difference for me is that only Zeus (and not
+Spring) works with Parallel Tests. Interestingly, I got very similar results
+when using Parallel Tests with our without Zeus. It turns out that it is
+possible to run Parallel Tests with Spring installed so long as you disable it
+by setting the environment variable like this: <code>DISABLE_SPRING=TRUE parallel_rspec -n 6 spec</code>.
+</p>
+
+<p>
+The bottom line for me is that I don't have any good reason to move away from
+Zeus to Spring, and the fact that Spring is part of stock Rails is not a
+sufficient reason for me. That being said, on another project which is smaller,
+I'm not motivated to switch from Spring to Zeus.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Performance</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Note in below commands, one must insert <code>zeus</code> in the command to be using zeus.
+If using Spring, be sure that you're using the Spring modifed binstub scripts in
+your bin directory by having your path appropriately set or using <code>bin/rake</code> and
+<code>bin/rspec</code> (install <a href="https://github.com/jonleighton/spring-commands-rspec">spring-commands-rspec</a>).
+</p>
+
+<p>
+The times shown below are from both sample runs of a single directory of
+non-integration specs and from the full test suite of 914 tests, many of which
+are Capybara tests, on a 2012, Retina, SSD, 16 GB, MacBook Pro while running
+Emacs, RubyMine, Chrome, etc. Times were gathered by running commands prefixed
+with the <code>time</code> command. Running <code>zeus rspec</code> seems a bit slower than using
+spring. However, when running the integration tests, my test execution time was
+always variable depending on the number of Capybara timeouts and retries.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">command</th>
+<th scope="col" class="right">zeus loader</th>
+<th scope="col" class="right">spring loader</th>
+<th scope="col" class="right">no loader</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">rspec spec/utils</td>
+<td class="right">0:19.1</td>
+<td class="right">0:17.7</td>
+<td class="right">0:22.8</td>
+</tr>
+
+<tr>
+<td class="left">rake spec:utils</td>
+<td class="right">0:15.6</td>
+<td class="right">0:17.9</td>
+<td class="right">0:18.1</td>
+</tr>
+
+<tr>
+<td class="left">rake spec</td>
+<td class="right">6:11.9</td>
+<td class="right">6:15.0</td>
+<td class="right">8:02.5</td>
+</tr>
+
+<tr>
+<td class="left">rspec spec</td>
+<td class="right">5:51:7</td>
+<td class="right">5:28.0</td>
+<td class="right">5:37.2</td>
+</tr>
+
+<tr>
+<td class="left">parallel_rspec -n 6 spec</td>
+<td class="right">2:28.7</td>
+<td class="right">n/a</td>
+<td class="right">2:28.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Zeus and Spring vs. plain RSpec</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Here's some advantages and disadvantages of using either either Zeus or Spring
+compared to plain RSpec.
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Advantages</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>Both save time for running basic commands like rspec, rake, rails, etc. The
+performance of both is very similar.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Disadvantages</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li><b>Both can be extremely confusing when they fail to update automatically.</b>
+This tends to happen after updating gems or running database migrations. You
+end up yak shaving when you don't see your changes taking effect! I.e., put
+in some print statements, and then you don't see them shown when they should.
+Arghhhh!
+</li>
+<li><a href="https://github.com/y310/rspec-retry">Rspec-retry</a> seems essential in dealing with random Capybabara failures with
+either Zeus or Spring. I often see less of these errors when I don't use
+Zeus/Spring nor parallel_tests.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Zeus vs. Spring</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">Advantages</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li><a href="https://github.com/burke/zeus">Zeus</a> works with the <a href="https://github.com/grosser/parallel_tests">parallel_tests gem</a>. This more than halves my time for
+running my entire test suite. However, when writing this article, I found
+that it made little difference, at least when slowed down by sporadically
+failing capybara tests that are retried. That being said, I'm certain that
+Parallel Tests with Zeus is faster or at worse the same as without Zeus.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">Disadvantages</h3>
+<div class="outline-text-3" id="text-4-2">
+<ol class="org-ol">
+<li>You need to start up separate shell process, running <code>zeus start</code>. An
+advantage of this is that if there's a problem starting up, the output in the
+Zeus console window is fairly clear.
+</li>
+<li>You run the command "zeus rake" rather than just "rake". Consequently, I made
+some shell aliases (see below).
+</li>
+<li>Zeus only uses the environment from when Zeus was started and ignores any
+environment variables when commands are run.
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Spring vs. Zeus</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">Advantages</h3>
+<div class="outline-text-3" id="text-5-1">
+<ol class="org-ol">
+<li><a href="https://github.com/rails/spring">Spring</a> is a default part of Rails, so you know it's well supported, and bugs
+will be fixed fast.
+</li>
+<li>Slightly simpler to install and use than Zeus.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">Disadvantages</h3>
+<div class="outline-text-3" id="text-5-2">
+<ol class="org-ol">
+<li>Spring lacks support for parallel_tests. See this Github issue: <a href="https://github.com/grosser/parallel_tests/issues/309#issuecomment-45056130">incompatible
+with spring #309</a>. You can, however run parallel_tests so long as run the
+command like this: <code>time DISABLE_SPRING=TRUE parallel_rspec -n 6 spec</code>. I.e.,
+you need to set <code>DISABLE_SPRING</code> so that parallel_rspec does not use Spring.
+</li>
+<li>Spring is a bit opaque in terms of errors given there's no console window.
+See <a href="https://github.com/rails/spring">README</a> for how to see the Spring log.
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Miscellaneous Tips</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Be sure to disable either Zeus or Spring when updating gems. Consider restarting
+Zeus or Spring after a database migration. See the below scripts called <code>pgr</code>
+and <code>pgk</code> for seeing and killing Zeus/Spring related processes.
+</p>
+</div>
+
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">Relevant Gems Working For Me</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+The right combination of gems seem pretty critical in getting all the parts to
+play nicely together. As of August 15, 2014 the most recent compatible versions
+of the following gems worked well together. This means running "bundle update"
+without locking the gem versions.
+</p>
+
+<pre class="example">
+capybara-screenshot (0.3.21)
+capybara (2.4.1)
+guard (2.6.1)
+guard-bundler (2.0.0)
+guard-livereload (2.3.0)
+guard-rails (0.5.3)
+guard-resque (0.0.5)
+guard-rspec (4.3.1)
+guard-unicorn (0.1.1)
+parallel_tests (1.0.0)
+poltergeist (1.5.1)
+rails (4.1.4)
+resque_spec (0.16.0)
+rspec (3.0.0)
+rspec-instafail (0.2.5)
+rspec-its (1.0.1)
+rspec-mocks (3.0.3)
+rspec-rails (3.0.2)
+rspec-retry (0.3.0)
+vcr (2.9.2)
+webmock (1.18.0)
+zeus (0.13.3)
+zeus-parallel_tests (0.2.4)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Zeus Shell Configuration (ZSH)</h2>
+<div class="outline-text-2" id="text-7">
+{% codeblock lang:bash %}
+echoRun() {
+  START=$(date +%s)
+  echo "> $1"
+  eval time $1
+  END=$(date +%s)
+  DIFF=$(( $END - $START ))
+  echo "It took $DIFF seconds"
+}
+
+alias zr='zeus rake'
+
+alias parallel_prepare='rake parallel:prepare ; "rake parallel:rake\[db:globals\]" '
+
+zps() {
+  # Run parallel_rspec, using zeus, passing in number of threads, default is 6
+
+  p=${1:-6}
+  # Skipping zeus b/c env vars don't work with zeus
+
+  # start zeus log level fata 
+  # echoRun "SKIP_RSPEC_FOCUS=YES RSPEC_RETRY_COUNT=7 RAILS_LOGGER_LEVEL=4 zeus parallel_rspec -n $p spec"
+  echoRun "zeus parallel_rspec -n $p spec"
+}
+
+# List processes related to rails
+pgr() {
+  for x in spring rails phantomjs zeus; do 
+    pgrep -fl $x;
+  done 
+}
+
+# Kill processes related to rails
+pgk() {
+  for x in spring rails phantomjs zeus; do 
+    pkill -fl $x;
+  done 
+}
+
+{% endcodeblock %}
+
+<p>
+Please let me know if this article helped you or if I missed anything!
+</p>
+
+<p>
+Aloha,
+</p>
+
+<p>
+Justin
+</p>
+</div>
+</div>
