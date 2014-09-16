@@ -9,8 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Motivation Today I migrated a medium size test suite from capybara-webkit to Poltergeist
-with PhantomJS. I had two main motivations for switching: &hellip;">
+  <meta name="description" content="One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,116 @@ with PhantomJS. I had two main motivations for switching: &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/15/upgrading-octopress/">Upgrading Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-15T22:08:00-10:00" pubdate data-updated="true">Sep 15<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/09/15/upgrading-octopress/#disqus_thread"
+             data-disqus-identifier="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, and thus upgrading Octopress
+is difficult. I delayed upgrading due to this. However, my concerns were
+unfounded, as it was very painless to upgrade Octopress.
+</p>
+
+<p>
+The instructions boil down to this short help page on <a href="http://octopress.org/docs/updating/">Updating Octopress</a>:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git pull octopress master     <span class="c"># Get the latest Octopress</span>
+</span><span class='line'>bundle install                <span class="c"># Keep gems updated</span>
+</span><span class='line'>rake update_source            <span class="c"># update the template&#39;s source</span>
+</span><span class='line'>rake update_style             <span class="c"># update the template&#39;s style</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
+resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
+below) showing you how these tools helped with this process. Besides some minor
+issues dealing with a few merge conflicts, there was nothing very interesting or
+eventful about the upgrade, which means that the current process is really quite
+OK.
+</p>
+
+<p>
+I hope a few people find this demo of the RubyMine git conflict resolution tool
+helpful. The key takeaways from this video are:
+</p>
+
+<ol class="org-ol">
+<li>Merge conflicts show up as red in the list of changes.
+<img src="/images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
+</li>
+
+<li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
+the 3 way merge.
+<img src="/images/2013-09-15-upgrading-octopress/merge-window.jpg">
+</li>
+</ol>
+
+<p>
+3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
+   or, in this case, the changes in the main Octopress development branch.
+</p>
+
+<p>
+Did the upgrade work? You&#8217;re looking at the results of it.
+</p>
+
+<p>
+It&#8217;s worth noting that I had one slight snag. When I merged sass/screen.scss, I
+accidentally removed this line, which is used for the youtube plugin.
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="s2">&quot;custom/rve&quot;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+I could have figured this out by examining the history of the file and noting
+that I had added this line, rather than it being part of Octopress. So yes, it
+would be bit better if there was a cleaner separation between the Octopress
+code and any enhancements. However, the current mechanism works, and it&#8217;s still
+thousands of times better than WordPress. 
+</p>
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
+</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1123,6 +1233,10 @@ monolithic.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/">Pry, Ruby, Array#zip, CSV, and the Hash[] Constructor</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/">Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2</a>
       </li>
     
@@ -1144,10 +1258,6 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2014/05/06/remote-pair-programming-tips-using-screenhero/">Remote Pair Programming Tips Using RubyMine and Screenhero</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/23/railsconf-2014/">RailsConf 2014</a>
       </li>
     
   </ul>
