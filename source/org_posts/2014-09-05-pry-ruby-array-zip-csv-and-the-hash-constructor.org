@@ -2,7 +2,7 @@
 ---
 layout: post
 title: "Pry, Ruby, Array#zip, CSV, and the Hash[] constructor"
-date: 2014-09-05 11:06:17 -1000
+date: 2014-09-15 11:06:17 -1000
 comments: true
 categories: [pry]
 keywords: Pry, Ruby, Array, zip, CSV, Hash
