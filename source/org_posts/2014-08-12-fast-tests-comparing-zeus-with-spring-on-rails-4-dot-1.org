@@ -2,12 +2,12 @@
 ---
 layout: post
 title: "Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3"
-date: 2014-08-12 17:54:42 -1000
+date: 2014-09-09 17:54:42 -1000
 comments: true
 categories: [rails, testing, rspec, capybara] 
-keywords: 
-description: 
-published: false
+keywords: Rspec, testing, rails, capybara, zeus, spring, Rails
+description: A comparison of using Zeus vs Spring with Rails 4.1 along with the parallel-tests gem.
+canonical: https://hackhands.com/fast-tests-comparing-zeus-spring-rails-4-1-rspec-3/
 ---
 #+END_HTML
 
