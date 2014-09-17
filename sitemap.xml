@@ -4,7 +4,7 @@
         <loc>
             http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/
         </loc>
-        <lastmod>2014-05-15T23:26:24-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:48-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2013/05/07/buying-apple-products-with-amex/</loc>
@@ -18,7 +18,7 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/</loc>
-        <lastmod>2014-05-15T23:26:21-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:47-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2013/05/25/getting-started-with-discourse/</loc>
@@ -52,7 +52,7 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2013/09/22/gogaruco-2013/</loc>
-        <lastmod>2014-05-15T23:26:15-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:46-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2014/01/04/migrating-from-bash-to-zsh/</loc>
@@ -62,71 +62,83 @@
         <loc>
             http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/
         </loc>
-        <lastmod>2014-05-15T23:26:14-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:45-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/02/23/simple-form-and-disable-processing-by-default/
         </loc>
-        <lastmod>2014-05-15T23:26:14-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:45-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/
         </loc>
-        <lastmod>2014-05-15T23:26:13-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:44-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/
         </loc>
-        <lastmod>2014-05-15T23:26:12-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:43-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/
         </loc>
-        <lastmod>2014-05-21T21:56:16-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:43-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2014/04/23/railsconf-2014/</loc>
-        <lastmod>2014-05-15T23:26:11-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:43-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero/
         </loc>
-        <lastmod>2014-05-21T12:14:35-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:42-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/</loc>
-        <lastmod>2014-09-12T08:28:16-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:40-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/
         </loc>
-        <lastmod>2014-09-12T08:28:16-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:39-10:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/
+        </loc>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/
         </loc>
-        <lastmod>2014-09-15T21:21:38-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:37-10:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/
+        </loc>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/
         </loc>
-        <lastmod>2014-09-15T21:21:41-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:38-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//about/about-justin-gordon-programming.html</loc>
-        <lastmod>2014-05-15T23:26:28-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:50-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//about/</loc>
-        <lastmod>2014-09-15T21:21:41-10:00</lastmod>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//about/justin-gordon-resume-1990s.html</loc>
@@ -138,11 +150,11 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//about/telecommuting.html</loc>
-        <lastmod>2014-05-15T23:26:25-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:49-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/archives/</loc>
-        <lastmod>2014-09-15T21:21:41-10:00</lastmod>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//blog/categories.html</loc>
@@ -150,11 +162,11 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//</loc>
-        <lastmod>2014-09-15T21:21:41-10:00</lastmod>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//meta/</loc>
-        <lastmod>2014-09-15T21:21:41-10:00</lastmod>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//robots.txt</loc>
@@ -166,17 +178,17 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/git.html</loc>
-        <lastmod>2014-05-15T23:26:35-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:54-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/</loc>
-        <lastmod>2014-09-15T21:21:41-10:00</lastmod>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.railsonmaui.com//tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html
         </loc>
-        <lastmod>2014-05-15T23:26:34-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:53-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/renaming-redating-blog-posts.html</loc>
@@ -184,18 +196,18 @@
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/rubymine/</loc>
-        <lastmod>2014-09-15T21:21:41-10:00</lastmod>
+        <lastmod>2014-09-16T20:10:00-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/rubymine/rubymine-tips-rails-tutorial.html</loc>
-        <lastmod>2014-05-15T23:26:32-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:51-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/rubymine/rubymine.html</loc>
-        <lastmod>2014-05-14T09:43:40-10:00</lastmod>
+        <lastmod>2014-09-15T21:23:29-10:00</lastmod>
     </url>
     <url>
         <loc>http://www.railsonmaui.com//tips/rubymine/why-rubymine.html</loc>
-        <lastmod>2014-05-15T23:26:30-10:00</lastmod>
+        <lastmod>2014-09-16T10:12:51-10:00</lastmod>
     </url>
 </urlset>
