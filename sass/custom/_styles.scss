@@ -4,3 +4,58 @@ header[role="banner"] {
      background-image: url(/images/header/header_1200x166_sunset.jpg);
      background-repeat: no-repeat;
 }
+
+#mc_embed_signup{
+    clear:left; 
+    /* font:14px Helvetica,Arial,sans-serif;  */
+}
+
+aside.sidebar section h2 {
+  margin: 1.5em 0 .5em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid #e0e0e0
+}
+
+#mc_embed_signup {
+
+    // label
+    .mc-field-group > label {
+        margin-top: 8px;
+        display: block;
+    }
+
+    // textfield
+    input {
+        &.email, &.first-name {
+            width: 100%; height: 24px; margin-top: 8px; font-size: 14px;
+        }
+    }
+
+    // subscribe button
+    input#mc-embedded-subscribe {
+        background-color: #5DA423;
+        border: 1px solid #396516;
+        width: auto;
+        background: #2BA6CB;
+        border: 1px solid #1E728C;
+        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        margin: 8px 0 0 0;
+        outline: none;
+        padding: 10px 20px 11px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        -webkit-transition: background-color 0.15s ease-in-out;
+        -moz-transition: background-color 0.15s ease-in-out;
+        -o-transition: background-color 0.15s ease-in-out;
+        transition: background-color 0.15s ease-in-out;
+    }
+}
