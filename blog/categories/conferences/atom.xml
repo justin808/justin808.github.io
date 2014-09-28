@@ -4,11 +4,11 @@
   <title><![CDATA[Category: conferences | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/conferences/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -19,10 +19,10 @@
     <updated>2014-08-13T14:25:57-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference</id>
     <content type="html"><![CDATA[<p>
-Woo hoo! I'm going to the <a href="http://gogaruco.com/">2014 Golden Gate Ruby Conference</a>. It's at UCSF Mission
+Woo hoo! I&#8217;m going to the <a href="http://gogaruco.com/">2014 Golden Gate Ruby Conference</a>. It&#8217;s at UCSF Mission
 Bay, San Francisco, September 19-20, 2014. I wrote an article about my
-experience last year, <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community &gt; Code</a>. If you're on the fence
-about attending, here's my top reasons on why you should consider attending. I
+experience last year, <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community &gt; Code</a>. If you&#8217;re on the fence
+about attending, here&#8217;s my top reasons on why you should consider attending. I
 recommend not delaying <a href="http://gogaruco.com/registration/">signing up</a>, as last year I saw folks begging for tickets
 once the conference sold out. According to <a href="https://twitter.com/wifelette">Leah Silber</a>, one of the <a href="http://gogaruco.com/about/">conference
 organizers</a>, GoGaRuCo has sold out every year, except for <i>maybe</i> year one.
@@ -35,17 +35,17 @@ organizers</a>, GoGaRuCo has sold out every year, except for <i>maybe</i> year o
 <h2 id="sec-1">Top 10 Reasons To Attend GoGaRuCo</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li>San Francisco is a great town to visit, and there's no better month to visit
+<li>San Francisco is a great town to visit, and there&#8217;s no better month to visit
 than September as dense fog is least likely!
 </li>
-<li>It's relatively small conference, compared to Rails Conf, and I find that
+<li>It&#8217;s relatively small conference, compared to Rails Conf, and I find that
 <b>much more engaging and relaxing</b>. The attendees seem to be a mix of highly
 passionate Rubyists, mostly locals, with a mix from around the world.
 </li>
-<li>A one track conference is nice in that you don't have to worry about picking
+<li>A one track conference is nice in that you don&#8217;t have to worry about picking
 which talks to attend.
 </li>
-<li>There's a 15 minute break between each talk to socialize with fellow
+<li>There&#8217;s a 15 minute break between each talk to socialize with fellow
 attendees or speakers. Socializing is why you come to these talks!
 </li>
 <li>Yehuda will likely come up with some interesting talk!
@@ -53,14 +53,14 @@ attendees or speakers. Socializing is why you come to these talks!
 <li>Ruby programming is really more of an art and passion than work, and the
 people that attend GoGaRuCo reflect this!
 </li>
-<li>You'll probably make a few new friends and leave inspired.
+<li>You&#8217;ll probably make a few new friends and leave inspired.
 </li>
 <li>The food is super, both at the conference and throughout the city. And the
 evening events last year were great as well.
 </li>
-<li>There's probably going to be a job board, just in case that interests you.
+<li>There&#8217;s probably going to be a job board, just in case that interests you.
 </li>
-<li>You won't need any more T-shirts for another year!
+<li>You won&#8217;t need any more T-shirts for another year!
 </li>
 </ol>
 </div>
@@ -71,15 +71,15 @@ evening events last year were great as well.
 <h2 id="sec-2">Photography</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-I'm volunteering as the official photographer of GoGaRuCo. My mission is to "get
+I&#8217;m volunteering as the official photographer of GoGaRuCo. My mission is to &#8220;get
 2-3 good shots of each speaker, a couple of audience shots during each days
 lunch and breaks, a shot or two of each exhibitor table, 2-3 team photos, and a
-smattering of everything else." So please don't be shy and ask to have your
+smattering of everything else.&#8221; So please don&#8217;t be shy and ask to have your
 photograph taken.
 </p>
 
 <p>
-Here's a sample of shots I took at GoGaRuCo 2013. Tons more photos are linked
+Here&#8217;s a sample of shots I took at GoGaRuCo 2013. Tons more photos are linked
 here: <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRuCo 2013: Community &gt; Code</a>.
 </p>
 
@@ -110,18 +110,35 @@ here: <a href="http://www.railsonmaui.com/blog/2013/09/22/gogaruco-2013/">GoGaRu
 <h2 id="sec-3">Available for Consulting</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-If you'd like to meet me around the time of GoGaRuCo, don't hesitate to email me
+If you&#8217;d like to meet me around the time of GoGaRuCo, don&#8217;t hesitate to email me
 to try to meet up in person. Possibly you might have a project that could use my
 help?
 </p>
 
 <p>
 On a personal note, I spent the better part of my adulthood in San Francisco, so
-I've got tons of friends there. All my consulting clients tend to be from the
+I&#8217;ve got tons of friends there. All my consulting clients tend to be from the
 Bay Area as well.
 </p>
 </div>
 </div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>

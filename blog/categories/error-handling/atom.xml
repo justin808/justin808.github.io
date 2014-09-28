@@ -4,11 +4,11 @@
   <title><![CDATA[Category: error-handling | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/error-handling/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -21,9 +21,9 @@
     <content type="html"><![CDATA[<p>
 How do ensure that your application properly handles errors, especially when
 relying on third parties, such as payment processors? Is it easy to verify that
-the right things happen when the wrong things happen? Last week's article
+the right things happen when the wrong things happen? Last week&#8217;s article
 <a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
-setup a good error handling strategy. Here's some techniques to verify that your
+setup a good error handling strategy. Here&#8217;s some techniques to verify that your
 application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
 </p>
@@ -40,19 +40,19 @@ is to check how your application handles errors, before your customers do.
 <h2 id="sec-1">Your Code Depends on Outside Systems (That Might Raise Errors)</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Suppose you've created the super-duper Rails storefront application that takes
+Suppose you&#8217;ve created the super-duper Rails storefront application that takes
 online payments. You may even have some unit tests that verify the code. Then
 you get the dreaded call that customers are being charged twice and their
 orders are not processed. WTF?
 </p>
 
 <p>
-It's not entirely obvious how to verify proper error handling when outside
+It&#8217;s not entirely obvious how to verify proper error handling when outside
 systems fail, or even when odd errors are raised from your own code. Payment
-processing deserves some special attention because it's a dependency on an
+processing deserves some special attention because it&#8217;s a dependency on an
 outside service (the payment processor) and will typically require database
-updates based on the result of the payment processing. If you're updating
-several tables, then you'll want to use a transaction to ensure that all or
+updates based on the result of the payment processing. If you&#8217;re updating
+several tables, then you&#8217;ll want to use a transaction to ensure that all or
 nothing saves. While code review and manual testing are good first steps, you
 should consider a few extra steps with error handling for sensitive parts of
 your application.
@@ -67,16 +67,16 @@ your application.
 <h2 id="sec-2">Verification of Error Handling Strategy</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Typically, error handling code is not well tested. It's much more common to test
-the "happy path" of everything going right.
+Typically, error handling code is not well tested. It&#8217;s much more common to test
+the &#8220;happy path&#8221; of everything going right.
 </p>
 
 <p>
-Let's look at hypothetical example and some tests that can flush out some
+Let&#8217;s look at hypothetical example and some tests that can flush out some
 errors.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -104,7 +104,7 @@ errors.
 </span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 So what can go wrong?
@@ -117,9 +117,9 @@ So what can go wrong?
 <h2 id="sec-3">Payment Processing is Like a 2-Phase Commit</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Conceptually, you want a transaction, such that it's all or nothing. If the
+Conceptually, you want a transaction, such that it&#8217;s all or nothing. If the
 charge goes through, then so does everything else. Payment processing like a
-2-phase commit, except one has to handle all the what-ifs to be sure that it's
+2-phase commit, except one has to handle all the what-ifs to be sure that it&#8217;s
 handled correctly.
 </p>
 
@@ -152,7 +152,7 @@ could you have tested (and avoided) this?
 <h2 id="sec-4">Brute Force Methodology</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-You can simulate error conditions by manually placing =raise "any error message"=
+You can simulate error conditions by manually placing =raise &#8220;any error message&#8221;=
 statements in your code, and then testing, say in the UI manually. This is a
 good first step to verify that your error handling is working correctly. You
 might raise a specific error, if say your payment processor throws a specific
@@ -164,7 +164,7 @@ For the above example, the different methods referenced, such as <code>process_o
 can get modified with a single line at the beginning, which would be:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -172,7 +172,7 @@ can get modified with a single line at the beginning, which would be:
 </span><span class='line'>  <span class="k">raise</span> <span class="s2">&quot;Any error message&quot;</span>
 </span><span class='line'>  <span class="c1"># Lots of other code that can be commented out</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Then go into the UI and test placing an order. Consider the following questions:
@@ -194,8 +194,8 @@ See my prior article <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-r
 By applying this technique to each of the components of completing a purchase,
 one can flush out (and handle) nearly all of the different possible errors that
 could affect a purchase. Give this technique a try in some critical section of
-the code. You'll be surprised how well it works. Before giving you the fix to
-the above code, let's see if we can write unit and feature tests on our error
+the code. You&#8217;ll be surprised how well it works. Before giving you the fix to
+the above code, let&#8217;s see if we can write unit and feature tests on our error
 handling.
 </p>
 </div>
@@ -206,12 +206,12 @@ handling.
 <h2 id="sec-5">RSpec Unit Testing of Errors</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-It turns out that with stubbing in <code>rspec</code>, it's easy to test error handling!
+It turns out that with stubbing in <code>rspec</code>, it&#8217;s easy to test error handling!
 <a href="https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs">RSpec provides a nice mocking library</a>. The test code would look something like
 this. Pay attention to the call to <b>stub</b>.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -253,7 +253,7 @@ this. Pay attention to the call to <b>stub</b>.
 </span><span class='line'>        <span class="c1"># charge refunded verified in mock</span>
 </span><span class='line'>      <span class="k">end</span>
 </span><span class='line'>    <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 This test code ensures that the error handling of purchase_cart will catch an
@@ -262,9 +262,9 @@ changes to the order record.
 </p>
 
 <p>
-Here's an improved version of the Order#payment_method above:
+Here&#8217;s an improved version of the Order#payment_method above:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -300,14 +300,14 @@ Here's an improved version of the Order#payment_method above:
 </span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Here are the key points to the improved code:
 </p>
 
 <ol class="org-ol">
-<li>There's a block to catch the exception which is <i>separate from the
+<li>There&#8217;s a block to catch the exception which is <i>separate from the
 transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
 being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
 that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for
@@ -315,7 +315,7 @@ Utlity.logException</a>).
 </li>
 <li>fulfill_order is moved outside of the transaction block. This allows the
 transaction to complete, and then the order_fulfillment takes place. If
-there's an issue in fulfilling the order, that can be dealt with separately
+there&#8217;s an issue in fulfilling the order, that can be dealt with separately
 from the original charge. In other words, the customer can successfully pay
 for the order, and the store can deal with the failure to fulfill the order.
 </li>
@@ -328,7 +328,7 @@ for the order, and the store can deal with the failure to fulfill the order.
 <h2 id="sec-6">RSpec Capybara Feature (Integration) Tests of UI Errors</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-It's possibly more important and sometimes easier to do the verification at the
+It&#8217;s possibly more important and sometimes easier to do the verification at the
 integration level in RSpec feature specs using <a href="https://github.com/jnicklas/capybara">Capybara</a> with <a href="http://phantomjs.org/">PhantomJs</a> and
 <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>. The secret sauce is the same use of the same stubbing technique as
 above to replace some key methods such that they throw an exception. This sort
@@ -341,24 +341,24 @@ error message to the browser display to then end user.
 I tend to develop such a test in an iterative manner:
 </p>
 <ol class="org-ol">
-<li>Make sure you've got tests on the "happy" case where the story goes as
+<li>Make sure you&#8217;ve got tests on the &#8220;happy&#8221; case where the story goes as
 planned.
 </li>
 <li>Then introduce test cases where have bits of code like this that will raise
 an error at an opportune time.
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 <li>Allow the test cases to fail, and put in screen shots (in Capybara with
 phantomjs, that looks like this:
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">render_page</span> <span class="s2">&quot;a-descriptive-name&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 <p>
 Setup this method <code>render_page</code> in a spec helper file like this:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -366,7 +366,7 @@ Setup this method <code>render_page</code> in a spec helper file like this:
 </span><span class='line'>  <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span>
 </span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 <li>Put in some assertions that the page shows the correct error and the records
 in the database have the right values.
@@ -376,11 +376,11 @@ in the database have the right values.
 </ol>
 
 <p>
-Here's an example that tests a failure of the Stripe payment API, including
+Here&#8217;s an example that tests a failure of the Stripe payment API, including
 verification that an email was sent signifying an error:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -452,7 +452,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -461,10 +461,10 @@ verification that an email was sent signifying an error:
 <h2 id="sec-7">Conclusion</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-If you aren't simulating how your application responds to errors, then you'll
-eventually find out, and the result might not be as good as you'd prefer. You
+If you aren&#8217;t simulating how your application responds to errors, then you&#8217;ll
+eventually find out, and the result might not be as good as you&#8217;d prefer. You
 can simulate errors with the very simple and quick technique of a well placed
-=raise "some error"=, and then testing in a UI. Or you might prefer the
+=raise &#8220;some error&#8221;=, and then testing in a UI. Or you might prefer the
 robustness of unit or feature tests using stubbing. Either way, the key message
 is to check how your application handles errors, before your customers do.
 </p>
@@ -477,6 +477,23 @@ for Rails Logging and Error Handling</a>
 </div>
 </div>
 
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
 ]]></content>
   </entry>
   
@@ -487,7 +504,7 @@ for Rails Logging and Error Handling</a>
     <id>http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling</id>
     <content type="html"><![CDATA[<p>
 TLDR: Clean logging and error handling is a critical aspect of a RoR app.
-What's a good strategy? Why does this matter?
+What&#8217;s a good strategy? Why does this matter?
 </p>
 
 
@@ -496,16 +513,16 @@ What's a good strategy? Why does this matter?
 <p>
 A Rails app can have awesome unit and functional tests, and then in production,
 something goes wrong and the right error handling does not happen, making
-a bad situation worse. By this, I mean, it's bad enough that something went
-wrong in production. It's even worse if:
+a bad situation worse. By this, I mean, it&#8217;s bad enough that something went
+wrong in production. It&#8217;s even worse if:
 </p>
 
 
 <ol class="org-ol">
-<li>You don't have clear log messages that identify exactly what went wrong.
+<li>You don&#8217;t have clear log messages that identify exactly what went wrong.
 </li>
-<li>You didn't get automatically notified via email that something went wrong.
-Instead, the customer told the customer service rep that there's an issue.
+<li>You didn&#8217;t get automatically notified via email that something went wrong.
+Instead, the customer told the customer service rep that there&#8217;s an issue.
 Ideally, when an error happens, the responsible developers should be
 notified.
 </li>
@@ -515,7 +532,7 @@ notified.
 
 
 <p>
-Here's some tips on logging setup and error handling, including a utility
+Here&#8217;s some tips on logging setup and error handling, including a utility
 method to log the stack trace and send an email.
 </p>
 
@@ -545,16 +562,16 @@ is properly implemented, includind with rspec tests.
 <div class="outline-text-3" id="text-1-1">
 <p>
 Check out the gem <a href="http://smartinez87.github.io/exception_notification/">exception_notification</a>. It works great. One things the docs
-don't point out is that it works great with <a href="http://mailcatcher.me/">MailCatcher</a>. This allows you to
-"test" that your exception notification emails are being sent as expected
+don&#8217;t point out is that it works great with <a href="http://mailcatcher.me/">MailCatcher</a>. This allows you to
+&#8220;test&#8221; that your exception notification emails are being sent as expected
 without using a real mail account. Thus, <i>do</i> enable exception logging in
-development mode, contrary to the basic setup. Here's a config example at this
+development mode, contrary to the basic setup. Here&#8217;s a config example at this
 post on <a href="http://www.mikeperham.com/2012/12/09/12-gems-of-christmas-4-mailcatcher-and-mail_view/">MailCatcher and mail_view</a>.
 </p>
 </div>
 </div>
 <div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">Log the Browser Details with Gem 'browser_details'</h3>
+<h3 id="sec-1-2">Log the Browser Details with Gem &#8216;browser_details&#8217;</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The gem <a href="https://github.com/gshutler/browser_details">browser_details</a> will tell you what type of browser was used, which
@@ -567,12 +584,12 @@ Have you ever had the conversation:
 </p>
 
 <p>
-Your site doesn't work.
+Your site doesn&#8217;t work.
 What browser are you using and do you have Javascript enabled?
 </p>
 
 <p>
-What's a browser?
+What&#8217;s a browser?
 </p>
 </blockquote>
 </div>
@@ -582,8 +599,8 @@ What's a browser?
 <h3 id="sec-1-3">Control Rails Log Verbosity with Gem lograge</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-Sometimes too much of a good thing (log info) is a bad thing, and that's true
-with Rails default logging. Check out the gem '<a href="https://github.com/roidrage/lograge">lograge</a>'. The big difference is
+Sometimes too much of a good thing (log info) is a bad thing, and that&#8217;s true
+with Rails default logging. Check out the gem &#8217;<a href="https://github.com/roidrage/lograge">lograge</a>&#8217;. The big difference is
 that a single request will take a single line. To quote the README, instead of
 logs like this:
 </p>
@@ -599,7 +616,7 @@ Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
 </pre>
 
 <p>
-After installing lograge, you'll have one line for the request:
+After installing lograge, you&#8217;ll have one line for the request:
 </p>
 <pre class="example">
 method=GET path=/jobs/833552.json format=json controller=jobs action=show status=200 duration=58.33 view=40.43 db=15.26
@@ -624,7 +641,7 @@ email notification.
 Example of calling <code>Utility.log_exception</code>:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -634,13 +651,13 @@ Example of calling <code>Utility.log_exception</code>:
 </span><span class='line'><span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span> <span class="c1"># catches StandardError (don&#39;t use rescue Esception =&gt; e)</span>
 </span><span class='line'>  <span class="no">Utility</span><span class="o">.</span><span class="n">log_exception</span> <span class="n">e</span><span class="p">,</span> <span class="ss">info</span><span class="p">:</span> <span class="s2">&quot;called do_something_that_raises wihh </span><span class="si">#{</span><span class="n">foobar</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Definition of <code>Utility.log_exception</code>:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -686,7 +703,7 @@ Definition of <code>Utility.log_exception</code>:
 </span><span class='line'>     <span class="k">end</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 </div>
@@ -696,9 +713,9 @@ Definition of <code>Utility.log_exception</code>:
 <h2 id="sec-2">Strategy: Error Handling and Logging</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
-<li>Avoid rescuing/catching if you can't do anything with the exception. For
+<li>Avoid rescuing/catching if you can&#8217;t do anything with the exception. For
 example, in a model method, you might be calling that from a controller, but
-you also might be calling that from some scheduled job. Thus, it's hard to
+you also might be calling that from some scheduled job. Thus, it&#8217;s hard to
 say what the right action should be. A special case is calling <code>raise</code> without
 arguments: sometimes it is reasonable to catch all exceptions, logging the
 exception, and then re-raising it like it was never caught.
@@ -716,9 +733,9 @@ different needs for how the error should be handled.
 Basically put the most specific exception types first and something like
 <code>rescue =&gt; e</code> last.
 </li>
-<li>Ruby does not support the concept of a "cause" with an exception. Thus, if
+<li>Ruby does not support the concept of a &#8220;cause&#8221; with an exception. Thus, if
 you catch an exception and are going to rethrow a different exception, then
-it's important to log the stack of the original exception, or else that
+it&#8217;s important to log the stack of the original exception, or else that
 information will be lost.
 </li>
 <li>Test the logging of the exception in both development and production mode.
@@ -749,6 +766,23 @@ handling.
 </p>
 </div>
 </div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>

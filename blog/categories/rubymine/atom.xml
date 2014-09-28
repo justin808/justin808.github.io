@@ -4,11 +4,11 @@
   <title><![CDATA[Category: rubymine | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rubymine/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -19,30 +19,30 @@
     <updated>2014-01-25T09:05:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace</id>
     <content type="html"><![CDATA[<p>
-RubyMine's interactive search/replace is awesome. The Regexp feature is
+RubyMine&#8217;s interactive search/replace is awesome. The Regexp feature is
 especially useful. Not only will it help you edit faster, but it will improve
-your ability to write RegExp's in your code. When do you need to use a regexp?
-Whenever a standard find/replace won't cut it. For example, if you changing the
+your ability to write RegExp&#8217;s in your code. When do you need to use a regexp?
+Whenever a standard find/replace won&#8217;t cut it. For example, if you changing the
 rspec syntax from one form to another, such as from:
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>
 to
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>
 The following screencast shows how you can interactively use the Regexp feature
@@ -53,7 +53,7 @@ to figure out the right regexp to search for as well as the right replacement.
 
 
 <p>
-In this example, I'm replacing one rspec syntax with a replacement one.
+In this example, I&#8217;m replacing one rspec syntax with a replacement one.
 </p>
 
 
@@ -79,17 +79,17 @@ its(:$1) { should eq($2) }
 
 
 <p>
-Here's a few key tips:
+Here&#8217;s a few key tips:
 </p>
 
 
 <ol class="org-ol">
-<li>Be sure to first check the regexp check-box if you'll need that.
+<li>Be sure to first check the regexp check-box if you&#8217;ll need that.
 </li>
-<li>As you type each character into the search box, observe if you're increasing
+<li>As you type each character into the search box, observe if you&#8217;re increasing
 your match area to get what you want.
 </li>
-<li>If a character doesn't match, then try escaping the character. For example,
+<li>If a character doesn&#8217;t match, then try escaping the character. For example,
 I had to escape the <code>{</code> and <code>(</code> as those characters have special meaning in
 the regexp.
 </li>
@@ -114,6 +114,23 @@ This is best shown with this 2 minute screencast.
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/U_UaOjcR4wQ "></iframe></div>
 </p>
 
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
 ]]></content>
   </entry>
   
@@ -123,8 +140,8 @@ This is best shown with this 2 minute screencast.
     <updated>2013-09-15T22:08:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress</id>
     <content type="html"><![CDATA[<p>
-One of the criticisms of Octopress is how there's no clear separation of the static
-generation engine and the content of one's website, and thus upgrading Octopress
+One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, and thus upgrading Octopress
 is difficult. I delayed upgrading due to this. However, my concerns were
 unfounded, as it was very painless to upgrade Octopress.
 </p>
@@ -137,7 +154,7 @@ The instructions boil down to this short help page on <a href="http://octopress.
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -145,11 +162,11 @@ The instructions boil down to this short help page on <a href="http://octopress.
 </span><span class='line'>bundle install                <span class="c"># Keep gems updated</span>
 </span><span class='line'>rake update_source            <span class="c"># update the template&amp;rsquo;s source</span>
 </span><span class='line'>rake update_style             <span class="c"># update the template&amp;rsquo;s style</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>
-The first step resulted in a few merge conflicts. I find RubyMine's git conflict
-resolution tools helpful, so I used those. Here's a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
+The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
+resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
 below) showing you how these tools helped with this process. Besides some minor
 issues dealing with a few merge conflicts, there was nothing very interesting or
 eventful about the upgrade, which means that the current process is really quite
@@ -172,7 +189,7 @@ helpful. The key takeaways from this video are:
 <img src="/images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
 </li>
 
-<li>Try the diff'ing buttons in the upper left to get 2 way views of
+<li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
 the 3 way merge.
 <img src="/images/2013-09-15-upgrading-octopress/merge-window.jpg">
 </li>
@@ -182,7 +199,7 @@ the 3 way merge.
 
 
 <p>
-3, "Yours" means your local changes, and "Theirs" means the server's changes,
+3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
    or, in this case, the changes in the main Octopress development branch.
 </p>
 
@@ -190,27 +207,27 @@ the 3 way merge.
 
 
 <p>
-Did the upgrade work? You're looking at the results of it.
+Did the upgrade work? You&#8217;re looking at the results of it.
 </p>
 
 
 
 
 <p>
-It's worth noting that I had one slight snag. When I merged sass/screen.scss, I
+It&#8217;s worth noting that I had one slight snag. When I merged sass/screen.scss, I
 accidentally removed this line, which is used for the youtube plugin.
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="nt">custom</span><span class="o">/</span><span class="nt">rve</span><span class="k">&amp;</span><span class="nt">rdquo</span><span class="o">;;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>
 I could have figured this out by examining the history of the file and noting
 that I had added this line, rather than it being part of Octopress. So yes, it
 would be bit better if there was a cleaner separation between the Octopress
-code and any enhancements. However, the current mechanism works, and it's still
+code and any enhancements. However, the current mechanism works, and it&#8217;s still
 thousands of times better than WordPress. 
 </p>
 
@@ -220,6 +237,23 @@ thousands of times better than WordPress.
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
 </p>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>

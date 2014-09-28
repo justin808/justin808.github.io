@@ -4,11 +4,11 @@
   <title><![CDATA[Category: tmux | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/tmux/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -19,7 +19,7 @@
     <updated>2014-03-11T21:01:13-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development</id>
     <content type="html"><![CDATA[<p>
-What's the most effective way to:
+What&#8217;s the most effective way to:
 </p>
 
 
@@ -37,7 +37,7 @@ resque, and the scheduler.
 
 
 <p>
-Here's a short demo of using tmuxinator to get a project running in several
+Here&#8217;s a short demo of using tmuxinator to get a project running in several
 iterm2 tabs:
 </p>
 
@@ -59,7 +59,7 @@ I use <a href="https://github.com/guard/guard">Guard</a> for:
 </p>
 <ol class="org-ol">
 <li>Automatically running rspec tests based on changes in either tests or source
-files. Together with <a href="https://github.com/burke/zeus">Zeus</a>, I haven't found a faster way to get immediate
+files. Together with <a href="https://github.com/burke/zeus">Zeus</a>, I haven&#8217;t found a faster way to get immediate
 feedback from tests. <i>Pro tip: Learn how to use <code>:focus</code> with your specs to configure exactly what tests to have guard run.</i>
 </li>
 <li>Automatically restarting the server when needed. For example, if you change
@@ -69,7 +69,7 @@ gems or routes, you need to restart the server.
 
 <p>
 While I love running Guard with Zeus, <a href="https://github.com/rails/spring">Spring</a> is the default in Rails 4.1, so
-I'll probably give that a try in the near future.
+I&#8217;ll probably give that a try in the near future.
 </p>
 </div>
 </div>
@@ -83,7 +83,7 @@ I'll probably give that a try in the near future.
 </p>
 
 <p>
-Here's a sample tmuxinator file.
+Here&#8217;s a sample tmuxinator file.
 </p>
 
 <p>
@@ -118,9 +118,9 @@ windows:
 When I run the command
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>mux my_project
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 And then I see the following. This is way easier than opening up tabs in iTerm2
@@ -133,10 +133,10 @@ and running commands every time.
 
 <p>
 The main problem with this setup is that if you scroll a window backwards (using
-the tmux keyboard bindings), and you don't un-scroll, then the process pauses,
-such as the Rails server. <b>That's super annoying</b>. Often I'm running specs, and
+the tmux keyboard bindings), and you don&#8217;t un-scroll, then the process pauses,
+such as the Rails server. <b>That&#8217;s super annoying</b>. Often I&#8217;m running specs, and
 I want to scroll back to see a stack trace, but that prevents the continuation
-of the test run! Here's a <a href="http://stackoverflow.com/questions/13924365/rails-freezes-when-searching-through-tmux-output-buffer">short discussion of the issue</a>.
+of the test run! Here&#8217;s a <a href="http://stackoverflow.com/questions/13924365/rails-freezes-when-searching-through-tmux-output-buffer">short discussion of the issue</a>.
 </p>
 
 <!-- more -->
@@ -148,11 +148,11 @@ of the test run! Here's a <a href="http://stackoverflow.com/questions/13924365/r
 <h2 id="sec-3">iTerm2 with tmux to the Rescue!</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-iTerm2 has <a href="https://code.google.com/p/iterm2/wiki/TmuxIntegration">wonderful tmux integration</a>. Here's the steps I take:
+iTerm2 has <a href="https://code.google.com/p/iterm2/wiki/TmuxIntegration">wonderful tmux integration</a>. Here&#8217;s the steps I take:
 </p>
 <ol class="org-ol">
 <li>Be sure have the latest versions of tmux, tmuxinator and iTerm2. As of this
-article, I'm using: tmux: 1.9a, tmuxinator: 0.6.7, iTerm2: Build
+article, I&#8217;m using: tmux: 1.9a, tmuxinator: 0.6.7, iTerm2: Build
 1.0.0.20140112.
 </li>
 <li>Configure your Tmux to open tabs rather than windows. This is key to getting
@@ -173,12 +173,12 @@ Once you have the setup done, this is how I start my iTerm2-tmuxinator session:
 </li>
 <li>Hit <code>ctrl-a, d</code> to detach the tmux process.
 </li>
-<li>Run command =tmux -CC attach"
+<li>Run command =tmux -CC attach&#8221;
 </li>
 </ol>
 
 <p>
-Here's how it will look:
+Here&#8217;s how it will look:
 </p>
 
 <p>
@@ -188,17 +188,17 @@ Here's how it will look:
 <p>
 If you want to kill the session, you can run this command:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>tmux <span class="nb">kill</span>-session -t my_project
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 However, that sometimes does not kill all the processes. I often use these two
-zsh scripts to ensure that everything is killed. It's super important to kill
+zsh scripts to ensure that everything is killed. It&#8217;s super important to kill
 Zeus before running db migrations or gem updates.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -220,7 +220,7 @@ Zeus before running db migrations or gem updates.
 </span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -232,10 +232,27 @@ Zeus before running db migrations or gem updates.
 I use <a href="https://github.com/ddollar/foreman">Foreman</a> with Heroku and for running my rails server in production mode.
 However, I prefer having different tabs provide console output for each of the
 processes, rather than having all the console output blended together as Foreman
-does. I'm also not sure if Foreman integrates with Guard.
+does. I&#8217;m also not sure if Foreman integrates with Guard.
 </p>
 </div>
 </div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>

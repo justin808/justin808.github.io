@@ -4,11 +4,11 @@
   <title><![CDATA[Category: capybara | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/capybara/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -40,29 +40,29 @@ encounter at this article on the Rails on Maui blog: <a href="http://railsonmaui
 <h2 id="sec-1">Why Update?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Here's my favorite reasons for keeping gems relatively current:
+Here&#8217;s my favorite reasons for keeping gems relatively current:
 </p>
 
 <ol class="org-ol">
 <li>If you work on several projects, keeping the gems and ruby version consistent
-makes your coding more productive as you don't have to keep adjusting for
+makes your coding more productive as you don&#8217;t have to keep adjusting for
 which version is which. Web searches tend to find relatively recent versions
-first. It's relatively annoying to be yak shaving issues that turn out to be
-"oh, that doesn't work in that older version of Rails".
+first. It&#8217;s relatively annoying to be yak shaving issues that turn out to be
+&#8220;oh, that doesn&#8217;t work in that older version of Rails&#8221;.
 </li>
 <li>Recent versions of gems will have fixes for bugs and security issues, in
 addition to new features. With popular open source projects, new bugs are
 quickly discovered and fixed.
 </li>
-<li>Updates are much easier if you stay relatively current. I.e., it's much
+<li>Updates are much easier if you stay relatively current. I.e., it&#8217;s much
 easier to update from Rails 4.0 to Rails 4.1 than to go from Rails 3.0 to
 Rails 4.1.
 </li>
 </ol>
 
 <p>
-That being said, recent versions can have new bugs, so it's best to avoid
-versions that are unreleased or that haven't aged at least a few weeks.
+That being said, recent versions can have new bugs, so it&#8217;s best to avoid
+versions that are unreleased or that haven&#8217;t aged at least a few weeks.
 </p>
 </div>
 
@@ -72,9 +72,9 @@ versions that are unreleased or that haven't aged at least a few weeks.
 <p>
 Large libraries, like Rails, RSpec, Twitter Bootstrap, etc. are going to take
 more elbow grease to update. Typically if a major version number is updating,
-like Rails 3.x to 4.x and RSpec 2.x to 3.x, that's going to require lots of code
+like Rails 3.x to 4.x and RSpec 2.x to 3.x, that&#8217;s going to require lots of code
 changes. Semantic versioning also comes into play. Going from Rails 3.x to Rails
-4.x is more difficult than Rails 4.0 to Rails 4.1. There's a similar story with
+4.x is more difficult than Rails 4.0 to Rails 4.1. There&#8217;s a similar story with
 RSpec 2.x to 2.99, compared to going to RSpec 3.0.
 </p>
 </div>
@@ -89,7 +89,7 @@ RSpec 2.x to 2.99, compared to going to RSpec 3.0.
 <h3 id="sec-2-1">Locking Gem Versions</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-Unless you have a good reason, don't lock a gem to a specific version as that
+Unless you have a good reason, don&#8217;t lock a gem to a specific version as that
 makes updating gems more difficult. In general, consider only locking the major
 Rails gems, such as rails, RSpec, and bootstrap-sass, as these are the ones that
 will likely have more involved upgrades.
@@ -98,7 +98,7 @@ will likely have more involved upgrades.
 </div>
 
 <div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Don't Upgrade Major Libraries Too Soon</h3>
+<h3 id="sec-2-2">Don&#8217;t Upgrade Major Libraries Too Soon</h3>
 <div class="outline-text-3" id="text-2-2">
 </div><div id="outline-container-sec-2-2-1" class="outline-4">
 <h4 id="sec-2-2-1">3 Reasons to wait a bit before gem updates:</h4>
@@ -109,7 +109,7 @@ upgrading to RSpec 3 and Rails 4.1 a couple months ago, but it was
 apparent that I had to fix to many other gems to get them to work with <code>RSpec
    3</code>. Thus, I retreated back to RSpec 2.99 for a while. Now, as of August, 2014,
 the gem ecosystem was ripe to move to RSpec 3.0. So unless you have a good
-reason, it's best to wait maybe a couple of months after major upgrades are
+reason, it&#8217;s best to wait maybe a couple of months after major upgrades are
 released before migrating.
 </li>
 <li><b>Bugs</b> may be lurking in changed code. If you wait a bit, the early adopters
@@ -126,7 +126,7 @@ If you wait a bit, hopefully somebody else will discover the issue first.
 </div>
 
 <div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">Don't Use Guard, Zeus, Spring, Spork, Etc. When Upgrading</h3>
+<h3 id="sec-2-3">Don&#8217;t Use Guard, Zeus, Spring, Spork, Etc. When Upgrading</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Tools that speed up Rails like Zeus and Spring are awesome productivity
@@ -138,14 +138,14 @@ testing, such as the <code>parallel_tests</code> gem..
 </p>
 
 <p>
-It's not necessary to introduce the added complexity of the test accelerators
-when doing major library updates. Once you've updated your gems, then try out
-your favorite techniques for speeding up running tests. I've learned the hard
+It&#8217;s not necessary to introduce the added complexity of the test accelerators
+when doing major library updates. Once you&#8217;ve updated your gems, then try out
+your favorite techniques for speeding up running tests. I&#8217;ve learned the hard
 way on this one. The <code>pgr</code> and <code>pgk</code> scripts below are awesome for ensuring that
 pre-loaders are <i><b>NOT</b></i> running.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -167,7 +167,7 @@ pre-loaders are <i><b>NOT</b></i> running.
 </span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 <div id="outline-container-sec-2-4" class="outline-3">
@@ -175,11 +175,11 @@ pre-loaders are <i><b>NOT</b></i> running.
 <div class="outline-text-3" id="text-2-4">
 <p>
 There are a lot of discussions about the value or lack of for an emphasis on Test-Driven Development (TDD).
-However, one thing that's indisputable is that <i><b>having a large library of tests is absolutely helpful for upgrading your gems</b></i>.
+However, one thing that&#8217;s indisputable is that <i><b>having a large library of tests is absolutely helpful for upgrading your gems</b></i>.
 </p>
 
 <p>
-Naturally, it's an iterative process to get tests passing when updating gems.
+Naturally, it&#8217;s an iterative process to get tests passing when updating gems.
 First, make sure your tests suite is passing.
 </p>
 
@@ -190,9 +190,9 @@ fix the test failure.
 </p>
 
 <p>
-If you don't have good tests coverage, a great place to start is with
-integration tests that do the basics of your app. At least you'll be able to
-quickly verify a good chunk of your app can at least navigate the "happy path"
+If you don&#8217;t have good tests coverage, a great place to start is with
+integration tests that do the basics of your app. At least you&#8217;ll be able to
+quickly verify a good chunk of your app can at least navigate the &#8220;happy path&#8221;
 as you iterate updating your gems.
 </p>
 </div>
@@ -201,7 +201,7 @@ as you iterate updating your gems.
 <h3 id="sec-2-5">Alternate Big or Baby Steps</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
-If you've updated gems recently, sometimes you can run <code>bundle update</code> and
+If you&#8217;ve updated gems recently, sometimes you can run <code>bundle update</code> and
 everything works great. Recently, that strategy failed miserably when I tried
 going from Rails 4.0 with RSpec 2.2 to Rails 4.1 and RSpec 3. An eariler attempt
 shortly after the releases of Rails 4.1 and RSpec 3 clearly showed that many
@@ -210,16 +210,16 @@ issues with trying to update too much at once.
 </p>
 
 <p>
-When this happens, take small steps and kept tests passing. I.e., don't do a
+When this happens, take small steps and kept tests passing. I.e., don&#8217;t do a
 <code>bundle update</code> without specifying which gems to update. You might update 60
-gems at once! And then when tests fail, you won't be able to easily decipher
+gems at once! And then when tests fail, you won&#8217;t be able to easily decipher
 which dependency is the problem. Specify which gems to update by running the
 command:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle update gem1 gem2 etc
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Then after updating a few gems, run <code>rspec</code> and verify your tests pass.
@@ -245,10 +245,10 @@ On a related note, you can see which gems are outdated with this command:
 <h3 id="sec-2-6">Try bundle update</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
-Remember I told you not to do a <code>bundle update</code>? Once you're getting closer to
+Remember I told you not to do a <code>bundle update</code>? Once you&#8217;re getting closer to
 finishing your gem updates, all big gems are updated, and all tests are passing,
-and deprecation warnings are addressed, then it's time to run <code>bundle update</code>
-and then run <code>rspec</code> to see if your tests pass. If you don't have adequate
+and deprecation warnings are addressed, then it&#8217;s time to run <code>bundle update</code>
+and then run <code>rspec</code> to see if your tests pass. If you don&#8217;t have adequate
 tests, then be ready to do some adequate manual testing. Even if you have lots
 of tests, you still need to do manual testing if you upgrade a UI library such
 as <code>sass-bootstrap</code>. Besides testings, check the bundler output or the diff of
@@ -271,15 +271,15 @@ your <code>Gemfile.lock</code> to see what got updated.
 Too often Ruby developers will blindly copy-paste their error messages into a
 Google search without really reading the console output carefully. This can
 actually waste more time, since thinking about the problem for a moment can
-often give you a solution without Google, or you'll write a better search query.
-If you don't find what you need on Google and you have an idea what gem is
-causing issues, the next place to search is the issues page for the gem's Github
+often give you a solution without Google, or you&#8217;ll write a better search query.
+If you don&#8217;t find what you need on Google and you have an idea what gem is
+causing issues, the next place to search is the issues page for the gem&#8217;s Github
 repository.
 </p>
 
 <p>
 Remember to do these 2 types of searches rather than spending too much time
-inserting print statements or launching the debugger! If you don't get any
+inserting print statements or launching the debugger! If you don&#8217;t get any
 search hits, then typically you have some problem in app customizations (see
 below).
 </p>
@@ -303,7 +303,7 @@ have a NEWS.md or CHANGELOG.md file.
 
 <p>
 Errors or deprecation messages can come from compatibility issues among your
-gems. The RSpec 3 upgrade had many such issues. If you're having an upgrade
+gems. The RSpec 3 upgrade had many such issues. If you&#8217;re having an upgrade
 issue, then a concise, detailed post of a new issue typically results in a very
 quick response.
 </p>
@@ -316,13 +316,13 @@ quick response.
 Sometimes the fix you need has already been released to RubyGems in an RC
 version (RC means Release Candidate). <code>bundle update &lt;gem&gt;</code> seems to not pick RC
 versions. You have to specify these manually. I search for gems on RubyGems so
-often that I created a Chrome search shortcut. Here's an example of an RC
-version gem that I'm currently using:
+often that I created a Chrome search shortcut. Here&#8217;s an example of an RC
+version gem that I&#8217;m currently using:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;simple_form&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 3.1.0.rc2&#39;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 <div id="outline-container-sec-3-4" class="outline-3">
@@ -331,7 +331,7 @@ version gem that I'm currently using:
 <p>
 Sometimes what you need has not been shared with RubyGems, yet the issue has
 received commits on Github. In that case, you can use the Github version of a gem.
-This might be on a specific branch of a gem, or even another user's fork of a
+This might be on a specific branch of a gem, or even another user&#8217;s fork of a
 gem.
 </p>
 
@@ -345,13 +345,13 @@ behind several commits.
 </p>
 
 <p>
-If you needed those commits post gem release, here's an example of the syntax to
+If you needed those commits post gem release, here&#8217;s an example of the syntax to
 specify the very-latest version of a gem (the tip of the master branch):
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;gon&#39;</span><span class="p">,</span> <span class="ss">github</span><span class="p">:</span> <span class="s2">&quot;gazay/gon&quot;</span><span class="p">,</span> <span class="ss">branch</span><span class="p">:</span> <span class="s2">&quot;master&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Sometimes what you need is something less than the most current version, or a
@@ -363,12 +363,12 @@ specific branch, or a fork of the gem.
 <h3 id="sec-3-5">Consider Forking a Gem</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
-Sometimes you need to fork a gem for some changes. If you've never done this,
-it's a <b>very worthwhile thing to try out</b>, and it's easy! For example, if you
-had wanted to update to rspec 3 sooner than later and didn't want to see tons of
+Sometimes you need to fork a gem for some changes. If you&#8217;ve never done this,
+it&#8217;s a <b>very worthwhile thing to try out</b>, and it&#8217;s easy! For example, if you
+had wanted to update to rspec 3 sooner than later and didn&#8217;t want to see tons of
 deprecation messages, then your only option was to fork the gems that had the
-deprecated syntax. Once you've verified the validity of your changes, consider
-submitting a pull request. Here's an example of a <a href="https://github.com/justin808/zeus-parallel_tests/commit/ccd7367d4f33ae8940a4205a164df714ccfcb42c">fork and commit of the
+deprecated syntax. Once you&#8217;ve verified the validity of your changes, consider
+submitting a pull request. Here&#8217;s an example of a <a href="https://github.com/justin808/zeus-parallel_tests/commit/ccd7367d4f33ae8940a4205a164df714ccfcb42c">fork and commit of the
 zeus-parallel_tests gem that loosened a gem dependency</a>.
 </p>
 
@@ -422,9 +422,9 @@ zeus test                                                                       
 <p>
 In general, when doing relatively major gem upgrades, you really need to
 evaluate customizations to these places. Typically, deprecation messages will
-tell you which customizations to remove or alter. Sometimes, you've monkey
+tell you which customizations to remove or alter. Sometimes, you&#8217;ve monkey
 patched some gem to work around some issue, and this would be the place where
-you'd do that (and forget that you did it!).
+you&#8217;d do that (and forget that you did it!).
 </p>
 <ol class="org-ol">
 <li>Any initializers in the <code>config/initializers</code> directory. Review each file
@@ -447,7 +447,7 @@ b. Each file in the <code>spec/support</code> directory.
 <h2 id="sec-4">Example of Next Steps when Upgrading a Gem</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-Here's an example of where updating related gems help.
+Here&#8217;s an example of where updating related gems help.
 </p>
 
 <p>
@@ -498,20 +498,20 @@ Bundler could not find compatible versions for gem "activemodel":
 </pre>
 
 <p>
-I verify I'm on the current maximum GA version of simple_form, but I find that
-there's an RC version, so I specify that in the gemfile. It's important to note
-that "bundle update" will tend not to pull in RC versions of gems, which you
+I verify I&#8217;m on the current maximum GA version of simple_form, but I find that
+there&#8217;s an RC version, so I specify that in the gemfile. It&#8217;s important to note
+that &#8220;bundle update&#8221; will tend not to pull in RC versions of gems, which you
 sometimes need after major libraries are upgraded.
 </p>
 
 <p>
 In <code>Gemfile</code>
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;rails&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 4.1&#39;</span>
 </span><span class='line'><span class="n">gem</span> <span class="s1">&#39;simple_form&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 3.1.0.rc2&#39;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <pre class="example">
 &gt; bundle update rails simple_form
@@ -528,9 +528,9 @@ After the 4.1 upgrade, I addressed a number of deprecation warnings.
 DEPRECATION WARNING: Implicit join references were removed with Rails 4.1.Make sure to remove this configuration because it does nothing. (called from block in tsort_each at /Users/justin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/tsort.rb:226)
 </pre>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">active_record</span><span class="o">.</span><span class="n">disable_implicit_join_references</span> <span class="o">=</span> <span class="kp">true</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Then I got this warning with a full stack dump.
@@ -576,6 +576,23 @@ Justin
 </div>
 </div>
 
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
 ]]></content>
   </entry>
   
@@ -596,14 +613,14 @@ Twitter Bootstrap 3.2 and RSpec 3. This is a companion to my related article on 
 <h2 id="sec-1">Upgrade Links</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-If you're upgrading these specific gems, here's the must-see upgrade links.
+If you&#8217;re upgrading these specific gems, here&#8217;s the must-see upgrade links.
 </p>
 <ol class="org-ol">
 <li>Rails 4.1: <a href="http://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html">A Guide for Upgrading Ruby on Rails</a>.
 </li>
 <li><a href="https://relishapp.com/rspec/docs/upgrade">RSpec 2 to RSpec 3</a>.
 </li>
-<li>Twitter Bootstrap: <a href="http://getbootstrap.com/migration/">Migrating to v3.x</a> is essential if you're going from 2.x to 3.x.
+<li>Twitter Bootstrap: <a href="http://getbootstrap.com/migration/">Migrating to v3.x</a> is essential if you&#8217;re going from 2.x to 3.x.
 </li>
 </ol>
 </div>
@@ -611,13 +628,13 @@ If you're upgrading these specific gems, here's the must-see upgrade links.
 
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Troubleshooting with RubyMine "Find In Path" and the Debugger</h2>
+<h2 id="sec-2">Troubleshooting with RubyMine &#8220;Find In Path&#8221; and the Debugger</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 After making the require code changes to address the deprecation errors going to
 rspec 3, I ran into the below obscure error. This one really stumped me, due to
 the fact that the stack trace did not give me a specific line causing the error,
-and when I ran the tests individually, I didn't see any errors.
+and when I ran the tests individually, I didn&#8217;t see any errors.
 </p>
 
 <pre class="example">
@@ -626,7 +643,7 @@ PG::ConnectionBad: connection is closed
 </pre>
 
 <p>
-Here's the stack trace:
+Here&#8217;s the stack trace:
 </p>
 <pre class="example">
 Failure/Error: Unable to find matching line from backtrace
@@ -666,7 +683,7 @@ I began to suspect that some customization or optimization caused the issue.
 <h3 id="sec-2-1">RubyMine Find in Path</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-RubyMine's Find in Path, searching Project and Libraries, is extremely useful to
+RubyMine&#8217;s Find in Path, searching Project and Libraries, is extremely useful to
 getting more context around an error message. In this case, RubyMine found the
 error message in a C file.
 </p>
@@ -680,10 +697,10 @@ error message in a C file.
 </p>
 
 <p>
-Here's the C code containing the error message. The Ruby stack trace did not go
+Here&#8217;s the C code containing the error message. The Ruby stack trace did not go
 this far:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -709,12 +726,12 @@ this far:
 </span><span class='line'>
 </span><span class='line'>  <span class="k">return</span> <span class="n">conn</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 And this is where in the Ruby Code that came from the stack trace:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -728,7 +745,7 @@ And this is where in the Ruby Code that came from the stack trace:
 </span><span class='line'>  <span class="n">clear_cache!</span>
 </span><span class='line'>  <span class="n">reset_transaction</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 <div id="outline-container-sec-2-2" class="outline-3">
@@ -741,8 +758,8 @@ connection adapter gem. I correctly guessed the cause of the error was
 </p>
 
 <p>
-Here's a few images that show how the debugger really helped me figure out the
-obscure "connection is closed" error:
+Here&#8217;s a few images that show how the debugger really helped me figure out the
+obscure &#8220;connection is closed&#8221; error:
 </p>
 
 <p>
@@ -767,7 +784,7 @@ fixed my rspec errors with the upgrades.
 Note, an alternative to using breakpoints in RubyMine would have been to put in
 a <code>puts caller</code> in the suspect methods of the libraries. However, one would have
 to remember to remove that later! I think the debugger was a good pick for this
-issue. If you don't use RubyMine, you might try the ruby debugger or the pry gem.
+issue. If you don&#8217;t use RubyMine, you might try the ruby debugger or the pry gem.
 </p>
 </div>
 </div>
@@ -806,15 +823,15 @@ compare to strings.
 </p>
 
 <p>
-<i><b>It's a good idea to review all changes in that the <a href="http://guides.rubyonrails.org/upgrading_ruby_on_rails.html">Rails Upgrade Guide</a></b></i>
+<i><b>It&#8217;s a good idea to review all changes in that the <a href="http://guides.rubyonrails.org/upgrading_ruby_on_rails.html">Rails Upgrade Guide</a></b></i>
 </p>
 
 <p>
-Here's the method where I was previously comparing the flash type to symbols
+Here&#8217;s the method where I was previously comparing the flash type to symbols
 rather than strings:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -844,7 +861,7 @@ rather than strings:
 </span><span class='line'>      <span class="n">type</span><span class="o">.</span><span class="n">to_s</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 </div>
@@ -858,7 +875,7 @@ rather than strings:
 <p>
 I had this bit of code in my scss files from the old Twitter Bootstrap.
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -866,10 +883,10 @@ I had this bit of code in my scss files from the old Twitter Bootstrap.
 </span><span class='line'><span class="c1">// -------------------------</span>
 </span><span class='line'><span class="nv">$iconSpritePath</span><span class="o">:</span> <span class="nf">asset-url</span><span class="p">(</span><span class="s2">&quot;glyphicons-halflings.png&quot;</span><span class="p">);</span>
 </span><span class='line'><span class="nv">$iconWhiteSpritePath</span><span class="o">:</span> <span class="nf">asset-url</span><span class="p">(</span><span class="s2">&quot;glyphicons-halflings-white.png&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
-Since I'm using the new 3.2 version of <code>bootstrap-sass</code>, I needed to do the
+Since I&#8217;m using the new 3.2 version of <code>bootstrap-sass</code>, I needed to do the
 following, per the details <a href="https://github.com/twbs/bootstrap-sass">here</a>:
 </p>
 <ol class="org-ol">
@@ -880,17 +897,17 @@ following, per the details <a href="https://github.com/twbs/bootstrap-sass">here
 <li>Add this line to my <code>application.css.scss</code>
 </li>
 </ol>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="s2">&quot;bootstrap-sprockets&quot;</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <ol class="org-ol">
 <li>Add this line to the Gemfile:
 </li>
 </ol>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;autoprefixer-rails&#39;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Please let me know if this article helped you or if I missed anything!
@@ -906,6 +923,23 @@ Justin
 </div>
 </div>
 
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
 ]]></content>
   </entry>
   
@@ -915,7 +949,7 @@ Justin
     <updated>2014-09-09T17:54:42-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1</id>
     <content type="html"><![CDATA[<p>
-What's faster? <a href="https://github.com/burke/zeus">Zeus</a> with <a href="https://github.com/grosser/parallel_tests">Parallel Tests</a> or <a href="https://github.com/rails/spring">Spring</a>, in the context of Rails 4.1,
+What&#8217;s faster? <a href="https://github.com/burke/zeus">Zeus</a> with <a href="https://github.com/grosser/parallel_tests">Parallel Tests</a> or <a href="https://github.com/rails/spring">Spring</a>, in the context of Rails 4.1,
 RSpec 3, Capybara 2.4, and PhantomJs?
 </p>
 
@@ -926,7 +960,7 @@ RSpec 3, Capybara 2.4, and PhantomJs?
 <b>The bottom line is that both work almost equivalently as fast, and the biggest
 difference for me concerned compatibility with the parallel_tests gem.</b> Zeus
 works fine with Parallel Tests, although it makes little difference overall with
-or without Zeus. Spring doesn't work with Parallel Tests, but you can work
+or without Zeus. Spring doesn&#8217;t work with Parallel Tests, but you can work
 around this issue. So stick with Zeus if it works for you.
 </p>
 
@@ -943,9 +977,9 @@ Rails, or Phantomjs processes!
 
 
 <p>
-It's also worth noting that biggest advantage of using the Zeus or Spring
+It&#8217;s also worth noting that biggest advantage of using the Zeus or Spring
 pre-loaders is to save the Rails startup time. On my machine, this is about 3 to
-5 seconds. That matters a lot if the test I'm focusing upon only takes a second or
+5 seconds. That matters a lot if the test I&#8217;m focusing upon only takes a second or
 two, such as when doing TDD. However, when running a whole test suite taking
 minutes, 3-5 seconds can get swallowed up by other things, such as rspec-retry,
 which retries failing capybara tests.
@@ -958,13 +992,13 @@ which retries failing capybara tests.
 <h2 id="sec-1">Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-I've written about my integration testing setup: <a href="http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html">Capybara, PhantomJs, Poltergeist, and Rspec Tips</a>. For a while, I've been eager to upgrade to Rails
+I&#8217;ve written about my integration testing setup: <a href="http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html">Capybara, PhantomJs, Poltergeist, and Rspec Tips</a>. For a while, I&#8217;ve been eager to upgrade to Rails
 4.1 and RSpec 3. Finally, in August, 2014, the gem ecosystem allowed this to
-happen! I've got a related article on my <a href="http://www.railsonmaui.com/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">tips for upgrading to Rails 4.1 and RSpec 3</a>.
+happen! I&#8217;ve got a related article on my <a href="http://www.railsonmaui.com/blog/2014/08/11/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">tips for upgrading to Rails 4.1 and RSpec 3</a>.
 </p>
 
 <p>
-Once I had upgraded nearly every gem in my client's large Rails project to the
+Once I had upgraded nearly every gem in my client&#8217;s large Rails project to the
 latest gem versions, I was pleasantly surprised that I could once again get
 Zeus, Guard, RSpec, Capybara, Poltergeist, Parallel Tests, etc. to all play
 nicely together.
@@ -972,8 +1006,8 @@ nicely together.
 
 <p>
 Always curious as to the value of the latest defaults in Rails, I decided to try
-out Spring. Both Spring and Zeus preload Rails so that you don't have to pay the
-same start up cost for evry test run. Here's a RailsCast on the topic: <a href="http://railscasts.com/episodes/412-fast-rails-commands">#412 Fast Rails Commands</a>.
+out Spring. Both Spring and Zeus preload Rails so that you don&#8217;t have to pay the
+same start up cost for evry test run. Here&#8217;s a RailsCast on the topic: <a href="http://railscasts.com/episodes/412-fast-rails-commands">#412 Fast Rails Commands</a>.
 </p>
 
 <p>
@@ -986,10 +1020,10 @@ by setting the environment variable like this: <code>DISABLE_SPRING=TRUE paralle
 </p>
 
 <p>
-The bottom line for me is that I don't have any good reason to move away from
+The bottom line for me is that I don&#8217;t have any good reason to move away from
 Zeus to Spring, and the fact that Spring is part of stock Rails is not a
 sufficient reason for me. That being said, on another project which is smaller,
-I'm not motivated to switch from Spring to Zeus.
+I&#8217;m not motivated to switch from Spring to Zeus.
 </p>
 </div>
 </div>
@@ -1000,7 +1034,7 @@ I'm not motivated to switch from Spring to Zeus.
 <div class="outline-text-2" id="text-2">
 <p>
 Note in below commands, one must insert <code>zeus</code> in the command to be using zeus.
-If using Spring, be sure that you're using the Spring modifed binstub scripts in
+If using Spring, be sure that you&#8217;re using the Spring modifed binstub scripts in
 your bin directory by having your path appropriately set or using <code>bin/rake</code> and
 <code>bin/rspec</code> (install <a href="https://github.com/jonleighton/spring-commands-rspec">spring-commands-rspec</a>).
 </p>
@@ -1080,7 +1114,7 @@ always variable depending on the number of Capybara timeouts and retries.
 <h2 id="sec-3">Zeus and Spring vs. plain RSpec</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Here's some advantages and disadvantages of using either either Zeus or Spring
+Here&#8217;s some advantages and disadvantages of using either either Zeus or Spring
 compared to plain RSpec.
 </p>
 </div>
@@ -1100,12 +1134,12 @@ performance of both is very similar.
 <ol class="org-ol">
 <li><b>Both can be extremely confusing when they fail to update automatically.</b>
 This tends to happen after updating gems or running database migrations. You
-end up yak shaving when you don't see your changes taking effect! I.e., put
-in some print statements, and then you don't see them shown when they should.
+end up yak shaving when you don&#8217;t see your changes taking effect! I.e., put
+in some print statements, and then you don&#8217;t see them shown when they should.
 Arghhhh!
 </li>
 <li><a href="https://github.com/y310/rspec-retry">Rspec-retry</a> seems essential in dealing with random Capybabara failures with
-either Zeus or Spring. I often see less of these errors when I don't use
+either Zeus or Spring. I often see less of these errors when I don&#8217;t use
 Zeus/Spring nor parallel_tests.
 </li>
 </ol>
@@ -1124,7 +1158,7 @@ Zeus/Spring nor parallel_tests.
 <li><a href="https://github.com/burke/zeus">Zeus</a> works with the <a href="https://github.com/grosser/parallel_tests">parallel_tests gem</a>. This more than halves my time for
 running my entire test suite. However, when writing this article, I found
 that it made little difference, at least when slowed down by sporadically
-failing capybara tests that are retried. That being said, I'm certain that
+failing capybara tests that are retried. That being said, I&#8217;m certain that
 Parallel Tests with Zeus is faster or at worse the same as without Zeus.
 </li>
 </ol>
@@ -1136,10 +1170,10 @@ Parallel Tests with Zeus is faster or at worse the same as without Zeus.
 <div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li>You need to start up separate shell process, running <code>zeus start</code>. An
-advantage of this is that if there's a problem starting up, the output in the
+advantage of this is that if there&#8217;s a problem starting up, the output in the
 Zeus console window is fairly clear.
 </li>
-<li>You run the command "zeus rake" rather than just "rake". Consequently, I made
+<li>You run the command &#8220;zeus rake&#8221; rather than just &#8220;rake&#8221;. Consequently, I made
 some shell aliases (see below).
 </li>
 <li>Zeus only uses the environment from when Zeus was started and ignores any
@@ -1158,7 +1192,7 @@ environment variables when commands are run.
 <h3 id="sec-5-1">Advantages</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
-<li><a href="https://github.com/rails/spring">Spring</a> is a default part of Rails, so you know it's well supported, and bugs
+<li><a href="https://github.com/rails/spring">Spring</a> is a default part of Rails, so you know it&#8217;s well supported, and bugs
 will be fixed fast.
 </li>
 <li>Slightly simpler to install and use than Zeus.
@@ -1176,7 +1210,7 @@ with spring #309</a>. You can, however run parallel_tests so long as run the
 command like this: <code>time DISABLE_SPRING=TRUE parallel_rspec -n 6 spec</code>. I.e.,
 you need to set <code>DISABLE_SPRING</code> so that parallel_rspec does not use Spring.
 </li>
-<li>Spring is a bit opaque in terms of errors given there's no console window.
+<li>Spring is a bit opaque in terms of errors given there&#8217;s no console window.
 See <a href="https://github.com/rails/spring">README</a> for how to see the Spring log.
 </li>
 </ol>
@@ -1203,7 +1237,7 @@ and <code>pgk</code> for seeing and killing Zeus/Spring related processes.
 <p>
 The right combination of gems seem pretty critical in getting all the parts to
 play nicely together. As of August 15, 2014 the most recent compatible versions
-of the following gems worked well together. This means running "bundle update"
+of the following gems worked well together. This means running &#8220;bundle update&#8221;
 without locking the gem versions.
 </p>
 
@@ -1240,7 +1274,7 @@ zeus-parallel_tests (0.2.4)
 <div id="outline-container-sec-7" class="outline-2">
 <h2 id="sec-7">Zeus Shell Configuration (ZSH)</h2>
 <div class="outline-text-2" id="text-7">
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1314,7 +1348,7 @@ zeus-parallel_tests (0.2.4)
 </span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Please let me know if this article helped you or if I missed anything!
@@ -1330,6 +1364,23 @@ Justin
 </div>
 </div>
 
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
 ]]></content>
   </entry>
   
@@ -1341,9 +1392,9 @@ Justin
     <content type="html"><![CDATA[<p>
 How do ensure that your application properly handles errors, especially when
 relying on third parties, such as payment processors? Is it easy to verify that
-the right things happen when the wrong things happen? Last week's article
+the right things happen when the wrong things happen? Last week&#8217;s article
 <a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
-setup a good error handling strategy. Here's some techniques to verify that your
+setup a good error handling strategy. Here&#8217;s some techniques to verify that your
 application does what you expect it to do when things go wrong. The key message
 is to check how your application handles errors, before your customers do.
 </p>
@@ -1360,19 +1411,19 @@ is to check how your application handles errors, before your customers do.
 <h2 id="sec-1">Your Code Depends on Outside Systems (That Might Raise Errors)</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Suppose you've created the super-duper Rails storefront application that takes
+Suppose you&#8217;ve created the super-duper Rails storefront application that takes
 online payments. You may even have some unit tests that verify the code. Then
 you get the dreaded call that customers are being charged twice and their
 orders are not processed. WTF?
 </p>
 
 <p>
-It's not entirely obvious how to verify proper error handling when outside
+It&#8217;s not entirely obvious how to verify proper error handling when outside
 systems fail, or even when odd errors are raised from your own code. Payment
-processing deserves some special attention because it's a dependency on an
+processing deserves some special attention because it&#8217;s a dependency on an
 outside service (the payment processor) and will typically require database
-updates based on the result of the payment processing. If you're updating
-several tables, then you'll want to use a transaction to ensure that all or
+updates based on the result of the payment processing. If you&#8217;re updating
+several tables, then you&#8217;ll want to use a transaction to ensure that all or
 nothing saves. While code review and manual testing are good first steps, you
 should consider a few extra steps with error handling for sensitive parts of
 your application.
@@ -1387,16 +1438,16 @@ your application.
 <h2 id="sec-2">Verification of Error Handling Strategy</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Typically, error handling code is not well tested. It's much more common to test
-the "happy path" of everything going right.
+Typically, error handling code is not well tested. It&#8217;s much more common to test
+the &#8220;happy path&#8221; of everything going right.
 </p>
 
 <p>
-Let's look at hypothetical example and some tests that can flush out some
+Let&#8217;s look at hypothetical example and some tests that can flush out some
 errors.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1424,7 +1475,7 @@ errors.
 </span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 So what can go wrong?
@@ -1437,9 +1488,9 @@ So what can go wrong?
 <h2 id="sec-3">Payment Processing is Like a 2-Phase Commit</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Conceptually, you want a transaction, such that it's all or nothing. If the
+Conceptually, you want a transaction, such that it&#8217;s all or nothing. If the
 charge goes through, then so does everything else. Payment processing like a
-2-phase commit, except one has to handle all the what-ifs to be sure that it's
+2-phase commit, except one has to handle all the what-ifs to be sure that it&#8217;s
 handled correctly.
 </p>
 
@@ -1472,7 +1523,7 @@ could you have tested (and avoided) this?
 <h2 id="sec-4">Brute Force Methodology</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-You can simulate error conditions by manually placing =raise "any error message"=
+You can simulate error conditions by manually placing =raise &#8220;any error message&#8221;=
 statements in your code, and then testing, say in the UI manually. This is a
 good first step to verify that your error handling is working correctly. You
 might raise a specific error, if say your payment processor throws a specific
@@ -1484,7 +1535,7 @@ For the above example, the different methods referenced, such as <code>process_o
 can get modified with a single line at the beginning, which would be:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1492,7 +1543,7 @@ can get modified with a single line at the beginning, which would be:
 </span><span class='line'>  <span class="k">raise</span> <span class="s2">&quot;Any error message&quot;</span>
 </span><span class='line'>  <span class="c1"># Lots of other code that can be commented out</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Then go into the UI and test placing an order. Consider the following questions:
@@ -1514,8 +1565,8 @@ See my prior article <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-r
 By applying this technique to each of the components of completing a purchase,
 one can flush out (and handle) nearly all of the different possible errors that
 could affect a purchase. Give this technique a try in some critical section of
-the code. You'll be surprised how well it works. Before giving you the fix to
-the above code, let's see if we can write unit and feature tests on our error
+the code. You&#8217;ll be surprised how well it works. Before giving you the fix to
+the above code, let&#8217;s see if we can write unit and feature tests on our error
 handling.
 </p>
 </div>
@@ -1526,12 +1577,12 @@ handling.
 <h2 id="sec-5">RSpec Unit Testing of Errors</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-It turns out that with stubbing in <code>rspec</code>, it's easy to test error handling!
+It turns out that with stubbing in <code>rspec</code>, it&#8217;s easy to test error handling!
 <a href="https://www.relishapp.com/rspec/rspec-mocks/v/2-13/docs/method-stubs">RSpec provides a nice mocking library</a>. The test code would look something like
 this. Pay attention to the call to <b>stub</b>.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1573,7 +1624,7 @@ this. Pay attention to the call to <b>stub</b>.
 </span><span class='line'>        <span class="c1"># charge refunded verified in mock</span>
 </span><span class='line'>      <span class="k">end</span>
 </span><span class='line'>    <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 This test code ensures that the error handling of purchase_cart will catch an
@@ -1582,9 +1633,9 @@ changes to the order record.
 </p>
 
 <p>
-Here's an improved version of the Order#payment_method above:
+Here&#8217;s an improved version of the Order#payment_method above:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1620,14 +1671,14 @@ Here's an improved version of the Order#payment_method above:
 </span><span class='line'>    <span class="n">error_message</span> <span class="c1"># return any error message if there is one</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Here are the key points to the improved code:
 </p>
 
 <ol class="org-ol">
-<li>There's a block to catch the exception which is <i>separate from the
+<li>There&#8217;s a block to catch the exception which is <i>separate from the
 transaction block</i>. The <code>rescue</code> properly handles the case of an a charge
 being made and needing to be refunded. <code>Utility.log_exception</code> will ensure
 that all the right things happen with this sort of error (see <a href="http://www.railsonmaui.com/blog/2013/05/08/saner-rails-logging/">code for
@@ -1635,7 +1686,7 @@ Utlity.logException</a>).
 </li>
 <li>fulfill_order is moved outside of the transaction block. This allows the
 transaction to complete, and then the order_fulfillment takes place. If
-there's an issue in fulfilling the order, that can be dealt with separately
+there&#8217;s an issue in fulfilling the order, that can be dealt with separately
 from the original charge. In other words, the customer can successfully pay
 for the order, and the store can deal with the failure to fulfill the order.
 </li>
@@ -1648,7 +1699,7 @@ for the order, and the store can deal with the failure to fulfill the order.
 <h2 id="sec-6">RSpec Capybara Feature (Integration) Tests of UI Errors</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-It's possibly more important and sometimes easier to do the verification at the
+It&#8217;s possibly more important and sometimes easier to do the verification at the
 integration level in RSpec feature specs using <a href="https://github.com/jnicklas/capybara">Capybara</a> with <a href="http://phantomjs.org/">PhantomJs</a> and
 <a href="https://github.com/jonleighton/poltergeist">Poltergeist</a>. The secret sauce is the same use of the same stubbing technique as
 above to replace some key methods such that they throw an exception. This sort
@@ -1661,24 +1712,24 @@ error message to the browser display to then end user.
 I tend to develop such a test in an iterative manner:
 </p>
 <ol class="org-ol">
-<li>Make sure you've got tests on the "happy" case where the story goes as
+<li>Make sure you&#8217;ve got tests on the &#8220;happy&#8221; case where the story goes as
 planned.
 </li>
 <li>Then introduce test cases where have bits of code like this that will raise
 an error at an opportune time.
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Order</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:fulfill_order</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">&quot;test error&quot;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 <li>Allow the test cases to fail, and put in screen shots (in Capybara with
 phantomjs, that looks like this:
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">render_page</span> <span class="s2">&quot;a-descriptive-name&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 <p>
 Setup this method <code>render_page</code> in a spec helper file like this:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1686,7 +1737,7 @@ Setup this method <code>render_page</code> in a spec helper file like this:
 </span><span class='line'>  <span class="n">path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span> <span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">integration_test_render_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span>
 </span><span class='line'>  <span class="n">page</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 <li>Put in some assertions that the page shows the correct error and the records
 in the database have the right values.
@@ -1696,11 +1747,11 @@ in the database have the right values.
 </ol>
 
 <p>
-Here's an example that tests a failure of the Stripe payment API, including
+Here&#8217;s an example that tests a failure of the Stripe payment API, including
 verification that an email was sent signifying an error:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1772,7 +1823,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -1781,10 +1832,10 @@ verification that an email was sent signifying an error:
 <h2 id="sec-7">Conclusion</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-If you aren't simulating how your application responds to errors, then you'll
-eventually find out, and the result might not be as good as you'd prefer. You
+If you aren&#8217;t simulating how your application responds to errors, then you&#8217;ll
+eventually find out, and the result might not be as good as you&#8217;d prefer. You
 can simulate errors with the very simple and quick technique of a well placed
-=raise "some error"=, and then testing in a UI. Or you might prefer the
+=raise &#8220;some error&#8221;=, and then testing in a UI. Or you might prefer the
 robustness of unit or feature tests using stubbing. Either way, the key message
 is to check how your application handles errors, before your customers do.
 </p>
@@ -1796,6 +1847,23 @@ for Rails Logging and Error Handling</a>
 </p>
 </div>
 </div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>

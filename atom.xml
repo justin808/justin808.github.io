@@ -4,11 +4,11 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -595,6 +595,18 @@ I hope you enjoyed this!
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -1147,6 +1159,18 @@ Justin
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -1466,6 +1490,18 @@ Justin
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -1864,6 +1900,18 @@ Justin
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -2265,6 +2313,18 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -2370,6 +2430,18 @@ Bay Area as well.
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -2596,6 +2668,18 @@ Finally, click here for <a href="http://theoatmeal.com/comics/working_home">OMG,
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -2700,6 +2784,18 @@ I hope you like the pictures.
 </div>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/04/23/railsconf-2014/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -2909,6 +3005,18 @@ does. I&#8217;m also not sure if Foreman integrates with Guard.
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -2948,6 +3056,18 @@ setting up the databases.
 <p>
 I&#8217;ll try to keep this page of tips updated as my test configuration evolves.
 </p>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -3649,6 +3769,18 @@ helpful.
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -3852,6 +3984,18 @@ Stack Overflow Discussions:
 </ol>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/02/23/simple-form-and-disable-processing-by-default/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -3931,6 +4075,18 @@ This is best shown with this 2 minute screencast.
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/U_UaOjcR4wQ "></iframe></div>
 </p>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -4120,6 +4276,18 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
 </div>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/01/04/migrating-from-bash-to-zsh/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -4306,6 +4474,18 @@ on Facebook.
 </div>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/09/22/gogaruco-2013/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -4386,6 +4566,18 @@ thousands of times better than WordPress.
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
 </p>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -4592,6 +4784,18 @@ directory, such spec/helpers/capybara.rb.
 </div>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -4619,6 +4823,18 @@ Please let me know if this walkthrough is helpful. Comments are always welcome.
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/vV6zzxi3JOc "></iframe></div>
 </p>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/06/29/update-to-emberjs-hello-world/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -5417,6 +5633,18 @@ I welcome comments and suggestions.
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   
@@ -5470,6 +5698,18 @@ the Web Inspector.
 </p>
 </div>
 </div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 ]]></content>
   </entry>
   

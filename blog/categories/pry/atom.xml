@@ -4,11 +4,11 @@
   <title><![CDATA[Category: pry | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pry/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>
 A couple weeks ago, I wrote a popular article, <a href="http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry, Ruby, and Fun With the Hash Constructor</a> demonstrating the usefulness of
 <a href="https://github.com/pry/pry">pry</a> with the <a href="http://ruby-doc.org/core-2.1.2/Hash.html">Hash bracket constructor</a>. I just ran into a super fun test example of pry
-that I couldn't resist sharing!
+that I couldn&#8217;t resist sharing!
 </p>
 
 
@@ -42,9 +42,9 @@ For example, you want to take a csv file like:
 </pre>
 
 <p>
-And create an array of hashes like this with column headers "id", "first_name", "last_name":
+And create an array of hashes like this with column headers &#8220;id&#8221;, &#8220;first_name&#8221;, &#8220;last_name&#8221;:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -68,14 +68,14 @@ And create an array of hashes like this with column headers "id", "first_name", 
 </span><span class='line'>         <span class="s2">&quot;last_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Love&quot;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
-You'd think that you could just pass the headers to the <code>CSV.parse</code>, but that
-doesn't work:
+You&#8217;d think that you could just pass the headers to the <code>CSV.parse</code>, but that
+doesn&#8217;t work:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -91,7 +91,7 @@ doesn't work:
 </span><span class='line'><span class="o">]</span>
 </span><span class='line'><span class="o">[</span><span class="mi">12</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">csv</span> <span class="o">=</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_string</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="n">col_headers</span><span class="p">)</span>
 </span><span class='line'><span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="n">output</span> <span class="ss">error</span><span class="p">:</span> <span class="c1">#&lt;NoMethodError: undefined method `table&#39; for #&lt;Object:0x007fdbfc8d5588&gt;&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -101,7 +101,7 @@ doesn't work:
 <div class="outline-text-2" id="text-2">
 <p>
 I stumbled upon a note about the CSV parser that suggested using <code>Array#zip</code> to
-add keys to the results created by the CSV parser when headers don't exist in
+add keys to the results created by the CSV parser when headers don&#8217;t exist in
 the file.
 </p>
 
@@ -109,7 +109,7 @@ the file.
 Using <code>Array#zip</code>? What the heck is the <code>zip</code> method? Compression?
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -159,14 +159,14 @@ Using <code>Array#zip</code>? What the heck is the <code>zip</code> method? Comp
 </span><span class='line'>   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1">#=&gt; [[1, 4, 7], [2, 5, 8], [3, 6, 9]]</span>
 </span><span class='line'>   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">].</span><span class="n">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>      <span class="c1">#=&gt; [[1, 4, 7], [2, 5, 8]]</span>
 </span><span class='line'>   <span class="n">a</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">8</span><span class="o">]</span><span class="p">)</span>    <span class="c1">#=&gt; [[4, 1, 8], [5, 2, nil], [6, nil, nil]]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Hmmmm&#x2026;.Why would that be useful?
 </p>
 
 <p>
-Here's some pry command that demonstrate this. I encourage you to follow along
+Here&#8217;s some pry command that demonstrate this. I encourage you to follow along
 in pry!
 </p>
 
@@ -174,7 +174,7 @@ in pry!
 I first created a CSV string from hand like this:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -204,17 +204,17 @@ I first created a CSV string from hand like this:
 </span><span class='line'><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">csv_row</span><span class="o">|</span> <span class="nb">p</span> <span class="n">csv_row</span> <span class="p">}</span>
 </span><span class='line'><span class="ss">CSV</span><span class="p">:</span><span class="ss">:MalformedCSVError</span><span class="p">:</span> <span class="no">Illegal</span> <span class="n">quoting</span> <span class="k">in</span> <span class="n">line</span> <span class="mi">1</span><span class="o">.</span>
 </span><span class='line'><span class="n">from</span> <span class="sr">/Users/</span><span class="n">justin</span><span class="o">/.</span><span class="n">rvm</span><span class="o">/</span><span class="n">rubies</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">csv</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">1855</span><span class="ss">:in</span> <span class="sb">`block (2 levels) in shift&#39;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Doooh!!!! That taught me that creating a legit CSV string is not as easy as it sounds.
 </p>
 
 <p>
-Let's create a legit csv string:
+Let&#8217;s create a legit csv string:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -224,10 +224,10 @@ Let's create a legit csv string:
 </span><span class='line'><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">*</span>   <span class="n">csv</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Tender&quot;</span><span class="p">,</span> <span class="s2">&quot;Love&quot;</span><span class="o">]</span>
 </span><span class='line'><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">*</span> <span class="k">end</span>
 </span><span class='line'><span class="s2">&quot;1,Justin,Gordon</span><span class="se">\n</span><span class="s2">2,Tender,Love</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
-Notice, there's no quotes around the single word names!
+Notice, there&#8217;s no quotes around the single word names!
 </p>
 
 <p>
@@ -235,7 +235,7 @@ If I use CSV to parse this, we get the reverse result, the array of arrays,
 back:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -265,14 +265,14 @@ back:
 </span><span class='line'><span class="o">]</span>
 </span><span class='line'><span class="o">[</span><span class="mi">17</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_string</span><span class="p">)</span><span class="o">.</span><span class="n">class</span>
 </span><span class='line'><span class="nb">Array</span> <span class="o">&lt;</span> <span class="no">Object</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Ahh&#x2026;Could we use the Hash[] constructor to convert these arrays into Hashes
 that place the proper keys?
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -338,17 +338,17 @@ that place the proper keys?
 </span><span class='line'>    <span class="s2">&quot;Justin&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span>
 </span><span class='line'>    <span class="s2">&quot;Gordon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;last_name&quot;</span>
 </span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Bingo!
 </p>
 
 <p>
-Now, let's fix the array of arrays, creating an array called <code>rows</code> 
+Now, let&#8217;s fix the array of arrays, creating an array called <code>rows</code> 
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -374,12 +374,12 @@ Now, let's fix the array of arrays, creating an array called <code>rows</code>
 </span><span class='line'>        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="s2">&quot;Love&quot;</span>
 </span><span class='line'>    <span class="o">]</span>
 </span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Then the grand finale!
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -405,15 +405,15 @@ Then the grand finale!
 </span><span class='line'>         <span class="s2">&quot;last_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Love&quot;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 And sure, you can do this all on one line by inlining the <code>rows</code> variable:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_string</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="no">Hash</span><span class="o">[</span> <span class="n">col_headers</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">]</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -422,21 +422,21 @@ And sure, you can do this all on one line by inlining the <code>rows</code> vari
 <h2 id="sec-3">Using headers option in CSV?</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Well, you'd think that you could just pass the headers to the <code>CSV.parse</code>, but
-that doesn't work:
+Well, you&#8217;d think that you could just pass the headers to the <code>CSV.parse</code>, but
+that doesn&#8217;t work:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">12</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">csv</span> <span class="o">=</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_string</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="n">col_headers</span><span class="p">)</span>
 </span><span class='line'><span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="n">output</span> <span class="ss">error</span><span class="p">:</span> <span class="c1">#&lt;NoMethodError: undefined method `table&#39; for #&lt;Object:0x007fdbfc8d5588&gt;&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
-Well, what's the doc?
+Well, what&#8217;s the doc?
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -472,7 +472,7 @@ Well, what's the doc?
 </span><span class='line'>
 </span><span class='line'><span class="no">You</span> <span class="n">pass</span> <span class="n">your</span> <span class="n">str</span> <span class="n">to</span> <span class="n">read</span> <span class="n">from</span><span class="p">,</span> <span class="ow">and</span> <span class="n">an</span> <span class="n">optional</span> <span class="n">options</span> <span class="no">Hash</span> <span class="n">containing</span>
 </span><span class='line'><span class="n">anything</span> <span class="ss">CSV</span><span class="p">:</span><span class="ss">:new</span><span class="p">()</span> <span class="n">understands</span><span class="o">.</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Hmmm&#x2026;seems that passing the <code>headers</code> should have worked.
@@ -495,10 +495,10 @@ of Arrays and #read to return CSV::Table objects instead of an Array of Arrays.
 </blockquote>
 
 <p>
-So, what can we call on a new CSV object? Let's list the methods.
+So, what can we call on a new CSV object? Let&#8217;s list the methods.
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -540,13 +540,13 @@ So, what can we call on a new CSV object? Let's list the methods.
 </span><span class='line'>  <span class="vi">@col_sep</span>     <span class="vi">@field_size_limit</span>   <span class="vi">@headers</span>  <span class="vi">@parsers</span>     <span class="vi">@re_chars</span>        <span class="vi">@row_sep</span>      <span class="vi">@unconverted_fields</span>
 </span><span class='line'>  <span class="vi">@converters</span>  <span class="vi">@force_quotes</span>       <span class="vi">@io</span>       <span class="vi">@quote</span>       <span class="vi">@re_esc</span>          <span class="vi">@skip_blanks</span>  <span class="vi">@use_headers</span>
 </span><span class='line'>  <span class="vi">@encoding</span>    <span class="vi">@header_converters</span>  <span class="vi">@lineno</span>   <span class="vi">@quote_char</span>  <span class="vi">@return_headers</span>  <span class="vi">@skip_lines</span>   <span class="vi">@write_headers</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 How about this:
 </p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -556,16 +556,16 @@ How about this:
 </span><span class='line'>    <span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="c1">#&lt;CSV::Row &quot;id,&quot;:&quot;1&quot; &quot;first_name&quot;:&quot;Justin&quot; &quot;last_name&quot;:&quot;Gordon&quot;&gt;,</span>
 </span><span class='line'>    <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="c1">#&lt;CSV::Row &quot;id,&quot;:&quot;2&quot; &quot;first_name&quot;:&quot;Tender&quot; &quot;last_name&quot;:&quot;Love&quot;&gt;</span>
 </span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
-Well, that's getting closer.
+Well, that&#8217;s getting closer.
 </p>
 
 <p>
 How about if I just map those rows with a <code>to_hash</code>?
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -591,7 +591,7 @@ How about if I just map those rows with a <code>to_hash</code>?
 </span><span class='line'>         <span class="s2">&quot;last_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Love&quot;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Bingo!
@@ -602,6 +602,23 @@ I hope you enjoyed this!
 </p>
 </div>
 </div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>

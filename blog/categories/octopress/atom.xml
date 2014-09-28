@@ -4,11 +4,11 @@
   <title><![CDATA[Category: octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-27T14:41:27-10:00</updated>
+  <updated>2014-09-28T11:09:56-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
-    <email><![CDATA[justin.gordon@gmail.com]]></email>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -26,11 +26,11 @@
 
 
 <p>
-WordPress seemed like a good blogging platform, but it just didn't feel right. I
+WordPress seemed like a good blogging platform, but it just didn&#8217;t feel right. I
 spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org Mode</a>
-for all non-coding writing. If you don't know Org Mode, it's like having
+for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
 Markdown mode on steroids. You can have a numbered list in Markdown, but
-org-mode lets you re-order the list, and that's just the beginning. Editing blog
+org-mode lets you re-order the list, and that&#8217;s just the beginning. Editing blog
 documents in the WordPress editor felt almost as bad as being told to use MS
 Word. I found that ergonomics of Org Mode, including all the goodness of recent
 versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a href="http://www.emacswiki.org/emacs/Evil">Evil</a> (Vim emulation), just made organization of
@@ -44,7 +44,7 @@ creative thoughts so much more enjoyable.
 So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>, publishing my first
 article, <a href="http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup with Github, Org Mode, and LiveReload</a>. The solution
 presented in that article <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a> stopped
-working when I upgraded Emacs to 24.3 and org-mode to 8.2.x. Here's a rehash of
+working when I upgraded Emacs to 24.3 and org-mode to 8.2.x. Here&#8217;s a rehash of
 my original article updated to the latest software versions as of March, 2014.
 </p>
 
@@ -68,7 +68,7 @@ monolithic.
 
 
 <p>
-I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson's summary</a> (noting Org Mode plus Emacs):
+I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson&#8217;s summary</a> (noting Org Mode plus Emacs):
 </p>
 
 
@@ -76,16 +76,16 @@ I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/so
 
 <ul class="org-ul">
 <li><a href="http://octopress.org/">Octopress</a> is a blogging framework written by <a href="http://brandonmathis.com/">Brandon Mathis</a> (<a href="https://twitter.com/#!/imathis">@imathis</a>) which
-sits on top of <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is a static site generator, meaning there's no
+sits on top of <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is a static site generator, meaning there&#8217;s no
 database associated with your blog. Instead of writing everything in a WSYWIG
 linked to MySQL (like Wordpress or Blogger) you produce text files using
 Markdown which are then converted to static HTML. There are 3 huge benefits to
 this approach. First, writing in Markdown (<b>org-mode</b> for me) is awesome. Once
-you learn the syntax it's incredibly fast and you don't have to spend time
+you learn the syntax it&#8217;s incredibly fast and you don&#8217;t have to spend time
 playing with a tiny little editor window just to add <i>some</i> <b>style</b> to your
 posts. Second, writing in your favorite text editor is also awesome. I produce
 everything in Sublime Text 2 (<b>Emacs</b> for me) and every day I discover new
-tricks to make the process better. If you've ever had to write a blog post
+tricks to make the process better. If you&#8217;ve ever had to write a blog post
 using one of those horrible little TinyMCE editors you will appreciate this
 feature. And lastly, static HTML is <b>fast</b>.
 </li>
@@ -134,7 +134,7 @@ on April 30th, 2012. There are a few differences worth noting:
 not <code>yourname.github.com</code>.
 </li>
 <li>After you run <code>rake setup_github_pages</code> and before running <code>rake
-      generate</code>, you should run <code>rake install</code>. If you forget, there's a clear
+      generate</code>, you should run <code>rake install</code>. If you forget, there&#8217;s a clear
 message indicating this omission.
 </li>
 </ol>
@@ -145,55 +145,55 @@ message indicating this omission.
 setting up a custom domain</a>
 </li>
 <li>At this point, you can create a post:
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;my post name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Create a page:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_page<span class="o">[</span><span class="s2">&quot;my page name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Generate and deploy:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake gen_deploy
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Watch the site and regenerate when it changes:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake watch
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Preview the site in a web browser:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake preview
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 See all the available rake options:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake -T
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Save changes to source branch:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>git add .
 </span><span class='line'>git commit -m <span class="s2">&quot;save changes to source&quot;</span>
 </span><span class='line'>git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 </ol>
 </div>
@@ -215,7 +215,7 @@ Save changes to source branch:
 <li>File has a header containing the meta-data for the post. The post URL and
 date are determined by the by the <code>title</code> and <code>date</code> fields. If you want to
 change the date of your post, then you change the meta-data. Changing the
-file name is useful only for file navigation. Here's a <a href="https://gist.github.com/justin808/5550381">gist for a rake task
+file name is useful only for file navigation. Here&#8217;s a <a href="https://gist.github.com/justin808/5550381">gist for a rake task
 to update the file names to match the metadata</a>.
 </li>
 </ol>
@@ -236,7 +236,7 @@ things about a page are:
 </ol>
 
 <p>
-I use "Pages" for things like <a href="http://www.railsonmaui.com/about">my "about" page.</a>
+I use &#8220;Pages&#8221; for things like <a href="http://www.railsonmaui.com/about">my &#8220;about&#8221; page.</a>
 </p>
 </div>
 </div>
@@ -248,7 +248,7 @@ I use "Pages" for things like <a href="http://www.railsonmaui.com/about">my "abo
 <div class="outline-text-2" id="text-3">
 <p>
 POW allows you to point your browser to <code>http://octopress.dev</code> to see your local,
-unpublished Octopress website. It's very convenient to not have to remember to
+unpublished Octopress website. It&#8217;s very convenient to not have to remember to
 run a local server, and it works great with LiveReload. Scroll to the bottom of
 this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake
 preview</code> and then point your browser at <code>http://0.0.0.0:4000</code> (or whatever port
@@ -273,7 +273,7 @@ file in markdown or follow the instructions below to use org-mode.
 <h2 id="sec-5">Org-Mode</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-You can skip this section if you're not interested in org-mode. However, it's
+You can skip this section if you&#8217;re not interested in org-mode. However, it&#8217;s
 super cool!
 </p>
 </div>
@@ -281,9 +281,9 @@ super cool!
 <h3 id="sec-5-1">Why org-mode for blog publishing?</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
-<a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It's quite the <b>hacker's
+<a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s
 delight</b> for note taking and authoring of blog articles. Down below I list a few
-reasons why org-mode. Here's a few org-mode features I love (Some are Emacs
+reasons why org-mode. Here&#8217;s a few org-mode features I love (Some are Emacs
 ones):
 </p>
 <ol class="org-ol">
@@ -322,15 +322,15 @@ Here are the basic steps:
 </li>
 <li>Note, there are two ways to use org-octopress. I do not use its features to
 automate the setup of the directories. This automated setup does not provide
-a way to have "pages". As of March, 2014, you can only have "posts". Instead,
+a way to have &#8220;pages&#8221;. As of March, 2014, you can only have &#8220;posts&#8221;. Instead,
 my configuration below handles the mapping of directories.
 </li>
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
 inclusion of images in org-mode results in broken paths at deployment. The
 workaround is to embed the <a href="http://octopress.org/docs/plugins/image-tag/">Octopress syntax for an image</a>, and to place the
-images under source/images. Note, you'll want to be sure to use an absolute
+images under source/images. Note, you&#8217;ll want to be sure to use an absolute
 path, or else your article might look OK on the home page, but might now work
-in the postings directory. If I'm creating a document with many images, I'll
+in the postings directory. If I&#8217;m creating a document with many images, I&#8217;ll
 group the images for that document in a sub-directory of images named like
 the document. This is how it should look. The trick is to place the
 octopress <code>img</code> directive within a HTML begin/end block.
@@ -339,8 +339,8 @@ octopress <code>img</code> directive within a HTML begin/end block.
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
 </p>
 </li>
-<li><b>Links</b>: This is key thing to get right. It's critical to understand the
-issues links, or else you'll have one of these issues:
+<li><b>Links</b>: This is key thing to get right. It&#8217;s critical to understand the
+issues links, or else you&#8217;ll have one of these issues:
 <ol class="org-ol">
 <li>Links work when you test your blog locally using <code>pow</code>, but not when you
 go to your published website. This happens if you use a relative link from
@@ -348,19 +348,19 @@ blog articles, because blog articles sometimes appear on your home page
 and sometimes under the <code>/blog</code> directory. You have to use your domain
 address to link from blog articles to other articles on your blog.
 </li>
-<li>You'd like your local links to point to the correct local spot. You can do
+<li>You&#8217;d like your local links to point to the correct local spot. You can do
 this for links on static pages, but just not blog articles. Thus, for
-non-blog articles, it's preferable to use the <code>file:</code> relative path format
+non-blog articles, it&#8217;s preferable to use the <code>file:</code> relative path format
 (just not <code>file:/</code> absolute path and not <code>file:~/</code>).
 </li>
 </ol>
 <p>
-<b>Here's the rules:</b>
+<b>Here&#8217;s the rules:</b>
 </p>
 
 <p>
 Links from static pages, relatively specified to other static pages and to
-posts. Ensure that there's no <code>/</code> immediately following <code>file:</code>. For example:
+posts. Ensure that there&#8217;s no <code>/</code> immediately following <code>file:</code>. For example:
 </p>
 <pre class="example">
 [[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
@@ -382,7 +382,7 @@ Links from a <i>page</i> to a <i>post</i> can use a relative link like this.
 <b>However</b>, links from posts to other posts require an absolute URL using your
 published domain name. The big gotcha is that blog posts sometimes are shown
 on the home page and sometimes inside of the blog directory. To avoid
-trouble, you need to follow a format as this example shows. It's easiest to
+trouble, you need to follow a format as this example shows. It&#8217;s easiest to
 copy the URL from the browser address bar.
 </p>
 <pre class="example">
@@ -391,7 +391,7 @@ copy the URL from the browser address bar.
 <p>
 I tried using a <code>file:../blog</code> syntax, but that either would work on the home
 page or in the specific blog article, but not both. <code>http:/blog</code> links would
-work in Chrome but not mobile Safari. Hopefully, one day we'll be able to
+work in Chrome but not mobile Safari. Hopefully, one day we&#8217;ll be able to
 specify relative links from blog article to blog article. <i>For now, this is a
 big <b>gotcha</b>.</i>
 <b>Tip</b>: You can specify relative links between org pages using the <code>.org</code> file
@@ -402,25 +402,25 @@ suffix, rather than html. The earlier example could have been specified as:
 </pre>
 <p>
 That allows you to put your cursor on the link in emacs, and hit F12 to go
-the org file! I've got <code>F12</code> mapped to <code>org-open-at-point</code>. Awesome!
+the org file! I&#8217;ve got <code>F12</code> mapped to <code>org-open-at-point</code>. Awesome!
 </p>
 </li>
 <li>Bold and italic styling (text inside of stars and /) was a bit of mystery
 using the standard theme. Octopress has styling for <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>. Org-mode spits out <code>&lt;b&gt;</code> and
 <code>&lt;i&gt;</code> tags.
 Add this to <code>sass/custom/_fonts.scss</code>.
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
 </span><span class='line'><span class="nt">i</span> <span class="p">{</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
-the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>. You're just adding
+the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>. You&#8217;re just adding
 the <code>div</code> selector.
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -428,7 +428,7 @@ the <code>div</code> selector.
 </span><span class='line'><span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
 </span><span class='line'>  <span class="n">code</span> <span class="err">{</span>
 </span><span class='line'>    <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 </ol>
 </div>
@@ -447,7 +447,7 @@ the <code>div</code> selector.
 <li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>.
 </li>
 </ul>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -507,7 +507,7 @@ the <code>div</code> selector.
 </span><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span>
 </span><span class='line'>  <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -515,7 +515,7 @@ the <code>div</code> selector.
 <div id="outline-container-sec-7" class="outline-2">
 <h2 id="sec-7">Emacs setup</h2>
 <div class="outline-text-2" id="text-7">
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -645,7 +645,7 @@ the <code>div</code> selector.
 </span><span class='line'>
 </span><span class='line'>        <span class="c1">;; static articles</span>
 </span><span class='line'>        <span class="o">,@</span><span class="p">(</span><span class="nv">my-static-components</span><span class="p">))))</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -656,7 +656,7 @@ the <code>div</code> selector.
 <h2 id="sec-8">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
 <div class="outline-text-2" id="text-8">
 <p>
-Github offers free hosting of both the blog deployment and source. You're
+Github offers free hosting of both the blog deployment and source. You&#8217;re
 looking at the deployment right now. You can find the source here at
 <a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
 convenience. You can look inside of this repo, clone it, etc. and you have
@@ -666,20 +666,20 @@ everything that it took to make this blog.
 <p>
 I originally was quite confused by the concept of using two separate git
 branches to make up what gets deployed on the live website versus the git
-repository of my articles. Plus, there's the issue of Octopress git repository
+repository of my articles. Plus, there&#8217;s the issue of Octopress git repository
 that you clone when starting out. Eventually, I figured out that the two branches
 simply contain different files, with one containing the original Octopress
-files. Here's a few screen grabs that might clarify the situation for you.
+files. Here&#8217;s a few screen grabs that might clarify the situation for you.
 </p>
 
 <p>
-Don't forget that you never push to the master branch, but rather the <code>rake
+Don&#8217;t forget that you never push to the master branch, but rather the <code>rake
 deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
 the content of your blog to github.
 </p>
 
 <p>
-The <code>octopress/public</code> directory corresponds to what you'll find on the github
+The <code>octopress/public</code> directory corresponds to what you&#8217;ll find on the github
 site for your deployment (master branch).
 </p>
 
@@ -693,13 +693,13 @@ keeps the <code>rake generate</code> files out of the source branch.
 </p>
 
 <p>
-Here's the github master branch right after creation. Note the correspondence
+Here&#8217;s the github master branch right after creation. Note the correspondence
 with <code>public</code>. This is what gets deployed as your blog.
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
 </p>
 
 <p>
-Here's the github source branch. This contains the octopress environment, as
+Here&#8217;s the github source branch. This contains the octopress environment, as
 well as your customizations and blog posts.
 </p>
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
@@ -763,6 +763,23 @@ helpful.
 </div>
 </div>
 
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
 ]]></content>
   </entry>
   
@@ -772,8 +789,8 @@ helpful.
     <updated>2013-09-15T22:08:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress</id>
     <content type="html"><![CDATA[<p>
-One of the criticisms of Octopress is how there's no clear separation of the static
-generation engine and the content of one's website, and thus upgrading Octopress
+One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
+generation engine and the content of one&#8217;s website, and thus upgrading Octopress
 is difficult. I delayed upgrading due to this. However, my concerns were
 unfounded, as it was very painless to upgrade Octopress.
 </p>
@@ -786,7 +803,7 @@ The instructions boil down to this short help page on <a href="http://octopress.
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -794,11 +811,11 @@ The instructions boil down to this short help page on <a href="http://octopress.
 </span><span class='line'>bundle install                <span class="c"># Keep gems updated</span>
 </span><span class='line'>rake update_source            <span class="c"># update the template&amp;rsquo;s source</span>
 </span><span class='line'>rake update_style             <span class="c"># update the template&amp;rsquo;s style</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>
-The first step resulted in a few merge conflicts. I find RubyMine's git conflict
-resolution tools helpful, so I used those. Here's a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
+The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
+resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
 below) showing you how these tools helped with this process. Besides some minor
 issues dealing with a few merge conflicts, there was nothing very interesting or
 eventful about the upgrade, which means that the current process is really quite
@@ -821,7 +838,7 @@ helpful. The key takeaways from this video are:
 <img src="/images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
 </li>
 
-<li>Try the diff'ing buttons in the upper left to get 2 way views of
+<li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
 the 3 way merge.
 <img src="/images/2013-09-15-upgrading-octopress/merge-window.jpg">
 </li>
@@ -831,7 +848,7 @@ the 3 way merge.
 
 
 <p>
-3, "Yours" means your local changes, and "Theirs" means the server's changes,
+3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
    or, in this case, the changes in the main Octopress development branch.
 </p>
 
@@ -839,27 +856,27 @@ the 3 way merge.
 
 
 <p>
-Did the upgrade work? You're looking at the results of it.
+Did the upgrade work? You&#8217;re looking at the results of it.
 </p>
 
 
 
 
 <p>
-It's worth noting that I had one slight snag. When I merged sass/screen.scss, I
+It&#8217;s worth noting that I had one slight snag. When I merged sass/screen.scss, I
 accidentally removed this line, which is used for the youtube plugin.
 </p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="nt">custom</span><span class="o">/</span><span class="nt">rve</span><span class="k">&amp;</span><span class="nt">rdquo</span><span class="o">;;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>
 I could have figured this out by examining the history of the file and noting
 that I had added this line, rather than it being part of Octopress. So yes, it
 would be bit better if there was a cleaner separation between the Octopress
-code and any enhancements. However, the current mechanism works, and it's still
+code and any enhancements. However, the current mechanism works, and it&#8217;s still
 thousands of times better than WordPress. 
 </p>
 
@@ -869,6 +886,23 @@ thousands of times better than WordPress.
 <p>
 <div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
 </p>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>
@@ -886,11 +920,11 @@ thousands of times better than WordPress.
 
 
 <p>
-WordPress seemed like a good blogging platform, but it just didn't feel right. I
+WordPress seemed like a good blogging platform, but it just didn&#8217;t feel right. I
 spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org
-Mode</a> for all non-coding writing. If you don't know Org Mode, it's like having
+Mode</a> for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
 Markdown mode on steroids. You can have a numbered list in Markdown, but
-org-mode lets you re-order the list, and that's just the beginning. Editing blog
+org-mode lets you re-order the list, and that&#8217;s just the beginning. Editing blog
 documents in the WordPress editor felt almost as bad as being told to use MS
 Word. I found that ergonomics of Org Mode, including all the goodness of recent
 versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a href="http://www.emacswiki.org/emacs/Evil">Evil</a> (Vim emulation), just made organization of
@@ -901,7 +935,7 @@ creative thoughts so much more enjoyable.
 
 
 <p>
-So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You're looking at the
+So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You&#8217;re looking at the
 results of this endeavor, including my first Octopress article, and the latest
 tips on recreating this sort of blog using Octopress with Org Mode authoring,
 using LiveReload, and deployed at no charge on github.com.
@@ -927,7 +961,7 @@ monolithic.
 
 
 <p>
-I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson's summary</a> (noting Org Mode plus Emacs):
+I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson&#8217;s summary</a> (noting Org Mode plus Emacs):
 </p>
 
 
@@ -984,7 +1018,7 @@ on April 30th, 2012. There are a few differences worth noting:
 not <code>yourname.github.com</code>.
 </li>
 <li>After you run <code>rake setup_github_pages</code> and before running <code>rake
-      generate</code>, you should run <code>rake install</code>. If you forget, there's a clear
+      generate</code>, you should run <code>rake install</code>. If you forget, there&#8217;s a clear
 message indicating this omission.
 </li>
 </ol>
@@ -995,55 +1029,55 @@ message indicating this omission.
 setting up a custom domain</a>
 </li>
 <li>At this point, you can create a post:
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;my post name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Create a page:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_page<span class="o">[</span><span class="s2">&quot;my page name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Generate and deploy:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake gen_deploy
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Watch the site and regenerate when it changes:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake watch
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Preview the site in a web browser:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake preview
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 See all the available rake options:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>rake -T
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 <p>
 Save changes to source branch:
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>git add .
 </span><span class='line'>git commit -m <span class="s2">&quot;save changes to source&quot;</span>
 </span><span class='line'>git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 </ol>
 </div>
@@ -1065,7 +1099,7 @@ Save changes to source branch:
 <li>File has a header containing the meta-data for the post. The post URL and
 date are determined by the by the <code>title</code> and <code>date</code> fields. If you want to
 change the date of your post, then you change the meta-data. Changing the
-file name is useful only for file navigation. Here's a <a href="https://gist.github.com/justin808/5550381">gist for a rake task
+file name is useful only for file navigation. Here&#8217;s a <a href="https://gist.github.com/justin808/5550381">gist for a rake task
 to update the file names to match the metadata</a>.
 </li>
 </ol>
@@ -1094,7 +1128,7 @@ things about a page are:
 <div class="outline-text-2" id="text-3">
 <p>
 POW allows you to point your browser to <code>http://octopress.dev</code> to see your local,
-unpublished Octopress website. It's very convenient to not have to remember to
+unpublished Octopress website. It&#8217;s very convenient to not have to remember to
 run a local server, and it works great with LiveReload. Scroll to the bottom of
 this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake
 preview</code> and then point your browser at <code>http://0.0.0.0:4000</code> (or whatever port
@@ -1115,15 +1149,15 @@ the browser after you publish your file. This works with or without POW.
 <li><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">Install the browser extension</a> for your type of browser.
 </li>
 <li>Add these two entries to your <code>Gemfile</code>, in the :development group:
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
 </span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-livereload&#39;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 
 <li>Create a file called <code>Guardfile</code> containing something like:
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1131,22 +1165,22 @@ the browser after you publish your file. This works with or without POW.
 </span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/generated}</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">%r{public/.+\.(css|js|html)}</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 
 <li>Start 2 shell tabs running these commands: <code>rake generate &amp;&amp; rake watch</code>
 and <code>guard</code>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; rake generate <span class="o">&amp;&amp;</span> rake watch
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 <p>
 This screen shot shows <code>watch</code> updating the deployment files.
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/rake-generate-watch.png">
 start guard LiveReload
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>&gt; guard
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 <p>
 This screen grab shows guard detecting the browser and telling the
 browser to update.
@@ -1156,17 +1190,17 @@ browser to update.
 </ul>
 
 <p>
-It's neat to get LiveReload working with Octopress. However, the generation can
-finish after your page does a reload, so you won't see your latest changes. I'll
+It&#8217;s neat to get LiveReload working with Octopress. However, the generation can
+finish after your page does a reload, so you won&#8217;t see your latest changes. I&#8217;ll
 update this blog post when I figure out a solution to that one. Until then, you
 may find it more convenient to manually refresh the blog page yourself.
 </p>
 
 <p>
-It's worth noting that if you're running any other instance of guard-
-LiveReload, then one of these two copies will win and one won't work. If you
+It&#8217;s worth noting that if you&#8217;re running any other instance of guard-
+LiveReload, then one of these two copies will win and one won&#8217;t work. If you
 run a rails server this way, then this can bite you. It took me a bit of time
-to figure out why guard wasn't working.
+to figure out why guard wasn&#8217;t working.
 </p>
 </div>
 </div>
@@ -1176,7 +1210,7 @@ to figure out why guard wasn't working.
 <h2 id="sec-5">Org-Mode</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-You can skip this section if you're not interested in org-mode. However, it's
+You can skip this section if you&#8217;re not interested in org-mode. However, it&#8217;s
 super cool!
 </p>
 </div>
@@ -1184,9 +1218,9 @@ super cool!
 <h3 id="sec-5-1">Why org-mode for blog publishing?</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
-<a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It's quite the <b>hacker's
+<a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s
 delight</b> for note taking and authoring of blog articles. Down below I list a few
-reasons why org-mode. Here's a few org-mode features I love (Some are Emacs
+reasons why org-mode. Here&#8217;s a few org-mode features I love (Some are Emacs
 ones):
 </p>
 <ol class="org-ol">
@@ -1221,9 +1255,9 @@ Here are the basic steps:
 <ol class="org-ol">
 <li>Follow the instructions here: <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
 </li>
-<li>At the time of this article, April 27, there's a bug with the latest
+<li>At the time of this article, April 27, there&#8217;s a bug with the latest
 org-mode. <a href="https://github.com/craftkiller/orgmode-octopress/issues/3">I posted a workaround.</a> By the time you read this, you probably
-won't need that tip.
+won&#8217;t need that tip.
 </li>
 <li>You can embed Markdown (or other Octopress/Jekyll directives) by embedding
 inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
@@ -1232,9 +1266,9 @@ inside of a <code>#+begin_html</code> and <code>#+end_html</code> block.
 <li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
 inclusion of images in org-mode results in broken paths at deployment. The
 workaround is to embed the <a href="http://octopress.org/docs/plugins/image-tag/">Octopress syntax for an image</a>, and to place the
-images under source/images. Note, you'll want to be sure to use an absolute
+images under source/images. Note, you&#8217;ll want to be sure to use an absolute
 path, or else your article might look OK on the home page, but might now work
-in the postings directory. If I'm creating a document with many images, I'll
+in the postings directory. If I&#8217;m creating a document with many images, I&#8217;ll
 group the images for that document in a sub-directory of images named like
 the document. This is how it should look. The trick is to place the
 octopress <code>img</code> directive within a HTML begin/end block.
@@ -1256,8 +1290,8 @@ Links from a <i>page</i> to a <i>post</i> can use a relative link like this:
 <p>
 <b>However</b>, links from posts to other posts require an absolute URL. The big
 gotcha is blog posts due to the nested URL structure that does not map to the
-where you're putting your org-posts. To avoid trouble, you need to follow a
-format as this example shows. It's easiest to copy the URL from the browser
+where you&#8217;re putting your org-posts. To avoid trouble, you need to follow a
+format as this example shows. It&#8217;s easiest to copy the URL from the browser
 address bar.
 </p>
 <pre class="example">
@@ -1268,20 +1302,20 @@ I tried using a <code>file:../blog</code> syntax, but that either would work on 
 page or in the specific blog article, but not both. <code>http:/blog</code> links would
 work in Chrome but not mobile Safari. Markdown to get parsed by Jekyll does
 not work if the link is within a block level html tag (i.e., a paragraph).
-Hopefully, one day we'll be able to specify relative links from blog article
+Hopefully, one day we&#8217;ll be able to specify relative links from blog article
 to blog article.
 </p>
 </li>
 <li>Bold styling (text inside of stars) was a bit of mystery using the standard theme. I had to add
 this line to _typography.scss:
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 <p>
 Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
 the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 </p>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1289,7 +1323,7 @@ the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 </span><span class='line'><span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
 </span><span class='line'>  <span class="n">code</span> <span class="err">{</span>
 </span><span class='line'>    <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </li>
 </ol>
 </div>
@@ -1306,7 +1340,7 @@ the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 <li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>.
 </li>
 </ul>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1366,7 +1400,7 @@ the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 </span><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span>
 </span><span class='line'>  <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 </div>
 </div>
 
@@ -1375,7 +1409,7 @@ the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 <h2 id="sec-7">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-Github offers free hosting of both the blog deployment and source. You're
+Github offers free hosting of both the blog deployment and source. You&#8217;re
 looking at the deployment right now. You can find the source here at
 <a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
 convenience. You can look inside of this repo, clone it, etc. and you have
@@ -1385,20 +1419,20 @@ everything that it took to make this blog.
 <p>
 I originally was quite confused by the concept of using two separate git
 branches to make up what gets deployed on the live website versus the git
-repository of my articles. Plus, there's the issue of Octopress git repository
+repository of my articles. Plus, there&#8217;s the issue of Octopress git repository
 that you clone when starting out. Eventually, I figured out that the two branches
 simply contain different files, with one containing the original Octopress
-files. Here's a few screen grabs that might clarify the situation for you.
+files. Here&#8217;s a few screen grabs that might clarify the situation for you.
 </p>
 
 <p>
-Don't forget that you never push to the master branch, but rather the <code>rake
+Don&#8217;t forget that you never push to the master branch, but rather the <code>rake
 deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
 the content of your blog to github.
 </p>
 
 <p>
-The <code>octopress/public</code> directory corresponds to what you'll find on the github
+The <code>octopress/public</code> directory corresponds to what you&#8217;ll find on the github
 site for your deployment (master branch).
 </p>
 
@@ -1412,13 +1446,13 @@ keeps the <code>rake generate</code> files out of the source branch.
 </p>
 
 <p>
-Here's the github master branch right after creation. Note the correspondence
+Here&#8217;s the github master branch right after creation. Note the correspondence
 with <code>public</code>. This is what gets deployed as your blog.
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
 </p>
 
 <p>
-Here's the github source branch. This contains the octopress environment, as
+Here&#8217;s the github source branch. This contains the octopress environment, as
 well as your customizations and blog posts.
 </p>
 <img src="/images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
@@ -1465,6 +1499,23 @@ helpful. Check me out on Twitter: <a href="https://twitter.com/railsonmaui">@Rai
 </p>
 </div>
 </div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 ]]></content>
   </entry>
