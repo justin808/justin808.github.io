@@ -3,7 +3,7 @@
 layout: post
 title: "Ember.js Tutorial with Rails 4"
 date: 2013-06-11 13:00
-alias: blog/2013/06/11/creating-ember-dot-js-guides-tutorial-with-rails-4/index.html
+alias: /blog/2013/06/11/creating-ember-dot-js-guides-tutorial-with-rails-4/index.html
 comments: true
 categories: [rails, emberjs]
 keywords: Rails4, Rails, Ruby on Rails, Ember.js, Emberjs, Persistence, Serialization, Controllers, Router, Tutorial
