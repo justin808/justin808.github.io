@@ -24,12 +24,14 @@ module Jekyll
     end
 
     def snippet(url)
+      puts "snippet, url = #{url}"
+      
       <<-EOF.unindent
 
         <div id="discourse-comments"></div>
         <script type="text/javascript">
           var discourseUrl = "#{@site.config['discourse_url']}",
-              discourseEmbedUrl = "#{@site.config['url'] + @site.config['baseurl'] + url}";
+              discourseEmbedUrl = "#{@site.config['url']}#{@site.config['baseurl']}#{url}";
 
           (function() {
             var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
