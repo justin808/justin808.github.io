@@ -98,6 +98,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
+# Removed as support for Discourse comments added
 # disqus_short_name: railsonmaui
 # disqus_show_comment_count: true
 
