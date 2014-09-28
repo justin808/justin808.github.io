@@ -246,7 +246,7 @@ can look at the commits leading up to tag =heroku=. The basic steps are:
 * Source Code for Views and JavaScript
 I purposefully kept these to just 2 files to make this example simple. In a
 real world application, this would be broken into many files.
-** View Code: app/viws/static/index.html.erb
+** View Code: app/views/static/index.html.erb
 #+BEGIN_SRC html
 {% raw %}
 <script type="text/x-handlebars">
