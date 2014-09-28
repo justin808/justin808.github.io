@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-09-28T11:09:56-10:00</updated>
+  <updated>2014-09-28T12:06:30-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -5255,7 +5255,7 @@ real world application, this would be broken into many files.
 </p>
 </div>
 <div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1">View Code: app/viws/static/index.html.erb</h3>
+<h3 id="sec-6-1">View Code: app/views/static/index.html.erb</h3>
 <div class="outline-text-3" id="text-6-1">
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
