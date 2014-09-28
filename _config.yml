@@ -20,7 +20,7 @@ date_format: "ordinal"
 subscribe_rss: http://feeds.feedburner.com/railsonmaui
 subscribe_email: http://feedburner.google.com/fb/a/mailverify?uri=RailsOnMaui&amp;loc=en_US
 # RSS feeds can list your email address if you like
-email: justin.gordon@gmail.com
+email: justin@railsonmaui.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -41,15 +41,14 @@ rdiscount:
     - autolink
     - footnotes
     - smart
-#markdown: kramdown
-#kramdown:
-#  parse_block_html: true # default for kramdown is false. This will enable using Markdown links
-pygments: false # default python pygments have been replaced by pygments.rb
+highlighter: pygments # default python pygments have been replaced by pygments.rb
 
 paginate: 15          # Posts per page on the blog index
 pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
+paginate_path: "posts/:num"  # Directory base for pagination URLs eg. /posts/2/
 recent_posts: 7       # Posts in the sidebar Recent Posts section
 excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_separator: "<!--more-->"
 
 titlecase: true       # Converts page and post titles to titlecase
 
@@ -99,8 +98,8 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: railsonmaui
-disqus_show_comment_count: true
+# disqus_short_name: railsonmaui
+# disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-40522944-1
@@ -109,4 +108,4 @@ google_analytics_tracking_id: UA-40522944-1
 facebook_like: true
 
 # Discourse setup
-discourse_url: http://forum.railsonmaui.com
+discourse_url: http://forum.railsonmaui.com/

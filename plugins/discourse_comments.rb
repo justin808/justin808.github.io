@@ -24,8 +24,6 @@ module Jekyll
     end
 
     def snippet(url)
-      puts "snippet, url = #{url}"
-      
       <<-EOF.unindent
 
         <div id="discourse-comments"></div>

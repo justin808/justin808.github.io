@@ -97,8 +97,7 @@ h3.filename {
   + pre { @include border-top-radius(0px); }
 }
 
-// Sometimes html gen by org-mode misses p or li tags, so add div to the mix
-div, p, li {
+p, li {
   code {
     @extend .mono;
     display: inline-block;
