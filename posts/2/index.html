@@ -9,8 +9,7 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="This past weekend was my first GoGaRuCo. Here's a perspective from a newbie,
-along with lots of photos. The number one thing I discovered is that &hellip;">
+  <meta name="description" content="I migrated from Bash to Zsh in October and I'm quite thrilled with zsh. Motivation What motivated me to finally move? I no longer used the shell &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +85,227 @@ along with lots of photos. The number one thing I discovered is that &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/04/migrating-from-bash-to-zsh/">Migrating From Bash to Zsh</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-01-04T04:00:00-10:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+I migrated from Bash to Zsh in October and I&#8217;m quite thrilled with zsh.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Motivation</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+What motivated me to finally move?
+</p>
+
+<ol class="org-ol">
+<li>I no longer used the shell within Emacs. If you have a bash setup that works
+well in Emacs, don&#8217;t try to switch. Since moving from emacs bindings to
+evil-mode, I am quite comfortable in Vim, so I find myself using iTerm way
+more than the Emacs shell.
+</li>
+<li>While doing some pair programming with <a href="https://twitter.com/jakeonrails">@jakeonrails</a>, I saw the coolness of
+zsh, which he pointed out to me &#8220;was no big deal&#8221;, just what&#8217;s on the
+<a href="http://railscasts.com/episodes/308-oh-my-zsh">Railscasts Episode on Oh My ZSH</a>.
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Tips on Migrating</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Here&#8217;s a few tips to somebody migrating might find useful:
+</p>
+
+<ol class="org-ol">
+<li>Try out <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> and take a look at the <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">themes examples</a>. The themes seem to
+be all customizations of the prompt. I&#8217;ll share what I came up with at the
+bottom, which is a modification of the default robbyrussell theme.
+</li>
+<li>While most of your bash code will migrate as-is, this is a good time to clean
+up some cruft in your files. I like to organize my shell code into small
+files, each with a particular theme, and then have the .zshrc source those,
+rather than having a giant .zshrc file.
+</li>
+<li>The oh-my-zsh plugins are way for you to share shell configuration with
+other members of the community. It&#8217;s simple to read what those plugins are
+doing. Many are just setting aliases. I started to migrate my own
+configuration code by converting to plugins, but then I realized that that&#8217;s
+overkill. If I ever want to share the configuration, at that point, I can
+convert to a plugin, which is quite simple.
+</li>
+<li>If you have any shell functions that use <code>[</code>, you might have escape that
+character for zsh.
+</li>
+<li>If you install zsh plugins, be very careful with any newly installed aliases
+from the plugins. I previously had <code>gl</code> aliased as &#8216;git log&#8217; and the git
+plugin uses <code>gl</code> for <code>git pull</code>, <a href="http://stackoverflow.com/questions/19085203/recovering-from-accidental-git-pull-on-octopress-branches">which caused me a huge headache</a> when I ran
+that within my octopress branch.
+</li>
+<li>You need to escape the <code>^</code> character for commands such as <code>git reset HEAD\^</code>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Migration Notes</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Escape []</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+In the third line of this function, I had to escape the <code>[</code> and the <code>]</code>.
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
+</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="se">\[</span><span class="s2">&quot;${1}&quot;</span><span class="se">\]</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> | awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$new_file</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">new_location</span><span class="o">=</span><span class="nv">$OCTO_HOME</span>/source/org_posts/
+</span><span class='line'>  mv <span class="nv">$OCTO_HOME</span>/<span class="nv">$new_file</span> <span class="nv">$new_location</span>
+</span><span class='line'>  <span class="nb">echo </span>created <span class="nv">$new_location$base</span>
+</span><span class='line'>  <span class="nb">cd</span> -
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">My new zsh prompt</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+<img src="/images/2013-09-29-migrating-from-bash-to-zsh/prompt.jpg">
+</p>
+
+<p>
+To set this up, I created a custom theme called justin808 by doing the following:
+</p>
+
+<ol class="org-ol">
+<li>Create a theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>. See below.
+</li>
+<li>Export the theme name.
+</li>
+</ol>
+
+<p>
+This is what it looks like in my .zshrc file. The first line is because I moved
+my ZSH configuration files.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">ZSH</span><span class="o">=</span><span class="nv">$HOME</span>/.oh-my-zsh
+</span><span class='line'><span class="nb">export </span><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&quot;justin808&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">hostname</span><span class="o">=</span><span class="sb">`</span>hostname<span class="sb">`</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$hostname</span> !<span class="o">=</span> <span class="s2">&quot;$HOME_HOST&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$USER</span> !<span class="o">=</span> <span class="s2">&quot;justin&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k">  </span><span class="nv">host_stuff</span><span class="o">=</span><span class="s1">&#39;%n@%m:&#39;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'><span class="k">  </span><span class="nv">host_stuff</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+</span><span class='line'><span class="k">fi  </span>
+</span><span class='line'><span class="nv">PROMPT</span><span class="o">=</span><span class="s1">&#39;%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p ${host_stuff}%{$fg[cyan]%}${PWD/#$HOME/~} %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># display exitcode on the right when &gt;0</span>
+</span><span class='line'><span class="nv">return_code</span><span class="o">=</span><span class="s2">&quot;%(?..%{$fg[red]%}%? ↵%{$reset_color%})&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">RPROMPT</span><span class="o">=</span><span class="s1">&#39;${return_code}$(git_prompt_status)%{$reset_color%} [%*]&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># RPROMPT=&#39;[%*]&#39;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_PREFIX</span><span class="o">=</span><span class="s2">&quot;(%{$fg[red]%}&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_SUFFIX</span><span class="o">=</span><span class="s2">&quot;%{$reset_color%}&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_DIRTY</span><span class="o">=</span><span class="s2">&quot;%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_CLEAN</span><span class="o">=</span><span class="s2">&quot;%{$fg[blue]%})&quot;</span>
+</span><span class='line'><span class="nv">GIT_PS1_SHOWUPSTREAM</span><span class="o">=</span>verbose
+</span><span class='line'>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_ADDED</span><span class="o">=</span><span class="s2">&quot;%{$fg[green]%} ✚&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_MODIFIED</span><span class="o">=</span><span class="s2">&quot;%{$fg[blue]%} ✹&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_DELETED</span><span class="o">=</span><span class="s2">&quot;%{$fg[red]%} ✖&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_RENAMED</span><span class="o">=</span><span class="s2">&quot;%{$fg[magenta]%} ➜&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_UNMERGED</span><span class="o">=</span><span class="s2">&quot;%{$fg[yellow]%} ═&quot;</span>
+</span><span class='line'><span class="nv">ZSH_THEME_GIT_PROMPT_UNTRACKED</span><span class="o">=</span><span class="s2">&quot;%{$fg[cyan]%} ✭&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+</div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/01/04/migrating-from-bash-to-zsh/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1356,6 +1576,10 @@ monolithic.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/28/gogaruco-pictures-2014/">Golden Gate Ruby Conference (GoGaRuCo) Pictures 2014</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/">Updating My Blog to Octopress With Jekyll 2 and Discourse for Comments</a>
       </li>
     
@@ -1377,10 +1601,6 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry, Ruby, and Fun With the Hash Constructor</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/13/2014-golden-gate-ruby-conference/">2014 Golden Gate Ruby Conference: Top 10 Reasons to Attend</a>
       </li>
     
   </ul>
