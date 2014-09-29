@@ -1,0 +1,246 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Updating My Blog to Octopress with Jekyll 2 and Discourse for Comments"
+date: 2014-09-27 20:24:49 -1000
+comments: true
+categories: [Octopress]
+keywords: Octopress, Discourse
+description: How to update Octopress to Jekyll 2 and add Discourse for comments on a static site. 
+
+---
+#+END_HTML
+
+This weekend I made the ambitious move to using [[http://www.discourse.org/][Discourse.org]] for my blog and
+also upgrading [[http://octopress.org/][Octopress]] to the latest version which supports Jekyll 2.0. Here's
+my notes, so that you can evaluate if you want to do either of these, as well as
+how to do this efficiently.
+
+* Motivation
+What motivated me to update Octopress? The main reason was that [[http://octopress.org/][Octopress]]
+finally got upgraded from a beta version of [[http://jekyllrb.com/][Jekyll]] to Jekyll 2.x.
+
+What motivated me to migrate comments to Discourse?
+1. I already wanted to create a forum for my website, so integrating blog
+   comments seemed worth pursuing. This is what [[http://boingboing.net/page/1/][BoingBoing uses for its blog articles]].
+   Click on the "Discuss" link below any BoingBoing article and get taken to the Discourse
+   topic for that article.
+2. I wanted to be able to have more engaging conversations with my programmer
+   friends on the topics which I'm blogging about.
+
+What's super cool about doing the conversion?
+
+1. Discourse will automatically create topics for each of your blog posts. You
+   can see that here: http://forum.railsonmaui.com/category/blog
+   {% img /images/2014-09-octopress-discourse/railsonmaui-imported-articles.jpg %}
+
+2. Discourse can import the Disqus comments from your blog!
+
+   What this looks like on the blog, http://www.railsonmaui.com
+   {% img /images/2014-09-octopress-discourse/railsonmaui-comments-blog.jpg %}
+
+   What this looks like on the forum, http://forum.railsonmaui.com:
+   {% img /images/2014-09-octopress-discourse/railsonmaui-comments-blog.jpg %}
+
+* Updating Octopress
+[[https://www.google.com/search?q%3Dupdgrading%2Boctopress&gws_rd%3Dssl#newwindow%3D1&q%3Dupgrading%2Boctopress][Googling for upgrading octopress]] gave me [[http://www.railsonmaui.com/blog/2013/09/15/upgrading-octopress/][my own article]] as the second match.
+It's always a great reason to blog and have your notes indexed by Google!
+
+I ran into one difficult issue with the upgrade. The issue was the very
+frustrating:
+#+BEGIN_EXAMPLE
+bin/ruby_executable_hooks:15: stack level too deep (SystemStackError)
+#+END_EXAMPLE
+
+How did I solve the problem?
+
+Naturally the first thing to do is to [[https://www.google.com/search?q%3Dbin%252Fruby_executabl&gws_rd%3Dssl#newwindow%3D1&q%3Dbin%252Fruby_executable_hooks%253A15%253A%2Bstack%2Blevel%2Btoo%2Bdeep%2B(SystemStackError)][google the error message]]. That was not
+particularly helpful.
+
+Since I assumed that this problem would be pretty specific to my Octopress site,
+I guessed that the issue was related to a rogue Jekyll plugin.
+
+I moved all my plugins that were not part of standard Octopress into a
+=/plugins_removed= directory, and then added back my plugins one at a time. That
+helped me narrow down the issue to the =jekyll_alias_generator= plugin, which
+sets up redirects when you change the URL of a published blog articles.
+
+Then I clicked on the Issues icon for the [[https://github.com/tsmango/jekyll_alias_generator/issues][jekyll_alias_generator]] and searched
+for [[https://github.com/tsmango/jekyll_alias_generator/issues?q%3Dis%253Aopen%2Bis%253Aissue%2Bstack%2Blevel%2Btoo%2Bdeep][stack level too deep]] and *BINGO!* 
+
+And here's the solution: [[https://github.com/tsmango/jekyll_alias_generator/issues/14][Stack level too deep error #14]], which is to replace
+lines 73-75 in =alias_generator.rb= with this code:
+#+BEGIN_SRC ruby
+(alias_index_path.split('/').size).times do |sections|
+    @site.static_files << Jekyll::AliasFile.new(@site, @site.dest, alias_index_path.split('/')[1, sections + 1].join('/'), '')
+end
+#+END_SRC
+
+Another issue I hit was that I had a few template files that were using
+#+BEGIN_EXAMPLE
+layout: nil
+#+END_EXAMPLE
+
+This results in errors like:
+#+BEGIN_EXAMPLE
+Build Warning: Layout 'nil' requested in atom.xml does not exist.
+#+END_EXAMPLE
+
+This got changed in the recent version of Jekyll to use =null=, like this:
+#+BEGIN_EXAMPLE
+layout: null
+#+END_EXAMPLE
+
+So grep your files for =layout: nil= and change those to =layout: null=.
+
+* Installing Discourse for Blog Comments
+This is well described in the following articles. I'll give you my specific
+steps below.
+1. Setting up discourse on Docker: [[https://github.com/discourse/discourse_docker][github: discourse/docker]] and
+   [[https://github.com/discourse/discourse/blob/master/docs/INSTALL-digital-ocean.md][discourse/docs/INSTALL-digital-ocean.md]]. You can probably do fine on a
+   $10/month plan. The trickiest parts is to be sure that you do every step very
+   carefully. It's very easy to make one typo and to then slow the process down!
+2. [[Http://eviltrout.com/2014/01/22/embedding-discourse.html][Embedding Discourse in Static Sites]] is the primary source of information on
+   converting from Disqus to Discourse for your blog comments.
+3. [[https://meta.discourse.org/t/discourse-plugin-for-static-site-generators-like-jekyll-or-octopress/7965/99][Discourse plugin for static site generators like Jekyll or Octopress]]:
+   Specifics for Octopress and Jekyll. 
+
+Once you configure your Discourse site to import your blog articles, you'll have
+to wait a bit for the rake task to run. It's great being able to kickstart the
+content of the forum with one's blog articles!
+
+** Discourse Configuration
+The configuration of Discourse for blogging is super easy.
+1. Configure the following settings, taking note that:
+   1. The urls are to your blog and include the subdomain, like
+      =www.railsonmaui.com=.
+   2. The embeddable host /does not/ include =http://=
+   3. The feed polling URL /does/ include =http://=
+   {% img /images/2014-09-octopress-discourse/discourse-setup.jpg %}
+2. I added a category called "Blog".
+3. I created a user called "disqus" for users not found in the Disqus comment
+   import.
+
+** Octopress Discourse Comments Setup
+1. Remove or comment out your Disqus setup in your =/_config.yml= file:
+   #+BEGIN_SRC yaml
+   # Disqus Comments
+   # Removed as support for Discourse comments added
+   # disqus_short_name: railsonmaui
+   # disqus_show_comment_count: true
+   #+END_SRC
+   Note, I first commented it out, because I toggled this on and off as I was
+   ensuring that the comment migration worked correctly, and none were missed.
+2. Add the plugin contained in [[https://github.com/justin808/jekyll_discourse_comments/blob/support_blank_baseurl/discourse_comments.rb][discourse_comments.rb]] to your =/plugins=
+   directory. This plugin will append a DIV to your posts like this:
+   #+BEGIN_SRC HTML
+   <div id="discourse-comments"></div>
+   <script type="text/javascript">
+     var discourseUrl = "#{@site.config['discourse_url']}",
+         discourseEmbedUrl = "#{@site.config['url']}#{@site.config['baseurl']}#{url}";
+
+     (function() {
+       var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+       d.src = discourseUrl + 'javascripts/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+       })();
+   </script>
+   #+END_SRC
+3. Note that the display of comments only works on your live website, due the
+   fact that the Discourse server checks the source of the request for the
+   comments (per the above image of the configuration).
+
+** Detailed instructions for importing your Disqus comments into Discourse
+The following instructions will allow you to import the comments from Disqus,
+along with creating associated users for those comments. This is a *GREAT* way
+to kickstart the forum.
+1. Download an XML backup of your Disqus comments by logging into your Disqus
+   dashboard. The URL is like https://youraccount.disqus.com/admin/discussions/.
+2. That should bring you to the Discussions tab. Then click the Export sub-tab.
+   It should look like this:
+   {% img /images/2014-09-octopress-discourse/disqus-get-xml-backup.jpg %}
+   You'll have to wait a few minutes for the creation email. I then saved the
+   file to my =~/Downloads= directory.
+3. Ssh to your docker instance
+   #+BEGIN_SRC bash
+   ssh root@XXX.XXX.XXX.XXX
+   #+END_SRC
+4. Get into your docker instance.
+   #+BEGIN_EXAMPLE
+   root@forum:~# cd /var/discourse/
+   root@forum:/var/discourse# ./launcher ssh app
+   #+END_EXAMPLE
+
+   You'll see this message:
+   #+BEGIN_EXAMPLE
+   Welcome to Discourse Docker
+   Use: rails, rake or discourse to execute commands in production
+   #+END_EXAMPLE 
+5. Sudo to discourse:
+   #+BEGIN_EXAMPLE
+   root@forum:~# sudo -iu discourse
+   discourse@forum:~$ cd /var/www/discourse
+   discourse@forum:/var/www/discourse$ bundle exec thor list 
+   #+END_EXAMPLE
+6. Then you need to copy the XML file you downloaded from Disqus that contains
+   an archive of your comments. The easiest way to do this is to =scp= the file
+   from some place accessible on the Internet. What I did was to =scp= the file
+   from my local machine to my Digital Ocean machine, and then from my Digital
+   Ocean machine to the Docker container. Here's an example:
+
+   On your local machine, with the XML file (XXX.XXX.XXX.XXX is the ip of your
+   droplet):
+   #+BEGIN_SRC bash
+   scp ~/Downloads/railsonmaui-disqus.xml root@XXX.XXX.XXX.XXX
+   #+END_SRC
+
+   Then inside of your docker container:
+   #+BEGIN_EXAMPLE
+   discourse@forum:/var/www/discourse$ scp root@XXX.XXX.XXX.XXX:railsonmaui-disqus.xml .
+   #+END_EXAMPLE
+
+   That puts the file =railsonmaui-disqus.xml= in the current directory.
+
+7. Run the thor command:
+   #+BEGIN_EXAMPLE
+   discourse@forum:/var/www/discourse$ bundle exec thor disqus:import --file=railsonmaui-disqus.xml --post-as=disqus --dry-run
+   /var/www/discourse/vendor/bundle/ruby/2.0.0/gems/activerecord-4.1.6/lib/active_record/connection_adapters/postgresql_adapter.rb:898:in `rescue in connect': FATAL:  database "discourse_development" does not exist (ActiveRecord::NoDatabaseError)
+   Run `$ bin/rake db:create db:migrate` to create your database
+     from /var/www/discourse/vendor/bundle/ruby/2.0.0/gems/activerecord-4.1.6/lib/active_record/connection_adapters/postgresql_adapter.rb:888:in `connect'
+   #+END_EXAMPLE
+
+   The problem is that we need to specify the environment, as is standard with
+   Rails apps:
+
+   #+BEGIN_SRC bash
+   RAILS_ENV=production bundle exec thor disqus:import --file=railsonmaui-disqus.xml --post-as=disqus --dry-run
+   #+END_SRC
+
+   That command does the trick and gives you a nice message indicating what it
+   will do once you remove the =--dry-run= flag.
+   #+BEGIN_EXAMPLE
+   discourse@forum:/var/www/discourse$ RAILS_ENV=production bundle exec thor disqus:import --file=railsonmaui-disqus.xml --post-as=disqus --dry-run
+   Creating Favorite RubyMine Tips - Rails on Maui... (8 posts)
+   Creating Octopress Setup with Github, Org Mode, and LiveReload - Rails on Maui... (3 posts)
+   #+END_EXAMPLE
+
+   Once you verify, run:
+   #+BEGIN_SRC bash
+   RAILS_ENV=production bundle exec thor disqus:import --file=railsonmaui-disqus.xml --post-as=disqus
+   #+END_SRC
+
+   This creates the comments /and the users/. Creating the users surprised me
+   as I didn't know that the Disqus export contained the users' email addresses.
+   *So this script ends up triggering activation emails to all those users!*
+
+* Conclusion
+*This is all pretty neat!* Not only did I get my new forum populated with some
+content, but I also created users who commented on my posts in the past. I'm
+hoping I can engage in more meaningful discussions regarding the technologies
+that I blog about with my own forum. Please do [[http://forum.railsonmaui.com][sign-up for the forum]] so you can
+comment and receive periodic updates of what gets posted! Or just sign up when
+you want to post a comment. :-)
+
+
+
+
