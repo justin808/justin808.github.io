@@ -1,0 +1,366 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "React on Rails Tutorial"
+date: 2014-09-29 13:30:40 -1000
+comments: true
+categories: [react, javascript] 
+keywords: 
+description: Instructions on how to use Rails 4.2 to recreate the basic React tutorial.
+canonical: https://hackhands.com/react-rails-tutorial/
+---
+#+END_HTML
+
+In response to a recent client request for a richer browser side UI experience,
+I took a fresh look at all the recent advances in JavaScript rich client
+frameworks. The [[http://facebook.github.io/react/][React library]] stood out as unique, innovative, and impressive.
+
+The main reasons that I like React are:
+1. It's a better abstraction than MVC!
+1. React keeps track of what needs to change in the DOM with its virtual DOM
+   model.
+2. All the view rendering code can assume that nothing changes during the
+   rendering process as components recursively call =render()=. This makes
+   reasoning about the rendering code much simpler.
+3. The simpler conceptual model of always rendering the entire UI from a given state is
+   akin to the server side rendering of HTML pages, that Rails programmers are
+   more familiar with.
+4. The documentation is very good, and it's got significant traction.
+
+Given that React is just about the *View* part of the client UI, or more
+specifically, view *components*, it seems especially suitable for integration
+into the Rails ecosystem to help build better rich JavaScript UIs. The [[http://facebook.github.io/react/][React website]] 
+contains a [[http://facebook.github.io/react/docs/tutorial.html][simple tutorial]] utilizing Node for the backend. Suppose you want to use Rails for the backend?
+
+This following instructions walk you through the steps to build the original
+simple tutorial with a Rails 4.2 backend utilizing the [[https://github.com/reactjs/react-rails][react-rails gem]]. With the
+Rails scaffold generator, very little Rails coding is required. You can try the
+end result of the completed tutorial [[http://react-rails-tutorial.herokuapp.com/][on Heroku]], and the code [[https://github.com/justin808/react-rails-tutorial][on Github]].
+
+Since the original React [[http://facebook.github.io/react/docs/tutorial.html][tutorial]] is excellent, I will not be rehashing any of
+it's explanations of how React works. This tutorial purely focusing on
+converting that tutorial to utilize Rails.
+
+Besides carefully studying the original tutorial, I recommend:
+
+1. Watching these 2 videos for an introduction to React's virtual DOM model.
+   a. This video explains [[https://www.youtube.com/watch?v=x7cQ3mrcKaY][design philosophy of React and why MVC is not the right model for building UIs]].
+   b. This video [[https://www.youtube.com/watch?v=-DX3vJiqxm4][compares ReactJs vs. Key Value Observation(EmberJs) and Dirty Checking (AngularJS)]].
+2. Play with the examples on the [[http://facebook.github.io/react/][React overview page]]. Don't just read the
+   examples. You can play with the code right on that page!
+3. Read the [[http://facebook.github.io/react/docs/getting-started.html][docs]], which I found fairly interesting.
+
+* Useful React Links
+1. [[http://react-rails-tutorial.herokuapp.com/][Completed React-Rails tutorial Live on Heroku]]: Tutorial Live on Heroku.
+2. [[https://github.com/justin808/react-rails-tutorial][Rails 4.2, React, completed tutorial]]: Github repo for completed tutorial.
+3. [[http://facebook.github.io/react/][React: A Javascript Library For Building User Interfaces]]: Main website for React.
+4. [[http://facebook.github.io/react/docs/tutorial.html][React Tutorial]]: The Node basis for this tutorial.
+5. [[https://github.com/reactjs/react-tutorial][reactjs/react-tutorial]]: Github repo for official Node based tutorial.
+
+* Tutorial Step by Step
+** Create a brand new Rails 4.2 Application
+1. Install Ruby 2.1.2 or whichever recent Ruby you prefer. I use [[http://rvm.io/rvm/install][rvm]].
+2. Install Rails gem
+  #+BEGIN_SRC bash
+  gem install rails --pre
+  #+END_SRC
+  NOTE: There is a bug if you RubyGems versions newer than 2.2.2. This detailed
+  in this [[http://stackoverflow.com/a/25438597/1009332][question on Stack Overflow]]. 
+3. Create the Rails app
+  #+BEGIN_SRC bash
+  rails new react-rails-tutorial
+  #+END_SRC
+4. =cd react-rails-tutorial=
+5. Create =.ruby-version= and =.ruby-gemset= per your preferences inside
+   =react-rails-tutorial= directory.
+6. Run bundler
+   #+BEGIN_SRC bash
+   bundle install
+   #+END_SRC
+7. Create new git repository
+  #+BEGIN_SRC bash
+  git init .
+  #+END_SRC
+8. Add and commit all files: 
+  #+BEGIN_SRC bash
+  git add . && git commit -m "rails new react-rails-tutorial"
+  #+END_SRC
+
+** Create Base Rails App Scaffolding for Comment model
+1. Run generator. Be sure to use the exact names below to match the React tutorial.
+   #+BEGIN_SRC bash
+   rails generate scaffold Comment author:string text:text
+   #+END_SRC
+2. Migrate the database
+   #+BEGIN_SRC bash
+   rake db:migrate
+   #+END_SRC  
+3. Commit
+   #+BEGIN_SRC bash
+   git add . && git commit -m "Ran rails generate scaffold Comment author:string text:text and rake db:migrate"
+   #+END_SRC
+
+** Create Page for App
+1. Run the controller generator
+   #+BEGIN_SRC bash
+   rails generate controller Pages index 
+   #+END_SRC
+2. Fix your =config/routes.rb= to go to the home page, by changing
+   #+BEGIN_SRC ruby
+   get 'pages/index'
+   #+END_SRC
+   to 
+   #+BEGIN_SRC ruby
+   root 'pages#index'
+   #+END_SRC
+
+** Try Out the New Rails App
+1. Start the server
+   #+BEGIN_SRC ruby
+   rails server
+   #+END_SRC
+2. Open your browser to [[http://0.0.0.0:3000]] and see the your blank home page.
+   {% img /images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/brand-new-root-page.jpg %}
+3. Open your browser to http://0.0.0.0:3000/comments and see the comments display.
+   {% img /images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/rails-comments-index-action.jpg %}
+4. Add a comment. Click around. Neat!
+   {% img /images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/rails-comments-new-action.jpg %}
+
+   {% img /images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/rails-comments-show-action.jpg %}
+
+5. Test out the json API, automatically created by Rails:
+   #+BEGIN_SRC bash
+   curl 0.0.0.0:3000/comments.json 
+   #+END_SRC
+   and see
+   #+BEGIN_EXAMPLE
+   [{"id":1,"author":"Justin","text":"My first comment.","url":"http://0.0.0.0:3000/comments/1.json"}]%
+   #+END_EXAMPLE
+6. View your routes
+   #+BEGIN_EXAMPLE
+   > rake routes                                                                                                                                    ✹ ✭ [19:44:29]
+            Prefix Verb   URI Pattern                  Controller#Action
+              root GET    /                            pages#index
+          comments GET    /comments(.:format)          comments#index
+                   POST   /comments(.:format)          comments#create
+       new_comment GET    /comments/new(.:format)      comments#new
+      edit_comment GET    /comments/:id/edit(.:format) comments#edit
+           comment GET    /comments/:id(.:format)      comments#show
+                   PATCH  /comments/:id(.:format)      comments#update
+                   PUT    /comments/:id(.:format)      comments#update
+                   DELETE /comments/:id(.:format)      comments#destroy
+   #+END_EXAMPLE
+7. If all that worked, then commit your changes
+   #+BEGIN_SRC bash
+   git add . && git commit -m "Ran rails generate scaffold Comment author:string text:text and rake db:migrate"
+   #+END_SRC
+
+** React Tutorial Using Node
+This is what we'll be converting to Rails 4.2.
+1. Create a new branch, in case we want to test the same design with AngularJS
+   or EmberJS:
+   #+BEGIN_SRC bash
+   git checkout -b "react"
+   #+END_SRC
+2. Take a look at the [[http://facebook.github.io/react/docs/tutorial.html][React Tutorial]] and the github repo: [[https://github.com/reactjs/react-tutorial][reactjs/react-tutorial]].
+3. Open up a new shell window. Pick a directory and then do
+   #+BEGIN_SRC bash
+   git clone git@github.com:reactjs/react-tutorial.git
+   #+END_SRC
+4. cd to the =react-tutorial.git= directory and open up the source code.
+5. Optionally run the tutorial example per the instructions on the =README.md=
+
+** Adding React to Rails
+1. We'll be using the [[https://github.com/reactjs/react-rails][reactjs/react-rails gem]]. Plus we'll need to include the
+   =showdown= markdown parser, using the [[https://github.com/joshmcarthur/showdown-rails][showdown-rails gem]]. Add these lines to
+   your Gemfile and run =bundle=
+   #+BEGIN_SRC ruby
+   gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
+   gem 'showdown-rails'
+   #+END_SRC
+   Note, I'm using the tip of react-rails. Depending on when you try this
+   tutorial, you may not wish to be using the tip, and don't do that for a
+   production application!
+2. Per the gem instructions, let's add the js assets below the =turbolinks=
+   reference in =app/assets/javascripts/application.js=
+   #+BEGIN_SRC javascript
+   //= require jquery
+   //= require jquery_ujs
+   //= require turbolinks
+   //= require showdown
+   //= require react
+   //= require_tree .
+   #+END_SRC
+3. Once you verify that you can load =0.0.0.0:3000= in your browser, then commit
+   the files to git:
+   #+BEGIN_SRC bash
+   git commit -am "Added react-rails and showdown-rails gems" 
+   #+END_SRC
+
+** Move Tutorial Parts to Rails Application
+Now the fun starts. Let's take the parts out of the node tutorial and put them
+into the Rails app. 
+1. Copy the necessary line from =react-tutorial/index.html= to replace the
+   contents of =app/views/pages/index.html.erb=. You'll just have one line there:
+   #+BEGIN_SRC erb
+   <div id="content"></div>
+   #+END_SRC
+2. Now, the meat of the tutorial, the JS code. Copy the entire contents of
+   =react-tutorial/scripts/example.js= into
+   =app/assets/javascripts/comments.js.jsx= (Renamed from comments.js.coffee).
+4. Commit the added files, so we can see what we change from the original versions.
+   #+BEGIN_SRC bash
+   git commit -am "index.html.erb and comments.js.jsx added"   
+   #+END_SRC
+3. Start the rails server (=rails s=). Visit =0.0.0.0:3000=. Nothing shows up!
+
+** Tweak the Tutorial
+In the example, the call to load =example.js= comes after the declaration of the
+DOM element with id "content". So let's run the =renderComponent= after the DOM
+loads. Wrap the =React.renderComponent= call at the bottom of =comments.js.jsx=
+like this:
+#+BEGIN_SRC javascript
+$(function() {
+  React.renderComponent(
+    <CommentBox url="comments.json" pollInterval={2000} />,
+    document.getElementById('content')
+  );
+})
+#+END_SRC
+Let's commit that diff: =git commit -am "React component loads"=
+
+Then copy the css from =react-tutorial/css/base.css= over to
+=app/assets/stylesheets/comments.css.scsss=
+
+The styling in is not quite right.
+{% img /images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/copying-tutorial-styling.jpg %}
+
+
+** Add bootstrap-sass Gem
+
+1. Add the gems
+   #+BEGIN_SRC ruby
+   gem 'bootstrap-sass'
+   gem 'autoprefixer-rails'
+   #+END_SRC
+3. Run =bundle install=   
+2. Rename =app/assets/stylesheets/application.css= to =application.css.scss= and
+   change it to the following:
+   #+BEGIN_SRC scss
+   @import "bootstrap-sprockets";
+   @import "bootstrap";
+   #+END_SRC
+3. Optionally, add this line to =app/assets/javascripts/application.js=
+   #+BEGIN_SRC javascript
+   //= require bootstrap-sprockets
+   #+END_SRC
+4. Restart the application. Notice that there is no padding to the left edge of
+   the browser window. That's an easy fix. Let's put the content div inside a
+   container, by changing =app/views/pages/index.html.erb= to this:
+   #+BEGIN_SRC erb
+   <div class="container">
+     <div id="content"></div>
+   </div>
+   #+END_SRC
+5. Let's spruce up the data entry part. Take a look at the [[http://getbootstrap.com/css/#forms][Boostrap docs for CSS
+   Forms]]. You'll have to refer to the diffs on github for this change. Or you
+   can take creative license here!
+   {% img /images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/with-bootstrap-sass.jpg %}
+
+** Adding Records Fails
+The first issue is that we're not submitting the JSON correctly to add new
+records.
+   
+#+BEGIN_EXAMPLE
+Started POST "/comments.json" for 127.0.0.1 at 2014-08-22 21:48:55 -1000
+Processing by CommentsController#create as JSON
+  Parameters: {"author"=>"JG", "text"=>"Another **comment**"}
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  app/controllers/comments_controller.rb:72:in `comment_params'
+  app/controllers/comments_controller.rb:27:in `create'
+#+END_EXAMPLE
+
+If you look at this method in =comments_controller.rb=, you can see the issue:
+#+BEGIN_SRC ruby
+  def comment_params
+    params.require(:comment).permit(:author, :text)
+  end
+#+END_SRC
+
+The fix to this is to wrap the params in "comment", by changing this line in
+=comments.jsx.js=, in function =handleCommentSubmit=.
+#+BEGIN_SRC javascript
+   data: comment,
+#+END_SRC
+to
+#+BEGIN_SRC javascript
+  data: { comment: comment },
+#+END_SRC
+
+Here's a enlarged view of that diff from RubyMine.
+{% img /images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/wrap-comment-json.jpg %}
+
+After that change, we can observe this in the console when adding a new record:
+
+#+BEGIN_EXAMPLE
+Started POST "/comments.json" for 127.0.0.1 at 2014-08-22 21:55:18 -1000
+Processing by CommentsController#create as JSON
+  Parameters: {"comment"=>{"author"=>"JG", "text"=>"Another **comment**"}}
+   (0.1ms)  begin transaction
+  SQL (0.7ms)  INSERT INTO "comments" ("author", "created_at", "text", "updated_at") VALUES (?, ?, ?, ?)  [["author", "JG"], ["created_at", "2014-08-23 07:55:18.234473"], ["text", "Another **comment**"], ["updated_at", "2014-08-23 07:55:18.234473"]]
+   (3.0ms)  commit transaction
+  Rendered comments/show.json.jbuilder (0.7ms)
+Completed 201 Created in 22ms (Views: 5.0ms | ActiveRecord: 3.9ms)
+#+END_EXAMPLE
+
+** When Visiting Other Pages in the App
+If you go to the url =0.0.0.0:3000/comments= and look at browser console, you'll
+see an error due the page load script looking for a component of id =content=
+that doesn't exist. Let's fix that by checking that the DIV with id =content=
+exists before calling =React.renderComponent=.
+
+#+BEGIN_SRC javascript
+$(function() {
+  var $content = $("#content");
+  if ($content.length > 0) {
+    React.renderComponent(
+      <CommentBox url="comments.json" pollInterval={2000} />,
+      document.getElementById('content')
+    );
+  }
+})
+#+END_SRC
+
+** Deploying to Heroku
+It's necessary to make a couple changes to the Gemfile. Use =pg= in production
+and add the =rails_12factor= gem.
+
+#+BEGIN_SRC ruby
+gem 'sqlite3', group: :development
+gem 'pg', group: :production
+
+gem 'rails_12factor'
+#+END_SRC
+
+** Turbolinks
+If you're going to have other pages in the application, it's necessary to change
+when =React.renderComponent= is called, switching from document "ready" event to
+to the document "page:change" event. You can find more details at
+the [[https://github.com/rails/turbolinks][Turbolinks Gem repo]].
+
+#+BEGIN_SRC javascript
+$(document).on("page:change", function() {
+  var $content = $("#content");
+  if ($content.length > 0) {
+    React.renderComponent(
+      <CommentBox url="comments.json" pollInterval={2000} />,
+      document.getElementById('content')
+    );
+  }
+})
+#+END_SRC
+
+
+

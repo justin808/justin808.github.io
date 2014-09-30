@@ -1,0 +1,126 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Ruby on Rails: JavaScript with ES6 or CoffeeScript?"
+date: 2014-09-28 14:39:28 -0700
+comments: true
+categories: 
+keywords: 
+description: 
+published: false
+---
+#+END_HTML
+I've been a huge fan of [[http://coffeescript.org/][CoffeeScript]] for Rails development over the past several
+years. However there's a several reasons that I'm /heavily/ leaning toward using
+JavaScript with the ES6 transpiler, and abandoning CoffeeScript for new Rails
+work.
+
+* Reasons I'm Switching from CoffeeScript to JavaScript with ES6
+1. I want to use [[http://facebook.github.io/react/][React]]. While it's feasible to use [[http://facebook.github.io/react/docs/jsx-in-depth.html][JSX]] with Coffeescript, this
+   just adds another moving part to the toolchain. As part of using React, I'm
+   learning from examples and contributing to others' open source projects.
+2. I want to use [[http://eviltrout.com/2014/05/03/getting-started-with-es6.html][ES6 modules]], along with other ES6 features. The plan for
+   CoffeeScript in light of ES6 is uncertain, and existing CoffeeScript concepts
+   overlap in confusing ways with ES6, as shown by the quote from Yehuda below.
+3. When reviewing open source for sample front-end code, there's a ton of
+   JavaScript examples. CoffeeScript examples, on the other hand, are rare
+   except for Rails examples.
+4. Passing closures/functions around in JavaScript for the modern client-side
+   libraries is everywhere (see example below). While I love the clarity of
+   CoffeeScript for simple classes, with several levels of nesting, I'd rather
+   see the braces.
+5. I've spoken to friends at big companies like Facebook, and they're using ES6
+   syntax rather than CoffeeScript.
+6. Open source projects like [[http://www.discourse.org/][Discourse]] are using JavaScript rather than
+   CoffeeScript.
+7. The ES6 features look great. Try out the [[http://www.es6fiddle.net/][ES6 Fiddle]] and read Robin Ward's
+   article on [[http://eviltrout.com/2014/05/03/getting-started-with-es6.html][ES6 Modules for Discourse]].
+
+* Discourse.org discussion on use of JavaScript vs. CoffeeScript 
+I really like this discussion of [[https://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153][why Discourse.org switched to using JavaScript from CoffeeScript]].
+
+Here's my pick of the highlights:
+
+[[https://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153/11?u%3Djustin_gordon][To quote Tom Dale]]:
+#+begin_quote
+CoffeeScript jeopardizes the ability to stay up-to-date with the web platform.
+Parts of CoffeeScript require new syntax that is incompatible with features
+coming in ES6 and ES7. By using CoffeeScript, you are locking yourself into
+always using ES5. One of the principles of TC39, 1JS, means that if you author
+ES4 code today, it will guarantee to continue working in the future, and be easy
+to upgrade when new features start landing in browsers.
+#+end_quote
+
+[[https://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153/15?u%3Djustin_gordon][To quote Simonlmn]]:
+#+begin_quote
+I don't understand the problem here. Which parts of CoffeeScript require "new
+syntax" in JavaScript? Isn't the problem exactly the same if you were using
+"plain" JavaScript, that at some point in time, if some breaking change occurs
+in some future version of JavaScript, you would have to change your code?
+#+end_quote
+
+[[https://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153/19?u%3Djustin_gordon][To quote Yehuda Katz]]:
+#+begin_quote
+Actually, this problem could not occur in JavaScript, because ES6+ will always
+be backwards compatible with the current version of JavaScript. Further, the
+"1JS" principle means that you will be able to take existing code and opt into
+new features simply by using the new syntax (there will be no "use es6" pragma
+or version switch).
+
+The core difference is that ES6 is, by definition and by requirement, a strict
+superset of current JavaScript. By definition, there can be no new syntax that
+is incompatible with existing JavaScript.
+
+In contrast, how would CoffeeScript target the new for/of loops, when they
+already have for/of loops of their own? Sure, they could add new syntax, but it
+would be massively confusing for for/of to target the old semantics, and some
+other syntax to target ES6 for/of.
+
+Similarly, CoffeeScript classes and super have subtly different semantics than
+ES6 classes and super. If CoffeeScript started targeting the new semantics, they
+would break existing code. If they required a different keyword to target ES6
+class, it would, again, be very confusing.
+
+You could imagine an incompatible CoffeeScript 2 that targeted ES6 syntax, but
+existing CoffeeScript code would not work. Again, this cannot happen in future
+versions of JavaScript, because new JavaScript features are required not to
+break existing JavaScript code.
+
+It may be a bit difficult to wrap your mind around the difference, but I assure
+you, it's true.
+#+end_quote
+
+
+* Example of JavaScript vs. CoffeeScript when passing around functions
+Here's a [[https://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153/21?u%3Djustin_gordon][quote from Dave Stone]]:
+#+begin_quote
+Aside from the points that have already been discussed, I've noticed that
+writing Ember apps in CoffeeScript also just feels a little off. Several of the
+niceties of Ember, like computed properties, are expressed as extensions on the
+JS Function prototype:
+#+end_quote
+
+I think that Dave's example below clearly shows how JavaScript sometimes works better
+when functions are passed around heavily.
+** JavaScript
+#+BEGIN_SRC javascript
+MyApp.president = Ember.Object.create({
+    fullName: function() {
+      return this.get('firstName') + ' ' + this.get('lastName');
+    }.property('firstName', 'lastName')
+  });
+#+END_SRC
+
+** CoffeeScript
+#+BEGIN_SRC coffeescript
+MyApp.president = Ember.Object.create
+    fullName: (->
+     @get('firstName') + ' ' + @get('lastName')
+    ).property('firstName', 'lastName')
+#+END_SRC
+
+The CoffeeScript requires parentheses around the function definition. It's also
+very white-space sensitive, even outside of indentation.
+
+* Conclusion
+Overall, I'm betting on ES6 for my web client work for the next year!

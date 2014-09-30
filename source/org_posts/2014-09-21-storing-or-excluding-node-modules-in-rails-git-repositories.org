@@ -1,0 +1,71 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Storing or Excluding Node Modules in Rails Git Repositories"
+date: 2014-09-28 19:06:42 -0700
+comments: true
+categories: [webpack, npm]
+keywords: webpack, npm, git
+description: Should you store your node_modules in your git repository or configure git to ignore the node_modules directory.
+---
+#+END_HTML
+
+It was and probably still is fashionable in the node community to check the
+dependencies into one's git repository, and it may still be the case, per the
+following links. However, Rubyists use =bundler=, and I've never heard of
+checking gem dependencies into a Ruby project. So what do we do when we have
+Node dependencies in a Rails project?
+
+* Reasons to include node_modules in git
+1. Stack Overflow on [[http://stackoverflow.com/a/19416403/1009332][why you should check node_modules into git]] and *not* have
+   node_modules in your =.gitignore=.
+2. [[http://www.futurealoof.com/posts/nodemodules-in-git.html][Mikeal Rogers' post on this.]] Note, this post was from 2011. He says:
+
+   #+begin_quote
+   Why can’t I just use version locking to ensure that all deployments get the
+   same dependencies?
+
+   Version locking can only lock the version of a top level dependency. You lock
+   your version of express to a particular version and you deploy to a new machine
+   3 weeks later it’s going to resolve express’s dependencies again and it might
+   get a new version of Connect that introduces subtle differences that break your
+   app in super annoying and hard to debug ways because it only ever happens when
+   requests hit that machine. This is a nightmare, don’t do it.
+   #+end_quote
+
+   and concludes with:
+
+   #+begin_quote
+   All you people who added node_modules
+   to your gitignore, remove that shit, today, it’s an artifact of an era we’re
+   all too happy to leave behind. The era of global modules is dead."
+   #+end_quote
+
+   And so this was all true, but before node-shrinkwrap was released (see below)!
+3. The [[https://www.npmjs.org/doc/misc/npm-faq.html#Should-I-check-my-node_modules-folder-into-git][Node FAQ]] clearly states:  
+   1. Check node_modules into git for things you deploy, such as websites and
+      apps.
+   2. Use npm to manage dependencies in your dev environment, but not in your
+      deployment scripts.
+
+* Reasons not to include node_modules in git
+Including node_modules in your git repo greatly increases the potential file
+churn for files that your team did not create, thus making pull requests on
+github problematic due to large numbers of files with changes.
+
+One problem with =npm install= is that while your package.json file may be
+locking down your dependency versions, it does not lock down your dependencies'
+dependencies!
+
+Instead, one can use [[https://www.npmjs.org/doc/cli/npm-shrinkwrap.html][npm-shrinkwrap]] to lock down all the dependencies, per
+this answer for [[http://stackoverflow.com/questions/18128863/should-node-modules-folder-be-included-in-the-git-repository][Should “node-modules” folder be included in the git repository]].
+It's worth noting that supposedly Heroku will use npm-shrinkwrap.json, per [[http://stackoverflow.com/questions/11225809/heroku-does-not-respect-npm-shrinkwrap-json][this answer on Stack Overflow]]. 
+Probably the best documentation for this is in the [[https://www.npmjs.org/doc/cli/npm-install.html][npm-install man page]].
+
+* Conclusion
+Consequently, I'm going with the approach /*not*/ including node_modules in my
+git repository by:
+1. Using  [[https://www.npmjs.org/doc/cli/npm-shrinkwrap.html][npm-shrinkwrap]].
+2. Placing =node_modules= in my project specific =.gitignore=.
+
+I'll do this for my projects until I'm convinced of otherwise! 

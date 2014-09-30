@@ -1,0 +1,36 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "RubyMine and WebStorm Tips for JavaScript Development"
+date: 2014-09-28 19:08:22 -0700
+comments: true
+categories: 
+keywords: 
+description: 
+published: false
+---
+#+END_HTML
+
+Woo hoo! JSX
+
+There's 
+
+* Configuring JavaScript Libraries
+Configuring your JavaScript libraries referenced in your package.json file is
+extremely useful for getting syntax help within WebStorm or RubyMine. This
+enables the tool to find the source and documentation!
+{% img /images/2014-09-react-webpack-rails-tutorial/Libraries-preference.jpg %}
+* Configuring for ES 6, Harmony
+If you're using the ES6 transpiler, you definitely want to enable one of these
+settings. I'm guessing that they'll both be =ECMAScript 6= sometime in the near
+future.
+
+I'm going to be testing these options out shortly. Just placing here so as to
+bring attention to them.
+**** The JSX Harmony Support in WebStorm and RubyMine EAP
+{% img /images/2014-09-react-webpack-rails-tutorial/Jsx-harmony-preference.jpg %}
+**** Webstorm EAP Ecma 6 Support
+Ecma 6 Support
+{% img /images/2014-09-react-webpack-rails-tutorial/Ecma-6-preference.jpg %}
+
+Note, this is currently being developed: [[http://youtrack.jetbrains.com/issue/WEB-10136][WEB-10136 add support for JSX Syntax]].
