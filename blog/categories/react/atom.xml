@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: react | Rails on Maui]]></title>
+  <link href="http://www.railsonmaui.com//blog/categories/react/atom.xml" rel="self"/>
+  <link href="http://www.railsonmaui.com//"/>
+  <updated>2014-09-29T22:25:24-10:00</updated>
+  <id>http://www.railsonmaui.com//</id>
+  <author>
+    <name><![CDATA[Justin Gordon]]></name>
+    <email><![CDATA[justin@railsonmaui.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[React on Rails Tutorial]]></title>
+    <link href="http://www.railsonmaui.com//blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/"/>
+    <updated>2014-09-29T13:30:40-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial</id>
+    <content type="html"><![CDATA[<p>
+In response to a recent client request for a richer browser side UI experience,
+I took a fresh look at all the recent advances in JavaScript rich client
+frameworks. The <a href="http://facebook.github.io/react/">React library</a> stood out as unique, innovative, and impressive.
+</p>
+
+
+
+
+<p>
+The main reasons that I like React are:
+</p>
+
+
+<ol class="org-ol">
+<li>It&#8217;s a better abstraction than MVC!
+</li>
+<li>React keeps track of what needs to change in the DOM with its virtual DOM
+model.
+</li>
+<li>All the view rendering code can assume that nothing changes during the
+rendering process as components recursively call <code>render()</code>. This makes
+reasoning about the rendering code much simpler.
+</li>
+<li>The simpler conceptual model of always rendering the entire UI from a given state is
+akin to the server side rendering of HTML pages, that Rails programmers are
+more familiar with.
+</li>
+<li>The documentation is very good, and it&#8217;s got significant traction.
+</li>
+</ol>
+
+
+
+
+<p>
+Given that React is just about the <b>View</b> part of the client UI, or more
+specifically, view <b>components</b>, it seems especially suitable for integration
+into the Rails ecosystem to help build better rich JavaScript UIs. The <a href="http://facebook.github.io/react/">React website</a> 
+contains a <a href="http://facebook.github.io/react/docs/tutorial.html">simple tutorial</a> utilizing Node for the backend. Suppose you want to use Rails for the backend?
+</p>
+
+
+
+
+<p>
+This following instructions walk you through the steps to build the original
+simple tutorial with a Rails 4.2 backend utilizing the <a href="https://github.com/reactjs/react-rails">react-rails gem</a>. With the
+Rails scaffold generator, very little Rails coding is required. You can try the
+end result of the completed tutorial <a href="http://react-rails-tutorial.herokuapp.com/">on Heroku</a>, and the code <a href="https://github.com/justin808/react-rails-tutorial">on Github</a>.
+</p>
+
+
+
+
+<p>
+Since the original React <a href="http://facebook.github.io/react/docs/tutorial.html">tutorial</a> is excellent, I will not be rehashing any of
+it&#8217;s explanations of how React works. This tutorial purely focusing on
+converting that tutorial to utilize Rails.
+</p>
+
+
+
+
+<p>
+Besides carefully studying the original tutorial, I recommend:
+</p>
+
+
+
+
+<ol class="org-ol">
+<li>Watching these 2 videos for an introduction to React&#8217;s virtual DOM model.
+a. This video explains <a href="https://www.youtube.com/watch?v=x7cQ3mrcKaY">design philosophy of React and why MVC is not the right model for building UIs</a>.
+b. This video <a href="https://www.youtube.com/watch?v=-DX3vJiqxm4">compares ReactJs vs. Key Value Observation(EmberJs) and Dirty Checking (AngularJS)</a>.
+</li>
+<li>Play with the examples on the <a href="http://facebook.github.io/react/">React overview page</a>. Don&#8217;t just read the
+examples. You can play with the code right on that page!
+</li>
+<li>Read the <a href="http://facebook.github.io/react/docs/getting-started.html">docs</a>, which I found fairly interesting.
+</li>
+</ol>
+
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Useful React Links</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><a href="http://react-rails-tutorial.herokuapp.com/">Completed React-Rails tutorial Live on Heroku</a>: Tutorial Live on Heroku.
+</li>
+<li><a href="https://github.com/justin808/react-rails-tutorial">Rails 4.2, React, completed tutorial</a>: Github repo for completed tutorial.
+</li>
+<li><a href="http://facebook.github.io/react/">React: A Javascript Library For Building User Interfaces</a>: Main website for React.
+</li>
+<li><a href="http://facebook.github.io/react/docs/tutorial.html">React Tutorial</a>: The Node basis for this tutorial.
+</li>
+<li><a href="https://github.com/reactjs/react-tutorial">reactjs/react-tutorial</a>: Github repo for official Node based tutorial.
+</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Tutorial Step by Step</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Create a brand new Rails 4.2 Application</h3>
+<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
+<li>Install Ruby 2.1.2 or whichever recent Ruby you prefer. I use <a href="http://rvm.io/rvm/install">rvm</a>.
+</li>
+<li>Install Rails gem
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gem install rails --pre
+</span></code></pre></td></tr></table></div></figure>
+<p>
+NOTE: There is a bug if you RubyGems versions newer than 2.2.2. This detailed
+in this <a href="http://stackoverflow.com/a/25438597/1009332">question on Stack Overflow</a>. 
+</p>
+</li>
+<li>Create the Rails app
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rails new react-rails-tutorial
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li><code>cd react-rails-tutorial</code>
+</li>
+<li>Create <code>.ruby-version</code> and <code>.ruby-gemset</code> per your preferences inside
+   <code>react-rails-tutorial</code> directory.
+</li>
+<li>Run bundler
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle install
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Create new git repository
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git init .
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Add and commit all files: 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&quot;rails new react-rails-tutorial&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Create Base Rails App Scaffolding for Comment model</h3>
+<div class="outline-text-3" id="text-2-2">
+<ol class="org-ol">
+<li>Run generator. Be sure to use the exact names below to match the React tutorial.
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rails generate scaffold Comment author:string text:text
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Migrate the database
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake db:migrate
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Commit
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&quot;Ran rails generate scaffold Comment author:string text:text and rake db:migrate&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Create Page for App</h3>
+<div class="outline-text-3" id="text-2-3">
+<ol class="org-ol">
+<li>Run the controller generator
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rails generate controller Pages index
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Fix your <code>config/routes.rb</code> to go to the home page, by changing
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">get</span> <span class="s1">&#39;pages/index&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+to 
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">root</span> <span class="s1">&#39;pages#index&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Try Out the New Rails App</h3>
+<div class="outline-text-3" id="text-2-4">
+<ol class="org-ol">
+<li>Start the server
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">server</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Open your browser to <a href="http://0.0.0.0:3000">http://0.0.0.0:3000</a> and see the your blank home page.
+<img src="/images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/brand-new-root-page.jpg">
+</li>
+<li>Open your browser to <a href="http://0.0.0.0:3000/comments">http://0.0.0.0:3000/comments</a> and see the comments display.
+<img src="/images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/rails-comments-index-action.jpg">
+</li>
+<li>Add a comment. Click around. Neat!
+<img src="/images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/rails-comments-new-action.jpg">
+
+<p>
+<img src="/images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/rails-comments-show-action.jpg">
+</p>
+</li>
+
+<li>Test out the json API, automatically created by Rails:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl 0.0.0.0:3000/comments.json
+</span></code></pre></td></tr></table></div></figure>
+<p>
+and see
+</p>
+<pre class="example">
+[{"id":1,"author":"Justin","text":"My first comment.","url":"http://0.0.0.0:3000/comments/1.json"}]%
+</pre>
+</li>
+<li>View your routes
+<pre class="example">
+&gt; rake routes                                                                                                                                    ✹ ✭ [19:44:29]
+         Prefix Verb   URI Pattern                  Controller#Action
+           root GET    /                            pages#index
+       comments GET    /comments(.:format)          comments#index
+                POST   /comments(.:format)          comments#create
+    new_comment GET    /comments/new(.:format)      comments#new
+   edit_comment GET    /comments/:id/edit(.:format) comments#edit
+        comment GET    /comments/:id(.:format)      comments#show
+                PATCH  /comments/:id(.:format)      comments#update
+                PUT    /comments/:id(.:format)      comments#update
+                DELETE /comments/:id(.:format)      comments#destroy
+</pre>
+</li>
+<li>If all that worked, then commit your changes
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&quot;Ran rails generate scaffold Comment author:string text:text and rake db:migrate&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">React Tutorial Using Node</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+This is what we&#8217;ll be converting to Rails 4.2.
+</p>
+<ol class="org-ol">
+<li>Create a new branch, in case we want to test the same design with AngularJS
+or EmberJS:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git checkout -b <span class="s2">&quot;react&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Take a look at the <a href="http://facebook.github.io/react/docs/tutorial.html">React Tutorial</a> and the github repo: <a href="https://github.com/reactjs/react-tutorial">reactjs/react-tutorial</a>.
+</li>
+<li>Open up a new shell window. Pick a directory and then do
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone git@github.com:reactjs/react-tutorial.git
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>cd to the <code>react-tutorial.git</code> directory and open up the source code.
+</li>
+<li>Optionally run the tutorial example per the instructions on the <code>README.md</code>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">Adding React to Rails</h3>
+<div class="outline-text-3" id="text-2-6">
+<ol class="org-ol">
+<li>We&#8217;ll be using the <a href="https://github.com/reactjs/react-rails">reactjs/react-rails gem</a>. Plus we&#8217;ll need to include the
+<code>showdown</code> markdown parser, using the <a href="https://github.com/joshmcarthur/showdown-rails">showdown-rails gem</a>. Add these lines to
+your Gemfile and run <code>bundle</code>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;react-rails&#39;</span><span class="p">,</span> <span class="ss">github</span><span class="p">:</span> <span class="s1">&#39;reactjs/react-rails&#39;</span><span class="p">,</span> <span class="ss">branch</span><span class="p">:</span> <span class="s1">&#39;master&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;showdown-rails&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+Note, I&#8217;m using the tip of react-rails. Depending on when you try this
+tutorial, you may not wish to be using the tip, and don&#8217;t do that for a
+production application!
+</p>
+</li>
+<li>Per the gem instructions, let&#8217;s add the js assets below the <code>turbolinks</code>
+reference in <code>app/assets/javascripts/application.js</code>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//= require jquery</span>
+</span><span class='line'><span class="c1">//= require jquery_ujs</span>
+</span><span class='line'><span class="c1">//= require turbolinks</span>
+</span><span class='line'><span class="c1">//= require showdown</span>
+</span><span class='line'><span class="c1">//= require react</span>
+</span><span class='line'><span class="c1">//= require_tree .</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Once you verify that you can load <code>0.0.0.0:3000</code> in your browser, then commit
+the files to git:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git commit -am <span class="s2">&quot;Added react-rails and showdown-rails gems&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7">Move Tutorial Parts to Rails Application</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Now the fun starts. Let&#8217;s take the parts out of the node tutorial and put them
+into the Rails app. 
+</p>
+<ol class="org-ol">
+<li>Copy the necessary line from <code>react-tutorial/index.html</code> to replace the
+contents of <code>app/views/pages/index.html.erb</code>. You&#8217;ll just have one line there:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Now, the meat of the tutorial, the JS code. Copy the entire contents of
+   <code>react-tutorial/scripts/example.js</code> into
+   <code>app/assets/javascripts/comments.js.jsx</code> (Renamed from comments.js.coffee).
+</li>
+<li>Commit the added files, so we can see what we change from the original versions.
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git commit -am <span class="s2">&quot;index.html.erb and comments.js.jsx added&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Start the rails server (<code>rails s</code>). Visit <code>0.0.0.0:3000</code>. Nothing shows up!
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8">Tweak the Tutorial</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+In the example, the call to load <code>example.js</code> comes after the declaration of the
+DOM element with id &#8220;content&#8221;. So let&#8217;s run the <code>renderComponent</code> after the DOM
+loads. Wrap the <code>React.renderComponent</code> call at the bottom of <code>comments.js.jsx</code>
+like this:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">CommentBox</span> <span class="nx">url</span><span class="o">=</span><span class="s2">&quot;comments.json&quot;</span> <span class="nx">pollInterval</span><span class="o">=</span><span class="p">{</span><span class="mi">2000</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">);</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+Let&#8217;s commit that diff: =git commit -am &#8220;React component loads&#8221;=
+</p>
+
+<p>
+Then copy the css from <code>react-tutorial/css/base.css</code> over to
+<code>app/assets/stylesheets/comments.css.scsss</code>
+</p>
+
+<p>
+The styling in is not quite right.
+<img src="/images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/copying-tutorial-styling.jpg">
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9">Add bootstrap-sass Gem</h3>
+<div class="outline-text-3" id="text-2-9">
+<ol class="org-ol">
+<li>Add the gems
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;bootstrap-sass&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;autoprefixer-rails&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Run <code>bundle install</code>   
+</li>
+<li>Rename <code>app/assets/stylesheets/application.css</code> to <code>application.css.scss</code> and
+change it to the following:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="s2">&quot;bootstrap-sprockets&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="k">@import</span> <span class="s2">&quot;bootstrap&quot;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Optionally, add this line to <code>app/assets/javascripts/application.js</code>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//= require bootstrap-sprockets</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Restart the application. Notice that there is no padding to the left edge of
+the browser window. That&#8217;s an easy fix. Let&#8217;s put the content div inside a
+container, by changing <code>app/views/pages/index.html.erb</code> to this:
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&lt;div class=&quot;container&quot;&gt;</span>
+</span><span class='line'><span class="x">  &lt;div id=&quot;content&quot;&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="x">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Let&#8217;s spruce up the data entry part. Take a look at the <a href="http://getbootstrap.com/css/#forms">Boostrap docs for CSS
+Forms</a>. You&#8217;ll have to refer to the diffs on github for this change. Or you
+can take creative license here!
+<img src="/images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/with-bootstrap-sass.jpg">
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10">Adding Records Fails</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+The first issue is that we&#8217;re not submitting the JSON correctly to add new
+records.
+</p>
+
+<pre class="example">
+Started POST "/comments.json" for 127.0.0.1 at 2014-08-22 21:48:55 -1000
+Processing by CommentsController#create as JSON
+  Parameters: {"author"=&gt;"JG", "text"=&gt;"Another **comment**"}
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  app/controllers/comments_controller.rb:72:in `comment_params'
+  app/controllers/comments_controller.rb:27:in `create'
+</pre>
+
+<p>
+If you look at this method in <code>comments_controller.rb</code>, you can see the issue:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">comment_params</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:comment</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:author</span><span class="p">,</span> <span class="ss">:text</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+The fix to this is to wrap the params in &#8220;comment&#8221;, by changing this line in
+<code>comments.jsx.js</code>, in function <code>handleCommentSubmit</code>.
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">data</span><span class="o">:</span> <span class="nx">comment</span><span class="p">,</span>
+</span></code></pre></td></tr></table></div></figure>
+<p>
+to
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">data</span><span class="o">:</span> <span class="p">{</span> <span class="nx">comment</span><span class="o">:</span> <span class="nx">comment</span> <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Here&#8217;s a enlarged view of that diff from RubyMine.
+<img src="/images/2014-08-22-react-on-rails-4-dot-2-simple-tutorial/wrap-comment-json.jpg">
+</p>
+
+<p>
+After that change, we can observe this in the console when adding a new record:
+</p>
+
+<pre class="example">
+Started POST "/comments.json" for 127.0.0.1 at 2014-08-22 21:55:18 -1000
+Processing by CommentsController#create as JSON
+  Parameters: {"comment"=&gt;{"author"=&gt;"JG", "text"=&gt;"Another **comment**"}}
+   (0.1ms)  begin transaction
+  SQL (0.7ms)  INSERT INTO "comments" ("author", "created_at", "text", "updated_at") VALUES (?, ?, ?, ?)  [["author", "JG"], ["created_at", "2014-08-23 07:55:18.234473"], ["text", "Another **comment**"], ["updated_at", "2014-08-23 07:55:18.234473"]]
+   (3.0ms)  commit transaction
+  Rendered comments/show.json.jbuilder (0.7ms)
+Completed 201 Created in 22ms (Views: 5.0ms | ActiveRecord: 3.9ms)
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11">When Visiting Other Pages in the App</h3>
+<div class="outline-text-3" id="text-2-11">
+<p>
+If you go to the url <code>0.0.0.0:3000/comments</code> and look at browser console, you&#8217;ll
+see an error due the page load script looking for a component of id <code>content</code>
+that doesn&#8217;t exist. Let&#8217;s fix that by checking that the DIV with id <code>content</code>
+exists before calling <code>React.renderComponent</code>.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$content</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#content&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$content</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">CommentBox</span> <span class="nx">url</span><span class="o">=</span><span class="s2">&quot;comments.json&quot;</span> <span class="nx">pollInterval</span><span class="o">=</span><span class="p">{</span><span class="mi">2000</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12">Deploying to Heroku</h3>
+<div class="outline-text-3" id="text-2-12">
+<p>
+It&#8217;s necessary to make a couple changes to the Gemfile. Use <code>pg</code> in production
+and add the <code>rails_12factor</code> gem.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;sqlite3&#39;</span><span class="p">,</span> <span class="ss">group</span><span class="p">:</span> <span class="ss">:development</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;pg&#39;</span><span class="p">,</span> <span class="ss">group</span><span class="p">:</span> <span class="ss">:production</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;rails_12factor&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13">Turbolinks</h3>
+<div class="outline-text-3" id="text-2-13">
+<p>
+If you&#8217;re going to have other pages in the application, it&#8217;s necessary to change
+when <code>React.renderComponent</code> is called, switching from document &#8220;ready&#8221; event to
+to the document &#8220;page:change&#8221; event. You can find more details at
+the <a href="https://github.com/rails/turbolinks">Turbolinks Gem repo</a>.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;page:change&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$content</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#content&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$content</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">React</span><span class="p">.</span><span class="nx">renderComponent</span><span class="p">(</span>
+</span><span class='line'>      <span class="o">&lt;</span><span class="nx">CommentBox</span> <span class="nx">url</span><span class="o">=</span><span class="s2">&quot;comments.json&quot;</span> <span class="nx">pollInterval</span><span class="o">=</span><span class="p">{</span><span class="mi">2000</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
+]]></content>
+  </entry>
+  
+</feed>
