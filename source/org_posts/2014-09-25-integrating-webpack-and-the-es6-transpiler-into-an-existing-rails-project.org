@@ -8,7 +8,7 @@ categories: [webpack, client-ui]
 keywords: 
 description: This article shows you how to integrate webpack into the Rails ecosystem, allowing the use of npm modules and tools, including the ES6 and JSX transpilers.
 published: true
-canonical: https://hackhands.com/tips-strategies-upgrading-ruby-gems/ 
+canonical: https://hackhands.com/fast-rich-client-rails-development-webpack-es6-transpiler/
 ---
 #+END_HTML
 
