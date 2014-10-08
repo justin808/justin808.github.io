@@ -1,0 +1,137 @@
+---
+layout: post
+title: "Adding a JS LIbrary to a Ruby on Rails Project When Using Webpack"
+date: 2014-10-08 11:49:26 -1000
+comments: true
+categories: 
+keywords: 
+description: 
+---
+
+<p>
+What's it like to add a JavaScript library when Webpack is integrated into your
+Ruby on Rails environment, per my article: <a href="http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">Fast Rich Client Rails Development With Webpack and the ES6 Transpiler</a>?
+</p>
+
+<p>
+It's super easy! But what if you want some of your the legacy JavaScript or
+CoffeeScript code in your Rails app to access the Webpack added library?
+</p>
+
+<p>
+Here's a real world example. Suppose you want your JavaScript code to round
+numbers to decimal places. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round()</a> only rounds decimal numbers to the
+nearest integer. A code sample on that page is provided to show you how round
+numbers off to some number of decimal places.
+</p>
+
+<p>
+A quick Google for JavaScript libraries finds <a href="https://www.npmjs.org/package/compute-roundn">npm package compute-roundn</a>. A look
+at the <a href="https://github.com/compute-io/roundn">github repository for compute-io/roundn</a> reveals clean code and it has
+some tests.
+</p>
+
+<p>
+So should you copy some cribbed JavaScript code example or maybe copy-paste the
+source of some code into your <code>/vendor/assets/javascripts</code> directory? What's the
+disadvantage of doing this?
+</p>
+
+<ol class="org-ol">
+<li>It becomes your problem to maintain this code. Imagine if you had to maintain
+all the code behind the Ruby Gems in your Rails project?
+</li>
+<li>If you copy the code, are you going to create some tests?
+</li>
+<li>What if this code depends on other JavaScript libraries? Or what if you later
+want a library that depends on this library?
+</li>
+</ol>
+
+<p>
+There is a better way, by using npm packages. And yes, there are alternatives
+for Rails using Bower, but many more packages are available via npm than Bower.
+There is also the <a href="https://github.com/browserify-rails/browserify-rails">browserify-rails</a> gem, and the steps below mostly apply to this
+gem. 
+</p>
+
+<p>
+Assuming that you've got your Rails codebase set up per my article <a href="http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">article on Webpack in Rails</a>,
+as shown in this sample Github repo: <a href="https://github.com/justin808/react-webpack-rails-tutorial">justin808/react-webpack-rails-tutorial</a>,
+you'll need to follow these steps. 
+</p>
+
+<ol class="org-ol">
+<li>Google for the <b>npm package</b> that you wish to use. I typically Google "npm
+&lt;some keywords&gt;". Then take a look at the code and see how popular it is.
+You'll want to more carefully examine the code of less popular node packages,
+as with less popularity, there's a great likelihood of unreported and unfixed
+bugs.
+</li>
+<li>In my case, I found the package for "compute-roundn", so I ran this command:
+```bash
+npm install compute-roundn &#x2013;save
+```
+That adds this entry to your <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/package.json">/package.json</a>
+```json
+{ "dependencies": {
+     "compute-roundn": "^1.0.0",
+```
+</li>
+<li>Run the command to create <code>/npm-shrinkwrap.json</code>
+```bash
+npm-shrinkwrap
+```
+It's <b>critical that you don't forget</b> to update this file, because if you
+forget, your Heroku build will fail, as the Node buildpack will not install
+your newly added package!
+</li>
+<li>If you needed this code for your module based Webpack code, then you just
+need to add in the require line at the top of relevant JavaScript file, like
+this (as show in the <a href="https://www.npmjs.org/package/compute-roundn">npm readme for roundn</a>):
+```javascript
+var roundn = require( 'compute-roundn' );
+```
+Yipee. That's it!
+</li>
+<li>If you need this library for your existing Rails JavaScript or CoffeeScript
+code, then you'll need to globally export the library. Assuming that the
+module code based code is not needing this library as well, then you'll want
+to edit your file called <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/scripts/rails_only.jsx">/webpack/scripts/rails_only.jsx</a> and add this
+line:
+```javascript
+window.roundn = require("compute-roundn");
+```
+That file gets loaded by <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js">webpack.rails.config.js</a> and not by running the
+Webpack Dev server.
+</li>
+<li>There is an alternative approach of modifying the webpack config file, if you
+were also referencing this library for some other Webpack bundled code. This,
+you would change <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js">webpack.rails.config.js</a> file with these lines:
+```javascript exports.module.loaders = [{ test:
+require.resolve("compute-roundn"), loader: "expose?roundn" }];
+```
+Note, that doesn't work unless you have other code loaded by Webpack that
+"requires" this package.
+</li>
+<li>When you deploy to Heroku, you see this:
+<pre class="example">
+-----&gt; Installing dependencies
+       compute-roundn@1.0.0 node_modules/compute-roundn
+</pre>
+<p>
+If you have problems with your Heroku deploy failing to install dependencies,
+check out this article in my forum: <a href="http://forum.railsonmaui.com/t/notes-on-deploying-to-heroku-with-gsl-and-node/89">Notes on Deploying to Heroku with GSL and Node</a>.
+</p>
+</li>
+</ol>
+
+<p>
+You maybe wondering, "why not just use the <a href="https://github.com/browserify-rails/browserify-rails">browserify-rails</a> gem, which is
+slightly simpler in terms of setup. A good reason would be that you want to use
+JSX and ES6 transpilers with your JavaScript code. That was my reason.
+</p>
+
+<p>
+That's it! I hope you agree is way better than copy-pasting dependencies.
+</p>

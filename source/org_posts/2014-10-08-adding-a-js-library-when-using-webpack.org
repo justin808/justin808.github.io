@@ -1,0 +1,105 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Adding a JS LIbrary to a Ruby on Rails Project When Using Webpack"
+date: 2014-10-08 11:49:26 -1000
+comments: true
+categories: 
+keywords: 
+description: 
+---
+#+END_HTML
+
+What's it like to add a JavaScript library when Webpack is integrated into your
+Ruby on Rails environment, per my article: [[http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/][Fast Rich Client Rails Development With Webpack and the ES6 Transpiler]]?
+
+It's super easy! But what if you want some of your the legacy JavaScript or
+CoffeeScript code in your Rails app to access the Webpack added library?
+
+Here's a real world example. Suppose you want your JavaScript code to round
+numbers to decimal places. [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round][Math.round()]] only rounds decimal numbers to the
+nearest integer. A code sample on that page is provided to show you how round
+numbers off to some number of decimal places.
+
+A quick Google for JavaScript libraries finds [[https://www.npmjs.org/package/compute-roundn][npm package compute-roundn]]. A look
+at the [[https://github.com/compute-io/roundn][github repository for compute-io/roundn]] reveals clean code and it has
+some tests.
+
+So should you copy some cribbed JavaScript code example or maybe copy-paste the
+source of some code into your =/vendor/assets/javascripts= directory? What's the
+disadvantage of doing this?
+
+1. It becomes your problem to maintain this code. Imagine if you had to maintain
+   all the code behind the Ruby Gems in your Rails project?
+2. If you copy the code, are you going to create some tests?
+3. What if this code depends on other JavaScript libraries? Or what if you later
+   want a library that depends on this library?
+
+There is a better way, by using npm packages. And yes, there are alternatives
+for Rails using Bower, but many more packages are available via npm than Bower.
+There is also the [[https://github.com/browserify-rails/browserify-rails][browserify-rails]] gem, and the steps below mostly apply to this
+gem. 
+
+Assuming that you've got your Rails codebase set up per my article [[http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/][article on Webpack in Rails]],
+as shown in this sample Github repo: [[https://github.com/justin808/react-webpack-rails-tutorial][justin808/react-webpack-rails-tutorial]],
+you'll need to follow these steps. 
+
+1. Google for the *npm package* that you wish to use. I typically Google "npm
+   <some keywords>". Then take a look at the code and see how popular it is.
+   You'll want to more carefully examine the code of less popular node packages,
+   as with less popularity, there's a great likelihood of unreported and unfixed
+   bugs.
+2. In my case, I found the package for "compute-roundn", so I ran this command:
+   ```bash
+   npm install compute-roundn --save
+   ```
+   That adds this entry to your [[https://github.com/justin808/react-webpack-rails-tutorial/blob/master/package.json][/package.json]]
+   ```json
+   { "dependencies": {
+        "compute-roundn": "^1.0.0",
+   ```
+3. Run the command to create =/npm-shrinkwrap.json=
+   ```bash
+   npm-shrinkwrap
+   ```
+   It's *critical that you don't forget* to update this file, because if you
+   forget, your Heroku build will fail, as the Node buildpack will not install
+   your newly added package!
+4. If you needed this code for your module based Webpack code, then you just
+   need to add in the require line at the top of relevant JavaScript file, like
+   this (as show in the [[https://www.npmjs.org/package/compute-roundn][npm readme for roundn]]):
+   ```javascript
+   var roundn = require( 'compute-roundn' );
+   ```
+   Yipee. That's it!
+5. If you need this library for your existing Rails JavaScript or CoffeeScript
+   code, then you'll need to globally export the library. Assuming that the
+   module code based code is not needing this library as well, then you'll want
+   to edit your file called [[https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/scripts/rails_only.jsx][/webpack/scripts/rails_only.jsx]] and add this
+   line:
+   ```javascript
+   window.roundn = require("compute-roundn");
+   ```
+   That file gets loaded by [[https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js][webpack.rails.config.js]] and not by running the
+   Webpack Dev server.
+6. There is an alternative approach of modifying the webpack config file, if you
+   were also referencing this library for some other Webpack bundled code. This,
+   you would change [[https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js][webpack.rails.config.js]] file with these lines:
+   ```javascript exports.module.loaders = [{ test:
+   require.resolve("compute-roundn"), loader: "expose?roundn" }];
+   ```
+   Note, that doesn't work unless you have other code loaded by Webpack that
+   "requires" this package.
+7. When you deploy to Heroku, you see this:
+   #+BEGIN_EXAMPLE
+   -----> Installing dependencies
+          compute-roundn@1.0.0 node_modules/compute-roundn 
+   #+END_EXAMPLE
+   If you have problems with your Heroku deploy failing to install dependencies,
+   check out this article in my forum: [[http://forum.railsonmaui.com/t/notes-on-deploying-to-heroku-with-gsl-and-node/89][Notes on Deploying to Heroku with GSL and Node]].
+
+You maybe wondering, "why not just use the [[https://github.com/browserify-rails/browserify-rails][browserify-rails]] gem, which is
+slightly simpler in terms of setup. A good reason would be that you want to use
+JSX and ES6 transpilers with your JavaScript code. That was my reason.
+
+That's it! I hope you agree is way better than copy-pasting dependencies.
