@@ -9,7 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="There has to be a better way to incorporate the JavaScript ecosystem into Rails. Have you: Wondered if there's a better way to utilize modern &hellip;">
+  <meta name="description" content="What's it like to add a JavaScript library when Webpack is integrated into your
+Ruby on Rails environment, per my article: Fast Rich Client Rails &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +86,174 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/08/adding-a-js-library-when-using-webpack/">Adding a JS LIbrary to a Ruby on Rails Project When Using Webpack</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-08T11:49:26-10:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:49 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+What&#8217;s it like to add a JavaScript library when Webpack is integrated into your
+Ruby on Rails environment, per my article: <a href="http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">Fast Rich Client Rails Development With Webpack and the ES6 Transpiler</a>?
+</p>
+
+<p>
+It&#8217;s super easy! But what if you want some of your the legacy JavaScript or
+CoffeeScript code in your Rails app to access the Webpack added library?
+</p>
+
+<p>
+Here&#8217;s a real world example. Suppose you want your JavaScript code to round
+numbers to decimal places. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round()</a> only rounds decimal numbers to the
+nearest integer. A code sample on that page is provided to show you how round
+numbers off to some number of decimal places.
+</p>
+
+<p>
+A quick Google for JavaScript libraries finds <a href="https://www.npmjs.org/package/compute-roundn">npm package compute-roundn</a>. A look
+at the <a href="https://github.com/compute-io/roundn">github repository for compute-io/roundn</a> reveals clean code and it has
+some tests.
+</p>
+
+<p>
+So should you copy some cribbed JavaScript code example or maybe copy-paste the
+source of some code into your <code>/vendor/assets/javascripts</code> directory? What&#8217;s the
+disadvantage of doing this?
+</p>
+
+<ol class="org-ol">
+<li>It becomes your problem to maintain this code. Imagine if you had to maintain
+all the code behind the Ruby Gems in your Rails project?
+</li>
+<li>If you copy the code, are you going to create some tests?
+</li>
+<li>What if this code depends on other JavaScript libraries? Or what if you later
+want a library that depends on this library?
+</li>
+</ol>
+
+<p>
+There is a better way, by using npm packages. And yes, there are alternatives
+for Rails using Bower, but many more packages are available via npm than Bower.
+There is also the <a href="https://github.com/browserify-rails/browserify-rails">browserify-rails</a> gem, and the steps below mostly apply to this
+gem. 
+</p>
+
+<p>
+Assuming that you&#8217;ve got your Rails codebase set up per my article <a href="http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">article on Webpack in Rails</a>,
+as shown in this sample Github repo: <a href="https://github.com/justin808/react-webpack-rails-tutorial">justin808/react-webpack-rails-tutorial</a>,
+you&#8217;ll need to follow these steps. 
+</p>
+
+<ol class="org-ol">
+<li>Google for the <b>npm package</b> that you wish to use. I typically Google &#8220;npm
+&lt;some keywords&gt;&#8221;. Then take a look at the code and see how popular it is.
+You&#8217;ll want to more carefully examine the code of less popular node packages,
+as with less popularity, there&#8217;s a great likelihood of unreported and unfixed
+bugs.
+</li>
+<li>In my case, I found the package for &#8220;compute-roundn&#8221;, so I ran this command:
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install compute-roundn <span class="p">&amp;</span><span class="c">#x2013;save</span>
+</span></code></pre></td></tr></table></div></figure>
+That adds this entry to your <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/package.json">/package.json</a>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span> <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>     <span class="nt">&quot;compute-roundn&quot;</span><span class="p">:</span> <span class="s2">&quot;^1.0.0&quot;</span><span class="p">,</span>
+</span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Run the command to create <code>/npm-shrinkwrap.json</code>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm-shrinkwrap
+</span></code></pre></td></tr></table></div></figure>
+It&#8217;s <b>critical that you don&#8217;t forget</b> to update this file, because if you
+forget, your Heroku build will fail, as the Node buildpack will not install
+your newly added package!
+</li>
+<li>If you needed this code for your module based Webpack code, then you just
+need to add in the require line at the top of relevant JavaScript file, like
+this (as show in the <a href="https://www.npmjs.org/package/compute-roundn">npm readme for roundn</a>):
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">roundn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span> <span class="s1">&#39;compute-roundn&#39;</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+Yipee. That&#8217;s it!
+</li>
+<li>If you need this library for your existing Rails JavaScript or CoffeeScript
+code, then you&#8217;ll need to globally export the library. Assuming that the
+module code based code is not needing this library as well, then you&#8217;ll want
+to edit your file called <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/scripts/rails_only.jsx">/webpack/scripts/rails_only.jsx</a> and add this
+line:
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">roundn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;compute-roundn&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+That file gets loaded by <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js">webpack.rails.config.js</a> and not by running the
+Webpack Dev server.
+</li>
+<li>There is an alternative approach of modifying the webpack config file, if you
+were also referencing this library for some other Webpack bundled code. This,
+you would change <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js">webpack.rails.config.js</a> file with these lines:
+<figure class='code'><figcaption><span>exports.module.loaders = [{ test:</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">require</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;compute-roundn&quot;</span><span class="p">),</span> <span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;expose?roundn&quot;</span> <span class="p">}];</span>
+</span></code></pre></td></tr></table></div></figure>
+Note, that doesn&#8217;t work unless you have other code loaded by Webpack that
+&#8220;requires&#8221; this package.
+</li>
+<li>When you deploy to Heroku, you see this:
+<pre class="example">
+-----&gt; Installing dependencies
+       compute-roundn@1.0.0 node_modules/compute-roundn
+</pre>
+<p>
+If you have problems with your Heroku deploy failing to install dependencies,
+check out this article in my forum: <a href="http://forum.railsonmaui.com/t/notes-on-deploying-to-heroku-with-gsl-and-node/89">Notes on Deploying to Heroku with GSL and Node</a>.
+</p>
+</li>
+</ol>
+
+<p>
+You maybe wondering, &#8220;why not just use the <a href="https://github.com/browserify-rails/browserify-rails">browserify-rails</a> gem, which is
+slightly simpler in terms of setup. A good reason would be that you want to use
+JSX and ES6 transpilers with your JavaScript code. That was my reason.
+</p>
+
+<p>
+That&#8217;s it! I hope you agree is way better than copy-pasting dependencies.
+</p>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/08/adding-a-js-library-when-using-webpack/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -4916,77 +5085,6 @@ of the test run! Here&#8217;s a <a href="http://stackoverflow.com/questions/1392
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/">Capybara PhantomJs Poltergeist Rspec Tips</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-03-09T18:50:19-10:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>6:50 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-I&#8217;ve added a page of <a href="http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html">tips on integration (aka feature spec) testing using Capybara, PhantomJs,
-Poltergeist, and Rspec</a>.
-</p>
-
-<p>
-Some of the tips include:
-</p>
-<ol class="org-ol">
-<li>Favorite test configuration (gems, spec_helper, etc.) for feature specs.
-</li>
-<li>How to troubleshoot and debug feature specs
-</li>
-<li>My setup for using Zeus with parallel-tests, including a rake task for
-setting up the databases.
-</li>
-<li>Tricky testing:
-<ol class="org-ol">
-<li>Auto-complete dropdowns (some handy utility methods).
-</li>
-<li>Hover effects (easy now!)
-</li>
-<li>AJAX
-</li>
-</ol>
-</li>
-</ol>
-
-<p>
-I&#8217;ll try to keep this page of tips updated as my test configuration evolves.
-</p>
-
-<div id="discourse-comments"></div>
-<script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/";
-
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-      d.src = discourseUrl + 'javascripts/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -5042,6 +5140,10 @@ I&#8217;ll try to keep this page of tips updated as my test configuration evolve
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/08/adding-a-js-library-when-using-webpack/">Adding a JS LIbrary to a Ruby on Rails Project When Using Webpack</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">Fast Rich Client Rails Development With Webpack and the ES6 Transpiler</a>
       </li>
     
@@ -5063,10 +5165,6 @@ I&#8217;ll try to keep this page of tips updated as my test configuration evolve
     
       <li class="post">
         <a href="/blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/">Pry, Ruby, Array#zip, CSV, and the Hash[] Constructor</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">Rails Gem Upgrading Tips and Strategies</a>
       </li>
     
   </ul>

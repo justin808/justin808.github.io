@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Getting Started With Discourse - Rails on Maui</title>
+  <title>Adding a JS LIbrary to a Ruby on Rails Project When Using Webpack - Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="A quick guide to installing discourse to see a production quality rails project on github.">
-  <meta name="keywords" content="emberjs discourse.org">
+  <meta name="description" content="What's it like to add a JavaScript library when Webpack is integrated into your
+Ruby on Rails environment, per my article: Fast Rich Client Rails &hellip;">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +20,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/05/25/getting-started-with-discourse">
+  <link rel="canonical" href="http://www.railsonmaui.com/blog/2014/10/08/adding-a-js-library-when-using-webpack">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -88,7 +89,7 @@
   
   <header>
     
-      <h1 class="entry-title">Getting Started With Discourse</h1>
+      <h1 class="entry-title">Adding a JS LIbrary to a Ruby on Rails Project When Using Webpack</h1>
     
     
       <p class="meta">
@@ -97,7 +98,7 @@
 
 
 
-<time class='entry-date' datetime='2013-05-25T13:24:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:24 pm</span></time>
+<time class='entry-date' datetime='2014-10-08T11:49:26-10:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:49 am</span></time>
         
       </p>
     
@@ -105,159 +106,138 @@
 
 
 <div class="entry-content"><p>
-Looking for a great open source example of a <i>production quality</i>
-rails, emberjs, and single-page-application project? Check out <a href="https://github.com/discourse/discourse">Discourse</a>.
-</p>
-<blockquote>
-<p>
-Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
-</p>
-</blockquote>
-<p>
-Here&#8217;s a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for
-Discourse to use JavaScript or CoffeeScript?</a>
-</p>
-
-<!-- more -->
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Production Quality, not a Tutorial</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Note, this is an example of a <i>production quality</i> application, rather than a
-useful tutorial sample application. What&#8217;s the difference? The Discourse
-codebase is the real deal, including all the gory details, such as performance
-optimizations. If you want a superb sample rails application, check out <a href="https://github.com/railstutorial/sample_app_2nd_ed">Rails
-Tutorial, 2nd Ediition</a> and read the book <a href="http://ruby.railstutorial.org/ruby-on-rails-tutorial-book">Ruby on Rails Tutorial, Learn Web
-Development with Rails, Michael Hartl</a>. There&#8217;s even an interesting discussion on
-the Discourse blog about <a href="http://blog.discourse.org/2013/04/discourse-as-your-first-rails-app/">Discourse as Your First Rails App</a>, which it shouldn&#8217;t be.
+What&#8217;s it like to add a JavaScript library when Webpack is integrated into your
+Ruby on Rails environment, per my article: <a href="http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">Fast Rich Client Rails Development With Webpack and the ES6 Transpiler</a>?
 </p>
 
 <p>
-That being said, the Discourse code base is probably as good as or, in many
-cases, better than what you&#8217;ll find in many software-as-a-service companies.
-It&#8217;s no secret that public scrutiny of popular open source code really raises
-the bar on quality. Consequently, if you&#8217;re a serious and experienced Rails
-developer, it&#8217;s worth your time to install the source of discourse and explore
-and run it. I just did that and I&#8217;m impressed.
+It&#8217;s super easy! But what if you want some of your the legacy JavaScript or
+CoffeeScript code in your Rails app to access the Webpack added library?
 </p>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Why Explore Discourse&#8217;s Source?</h2>
-<div class="outline-text-2" id="text-2">
+
+<p>
+Here&#8217;s a real world example. Suppose you want your JavaScript code to round
+numbers to decimal places. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round()</a> only rounds decimal numbers to the
+nearest integer. A code sample on that page is provided to show you how round
+numbers off to some number of decimal places.
+</p>
+
+<p>
+A quick Google for JavaScript libraries finds <a href="https://www.npmjs.org/package/compute-roundn">npm package compute-roundn</a>. A look
+at the <a href="https://github.com/compute-io/roundn">github repository for compute-io/roundn</a> reveals clean code and it has
+some tests.
+</p>
+
+<p>
+So should you copy some cribbed JavaScript code example or maybe copy-paste the
+source of some code into your <code>/vendor/assets/javascripts</code> directory? What&#8217;s the
+disadvantage of doing this?
+</p>
+
 <ol class="org-ol">
-<li>Example of EmberJs Single-Page-Application.
+<li>It becomes your problem to maintain this code. Imagine if you had to maintain
+all the code behind the Ruby Gems in your Rails project?
 </li>
-<li>Design decisions are discussed at <a href="http://meta.discourse.org/">meta.discourse.org</a>, such as <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better
-for Discourse to use JavaScript or CoffeeScript?</a>
+<li>If you copy the code, are you going to create some tests?
 </li>
-<li>Solid project, from code quality to organization.
-</li>
-<li>Co-Founded by Jeff Atwood, who created <a href="http://stackoverflow.com/">Stack Overflow</a>. Jeff wrote a article
-introducing the discourse project: <a href="http://www.codinghorror.com/blog/2013/02/civilized-discourse-construction-kit.html">Civilized Discourse Construction Kit</a>.
+<li>What if this code depends on other JavaScript libraries? Or what if you later
+want a library that depends on this library?
 </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Setup Tips</h2>
-<div class="outline-text-2" id="text-3">
+
 <p>
-Basically, there&#8217;s a few dependencies to install, some of which you probably already
-have installed, such as Postgres and Redis. The main gotcha I faced was to make
-sure that you run the postgres instructions for <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">creating the development
-database</a>, rather than using the rake task. Then you can install the seed data:
+There is a better way, by using npm packages. And yes, there are alternatives
+for Rails using Bower, but many more packages are available via npm than Bower.
+There is also the <a href="https://github.com/browserify-rails/browserify-rails">browserify-rails</a> gem, and the steps below mostly apply to this
+gem. 
 </p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>psql -d discourse_development &lt; pg_dumps/development-image.sql
+
+<p>
+Assuming that you&#8217;ve got your Rails codebase set up per my article <a href="http://www.railsonmaui.com/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">article on Webpack in Rails</a>,
+as shown in this sample Github repo: <a href="https://github.com/justin808/react-webpack-rails-tutorial">justin808/react-webpack-rails-tutorial</a>,
+you&#8217;ll need to follow these steps. 
+</p>
+
+<ol class="org-ol">
+<li>Google for the <b>npm package</b> that you wish to use. I typically Google &#8220;npm
+&lt;some keywords&gt;&#8221;. Then take a look at the code and see how popular it is.
+You&#8217;ll want to more carefully examine the code of less popular node packages,
+as with less popularity, there&#8217;s a great likelihood of unreported and unfixed
+bugs.
+</li>
+<li>In my case, I found the package for &#8220;compute-roundn&#8221;, so I ran this command:
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm install compute-roundn <span class="p">&amp;</span><span class="c">#x2013;save</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-The rake task to do <code>rake db:seed_fu</code> does not install the sample data, but
-rather some tiny bit of &#8220;seed&#8221; data (like post action types).
-</p>
-
-<p>
-Once you have the test data installed, then run these commands.
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+That adds this entry to your <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/package.json">/package.json</a>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle install <span class="c"># Yes, this DOES take a while. No, it&#39;s not really cloning all of rubygems :-)</span>
-</span><span class='line'>rake db:migrate
-</span><span class='line'>rake db:test:prepare
-</span><span class='line'>rake db:seed_fu
-</span><span class='line'>bundle <span class="nb">exec </span>rspec <span class="c"># All specs should pass</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span> <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>     <span class="nt">&quot;compute-roundn&quot;</span><span class="p">:</span> <span class="s2">&quot;^1.0.0&quot;</span><span class="p">,</span>
 </span></code></pre></td></tr></table></div></figure>
+</li>
+<li>Run the command to create <code>/npm-shrinkwrap.json</code>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>npm-shrinkwrap
+</span></code></pre></td></tr></table></div></figure>
+It&#8217;s <b>critical that you don&#8217;t forget</b> to update this file, because if you
+forget, your Heroku build will fail, as the Node buildpack will not install
+your newly added package!
+</li>
+<li>If you needed this code for your module based Webpack code, then you just
+need to add in the require line at the top of relevant JavaScript file, like
+this (as show in the <a href="https://www.npmjs.org/package/compute-roundn">npm readme for roundn</a>):
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">roundn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span> <span class="s1">&#39;compute-roundn&#39;</span> <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+Yipee. That&#8217;s it!
+</li>
+<li>If you need this library for your existing Rails JavaScript or CoffeeScript
+code, then you&#8217;ll need to globally export the library. Assuming that the
+module code based code is not needing this library as well, then you&#8217;ll want
+to edit your file called <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/scripts/rails_only.jsx">/webpack/scripts/rails_only.jsx</a> and add this
+line:
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">roundn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;compute-roundn&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+That file gets loaded by <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js">webpack.rails.config.js</a> and not by running the
+Webpack Dev server.
+</li>
+<li>There is an alternative approach of modifying the webpack config file, if you
+were also referencing this library for some other Webpack bundled code. This,
+you would change <a href="https://github.com/justin808/react-webpack-rails-tutorial/blob/master/webpack/webpack.rails.config.js">webpack.rails.config.js</a> file with these lines:
+<figure class='code'><figcaption><span>exports.module.loaders = [{ test:</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">require</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;compute-roundn&quot;</span><span class="p">),</span> <span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;expose?roundn&quot;</span> <span class="p">}];</span>
+</span></code></pre></td></tr></table></div></figure>
+Note, that doesn&#8217;t work unless you have other code loaded by Webpack that
+&#8220;requires&#8221; this package.
+</li>
+<li>When you deploy to Heroku, you see this:
+<pre class="example">
+-----&gt; Installing dependencies
+       compute-roundn@1.0.0 node_modules/compute-roundn
+</pre>
+<p>
+If you have problems with your Heroku deploy failing to install dependencies,
+check out this article in my forum: <a href="http://forum.railsonmaui.com/t/notes-on-deploying-to-heroku-with-gsl-and-node/89">Notes on Deploying to Heroku with GSL and Node</a>.
+</p>
+</li>
+</ol>
 
 <p>
-You should have installed <a href="http://mailcatcher.me/">MailCatcher</a>, so that you don&#8217;t have to configure any
-smtp server. Then you just have to visit <a href="http://localhost:1080">http://localhost:1080</a> to see the mail
-messages that Discourse sends.
+You maybe wondering, &#8220;why not just use the <a href="https://github.com/browserify-rails/browserify-rails">browserify-rails</a> gem, which is
+slightly simpler in terms of setup. A good reason would be that you want to use
+JSX and ES6 transpilers with your JavaScript code. That was my reason.
 </p>
 
 <p>
-Then to run the Discourse application (assuming postgres and redis are running)
-open up two tabs. Cd each to the disource directory. 
+That&#8217;s it! I hope you agree is way better than copy-pasting dependencies.
 </p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>rails server
-</span></code></pre></td></tr></table></div></figure>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>sidekiq
-</span></code></pre></td></tr></table></div></figure>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>bundle <span class="nb">exec </span>clockwork config/clock.rb
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-Or, install foreman (<code>gem install foreman</code>) and run (runs the <code>Procfile</code>).
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PORT</span><span class="o">=</span>3000
-</span><span class='line'><span class="nb">export </span><span class="nv">RAILS_ENV</span><span class="o">=</span>development
-</span><span class='line'>foreman start
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-If you got this working, you&#8217;ll see this:
-<img src="/images/2013-05-25-getting-started-wtih-discourse/discourse-installed.png">
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Links</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="https://github.com/discourse/discourse">Discourse on Github</a>
-</li>
-<li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPER-ADVANCED.md">Discourse Advanced Developer Guide</a>
-</li>
-<li><a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPMENT-OSX-NATIVE.md">Developing under OS X Without Vagrant</a> 
-</li>
-<li>Overview: <a href="http://www.discourse.org/">www.discourse.org</a>
-</li>
-<li>Discourse discussing itself: <a href="http://meta.discourse.org/">meta.discourse.org</a>
-</li>
-</ul>
-</div>
-</div>
 
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.railsonmaui.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/25/getting-started-with-discourse/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/08/adding-a-js-library-when-using-webpack/";
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
@@ -280,21 +260,15 @@ If you got this working, you&#8217;ll see this:
 
 
 
-<time class='entry-date' datetime='2013-05-25T13:24:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:24 pm</span></time>
+<time class='entry-date' datetime='2014-10-08T11:49:26-10:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:49 am</span></time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/emberjs/'>emberjs</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/05/25/getting-started-with-discourse/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/05/25/getting-started-with-discourse/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2014/10/08/adding-a-js-library-when-using-webpack/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2014/10/08/adding-a-js-library-when-using-webpack/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -307,10 +281,8 @@ If you got this working, you&#8217;ll see this:
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/05/11/testing-error-handling/" title="Previous Post: Testing Error Handling">&laquo; Testing Error Handling</a>
+        <a class="basic-alignment left" href="/blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/" title="Previous Post: Fast Rich Client Rails Development with Webpack and the ES6 Transpiler">&laquo; Fast Rich Client Rails Development with Webpack and the ES6 Transpiler</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/05/26/ember-dot-js-hello-world/" title="Next Post: Ember.js Hello World">Ember.js Hello World &raquo;</a>
       
     </p>
   </footer>
