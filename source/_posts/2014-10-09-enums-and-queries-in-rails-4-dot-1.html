@@ -1,0 +1,238 @@
+---
+layout: post
+title: "Enums and Queries in Rails 4.1, and Understanding Ruby"
+date: 2014-10-09 19:23:02 -1000
+comments: true
+categories: Rails
+keywords: 
+description: 
+---
+
+<p>
+Sometimes when you get puzzled by what Rails is doing, you really just to
+understand what Ruby is doing.
+</p>
+
+<p>
+For example, given this simple code to get an attribute value:
+</p>
+
+{% codeblock lang:ruby %}
+# return value of some_attribute and foobar
+def some_attribute_foobar
+  "#{some_attribute} and foobar"
+end
+{% endcodeblock %}
+
+<p>
+Beginners are often stumped by why this code does not set an attribute value:
+</p>
+{% codeblock lang:ruby %}
+# change the value of some_attribute to foobar
+def change_some_attribute
+  some_attribute = "foobar"
+  save!
+end
+{% endcodeblock %}
+
+<p>
+What's going on?
+</p>
+
+<p>
+In the first method, <code>some_attribute</code> is actually a method call which gets the
+attribute value of the record. This works in Rails ActiveRecord due to the Ruby
+feature of <a href="http://www.ruby-doc.org/core-2.1.3/BasicObject.html">method_missing</a> which allows some code to run when a method is called
+that does not exist.
+</p>
+
+<p>
+In the second method, a local variable called some_attribute is getting
+assigned. There is no call to method_missing, as this is a variable assignment!
+</p>
+
+<p>
+The correct code should have been:
+</p>
+{% codeblock lang:ruby %}
+# change the value of some_attribute to foobar
+def change_some_attribute
+  self.some_attribute = "foobar"
+  save!
+end
+{% endcodeblock %}
+
+<p>
+In this case, we're calling the method <code>some_attribute=</code> on the model instance,
+and we get the expected result of assigning an attribute value.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Enums</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Enums are a place a lot of Ruby magic happens! It's critical to understand Ruby
+well in order to understand how to use enums effectively. Let's suppose we have
+this simple example, copied over from the <a href="http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html">Rails docs</a>:
+</p>
+
+{% codeblock lang:ruby %}
+class Conversation < ActiveRecord::Base
+  enum status: [ :active, :archived ]
+end
+
+# conversation.update! status: 0
+conversation.active!
+conversation.active? # => true
+conversation.status  # => "active"
+
+# conversation.update! status: 1
+conversation.archived!
+conversation.archived? # => true
+conversation.status    # => "archived"
+
+# conversation.update! status: 1
+conversation.status = "archived"
+
+# conversation.update! status: nil
+conversation.status = nil
+conversation.status.nil? # => true
+conversation.status      # => nil
+{% endcodeblock %}
+<p>
+So what's going on in terms of Ruby meta-programming?
+</p>
+
+<p>
+For all the enum values declared for <code>Conversation</code>, methods are created in the
+following forms. Let's use the model Conversation, column "status", and the enum "active" for this explanation:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">method</th>
+<th scope="col" class="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">self.status</td>
+<td class="left">Returns enum string value (not symbol)</td>
+</tr>
+
+<tr>
+<td class="left">self.status=(enum_string_value)</td>
+<td class="left">Set the status to enum. You can use either a string or symbol. If you use an invalid value, you get an ArgumentError</td>
+</tr>
+
+<tr>
+<td class="left">self.active!</td>
+<td class="left">Sets the status enum to "active". This syntax is a bit confusing in that you don't see the attribute you're assigning! ArgumentError if invalid enum.</td>
+</tr>
+
+<tr>
+<td class="left">self.active?</td>
+<td class="left">equivalent to (self.status <code>= "active"), and *not* equivalent to (self.status =</code> :active) due to symbols not being equal to strings!</td>
+</tr>
+
+<tr>
+<td class="left">Conversation.active</td>
+<td class="left">equivalent to Conversation.where(status: "active"). Again, it's a bit confusing not to see the column being queried.</td>
+</tr>
+
+<tr>
+<td class="left">Conversation.statuses</td>
+<td class="left">Mapping of symbols to ordinal values <code>{ "active" =&gt; 0, "archived" =&gt; 1 }</code>, of type HashWithIndifferentAccess, meaning you can use symbols or strings</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+As the docs say, it's a good idea to use the default value from the database declaration,  like:
+</p>
+{% codeblock lang:ruby %}
+create_table :conversations do |t|
+  t.column :status, :integer, default: 0, null: false
+end
+{% endcodeblock %}
+<p>
+It's a good practice is to let the first declared status be the default <i>and</i> to
+not allow null values. I've found that when I've allowed null values in enums,
+it makes all my code more complicated. This is an example of the <a href="http://robots.thoughtbot.com/rails-refactoring-example-introduce-null-object">Null Object Pattern</a>.
+</p>
+
+<p>
+The docs say:
+&gt; In rare circumstances you might need to access the mapping directly. The mappings are exposed through a class method with the pluralized attribute name:
+</p>
+
+<p>
+This is not rare! This is critical!
+</p>
+
+<p>
+For example, suppose you want to query where the status is not "archived":
+</p>
+
+<p>
+You might be tempted to think that Rails will be smart enough to figure out that 
+</p>
+{% codeblock lang:ruby %}
+Conversation.where("status <> ?", "archived")
+{% endcodeblock %}
+
+<p>
+Rails is not smart enough to know that the ? is for status and that is an enum.
+So you have to use this syntax:
+</p>
+{% codeblock lang:ruby %}
+Conversation.where("status <> ?", Conversation.statuses[:archived])
+{% endcodeblock %}
+
+<p>
+You might be tempted to think that this would work:
+</p>
+{% codeblock lang:ruby %}
+Conversation.where.not(status: :archived)
+{% endcodeblock %}
+<p>
+That throws an <code>ArgumentError</code>. Rails wants an integer and not a symbol, and symbol does
+not define <code>to_i</code>.
+</p>
+
+<p>
+What's worse is this one:
+</p>
+{% codeblock lang:ruby %}
+Conversation.where.not(status: "archived")
+{% endcodeblock %}
+
+<p>
+The problem is that String defines a <code>to_i</code>, so "archived".to_i gets converted
+to zero. <b>In fact, all your enums will get converted to zero!</b> And if you use
+the value of the enum attribute, rather than String, well, you're using a String!
+</p>
+
+{% codeblock lang:ruby %}
+Conversation.where.not(status: my_conversation.status)
+{% endcodeblock %}
+
+<p>
+You'd think that Rails would be clever enough to see that the key maps to an
+enum and then check if the right assigned value is a String, and then it would
+<b>not</b> call <code>to_i</code> on the String!
+</p>
+
+<p>
+In response to this issue, I submitted this github issue:
+<a href="https://github.com/rails/rails/issues/17226">Rails where query should see value is an enum and convert a string #17226</a>
+</p>
+</div>
+</div>

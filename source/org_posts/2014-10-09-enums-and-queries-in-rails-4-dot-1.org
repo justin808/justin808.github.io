@@ -1,0 +1,154 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Enums and Queries in Rails 4.1, and Understanding Ruby"
+date: 2014-10-09 19:23:02 -1000
+comments: true
+categories: Rails
+keywords: 
+description: 
+---
+#+END_HTML
+
+Sometimes when you get puzzled by what Rails is doing, you really just to
+understand what Ruby is doing.
+
+For example, given this simple code to get an attribute value:
+
+#+BEGIN_SRC ruby
+  # return value of some_attribute and foobar
+  def some_attribute_foobar
+    "#{some_attribute} and foobar"
+  end
+#+END_SRC
+
+Beginners are often stumped by why this code does not set an attribute value:
+#+BEGIN_SRC ruby
+  # change the value of some_attribute to foobar
+  def change_some_attribute
+    some_attribute = "foobar"
+    save!
+  end
+#+END_SRC
+
+What's going on?
+
+In the first method, =some_attribute= is actually a method call which gets the
+attribute value of the record. This works in Rails ActiveRecord due to the Ruby
+feature of [[http://www.ruby-doc.org/core-2.1.3/BasicObject.html][method_missing]] which allows some code to run when a method is called
+that does not exist.
+
+In the second method, a local variable called some_attribute is getting
+assigned. There is no call to method_missing, as this is a variable assignment!
+
+The correct code should have been:
+#+BEGIN_SRC ruby
+# change the value of some_attribute to foobar
+def change_some_attribute
+  self.some_attribute = "foobar"
+  save!
+end
+#+END_SRC
+
+In this case, we're calling the method =some_attribute== on the model instance,
+and we get the expected result of assigning an attribute value.
+
+* Enums 
+
+Enums are a place a lot of Ruby magic happens! It's critical to understand Ruby
+well in order to understand how to use enums effectively. Let's suppose we have
+this simple example, copied over from the [[http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html][Rails docs]]:
+
+#+BEGIN_SRC ruby
+class Conversation < ActiveRecord::Base
+  enum status: [ :active, :archived ]
+end
+
+# conversation.update! status: 0
+conversation.active!
+conversation.active? # => true
+conversation.status  # => "active"
+
+# conversation.update! status: 1
+conversation.archived!
+conversation.archived? # => true
+conversation.status    # => "archived"
+
+# conversation.update! status: 1
+conversation.status = "archived"
+
+# conversation.update! status: nil
+conversation.status = nil
+conversation.status.nil? # => true
+conversation.status      # => nil
+#+END_SRC
+So what's going on in terms of Ruby meta-programming?
+
+For all the enum values declared for =Conversation=, methods are created in the
+following forms. Let's use the model Conversation, column "status", and the enum "active" for this explanation:
+|---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| method                          | description                                                                                                                                           |
+|---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| self.status                     | Returns enum string value (not symbol)                                                                                                                |
+| self.status=(enum_string_value) | Set the status to enum. You can use either a string or symbol. If you use an invalid value, you get an ArgumentError                                  |
+| self.active!                    | Sets the status enum to "active". This syntax is a bit confusing in that you don't see the attribute you're assigning! ArgumentError if invalid enum. |
+| self.active?                    | equivalent to (self.status == "active"), and *not* equivalent to (self.status == :active) due to symbols not being equal to strings!                  |
+| Conversation.active             | equivalent to Conversation.where(status: "active"). Again, it's a bit confusing not to see the column being queried.                                  |
+| Conversation.statuses           | Mapping of symbols to ordinal values ={ "active" => 0, "archived" => 1 }=, of type HashWithIndifferentAccess, meaning you can use symbols or strings  |
+|---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+As the docs say, it's a good idea to use the default value from the database declaration,  like:
+#+BEGIN_SRC ruby
+create_table :conversations do |t|
+  t.column :status, :integer, default: 0, null: false
+end
+#+END_SRC
+It's a good practice is to let the first declared status be the default /and/ to
+not allow null values. I've found that when I've allowed null values in enums,
+it makes all my code more complicated. This is an example of the [[http://robots.thoughtbot.com/rails-refactoring-example-introduce-null-object][Null Object Pattern]].
+
+The docs say:
+> In rare circumstances you might need to access the mapping directly. The mappings are exposed through a class method with the pluralized attribute name:
+
+This is not rare! This is critical!
+
+For example, suppose you want to query where the status is not "archived":
+
+You might be tempted to think that Rails will be smart enough to figure out that 
+#+BEGIN_SRC ruby
+Conversation.where("status <> ?", "archived")
+#+END_SRC
+
+Rails is not smart enough to know that the ? is for status and that is an enum.
+So you have to use this syntax:
+#+BEGIN_SRC ruby
+Conversation.where("status <> ?", Conversation.statuses[:archived])
+#+END_SRC
+
+You might be tempted to think that this would work:
+#+BEGIN_SRC ruby
+Conversation.where.not(status: :archived)
+#+END_SRC
+That throws an =ArgumentError=. Rails wants an integer and not a symbol, and symbol does
+not define =to_i=.
+
+What's worse is this one:
+#+BEGIN_SRC ruby
+Conversation.where.not(status: "archived")
+#+END_SRC
+
+The problem is that String defines a =to_i=, so "archived".to_i gets converted
+to zero. *In fact, all your enums will get converted to zero!* And if you use
+the value of the enum attribute, rather than String, well, you're using a String!
+
+#+BEGIN_SRC ruby
+Conversation.where.not(status: my_conversation.status)
+#+END_SRC
+
+You'd think that Rails would be clever enough to see that the key maps to an
+enum and then check if the right assigned value is a String, and then it would
+*not* call =to_i= on the String!
+
+In response to this issue, I submitted this github issue:
+[[https://github.com/rails/rails/issues/17226][Rails where query should see value is an enum and convert a string #17226]]
+
