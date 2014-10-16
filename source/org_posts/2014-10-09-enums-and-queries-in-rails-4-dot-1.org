@@ -26,6 +26,7 @@ Beginners are often stumped by why this code does not set an attribute value:
 #+BEGIN_SRC ruby
   # change the value of some_attribute to foobar
   def change_some_attribute
+    # why doesn't the next line set the some_attribute value to "foobar"?
     some_attribute = "foobar"
     save!
   end
@@ -55,9 +56,10 @@ and we get the expected result of assigning an attribute value.
 
 * Enums 
 
-Enums are a place a lot of Ruby magic happens! It's critical to understand Ruby
-well in order to understand how to use enums effectively. Let's suppose we have
-this simple example, copied over from the [[http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html][Rails docs]]:
+Enums, introduced in Rails 4.1, are a place a lot of Ruby magic happens! It's
+critical to understand Ruby well in order to understand how to use enums
+effectively. Let's suppose we have this simple example, copied over from the
+[[http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html][Rails docs]]:
 
 #+BEGIN_SRC ruby
 class Conversation < ActiveRecord::Base
@@ -85,17 +87,19 @@ conversation.status      # => nil
 So what's going on in terms of Ruby meta-programming?
 
 For all the enum values declared for =Conversation=, methods are created in the
-following forms. Let's use the model Conversation, column "status", and the enum "active" for this explanation:
-|---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| method                          | description                                                                                                                                           |
-|---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| self.status                     | Returns enum string value (not symbol)                                                                                                                |
-| self.status=(enum_string_value) | Set the status to enum. You can use either a string or symbol. If you use an invalid value, you get an ArgumentError                                  |
-| self.active!                    | Sets the status enum to "active". This syntax is a bit confusing in that you don't see the attribute you're assigning! ArgumentError if invalid enum. |
-| self.active?                    | equivalent to (self.status == "active"), and *not* equivalent to (self.status == :active) due to symbols not being equal to strings!                  |
-| Conversation.active             | equivalent to Conversation.where(status: "active"). Again, it's a bit confusing not to see the column being queried.                                  |
-| Conversation.statuses           | Mapping of symbols to ordinal values ={ "active" => 0, "archived" => 1 }=, of type HashWithIndifferentAccess, meaning you can use symbols or strings  |
-|---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------|
+following forms. Let's use the model Conversation, column "status", and the enum "active" for this exampl:
+|----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| method                                             | description                                                                                                                                                                                                     |
+|----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| =self.status=                                      | Returns enum *string* value (not symbol, and not *integer* db value)                                                                                                                                            |
+| =self.status=<enum_string_value or integer_value>= | Set the status to corresponding enum integer value using either a string, symbol, or integer. If you use an invalid value, you get an ArgumentError. String/symbol is converted to corresponding integer value. |
+| =self.active!=                                     | Sets the status enum to "active". This syntax is a bit confusing in that you don't see the attribute you're assigning! ArgumentError if invalid enum.                                                           |
+| =self.active?=                                     | equivalent to (=self.status == "active"=), and *not* equivalent to (=self.status == :active=) due to symbols not being equal to strings!                                                                    |
+| =Conversation.active=                              | equivalent to =Conversation.where(status: "active")=. Again, it's a bit confusing not to see the column being queried.                                                                                          |
+| =Conversation.statuses=                            | Mapping of symbols to ordinal values ={ "active" \=> 0, "archived" \=> 1 }=, of type =HashWithIndifferentAccess=, meaning you can use symbols or strings                                                        |
+|----------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+** Default Values for Enums
 
 As the docs say, it's a good idea to use the default value from the database declaration,  like:
 #+BEGIN_SRC ruby
@@ -103,14 +107,26 @@ create_table :conversations do |t|
   t.column :status, :integer, default: 0, null: false
 end
 #+END_SRC
-It's a good practice is to let the first declared status be the default /and/ to
-not allow null values. I've found that when I've allowed null values in enums,
-it makes all my code more complicated. This is an example of the [[http://robots.thoughtbot.com/rails-refactoring-example-introduce-null-object][Null Object Pattern]].
+More specifically, consider using the first declared status (enum db value zero)
+be the default /and/ to not allow null values. I've found that when I've allowed
+null values in enums, it makes all my code more complicated. This is an example
+of the [[http://robots.thoughtbot.com/rails-refactoring-example-introduce-null-object][Null Object Pattern]]. Nulls in your data and checking for these in your
+code will make your life more difficult! Instead, have an enum value for "I
+don't know" if that really is a possibility, and make that first value, which is
+an index of zero, and you can set that as the database column default.
+
+** Queries on Enums
 
 The docs say:
-> In rare circumstances you might need to access the mapping directly. The mappings are exposed through a class method with the pluralized attribute name:
+#+begin_quote
+In rare circumstances you might need to access the mapping directly. The mappings are exposed through a class method with the pluralized attribute name
+#+end_quote
 
-This is not rare! This is critical!
+#+BEGIN_SRC ruby
+Conversation.statuses # => { "active" => 0, "archived" => 1 }
+#+END_SRC
+
+*This is not rare! This is critical!*
 
 For example, suppose you want to query where the status is not "archived":
 
@@ -137,18 +153,261 @@ What's worse is this one:
 Conversation.where.not(status: "archived")
 #+END_SRC
 
-The problem is that String defines a =to_i=, so "archived".to_i gets converted
-to zero. *In fact, all your enums will get converted to zero!* And if you use
-the value of the enum attribute, rather than String, well, you're using a String!
+The problem is that ActiveRecord sees that the enum column is of type integer
+and calls =#to_i= on the value, so =archived.to_i= *gets converted to zero*. In
+fact, *all your enums will get converted to zero!* And if you use the value of
+the enum attribute on an ActiveRecord instance (say a Conversation object),
+then you're using a string value!
+
+If you're curious what the Rails source is, then take a look here: [[https://github.com/rails/rails/blob/master/activerecord/lib/active_record/type/integer.rb][ActiveRecord::Type::Integer]].
+
+Here's a guaranteed to be broken bit of code:
 
 #+BEGIN_SRC ruby
+# my_conversation.status is a String!
 Conversation.where.not(status: my_conversation.status)
 #+END_SRC
 
 You'd think that Rails would be clever enough to see that the key maps to an
-enum and then check if the right assigned value is a String, and then it would
-*not* call =to_i= on the String!
+enum and then check if the comparison value is a String, and then it would
+*not* call =to_i= on the String! Instead, we are effectively running this code:
 
+#+BEGIN_SRC ruby
+Conversation.where.not(status: 0)
+#+END_SRC
+
+An acceptable alternative to the last code example would be:
+#+BEGIN_SRC ruby
+Conversation.where.not(Conersation.statuses[my_conversation.status])
+#+END_SRC
+
+If you left out the =not=, you could also do:
+#+BEGIN_SRC ruby
+Conversation.send(my_conversation.status)
+#+END_SRC
+
+However, I really would like to simply do these, /all of which *DO NOT* work/.:
+#+BEGIN_SRC ruby
+Conversation.where(status: my_conversation.status)
+Conversation.where(status: :archived)
+Conversation.where(status: "archived")
+#+END_SRC
+
+** Pluck vs Map with Enums
+Here's another subtle issue with enums.
+
+Should these two lines of code give the same result or a different result:
+
+#+BEGIN_SRC ruby
+statuses_with_map = Conversation.select(:status).where.not(status: nil).distinct.map(&:status)
+statuses_with_pluck = Conversation.distinct.where.not(status: nil).pluck(:status)
+#+END_SRC
+
+It's worth experimenting with this in the [[http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/][Pry console]]!
+
+In the first case, with =map=, you get back an Array with 2 strings: =["active",
+"archived"]=. In the second case, with =pluck=, you get back an Array with 2
+integers: =[0, 1]=.
+
+What's going on here?
+
+In the code where =map= calls the =status= method on each =Conversation= record,
+the =status= method converts the database integer value into the corresponding
+String value!
+
+In the other code that uses =:pluck=, you get back the raw database value. It's
+arguable whether or not Rails should intelligently transform this value into the
+string equivalent, since that is what is done in other uses of ActiveRecord.
+Changing this would be problematic, as there could be code that depends on
+getting back the numerical value.
+
+** =find_or_initialize_by=, oh my!!!
+
+Let's suppose we have this persisted in the database:
+
+#+BEGIN_EXAMPLE
+Conversation {
+  :id => 18,
+  :user => 25            
+  :status => "archived" (1 in database)
+}
+#+END_EXAMPLE
+
+And then we do a =find_or_initialize_by=: 
+
+#+BEGIN_EXAMPLE
+[47] (pry) main: 0> conversation = Conversation.find_or_initialize_by(user: 25, status: "archived")
+  Conversation Load (4.6ms)  SELECT  "conversations".* FROM "conversations"
+    WHERE "conversations"."user_id" = 25
+       AND "conversations"."status" = 0 LIMIT 1
+#<Conversation:> {
+         :id => nil,
+    :user_id => 25,
+     :status => "archived"
+}
+#+END_EXAMPLE
+
+We got =nil= for =:id=, meaning that we're creating a new record. Wouldn't you
+expect to find the existing record? Well, maybe not given the way that
+=ActiveRecord.where= works, per the above discussion.
+
+Next, the status on the new record is created with "archived", which is value 1.
+Hmmm....If you look closely above, the query uses
+#+BEGIN_EXAMPLE
+AND "conversations"."status" = 0
+#+END_EXAMPLE
+
+Let's look at another example:
+
+#+BEGIN_EXAMPLE
+Conversation {
+  :id => 19,
+  :user => 26            
+  :status => "active" (0 in database)
+}
+#+END_EXAMPLE
+
+And then we do a =find_or_initialize_by=: 
+
+#+BEGIN_EXAMPLE
+[47] (pry) main: 0> conversation = Conversation.find_or_initialize_by(user: 26, status: "active")
+  Conversation Load (4.6ms)  SELECT  "conversations".* FROM "conversations"
+    WHERE "conversations"."user_id" = 26
+      AND "conversations"."status" = 0 LIMIT 1
+#<Conversation:> {
+         :id => 19,
+    :user_id => 26,
+     :status => "active"
+}
+#+END_EXAMPLE
+
+Wow! Is this a source of subtle bugs and some serious yak shaving?
+
+Note, the above applies equally to =ActiveRecord.find_or_create_by=.
+
+It turns out that the Rails methods that allow creation of a record via a Hash
+of attributes will convert the enum strings to the proper integer values, but
+this is not case when querying!
+
+** Rails Default Accessors For Setting Attributes
+
+You may find it useful to know which Rails methods call the "Default Accessor"
+versus just going to the database directly. That makes all the difference in
+terms of whether or not you can/should use the string values for enums.
+
+The key thing is that that "Uses Default Accessor" means that *string enums get converted to the correct database integer values.*
+
+| Method                   | Uses Default Accessor (converts string enums to integers!) |
+|--------------------------+------------------------------------------------------------|
+| =attribute==             | Yes                                                        |
+| =write_attribute=        | No                                                         |
+| =update_attribute=       | Yes                                                        |
+| =attributes==            | Yes                                                        |
+| =update=                 | Yes                                                        |
+| =update_column=          | No                                                         |
+| =update_columns=         | No                                                         |
+| =Conversation::update=   | Yes                                                        |
+| =Conversation::update_all= | No                                                         |
+
+For more information on this topic, see
+1. [[http://www.davidverhasselt.com/set-attributes-in-activerecord/][Different Ways to Set Attributes in ActiveRecord]] by [[https://twitter.com/DavidVerhasselt][@DavidVerhasselt]].
+2. [[http://api.rubyonrails.org/classes/ActiveRecord/Base.html][Official API of ActiveRecord::Base]]
+3. [[http://api.rubyonrails.org/files/activerecord/README_rdoc.html][Official Readme of Active Record – Object-relational mapping put on rails]].
+
+While these don't mention Rails enums, it's *critical* to understand that enums
+create default accessors that do the mapping to and from Strings.
+
+So when you call these methods, the *default accessors* are used:
+#+BEGIN_SRC ruby
+conversation.status = "archived"
+conversation.status = 1
+puts conversation.status # prints "archived"
+#+END_SRC
+
+So keep in mind when those default accessors are used per the above table.
+
+** Deep Dive: Enum Source
+
+If you look at the Rails [[https://github.com/rails/rails/blob/877ea784e4cd0d539bdfbd15839ae3d28169b156/activerecord/lib/active_record/enum.rb#L82][source code for ActiveRecord::Enum]], you can see this at
+line 91, for the setter of the enum (I added some comments):
+
+#+BEGIN_SRC ruby
+  _enum_methods_module.module_eval do
+    # def status=(value) self[:status] = statuses[value] end
+    define_method("#{name}=") { |value|
+      if enum_values.has_key?(value) || value.blank?
+        # set the db value to the integer value for the enum
+        self[name] = enum_values[value]
+      elsif enum_values.has_value?(value) # values contains the integer
+        self[name] = value
+      else
+        # enum_values did not have the key or value passed
+        raise ArgumentError, "'#{value}' is not a valid #{name}"
+      end
+    }
+#+END_SRC
+
+From this definition, you see that both of these work:
+#+BEGIN_SRC ruby
+conversation.status = "active"
+conversation.status = 0
+#+END_SRC
+
+
+Here's the definition for the getter, which I've edited a bit for illustrative
+purposes:
+#+BEGIN_SRC ruby
+  # def status() statuses.key self[:status] end
+  define_method(name) do
+    db_value = self[name] # such as 0 or 1
+    enum_values.key(db_value) # the key value, like "archived" for db_value 1
+  end
+#+END_SRC
+
+
+** Recommendations to the Rails Core Team
 In response to this issue, I submitted this github issue:
 [[https://github.com/rails/rails/issues/17226][Rails where query should see value is an enum and convert a string #17226]]
+1. @Bounga and @rafaelfranca on Github suggest that we can't automatically
+   convert enum string values in queries. I think that is true for converting
+   cases of a =?= or a named param, but I suspect that a quick map lookup to see
+   that the attribute is an enum, and a string is passed, and then converting
+   the string value to an integer is the right thing to do for 2 reasons:
+   1) This is the sort of "magic" that I expect from Rails.
+   2) Existing methods =find_or_initialize_by= and =find_or_create_by= will
+      result in obscure bugs when string params are passed for enums.
+   However, it's worth considering if all default accessor methods (setters)
+   should be consistently be called for purposes of passing values in a map to
+   such methods. I would venture that Rails enums are some Rails provided magic,
+   and thus they should have a special case. If this shouldn't go into Rails,
+   then possibly a gem extension could provide a method like
+   =Model.where_with_enum= which would convert a String into the proper
+   numerical value for the enum. I'm not a huge fan of the generated Model
+   scopes for enums, as *I like to see what database field is being queried
+   against.*
+2. Aside from putting automatic conversion of the enum hash attributes, I
+   recommend we change the automatic conversion of Strings to integers to use
+   the stricter =Integer(some_string)= rather than =some_string.to_i=. The
+   difference is considerable, =String#to_i= is extremely permissive. Try it in
+   a console. With the =to_i= method, any number characters at the beginning of
+   the String are converted to an Integer. If the first character is not a
+   number, *0 is returned*, which is almost certainly a default enum value.
+   Thus, this simple change would make it *extremely* clear when an enum string
+   is improperly used. I would guess that this would make some existing code
+   crash, but in all circumstances for a valid reason. As to whether this change
+   should be done for all integer attributes is a different discussion, as that
+   could have backwards compatibility ramifications.
 
+   This change would require changing the tests in [[https://github.com/rails/rails/blob/master/activerecord/test/cases/types_test.rb][ActiveRecord::ConnectionAdapters::TypesTest]]. For example, this test:
+   #+BEGIN_SRC ruby
+   assert_equal 0, type.type_cast_from_user('bad') 
+   #+END_SRC
+   would change to throw an exception, unless the cases are restricted to using
+   Integer.new() for enums. It is inconsistent that some type conversions throw
+   exceptions, such as converting a symbol to an integer. Whether or not they
+   should is much larger issue. In the case of enums, *I definitely believe that proper enum string value should not silently convert to zero every time.*
+
+* Conclusion
+I hope this article has convinced you that it's worth understanding Ruby as much
+as it is to understand Rails. Additionally, the new Enum feature in 4.1 requires
+some careful attention!

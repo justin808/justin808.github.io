@@ -30,6 +30,7 @@ Beginners are often stumped by why this code does not set an attribute value:
 {% codeblock lang:ruby %}
 # change the value of some_attribute to foobar
 def change_some_attribute
+  # why doesn't the next line set the some_attribute value to "foobar"?
   some_attribute = "foobar"
   save!
 end
@@ -71,9 +72,10 @@ and we get the expected result of assigning an attribute value.
 <h2 id="sec-1">Enums</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Enums are a place a lot of Ruby magic happens! It's critical to understand Ruby
-well in order to understand how to use enums effectively. Let's suppose we have
-this simple example, copied over from the <a href="http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html">Rails docs</a>:
+Enums, introduced in Rails 4.1, are a place a lot of Ruby magic happens! It's
+critical to understand Ruby well in order to understand how to use enums
+effectively. Let's suppose we have this simple example, copied over from the
+<a href="http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html">Rails docs</a>:
 </p>
 
 {% codeblock lang:ruby %}
@@ -105,7 +107,7 @@ So what's going on in terms of Ruby meta-programming?
 
 <p>
 For all the enum values declared for <code>Conversation</code>, methods are created in the
-following forms. Let's use the model Conversation, column "status", and the enum "active" for this explanation:
+following forms. Let's use the model Conversation, column "status", and the enum "active" for this exampl:
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -123,37 +125,41 @@ following forms. Let's use the model Conversation, column "status", and the enum
 </thead>
 <tbody>
 <tr>
-<td class="left">self.status</td>
-<td class="left">Returns enum string value (not symbol)</td>
+<td class="left"><code>self.status</code></td>
+<td class="left">Returns enum <b>string</b> value (not symbol, and not <b>integer</b> db value)</td>
 </tr>
 
 <tr>
-<td class="left">self.status=(enum_string_value)</td>
-<td class="left">Set the status to enum. You can use either a string or symbol. If you use an invalid value, you get an ArgumentError</td>
+<td class="left"><code>self.status=&lt;enum_string_value or integer_value&gt;</code></td>
+<td class="left">Set the status to corresponding enum integer value using either a string, symbol, or integer. If you use an invalid value, you get an ArgumentError. String/symbol is converted to corresponding integer value.</td>
 </tr>
 
 <tr>
-<td class="left">self.active!</td>
+<td class="left"><code>self.active!</code></td>
 <td class="left">Sets the status enum to "active". This syntax is a bit confusing in that you don't see the attribute you're assigning! ArgumentError if invalid enum.</td>
 </tr>
 
 <tr>
-<td class="left">self.active?</td>
-<td class="left">equivalent to (self.status <code>= "active"), and *not* equivalent to (self.status =</code> :active) due to symbols not being equal to strings!</td>
+<td class="left"><code>self.active?</code></td>
+<td class="left">equivalent to (<code>self.status =</code> "active"<code>), and *not* equivalent to (=self.status =</code> :active=) due to symbols not being equal to strings!</td>
 </tr>
 
 <tr>
-<td class="left">Conversation.active</td>
-<td class="left">equivalent to Conversation.where(status: "active"). Again, it's a bit confusing not to see the column being queried.</td>
+<td class="left"><code>Conversation.active</code></td>
+<td class="left">equivalent to <code>Conversation.where(status: "active")</code>. Again, it's a bit confusing not to see the column being queried.</td>
 </tr>
 
 <tr>
-<td class="left">Conversation.statuses</td>
-<td class="left">Mapping of symbols to ordinal values <code>{ "active" =&gt; 0, "archived" =&gt; 1 }</code>, of type HashWithIndifferentAccess, meaning you can use symbols or strings</td>
+<td class="left"><code>Conversation.statuses</code></td>
+<td class="left">Mapping of symbols to ordinal values <code>{ "active" \=&gt; 0, "archived" \=&gt; 1 }</code>, of type <code>HashWithIndifferentAccess</code>, meaning you can use symbols or strings</td>
 </tr>
 </tbody>
 </table>
+</div>
 
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Default Values for Enums</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
 As the docs say, it's a good idea to use the default value from the database declaration,  like:
 </p>
@@ -163,18 +169,34 @@ create_table :conversations do |t|
 end
 {% endcodeblock %}
 <p>
-It's a good practice is to let the first declared status be the default <i>and</i> to
-not allow null values. I've found that when I've allowed null values in enums,
-it makes all my code more complicated. This is an example of the <a href="http://robots.thoughtbot.com/rails-refactoring-example-introduce-null-object">Null Object Pattern</a>.
+More specifically, consider using the first declared status (enum db value zero)
+be the default <i>and</i> to not allow null values. I've found that when I've allowed
+null values in enums, it makes all my code more complicated. This is an example
+of the <a href="http://robots.thoughtbot.com/rails-refactoring-example-introduce-null-object">Null Object Pattern</a>. Nulls in your data and checking for these in your
+code will make your life more difficult! Instead, have an enum value for "I
+don't know" if that really is a possibility, and make that first value, which is
+an index of zero, and you can set that as the database column default.
 </p>
-
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Queries on Enums</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 The docs say:
-&gt; In rare circumstances you might need to access the mapping directly. The mappings are exposed through a class method with the pluralized attribute name:
 </p>
+<blockquote>
+<p>
+In rare circumstances you might need to access the mapping directly. The mappings are exposed through a class method with the pluralized attribute name
+</p>
+</blockquote>
+
+{% codeblock lang:ruby %}
+Conversation.statuses # => { "active" => 0, "archived" => 1 }
+{% endcodeblock %}
 
 <p>
-This is not rare! This is critical!
+<b>This is not rare! This is critical!</b>
 </p>
 
 <p>
@@ -215,24 +237,415 @@ Conversation.where.not(status: "archived")
 {% endcodeblock %}
 
 <p>
-The problem is that String defines a <code>to_i</code>, so "archived".to_i gets converted
-to zero. <b>In fact, all your enums will get converted to zero!</b> And if you use
-the value of the enum attribute, rather than String, well, you're using a String!
+The problem is that ActiveRecord sees that the enum column is of type integer
+and calls <code>#to_i</code> on the value, so <code>archived.to_i</code> <b>gets converted to zero</b>. In
+fact, <b>all your enums will get converted to zero!</b> And if you use the value of
+the enum attribute on an ActiveRecord instance (say a Conversation object),
+then you're using a string value!
+</p>
+
+<p>
+If you're curious what the Rails source is, then take a look here: <a href="https://github.com/rails/rails/blob/master/activerecord/lib/active_record/type/integer.rb">ActiveRecord::Type::Integer</a>.
+</p>
+
+<p>
+Here's a guaranteed to be broken bit of code:
 </p>
 
 {% codeblock lang:ruby %}
+# my_conversation.status is a String!
 Conversation.where.not(status: my_conversation.status)
 {% endcodeblock %}
 
 <p>
 You'd think that Rails would be clever enough to see that the key maps to an
-enum and then check if the right assigned value is a String, and then it would
-<b>not</b> call <code>to_i</code> on the String!
+enum and then check if the comparison value is a String, and then it would
+<b>not</b> call <code>to_i</code> on the String! Instead, we are effectively running this code:
+</p>
+
+{% codeblock lang:ruby %}
+Conversation.where.not(status: 0)
+{% endcodeblock %}
+
+<p>
+An acceptable alternative to the last code example would be:
+</p>
+{% codeblock lang:ruby %}
+Conversation.where.not(Conersation.statuses[my_conversation.status])
+{% endcodeblock %}
+
+<p>
+If you left out the <code>not</code>, you could also do:
+</p>
+{% codeblock lang:ruby %}
+Conversation.send(my_conversation.status)
+{% endcodeblock %}
+
+<p>
+However, I really would like to simply do these, <i>all of which <b>DO NOT</b> work</i>.:
+</p>
+{% codeblock lang:ruby %}
+Conversation.where(status: my_conversation.status)
+Conversation.where(status: :archived)
+Conversation.where(status: "archived")
+{% endcodeblock %}
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Pluck vs Map with Enums</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Here's another subtle issue with enums.
 </p>
 
 <p>
+Should these two lines of code give the same result or a different result:
+</p>
+
+{% codeblock lang:ruby %}
+statuses_with_map = Conversation.select(:status).where.not(status: nil).distinct.map(&:status)
+statuses_with_pluck = Conversation.distinct.where.not(status: nil).pluck(:status)
+{% endcodeblock %}
+
+<p>
+It's worth experimenting with this in the <a href="http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry console</a>!
+</p>
+
+<p>
+In the first case, with <code>map</code>, you get back an Array with 2 strings: <code>["active",
+"archived"]</code>. In the second case, with <code>pluck</code>, you get back an Array with 2
+integers: <code>[0, 1]</code>.
+</p>
+
+<p>
+What's going on here?
+</p>
+
+<p>
+In the code where <code>map</code> calls the <code>status</code> method on each <code>Conversation</code> record,
+the <code>status</code> method converts the database integer value into the corresponding
+String value!
+</p>
+
+<p>
+In the other code that uses <code>:pluck</code>, you get back the raw database value. It's
+arguable whether or not Rails should intelligently transform this value into the
+string equivalent, since that is what is done in other uses of ActiveRecord.
+Changing this would be problematic, as there could be code that depends on
+getting back the numerical value.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><code>find_or_initialize_by</code>, oh my!!!</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Let's suppose we have this persisted in the database:
+</p>
+
+<pre class="example">
+Conversation {
+  :id =&gt; 18,
+  :user =&gt; 25            
+  :status =&gt; "archived" (1 in database)
+}
+</pre>
+
+<p>
+And then we do a <code>find_or_initialize_by</code>: 
+</p>
+
+<pre class="example">
+[47] (pry) main: 0&gt; conversation = Conversation.find_or_initialize_by(user: 25, status: "archived")
+  Conversation Load (4.6ms)  SELECT  "conversations".* FROM "conversations"
+    WHERE "conversations"."user_id" = 25
+       AND "conversations"."status" = 0 LIMIT 1
+#&lt;Conversation:&gt; {
+         :id =&gt; nil,
+    :user_id =&gt; 25,
+     :status =&gt; "archived"
+}
+</pre>
+
+<p>
+We got <code>nil</code> for <code>:id</code>, meaning that we're creating a new record. Wouldn't you
+expect to find the existing record? Well, maybe not given the way that
+<code>ActiveRecord.where</code> works, per the above discussion.
+</p>
+
+<p>
+Next, the status on the new record is created with "archived", which is value 1.
+Hmmm&#x2026;.If you look closely above, the query uses
+</p>
+<pre class="example">
+AND "conversations"."status" = 0
+</pre>
+
+<p>
+Let's look at another example:
+</p>
+
+<pre class="example">
+Conversation {
+  :id =&gt; 19,
+  :user =&gt; 26            
+  :status =&gt; "active" (0 in database)
+}
+</pre>
+
+<p>
+And then we do a <code>find_or_initialize_by</code>: 
+</p>
+
+<pre class="example">
+[47] (pry) main: 0&gt; conversation = Conversation.find_or_initialize_by(user: 26, status: "active")
+  Conversation Load (4.6ms)  SELECT  "conversations".* FROM "conversations"
+    WHERE "conversations"."user_id" = 26
+      AND "conversations"."status" = 0 LIMIT 1
+#&lt;Conversation:&gt; {
+         :id =&gt; 19,
+    :user_id =&gt; 26,
+     :status =&gt; "active"
+}
+</pre>
+
+<p>
+Wow! Is this a source of subtle bugs and some serious yak shaving?
+</p>
+
+<p>
+Note, the above applies equally to <code>ActiveRecord.find_or_create_by</code>.
+</p>
+
+<p>
+It turns out that the Rails methods that allow creation of a record via a Hash
+of attributes will convert the enum strings to the proper integer values, but
+this is not case when querying!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Rails Default Accessors For Setting Attributes</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+You may find it useful to know which Rails methods call the "Default Accessor"
+versus just going to the database directly. That makes all the difference in
+terms of whether or not you can/should use the string values for enums.
+</p>
+
+<p>
+The key thing is that that "Uses Default Accessor" means that <b>string enums get converted to the correct database integer values.</b>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Method</th>
+<th scope="col" class="left">Uses Default Accessor (converts string enums to integers!)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>attribute=</code></td>
+<td class="left">Yes</td>
+</tr>
+
+<tr>
+<td class="left"><code>write_attribute</code></td>
+<td class="left">No</td>
+</tr>
+
+<tr>
+<td class="left"><code>update_attribute</code></td>
+<td class="left">Yes</td>
+</tr>
+
+<tr>
+<td class="left"><code>attributes=</code></td>
+<td class="left">Yes</td>
+</tr>
+
+<tr>
+<td class="left"><code>update</code></td>
+<td class="left">Yes</td>
+</tr>
+
+<tr>
+<td class="left"><code>update_column</code></td>
+<td class="left">No</td>
+</tr>
+
+<tr>
+<td class="left"><code>update_columns</code></td>
+<td class="left">No</td>
+</tr>
+
+<tr>
+<td class="left"><code>Conversation::update</code></td>
+<td class="left">Yes</td>
+</tr>
+
+<tr>
+<td class="left"><code>Conversation::update_all</code></td>
+<td class="left">No</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+For more information on this topic, see
+</p>
+<ol class="org-ol">
+<li><a href="http://www.davidverhasselt.com/set-attributes-in-activerecord/">Different Ways to Set Attributes in ActiveRecord</a> by <a href="https://twitter.com/DavidVerhasselt">@DavidVerhasselt</a>.
+</li>
+<li><a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html">Official API of ActiveRecord::Base</a>
+</li>
+<li><a href="http://api.rubyonrails.org/files/activerecord/README_rdoc.html">Official Readme of Active Record – Object-relational mapping put on rails</a>.
+</li>
+</ol>
+
+<p>
+While these don't mention Rails enums, it's <b>critical</b> to understand that enums
+create default accessors that do the mapping to and from Strings.
+</p>
+
+<p>
+So when you call these methods, the <b>default accessors</b> are used:
+</p>
+{% codeblock lang:ruby %}
+conversation.status = "archived"
+conversation.status = 1
+puts conversation.status # prints "archived"
+{% endcodeblock %}
+
+<p>
+So keep in mind when those default accessors are used per the above table.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Deep Dive: Enum Source</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+If you look at the Rails <a href="https://github.com/rails/rails/blob/877ea784e4cd0d539bdfbd15839ae3d28169b156/activerecord/lib/active_record/enum.rb#L82">source code for ActiveRecord::Enum</a>, you can see this at
+line 91, for the setter of the enum (I added some comments):
+</p>
+
+{% codeblock lang:ruby %}
+_enum_methods_module.module_eval do
+  # def status=(value) self[:status] = statuses[value] end
+  define_method("#{name}=") { |value|
+    if enum_values.has_key?(value) || value.blank?
+      # set the db value to the integer value for the enum
+      self[name] = enum_values[value]
+    elsif enum_values.has_value?(value) # values contains the integer
+      self[name] = value
+    else
+      # enum_values did not have the key or value passed
+      raise ArgumentError, "'#{value}' is not a valid #{name}"
+    end
+  }
+{% endcodeblock %}
+
+<p>
+From this definition, you see that both of these work:
+</p>
+{% codeblock lang:ruby %}
+conversation.status = "active"
+conversation.status = 0
+{% endcodeblock %}
+
+
+<p>
+Here's the definition for the getter, which I've edited a bit for illustrative
+purposes:
+</p>
+{% codeblock lang:ruby %}
+# def status() statuses.key self[:status] end
+define_method(name) do
+  db_value = self[name] # such as 0 or 1
+  enum_values.key(db_value) # the key value, like "archived" for db_value 1
+end
+{% endcodeblock %}
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">Recommendations to the Rails Core Team</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
 In response to this issue, I submitted this github issue:
 <a href="https://github.com/rails/rails/issues/17226">Rails where query should see value is an enum and convert a string #17226</a>
+</p>
+<ol class="org-ol">
+<li>@Bounga and @rafaelfranca on Github suggest that we can't automatically
+convert enum string values in queries. I think that is true for converting
+cases of a <code>?</code> or a named param, but I suspect that a quick map lookup to see
+that the attribute is an enum, and a string is passed, and then converting
+the string value to an integer is the right thing to do for 2 reasons:
+<ol class="org-ol">
+<li>This is the sort of "magic" that I expect from Rails.
+</li>
+<li>Existing methods <code>find_or_initialize_by</code> and <code>find_or_create_by</code> will
+result in obscure bugs when string params are passed for enums.
+</li>
+</ol>
+<p>
+However, it's worth considering if all default accessor methods (setters)
+should be consistently be called for purposes of passing values in a map to
+such methods. I would venture that Rails enums are some Rails provided magic,
+and thus they should have a special case. If this shouldn't go into Rails,
+then possibly a gem extension could provide a method like
+<code>Model.where_with_enum</code> which would convert a String into the proper
+numerical value for the enum. I'm not a huge fan of the generated Model
+scopes for enums, as <b>I like to see what database field is being queried
+against.</b>
+</p>
+</li>
+<li>Aside from putting automatic conversion of the enum hash attributes, I
+recommend we change the automatic conversion of Strings to integers to use
+the stricter <code>Integer(some_string)</code> rather than <code>some_string.to_i</code>. The
+difference is considerable, <code>String#to_i</code> is extremely permissive. Try it in
+a console. With the <code>to_i</code> method, any number characters at the beginning of
+the String are converted to an Integer. If the first character is not a
+number, <b>0 is returned</b>, which is almost certainly a default enum value.
+Thus, this simple change would make it <b>extremely</b> clear when an enum string
+is improperly used. I would guess that this would make some existing code
+crash, but in all circumstances for a valid reason. As to whether this change
+should be done for all integer attributes is a different discussion, as that
+could have backwards compatibility ramifications.
+
+<p>
+This change would require changing the tests in <a href="https://github.com/rails/rails/blob/master/activerecord/test/cases/types_test.rb">ActiveRecord::ConnectionAdapters::TypesTest</a>. For example, this test:
+</p>
+{% codeblock lang:ruby %}
+assert_equal 0, type.type_cast_from_user('bad') 
+{% endcodeblock %}
+<p>
+would change to throw an exception, unless the cases are restricted to using
+Integer.new() for enums. It is inconsistent that some type conversions throw
+exceptions, such as converting a symbol to an integer. Whether or not they
+should is much larger issue. In the case of enums, <b>I definitely believe that proper enum string value should not silently convert to zero every time.</b>
+</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Conclusion</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I hope this article has convinced you that it's worth understanding Ruby as much
+as it is to understand Rails. Additionally, the new Enum feature in 4.1 requires
+some careful attention!
 </p>
 </div>
 </div>

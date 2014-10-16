@@ -18,6 +18,7 @@ group :development do
   gem 'guard-livereload'
   gem 'rb-inotify'
   gem 'preamble'
+  gem 'jekyll-redirect-from'
 end
 
 gem 'sinatra', '~> 1.4.2'

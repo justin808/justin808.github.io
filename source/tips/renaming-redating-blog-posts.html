@@ -5,6 +5,7 @@ date: 2013-05-10 22:20
 keywords: Jekyll, Octopress, Renaming
 description: Here's a few tips regarding renaming and redating posts and pages in Octopress.
 comments: true
+categories: [Octopress]
 sharing: true
 footer: true
 ---
@@ -57,7 +58,7 @@ metadata.
 <h2 id="sec-3">Moving a post/page that you already published</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
-<li>Install the <a href="http://github.com/tsmango/jekyll_alias_generator">AliasGenerator</a> plugin. I.e., put the <code>.rb</code> file in the plugins directory.
+<li>Follow the instructions here to use: <a href="https://github.com/jekyll/jekyll-redirect-from">jekyll/jekyll-redirect-from</a>
 </li>
 <li>For any post/page that moves, simply put in this info info in the header of
 the post. A couple points:
@@ -71,7 +72,7 @@ nothing happens in terms of generating an alias.
 </li>
 </ol>
 <pre class="example">
-alias: /blog/2013/05/08/saner-rails-logging/index.html
+redirect_from: /blog/2013/05/08/saner-rails-logging/index.html
 </pre>
 
 <p>

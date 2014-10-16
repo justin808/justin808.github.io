@@ -110,3 +110,6 @@ facebook_like: true
 
 # Discourse setup
 discourse_url: http://forum.railsonmaui.com/
+
+gems:
+  - jekyll-redirect-from

@@ -10,7 +10,7 @@ comments: true
 keywords: RubyMine, RailsTutorial.org, Tips, Productivity, Rails, IdeaVim
 published: true
 description: Here's a video of my favorite RubyMine tips. 
-alias: /tips/rubymine.html
+redirect_from: /tips/rubymine.html
 ---
 #+END_HTML
 

@@ -39,7 +39,7 @@ How would you like to achieve, within a Rails project:
 4. The ability to plug the node client side ecosystem into an existing Rails project seamlessly.
 5. Utilization of many JavaScript tools, such as the *React JSX tranpiler* and *ES6 transpiler*.
 
-This article will show you how you an utilize Webpack in your Rails development
+This article will show you how you can utilize Webpack in your Rails development
 process to achieve these goals!
 
 First, I'm going to tell you a brief story of how I came to the realization that

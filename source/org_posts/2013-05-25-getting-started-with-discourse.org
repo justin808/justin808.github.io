@@ -4,7 +4,7 @@ layout: post
 title: "Getting Started with Discourse"
 date: 2013-05-25 13:24
 comments: true
-alias: /blog/2013/05/25/getting-started-wtih-discourse/index.html
+redirect_from: /blog/2013/05/25/getting-started-wtih-discourse/index.html
 categories: [emberjs]
 keywords: emberjs discourse.org
 description: A quick guide to installing discourse to see a production quality rails project on github.

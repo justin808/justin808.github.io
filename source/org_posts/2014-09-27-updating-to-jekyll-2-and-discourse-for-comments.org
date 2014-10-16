@@ -76,6 +76,8 @@ lines 73-75 in =alias_generator.rb= with this code:
 end
 #+END_SRC
 
+/Update: rather than using the AliasGenerator plugin, use: [[https://github.com/jekyll/jekyll-redirect-from][jekyll/jekyll-redirect-from]]/ 
+
 Another issue I hit was that I had a few template files that were using
 #+BEGIN_EXAMPLE
 layout: nil
