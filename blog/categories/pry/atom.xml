@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pry | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pry/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-10-08T13:29:35-10:00</updated>
+  <updated>2014-10-22T09:26:11-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -612,6 +612,445 @@ I hope you enjoyed this!
 <script type="text/javascript">
   var discourseUrl = "http://forum.railsonmaui.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pry, Ruby, and Fun with the Hash Constructor]]></title>
+    <link href="http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/"/>
+    <updated>2014-08-17T14:51:24-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor</id>
+    <content type="html"><![CDATA[<p>
+I recently had a chance to pair with <a href="https://twitter.com/searls">Justin Searls</a> of <a href="http://testdouble.com/">TestDouble</a>, and we got
+to chatting about <a href="https://github.com/pry/pry">pry</a> and the odd <code>Hash[]</code> constructor. Here&#8217;s a few tips that you
+might find useful.
+</p>
+
+
+
+
+<p>
+The main reason I use pry are:
+</p>
+
+
+<ol class="org-ol">
+<li>Testing Ruby syntax.
+</li>
+<li>Documentation and source code browsing.
+</li>
+<li>History support.
+</li>
+<li><code>cd</code> into the an object to change the context, and <code>ls</code> to list methods of
+that object.
+</li>
+</ol>
+
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Pry Configuration</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+To install pry with rails, place this in your <code>Gemfile</code>
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;pry-rails&#39;</span><span class="p">,</span> <span class="ss">:group</span> <span class="o">=&gt;</span> <span class="ss">:development</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Then run <code>bundle install</code>. Then run <code>rails console</code>. That gets you the default
+pry configuration. At the bottom of this article is my <code>~/.pryrc</code> (<a href="https://gist.github.com/justin808/1fe1dfbecc00a18e7f2a">gist</a>). Create
+that file and then run <code>rails c</code> (short for <code>rails console</code>).
+</p>
+
+<p>
+You&#8217;ll see this useful reminder of the customizations:
+</p>
+
+<pre class="example">
+Helpful shortcuts:
+h  : hist -T 20       Last 20 commands
+hg : hist -T 20 -G    Up to 20 commands matching expression
+hG : hist -G          Commands matching expression ever used
+hr : hist -r          hist -r &lt;command number&gt; to run a command
+Samples variables
+a_array: [1, 2, 3, 4, 5, 6]
+a_hash: { hello: "world", free: "of charge" }
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Testing syntax: Hash[]</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The <code>Hash[]</code> method is one of the odder methods in Ruby, and oh-so-useful if
+you&#8217;re doing map, reduce types of operations.
+</p>
+
+<p>
+For example, how do you transform all the keys in a hash to be uppercase?
+</p>
+
+<p>
+How about if we try this in pry (note, a_hash defined in my .pryrc).
+</p>
+
+<pre class="example">
+[1] (pry) main: 0&gt; a_hash
+{
+    :hello =&gt; "world",
+     :free =&gt; "of charge"
+}
+[2] (pry) main&gt; a_hash.map { |k,v| [k.to_s.upcase, v] }
+[
+    [0] [
+        [0] "HELLO",
+        [1] "world"
+    ],
+    [1] [
+        [0] "FREE",
+        [1] "of charge"
+    ]
+]
+</pre>
+
+<p>
+OK, that gives us an Array of tuples.
+</p>
+
+<p>
+Then run these two commands. <code>_</code> is the value of the last expression.
+</p>
+
+<pre class="example">
+&gt; tmp = _
+&gt; Hash[tmp]
+{
+    "HELLO" =&gt; "world",
+     "FREE" =&gt; "of charge"
+}
+</pre>
+<p>
+Bingo! Now let&#8217;s dig into this a bit more.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Memoization with Hash</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Hash has another unusual constructor useful for memoizing a method&#8217;s return
+value when parameters are involved. Justin Weiss wrote a good article explaining
+it: <a href="http://www.justinweiss.com/blog/2014/07/28/4-simple-memoization-patterns-in-ruby-and-one-gem/">4 Simple Memoization Patterns in Ruby (and One Gem)</a>.
+</p>
+
+<p>
+Here&#8217;s a quick sample in Pry:
+</p>
+<pre class="example">
+[5] (pry) main: 0&gt; hh = Hash.new { |h, k| h[k] = k * 2 }
+{}
+[6] (pry) main: 0&gt; hh[2]
+4
+[7] (pry) main: 0&gt; hh[4]
+8
+</pre>
+
+<p>
+You can even use an array for the key values:
+</p>
+<pre class="example">
+[8] (pry) main: 0&gt; hh = Hash.new { |h, k| h[k] = k[0] * k[1] }
+{}
+[9] (pry) main: 0&gt; hh[[2,3]]
+6
+[10] (pry) main: 0&gt; hh[[4,5]]
+20
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Browsing Documentation and Source</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+It&#8217;s super useful to be able to see the documentation for any method easily,
+which you can do by the <code>?</code> command. Similarly, you can also see the source, by
+using <code>$</code>.
+</p>
+
+<pre class="example">
+[3] (pry) main&gt; ? Hash[]
+
+From: hash.c (C Method):
+Owner: #&lt;Class:Hash&gt;
+Visibility: public
+Signature: [](*arg1)
+Number of lines: 12
+
+Creates a new hash populated with the given objects.
+
+Similar to the literal { _key_ =&gt; _value_, ... }. In the first
+form, keys and values occur in pairs, so there must be an even number of
+arguments.
+
+The second and third form take a single argument which is either an array
+of key-value pairs or an object convertible to a hash.
+
+   Hash["a", 100, "b", 200]             #=&gt; {"a"=&gt;100, "b"=&gt;200}
+   Hash[ [ ["a", 100], ["b", 200] ] ]   #=&gt; {"a"=&gt;100, "b"=&gt;200}
+   Hash["a" =&gt; 100, "b" =&gt; 200]         #=&gt; {"a"=&gt;100, "b"=&gt;200}
+</pre>
+
+<p>
+Hmmmm&#x2026;. <code>Hash[]</code> also takes a plain array. Let&#8217;s try that:
+</p>
+
+<pre class="example">
+[16] (pry) main: 0&gt; a_array
+[
+    [0] 1,
+    [1] 2,
+    [2] 3,
+    [3] 4,
+    [4] 5,
+    [5] 6
+]
+[17] (pry) main: 0&gt; Hash[*a_array]
+{
+    1 =&gt; 2,
+    3 =&gt; 4,
+    5 =&gt; 6
+}
+</pre>
+
+<p>
+Neat!
+</p>
+
+<p>
+Also note that you can see instance methods by prefixing the method name with
+<code>#</code> or using an actual instance, like this:
+</p>
+<pre class="example">
+[19] (pry) main: 0&gt; ? Hash#keys
+
+From: hash.c (C Method):
+Owner: Hash
+Visibility: public
+Signature: keys()
+Number of lines: 5
+
+Returns a new array populated with the keys from this hash. See also
+Hash#values.
+
+   h = { "a" =&gt; 100, "b" =&gt; 200, "c" =&gt; 300, "d" =&gt; 400 }
+   h.keys   #=&gt; ["a", "b", "c", "d"]
+[20] (pry) main: 0&gt; ? a_hash.keys
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Browsing History</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+History expansion in pry is also nice. As mentioned above, my <code>.pryrc</code> has 4
+history aliases.
+</p>
+
+<pre class="example">
+h  : hist -T 20       Last 20 commands
+hg : hist -T 20 -G    Up to 20 commands matching expression
+hG : hist -G          Commands matching expression ever used
+hr : hist -r          hist -r &lt;command number&gt; to run a command
+</pre>
+
+<p>
+Let&#8217;s try those out. It&#8217;s import to note that the <code>-T</code> tails results after doing
+the grep of the whole history. I.e., the <code>-T 20</code> strips the results down to the
+last 20 that matched.
+</p>
+
+<p>
+Show last 20 commands.
+</p>
+<pre class="example">
+[10] (pry) main: 0&gt; h
+1: a_hash
+2: a_hash.map { |k,v| [key.upcase, v] }
+3: a_hash.map { |k,v| [key.to_s.upcase, v] }
+4: a_hash.map { |k,v| [k.upcase, v] }
+5: a_hash.map { |k,v| [k.to_s.upcase, v] }
+6: tmp = _
+7: Hash[tmp]
+8: ? Hash[]
+9: $ Hash[]
+</pre>
+
+<p>
+Grep all commands for upcase and show last 20 matches.
+</p>
+<pre class="example">
+[11] (pry) main: 0&gt; hg upcase
+2: a_hash.map { |k,v| [key.upcase, v] }
+3: a_hash.map { |k,v| [key.to_s.upcase, v] }
+4: a_hash.map { |k,v| [k.upcase, v] }
+5: a_hash.map { |k,v| [k.to_s.upcase, v] }
+</pre>
+
+<p>
+Grep all commands for upcase and show all. The history of my example is short so
+below is the same as above. If the history were longer, as it typically will be,
+then you might get pages of results!
+</p>
+
+<pre class="example">
+[12] (pry) main: 0&gt; hG upcase
+ 2: a_hash.map { |k,v| [key.upcase, v] }
+ 3: a_hash.map { |k,v| [key.to_s.upcase, v] }
+ 4: a_hash.map { |k,v| [k.upcase, v] }
+ 5: a_hash.map { |k,v| [k.to_s.upcase, v] }
+11: hg upcase
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">cd and ls within Pry</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+I love to use <code>cd</code> and <code>ls</code> in <code>pry</code>.
+</p>
+
+<ol class="org-ol">
+<li><code>cd</code> changes the context of pry, a bit like the current directory in the
+shell, except for Ruby objects. And classes are objects too!
+</li>
+<li><code>ls</code> lists methods available on an object, a bit like listing files in the
+shell.
+</li>
+</ol>
+
+<pre class="example">
+[22] (pry) main: 0&gt; cd a_hash.keys
+[26] (pry) main / #&lt;Array&gt;: 1&gt; length
+2
+[27] (pry) main / #&lt;Array&gt;: 1&gt; first
+:hello
+[28] (pry) main / #&lt;Array&gt;: 1&gt; last
+:free
+[29] (pry) main / #&lt;Array&gt;: 1&gt; ls
+Enumerable#methods:
+  all?  chunk           detect     each_entry  each_with_index   entries   find      flat_map  index_by  lazy   max     member?  min_by  minmax_by  one?           partition  slice_before  sum     to_table
+  any?  collect_concat  each_cons  each_slice  each_with_object  exclude?  find_all  group_by  inject    many?  max_by  min      minmax  none?      original_grep  reduce     sort_by       to_set  to_text_table
+JSON::Ext::Generator::GeneratorMethods::Array#methods: to_json_without_active_support_encoder
+Statsample::VectorShorthands#methods: to_scale  to_vector
+SimpleCov::ArrayMergeHelper#methods: merge_resultset
+Array#methods:
+  &amp;    []=      clear        cycle       drop_while        fill        frozen?       inspect  permutation         push                  reverse       select     slice!      third                          to_gsl_integration_qaws_table        to_qaws_table  unshift
+  *    abbrev   collect      dclone      each              find_index  grep          join     place               rassoc                reverse!      select!    sort        to                             to_gsl_vector                        to_query       values_at
+  +    append   collect!     deep_dup    each_index        first       hash          keep_if  pop                 recode_repeated       reverse_each  shelljoin  sort!       to_a                           to_gslv                              to_s           zip
+  -    as_json  combination  delete      empty?            flatten     in_groups     last     prefix              reject                rindex        shift      sort_by!    to_ary                         to_gv                                to_sentence    |
+  &lt;&lt;   assoc    compact      delete_at   eql?              flatten!    in_groups_of  length   prepend             reject!               rotate        shuffle    split       to_csv                         to_h                                 to_xml
+  &lt;=&gt;  at       compact!     delete_eql  extract_options!  forty_two   include?      map      pretty_print        repeated_combination  rotate!       shuffle!   suffix      to_default_s                   to_json                              transpose
+  ==   blank?   concat       delete_if   fetch             fourth      index         map!     pretty_print_cycle  repeated_permutation  sample        size       take        to_formatted_s                 to_json_with_active_support_encoder  uniq
+  []   bsearch  count        drop        fifth             from        insert        pack     product             replace               second        slice      take_while  to_gsl_integration_qawo_table  to_param                             uniq!
+self.methods: __pry__
+locals: _  __  _dir_  _ex_  _file_  _in_  _out_  _pry_
+</pre>
+<p>
+It&#8217;s worth noting that you can see the modules declaring the methods of the object.
+</p>
+
+<p>
+To see more of what pry can do for you, simply type <code>help</code> at the command line.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">My ~/.pryrc file</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Create a file in your home directory called <code>~/.pryrc</code>.
+<div><script src='https://gist.github.com/1fe1dfbecc00a18e7f2a.js'></script>
+<noscript><pre><code>## Useful Collections
+def a_array
+  (1..6).to_a
+end
+
+def a_hash
+  {hello: &quot;world&quot;, free: &quot;of charge&quot;}
+end
+
+Pry.config.color = true
+Pry.config.prompt = Pry::NAV_PROMPT
+
+Pry.config.commands.alias_command &quot;h&quot;, &quot;hist -T 20&quot;, desc: &quot;Last 20 commands&quot;
+Pry.config.commands.alias_command &quot;hg&quot;, &quot;hist -T 20 -G&quot;, desc: &quot;Up to 20 commands matching expression&quot;
+Pry.config.commands.alias_command &quot;hG&quot;, &quot;hist -G&quot;, desc: &quot;Commands matching expression ever used&quot;
+Pry.config.commands.alias_command &quot;hr&quot;, &quot;hist -r&quot;, desc: &quot;hist -r &lt;command number&gt; to run a command&quot;
+
+begin
+  require &#39;awesome_print&#39;
+  # Pry.config.print = proc { |output, value| output.puts value.ai }
+  AwesomePrint.pry!
+rescue LoadError =&gt; err
+  puts &quot;no awesome_print :(&quot;
+end
+
+my_hook = Pry::Hooks.new.add_hook(:before_session, :add_dirs_to_load_path) do
+  # adds the directories /lib and /spec and /test directories to the path if they exist
+  puts &quot;Added lib spec test dirs to load path&quot;
+  dir = `pwd`.chomp
+  %w(lib spec test).map{ |d| &quot;#{dir}/#{d}&quot; }.each { |p| $: &lt;&lt; p unless !File.exist?(p) || $:.include?(p) }
+end 
+
+my_hook.exec_hook(:before_session)
+
+puts &quot;Loaded ~/.pryrc&quot; 
+puts &quot;Helpful shortcuts:&quot;
+puts &quot;h  : hist -T 20       Last 20 commands&quot;
+puts &quot;hg : hist -T 20 -G    Up to 20 commands matching expression&quot;
+puts &quot;hG : hist -G          Commands matching expression ever used&quot;
+puts &quot;hr : hist -r          hist -r &lt;command number&gt; to run a command&quot;
+puts &quot;Samples variables&quot;
+puts &quot;a_array: [1, 2, 3, 4, 5, 6]&quot;
+puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }&quot;
+</code></pre></noscript></div>
+
+</p>
+</div>
+</div>
+
+
+
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/";
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;

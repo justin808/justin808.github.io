@@ -9,8 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Here's a few tips on buying Apple gear and credit card extended warranties. The
-bottom line is: Consider buying AppleCare with American Express to &hellip;">
+  <meta name="description" content="TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+What's a good strategy? Why does this matter? A Rails app can have awesome &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +86,71 @@ bottom line is: Consider buying AppleCare with American Express to &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-05-08T17:41:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>5:41 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+What&#8217;s a good strategy? Why does this matter?
+</p>
+
+<p>
+A Rails app can have awesome unit and functional tests, and then in production,
+something goes wrong and the right error handling does not happen, making
+a bad situation worse. By this, I mean, it&#8217;s bad enough that something went
+wrong in production. It&#8217;s even worse if:
+</p>
+<ol class="org-ol">
+<li>You don&#8217;t have clear log messages that identify exactly what went wrong.
+</li>
+<li>You didn&#8217;t get automatically notified via email that something went wrong.
+Instead, the customer told the customer service rep that there&#8217;s an issue.
+Ideally, when an error happens, the responsible developers should be
+notified.
+</li>
+</ol>
+
+<p>
+Here&#8217;s some tips on logging setup and error handling, including a utility
+method to log the stack trace and send an email.
+</p>
+
+<p>
+The next article,
+<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing
+Error Handling</a>, will show you how to verify that your error handling strategy
+is properly implemented, includind with rspec tests.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -258,6 +323,10 @@ monolithic.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/08/adding-a-js-library-when-using-webpack/">Adding a JS LIbrary to a Ruby on Rails Project When Using Webpack</a>
       </li>
     
@@ -279,10 +348,6 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/">Updating My Blog to Octopress With Jekyll 2 and Discourse for Comments</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/">Pry, Ruby, Array#zip, CSV, and the Hash[] Constructor</a>
       </li>
     
   </ul>

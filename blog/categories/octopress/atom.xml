@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-10-08T13:29:35-10:00</updated>
+  <updated>2014-10-22T09:26:11-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -130,6 +130,10 @@ lines 73-75 in <code>alias_generator.rb</code> with this code:
 </span><span class='line'>    <span class="vi">@site</span><span class="o">.</span><span class="n">static_files</span> <span class="o">&lt;&lt;</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">AliasFile</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@site</span><span class="p">,</span> <span class="vi">@site</span><span class="o">.</span><span class="n">dest</span><span class="p">,</span> <span class="n">alias_index_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">sections</span> <span class="o">+</span> <span class="mi">1</span><span class="o">].</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
+
+<p>
+<i>Update: rather than using the AliasGenerator plugin, use: <a href="https://github.com/jekyll/jekyll-redirect-from">jekyll/jekyll-redirect-from</a></i> 
+</p>
 
 <p>
 Another issue I hit was that I had a few template files that were using
