@@ -388,10 +388,21 @@ This is what sourcemaps looks like in Chrome
 {% img /images/2014-09-react-webpack-rails-tutorial/React-Sourcemaps.jpg %}
 
 ** Heroku Deployment
-There were 2 main things needed to get builds working on Heroku.
-1. I needed to configure the =compile_environment= task to create the =rails-bundle.js= via
+There are several things needed to get builds working on Heroku.
+1. It's critical that =package.json= has all tools required by the Heroku build
+   in =dependencies= and /not/ =devDependencies= as Heroku only installs those
+   modules in =dependencies=. You should use =devDependencies= for tools that
+   *only* your local Webpack Dev Server uses.
+2. Clean up your build cache:
+   #+BEGIN_SRC bash
+   heroku plugins:install https://github.com/heroku/heroku-repo.git
+   heroku repo:purge_cache -a <my-app> 
+   #+END_SRC
+3. Be sure to run npm-shrinkwrap after *ANY* changes to =dependencies= inside of
+   =package.json=.
+4. I needed to configure the =compile_environment= task to create the =rails-bundle.js= via
    Webpack using the file =/lib/tasks/assets.rake=.
-2. Heroku needs both the node and ruby environments. In order to deploy to
+5. Heroku needs both the node and ruby environments. In order to deploy to
    heroku, you’ll need run this command once to set a custom buildpack:
 
 #+BEGIN_SRC bash
@@ -503,4 +514,8 @@ Comments, suggestions, and corrections are appreciated! I hope to get a lively
 discussion the use of WebPack and Rails in my new discussion forum at
 http://forum.railsonmaui.com.
 
-
+Thanks to Hack Hands for supporting the development of this content. You can
+find [[https://hackhands.com/fast-rich-client-rails-development-webpack-es6-transpiler/][a copy of this article in their blog]]. 
+* Updates
+1. 2014-09-22: Updated the Heroku Deployment section, including how =dependencies=
+   vs. =devDependencies= in =package.json=.

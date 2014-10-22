@@ -2,11 +2,12 @@
 ---
 layout: post
 title: "Enums and Queries in Rails 4.1, and Understanding Ruby"
-date: 2014-10-09 19:23:02 -1000
+date: 2014-10-22 19:23:02 -1000
 comments: true
-categories: Rails
-keywords: 
-description: 
+categories: [rails]
+keywords: Ruby on Rails, Enums, Ruby
+description: Understanding Ruby and how enums work in Rails 4.1.
+canonical: https://hackhands.com/ruby-on-enums-queries-and-rails-4-1/
 ---
 #+END_HTML
 
@@ -55,6 +56,14 @@ In this case, we're calling the method =some_attribute== on the model instance,
 and we get the expected result of assigning an attribute value.
 
 * Enums 
+
+For those not familiar with enums:
+
+#+begin_quote
+An enum type is a special data type that enables for a variable to be a set of
+predefined constants. The variable must be equal to one of the values that have
+been predefined for it.
+#+end_quote
 
 Enums, introduced in Rails 4.1, are a place a lot of Ruby magic happens! It's
 critical to understand Ruby well in order to understand how to use enums
@@ -161,7 +170,7 @@ then you're using a string value!
 
 If you're curious what the Rails source is, then take a look here: [[https://github.com/rails/rails/blob/master/activerecord/lib/active_record/type/integer.rb][ActiveRecord::Type::Integer]].
 
-Here's a guaranteed to be broken bit of code:
+Here's a guaranteed broken bit of code:
 
 #+BEGIN_SRC ruby
 # my_conversation.status is a String!
@@ -396,9 +405,7 @@ In response to this issue, I submitted this github issue:
    is improperly used. I would guess that this would make some existing code
    crash, but in all circumstances for a valid reason. As to whether this change
    should be done for all integer attributes is a different discussion, as that
-   could have backwards compatibility ramifications.
-
-   This change would require changing the tests in [[https://github.com/rails/rails/blob/master/activerecord/test/cases/types_test.rb][ActiveRecord::ConnectionAdapters::TypesTest]]. For example, this test:
+   could have backwards compatibility ramifications. This change would require changing the tests in [[https://github.com/rails/rails/blob/master/activerecord/test/cases/types_test.rb][ActiveRecord::ConnectionAdapters::TypesTest]]. For example, this test:
    #+BEGIN_SRC ruby
    assert_equal 0, type.type_cast_from_user('bad') 
    #+END_SRC
@@ -411,3 +418,6 @@ In response to this issue, I submitted this github issue:
 I hope this article has convinced you that it's worth understanding Ruby as much
 as it is to understand Rails. Additionally, the new Enum feature in 4.1 requires
 some careful attention!
+
+Thanks to Hack Hands for supporting the development of this content. You can
+find [[https://hackhands.com/ruby-on-enums-queries-and-rails-4-1/][a copy of this article in their blog]]. 

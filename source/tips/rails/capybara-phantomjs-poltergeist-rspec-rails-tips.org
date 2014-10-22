@@ -292,8 +292,9 @@ test, development, and my parallel test databases, and annotates.
 {% gist 9461522 %}
 
 
-
-
+* Other Resources
+1. [[http://www.railsonmaui.com/blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/][Fast Tests: Comparing Zeus With Spring on Rails 4.1 and RSpec 3]]
+2. [[http://forum.railsonmaui.com/t/capybara-integration-testing-tips/112][Capybara Integration Test Debugging Tips]] 
 
 
 
