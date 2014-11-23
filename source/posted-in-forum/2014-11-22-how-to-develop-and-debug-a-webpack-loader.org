@@ -1,0 +1,72 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "How To Develop and Debug a Webpack Loader"
+date: 2014-11-22 09:34:18 -1000
+comments: true
+categories: 
+keywords: 
+description: 
+---
+#+END_HTML
+
+* Background
+I wanted to make it super easy for Webpack to load some version of Bootstrap,
+loaded from NPM, and using Sass to customize it.
+
+
+* Basics
+1. See the documentation on creating a Webpack Loader.
+   1. [[http://webpack.github.io/docs/using-loaders.html][What Are Loaders?]]
+   2. [[http://webpack.github.io/docs/loaders.html][Creating Loaders]]
+
+* Npm Link
+It creates sym links so one project, the consumer of the loader, can use the
+code inside of another directory. There's really 2 parts to this:
+
+Suppose you are developing a loader called "my-great-loader" and you have an
+example consumer of this loader in a project called "my-great-loader-example".
+
+1. Running =npm link= at the top level of your loader directory creates a sym
+   link from your global node_modules to the loader you are developing.
+2. Running =npm link my-great-loader= in the top level of
+   "my-great-loader-example" will create a sym link to the global node module.
+   Since step one made that global module point to your development directory
+   for "my-great-loader", you're all set.
+
+#+BEGIN_SRC bash
+> npm link react-bootstrap
+unbuild react-bootstrap@0.13.0
+/Users/justin/my_project/node_modules/react-bootstrap -> /Users/justin/.nvm/v0.10.33/lib/node_modules/react-bootstrap -> /Users/justin/forks/react-bootstrap
+#+END_SRC
+
+Confirm that you have this setup correctly with a =console.log("HELLO");= at the
+beginning of your loader.
+
+
+
+
+* Print Statements
+Yes, print statements help TONS. =%O= will print an object!
+
+#+BEGIN_SRC
+console.log"someVar is %O", someVar);
+#+END_SRC
+
+
+* To Use a Debugger
+
+1. Run this command:
+#+BEGIN_SRC bash
+npm install -g node-inspector
+#+END_SRC
+
+2. Put in a line with =debugger;= in your project.
+
+3. Run this command at the top level of your "my-great-loader-example" project:
+#+BEGIN_SRC bash
+node-debug webpack
+#+END_SRC
+
+{% img /images/2014-11-22-how-to-develop-and-debug-a-webpack-loader/debugger.jpg %}
+
