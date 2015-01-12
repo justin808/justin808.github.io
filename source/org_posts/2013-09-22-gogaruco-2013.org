@@ -40,6 +40,10 @@ was about meeting others who contribute to open-source and learning more about
 how I can contribute. As a bonus, I got a chance to personally meet the people
 whom I follow on Twitter, read their blogs, and use their open source.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * My Top 14 for 2013 GoGaRuCo
 1. Won't need to buy any new T-shirts for a long time.
 2. Got a poster tube that doubles as a form for caissons.

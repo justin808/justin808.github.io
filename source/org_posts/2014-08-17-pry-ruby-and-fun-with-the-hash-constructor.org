@@ -31,6 +31,10 @@ Then run =bundle install=. Then run =rails console=. That gets you the default
 pry configuration. At the bottom of this article is my =~/.pryrc= ([[https://gist.github.com/justin808/1fe1dfbecc00a18e7f2a][gist]]). Create
 that file and then run =rails c= (short for =rails console=).
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 You'll see this useful reminder of the customizations:
 
 #+BEGIN_EXAMPLE

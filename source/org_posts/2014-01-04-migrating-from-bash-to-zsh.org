@@ -47,6 +47,10 @@ Here's a few tips to somebody migrating might find useful:
    that within my octopress branch.
 6. You need to escape the =^= character for commands such as =git reset HEAD\^=
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Migration Notes
 ** Escape []
 In the third line of this function, I had to escape the =[= and the =]=.

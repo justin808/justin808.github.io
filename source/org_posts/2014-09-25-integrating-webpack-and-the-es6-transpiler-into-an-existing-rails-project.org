@@ -42,6 +42,10 @@ How would you like to achieve, within a Rails project:
 This article will show you how you can utilize Webpack in your Rails development
 process to achieve these goals!
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 First, I'm going to tell you a brief story of how I came to the realization that
 /there had to be a better way to incorporate JavaScript ecosystem into Rails/.
 

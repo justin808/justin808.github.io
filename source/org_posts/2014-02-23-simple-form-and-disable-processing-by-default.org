@@ -47,6 +47,10 @@ database in lower case via a =before_validation= hook.
 
 So then I tried to double click the =SAVE= button, and, *BOOM*, I got the same error.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * data-disable-with='Processing...'
 A little bit of googling quickly revealed some handy rails techniques disabling
 a submit button after being clicked, namely the setting of attribute

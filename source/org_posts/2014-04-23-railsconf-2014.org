@@ -28,6 +28,10 @@ Due to time constraints, I chose to skip the live coding I had prepared to do in
 my talk. [[emailto:justin@railsonmaui.com][Please let me know]] if you'd be interested in a screencast walking
 through the sample code. I will create one if there is sufficient demand.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * RailsConf 2014 Pictures
 - Please share, so long as you don't remove the watermark.
 - [[emailto:justin@railsonmaui.com][Email me]] if you'd like any full size, non-watermarked copies.

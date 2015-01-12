@@ -29,7 +29,11 @@ page to where the element is, and work out the correct co-ordinates to click. If
 the element is covered up by another element, the click will fail (this is a
 good thing - because your user won't be able to click a covered up element
 either).
-#+end_quote   
+#+end_quote
+
+#+begin_html
+<!-- more -->
+#+end_html
 
 * Tips for Migrating
 ** Upgrade Gems First

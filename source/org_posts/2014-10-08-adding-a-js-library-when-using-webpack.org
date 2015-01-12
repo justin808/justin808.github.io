@@ -25,6 +25,10 @@ A quick Google for JavaScript libraries finds [[https://www.npmjs.org/package/co
 at the [[https://github.com/compute-io/roundn][github repository for compute-io/roundn]] reveals clean code and it has
 some tests.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 So should you copy some cribbed JavaScript code example or maybe copy-paste the
 source of some code into your =/vendor/assets/javascripts= directory? What's the
 disadvantage of doing this?

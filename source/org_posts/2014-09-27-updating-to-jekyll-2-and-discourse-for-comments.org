@@ -42,6 +42,10 @@ What's super cool about doing the conversion?
    What this looks like on the forum, http://forum.railsonmaui.com:
    {% img /images/2014-09-octopress-discourse/railsonmaui-comments-blog.jpg %}
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Updating Octopress
 [[https://www.google.com/search?q%3Dupdgrading%2Boctopress&gws_rd%3Dssl#newwindow%3D1&q%3Dupgrading%2Boctopress][Googling for upgrading octopress]] gave me [[http://www.railsonmaui.com/blog/2013/09/15/upgrading-octopress/][my own article]] as the second match.
 It's always a great reason to blog and have your notes indexed by Google!

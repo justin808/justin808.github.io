@@ -32,6 +32,10 @@ I use [[https://github.com/guard/guard][Guard]] for:
 While I love running Guard with Zeus, [[https://github.com/rails/spring][Spring]] is the default in Rails 4.1, so
 I'll probably give that a try in the near future.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Why Tmuxinator and Tmux?
 [[https://github.com/tmuxinator/tmuxinator][Tmuxinator]] is awesome for configuring the layout of several processes.
 

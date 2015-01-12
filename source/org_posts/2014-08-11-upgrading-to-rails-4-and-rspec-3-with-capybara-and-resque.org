@@ -37,6 +37,10 @@ Here's my favorite reasons for keeping gems relatively current:
 That being said, recent versions can have new bugs, so it's best to avoid
 versions that are unreleased or that haven't aged at least a few weeks.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 ** Some Gems Will Be Way More Difficult to Update
 Large libraries, like Rails, RSpec, Twitter Bootstrap, etc. are going to take
 more elbow grease to update. Typically if a major version number is updating,
