@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -84,6 +84,8 @@ The correct code should have been:
 </span><span class='line'>  <span class="n">save!</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
+
+<!-- more -->
 
 <p>
 In this case, we&#8217;re calling the method <code>some_attribute=</code> on the model instance,
@@ -772,6 +774,8 @@ at the <a href="https://github.com/compute-io/roundn">github repository for comp
 some tests.
 </p>
 
+<!-- more -->
+
 <p>
 So should you copy some cribbed JavaScript code example or maybe copy-paste the
 source of some code into your <code>/vendor/assets/javascripts</code> directory? What&#8217;s the
@@ -949,6 +953,8 @@ it and leveraging it.
 This article will show you how you can utilize Webpack in your Rails development
 process to achieve these goals!
 </p>
+
+<!-- more -->
 
 <p>
 First, I&#8217;m going to tell you a brief story of how I came to the realization that
@@ -1878,6 +1884,8 @@ Rails scaffold generator, very little Rails coding is required. You can try the
 end result of the completed tutorial <a href="http://react-rails-tutorial.herokuapp.com/">on Heroku</a>, and the code <a href="https://github.com/justin808/react-rails-tutorial">on Github</a>.
 </p>
 
+<!-- more -->
+
 <p>
 Since the original React <a href="http://facebook.github.io/react/docs/tutorial.html">tutorial</a> is excellent, I will not be rehashing any of
 it&#8217;s explanations of how React works. This tutorial purely focusing on
@@ -2640,6 +2648,8 @@ deployment scripts.
 </ol>
 </li>
 </ol>
+
+<!-- more -->
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
@@ -2756,6 +2766,8 @@ What this looks like on the forum, <a href="http://forum.railsonmaui.com">http:/
 </p>
 </li>
 </ol>
+
+<!-- more -->
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
@@ -3169,6 +3181,8 @@ doesn&#8217;t work:
 </span><span class='line'><span class="o">[</span><span class="mi">12</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">csv</span> <span class="o">=</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_string</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="n">col_headers</span><span class="p">)</span>
 </span><span class='line'><span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="n">output</span> <span class="ss">error</span><span class="p">:</span> <span class="c1">#&lt;NoMethodError: undefined method `table&#39; for #&lt;Object:0x007fdbfc8d5588&gt;&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
+
+<!-- more -->
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
@@ -3735,6 +3749,8 @@ Rails 4.1.
 That being said, recent versions can have new bugs, so it&#8217;s best to avoid
 versions that are unreleased or that haven&#8217;t aged at least a few weeks.
 </p>
+
+<!-- more -->
 </div>
 
 <div id="outline-container-sec-1-1" class="outline-3">
@@ -4330,6 +4346,8 @@ PG::ConnectionBad:
 The error was happening in a test that used <code>resque_spec</code>. After much searching,
 I began to suspect that some customization or optimization caused the issue.
 </p>
+
+<!-- more -->
 </div>
 
 <div id="outline-container-sec-2-1" class="outline-3">
@@ -4617,6 +4635,8 @@ two, such as when doing TDD. However, when running a whole test suite taking
 minutes, 3-5 seconds can get swallowed up by other things, such as rspec-retry,
 which retries failing capybara tests.
 </p>
+
+<!-- more -->
 
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Overview</h2>
@@ -5037,6 +5057,8 @@ pry configuration. At the bottom of this article is my <code>~/.pryrc</code> (<a
 that file and then run <code>rails c</code> (short for <code>rails console</code>).
 </p>
 
+<!-- more -->
+
 <p>
 You&#8217;ll see this useful reminder of the customizations:
 </p>
@@ -5455,6 +5477,8 @@ evening events last year were great as well.
 <li>You won&#8217;t need any more T-shirts for another year!
 </li>
 </ol>
+
+<!-- more -->
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
@@ -5567,6 +5591,8 @@ versus at Screenhero. Incidentally, Screenhero did not suffer from any
 degradation when combined with the Google Hangout, regardless of using the
 Hangout on the laptop or mobile device.
 </p>
+
+<!-- more -->
 
 <p>
 In the below images, note where our eyes are focused.
@@ -5798,6 +5824,8 @@ Due to time constraints, I chose to skip the live coding I had prepared to do in
 my talk. <a href="mailto:justin@railsonmaui.com">Please let me know</a> if you&#8217;d be interested in a screencast walking
 through the sample code. I will create one if there is sufficient demand.
 </p>
+
+<!-- more -->
 </div>
 </div>
 <div id="outline-container-sec-3" class="outline-2">
@@ -5926,6 +5954,8 @@ gems or routes, you need to restart the server.
 While I love running Guard with Zeus, <a href="https://github.com/rails/spring">Spring</a> is the default in Rails 4.1, so
 I&#8217;ll probably give that a try in the near future.
 </p>
+
+<!-- more -->
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
@@ -6110,6 +6140,8 @@ I&#8217;ve added a page of <a href="http://www.railsonmaui.com/tips/rails/capyba
 Poltergeist, and Rspec</a>.
 </p>
 
+<!-- more -->
+
 <p>
 Some of the tips include:
 </p>
@@ -6229,6 +6261,8 @@ Incidentally, since my blog is hosted using github pages, the source code and
 configuration I use to generate it can all be found <a href="https://github.com/justin808/justin808.github.io">here</a>. See the notes below on
 the difference between the <code>source</code> and <code>master</code> branches.
 </p>
+
+<!-- more -->
 
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1">Basic setup</h2>
@@ -6920,6 +6954,8 @@ database in lower case via a <code>before_validation</code> hook.
 <p>
 So then I tried to double click the <code>SAVE</code> button, and, <b>BOOM</b>, I got the same error.
 </p>
+
+<!-- more -->
 </div>
 </div>
 <div id="outline-container-sec-3" class="outline-2">
@@ -7107,6 +7143,8 @@ to
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
+
+<!-- more -->
 
 <p>
 The following screencast shows how you can interactively use the Regexp feature

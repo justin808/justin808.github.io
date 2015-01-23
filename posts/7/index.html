@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Upgrading Octopress - Rails on Maui</title>
+  <title>Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Instructions on Upgrading Octopress">
-  <meta name="keywords" content="Octopress">
+  <meta name="description" content="TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+What's a good strategy? Why does this matter? A Rails app can have awesome &hellip;">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +20,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/09/15/upgrading-octopress">
+  <link rel="canonical" href="http://www.railsonmaui.com/posts/7">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -83,12 +84,15 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Upgrading Octopress</h1>
+      <h1 class="entry-title"><a href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a></h1>
     
     
       <p class="meta">
@@ -97,152 +101,181 @@
 
 
 
-<time class='entry-date' datetime='2013-09-15T22:08:00-10:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>10:08 pm</span></time>
+<time class='entry-date' datetime='2013-05-08T17:41:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>5:41 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>
-One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
-generation engine and the content of one&#8217;s website, and thus upgrading Octopress
-is difficult. I delayed upgrading due to this. However, my concerns were
-unfounded, as it was very painless to upgrade Octopress.
+  <div class="entry-content"><p>
+TLDR: Clean logging and error handling is a critical aspect of a RoR app.
+What&#8217;s a good strategy? Why does this matter?
 </p>
 
 <p>
-The instructions boil down to this short help page on <a href="http://octopress.org/docs/updating/">Updating Octopress</a>:
+A Rails app can have awesome unit and functional tests, and then in production,
+something goes wrong and the right error handling does not happen, making
+a bad situation worse. By this, I mean, it&#8217;s bad enough that something went
+wrong in production. It&#8217;s even worse if:
 </p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git pull octopress master     <span class="c"># Get the latest Octopress</span>
-</span><span class='line'>bundle install                <span class="c"># Keep gems updated</span>
-</span><span class='line'>rake update_source            <span class="c"># update the template&#39;s source</span>
-</span><span class='line'>rake update_style             <span class="c"># update the template&#39;s style</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-The first step resulted in a few merge conflicts. I find RubyMine&#8217;s git conflict
-resolution tools helpful, so I used those. Here&#8217;s a short <a href="http://youtu.be/x74Gd2lDC1A">screencast</a> (embedded
-below) showing you how these tools helped with this process. Besides some minor
-issues dealing with a few merge conflicts, there was nothing very interesting or
-eventful about the upgrade, which means that the current process is really quite
-OK.
-</p>
-
-<!-- more -->
-
-<p>
-I hope a few people find this demo of the RubyMine git conflict resolution tool
-helpful. The key takeaways from this video are:
-</p>
-
 <ol class="org-ol">
-<li>Merge conflicts show up as red in the list of changes.
-<img src="/images/2013-09-15-upgrading-octopress/conflicts-red.jpg">
+<li>You don&#8217;t have clear log messages that identify exactly what went wrong.
 </li>
-
-<li>Try the diff&#8217;ing buttons in the upper left to get 2 way views of
-the 3 way merge.
-<img src="/images/2013-09-15-upgrading-octopress/merge-window.jpg">
+<li>You didn&#8217;t get automatically notified via email that something went wrong.
+Instead, the customer told the customer service rep that there&#8217;s an issue.
+Ideally, when an error happens, the responsible developers should be
+notified.
 </li>
 </ol>
 
 <p>
-3, &#8220;Yours&#8221; means your local changes, and &#8220;Theirs&#8221; means the server&#8217;s changes,
-   or, in this case, the changes in the main Octopress development branch.
+Here&#8217;s some tips on logging setup and error handling, including a utility
+method to log the stack trace and send an email.
 </p>
 
 <p>
-Did the upgrade work? You&#8217;re looking at the results of it.
+The next article,
+<a href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling/">Testing
+Error Handling</a>, will show you how to verify that your error handling strategy
+is properly implemented, includind with rspec tests.
 </p>
 
-<p>
-It&#8217;s worth noting that I had one slight snag. When I merged sass/screen.scss, I
-accidentally removed this line, which is used for the youtube plugin.
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@import</span> <span class="s2">&quot;custom/rve&quot;</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-<p>
-I could have figured this out by examining the history of the file and noting
-that I had added this line, rather than it being part of Octopress. So yes, it
-would be bit better if there was a cleaner separation between the Octopress
-code and any enhancements. However, the current mechanism works, and it&#8217;s still
-thousands of times better than WordPress. 
-</p>
-
-<p>
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/x74Gd2lDC1A "></iframe></div>
-</p>
-
-<div id="discourse-comments"></div>
-<script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/";
-
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-      d.src = discourseUrl + 'javascripts/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Read on &rarr;</a>
+    </footer>
   
 
-<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
 
-      
-
-
-
-
-<time class='entry-date' datetime='2013-09-15T22:08:00-10:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>10:08 pm</span></time>
-      
-
-<span class="categories">
+    </article>
   
-    <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/rubymine/'>rubymine</a>
   
-</span>
-
-
-    </p>
+    <article>
+      
+  <header>
     
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
+      <h1 class="entry-title"><a href="/blog/2013/05/07/buying-apple-products-with-amex/">Buy Apple Products With American Express</a></h1>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/" title="Previous Post: Migrating from Capybara-Webkit to Poltergeist-PhantomJs">&laquo; Migrating from Capybara-Webkit to Poltergeist-PhantomJs</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2013/09/22/gogaruco-2013/" title="Next Post: GoGaRuCo 2013: Community > Code&#8221;>GoGaRuCo 2013: Community > Code &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-05-07T21:53:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:53 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+Here&#8217;s a few tips on buying Apple gear and credit card extended warranties. The
+bottom line is:
+</p>
+<ul class="org-ul">
+<li>Consider buying <b>AppleCare</b> with <b>American Express</b> to get an extended warranty that
+extends 12 months past AppleCare&#8217;s 3 years. That&#8217;s 4 years total! Visa and
+MasterCard <b>do not</b> extend AppleCare&#8217;s 3 years.
+</li>
+<li>If you don&#8217;t need AppleCare, then try to buy with American Express, as you know you&#8217;ll
+still get an extra 12 months. Visa or MasterCard may or may not offer a
+warranty extension depending on your card.
+</li>
+<li>Avoid buying AppleCare with a Visa or MasterCard if the card already has a
+warranty extension. You would get 24 months of basic coverage (one year
+original plus one year card). For the price of AppleCare, you get only an
+extra 12 months, although some will want the telephone question coverage of
+AppleCare.
+</li>
+</ul>
 
 </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/07/buying-apple-products-with-amex/">Read on &rarr;</a>
+    </footer>
+  
 
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup With Github, Org Mode, and LiveReload</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-04-27T22:46:00-10:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>10:46 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+<i>Note: This is post applies to Emacs 23 with org-mode 7.8.x. See <a href="http://www.railsonmaui.com/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/index.html">Org-Mode Octopress Setup v2</a> for the updated version applying to Emacs 24.3 and org-mode 8.2.x</i>
+</p>
+
+<p>
+WordPress seemed like a good blogging platform, but it just didn&#8217;t feel right. I
+spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org
+Mode</a> for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
+Markdown mode on steroids. You can have a numbered list in Markdown, but
+org-mode lets you re-order the list, and that&#8217;s just the beginning. Editing blog
+documents in the WordPress editor felt almost as bad as being told to use MS
+Word. I found that ergonomics of Org Mode, including all the goodness of recent
+versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a href="http://www.emacswiki.org/emacs/Evil">Evil</a> (Vim emulation), just made organization of
+creative thoughts so much more enjoyable.
+</p>
+
+<p>
+So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>. You&#8217;re looking at the
+results of this endeavor, including my first Octopress article, and the latest
+tips on recreating this sort of blog using Octopress with Org Mode authoring,
+using LiveReload, and deployed at no charge on github.com.
+</p>
+
+<p>
+If you used to writing real web applications, rather than know the intricacies
+of a giant monolithic blogging platform, then the <a href="http://octopress.org/docs/theme/template/">customization of Octopress</a>
+seems so much more straightforward. This is so much more like the Unix
+philosophy that so many of us love, which is small and modular, rather than
+monolithic.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/6">Newer &rarr;</a>
+    
+  </div>
+</div>
 <aside class="sidebar">
   
     <section>
@@ -370,7 +403,6 @@ thousands of times better than WordPress.
 
   
 </aside>
-
 
     </div>
   </div>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rubymine | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rubymine/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -43,6 +43,11 @@ to
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
 </span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<!-- more -->
+
+
+
 
 <p>
 The following screencast shows how you can interactively use the Regexp feature
@@ -172,6 +177,11 @@ issues dealing with a few merge conflicts, there was nothing very interesting or
 eventful about the upgrade, which means that the current process is really quite
 OK.
 </p>
+
+
+
+
+<!-- more -->
 
 
 

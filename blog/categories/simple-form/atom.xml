@@ -4,7 +4,7 @@
   <title><![CDATA[Category: simple-form | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/simple-form/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -71,6 +71,8 @@ database in lower case via a <code>before_validation</code> hook.
 <p>
 So then I tried to double click the <code>SAVE</code> button, and, <b>BOOM</b>, I got the same error.
 </p>
+
+<!-- more -->
 </div>
 </div>
 

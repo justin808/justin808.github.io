@@ -4,7 +4,7 @@
   <title><![CDATA[Category: coffeescript | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/coffeescript/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -39,6 +39,8 @@ when you use that specific environment. You can also do it manually, by using
 the <code>-m</code> flag with the <code>coffee</code> command.
 <img src="/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
 </p>
+
+<!-- more -->
 </div>
 </div>
 

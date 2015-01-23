@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>CoffeeScript Chrome Extensions - Rails on Maui</title>
+  <title>Rails on Maui</title>
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="Useful tools for Chrome with CoffeeScript">
-  <meta name="keywords" content="coffeescript">
+  <meta name="description" content="The first post in this series, Ember.js Hello World, shows Ember working
+without a persistence backend. This post covers setting up Rails4 as the &hellip;">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +20,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/05/27/coffeescript-chrome-extensions">
+  <link rel="canonical" href="http://www.railsonmaui.com/posts/6">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -83,12 +84,99 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">CoffeeScript Chrome Extensions</h1>
+      <h1 class="entry-title"><a href="/blog/2013/06/11/emberjs-rails4-tutorial/">Ember.js Tutorial With Rails 4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-06-11T13:00:00-10:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:00 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+The first post in this series, <a href="http://www.railsonmaui.com/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a>, shows Ember working
+without a persistence backend. This post covers setting up Rails4 as the
+persistence engine behind that example, plus adding and deleting records. The
+amount of Ember and Rails code to make this example is almost completely
+included in this article. It&#8217;s that tiny!
+</p>
+
+<p>
+The source code for the completed example can be found on GitHub:
+<a href="https://github.com/justin808/ember-js-guides-railsonmaui-rails4">justin808/ember-js-guides-railsonmaui-rails4</a>. I carefully crafted the commits
+to explain the steps.
+</p>
+
+<p>
+You can try out the application on Heroku at:
+<a href="http://railsonmaui-emberjs-rails4.herokuapp.com/">http://railsonmaui-emberjs-rails4.herokuapp.com/</a>
+</p>
+
+<p>
+I put many more details in this <a href="http://youtu.be/ac1mYhCMRNc">comprehensive screencast</a> of how to go from a
+brand new Rails 4 app to an Ember.js app deployed on Heroku.
+</p>
+
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/ac1mYhCMRNc "></iframe></div>
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Key Tips</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>Be sure to update the <code>ember</code> and <code>ember-data</code> javascript files with the
+command from the ember-rails gem (see below). Keeping these files at
+appropriate versions is key while the API is changing, especially for
+ember-data.
+</li>
+<li>If you specify the Router property for both <code>model</code> and <code>setupController</code>,
+you can have some very confusing results (details below).
+</li>
+<li>Get comfortable with Ember&#8217;s naming conventions. Ember does a ton with
+default naming. It&#8217;s basically got the same philosophy of &#8220;Convention over
+Configuration&#8221; of Rails. So it&#8217;s especially important to try to grok when the
+Ember examples are doing something implicitly versus explicitly. This is a
+bit like Rails. At first it seems like magic, like &#8220;How the heck is that
+happening&#8221;, and then one gets accustomed to the naming conventions and
+appreciates how much code it saves.
+</li>
+<li>Be mindful that some Ember.js commands run asynchronously, such as commit.
+</li>
+</ol>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/11/emberjs-rails4-tutorial/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/27/coffeescript-chrome-extensions/">CoffeeScript Chrome Extensions</a></h1>
     
     
       <p class="meta">
@@ -104,7 +192,7 @@
   </header>
 
 
-<div class="entry-content"><p>
+  <div class="entry-content"><p>
 Here&#8217;s 3 useful tools for using <a href="http://coffeescript.org/">CoffeeScript</a> for web development, possibly with
 Rails and EmberJs. All 3 tools are useful for different purposes. 
 </p>
@@ -123,99 +211,196 @@ the <code>-m</code> flag with the <code>coffee</code> command.
 <img src="/images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png">
 </p>
 
-<!-- more -->
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/27/coffeescript-chrome-extensions/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/26/ember-dot-js-hello-world/">Ember.js Hello World</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-05-26T09:53:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:53 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">TLDR</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><a href="http://emberjs.com/guides/">Tom Dale&#8217;s Intro Tutorial Video</a> on EmberJs is awesome.
+</li>
+<li>Git repos of the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-start">start</a> and the <a href="https://github.com/justin808/ember-js-guides-railsonmaui-no-rest">finish</a> of the Tom Dale EmberJsTutorial.
+</li>
+<li>Tips for reproducing it.
+</li>
+<li><a href="http://youtu.be/vV6zzxi3JOc">Screencast of me explaining the completed example</a>.
+</li>
+</ol>
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Try CoffeeScript Chrome Extension: Converting between CoffeeScript and JavaScript</h2>
+<h2 id="sec-2">Details</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-The <a href="https://chrome.google.com/webstore/detail/try-coffeescript-enhanced/fldhkfldchaibgaheaogapecjmnkaepe?hl=en">Try CoffeeScript Enhanced</a> Chrome extension is pretty nice for converting
-between JavaScript and CoffeeScript. The main advantage over
-<a href="http://js2coffee.org">http://js2coffee.org</a> is that the you don&#8217;t have to open a new browser tab, and
-you can enter either CoffeeScript or JavaScript.
+Ember.js is really amazing. The place to start is <a href="http://emberjs.com/guides/">Tom Dale&#8217;s Intro Tutorial Video</a>
+(on <a href="http://www.youtube.com/watch?feature=player_embedded&v=Ga99hMi7wfY">Youtube</a>). In the 30 minute video you build the app shown here in this
+iframe. Some of the features you&#8217;ll learn include:
 </p>
+<ol class="org-ol">
+<li>Basic setup for an Ember.js app.
+</li>
+<li>Nested views. You can click on the articles on the left, and see the
+articles on the right.
+</li>
+<li>Ember helpers which provide markdown and date conversion with a tiny bit of code.
+</li>
+<li>Even how to do a read/write REST interface. 
+</li>
+</ol>
 
 <p>
-<img src="/images/2013-05-27-coffeescript-chrome-extensions/try-coffeescript.png">
+If a picture is worth a thousand words, here&#8217;s what you build in the video (you
+can try in the iframe below or a <a href="http://www.railsonmaui.com/tutorials/ember-js-guides-railsonmaui/index.html">separate tab</a>). The dynamic mvc nature of the
+bindings is neat. Try this:
 </p>
+<ol class="org-ol">
+<li>Click on the article &#8220;Octopress&#8221; on the left.
+</li>
+<li>Click Edit, change the markdown in the 2nd field, and see it change below
+dynamically!
+</li>
+</ol>
+<div><iframe src='/tutorials/ember-js-guides-railsonmaui/index.html' width='100%' height='600px'></iframe></div>
+
 </div>
-</div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Coffee Console Developer Tool: Executing CoffeeScript in Chrome</h2>
-<div class="outline-text-2" id="text-3">
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/26/ember-dot-js-hello-world/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/25/getting-started-with-discourse/">Getting Started With Discourse</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-05-25T13:24:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>1:24 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+Looking for a great open source example of a <i>production quality</i>
+rails, emberjs, and single-page-application project? Check out <a href="https://github.com/discourse/discourse">Discourse</a>.
+</p>
+<blockquote>
 <p>
-&#8221;<a href="http://snook.ca/archives/browsers/coffeeconsole">Coffeeconsole: A Chrome Extension</a>&#8221; provides a place to execute CoffeeScript in
-the Web Inspector.
-<img src="/images/2013-05-27-coffeescript-chrome-extensions/coffee-console.png">
+Discourse is the 100% open source, next-generation discussion platform built for the next decade of the Internet.
 </p>
+</blockquote>
+<p>
+Here&#8217;s a great example of the Discourse code in action: <a href="http://meta.discourse.org/t/is-it-better-for-discourse-to-use-javascript-or-coffeescript/3153">Is it better for
+Discourse to use JavaScript or CoffeeScript?</a>
+</p>
+
 </div>
-</div>
-
-<div id="discourse-comments"></div>
-<script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/";
-
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-      d.src = discourseUrl + 'javascripts/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/25/getting-started-with-discourse/">Read on &rarr;</a>
+    </footer>
   
 
-<span class="byline author vcard">Posted by <span class="fn">Justin Gordon</span></span>
 
-      
-
-
-
-
-<time class='entry-date' datetime='2013-05-27T17:16:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>5:16 pm</span></time>
-      
-
-<span class="categories">
+    </article>
   
-    <a class='category' href='/blog/categories/coffeescript/'>coffeescript</a>
   
-</span>
-
-
-    </p>
+    <article>
+      
+  <header>
     
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/" data-via="railsonmaui" data-counturl="http://www.railsonmaui.com//blog/2013/05/27/coffeescript-chrome-extensions/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
+      <h1 class="entry-title"><a href="/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a></h1>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2013/05/26/ember-dot-js-hello-world/" title="Previous Post: Ember.js Hello World">&laquo; Ember.js Hello World</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2013/06/11/emberjs-rails4-tutorial/" title="Next Post: Ember.js Tutorial with Rails 4">Ember.js Tutorial with Rails 4 &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-05-11T00:01:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:01 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+How do ensure that your application properly handles errors, especially when
+relying on third parties, such as payment processors? Is it easy to verify that
+the right things happen when the wrong things happen? Last week&#8217;s article
+<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
+setup a good error handling strategy. Here&#8217;s some techniques to verify that your
+application does what you expect it to do when things go wrong. The key message
+is to check how your application handles errors, before your customers do.
+</p>
 
 </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/11/testing-error-handling/">Read on &rarr;</a>
+    </footer>
+  
 
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/7">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/5">Newer &rarr;</a>
+    
+  </div>
+</div>
 <aside class="sidebar">
   
     <section>
@@ -343,7 +528,6 @@ the Web Inspector.
 
   
 </aside>
-
 
     </div>
   </div>

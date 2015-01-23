@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -73,6 +73,8 @@ What this looks like on the forum, <a href="http://forum.railsonmaui.com">http:/
 </p>
 </li>
 </ol>
+
+<!-- more -->
 </div>
 </div>
 
@@ -526,6 +528,11 @@ Incidentally, since my blog is hosted using github pages, the source code and
 configuration I use to generate it can all be found <a href="https://github.com/justin808/justin808.github.io">here</a>. See the notes below on
 the difference between the <code>source</code> and <code>master</code> branches.
 </p>
+
+
+
+
+<!-- more -->
 
 
 
@@ -1230,6 +1237,11 @@ issues dealing with a few merge conflicts, there was nothing very interesting or
 eventful about the upgrade, which means that the current process is really quite
 OK.
 </p>
+
+
+
+
+<!-- more -->
 
 
 

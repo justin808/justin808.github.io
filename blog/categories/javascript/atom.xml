@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -69,6 +69,11 @@ simple tutorial with a Rails 4.2 backend utilizing the <a href="https://github.c
 Rails scaffold generator, very little Rails coding is required. You can try the
 end result of the completed tutorial <a href="http://react-rails-tutorial.herokuapp.com/">on Heroku</a>, and the code <a href="https://github.com/justin808/react-rails-tutorial">on Github</a>.
 </p>
+
+
+
+
+<!-- more -->
 
 
 

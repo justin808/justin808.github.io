@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -119,6 +119,11 @@ The correct code should have been:
 </span><span class='line'>  <span class="n">save!</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<!-- more -->
+
+
+
 
 <p>
 In this case, we&#8217;re calling the method <code>some_attribute=</code> on the model instance,
@@ -841,6 +846,8 @@ Rails 4.1.
 That being said, recent versions can have new bugs, so it&#8217;s best to avoid
 versions that are unreleased or that haven&#8217;t aged at least a few weeks.
 </p>
+
+<!-- more -->
 </div>
 
 <div id="outline-container-sec-1-1" class="outline-3">
@@ -1454,6 +1461,8 @@ PG::ConnectionBad:
 The error was happening in a test that used <code>resque_spec</code>. After much searching,
 I began to suspect that some customization or optimization caused the issue.
 </p>
+
+<!-- more -->
 </div>
 
 <div id="outline-container-sec-2-1" class="outline-3">
@@ -1761,6 +1770,11 @@ two, such as when doing TDD. However, when running a whole test suite taking
 minutes, 3-5 seconds can get swallowed up by other things, such as rspec-retry,
 which retries failing capybara tests.
 </p>
+
+
+
+
+<!-- more -->
 
 
 
@@ -2211,6 +2225,8 @@ evening events last year were great as well.
 <li>You won&#8217;t need any more T-shirts for another year!
 </li>
 </ol>
+
+<!-- more -->
 </div>
 </div>
 

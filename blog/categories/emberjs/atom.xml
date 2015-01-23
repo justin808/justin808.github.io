@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emberjs | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/emberjs/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -32,6 +32,11 @@ Ember is really gaining some traction. For example, <a href="http://boingboing.n
 comments to Discourse, which is based on EmberJs. You can read about it at
 boing boing: <a href="http://boingboing.net/2013/06/27/can-we-talk.html">Can we talk?</a>.
 </p>
+
+
+
+
+<!-- more -->
 
 
 
@@ -967,6 +972,8 @@ dynamically!
 </li>
 </ol>
 <div><iframe src='http://www.railsonmaui.com//tutorials/ember-js-guides-railsonmaui/index.html' width='100%' height='600px'></iframe></div>
+
+<!-- more -->
 
 <p>
 Then try out the &#8220;Ember Inspector for Chrome&#8221;. Yehuda does a nice <a href="https://www.youtube.com/watch?v=18OSYuhk0Yo">demo of it on

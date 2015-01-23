@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pry | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pry/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -92,6 +92,8 @@ doesn&#8217;t work:
 </span><span class='line'><span class="o">[</span><span class="mi">12</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">csv</span> <span class="o">=</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_string</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="n">col_headers</span><span class="p">)</span>
 </span><span class='line'><span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="n">output</span> <span class="ss">error</span><span class="p">:</span> <span class="c1">#&lt;NoMethodError: undefined method `table&#39; for #&lt;Object:0x007fdbfc8d5588&gt;&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
+
+<!-- more -->
 </div>
 </div>
 
@@ -672,6 +674,8 @@ Then run <code>bundle install</code>. Then run <code>rails console</code>. That 
 pry configuration. At the bottom of this article is my <code>~/.pryrc</code> (<a href="https://gist.github.com/justin808/1fe1dfbecc00a18e7f2a">gist</a>). Create
 that file and then run <code>rails c</code> (short for <code>rails console</code>).
 </p>
+
+<!-- more -->
 
 <p>
 You&#8217;ll see this useful reminder of the customizations:

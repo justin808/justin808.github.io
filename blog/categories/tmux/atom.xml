@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tmux | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/tmux/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2014-12-09T09:29:40-10:00</updated>
+  <updated>2015-01-22T20:25:06-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -71,6 +71,8 @@ gems or routes, you need to restart the server.
 While I love running Guard with Zeus, <a href="https://github.com/rails/spring">Spring</a> is the default in Rails 4.1, so
 I&#8217;ll probably give that a try in the near future.
 </p>
+
+<!-- more -->
 </div>
 </div>
 
