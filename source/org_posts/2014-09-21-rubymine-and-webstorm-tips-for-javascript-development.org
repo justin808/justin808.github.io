@@ -25,6 +25,10 @@ If you're using the ES6 transpiler, you definitely want to enable one of these
 settings. I'm guessing that they'll both be =ECMAScript 6= sometime in the near
 future.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 I'm going to be testing these options out shortly. Just placing here so as to
 bring attention to them.
 **** The JSX Harmony Support in WebStorm and RubyMine EAP

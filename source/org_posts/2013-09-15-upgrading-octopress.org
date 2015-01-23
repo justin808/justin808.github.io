@@ -30,6 +30,10 @@ issues dealing with a few merge conflicts, there was nothing very interesting or
 eventful about the upgrade, which means that the current process is really quite
 OK.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 I hope a few people find this demo of the RubyMine git conflict resolution tool
 helpful. The key takeaways from this video are:
 

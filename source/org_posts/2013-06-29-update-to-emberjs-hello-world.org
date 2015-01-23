@@ -18,6 +18,10 @@ Ember is really gaining some traction. For example, [[http://boingboing.net/][bo
 comments to Discourse, which is based on EmberJs. You can read about it at
 boing boing: [[http://boingboing.net/2013/06/27/can-we-talk.html][Can we talk?]].
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 Please let me know if this walkthrough is helpful. Comments are always welcome.
 
 {% youtube vV6zzxi3JOc %}

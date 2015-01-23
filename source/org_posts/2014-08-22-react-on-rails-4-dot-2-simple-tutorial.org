@@ -37,6 +37,10 @@ simple tutorial with a Rails 4.2 backend utilizing the [[https://github.com/reac
 Rails scaffold generator, very little Rails coding is required. You can try the
 end result of the completed tutorial [[http://react-rails-tutorial.herokuapp.com/][on Heroku]], and the code [[https://github.com/justin808/react-rails-tutorial][on Github]].
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 Since the original React [[http://facebook.github.io/react/docs/tutorial.html][tutorial]] is excellent, I will not be rehashing any of
 it's explanations of how React works. This tutorial purely focusing on
 converting that tutorial to utilize Rails.

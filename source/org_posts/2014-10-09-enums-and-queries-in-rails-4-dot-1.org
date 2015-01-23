@@ -52,6 +52,10 @@ def change_some_attribute
 end
 #+END_SRC
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 In this case, we're calling the method =some_attribute== on the model instance,
 and we get the expected result of assigning an attribute value.
 

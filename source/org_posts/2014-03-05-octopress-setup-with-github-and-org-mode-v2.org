@@ -64,6 +64,10 @@ This article should be useful for:
 Incidentally, since my blog is hosted using github pages, the source code and
 configuration I use to generate it can all be found [[https://github.com/justin808/justin808.github.io][here]]. See the notes below on
 the difference between the =source= and =master= branches.
+
+#+begin_html
+<!-- more -->
+#+end_html
   
 * Basic setup
 1. [[http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/][Rob Dodson on Octopress]]: Start off with these instructions from this posting

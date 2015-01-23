@@ -48,6 +48,10 @@ Node dependencies in a Rails project?
    2. Use npm to manage dependencies in your dev environment, but not in your
       deployment scripts.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Reasons not to include node_modules in git
 Including node_modules in your git repo greatly increases the potential file
 churn for files that your team did not create, thus making pull requests on

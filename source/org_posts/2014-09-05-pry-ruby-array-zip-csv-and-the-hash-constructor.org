@@ -55,6 +55,10 @@ doesn't work:
 (pry) output error: #<NoMethodError: undefined method `table' for #<Object:0x007fdbfc8d5588>>
 #+END_SRC
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Using Array#zip
 
 I stumbled upon a note about the CSV parser that suggested using =Array#zip= to

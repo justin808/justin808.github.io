@@ -38,6 +38,10 @@ versus at Screenhero. Incidentally, Screenhero did not suffer from any
 degradation when combined with the Google Hangout, regardless of using the
 Hangout on the laptop or mobile device.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 In the below images, note where our eyes are focused.
 
 *** Talking to each other, making eye contact

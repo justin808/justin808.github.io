@@ -61,6 +61,10 @@ Here's the stack trace:
 The error was happening in a test that used =resque_spec=. After much searching,
 I began to suspect that some customization or optimization caused the issue.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 ** RubyMine Find in Path
 RubyMine's Find in Path, searching Project and Libraries, is extremely useful to
 getting more context around an error message. In this case, RubyMine found the

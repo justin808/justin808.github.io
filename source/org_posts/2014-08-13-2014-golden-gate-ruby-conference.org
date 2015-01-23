@@ -38,6 +38,10 @@ organizers]], GoGaRuCo has sold out every year, except for /maybe/ year one.
 9. There's probably going to be a job board, just in case that interests you.
 10. You won't need any more T-shirts for another year!
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Photography
 I'm volunteering as the official photographer of GoGaRuCo. My mission is to "get
 2-3 good shots of each speaker, a couple of audience shots during each days

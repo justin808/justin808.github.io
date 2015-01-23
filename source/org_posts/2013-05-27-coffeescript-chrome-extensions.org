@@ -24,6 +24,10 @@ when you use that specific environment. You can also do it manually, by using
 the =-m= flag with the =coffee= command.
 {% img /images/2013-05-27-coffeescript-chrome-extensions/coffeescript-source-map.png %}
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Try CoffeeScript Chrome Extension: Converting between CoffeeScript and JavaScript
 The [[https://chrome.google.com/webstore/detail/try-coffeescript-enhanced/fldhkfldchaibgaheaogapecjmnkaepe?hl%3Den][Try CoffeeScript Enhanced]] Chrome extension is pretty nice for converting
 between JavaScript and CoffeeScript. The main advantage over

@@ -13,6 +13,10 @@ description:
 I've added a page of [[http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html][tips on integration (aka feature spec) testing using Capybara, PhantomJs,
 Poltergeist, and Rspec]].
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 Some of the tips include:
 1. Favorite test configuration (gems, spec_helper, etc.) for feature specs.
 2. How to troubleshoot and debug feature specs

@@ -31,6 +31,10 @@ two, such as when doing TDD. However, when running a whole test suite taking
 minutes, 3-5 seconds can get swallowed up by other things, such as rspec-retry,
 which retries failing capybara tests.
 
+#+begin_html
+<!-- more -->
+#+end_html
+
 * Overview
 I've written about my integration testing setup: [[http://www.railsonmaui.com/tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html][Capybara, PhantomJs, Poltergeist, and Rspec Tips]]. For a while, I've been eager to upgrade to Rails
 4.1 and RSpec 3. Finally, in August, 2014, the gem ecosystem allowed this to
