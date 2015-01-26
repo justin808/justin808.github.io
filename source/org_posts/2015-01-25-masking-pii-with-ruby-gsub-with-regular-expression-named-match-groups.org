@@ -1,0 +1,329 @@
+#+BEGIN_HTML
+---
+layout: post
+title: "Masking PII with Ruby gsub with Regular Expression Named Match Groups, Non-Greedy"
+date: 2015-01-25 10:51:48 -1000
+comments: true
+categories: 
+keywords: 
+description: 
+---
+#+END_HTML
+
+
+In this article, you'll learn about:
+
+1. How to effectively use [[http://rubular.com/][rubular.com]] and the Ruby console to get the correct
+   regular expression syntax.
+2. What the difference is between =.*= and =.*?=, greedy and non-greedy.
+3. What are regular expression named capture groups and why you should use them.
+4. Using String#gsub without and with the block syntax, and without or with
+   named capture groups.
+
+Suppose you have to filter out [[http://en.wikipedia.org/wiki/Personally_identifiable_information][PII (Personally Identifiable Information)]] out of
+log entries that look like this HTML. We don't want the following PII fields to
+show their values: =email=, =social_security_number=, =date_of_birth=
+
+*/Input Html/*
+#+BEGIN_SRC HTML
+Updated User (4)<br>
+     changed first_name to &quot;Karina&quot;<br>
+     changed last_name to &quot;Senger&quot;<br>
+     changed phone to &quot;2133432154&quot;<br>
+     changed email to &quot;brenna.treutel@runolfsdottirdonnelly.org&quot;<br>
+     changed street to &quot;123 Main St&quot;<br>
+     changed city to &quot;Paia&quot;<br>
+     changed state to &quot;HI&quot;<br>
+     changed zip_code to &quot;96677&quot;<br>
+     changed social_security_number to &quot;555-33-4444&quot;<br>
+     changed date_of_birth to &quot;2000-10-03&quot;
+#+END_SRC
+
+And the end result we want is:
+#+BEGIN_SRC HTML
+Updated User (4)<br>
+     changed first_name to &quot;Karina&quot;<br>
+     changed last_name to &quot;Senger&quot;<br>
+     changed phone to &quot;2133432154&quot;<br>
+     changed email to XXXXXX<br>
+     changed street to &quot;123 Main St&quot;<br>
+     changed city to &quot;Paia&quot;<br>
+     changed state to &quot;HI&quot;<br>
+     changed zip_code to &quot;96677&quot;<br>
+     changed social_security_number to XXXXXX<br>
+     changed date_of_birth to XXXXXX
+#+END_SRC
+
+#+begin_html
+<!-- more -->
+#+end_html
+
+* Reference Web Pages
+I suggest you open the following reference web pages:
+1. Ruby doc for [[http://ruby-doc.org/core-2.1.5/Regexp.html][Class Regexp]]
+2. Ruby doc for [[http://ruby-doc.org/core-2.1.5/String.html#method-i-replace][String#gsub]]
+2. Interactive Ruby regular expression tester: [[http://rubular.com/][rubular.com]]
+
+* Figure out the Regexp
+First, let's figure out the right regular expression using [[http://rubular.com/][rubular.com]].
+
+** Basic Regexp
+Copy the above string of input (gray box above labeled /Input HTML/into the "Your test string" box, and then let's figure
+out a simple regexp to match an individual line.
+
+#+BEGIN_EXAMPLE
+changed email to &quot;(.*?)&quot;
+#+END_EXAMPLE
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-1.jpg %}
+
+** Why the (.*?) or Why Non-Greedy
+The =.*?= syntax means to get the non-greedy match. In order to see this, let's
+use this string below into the "Your test string" box (note, the text scrolls
+way to the right):
+
+#+BEGIN_SRC HTML
+Updated User (4)<br>     changed first_name to &quot;Karina&quot;<br>     changed last_name to &quot;Senger&quot;<br>     changed phone to &quot;2133432154&quot;<br>     changed email to &quot;brenna.treutel@runolfsdottirdonnelly.org&quot;<br>     changed street to &quot;123 Main St&quot;<br>     changed city to &quot;Paia&quot;<br>     changed state to &quot;HI&quot;<br>     changed zip_code to &quot;96677&quot;<br>     changed social_security_number to &quot;555-33-4444&quot;<br>   changed date_of_birth to &quot;2000-10-03&quot;
+#+END_SRC
+
+Notice that you see the correct result for the match.
+
+Now, remove the =?= in the =.*?=, using this regexp:
+
+#+BEGIN_EXAMPLE
+changed email to &quot;(.*)&quot;
+#+END_EXAMPLE
+
+And you'll see this:
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-2.jpg %}
+
+Now, add back the =?= after the =.*=, and you'll see the right value.
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-3.jpg %}
+
+The Ruby docs for [[http://ruby-doc.org/core-2.1.5/Regexp.html][Class Regexp]] explain this:
+
+#+begin_quote
+Repetition is greedy by default: as many occurrences as possible are matched while still allowing the overall match to succeed. By contrast, lazy matching makes the minimal amount of matches necessary for overall success. A greedy metacharacter can be made lazy by following it with ?.
+#+end_quote
+
+** Match any of the 3 fields
+
+How do we match any of the PII fields of =email=, =social_security_number=,
+=date_of_birth=?
+
+The answer is to use alternation.
+
+#+begin_quote
+The vertical bar metacharacter (|) combines two expressions into a single one that matches either of the expressions. Each expression is an alternative.
+#+end_quote
+
+
+#+BEGIN_EXAMPLE
+changed (email|social_security_number|date_of_birth) to &quot;(.*?)&quot;
+#+END_EXAMPLE
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-4.jpg %}
+
+** Experiment in the Console (Pry)
+
+Open up your rails console (=rails c=) and paste the following 2 lines. This
+will set you up with what we've been testing in Rubular.
+#+BEGIN_SRC ruby
+log_entry = "Updated User (4)<br>     changed first_name to &quot;Karina&quot;<br>     changed last_name to &quot;Senger&quot;<br>     changed phone to &quot;2133432154&quot;<br>     changed email to &quot;brenna.treutel@runolfsdottirdonnelly.org&quot;<br>     changed street to &quot;123 Main St&quot;<br>     changed city to &quot;Paia&quot;<br>     changed state to &quot;HI&quot;<br>     changed zip_code to &quot;96677&quot;<br>     changed social_security_number to &quot;555-33-4444&quot;<br>     changed date_of_birth to &quot;2000-10-03&quot;"
+regexp = /changed (email|social_security_number|date_of_birth) to &quot;(.*?)&quot;/
+#+END_SRC
+
+Then enter the following. Feel free to experiment!
+
+#+BEGIN_SRC ruby
+log_entry.match(regexp)
+$~
+$1
+$2
+$&
+#+END_SRC
+
+Here's the doc of the globals set by a regexp. These are thread-local and
+method-local variables. So they are safe in a multi-threaded environment.
+
+#+BEGIN_EXAMPLE
+Pattern matching sets some global variables :
+
+$~ is equivalent to ::last_match;
+$& contains the complete matched text;
+$` contains string before match;
+$' contains string after match;
+$1, $2 and so on contain text matching first, second, etc capture group;
+$+ contains last capture group.
+#+END_EXAMPLE
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-1.jpg %}
+
+
+The =$~= will come in particularly handy when we try to use =gsub=.
+
+** How Do We Get All the Matches?
+
+[[http://ruby-doc.org/core-2.1.5/String.html#method-i-scan][String#scan]] does it!
+
+#+BEGIN_SRC ruby
+log_entry.scan(regexp)
+#+END_SRC
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-2.jpg %}
+
+** Named Match Groups
+=$1= and =$2= are not the most illuminating names for the capture group values. Ruby offers a way
+to give them readable names.
+
+#+BEGIN_EXAMPLE
+Capture groups can be referred to by name when defined with the (?<name>) or (?'name') constructs.
+
+/\$(?<dollars>\d+)\.(?<cents>\d+)/.match("$3.67")
+    => #<MatchData "$3.67" dollars:"3" cents:"67">
+/\$(?<dollars>\d+)\.(?<cents>\d+)/.match("$3.67")[:dollars] #=> "3"
+Named groups can be backreferenced with \k<name>, where name is the group name.
+
+/(?<vowel>[aeiou]).\k<vowel>.\k<vowel>/.match('ototomy')
+    #=> #<MatchData "ototo" vowel:"o">
+Note: A regexp can't use named backreferences and numbered backreferences simultaneously.
+
+When named capture groups are used with a literal regexp on the left-hand side of an expression and the =~ operator, the captured text is also assigned to local variables with corresponding names.
+
+/\$(?<dollars>\d+)\.(?<cents>\d+)/ =~ "$3.67" #=> 0
+dollars #=> "3"
+#+END_EXAMPLE
+
+Let's try that in rubular first by copying this regexp into rubular:
+
+#+BEGIN_EXAMPLE
+changed (?<field>email|social_security_number|date_of_birth) to &quot;(?<value>.*?)&quot;
+#+END_EXAMPLE
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-5.jpg %}
+
+And then try this in the console:
+#+BEGIN_SRC ruby
+regexp_named_captures = /changed (?<field>email|social_security_number|date_of_birth) to &quot;(?<value>.*?)&quot;/
+match_data = log_entry.match(regexp_named_captures)
+match_data[:field]
+match_data[:value]
+log_entry.scan(regexp_named_captures)
+arr[0]
+arr[0][0]
+#+END_SRC
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-3.jpg %}
+
+* Substitution with =String#gsub=
+** Simple, Non-block =String#gsub= Syntax
+Now, back to the task at hand, which was to convert the original log entry with
+PII so that the PII is redacted. We'll change the lines to something like this:
+
+#+BEGIN_EXAMPLE
+changed email to XXXXXX
+#+END_EXAMPLE
+
+Let's take a look at the documentation for [[http://ruby-doc.org/core-2.1.5/String.html#method-i-replace][String#gsub]]
+
+#+begin_quote
+If replacement is a String it will be substituted for the matched text. It may contain back-references to the pattern’s capture groups of the form \\d, where d is a group number, or \\k<n>, where n is a group name. If it is a double-quoted string, both back-references must be preceded by an additional backslash. However, within replacement the special match variables, such as $&, will not refer to the current match.
+#+end_quote
+
+#+BEGIN_SRC ruby
+log_entry.gsub(regexp_named_captures, "changed \\k<field> to XXXXXX")
+#+END_SRC
+
+And that results in mission accomplished!
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-4.jpg %}
+
+** String#gsub Block Syntax
+Suppose you want to use the block syntax of =String#gsub=. Given the use case in
+this example, there's no particular reason to use it. However, you might come
+across a use case where you'd like some logic in the bock to determine the
+substitution value. Here's how you do it.
+
+#+begin_quote
+In the block form, the current match string is passed in as a parameter, and variables such as $1, $2, $`, $&, and $' will be set appropriately. The value returned by the block will be substituted for the match on each call.
+#+end_quote
+
+To use the block syntax with named capture groups is not exactly obvious.
+
+You might think that the value passed into the block is the match data. Instead,
+it's the full value of what was matched.
+
+For example:
+
+#+BEGIN_SRC ruby
+log_entry.gsub(regexp_named_captures) { |match| "XXXXXX" }
+#+END_SRC
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-5.jpg %}
+
+That's not what we want. We want to show the field that was redacted.
+
+Maybe we can use the same syntax as the non-block form:
+
+#+BEGIN_SRC ruby
+log_entry.gsub(regexp_named_captures) { |match| "changed \\k<field> to XXXXXX" }
+#+END_SRC
+
+That doesn't work!
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-6.jpg %}
+
+The solution is that you have to use the globals mentioned above, like =$1=.
+
+#+BEGIN_SRC ruby
+log_entry.gsub(regexp_named_captures) { |match| "changed #{$1} to XXXXXX" }
+#+END_SRC
+
+This works!
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-7.jpg %}
+
+But what if you want to use the named capture groups?
+
+Then you have to use the =$~= which gives you the MatchData.
+
+#+BEGIN_SRC ruby
+log_entry.gsub(regexp_named_captures) { |match| "changed #{$~[:field]} to XXXXXX" }
+#+END_SRC
+
+*Nice!* That works!
+
+{% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-8.jpg %}
+
+* Summary of Key Lessons
+1. The [[http://rubular.com/][rubular.com]] site is super useful for testing regular expressions in Ruby.
+2. The Ruby console is awesome for testing the syntax using regular expressions
+   in Ruby, such as using the =String#match=, =String#scan=, and =String#gsub=
+   methods.
+3. =String#match= only returns the first match, in the form of a =MatchData=
+   object. =String#scan= returns all matches, but the results come in the form
+   of Arrays of Arrays.   
+4. =(.*)= matches greedily. =(.*?)= is non-greedy. Non-greedy stops at the first
+   possible place. Greedy goes to the last possible place. This is all within a
+   single line.
+5. =(?<some_name>.*?)= is the syntax for a named capture group. Named capture groups
+   make your regular expressions easier to read.
+6. You can use a named capture group in your replacement value for a =String#gsub=
+   with the syntax =\\k<some_name>=. This is much more clear than =\\1=.
+7. If you use the block syntax for =String#gsub=, it does not work like the
+   non-block syntax in terms of substitution. You need to be aware of:
+   1. Value passed into the block is the full string matched, rather than a
+      MatchData object.
+   2. The value returned from the block is what is substituted for the whole
+      string matched.
+   3. The block is called once for each string matched.
+   4. You have to use String interpolation within your code in the block, as
+      this is normal ruby code, unlike the String value in the non-block =gsub=
+      syntax. I.e., don't just return a String with =$1= inside of it. You need
+      to put =#{$1}= in the String.
+   5. You can use the regexp globals like =$1= to access a capture group.
+   6. To use a named capture group inside the block you need to use the
+      =$~[:some_name]= syntax, where =some_name= is the your named capture. You
+      will probably ignore the passed in argument to the =gsub= block if using
+      this syntax.
