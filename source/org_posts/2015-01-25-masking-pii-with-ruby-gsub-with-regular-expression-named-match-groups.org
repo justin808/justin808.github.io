@@ -11,13 +11,13 @@ description:
 #+END_HTML
 
 
-In this article, you'll learn about:
+In this article, you'll learn:
 
 1. How to effectively use [[http://rubular.com/][rubular.com]] and the Ruby console to get the correct
    regular expression syntax.
-2. What the difference is between =.*= and =.*?=, greedy and non-greedy.
+2. What is the difference between =.*= and =.*?=, greedy and non-greedy.
 3. What are regular expression named capture groups and why you should use them.
-4. Using String#gsub without and with the block syntax, and without or with
+4. How to use String#gsub without and with the block syntax, and without or with
    named capture groups.
 
 Suppose you have to filter out [[http://en.wikipedia.org/wiki/Personally_identifiable_information][PII (Personally Identifiable Information)]] out of
@@ -176,7 +176,7 @@ log_entry.scan(regexp)
 
 ** Named Match Groups
 =$1= and =$2= are not the most illuminating names for the capture group values. Ruby offers a way
-to give them readable names.
+to give them readable names. Quoting the Ruby doc for [[http://ruby-doc.org/core-2.1.5/Regexp.html][Class Regexp]]:
 
 #+BEGIN_EXAMPLE
 Capture groups can be referred to by name when defined with the (?<name>) or (?'name') constructs.
@@ -218,7 +218,7 @@ arr[0][0]
 {% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-3.jpg %}
 
 * Substitution with =String#gsub=
-** Simple, Non-block =String#gsub= Syntax
+** Simple (Non-block) =String#gsub= Syntax
 Now, back to the task at hand, which was to convert the original log entry with
 PII so that the PII is redacted. We'll change the lines to something like this:
 
@@ -239,7 +239,7 @@ log_entry.gsub(regexp_named_captures, "changed \\k<field> to XXXXXX")
 And that results in mission accomplished!
 {% img /images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-4.jpg %}
 
-** String#gsub Block Syntax
+** Block =String#gsub= Syntax
 Suppose you want to use the block syntax of =String#gsub=. Given the use case in
 this example, there's no particular reason to use it. However, you might come
 across a use case where you'd like some logic in the bock to determine the

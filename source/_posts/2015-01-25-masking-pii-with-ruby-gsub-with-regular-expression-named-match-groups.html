@@ -10,18 +10,18 @@ description:
 
 
 <p>
-In this article, you'll learn about:
+In this article, you'll learn:
 </p>
 
 <ol class="org-ol">
 <li>How to effectively use <a href="http://rubular.com/">rubular.com</a> and the Ruby console to get the correct
 regular expression syntax.
 </li>
-<li>What the difference is between <code>.*</code> and <code>.*?</code>, greedy and non-greedy.
+<li>What is the difference between <code>.*</code> and <code>.*?</code>, greedy and non-greedy.
 </li>
 <li>What are regular expression named capture groups and why you should use them.
 </li>
-<li>Using String#gsub without and with the block syntax, and without or with
+<li>How to use String#gsub without and with the block syntax, and without or with
 named capture groups.
 </li>
 </ol>
@@ -260,7 +260,7 @@ log_entry.scan(regexp)
 <div class="outline-text-3" id="text-2-6">
 <p>
 <code>$1</code> and <code>$2</code> are not the most illuminating names for the capture group values. Ruby offers a way
-to give them readable names.
+to give them readable names. Quoting the Ruby doc for <a href="http://ruby-doc.org/core-2.1.5/Regexp.html">Class Regexp</a>:
 </p>
 
 <pre class="example">
@@ -316,7 +316,7 @@ arr[0][0]
 <h2 id="sec-3">Substitution with <code>String#gsub</code></h2>
 <div class="outline-text-2" id="text-3">
 </div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1">Simple, Non-block <code>String#gsub</code> Syntax</h3>
+<h3 id="sec-3-1">Simple (Non-block) <code>String#gsub</code> Syntax</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Now, back to the task at hand, which was to convert the original log entry with
@@ -348,13 +348,13 @@ And that results in mission accomplished!
 </div>
 </div>
 <div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2">String#gsub Block Syntax</h3>
+<h3 id="sec-3-2">Block <code>String#gsub</code> Syntax</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Suppose you want to use the block syntax of <code>String#gsub</code>. Given the use case in
 this example, there's no particular reason to use it. However, you might come
 across a use case where you'd like some logic in the bock to determine the
-substitution value. Here's how you do it:
+substitution value. Here's how you do it.
 </p>
 
 <blockquote>
