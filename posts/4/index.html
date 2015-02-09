@@ -9,8 +9,7 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="What's the most effective way to: Start several different processes for Rails, such as Zeus, Rails server, rspec,
-resque, and the scheduler. Have &hellip;">
+  <meta name="description" content="My Talk: Concerns, Decorators, Presenters, Service Objects, Helpers, Help me Decide Fat Code Refactoring Techniques Code Samples on Github Keynote &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +85,69 @@ resque, and the scheduler. Have &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/23/railsconf-2014/">RailsConf 2014</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-04-23T03:02:41-10:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>3:02 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">My Talk: Concerns, Decorators, Presenters, Service Objects, Helpers, Help me Decide</h2>
+<div class="outline-text-2" id="text-1">
+<script async class="speakerdeck-embed" data-slide="2" data-id="3e567380b1ea013103f01263d01a0296" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>
+<img src="/images/2014-04-23-RailsConf/railsconf-fat-models-book-title.JPG">
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/justin808/fat-code-refactoring-techniques">Fat Code Refactoring Techniques Code Samples on Github</a>
+</li>
+<li><a href="https://www.icloud.com/iw/#keynote/BALu9Dy-Dcbu1PvWluyB_G-jq5C6URGmij2F/RailsConf-2014-Concerns-Decorators-Presenters-Service-Objects-Helpers-Help-Me-Decide-April-22-2014">Keynote Slides with Animations</a>
+</li>
+<li><a href="http://www.confreaks.com/videos/3329-railsconf-concerns-decorators-presenters-service-objects-helpers-help-me-decide">Video of Presentation at Confreaks</a> embedded here:
+</li>
+</ul>
+<p>
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/bHpVdOzrvkE "></iframe></div>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">(Lack of) Live Coding in my Talk</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Due to time constraints, I chose to skip the live coding I had prepared to do in
+my talk. <a href="mailto:justin@railsonmaui.com">Please let me know</a> if you&#8217;d be interested in a screencast walking
+through the sample code. I will create one if there is sufficient demand.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/04/23/railsconf-2014/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -347,62 +409,6 @@ So then I tried to double click the <code>SAVE</code> button, and, <b>BOOM</b>, 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/">Using RubyMine/IntelliJ Regexp Search/Replace</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-01-25T09:05:00-10:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:05 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-RubyMine&#8217;s interactive search/replace is awesome. The Regexp feature is
-especially useful. Not only will it help you edit faster, but it will improve
-your ability to write RegExp&#8217;s in your code. When do you need to use a regexp?
-Whenever a standard find/replace won&#8217;t cut it. For example, if you changing the
-rspec syntax from one form to another, such as from:
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
-</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-to
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
-</span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/5">&larr; Older</a>
@@ -467,6 +473,10 @@ to
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/">Masking PII With Ruby Gsub With Regular Expression Named Match Groups, Non-Greedy</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
@@ -488,10 +498,6 @@ to
     
       <li class="post">
         <a href="/blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/">Storing or Excluding Node Modules in Rails Git Repositories</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/">Updating My Blog to Octopress With Jekyll 2 and Discourse for Comments</a>
       </li>
     
   </ul>

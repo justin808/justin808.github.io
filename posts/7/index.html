@@ -9,8 +9,8 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="TLDR: Clean logging and error handling is a critical aspect of a RoR app.
-What's a good strategy? Why does this matter? A Rails app can have awesome &hellip;">
+  <meta name="description" content="How do ensure that your application properly handles errors, especially when
+relying on third parties, such as payment processors? Is it easy to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +86,48 @@ What's a good strategy? Why does this matter? A Rails app can have awesome &hell
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/05/11/testing-error-handling/">Testing Error Handling</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-05-11T00:01:00-10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:01 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+How do ensure that your application properly handles errors, especially when
+relying on third parties, such as payment processors? Is it easy to verify that
+the right things happen when the wrong things happen? Last week&#8217;s article
+<a href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/">Strategies for Rails Logging and Error Handling</a> discussed some techniques to
+setup a good error handling strategy. Here&#8217;s some techniques to verify that your
+application does what you expect it to do when things go wrong. The key message
+is to check how your application handles errors, before your customers do.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/05/11/testing-error-handling/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -330,6 +372,10 @@ monolithic.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/">Masking PII With Ruby Gsub With Regular Expression Named Match Groups, Non-Greedy</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
@@ -351,10 +397,6 @@ monolithic.
     
       <li class="post">
         <a href="/blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/">Storing or Excluding Node Modules in Rails Git Repositories</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/">Updating My Blog to Octopress With Jekyll 2 and Discourse for Comments</a>
       </li>
     
   </ul>

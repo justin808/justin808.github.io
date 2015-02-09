@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-01-22T20:44:58-10:00</updated>
+  <updated>2015-02-08T20:33:51-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,542 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Masking PII With Ruby Gsub With Regular Expression Named Match Groups, Non-Greedy]]></title>
+    <link href="http://www.railsonmaui.com//blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/"/>
+    <updated>2015-01-25T10:51:48-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups</id>
+    <content type="html"><![CDATA[<p>
+In this article, you&#8217;ll learn:
+</p>
+
+<ol class="org-ol">
+<li>How to effectively use <a href="http://rubular.com/">rubular.com</a> and the Ruby console to get the correct
+regular expression syntax.
+</li>
+<li>What is the difference between <code>.*</code> and <code>.*?</code>, greedy and non-greedy.
+</li>
+<li>What are regular expression named capture groups and why you should use them.
+</li>
+<li>How to use String#gsub without and with the block syntax, and without or with
+named capture groups.
+</li>
+</ol>
+
+<p>
+Suppose you have to filter out <a href="http://en.wikipedia.org/wiki/Personally_identifiable_information">PII (Personally Identifiable Information)</a> out of
+log entries that look like this HTML. We don&#8217;t want the following PII fields to
+show their values: <code>email</code>, <code>social_security_number</code>, <code>date_of_birth</code>
+</p>
+
+<p>
+<b><i>Input Html</i></b>
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='HTML'><span class='line'>Updated User (4)<span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed first_name to <span class="ni">&amp;quot;</span>Karina<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed last_name to <span class="ni">&amp;quot;</span>Senger<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed phone to <span class="ni">&amp;quot;</span>2133432154<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed email to <span class="ni">&amp;quot;</span>brenna.treutel@runolfsdottirdonnelly.org<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed street to <span class="ni">&amp;quot;</span>123 Main St<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed city to <span class="ni">&amp;quot;</span>Paia<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed state to <span class="ni">&amp;quot;</span>HI<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed zip_code to <span class="ni">&amp;quot;</span>96677<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed social_security_number to <span class="ni">&amp;quot;</span>555-33-4444<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed date_of_birth to <span class="ni">&amp;quot;</span>2000-10-03<span class="ni">&amp;quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+And the end result we want is:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='HTML'><span class='line'>Updated User (4)<span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed first_name to <span class="ni">&amp;quot;</span>Karina<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed last_name to <span class="ni">&amp;quot;</span>Senger<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed phone to <span class="ni">&amp;quot;</span>2133432154<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed email to XXXXXX<span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed street to <span class="ni">&amp;quot;</span>123 Main St<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed city to <span class="ni">&amp;quot;</span>Paia<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed state to <span class="ni">&amp;quot;</span>HI<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed zip_code to <span class="ni">&amp;quot;</span>96677<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed social_security_number to XXXXXX<span class="nt">&lt;br&gt;</span>
+</span><span class='line'>     changed date_of_birth to XXXXXX
+</span></code></pre></td></tr></table></div></figure>
+
+<!-- more -->
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Reference Web Pages</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I suggest you open the following reference web pages:
+</p>
+<ol class="org-ol">
+<li>Ruby doc for <a href="http://ruby-doc.org/core-2.1.5/Regexp.html">Class Regexp</a>
+</li>
+<li>Ruby doc for <a href="http://ruby-doc.org/core-2.1.5/String.html#method-i-replace">String#gsub</a>
+</li>
+<li>Interactive Ruby regular expression tester: <a href="http://rubular.com/">rubular.com</a>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Figure out the Regexp</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+First, let&#8217;s figure out the right regular expression using <a href="http://rubular.com/">rubular.com</a>.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Basic Regexp</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Copy the above string of input (gray box above labeled /Input HTML/into the &#8220;Your test string&#8221; box, and then let&#8217;s figure
+out a simple regexp to match an individual line.
+</p>
+
+<pre class="example">
+changed email to &amp;quot;(.*?)&amp;quot;
+</pre>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-1.jpg">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Why the (.*?) or Why Non-Greedy</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The <code>.*?</code> syntax means to get the non-greedy match. In order to see this, let&#8217;s
+use this string below into the &#8220;Your test string&#8221; box (note, the text scrolls
+way to the right):
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='HTML'><span class='line'>Updated User (4)<span class="nt">&lt;br&gt;</span>     changed first_name to <span class="ni">&amp;quot;</span>Karina<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed last_name to <span class="ni">&amp;quot;</span>Senger<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed phone to <span class="ni">&amp;quot;</span>2133432154<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed email to <span class="ni">&amp;quot;</span>brenna.treutel@runolfsdottirdonnelly.org<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed street to <span class="ni">&amp;quot;</span>123 Main St<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed city to <span class="ni">&amp;quot;</span>Paia<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed state to <span class="ni">&amp;quot;</span>HI<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed zip_code to <span class="ni">&amp;quot;</span>96677<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>     changed social_security_number to <span class="ni">&amp;quot;</span>555-33-4444<span class="ni">&amp;quot;</span><span class="nt">&lt;br&gt;</span>   changed date_of_birth to <span class="ni">&amp;quot;</span>2000-10-03<span class="ni">&amp;quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Notice that you see the correct result for the match.
+</p>
+
+<p>
+Now, remove the <code>?</code> in the <code>.*?</code>, using this regexp:
+</p>
+
+<pre class="example">
+changed email to &amp;quot;(.*)&amp;quot;
+</pre>
+
+<p>
+And you&#8217;ll see this:
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-2.jpg">
+</p>
+
+<p>
+Now, add back the <code>?</code> after the <code>.*</code>, and you&#8217;ll see the right value.
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-3.jpg">
+</p>
+
+<p>
+The Ruby docs for <a href="http://ruby-doc.org/core-2.1.5/Regexp.html">Class Regexp</a> explain this:
+</p>
+
+<blockquote>
+<p>
+Repetition is greedy by default: as many occurrences as possible are matched while still allowing the overall match to succeed. By contrast, lazy matching makes the minimal amount of matches necessary for overall success. A greedy metacharacter can be made lazy by following it with ?.
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">Match any of the 3 fields</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+How do we match any of the PII fields of <code>email</code>, <code>social_security_number</code>,
+<code>date_of_birth</code>?
+</p>
+
+<p>
+The answer is to use alternation.
+</p>
+
+<blockquote>
+<p>
+The vertical bar metacharacter (|) combines two expressions into a single one that matches either of the expressions. Each expression is an alternative.
+</p>
+</blockquote>
+
+
+<pre class="example">
+changed (email|social_security_number|date_of_birth) to &amp;quot;(.*?)&amp;quot;
+</pre>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-4.jpg">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">Experiment in the Console (Pry)</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Open up your rails console (<code>rails c</code>) and paste the following 2 lines. This
+will set you up with what we&#8217;ve been testing in Rubular.
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span> <span class="o">=</span> <span class="s2">&quot;Updated User (4)&lt;br&gt;     changed first_name to &amp;quot;Karina&amp;quot;&lt;br&gt;     changed last_name to &amp;quot;Senger&amp;quot;&lt;br&gt;     changed phone to &amp;quot;2133432154&amp;quot;&lt;br&gt;     changed email to &amp;quot;brenna.treutel@runolfsdottirdonnelly.org&amp;quot;&lt;br&gt;     changed street to &amp;quot;123 Main St&amp;quot;&lt;br&gt;     changed city to &amp;quot;Paia&amp;quot;&lt;br&gt;     changed state to &amp;quot;HI&amp;quot;&lt;br&gt;     changed zip_code to &amp;quot;96677&amp;quot;&lt;br&gt;     changed social_security_number to &amp;quot;555-33-4444&amp;quot;&lt;br&gt;     changed date_of_birth to &amp;quot;2000-10-03&amp;quot;&quot;</span>
+</span><span class='line'><span class="n">regexp</span> <span class="o">=</span> <span class="sr">/changed (email|social_security_number|date_of_birth) to &amp;quot;(.*?)&amp;quot;/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Then enter the following. Feel free to experiment!
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regexp</span><span class="p">)</span>
+</span><span class='line'><span class="vg">$~</span>
+</span><span class='line'><span class="vg">$1</span>
+</span><span class='line'><span class="vg">$2</span>
+</span><span class='line'><span class="vg">$&amp;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+Here&#8217;s the doc of the globals set by a regexp. These are thread-local and
+method-local variables. So they are safe in a multi-threaded environment.
+</p>
+
+<pre class="example">
+Pattern matching sets some global variables :
+
+$~ is equivalent to ::last_match;
+$&amp; contains the complete matched text;
+$` contains string before match;
+$' contains string after match;
+$1, $2 and so on contain text matching first, second, etc capture group;
+$+ contains last capture group.
+</pre>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-1.jpg">
+</p>
+
+
+<p>
+The <code>$~</code> will come in particularly handy when we try to use <code>gsub</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">How Do We Get All the Matches?</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+<a href="http://ruby-doc.org/core-2.1.5/String.html#method-i-scan">String#scan</a> does it!
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">regexp</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-2.jpg">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">Named Match Groups</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+<code>$1</code> and <code>$2</code> are not the most illuminating names for the capture group values. Ruby offers a way
+to give them readable names. Quoting the Ruby doc for <a href="http://ruby-doc.org/core-2.1.5/Regexp.html">Class Regexp</a>:
+</p>
+
+<pre class="example">
+Capture groups can be referred to by name when defined with the (?&lt;name&gt;) or (?'name') constructs.
+
+/\$(?&lt;dollars&gt;\d+)\.(?&lt;cents&gt;\d+)/.match("$3.67")
+    =&gt; #&lt;MatchData "$3.67" dollars:"3" cents:"67"&gt;
+/\$(?&lt;dollars&gt;\d+)\.(?&lt;cents&gt;\d+)/.match("$3.67")[:dollars] #=&gt; "3"
+Named groups can be backreferenced with \k&lt;name&gt;, where name is the group name.
+
+/(?&lt;vowel&gt;[aeiou]).\k&lt;vowel&gt;.\k&lt;vowel&gt;/.match('ototomy')
+    #=&gt; #&lt;MatchData "ototo" vowel:"o"&gt;
+Note: A regexp can't use named backreferences and numbered backreferences simultaneously.
+
+When named capture groups are used with a literal regexp on the left-hand side of an expression and the =~ operator, the captured text is also assigned to local variables with corresponding names.
+
+/\$(?&lt;dollars&gt;\d+)\.(?&lt;cents&gt;\d+)/ =~ "$3.67" #=&gt; 0
+dollars #=&gt; "3"
+</pre>
+
+<p>
+Let&#8217;s try that in rubular first by copying this regexp into rubular:
+</p>
+
+<pre class="example">
+changed (?&lt;field&gt;email|social_security_number|date_of_birth) to &amp;quot;(?&lt;value&gt;.*?)&amp;quot;
+</pre>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/rubular-5.jpg">
+</p>
+
+<p>
+And then try this in the console:
+</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">regexp_named_captures</span> <span class="o">=</span> <span class="sr">/changed (?&lt;field&gt;email|social_security_number|date_of_birth) to &amp;quot;(?&lt;value&gt;.*?)&amp;quot;/</span>
+</span><span class='line'><span class="n">match_data</span> <span class="o">=</span> <span class="n">log_entry</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regexp_named_captures</span><span class="p">)</span>
+</span><span class='line'><span class="n">match_data</span><span class="o">[</span><span class="ss">:field</span><span class="o">]</span>
+</span><span class='line'><span class="n">match_data</span><span class="o">[</span><span class="ss">:value</span><span class="o">]</span>
+</span><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">regexp_named_captures</span><span class="p">)</span>
+</span><span class='line'><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+</span><span class='line'><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-3.jpg">
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Substitution with <code>String#gsub</code></h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Simple (Non-block) <code>String#gsub</code> Syntax</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Now, back to the task at hand, which was to convert the original log entry with
+PII so that the PII is redacted. We&#8217;ll change the lines to something like this:
+</p>
+
+<pre class="example">
+changed email to XXXXXX
+</pre>
+
+<p>
+Let&#8217;s take a look at the documentation for <a href="http://ruby-doc.org/core-2.1.5/String.html#method-i-replace">String#gsub</a>
+</p>
+
+<blockquote>
+<p>
+If replacement is a String it will be substituted for the matched text. It may contain back-references to the pattern’s capture groups of the form &#92;d, where d is a group number, or &#92;k&lt;n&gt;, where n is a group name. If it is a double-quoted string, both back-references must be preceded by an additional backslash. However, within replacement the special match variables, such as $&amp;, will not refer to the current match.
+</p>
+</blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">regexp_named_captures</span><span class="p">,</span> <span class="s2">&quot;changed </span><span class="se">\\</span><span class="s2">k&lt;field&gt; to XXXXXX&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+And that results in mission accomplished!
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-4.jpg">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Block <code>String#gsub</code> Syntax</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Suppose you want to use the block syntax of <code>String#gsub</code>. Given the use case in
+this example, there&#8217;s no particular reason to use it. However, you might come
+across a use case where you&#8217;d like some logic in the bock to determine the
+substitution value. Here&#8217;s how you do it.
+</p>
+
+<blockquote>
+<p>
+In the block form, the current match string is passed in as a parameter, and variables such as $1, $2, $`, $&amp;, and $&#8217; will be set appropriately. The value returned by the block will be substituted for the match on each call.
+</p>
+</blockquote>
+
+<p>
+To use the block syntax with named capture groups is not exactly obvious.
+</p>
+
+<p>
+You might think that the value passed into the block is the match data. Instead,
+it&#8217;s the full value of what was matched.
+</p>
+
+<p>
+For example:
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">regexp_named_captures</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">match</span><span class="o">|</span> <span class="s2">&quot;XXXXXX&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-5.jpg">
+</p>
+
+<p>
+That&#8217;s not what we want. We want to show the field that was redacted.
+</p>
+
+<p>
+Maybe we can use the same syntax as the non-block form:
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">regexp_named_captures</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">match</span><span class="o">|</span> <span class="s2">&quot;changed </span><span class="se">\\</span><span class="s2">k&lt;field&gt; to XXXXXX&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+That doesn&#8217;t work!
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-6.jpg">
+</p>
+
+<p>
+The solution is that you have to use the globals mentioned above, like <code>$1</code>.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">regexp_named_captures</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">match</span><span class="o">|</span> <span class="s2">&quot;changed </span><span class="si">#{</span><span class="vg">$1</span><span class="si">}</span><span class="s2"> to XXXXXX&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+This works!
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-7.jpg">
+</p>
+
+<p>
+But what if you want to use the named capture groups?
+</p>
+
+<p>
+Then you have to use the <code>$~</code> which gives you the MatchData.
+</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">log_entry</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">regexp_named_captures</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">match</span><span class="o">|</span> <span class="s2">&quot;changed </span><span class="si">#{</span><span class="vg">$~</span><span class="o">[</span><span class="ss">:field</span><span class="o">]</span><span class="si">}</span><span class="s2"> to XXXXXX&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>
+<b>Nice!</b> That works!
+</p>
+
+<p>
+<img src="http://www.railsonmaui.com//images/2015-01-25-masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/pry-8.jpg">
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Summary of Key Lessons</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>The <a href="http://rubular.com/">rubular.com</a> site is super useful for testing regular expressions in Ruby.
+</li>
+<li>The Ruby console is awesome for testing the syntax using regular expressions
+in Ruby, such as using the <code>String#match</code>, <code>String#scan</code>, and <code>String#gsub</code>
+methods.
+</li>
+<li><code>String#match</code> only returns the first match, in the form of a <code>MatchData</code>
+object. <code>String#scan</code> returns all matches, but the results come in the form
+of Arrays of Arrays.   
+</li>
+<li><code>(.*)</code> matches greedily. <code>(.*?)</code> is non-greedy. Non-greedy stops at the first
+possible place. Greedy goes to the last possible place. This is all within a
+single line.
+</li>
+<li><code>(?&lt;some_name&gt;.*?)</code> is the syntax for a named capture group. Named capture groups
+make your regular expressions easier to read.
+</li>
+<li>You can use a named capture group in your replacement value for a <code>String#gsub</code>
+with the syntax <code>\\k&lt;some_name&gt;</code>. This is much more clear than <code>\\1</code>.
+</li>
+<li>If you use the block syntax for <code>String#gsub</code>, it does not work like the
+non-block syntax in terms of substitution. You need to be aware of:
+<ol class="org-ol">
+<li>Value passed into the block is the full string matched, rather than a
+MatchData object.
+</li>
+<li>The value returned from the block is what is substituted for the whole
+string matched.
+</li>
+<li>The block is called once for each string matched.
+</li>
+<li>You have to use String interpolation within your code in the block, as
+this is normal ruby code, unlike the String value in the non-block <code>gsub</code>
+syntax. I.e., don&#8217;t just return a String with <code>$1</code> inside of it. You need
+to put <code>#{$1}</code> in the String.
+</li>
+<li>You can use the regexp globals like <code>$1</code> to access a capture group.
+</li>
+<li>To use a named capture group inside the block you need to use the
+<code>$~[:some_name]</code> syntax, where <code>some_name</code> is the your named capture. You
+will probably ignore the passed in argument to the <code>gsub</code> block if using
+this syntax.
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="discourse-comments"></div>
+<script type="text/javascript">
+  var discourseUrl = "http://forum.railsonmaui.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/";
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Enums and Queries in Rails 4.1, and Understanding Ruby]]></title>
@@ -7105,99 +7641,6 @@ Stack Overflow Discussions:
 <script type="text/javascript">
   var discourseUrl = "http://forum.railsonmaui.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/02/23/simple-form-and-disable-processing-by-default/";
-
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-      d.src = discourseUrl + 'javascripts/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using RubyMine/IntelliJ Regexp Search/Replace]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/"/>
-    <updated>2014-01-25T09:05:00-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace</id>
-    <content type="html"><![CDATA[<p>
-RubyMine&#8217;s interactive search/replace is awesome. The Regexp feature is
-especially useful. Not only will it help you edit faster, but it will improve
-your ability to write RegExp&#8217;s in your code. When do you need to use a regexp?
-Whenever a standard find/replace won&#8217;t cut it. For example, if you changing the
-rspec syntax from one form to another, such as from:
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">let</span><span class="p">(</span><span class="ss">:my_subject</span><span class="p">)</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
-</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="n">my_subject</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-to
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">subject</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}</span>
-</span><span class='line'><span class="n">its</span><span class="p">(</span><span class="ss">:value</span><span class="p">)</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">some_value</span><span class="p">)</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<!-- more -->
-
-<p>
-The following screencast shows how you can interactively use the Regexp feature
-to figure out the right regexp to search for as well as the right replacement.
-</p>
-
-<p>
-In this example, I&#8217;m replacing one rspec syntax with a replacement one.
-</p>
-
-<pre class="example">
-it \{ expect\(my_subject\.(\w+)\)\.to eq\((.*)\) }
-</pre>
-
-<p>
-Replace with:
-</p>
-<pre class="example">
-its(:$1) { should eq($2) }
-</pre>
-
-<p>
-Here&#8217;s a few key tips:
-</p>
-<ol class="org-ol">
-<li>Be sure to first check the regexp check-box if you&#8217;ll need that.
-</li>
-<li>As you type each character into the search box, observe if you&#8217;re increasing
-your match area to get what you want.
-</li>
-<li>If a character doesn&#8217;t match, then try escaping the character. For example,
-I had to escape the <code>{</code> and <code>(</code> as those characters have special meaning in
-the regexp.
-</li>
-<li>Once you get a match with the right groupings for replacement, then put in
-the <code>$1</code>, <code>$2</code>, etc. into the replacement box to refine your replacement string.
-</li>
-<li>Then hit Opt-P (or Alt-P) to replace.
-</li>
-</ol>
-
-<p>
-This is best shown with this 2 minute screencast.
-</p>
-
-<p>
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/U_UaOjcR4wQ "></iframe></div>
-</p>
-
-<div id="discourse-comments"></div>
-<script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/01/25/using-rubymine-slash-intellij-regexp-search-slash-replace/";
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
