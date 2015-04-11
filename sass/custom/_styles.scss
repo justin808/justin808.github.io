@@ -13,8 +13,13 @@ header[role="banner"] {
 aside.sidebar section h2 {
   margin: 1.5em 0 .5em;
   padding-bottom: .2em;
-  border-bottom: 1px solid #e0e0e0
+  border-bottom: 1px solid #e0e0e0;
 }
+
+aside.sidebar img {
+  border: none;
+}
+
 
 #mc_embed_signup {
 
