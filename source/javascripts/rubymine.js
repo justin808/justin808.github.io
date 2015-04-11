@@ -1,4 +1,3 @@
-debugger;
 function loadRubyMine() {
   var axel = Math.random() + "";
   var num = axel * 1000000000000000000;
