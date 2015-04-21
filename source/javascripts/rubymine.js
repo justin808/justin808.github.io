@@ -23,6 +23,15 @@ function loadRubyMineLocal() {
   document.getElementById("rubymine-tag").appendChild(node);     // Append <li> to <ul> with id="myList"
 }
 
+function checkRubyMineLoaded() {
+  var img =  document.getElementById("rubymine-tag-image");
+  var imgHidden = (img.style.display == "none" || img.style.display == "hidden" || img.style.visibility == "hidden" || img.offsetHeight == 0);
+  if (imgHidden) {
+    console.log("Loading adblock version");
+    loadRubyMineLocal();
+  }
+}
+
 // http://qnimate.com/how-to-detect-if-adblock-is-present-or-not/
 function detect()
 {
@@ -35,16 +44,17 @@ function detect()
   iframe.src = "http://domain.com/ads.html";
   
   document.body.appendChild(iframe);
-  
+
   setTimeout(function() {
     var iframe = document.getElementById("ads-text-iframe");
-    if(iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0)
-    {
+    var iframeHidden = (iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0);
+    if (iframeHidden) {
       console.log("Loading has adblock version");
       loadRubyMineLocal();
     } else {
       console.log("Loading regular version");
       loadRubyMine();
+      setTimeout(checkRubyMineLoaded, 100);
     }
     iframe.remove();
   }, 100);
