@@ -17,7 +17,7 @@ function loadRubyMine() {
 Loads a local image and goes straight to the RubyMine website.
 */
 function loadRubyMineLocal() {
-  var s = '<A HREF="https://www.jetbrains.com/ruby/"><IMG SRC="/images/rubymine-banner.png" BORDER=0 WIDTH=260 HEIGHT=87 ALT="RubyMine!"></A>';
+  var s = '<A HREF="https://www.jetbrains.com/ruby/specials/rubymine/ruby_and_rails_ide.jsp?utm_source=railsonmaui&utm_medium=banner300x100&utm_content=rubyminege&utm_campaign=rubymine"><IMG SRC="/images/rubymine-banner.png" BORDER=0 WIDTH=260 HEIGHT=87 ALT="RubyMine!"></A>';
   var node = document.createElement("DIV");                 // Create a <li> node
   node.innerHTML = s;
   document.getElementById("rubymine-tag").appendChild(node);     // Append <li> to <ul> with id="myList"
