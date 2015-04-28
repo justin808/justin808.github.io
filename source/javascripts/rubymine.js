@@ -27,7 +27,7 @@ function checkRubyMineLoaded() {
   var img =  document.getElementById("rubymine-tag-image");
   var imgHidden = (img.style.display == "none" || img.style.display == "hidden" || img.style.visibility == "hidden" || img.offsetHeight == 0);
   if (imgHidden) {
-    console.log("Loading adblock version");
+    console.log("Loading has adblock version of RubyMine Banner");
     loadRubyMineLocal();
   }
 }
@@ -45,16 +45,16 @@ function detect()
   
   document.body.appendChild(iframe);
 
+  console.log("detect");
   setTimeout(function() {
     var iframe = document.getElementById("ads-text-iframe");
     var iframeHidden = (iframe.style.display == "none" || iframe.style.display == "hidden" || iframe.style.visibility == "hidden" || iframe.offsetHeight == 0);
     if (iframeHidden) {
-      console.log("Loading has adblock version");
+      console.log("Loading has adblock version.");
       loadRubyMineLocal();
     } else {
-      console.log("Loading regular version");
       loadRubyMine();
-      setTimeout(checkRubyMineLoaded, 100);
+      setTimeout(checkRubyMineLoaded, 1500);
     }
     iframe.remove();
   }, 100);
