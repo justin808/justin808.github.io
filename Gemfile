@@ -19,6 +19,7 @@ group :development do
   gem 'rb-inotify'
   gem 'preamble'
   gem 'jekyll-redirect-from'
+  gem 'eventmachine'
 end
 
 gem 'sinatra', '~> 1.4.2'

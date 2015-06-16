@@ -22,10 +22,10 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.7)
     execjs (2.2.1)
     fast-stemmer (1.0.2)
-    ffi (1.9.6)
+    ffi (1.9.8)
     formatador (0.2.5)
     fssm (0.2.10)
     guard (2.6.1)
@@ -85,7 +85,7 @@ GEM
       jekyll (~> 2.0)
     parslet (1.5.0)
       blankslate (~> 2.0)
-    posix-spawn (0.3.9)
+    posix-spawn (0.3.11)
     preamble (0.0.3)
       rspec
     pry (0.10.1)
@@ -102,8 +102,8 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdiscount (2.1.7.1)
-    redcarpet (3.1.2)
+    rdiscount (2.1.8)
+    redcarpet (3.3.1)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -141,6 +141,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth (~> 4.2.9)
   compass (~> 0.12.2)
+  eventmachine
   guard
   guard-livereload
   haml (~> 4.0)
@@ -158,3 +159,6 @@ DEPENDENCIES
   sass-globbing (~> 1.0.0)
   sinatra (~> 1.4.2)
   stringex (~> 1.4.0)
+
+BUNDLED WITH
+   1.10.3
