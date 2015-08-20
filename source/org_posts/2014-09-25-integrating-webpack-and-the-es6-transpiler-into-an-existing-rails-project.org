@@ -16,6 +16,12 @@ canonical: https://hackhands.com/fast-rich-client-rails-development-webpack-es6-
 
 [[http://webpack.github.io/][{% img /images/2014-09-react-webpack-rails-tutorial/baby-bottle-of-gemified-javascript.jpg %}]]
 
+*Update August 19, 2015*: I'm working on revising this article to reflect much
+progress in this area since the original publication of this article in 2014. I
+highly recommend seeing the README at
+https://github.com/justin808/react-webpack-rails-tutorial and the pull requests
+(both [[https://github.com/justin808/react-webpack-rails-tutorial/pulls][open]] and [[https://github.com/justin808/react-webpack-rails-tutorial/pulls?q%3Dis%253Apr%2Bis%253Aclosed][closed]]) of what's been incorporated since this article was first published.
+
 Have you:
 1. Wondered if there's a better way to utilize modern JavaScript client frameworks
    the context of an existing Ruby on Rails project?
@@ -293,7 +299,7 @@ While waiting for webpack to create the rails-bundle.js file and then reloading
 the Rails page is not terribly time consuming, there's *no comparison* to using
 the [[http://webpack.github.io/docs/webpack-dev-server.html][Webpack Dev Server]] with [[https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack][Hot Module Replacement]] which loads new JavaScript
 and Sass code without modifying the existing client side data if possible. If
-you though Live Reload was cool, you'll love this feature. To quote the
+you thought Live Reload was cool, you'll love this feature. To quote the
 documentation:
 
 #+begin_quote
