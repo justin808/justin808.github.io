@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tmux | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/tmux/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-06-15T15:13:25-10:00</updated>
+  <updated>2015-08-19T17:29:54-07:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rocking with tmux, tmuxinator, Guard, Zeus, and iTerm2 for Rails Development]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/"/>
-    <updated>2014-03-11T21:01:13-10:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development</id>
+    <link href="http://www.railsonmaui.com//blog/2014/03/12/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/"/>
+    <updated>2014-03-12T00:01:13-07:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/03/12/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development</id>
     <content type="html"><![CDATA[<p>
 What&#8217;s the most effective way to:
 </p>
@@ -247,7 +247,7 @@ does. I&#8217;m also not sure if Foreman integrates with Guard.
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.railsonmaui.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/12/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/";
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
