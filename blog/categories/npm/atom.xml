@@ -4,7 +4,7 @@
   <title><![CDATA[Category: npm | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/npm/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-08-19T17:29:54-07:00</updated>
+  <updated>2015-09-25T19:01:29-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Storing or Excluding Node Modules in Rails Git Repositories]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/"/>
-    <updated>2014-09-28T19:06:42-07:00</updated>
+    <updated>2014-09-28T16:06:42-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories</id>
     <content type="html"><![CDATA[<p>
 It was and probably still is fashionable in the node community to check the
@@ -139,7 +139,7 @@ I&#8217;ll do this for my projects until I&#8217;m convinced of otherwise!
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/";
 
   (function() {

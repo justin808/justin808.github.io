@@ -4,7 +4,7 @@
   <title><![CDATA[Category: client-ui | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/client-ui/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-08-19T17:29:54-07:00</updated>
+  <updated>2015-09-25T19:01:29-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fast Rich Client Rails Development with Webpack and the ES6 Transpiler]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/"/>
-    <updated>2014-10-03T00:30:16-07:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project</id>
+    <link href="http://www.railsonmaui.com//blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/"/>
+    <updated>2014-10-02T21:30:16-10:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project</id>
     <content type="html"><![CDATA[<p>
 <i>There has to be a better way to incorporate the JavaScript ecosystem into Rails.</i>
 </p>
@@ -995,8 +995,8 @@ vs. <code>devDependencies</code> in <code>package.json</code>.
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/";
+  var discourseUrl = "http://forum.shakacode.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/02/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/";
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: capybara | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/capybara/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-08-19T17:29:54-07:00</updated>
+  <updated>2015-09-25T19:01:29-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Rails Gem Upgrading Tips and Strategies]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/"/>
-    <updated>2014-09-13T20:04:38-07:00</updated>
+    <updated>2014-09-13T17:04:38-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque</id>
     <content type="html"><![CDATA[<p>
 What are the best-practices for upgrading gems to newer versions? What sort of
@@ -585,7 +585,7 @@ Justin
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
 
   (function() {
@@ -601,7 +601,7 @@ Justin
   <entry>
     <title type="html"><![CDATA[Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/"/>
-    <updated>2014-09-12T14:20:58-07:00</updated>
+    <updated>2014-09-12T11:20:58-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3</id>
     <content type="html"><![CDATA[<p>
 This article describes some tougher issues I faced when upgrading to Rails 4.1,
@@ -934,7 +934,7 @@ Justin
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/";
 
   (function() {
@@ -950,7 +950,7 @@ Justin
   <entry>
     <title type="html"><![CDATA[Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/"/>
-    <updated>2014-09-09T20:54:42-07:00</updated>
+    <updated>2014-09-09T17:54:42-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1</id>
     <content type="html"><![CDATA[<p>
 What&#8217;s faster? <a href="https://github.com/burke/zeus">Zeus</a> with <a href="https://github.com/grosser/parallel_tests">Parallel Tests</a> or <a href="https://github.com/rails/spring">Spring</a>, in the context of Rails 4.1,
@@ -1380,7 +1380,7 @@ Justin
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
 
   (function() {
@@ -1396,7 +1396,7 @@ Justin
   <entry>
     <title type="html"><![CDATA[Testing Error Handling]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/"/>
-    <updated>2013-05-11T00:01:00-07:00</updated>
+    <updated>2013-05-11T00:01:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling</id>
     <content type="html"><![CDATA[<p>
 How do ensure that your application properly handles errors, especially when
@@ -1864,7 +1864,7 @@ for Rails Logging and Error Handling</a>
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/";
 
   (function() {

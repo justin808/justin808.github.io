@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-08-19T17:29:54-07:00</updated>
+  <updated>2015-09-25T19:01:29-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Updating My Blog to Octopress with Jekyll 2 and Discourse for Comments]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/"/>
-    <updated>2014-09-27T23:24:49-07:00</updated>
+    <updated>2014-09-27T20:24:49-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments</id>
     <content type="html"><![CDATA[<p>
 This weekend I made the ambitious move to using <a href="http://www.discourse.org/">Discourse.org</a> for my blog and
@@ -411,7 +411,7 @@ you want to post a comment. :-)
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/";
 
   (function() {
@@ -427,7 +427,7 @@ you want to post a comment. :-)
   <entry>
     <title type="html"><![CDATA[Org-Mode Octopress Setup v2]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/"/>
-    <updated>2014-03-05T19:37:00-08:00</updated>
+    <updated>2014-03-05T19:37:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is a refresh of my original post from April, 2013 to adjust for Emacs 24.3 and org-mode 8.2.x</i>
@@ -1186,7 +1186,7 @@ helpful.
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/";
 
   (function() {
@@ -1202,7 +1202,7 @@ helpful.
   <entry>
     <title type="html"><![CDATA[Upgrading Octopress]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/"/>
-    <updated>2013-09-15T22:08:00-07:00</updated>
+    <updated>2013-09-15T22:08:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress</id>
     <content type="html"><![CDATA[<p>
 One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
@@ -1315,7 +1315,7 @@ thousands of times better than WordPress.
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/";
 
   (function() {
@@ -1331,7 +1331,7 @@ thousands of times better than WordPress.
   <entry>
     <title type="html"><![CDATA[Octopress Setup with Github, Org Mode, and LiveReload]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
-    <updated>2013-04-27T22:46:00-07:00</updated>
+    <updated>2013-04-27T22:46:00-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is post applies to Emacs 23 with org-mode 7.8.x. See <a href="http://www.railsonmaui.com/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/index.html">Org-Mode Octopress Setup v2</a> for the updated version applying to Emacs 24.3 and org-mode 8.2.x</i>
@@ -1928,7 +1928,7 @@ helpful. Check me out on Twitter: <a href="https://twitter.com/railsonmaui">@Rai
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/";
 
   (function() {

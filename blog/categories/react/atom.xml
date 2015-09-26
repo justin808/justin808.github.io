@@ -4,7 +4,7 @@
   <title><![CDATA[Category: react | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/react/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-08-19T17:29:54-07:00</updated>
+  <updated>2015-09-25T19:01:29-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[React on Rails Tutorial]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/"/>
-    <updated>2014-09-29T16:30:40-07:00</updated>
+    <updated>2014-09-29T13:30:40-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial</id>
     <content type="html"><![CDATA[<p>
 In response to a recent client request for a richer browser side UI experience,
@@ -612,7 +612,7 @@ the <a href="https://github.com/rails/turbolinks">Turbolinks Gem repo</a>.
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/";
 
   (function() {

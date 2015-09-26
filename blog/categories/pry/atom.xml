@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pry | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pry/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-08-19T17:29:54-07:00</updated>
+  <updated>2015-09-25T19:01:29-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Pry, Ruby, Array#zip, CSV, and the Hash[] constructor]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/"/>
-    <updated>2014-09-15T14:06:17-07:00</updated>
+    <updated>2014-09-15T11:06:17-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor</id>
     <content type="html"><![CDATA[<p>
 A couple weeks ago, I wrote a popular article, <a href="http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry, Ruby, and Fun With the Hash Constructor</a> demonstrating the usefulness of
@@ -612,7 +612,7 @@ I hope you enjoyed this!
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/";
 
   (function() {
@@ -628,7 +628,7 @@ I hope you enjoyed this!
   <entry>
     <title type="html"><![CDATA[Pry, Ruby, and Fun with the Hash Constructor]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/"/>
-    <updated>2014-08-17T17:51:24-07:00</updated>
+    <updated>2014-08-17T14:51:24-10:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor</id>
     <content type="html"><![CDATA[<p>
 I recently had a chance to pair with <a href="https://twitter.com/searls">Justin Searls</a> of <a href="http://testdouble.com/">TestDouble</a>, and we got
@@ -1053,7 +1053,7 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
 
 
 <script type="text/javascript">
-  var discourseUrl = "http://forum.railsonmaui.com/",
+  var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/";
 
   (function() {
