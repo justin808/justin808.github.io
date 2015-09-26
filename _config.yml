@@ -109,7 +109,7 @@ google_analytics_tracking_id: UA-40522944-1
 facebook_like: true
 
 # Discourse setup
-discourse_url: http://forum.railsonmaui.com/
+discourse_url: http://forum.shakacode.com/
 
 gems:
   - jekyll-redirect-from
