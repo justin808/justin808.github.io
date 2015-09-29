@@ -4,7 +4,7 @@
   <title><![CDATA[Category: error-handling | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/error-handling/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:27:40-10:00</updated>
+  <updated>2015-09-28T17:39:01-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -478,15 +478,12 @@ for Rails Logging and Error Handling</a>
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -768,15 +765,12 @@ handling.
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';

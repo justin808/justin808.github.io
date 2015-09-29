@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:27:40-10:00</updated>
+  <updated>2015-09-28T17:39:01-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -405,15 +405,12 @@ you want to post a comment. :-)
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1180,15 +1177,12 @@ helpful.
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1309,15 +1303,12 @@ thousands of times better than WordPress.
 </p>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1922,15 +1913,12 @@ helpful. Check me out on Twitter: <a href="https://twitter.com/railsonmaui">@Rai
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';

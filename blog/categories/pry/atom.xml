@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pry | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pry/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:27:40-10:00</updated>
+  <updated>2015-09-28T17:39:01-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -606,15 +606,12 @@ I hope you enjoyed this!
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1047,15 +1044,12 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';

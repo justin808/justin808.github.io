@@ -4,7 +4,7 @@
   <title><![CDATA[Category: testing | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/testing/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:27:40-10:00</updated>
+  <updated>2015-09-28T17:39:01-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -579,15 +579,12 @@ Justin
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -928,15 +925,12 @@ Justin
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1374,15 +1368,12 @@ Justin
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1602,15 +1593,12 @@ directory, such spec/helpers/capybara.rb.
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';

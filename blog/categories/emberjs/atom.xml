@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emberjs | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/emberjs/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:27:40-10:00</updated>
+  <updated>2015-09-28T17:39:01-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -53,15 +53,12 @@ Please let me know if this walkthrough is helpful. Comments are always welcome.
 </p>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/06/29/update-to-emberjs-hello-world/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -898,15 +895,12 @@ I welcome comments and suggestions.
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/06/11/emberjs-rails4-tutorial/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1039,15 +1033,12 @@ this), you need to know that you look for errors in the browser&#8217;s console.
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/26/ember-dot-js-hello-world/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1231,15 +1222,12 @@ If you got this working, you&#8217;ll see this:
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2013/05/25/getting-started-with-discourse/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: npm | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/npm/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:27:40-10:00</updated>
+  <updated>2015-09-28T17:39:01-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -133,15 +133,12 @@ I&#8217;ll do this for my projects until I&#8217;m convinced of otherwise!
 </div>
 
 
-
-
 <div id="discourse-comments"></div>
 
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';

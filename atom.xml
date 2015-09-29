@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:27:40-10:00</updated>
+  <updated>2015-09-28T17:39:01-10:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -534,12 +534,10 @@ this syntax.
 </ol>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1267,12 +1265,10 @@ find <a href="https://hackhands.com/ruby-on-enums-queries-and-rails-4-1/">a copy
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1417,12 +1413,10 @@ JSX and ES6 transpilers with your JavaScript code. That was my reason.
 <p>
 That&#8217;s it! I hope you agree is way better than copy-pasting dependencies.
 </p>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/08/adding-a-js-library-when-using-webpack/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -2375,12 +2369,10 @@ vs. <code>devDependencies</code> in <code>package.json</code>.
 </ol>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -2953,12 +2945,10 @@ the <a href="https://github.com/rails/turbolinks">Turbolinks Gem repo</a>.
 </div>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -3120,12 +3110,10 @@ About the better 1/3 of shots I took.
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/28/gogaruco-pictures-2014/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -3246,12 +3234,10 @@ I&#8217;ll do this for my projects until I&#8217;m convinced of otherwise!
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -3642,12 +3628,10 @@ you want to post a comment. :-)
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -4241,12 +4225,10 @@ I hope you enjoyed this!
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -4807,12 +4789,10 @@ Justin
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -5140,12 +5120,10 @@ Justin
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -5552,12 +5530,10 @@ Justin
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -5967,12 +5943,10 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -6086,12 +6060,10 @@ Bay Area as well.
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -6326,12 +6298,10 @@ Finally, click here for <a href="http://theoatmeal.com/comics/working_home">OMG,
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -6444,12 +6414,10 @@ I hope you like the pictures.
 </div>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/04/23/railsconf-2014/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -6667,12 +6635,10 @@ does. I&#8217;m also not sure if Foreman integrates with Guard.
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/11/rocking-with-tmux-tmuxinator-and-iterm2-for-rails-development/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -6720,12 +6686,10 @@ setting up the databases.
 <p>
 I&#8217;ll try to keep this page of tips updated as my test configuration evolves.
 </p>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -7435,12 +7399,10 @@ helpful.
 </p>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -7652,12 +7614,10 @@ Stack Overflow Discussions:
 </ol>
 </div>
 </div>
-
 <div id="discourse-comments"></div>
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/02/23/simple-form-and-disable-processing-by-default/";
-
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
