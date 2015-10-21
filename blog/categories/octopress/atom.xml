@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:39:01-10:00</updated>
+  <updated>2015-10-20T19:12:30-07:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Updating My Blog to Octopress with Jekyll 2 and Discourse for Comments]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/"/>
-    <updated>2014-09-27T20:24:49-10:00</updated>
+    <updated>2014-09-27T23:24:49-07:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments</id>
     <content type="html"><![CDATA[<p>
 This weekend I made the ambitious move to using <a href="http://www.discourse.org/">Discourse.org</a> for my blog and
@@ -56,7 +56,7 @@ What&#8217;s super cool about doing the conversion?
 
 <ol class="org-ol">
 <li>Discourse will automatically create topics for each of your blog posts. You
-can see that here: <a href="http://forum.railsonmaui.com/category/blog">http://forum.railsonmaui.com/category/blog</a>
+can see that here: <a href="http://forum.shakacode.com/category/blog">http://forum.shakacode.com/category/blog</a>
 <img src="/images/2014-09-octopress-discourse/railsonmaui-imported-articles.jpg">
 </li>
 
@@ -68,7 +68,7 @@ What this looks like on the blog, <a href="http://www.railsonmaui.com">http://ww
 </p>
 
 <p>
-What this looks like on the forum, <a href="http://forum.railsonmaui.com">http://forum.railsonmaui.com</a>:
+What this looks like on the forum, <a href="http://forum.shakacode.com">http://forum.shakacode.com</a>:
 <img src="/images/2014-09-octopress-discourse/railsonmaui-comments-blog.jpg">
 </p>
 </li>
@@ -397,7 +397,7 @@ as I didn&#8217;t know that the Disqus export contained the users&#8217; email a
 <b>This is all pretty neat!</b> Not only did I get my new forum populated with some
 content, but I also created users who commented on my posts in the past. I&#8217;m
 hoping I can engage in more meaningful discussions regarding the technologies
-that I blog about with my own forum. Please do <a href="http://forum.railsonmaui.com">sign-up for the forum</a> so you can
+that I blog about with my own forum. Please do <a href="http://forum.shakacode.com">sign-up for the forum</a> so you can
 comment and receive periodic updates of what gets posted! Or just sign up when
 you want to post a comment. :-)
 </p>
@@ -424,7 +424,7 @@ you want to post a comment. :-)
   <entry>
     <title type="html"><![CDATA[Org-Mode Octopress Setup v2]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/"/>
-    <updated>2014-03-05T19:37:00-10:00</updated>
+    <updated>2014-03-05T19:37:00-08:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is a refresh of my original post from April, 2013 to adjust for Emacs 24.3 and org-mode 8.2.x</i>
@@ -1196,7 +1196,7 @@ helpful.
   <entry>
     <title type="html"><![CDATA[Upgrading Octopress]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress/"/>
-    <updated>2013-09-15T22:08:00-10:00</updated>
+    <updated>2013-09-15T22:08:00-07:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/09/15/upgrading-octopress</id>
     <content type="html"><![CDATA[<p>
 One of the criticisms of Octopress is how there&#8217;s no clear separation of the static
@@ -1322,7 +1322,7 @@ thousands of times better than WordPress.
   <entry>
     <title type="html"><![CDATA[Octopress Setup with Github, Org Mode, and LiveReload]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
-    <updated>2013-04-27T22:46:00-10:00</updated>
+    <updated>2013-04-27T22:46:00-07:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is post applies to Emacs 23 with org-mode 7.8.x. See <a href="http://www.railsonmaui.com/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/index.html">Org-Mode Octopress Setup v2</a> for the updated version applying to Emacs 24.3 and org-mode 8.2.x</i>

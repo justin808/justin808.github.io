@@ -4,7 +4,7 @@
   <title><![CDATA[Category: webpack | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/webpack/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-09-28T17:39:01-10:00</updated>
+  <updated>2015-10-20T19:12:30-07:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Fast Rich Client Rails Development with Webpack and the ES6 Transpiler]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/"/>
-    <updated>2014-10-03T00:00:00-10:00</updated>
+    <updated>2014-10-03T00:00:00-07:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project</id>
     <content type="html"><![CDATA[<p>
 <i>There has to be a better way to incorporate the JavaScript ecosystem into Rails.</i>
@@ -975,7 +975,7 @@ Ben Ward, <a href="https://twitter.com/mauilabs">@mauilabs</a>.
 <p>
 Comments, suggestions, and corrections are appreciated! I hope to get a lively
 discussion the use of WebPack and Rails in my new discussion forum at
-<a href="http://forum.railsonmaui.com">http://forum.railsonmaui.com</a>.
+<a href="http://forum.shakacode.com">http://forum.shakacode.com</a>.
 </p>
 
 <p>
@@ -1019,7 +1019,7 @@ vs. <code>devDependencies</code> in <code>package.json</code>.
   <entry>
     <title type="html"><![CDATA[Storing or Excluding Node Modules in Rails Git Repositories]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/"/>
-    <updated>2014-09-28T16:06:42-10:00</updated>
+    <updated>2014-09-28T19:06:42-07:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories</id>
     <content type="html"><![CDATA[<p>
 It was and probably still is fashionable in the node community to check the
