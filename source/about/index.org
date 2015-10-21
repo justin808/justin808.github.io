@@ -10,10 +10,13 @@ keywords: Rails, Justin Gordon, Consulting, Ruby on Rails, Maui
 description: About the Rails on Maui website and Justin Gordon's background.
 ---
 #+END_HTML
-Justin has been passionately writing software since 1985, focusing on Java since
-1996 at several startups and with Ruby on Rails since 2011. Please contact me at
-=justin.gordon= at =gmail.com= if you're interested in Rails consulting. This
-blog is created using Octopress, as described [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]].
+I have been passionately writing software since 1985, focusing on Java since
+1996 at several startups and with Ruby on Rails since 2011. 
+
+My consulting practice has grown. Here's the story: [[http://www.shakacode.com/2015/09/17/who-is-shaka-code.html][Who is ShakaCode?]]
+
+Please contact me at [[mailto:justin@shakacode.com][justin@shakacode.com]] if you're interested in Rails
+consulting. This blog is created using Octopress, as described [[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][here]].
 
 #+begin_quote
 "Would you bet on a NASCAR driver who can't drive stick? No? Then fire every
@@ -28,9 +31,10 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 {% img /about/Justin-Office-2013.JPG %}
 
 * Some Bullets
-+ Rails projects: http://www.housinglist.com and http://www.blinkinc.com.
++ Rails projects: http://www.blinkinc.com and a several other startups.
 + I use ideaVim inside of RubyMine and IntelliJ and Evil (vim) mode inside of
   emacs. And almost everything I do is backed by developer written tests.
+  Recently, I switched to [[https://github.com/syl20bnr/spacemacs][Spacemacs]].
 + Experienced and passionate software engineer with a track record of successful projects.
 + Responsible for majority of design and coding of the core storage layer behind
   the [[http://public.dhe.ibm.com/common/ssi/ecm/en/iml14344usen/IML14344USEN.PDF][Gartner 2012]] leading program for product master data management:
@@ -46,7 +50,7 @@ developer who doesn't use Vim or Emacs.", the "Hipster Hacker" on Twitter.
 + Twitter Bootstrap rocks.
 + Previously specialized in Master Data Manager for Product Information Management.
 + Thought leader in doing Test Driven Development in the context of enterprise
-  software. Check out my TDD tips site: http://tddtips.com.  
+  software.
 + Author of open source project "Dependent Object Framework", which vastly
   simplifies and accelerates JUnit testing with persistent dependencies.
 + Former speaker at Dr. Dobb's SD West Santa Clara, Architecture and Design
