@@ -100,7 +100,7 @@ you'll need to follow these steps.
           compute-roundn@1.0.0 node_modules/compute-roundn 
    #+END_EXAMPLE
    If you have problems with your Heroku deploy failing to install dependencies,
-   check out this article in my forum: [[http://forum.railsonmaui.com/t/notes-on-deploying-to-heroku-with-gsl-and-node/89][Notes on Deploying to Heroku with GSL and Node]].
+   check out this article in my forum: [[http://forum.shakacode.com/t/notes-on-deploying-to-heroku-with-gsl-and-node/89][Notes on Deploying to Heroku with GSL and Node]].
 
 You maybe wondering, "why not just use the [[https://github.com/browserify-rails/browserify-rails][browserify-rails]] gem, which is
 slightly simpler in terms of setup. A good reason would be that you want to use

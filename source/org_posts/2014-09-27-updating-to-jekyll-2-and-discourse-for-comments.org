@@ -31,7 +31,7 @@ What motivated me to migrate comments to Discourse?
 What's super cool about doing the conversion?
 
 1. Discourse will automatically create topics for each of your blog posts. You
-   can see that here: http://forum.railsonmaui.com/category/blog
+   can see that here: http://forum.shakacode.com/category/blog
    {% img /images/2014-09-octopress-discourse/railsonmaui-imported-articles.jpg %}
 
 2. Discourse can import the Disqus comments from your blog!
@@ -39,7 +39,7 @@ What's super cool about doing the conversion?
    What this looks like on the blog, http://www.railsonmaui.com
    {% img /images/2014-09-octopress-discourse/railsonmaui-comments-blog.jpg %}
 
-   What this looks like on the forum, http://forum.railsonmaui.com:
+   What this looks like on the forum, http://forum.shakacode.com:
    {% img /images/2014-09-octopress-discourse/railsonmaui-comments-blog.jpg %}
 
 #+begin_html
@@ -243,7 +243,7 @@ to kickstart the forum.
 *This is all pretty neat!* Not only did I get my new forum populated with some
 content, but I also created users who commented on my posts in the past. I'm
 hoping I can engage in more meaningful discussions regarding the technologies
-that I blog about with my own forum. Please do [[http://forum.railsonmaui.com][sign-up for the forum]] so you can
+that I blog about with my own forum. Please do [[http://forum.shakacode.com][sign-up for the forum]] so you can
 comment and receive periodic updates of what gets posted! Or just sign up when
 you want to post a comment. :-)
 

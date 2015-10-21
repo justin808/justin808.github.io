@@ -23,7 +23,7 @@ attention. And certainly it's been a huge undertaking for the conference
 organizers.
 
 I've been toying around with creating a Rails on Maui Conference, and I've just
-created a [[%20http://forum.railsonmaui.com/t/about-the-maui-conference-category/71][forum for just this sort of discussion]].
+created a [[%20http://forum.shakacode.com/t/about-the-maui-conference-category/71][forum for just this sort of discussion]].
 
 #+begin_quote
 Should we have a Maui Rails Conference? Let's discuss the possibility of such a
