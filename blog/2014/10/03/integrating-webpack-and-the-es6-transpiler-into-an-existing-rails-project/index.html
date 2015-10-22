@@ -115,6 +115,12 @@
 </p>
 
 <p>
+<b>Update October, 21 2015</b>: We&#8217;re about to release 1.0 of the <a href="https://rubygems.org/gems/react_on_rails">react_on_rails</a> gem!
+It will include a generator which will make the setup of this process super
+easy!
+</p>
+
+<p>
 <b>Update September, 28 2015</b>: Be sure to see
 <a href="https://github.com/shakacode/react_on_rails/">https://github.com/shakacode/react_on_rails/</a> and the <a href="https://rubygems.org/gems/react_on_rails">gem react_on_rails</a>. My team
 is writing a gem to make the process of integrating react and webpack with Rails
@@ -127,7 +133,7 @@ advanced react techniques such as REDUX.
 progress in this area since the original publication of this article in 2014. I
 highly recommend seeing the README at
 <a href="https://github.com/justin808/react-webpack-rails-tutorial">https://github.com/justin808/react-webpack-rails-tutorial</a> and the pull requests
-(both <a href="https://github.com/justin808/react-webpack-rails-tutorial/pulls">open</a> and <a href="https://github.com/justin808/react-webpack-rails-tutorial/pulls?q=is%253Apr+is%253Aclosed">closed</a>) of what&#8217;s been incorporated since this article was first published.
+(both <a href="https://github.com/justin808/react-webpack-rails-tutorial/pulls">open</a> and <a href="https://github.com/shakacode/react-webpack-rails-tutorial/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+">closed</a>) of what&#8217;s been incorporated since this article was first published.
 </p>
 
 <p>
@@ -135,18 +141,14 @@ Have you:
 </p>
 <ol class="org-ol">
 <li>Wondered if there&#8217;s a better way to utilize modern JavaScript client frameworks
-the context of an existing Ruby on Rails project?
-</li>
+the context of an existing Ruby on Rails project?</li>
 <li>Gotten confused about how to integrate JavaScript libraries and examples that
-are packaged up into proper &#8220;modules&#8221;?
-</li>
+are packaged up into proper &#8220;modules&#8221;?</li>
 <li>Discovered the drawbacks of having all applications JavaScript littering the
-global name-space.
-</li>
+global name-space.</li>
 <li>Heard about <a href="http://www.slideshare.net/domenicdenicola/es6-the-awesome-parts">ES6 (aka Harmony)</a>, the next version of JavaScript and how the
 cool kids in Silicon Valley (Facebook, Instagram, Square, etc.) are using ES6
-syntax?
-</li>
+syntax?</li>
 </ol>
 
 <p>
@@ -154,20 +156,15 @@ How would you like to achieve, within a Rails project:
 </p>
 <ol class="org-ol">
 <li>The ability to prototype a rich UI, seeing changes in JS and CSS/Sass code
-almost instantly after hitting save, <i>without the page reloading</i>.
-</li>
+almost instantly after hitting save, <i>without the page reloading</i>.</li>
 <li>First class citizenship for utilizing the <b>Node ecosystem</b>, by specifying
 dependencies in <code>package.json</code>, running <code>npm install</code>, and then simply requiring
-modules in JavaScript files.
-</li>
+modules in JavaScript files.</li>
 <li>Seamless integration of Node based JavaScript assets for the Rails Asset
 Pipeline, thus <b>not circumventing</b> the asset pipeline, but co-existing with
-it and leveraging it.
-</li>
-<li>The ability to plug the node client side ecosystem into an existing Rails project seamlessly.
-</li>
-<li>Utilization of many JavaScript tools, such as the <b>React JSX tranpiler</b> and <b>ES6 transpiler</b>.
-</li>
+it and leveraging it.</li>
+<li>The ability to plug the node client side ecosystem into an existing Rails project seamlessly.</li>
+<li>Utilization of many JavaScript tools, such as the <b>React JSX tranpiler</b> and <b>ES6 transpiler</b>.</li>
 </ol>
 
 <p>
@@ -182,9 +179,9 @@ First, I&#8217;m going to tell you a brief story of how I came to the realizatio
 <i>there had to be a better way to incorporate JavaScript ecosystem into Rails</i>.
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">What&#8217;s Wrong with Copying and Pasting Tons of JavaScript into /vendor/assets/javascripts?</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">What&#8217;s Wrong with Copying and Pasting Tons of JavaScript into /vendor/assets/javascripts?</h2>
+<div class="outline-text-2" id="text-orgheadline1">
 <p>
 Imagine doing Ruby on Rails projects without <a href="http://bundler.io/">Bundler</a>? Oh, the horror! Well
 that&#8217;s what copying tidbits of JavaScript into <code>/vendor/assets/javascripts</code> is
@@ -207,9 +204,9 @@ gemified JavaScript! You can now become a 1st class JavaScript citizen!</i>
 </p>
 </div>
 
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">Motivation: React and ES6</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2">Motivation: React and ES6</h3>
+<div class="outline-text-3" id="text-orgheadline2">
 <p>
 My foray down the Node rabbit hole began with a desire to use the React
 framework, including its JSX transpiler. In a nutshell, the <a href="http://facebook.github.io/react/">React library</a> stands
@@ -235,14 +232,11 @@ copy-pasting the source to my <code>/vendor/assets/javascripts</code> directory,
 just seemed to <i>smell</i> for the following reasons:
 </p>
 <ol class="org-ol">
-<li>JavaScript has a mature system for managing dependencies (packages &amp; modules): <a href="https://www.npmjs.org/">npm</a> (and <a href="http://bower.io/">bower</a>).
-</li>
+<li>JavaScript has a mature system for managing dependencies (packages &amp; modules): <a href="https://www.npmjs.org/">npm</a> (and <a href="http://bower.io/">bower</a>).</li>
 <li>Dependencies often depend on other dependencies, in both the Ruby and
-JavaScript worlds. Imagine managing Ruby dependencies by hand.
-</li>
+JavaScript worlds. Imagine managing Ruby dependencies by hand.</li>
 <li>JavaScript modules often depend on either CommonJs or RequireJs being
-available.
-</li>
+available.</li>
 </ol>
 
 <p>
@@ -263,9 +257,10 @@ jsx into js files. This led me to try the webpack module bundler.
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Webpack</h2>
-<div class="outline-text-2" id="text-2">
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3">Webpack</h2>
+<div class="outline-text-2" id="text-orgheadline3">
 <p>
 What&#8217;s <a href="http://webpack.github.io/docs/what-is-webpack.html">Webpack</a>?
 </p>
@@ -281,15 +276,11 @@ Why did I try Webpack? It was recommended to me by <a href="http://2013.jsconf.e
 Here&#8217;s some solid reasons for &#8220;why Webpack&#8221;:
 </p>
 <ol class="org-ol">
-<li>Leverages npm (and optionally bower) for package management.
-</li>
-<li>Supports whatever module syntax you prefer.
-</li>
-<li>Has loaders (think pipeline), including ES6 and JSX.
-</li>
+<li>Leverages npm (and optionally bower) for package management.</li>
+<li>Supports whatever module syntax you prefer.</li>
+<li>Has loaders (think pipeline), including ES6 and JSX.</li>
 <li>Its Webpack Dev Server rocks for quick prototypes (Hot Module Replacement) of JS and
-CSS/Sass code.
-</li>
+CSS/Sass code.</li>
 </ol>
 
 <p>
@@ -311,13 +302,10 @@ Then I started using these features of Webpack:
 <ol class="org-ol">
 <li><a href="https://github.com/shama/es6-loader">es6-loader</a>, which incorporates both of the <a href="https://github.com/termi/es6-transpiler">es6-transpiler</a> and the
 <a href="https://github.com/esnext/es6-module-transpiler">es6-module-transpiler</a>. For fun, try out the ES6 syntax with the <a href="http://www.es6fiddle.net/">ES6 Fiddle</a>.
-Here&#8217;s a <a href="https://github.com/lukehoban/es6features">great references on ES6 features</a>.
-</li>
-<li><a href="https://github.com/petehunt/jsx-loader">jsx-loader</a>, which handles jsx files using es6.
-</li>
+Here&#8217;s a <a href="https://github.com/lukehoban/es6features">great references on ES6 features</a>.</li>
+<li><a href="https://github.com/petehunt/jsx-loader">jsx-loader</a>, which handles jsx files using es6.</li>
 <li>Trivial integration of any additional packages available via <b><a href="https://www.npmjs.org/">npm</a></b> and the
-ability to use whichever module syntax is most convenient.
-</li>
+ability to use whichever module syntax is most convenient.</li>
 </ol>
 
 <p>
@@ -334,10 +322,8 @@ With the basic parts in place, I wanted achieve the following:
 <li>Be able to prototype client side JS using Webpack Dev Server (with hot module
 replacement), while having this same code readily available in my Rails app.
 This involves having JavaScript, Sass, and Image files commonly available to
-both Rails and the Webpack Dev Server.
-</li>
-<li>Be able to easily deploy to Heroku.
-</li>
+both Rails and the Webpack Dev Server.</li>
+<li>Be able to easily deploy to Heroku.</li>
 </ol>
 
 <p>
@@ -347,27 +333,26 @@ My solution to the problem is shown in this github repo:
 this solution in detail. 
 </p>
 </div>
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Setup</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4">Setup</h3>
+<div class="outline-text-3" id="text-orgheadline4">
 <p>
 You&#8217;ll need to install Node.js following. I&#8217;m assuming you already have Ruby and
 Rails installed.
 </p>
 <ol class="org-ol">
 <li>Node.js: You can find the <a href="http://nodejs.org/download/">Node.js download file here</a>. Note, some friends of mine
-recommended the Node.js installer rather than using Brew. I did not try Brew.
-</li>
-<li>Many articles recommend running the following command, so that you don&#8217;t need
+recommended the Node.js installer rather than using Brew. I did not try Brew.</li>
+<li><p>
+Many articles recommend running the following command, so that you don&#8217;t need
 to run node commands as sudo, thus changing the ownership of your /usr/local
 directory to yourself.
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo chown -R <span class="nv">$USER</span> /usr/local
-</span></code></pre></td></tr></table></div></figure>
-</li>
+</span></code></pre></td></tr></table></div></figure></li>
 <li>Your <code>/package.json</code> file describes all other other dependencies, and running
-   <code>npm install</code> will install everything required.
-</li>
+<code>npm install</code> will install everything required.</li>
 </ol>
 
 <p>
@@ -380,9 +365,10 @@ Node ecosystem!
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Bundler and Node Package Manager</h3>
-<div class="outline-text-3" id="text-2-2">
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">Bundler and Node Package Manager</h3>
+<div class="outline-text-3" id="text-orgheadline5">
 <p>
 All Rails developers are familiar with gems and <a href="http://bundler.io/">Bundler (bundle)</a>. The equivalent for
 Javascript are package.json files with <a href="https://www.npmjs.org/">Node Package Manager (npm)</a> (see
@@ -400,9 +386,10 @@ manually downloading dependencies and copying the <code>/vendor/assets/</code> d
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">Why NPM and not Bower for JS Assets?</h3>
-<div class="outline-text-3" id="text-2-3">
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6">Why NPM and not Bower for JS Assets?</h3>
+<div class="outline-text-3" id="text-orgheadline6">
 <p>
 The most popular equivalants for JavaScript are <a href="https://www.npmjs.org/">Node Package Manager (npm)</a> and
 <a href="http://bower.io/">Bower</a>. For use with webpack, you&#8217;ll want to prefer npm, per the reasons in the
@@ -416,12 +403,9 @@ mostly contain only concatenated/bundled files which are:
 </p>
 
 <ul class="org-ul">
-<li>More difficult to handle for webpack
-</li>
-<li>More difficult to optimize for webpack
-</li>
-<li>Sometimes only useable without a module system
-</li>
+<li>More difficult to handle for webpack</li>
+<li>More difficult to optimize for webpack</li>
+<li>Sometimes only useable without a module system</li>
 </ul>
 
 <p>
@@ -430,9 +414,10 @@ So prefer to use the CommonJs-style module and let webpack build it.
 </blockquote>
 </div>
 </div>
-<div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4">Webpack Plus Rails Solution Description</h3>
-<div class="outline-text-3" id="text-2-4">
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7">Webpack Plus Rails Solution Description</h3>
+<div class="outline-text-3" id="text-orgheadline7">
 <p>
 To integrate webpack with Rails, webpack is used in 2 ways:
 </p>
@@ -440,13 +425,11 @@ To integrate webpack with Rails, webpack is used in 2 ways:
 <li>Webpack is used soley within the <code>/webpack</code> directory in conjunction with the
 Webpack Dev Server to provide a rapid tool for prototyping the client side
 Javascript. The file <code>webpack.hot.config.js</code> sets up the JS and CSS assets
-for the Webpack Dev Server.
-</li>
+for the Webpack Dev Server.</li>
 <li>Webpack watches for changes and generates the <code>rails-bundle.js</code> file that
 bundles all the JavaScript referenced in the <code>/webpack/assets/javascripts</code>
 directory. The file <code>webpack.rails.config.js</code> converts the JSX files into JS
-files throught the JSX and ES6 transpilers. 
-</li>
+files throught the JSX and ES6 transpilers.</li>
 </ol>
 
 <p>
@@ -458,113 +441,112 @@ The following image describes the organization of integrating Webpack with Rails
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">File</th>
-<th scope="col" class="left">Notes and Description</th>
+<th scope="col" class="org-left">File</th>
+<th scope="col" class="org-left">Notes and Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left"><code>/app/assets/javascripts/rails-bundle.js</code></td>
-<td class="left">Output of <code>webpack --config webpack.rails.config.js</code></td>
+<td class="org-left"><code>/app/assets/javascripts/rails-bundle.js</code></td>
+<td class="org-left">Output of <code>webpack --config webpack.rails.config.js</code></td>
 </tr>
 
 <tr>
-<td class="left"><code>/app/assets/javacripts/application.js</code></td>
-<td class="left">Add <code>rails-bundle</code> so webpack output included in sprockets</td>
+<td class="org-left"><code>/app/assets/javacripts/application.js</code></td>
+<td class="org-left">Add <code>rails-bundle</code> so webpack output included in sprockets</td>
 </tr>
 
 <tr>
-<td class="left"><code>/app/assets/javascripts</code></td>
-<td class="left">Do not include any files used by Webpack. Place those files in <code>/webpack/assets/javascripts</code></td>
+<td class="org-left"><code>/app/assets/javascripts</code></td>
+<td class="org-left">Do not include any files used by Webpack. Place those files in <code>/webpack/assets/javascripts</code></td>
 </tr>
 
 <tr>
-<td class="left"><code>/app/assets/stylesheets/application.css.scss</code></td>
-<td class="left">Reference sass files in <code>/webpack/assets/stylesheets</code></td>
+<td class="org-left"><code>/app/assets/stylesheets/application.css.scss</code></td>
+<td class="org-left">Reference sass files in <code>/webpack/assets/stylesheets</code></td>
 </tr>
 
 <tr>
-<td class="left"><code>/node_modules</code></td>
-<td class="left">Where npm puts the loaded packages</td>
+<td class="org-left"><code>/node_modules</code></td>
+<td class="org-left">Where npm puts the loaded packages</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack</code></td>
-<td class="left">All webpack files under this directory except for node_modules and package.json</td>
+<td class="org-left"><code>/webpack</code></td>
+<td class="org-left">All webpack files under this directory except for node_modules and package.json</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/assets/images</code></td>
-<td class="left"><code>Symlink to /app/assets/images</code>. Needed so that Webpack Dev Server can see same images referenced by Rails sprockets</td>
+<td class="org-left"><code>/webpack/assets/images</code></td>
+<td class="org-left"><code>Symlink to /app/assets/images</code>. Needed so that Webpack Dev Server can see same images referenced by Rails sprockets</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/assets/javascripts</code></td>
-<td class="left">javascripts are packaged into rails-bundle.js as well as used by the Webpack Dev Server</td>
+<td class="org-left"><code>/webpack/assets/javascripts</code></td>
+<td class="org-left">javascripts are packaged into rails-bundle.js as well as used by the Webpack Dev Server</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/assets/stylesheets</code></td>
-<td class="left">stylesheets are used by the asset pipeline (referenced directly by <code>/app/assets/stylesheets/application.css.scss</code>) as well as used by the Webpack Dev Server</td>
+<td class="org-left"><code>/webpack/assets/stylesheets</code></td>
+<td class="org-left">stylesheets are used by the asset pipeline (referenced directly by <code>/app/assets/stylesheets/application.css.scss</code>) as well as used by the Webpack Dev Server</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/index.html</code></td>
-<td class="left">the default page loaded when testing the Webpack Dev Server</td>
+<td class="org-left"><code>/webpack/index.html</code></td>
+<td class="org-left">the default page loaded when testing the Webpack Dev Server</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/scripts</code></td>
-<td class="left">files used by only the Rails or Webpack Dev Server environments</td>
+<td class="org-left"><code>/webpack/scripts</code></td>
+<td class="org-left">files used by only the Rails or Webpack Dev Server environments</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/server.js</code></td>
-<td class="left">server.js is the code to configure the Webpack Dev Server</td>
+<td class="org-left"><code>/webpack/server.js</code></td>
+<td class="org-left">server.js is the code to configure the Webpack Dev Server</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/webpack.hot.config.js</code></td>
-<td class="left">configures the webpack build for the Webpack Dev Server</td>
+<td class="org-left"><code>/webpack/webpack.hot.config.js</code></td>
+<td class="org-left">configures the webpack build for the Webpack Dev Server</td>
 </tr>
 
 <tr>
-<td class="left"><code>/webpack/webpack.rails.config.js</code></td>
-<td class="left">configures web pack to generate the rails-bundle.js file</td>
+<td class="org-left"><code>/webpack/webpack.rails.config.js</code></td>
+<td class="org-left">configures web pack to generate the rails-bundle.js file</td>
 </tr>
 
 <tr>
-<td class="left"><code>/.buildpacks</code></td>
-<td class="left">used to configure multiple node + ruby buildpacks for Heroku</td>
+<td class="org-left"><code>/.buildpacks</code></td>
+<td class="org-left">used to configure multiple node + ruby buildpacks for Heroku</td>
 </tr>
 
 <tr>
-<td class="left"><code>/npm-shrinkwrap.json</code> and <code>/package.json</code></td>
-<td class="left">define the packages loaded by running &#8216;npm install&#8217;</td>
+<td class="org-left"><code>/npm-shrinkwrap.json</code> and <code>/package.json</code></td>
+<td class="org-left">define the packages loaded by running &#8216;npm install&#8217;</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-sec-2-5" class="outline-3">
-<h3 id="sec-2-5">webpack.config</h3>
-<div class="outline-text-3" id="text-2-5">
+
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8">webpack.config</h3>
+<div class="outline-text-3" id="text-orgheadline8">
 <p>
 To reiterate, we needed Webpack for the following reasons:
 </p>
 <ol class="org-ol">
-<li>To enable the use of JS &#8220;modules&#8221;, using either the either the <a href="http://requirejs.org/">AMD (aka require.js)</a> or <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJs module syntax</a>.
-</li>
+<li>To enable the use of JS &#8220;modules&#8221;, using either the either the <a href="http://requirejs.org/">AMD (aka require.js)</a> or <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJs module syntax</a>.</li>
 <li>To convert JSX files (ES6 and JSX syntax) into JS files. Note, you probably
 don&#8217;t want to blindly convert all JS files into ES6, as that may conflict
-with some imported modules.
-</li>
+with some imported modules.</li>
 </ol>
 
 <p>
@@ -577,16 +559,17 @@ the two different needs, the Webpack Dev Sever and the Asset Pipeline.
 </p>
 </div>
 
-<div id="outline-container-sec-2-5-1" class="outline-4">
-<h4 id="sec-2-5-1">Changing the webpack.config</h4>
-<div class="outline-text-4" id="text-2-5-1">
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9">Changing the webpack.config</h4>
+<div class="outline-text-4" id="text-orgheadline9">
 <p>
 You maybe wondering if you&#8217;ll need to edit these webpack config files. Here&#8217;s
 some things you&#8217;ll need to pay attention to.
 </p>
 
 <ol class="org-ol">
-<li><b>module.exports.entry</b>: The entry points will determine what webpack places
+<li><p>
+<b>module.exports.entry</b>: The entry points will determine what webpack places
 in the bundle. While this may seem similar to the manifest file of
 <code>/app/assets/javascripts/application.js</code>, it&#8217;s very different in that you
 <i>only</i> need to specify the <b><i>entry</i></b> points. So if you specify
@@ -594,6 +577,7 @@ in the bundle. While this may seem similar to the manifest file of
 point, then you do not and should not specify <code>./assets/javascripts/CommentBox</code>
 as an entry point. Once again, dependencies are calculated for Webpack,
 unlike Rails.
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -604,21 +588,23 @@ unlike Rails.
 </span><span class='line'> <span class="nx">entry</span><span class="o">:</span> <span class="p">[</span>
 </span><span class='line'>   <span class="s2">&quot;./assets/javascripts/example&quot;</span>
 </span><span class='line'> <span class="p">],</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
-<li><b>module.exports.externals</b>: If you want to load jQuery from a CDN or from the
+</span></code></pre></td></tr></table></div></figure></li>
+<li><p>
+<b>module.exports.externals</b>: If you want to load jQuery from a CDN or from the
 Rails gem, you might specify:
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">externals</span><span class="o">:</span> <span class="p">{</span>
 </span><span class='line'>  <span class="nx">jquery</span><span class="o">:</span> <span class="s2">&quot;var jQuery&quot;</span>
 </span><span class='line'><span class="p">},</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
-<li><b>module.exports.module.loaders</b>: This is the place where you can expose
+</span></code></pre></td></tr></table></div></figure></li>
+<li><p>
+<b>module.exports.module.loaders</b>: This is the place where you can expose
 jQuery from your Webpack rails-bundle.js so that the rest of the non-module
 using parts of Rails can use jQuery.
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -635,8 +621,7 @@ using parts of Rails can use jQuery.
 </span><span class='line'>    <span class="p">{</span> <span class="nx">test</span><span class="o">:</span> <span class="nx">require</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s2">&quot;jquery&quot;</span><span class="p">),</span> <span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;expose?$&quot;</span> <span class="p">}</span>
 </span><span class='line'>  <span class="p">]</span>
 </span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
+</span></code></pre></td></tr></table></div></figure></li>
 </ol>
 
 <p>
@@ -646,9 +631,10 @@ The <a href="https://gitter.im/webpack/webpack">gitter room for webpack</a> is a
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2-6" class="outline-3">
-<h3 id="sec-2-6">Webpack Dev Server and Hot Module Replacement</h3>
-<div class="outline-text-3" id="text-2-6">
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10">Webpack Dev Server and Hot Module Replacement</h3>
+<div class="outline-text-3" id="text-orgheadline10">
 <p>
 While waiting for webpack to create the rails-bundle.js file and then reloading
 the Rails page is not terribly time consuming, there&#8217;s <b>no comparison</b> to using
@@ -678,52 +664,45 @@ In a nutshell, the file <code>/webpack/server.js</code> is the http server utili
 <a href="http://webpack.github.io/docs/webpack-dev-server.html">Webpack Dev Server API</a>:
 </p>
 <ol class="org-ol">
-<li><code>/webpack/webpack.hot.config.js</code> configures the webpack assets.
-</li>
-<li>Has a couple of json responses.
-</li>
-<li>Configures &#8220;hot&#8221; to be true to enable hot module replacement.
-</li>
+<li><code>/webpack/webpack.hot.config.js</code> configures the webpack assets.</li>
+<li>Has a couple of json responses.</li>
+<li>Configures &#8220;hot&#8221; to be true to enable hot module replacement.</li>
 </ol>
 </div>
 </div>
-
-<div id="outline-container-sec-2-7" class="outline-3">
-<h3 id="sec-2-7">JavaScripts</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11">JavaScripts</h3>
+<div class="outline-text-3" id="text-orgheadline11">
 <p>
 Webpack handles the following aspects of the <code>/webpack/assets/javascripts</code>
 directory:
 </p>
 <ol class="org-ol">
-<li>Preparing a &#8220;bundle&#8221; of the JavaScript files needed by either Rails or the
+<li><p>
+Preparing a &#8220;bundle&#8221; of the JavaScript files needed by either Rails or the
 Webpack Dev Server. This includes running the files through the jsx and es6
 loaders which transpile the jsx and es6 syntax into standard javascripts.
 Heres&#8217; the configuration that does the loading:
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">loaders</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.jsx$/</span><span class="p">,</span> <span class="nx">loaders</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;react-hot&quot;</span><span class="p">,</span> <span class="s2">&quot;es6&quot;</span><span class="p">,</span> <span class="s2">&quot;jsx?harmony&quot;</span><span class="p">]</span> <span class="p">}]</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
+</span></code></pre></td></tr></table></div></figure></li>
 <li>Webpack also normalizes whichever module loading syntax you choose
-(RequireJs, CommonJs, or ES6).   
-</li>
+(RequireJs, CommonJs, or ES6).</li>
 </ol>
 </div>
 </div>
-
-<div id="outline-container-sec-2-8" class="outline-3">
-<h3 id="sec-2-8">Sass and images</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12">Sass and images</h3>
+<div class="outline-text-3" id="text-orgheadline12">
 <p>
 For the Webpack Dev Server build (not the Rails build that creates
 <code>rails-bundle.js</code>), Sass is loaded via webpack for 2 reasons:
 </p>
 <ol class="org-ol">
-<li>Webpack takes care of running the sass compiler.
-</li>
+<li>Webpack takes care of running the sass compiler.</li>
 <li>Any changes made to sass or css files are loaded by the hot module loader
-into the browser.
-</li>
+into the browser.</li>
 </ol>
 <p>
 The file <code>/webpack/scripts/webpack_only.jsx</code> contains this:
@@ -772,22 +751,21 @@ Express server versions was solved by using a <b>symlink</b>, which git will
 conveniently store.
 </p>
 <ol class="org-ol">
-<li><code>/webpack/assets/images</code> is a symlink for the <code>/app/assets/images</code> directory.
-</li>
-<li>The <code>image-url</code> sass helper takes care of mapping the correct directories for
+<li><code>/webpack/assets/images</code> is a symlink for the <code>/app/assets/images</code> directory.</li>
+<li><p>
+The <code>image-url</code> sass helper takes care of mapping the correct directories for
 images. The image directory for the webpack server is configured by this
 line:
+</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">module</span><span class="p">.</span><span class="nx">loaders</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">test</span><span class="o">:</span> <span class="sr">/.scss$/</span><span class="p">,</span> <span class="nx">loader</span><span class="o">:</span> <span class="err">“</span><span class="nx">style</span><span class="o">!</span><span class="nx">css</span><span class="o">!</span><span class="nx">sass</span><span class="o">?</span><span class="nx">outputStyle</span><span class="o">=</span><span class="nx">expanded</span><span class="o">&amp;</span><span class="nx">imagePath</span><span class="o">=</span><span class="err">/assets/images”}]</span>
 </span></code></pre></td></tr></table></div></figure>
 <p>
 The sass gem for rails handles the mapping for the Asset Pipeline.
-</p>
-</li>
+</p></li>
 <li>The symlink was necessary, as the Webpack Dev Server could not reference files
-above the root directory.
-</li>
+above the root directory.</li>
 </ol>
 
 <p>
@@ -796,9 +774,10 @@ asset pipeline, and the images work fine for the Webpack Dev Server.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-9" class="outline-3">
-<h3 id="sec-2-9">Sourcemaps</h3>
-<div class="outline-text-3" id="text-2-9">
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13">Sourcemaps</h3>
+<div class="outline-text-3" id="text-orgheadline13">
 <p>
 When debugging JavaScript using the Rails app, I did not want to have to scroll
 through a giant <code>rails-bundle.js</code> of all js assets. Sourcemap support in Webpack
@@ -816,9 +795,10 @@ This is what sourcemaps looks like in Chrome
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-10" class="outline-3">
-<h3 id="sec-2-10">Heroku Deployment</h3>
-<div class="outline-text-3" id="text-2-10">
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14">Heroku Deployment</h3>
+<div class="outline-text-3" id="text-orgheadline14">
 <p>
 There are several things needed to get builds working on Heroku.
 </p>
@@ -826,24 +806,21 @@ There are several things needed to get builds working on Heroku.
 <li>It&#8217;s critical that <code>package.json</code> has all tools required by the Heroku build
 in <code>dependencies</code> and <i>not</i> <code>devDependencies</code> as Heroku only installs those
 modules in <code>dependencies</code>. You should use <code>devDependencies</code> for tools that
-<b>only</b> your local Webpack Dev Server uses.
-</li>
-<li>Clean up your build cache:
+<b>only</b> your local Webpack Dev Server uses.</li>
+<li><p>
+Clean up your build cache:
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>heroku plugins:install https://github.com/heroku/heroku-repo.git
 </span><span class='line'>heroku repo:purge_cache -a &lt;my-app&gt;
-</span></code></pre></td></tr></table></div></figure>
-</li>
+</span></code></pre></td></tr></table></div></figure></li>
 <li>Be sure to run npm-shrinkwrap after <b>ANY</b> changes to <code>dependencies</code> inside of
-   <code>package.json</code>.
-</li>
+<code>package.json</code>.</li>
 <li>I needed to configure the <code>compile_environment</code> task to create the <code>rails-bundle.js</code> via
-Webpack using the file <code>/lib/tasks/assets.rake</code>.
-</li>
+Webpack using the file <code>/lib/tasks/assets.rake</code>.</li>
 <li>Heroku needs both the node and ruby environments. In order to deploy to
-heroku, you’ll need run this command once to set a custom buildpack:
-</li>
+heroku, you’ll need run this command once to set a custom buildpack:</li>
 </ol>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -856,9 +833,10 @@ This runs the two buildpacks in the <code>/.buildpacks</code> file courtesy of t
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-11" class="outline-3">
-<h3 id="sec-2-11">Why node_modules and package.json are not in the webpack directory?</h3>
-<div class="outline-text-3" id="text-2-11">
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15">Why node_modules and package.json are not in the webpack directory?</h3>
+<div class="outline-text-3" id="text-orgheadline15">
 <p>
 While it would be tidier to put <code>node_modules</code> and <code>package.json</code> into the
 <code>/webpack</code> directory, the problem is that this would require a custom buildpack
@@ -866,10 +844,9 @@ for installing the node_modules on Heroku.
 </p>
 </div>
 </div>
-
-<div id="outline-container-sec-2-12" class="outline-3">
-<h3 id="sec-2-12">Why Have a Second Assets Directory Under Webpack?</h3>
-<div class="outline-text-3" id="text-2-12">
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16">Why Have a Second Assets Directory Under Webpack?</h3>
+<div class="outline-text-3" id="text-orgheadline16">
 <p>
 At first, I had Webpack reference the JSX files from the
 <code>/app/assets/javascripts directory</code>. However, I wanted to be able to use a
@@ -900,35 +877,39 @@ the file style sheets in <code>/webpack/assets/stylesheets</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-13" class="outline-3">
-<h3 id="sec-2-13">How to Add a NPM (JavaScript) module dependency?</h3>
-<div class="outline-text-3" id="text-2-13">
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17">How to Add a NPM (JavaScript) module dependency?</h3>
+<div class="outline-text-3" id="text-orgheadline17">
 <p>
 This is a bit like modifying your Gemfile with a new gem dependency.
 </p>
 <ol class="org-ol">
-<li>Modify your <code>/package.json</code> file with the appropriate line for the desired
+<li><p>
+Modify your <code>/package.json</code> file with the appropriate line for the desired
 package inside the &#8220;dependencies&#8221; section. You&#8217;ll want to specify an exact
 version, as that&#8217;s the recommendation in the Node community. Just google &#8220;npm
 &lt;whatever module&gt;&#8221; and you&#8217;ll get a link to the npm page for that module
 where you can see the version. For example, to add <code>marked</code> as a dependency,
 I added this line to <code>package.json</code>.
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="s2">&quot;marked&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.3.2&quot;</span><span class="p">,</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
-<li>Include the appropriate line to require the module. For example, to include
+</span></code></pre></td></tr></table></div></figure></li>
+<li><p>
+Include the appropriate line to require the module. For example, to include
 the <code>marked</code> library:
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">marked</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;marked&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
+</span></code></pre></td></tr></table></div></figure></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-sec-2-14" class="outline-3">
-<h3 id="sec-2-14">How to update Node Dependencies</h3>
-<div class="outline-text-3" id="text-2-14">
+
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18">How to update Node Dependencies</h3>
+<div class="outline-text-3" id="text-orgheadline18">
 <p>
 When you&#8217;re ready to take the time to ensure that upgrading your packages will
 not break your code, you&#8217;ll want to take the following steps. Refer to <a href="https://www.npmjs.org/package/npm-check-updates">npm-check-updates</a>
@@ -950,63 +931,57 @@ and <a href="https://www.npmjs.org/doc/cli/npm-shrinkwrap.html">npm-shrinkwrap</
 </div>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Rapid Client Development</h2>
-<div class="outline-text-2" id="text-3">
+
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19">Rapid Client Development</h2>
+<div class="outline-text-2" id="text-orgheadline19">
 <p>
 Congratulations! You&#8217;ve gotten through what I believe is the secret sauce for
 rapid client side JavaScript development. Once you get the setup, per the above
 steps, the flow goes like this: 
 </p>
 <ol class="org-ol">
-<li>Run the Webpack Dev Server on port 3000 
+<li><p>
+Run the Webpack Dev Server on port 3000 
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>webpack <span class="o">&amp;&amp;</span> node server.js
-</span></code></pre></td></tr></table></div></figure>
-</li>
-<li>Point your browser at <a href="http://0.0.0.0:3000">http://0.0.0.0:3000</a>.
-</li>
-<li>Start another shell and run
+</span></code></pre></td></tr></table></div></figure></li>
+<li>Point your browser at <a href="http://0.0.0.0:3000/">http://0.0.0.0:3000/</a>.</li>
+<li><p>
+Start another shell and run
+</p>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>foreman start -f Procfile.dev
-</span></code></pre></td></tr></table></div></figure>
-</li>
-<li>Point your browser at <a href="http://0.0.0.0:4000">http://0.0.0.0:4000</a> and verify you can see the usage of
-the rails-bundle.js file.
-</li>
+</span></code></pre></td></tr></table></div></figure></li>
+<li>Point your browser at <a href="http://0.0.0.0:4000/">http://0.0.0.0:4000/</a> and verify you can see the usage of
+the rails-bundle.js file.</li>
 <li>Update the <code>jsx</code> and <code>scss</code> files under <code>/webpack/assets</code> and see the browser
-at port 3000 update when files are saved.
-</li>
+at port 3000 update when files are saved.</li>
 <li>Start with static data in the JSX creation, and then move to having the
-   <code>server.js</code> file vend JSON to the client.
-</li>
-<li>Once that works, have the rails server create the JSON.
-</li>
-<li>Deploy to Heroku!
-</li>
-<li>Prosper!
-</li>
+<code>server.js</code> file vend JSON to the client.</li>
+<li>Once that works, have the rails server create the JSON.</li>
+<li>Deploy to Heroku!</li>
+<li>Prosper!</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Links</h2>
-<div class="outline-text-2" id="text-4">
+
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20">Links</h2>
+<div class="outline-text-2" id="text-orgheadline20">
 <ol class="org-ol">
-<li>Github repo for this code: <a href="https://github.com/justin808/react-webpack-rails-tutorial">justin808/react-webpack-rails-tutorial</a>
-</li>
-<li>Live version of this code on Heroku: <a href="http://react-webpack-rails-tutorial.herokuapp.com/">http://react-webpack-rails-tutorial.herokuapp.com/</a> 
-</li>
-<li><a href="http://www.railsonmaui.com/blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/">Storing or Excluding Node Modules in Rails Git Repositories</a>?
-</li>
-<li>Pete Hunt&#8217;s <a href="https://github.com/petehunt/webpack-howto">introductory guide to getting started with Webpack</a>.
-</li>
+<li>Github repo for this code: <a href="https://github.com/justin808/react-webpack-rails-tutorial">justin808/react-webpack-rails-tutorial</a></li>
+<li>Live version of this code on Heroku: <a href="http://react-webpack-rails-tutorial.herokuapp.com/">http://react-webpack-rails-tutorial.herokuapp.com/</a></li>
+<li><a href="http://www.railsonmaui.com/blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/">Storing or Excluding Node Modules in Rails Git Repositories</a>?</li>
+<li>Pete Hunt&#8217;s <a href="https://github.com/petehunt/webpack-howto">introductory guide to getting started with Webpack</a>.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Acknowledgments</h2>
-<div class="outline-text-2" id="text-5">
+
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21">Acknowledgments</h2>
+<div class="outline-text-2" id="text-orgheadline21">
 <p>
 This work was inspired by a project for my client, <a href="http://madroneco.com/">Madrone Inc.</a>. The founder
 clearly desired a UI that did not fit into the standard request/response HTML of
@@ -1024,7 +999,7 @@ Ben Ward, <a href="https://twitter.com/mauilabs">@mauilabs</a>.
 <p>
 Comments, suggestions, and corrections are appreciated! I hope to get a lively
 discussion the use of WebPack and Rails in my new discussion forum at
-<a href="http://forum.shakacode.com">http://forum.shakacode.com</a>.
+<a href="http://forum.shakacode.com/">http://forum.shakacode.com/</a>.
 </p>
 
 <p>
@@ -1033,14 +1008,12 @@ find <a href="https://hackhands.com/fast-rich-client-rails-development-webpack-e
 </p>
 </div>
 </div>
-
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">Updates</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22">Updates</h2>
+<div class="outline-text-2" id="text-orgheadline22">
 <ol class="org-ol">
 <li>2014-09-22: Updated the Heroku Deployment section, including how <code>dependencies</code>
-vs. <code>devDependencies</code> in <code>package.json</code>.
-</li>
+   vs. <code>devDependencies</code> in <code>package.json</code>.</li>
 </ol>
 </div>
 </div>
