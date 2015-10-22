@@ -16,6 +16,10 @@ published: true
 
 [[http://webpack.github.io/][{% img /images/2014-09-react-webpack-rails-tutorial/baby-bottle-of-gemified-javascript.jpg %}]]
 
+*Update October, 21 2015*: We're about to release 1.0 of the [[https://rubygems.org/gems/react_on_rails][react_on_rails]] gem!
+It will include a generator which will make the setup of this process super
+easy!
+
 *Update September, 28 2015*: Be sure to see
 https://github.com/shakacode/react_on_rails/ and the [[https://rubygems.org/gems/react_on_rails][gem react_on_rails]]. My team
 is writing a gem to make the process of integrating react and webpack with Rails
@@ -26,7 +30,7 @@ advanced react techniques such as REDUX.
 progress in this area since the original publication of this article in 2014. I
 highly recommend seeing the README at
 https://github.com/justin808/react-webpack-rails-tutorial and the pull requests
-(both [[https://github.com/justin808/react-webpack-rails-tutorial/pulls][open]] and [[https://github.com/justin808/react-webpack-rails-tutorial/pulls?q%3Dis%253Apr%2Bis%253Aclosed][closed]]) of what's been incorporated since this article was first published.
+(both [[https://github.com/justin808/react-webpack-rails-tutorial/pulls][open]] and [[https://github.com/shakacode/react-webpack-rails-tutorial/pulls?utf8=%25E2%259C%2593&q=is%253Apr+is%253Aclosed+][closed]]) of what's been incorporated since this article was first published.
 
 Have you:
 1. Wondered if there's a better way to utilize modern JavaScript client frameworks
