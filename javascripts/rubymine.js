@@ -1,5 +1,5 @@
 /**
-* Doubleclick version. 
+* Doubleclick version.
 */
 function loadRubyMine() {
   var axel = Math.random() + "";
@@ -42,7 +42,7 @@ function detect()
   iframe.width = "1px";
   iframe.id = "ads-text-iframe";
   iframe.src = "http://domain.com/ads.html";
-  
+
   document.body.appendChild(iframe);
 
   console.log("detect");
@@ -61,7 +61,9 @@ function detect()
 }
 
 
+// Removing loading of RubyMine
+// Saving this code as an example to get around ad blockers
 // Run after all the page elements have loaded
-window.onload = function(){ 
-  detect();
-}; 
+// window.onload = function(){
+//   detect();
+// };
