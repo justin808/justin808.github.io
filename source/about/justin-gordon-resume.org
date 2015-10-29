@@ -9,7 +9,7 @@ footer: true
 ---
 #+END_HTML
 Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808)
-281-7272 (M), [[http://www.linkedin.com/pub/justin-gordon/1/a41/286][Linked In]].
+281-7272 (M), [[https://www.linkedin.com/in/railsonmaui][Linked In]].
 
 * Overview
 + Currently Rails consulting.
