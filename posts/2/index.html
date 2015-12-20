@@ -9,7 +9,7 @@
   <meta name="author" content="Justin Gordon">
 
   
-  <meta name="description" content="I took lots of great pictures at the 2014 Golden Gate Ruby Conference this year. Overall, the conference was awesome. All the speakers seemed &hellip;">
+  <meta name="description" content="There has to be a better way to incorporate the JavaScript ecosystem into Rails. Update October, 21 2015: We're about to release 1.0 of the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,6 +87,177 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">Fast Rich Client Rails Development With Webpack and the ES6 Transpiler</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-03'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+<i>There has to be a better way to incorporate the JavaScript ecosystem into Rails.</i>
+</p>
+
+<p>
+<a href="http://webpack.github.io/"><img src="/images/2014-09-react-webpack-rails-tutorial/baby-bottle-of-gemified-javascript.jpg"></a>
+</p>
+
+<p>
+<b>Update October, 21 2015</b>: We&#8217;re about to release 1.0 of the <a href="https://rubygems.org/gems/react_on_rails">react_on_rails</a> gem!
+It will include a generator which will make the setup of this process super
+easy!
+</p>
+
+<p>
+<b>Update September, 28 2015</b>: Be sure to see
+<a href="https://github.com/shakacode/react_on_rails/">https://github.com/shakacode/react_on_rails/</a> and the <a href="https://rubygems.org/gems/react_on_rails">gem react_on_rails</a>. My team
+is writing a gem to make the process of integrating react and webpack with Rails
+much easier. This also supports server rendering of react components, as well as
+advanced react techniques such as REDUX.
+</p>
+
+<p>
+<b>Update August 19, 2015</b>: I&#8217;m working on revising this article to reflect much
+progress in this area since the original publication of this article in 2014. I
+highly recommend seeing the README at
+<a href="https://github.com/justin808/react-webpack-rails-tutorial">https://github.com/justin808/react-webpack-rails-tutorial</a> and the pull requests
+(both <a href="https://github.com/justin808/react-webpack-rails-tutorial/pulls">open</a> and <a href="https://github.com/shakacode/react-webpack-rails-tutorial/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+">closed</a>) of what&#8217;s been incorporated since this article was first published.
+</p>
+
+<p>
+Have you:
+</p>
+<ol class="org-ol">
+<li>Wondered if there&#8217;s a better way to utilize modern JavaScript client frameworks
+the context of an existing Ruby on Rails project?</li>
+<li>Gotten confused about how to integrate JavaScript libraries and examples that
+are packaged up into proper &#8220;modules&#8221;?</li>
+<li>Discovered the drawbacks of having all applications JavaScript littering the
+global name-space.</li>
+<li>Heard about <a href="http://www.slideshare.net/domenicdenicola/es6-the-awesome-parts">ES6 (aka Harmony)</a>, the next version of JavaScript and how the
+cool kids in Silicon Valley (Facebook, Instagram, Square, etc.) are using ES6
+syntax?</li>
+</ol>
+
+<p>
+How would you like to achieve, within a Rails project:
+</p>
+<ol class="org-ol">
+<li>The ability to prototype a rich UI, seeing changes in JS and CSS/Sass code
+almost instantly after hitting save, <i>without the page reloading</i>.</li>
+<li>First class citizenship for utilizing the <b>Node ecosystem</b>, by specifying
+dependencies in <code>package.json</code>, running <code>npm install</code>, and then simply requiring
+modules in JavaScript files.</li>
+<li>Seamless integration of Node based JavaScript assets for the Rails Asset
+Pipeline, thus <b>not circumventing</b> the asset pipeline, but co-existing with
+it and leveraging it.</li>
+<li>The ability to plug the node client side ecosystem into an existing Rails project seamlessly.</li>
+<li>Utilization of many JavaScript tools, such as the <b>React JSX tranpiler</b> and <b>ES6 transpiler</b>.</li>
+</ol>
+
+<p>
+This article will show you how you can utilize Webpack in your Rails development
+process to achieve these goals!
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/">React on Rails Tutorial</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-29T16:30:40-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:30 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>
+In response to a recent client request for a richer browser side UI experience,
+I took a fresh look at all the recent advances in JavaScript rich client
+frameworks. The <a href="http://facebook.github.io/react/">React library</a> stood out as unique, innovative, and impressive.
+</p>
+
+<p>
+The main reasons that I like React are:
+</p>
+<ol class="org-ol">
+<li>It&#8217;s a better abstraction than MVC!
+</li>
+<li>React keeps track of what needs to change in the DOM with its virtual DOM
+model.
+</li>
+<li>All the view rendering code can assume that nothing changes during the
+rendering process as components recursively call <code>render()</code>. This makes
+reasoning about the rendering code much simpler.
+</li>
+<li>The simpler conceptual model of always rendering the entire UI from a given state is
+akin to the server side rendering of HTML pages, that Rails programmers are
+more familiar with.
+</li>
+<li>The documentation is very good, and it&#8217;s got significant traction.
+</li>
+</ol>
+
+<p>
+Given that React is just about the <b>View</b> part of the client UI, or more
+specifically, view <b>components</b>, it seems especially suitable for integration
+into the Rails ecosystem to help build better rich JavaScript UIs. The <a href="http://facebook.github.io/react/">React website</a> 
+contains a <a href="http://facebook.github.io/react/docs/tutorial.html">simple tutorial</a> utilizing Node for the backend. Suppose you want to use Rails for the backend?
+</p>
+
+<p>
+This following instructions walk you through the steps to build the original
+simple tutorial with a Rails 4.2 backend utilizing the <a href="https://github.com/reactjs/react-rails">react-rails gem</a>. With the
+Rails scaffold generator, very little Rails coding is required. You can try the
+end result of the completed tutorial <a href="http://react-rails-tutorial.herokuapp.com/">on Heroku</a>, and the code <a href="https://github.com/justin808/react-rails-tutorial">on Github</a>.
+</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -386,183 +557,6 @@ What this looks like on the forum, <a href="http://forum.shakacode.com">http://f
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/">Pry, Ruby, Array#zip, CSV, and the Hash[] Constructor</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-09-15T14:06:17-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>2:06 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-A couple weeks ago, I wrote a popular article, <a href="http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry, Ruby, and Fun With the Hash Constructor</a> demonstrating the usefulness of
-<a href="https://github.com/pry/pry">pry</a> with the <a href="http://ruby-doc.org/core-2.1.2/Hash.html">Hash bracket constructor</a>. I just ran into a super fun test example of pry
-that I couldn&#8217;t resist sharing!
-</p>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">The Task: Convert CSV File without Headers to Array of Hashes</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-For example, you want to take a csv file like:
-</p>
-
-<pre class="example">
-|---+--------+--------|
-| 1 | Justin | Gordon |
-| 2 | Tender | Love   |
-|---+--------+--------|
-</pre>
-
-<p>
-And create an array of hashes like this with column headers &#8220;id&#8221;, &#8220;first_name&#8221;, &#8220;last_name&#8221;:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span>
-</span><span class='line'>    <span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="p">{</span>
-</span><span class='line'>               <span class="s2">&quot;id,&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s2">&quot;first_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Justin&quot;</span><span class="p">,</span>
-</span><span class='line'>         <span class="s2">&quot;last_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Gordon&quot;</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>    <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="p">{</span>
-</span><span class='line'>               <span class="s2">&quot;id,&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="s2">&quot;first_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Tender&quot;</span><span class="p">,</span>
-</span><span class='line'>         <span class="s2">&quot;last_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Love&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-You&#8217;d think that you could just pass the headers to the <code>CSV.parse</code>, but that
-doesn&#8217;t work:
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">11</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">col_headers</span> <span class="o">=</span> <span class="sx">%w(id, first_name last_name)</span>
-</span><span class='line'><span class="o">[</span>
-</span><span class='line'>    <span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="s2">&quot;id,&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="s2">&quot;last_name&quot;</span>
-</span><span class='line'><span class="o">]</span>
-</span><span class='line'><span class="o">[</span><span class="mi">12</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">csv</span> <span class="o">=</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_string</span><span class="p">,</span> <span class="ss">headers</span><span class="p">:</span> <span class="n">col_headers</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="n">output</span> <span class="ss">error</span><span class="p">:</span> <span class="c1">#&lt;NoMethodError: undefined method `table&#39; for #&lt;Object:0x007fdbfc8d5588&gt;&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">Rails Gem Upgrading Tips and Strategies</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-09-13T20:04:38-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:04 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>
-What are the best-practices for upgrading gems to newer versions? What sort of
-tips and techniques can save time and headaches? 
-</p>
-
-<p>
-I built this guide based on my real-world experiences over years of gem
-migrations, including a recent upgrade to Rails 4.1, RSpec 3.0, and Twitter
-Bootstrap 3.2. There are some more specific examples of errors you might
-encounter at this article on the Rails on Maui blog: <a href="http://railsonmaui-octopress.dev/blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/">Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2</a>. 
-</p>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Why Update?</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Here&#8217;s my favorite reasons for keeping gems relatively current:
-</p>
-
-<ol class="org-ol">
-<li>If you work on several projects, keeping the gems and ruby version consistent
-makes your coding more productive as you don&#8217;t have to keep adjusting for
-which version is which. Web searches tend to find relatively recent versions
-first. It&#8217;s relatively annoying to be yak shaving issues that turn out to be
-&#8220;oh, that doesn&#8217;t work in that older version of Rails&#8221;.
-</li>
-<li>Recent versions of gems will have fixes for bugs and security issues, in
-addition to new features. With popular open source projects, new bugs are
-quickly discovered and fixed.
-</li>
-<li>Updates are much easier if you stay relatively current. I.e., it&#8217;s much
-easier to update from Rails 4.0 to Rails 4.1 than to go from Rails 3.0 to
-Rails 4.1.
-</li>
-</ol>
-
-<p>
-That being said, recent versions can have new bugs, so it&#8217;s best to avoid
-versions that are unreleased or that haven&#8217;t aged at least a few weeks.
-</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/3">&larr; Older</a>
@@ -606,12 +600,16 @@ versions that are unreleased or that haven&#8217;t aged at least a few weeks.
 </section>
 
 <section>
-  <h2 class='products-i-use'>Products I Use!</h2>
-  <A HREF="https://www.loggly.com/docs/rails-logs/"><IMG SRC="/images/rails-logging-loggly-260x87.jpg" WIDTH=260 HEIGHT=87 ALT="Rails Logging Loggly"></A>
-</section>
-<section>
   <h2>Recent Posts</h2>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/11/26/success-the-shakacode-way/">Success the ShakaCode Way!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/09/17/who-is-shaka-code/">Who Is ShakaCode?</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/">Masking PII With Ruby Gsub With Regular Expression Named Match Groups, Non-Greedy</a>
@@ -633,14 +631,6 @@ versions that are unreleased or that haven&#8217;t aged at least a few weeks.
         <a href="/blog/2014/09/29/react-on-rails-4-dot-2-simple-tutorial/">React on Rails Tutorial</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/09/28/gogaruco-pictures-2014/">Golden Gate Ruby Conference (GoGaRuCo) Pictures 2014</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/28/storing-or-excluding-node-modules-in-rails-git-repositories/">Storing or Excluding Node Modules in Rails Git Repositories</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -650,7 +640,7 @@ versions that are unreleased or that haven&#8217;t aged at least a few weeks.
     <li class="loading">Status updating&#8230;</li>
   </ul>
   
-  <a href="https://github.com/justin808">@justin808</a> on GitHub
+  <a href="https://github.com/shakacode">@shakacode</a> on GitHub
   
   <script type="text/javascript">
     $(document).ready(function(){
@@ -663,7 +653,7 @@ versions that are unreleased or that haven&#8217;t aged at least a few weeks.
         }
 
         github.showRepos({
-            user: 'justin808',
+            user: 'shakacode',
             count: 0,
             skip_forks: true,
             target: '#gh_repos'
@@ -672,17 +662,6 @@ versions that are unreleased or that haven&#8217;t aged at least a few weeks.
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
-
-
-<section class="googleplus">
-  <h2>
-    <a href="https://plus.google.com/102850786590145072082?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h2>
-</section>
-
 
 
   

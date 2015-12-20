@@ -3,6 +3,22 @@
   
   
   <url>
+    <loc>http://www.railsonmaui.com//blog/2015/11/26/success-the-shakacode-way/</loc>
+    
+    <lastmod>2015-11-26T14:41:38-08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.railsonmaui.com//blog/2015/09/17/who-is-shaka-code/</loc>
+    
+    <lastmod>2015-09-17T19:14:15-07:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://www.railsonmaui.com//blog/2015/01/25/masking-pii-with-ruby-gsub-with-regular-expression-named-match-groups/</loc>
     
     <lastmod>2015-01-25T12:51:48-08:00</lastmod>
@@ -277,119 +293,119 @@
   
   <url>
     <loc>http://www.railsonmaui.com//about/about-justin-gordon-programming.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/alfred-tips.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/rails/capybara-phantomjs-poltergeist-rspec-rails-tips.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//blog/categories.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//blog/archives/</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//meta/</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//about/</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/rubymine/</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//about/justin-gordon-resume-1990s.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//about/justin-gordon-resume.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/renaming-redating-blog-posts.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/rubymine/rubymine-tips-rails-tutorial.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/rubymine/rubymine.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//about/telecommuting.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.railsonmaui.com//tips/rubymine/why-rubymine.html</loc>
-    <lastmod>2015-10-28T21:47:37-07:00</lastmod>
+    <lastmod>2015-12-20T13:45:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -4,7 +4,7 @@
   <title><![CDATA[Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-10-28T21:47:37-07:00</updated>
+  <updated>2015-12-20T13:45:09-08:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -12,6 +12,412 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Success the ShakaCode Way!]]></title>
+    <link href="http://www.railsonmaui.com//blog/2015/11/26/success-the-shakacode-way/"/>
+    <updated>2015-11-26T14:41:38-08:00</updated>
+    <id>http://www.railsonmaui.com//blog/2015/11/26/success-the-shakacode-way</id>
+    <content type="html"><![CDATA[<p><em>Republished from <a href="http://www.shakacode.com/2015/11/26/success-the-shakacode-way.html">www.shakacode.com</a></em></p>
+
+<p>It&rsquo;s Thanksgiving today! I&rsquo;m taking a few minutes to put down a few thoughts
+that I hope will bring you, your family, and your friends &ldquo;success&rdquo; in the
+coming year.</p>
+
+<p>Success is ambiguous. Is it
+<a href="https://medium.com/@dhh/the-day-i-became-a-millionaire-55d7dc4d8293#.80b2anf29">being a millionaire</a>?
+Being famous?
+<a href="https://medium.com/@dhh/i-don-t-want-to-be-a-winner-9858d0c32fa0#.7mwrh5asb">Winning competitions</a>?</p>
+
+<p>I&rsquo;d say it&rsquo;s happiness! This image captures <em>part</em> of my definition of
+success. <a href="https://www.facebook.com/jimmie.hepp2?fref=ts">Jimmie Hepp</a> took
+this picture just a couple days before I wrote this article.</p>
+
+<p><img src="http://www.railsonmaui.com//images/shakacode-blog/justin-surfing-offshore-winds-smiling.jpg"></p>
+
+<p>Note, I said happiness is just a <em>part</em> of success. Balance in life is key to
+success. While I have the means to spend all my time surfing, I&rsquo;d find greater
+happiness in striking a balance with my other passion, which is creating great
+software and an organization called &ldquo;ShakaCode&rdquo;. ShakaCode is more than just a
+company; it&rsquo;s a community. A large part of what
+<a href="http://www.shakacode.com">ShakaCode</a> does is giving away <strong>free</strong> code and
+training to world&rsquo;s software community, as shown by our
+<a href="http://www.shakacode.com/opensource/">open source projects</a>, our
+<a href="http://forum.shakacode.com/">ShakaCode forum</a>, and my
+<a href="http://www.railsonmaui.com">RailsOnMaui blog</a>.</p>
+
+<p>A big part of the DNA of ShakaCode is that we&rsquo;re
+<strong><a href="http://martinfowler.com/articles/remote-or-co-located.html">remote first</a></strong>.
+This means that <em>you</em> can be involved with ShakaCode regardless of just about
+any factor other than having a decent computer, good Internet, and a true
+passion to learn and contribute. And if you have family duties, just hate time
+wasted commuting, or want to live at a ski resort or a remote surf break &ndash;
+that&rsquo;s all OK. Educational background, ethnicity, nationality, gender, age, etc.
+all do not matter to us. All of our team members share this philosophy and this
+is how we <a href="http://www.shakacode.com/about/#work-with-us">find new team members</a>.</p>
+
+<!--more-->
+
+
+<h2>An Inspiring Story</h2>
+
+<p>One of my first hires, Dylan, exemplifies ShakaCode&rsquo;s values.</p>
+
+<p>After coming out of high school on Maui, surfing was valued more than anything
+academic. Rather than attending college, Dylan got a job and focused most of his
+energies on fun outdoor activities in Maui such as surfing, kite surfing, and
+mountain biking. Dylan soon discovered his job required a college degree for
+promotion. At community college, Dylan quickly discovered he <strong>LOVED</strong>
+computers! After college, Dylan pursued a successful career in support and
+management of computer systems and networks.</p>
+
+<p>However, this did not satisfy Dylan&rsquo;s insatiable thirst and passion for
+technology. He told me that he could see that much of his job would be automated
+by software, so he had better learn to code!</p>
+
+<p>Over many years, I&rsquo;ve offered to share my love for computer programming with
+friends, telling them that it&rsquo;s the best job ever for a surfer in that you can
+be anywhere in the world and have a productive career. While I&rsquo;ve had a few
+friends that showed interest, <strong>none</strong> of them had the <strong>passion</strong> and
+<strong>desire</strong> of Dylan.</p>
+
+<p>Dylan would show up every day at my office and just soak up everything I could
+give him. When he wasn&rsquo;t in my office, he&rsquo;d have his iPhone set to technology
+podcasts all day long. Eventually, I tell Dylan to quit his current job, and to
+join me full-time! I can tell you with 100% certainty that this was one of the
+best decisions I&rsquo;ve ever made!</p>
+
+<p>Let&rsquo;s bounce back to the topic of &ldquo;success the ShakaCode way.&rdquo; If you can find
+some passion of yours that you can contribute to the world, and you can balance
+that with a healthy lifestyle, that is success. However, like replicating
+startup company success, this might seem inaccessible, especially to those that
+are not computer fanatics like the ShakaCode team.</p>
+
+<h2>(Winning) Competition Is Not Success</h2>
+
+<p>Americans love competition. It&rsquo;s everywhere: in sports, in business, and in
+academics. We cherish the winners and berate the losers. And this mentality is
+counterproductive to success in your career and overall happiness! In the last
+few months, a couple heroes of mine, David Heinemeier Hanson and Laird Hamilton,
+have shared their perspectives on competition. Their advice correlates with my
+view that <em>collaboration and creativity</em> will do more for your success than a
+stressful focus on competition.</p>
+
+<p><img src="http://www.railsonmaui.com//images/shakacode-blog/lemans2013.jpg"></p>
+
+<p>To quote <a href="http://david.heinemeierhansson.com/">David Heinemeier Hanson</a> in
+<a href="https://signalvnoise.com/posts/3977-i-dont-want-to-be-a-winner">I don&rsquo;t want to be a winner</a>:</p>
+
+<blockquote><p>Is there anything our society exalts more than The Winner? That fiery someone
+who crushes all competition to stand alone and victorious at the end. A
+genetic predisposition, I’m sure.</p>
+
+<p>The paradigm of competition is so ingrained as the basic business narrative
+that we usually don’t even recognize it, much less question it. Well, of
+course there are winners and losers! What are you, a f****** communist?!</p></blockquote>
+
+<p>Instead of focusing on &ldquo;winning,&rdquo; focus on creativity, collaboration, and
+giving. If your definition of &ldquo;winning&rdquo; <em>is</em> &ldquo;happiness&rdquo; and possibly material
+riches, then the path is not by <em>defeating</em> others, but, instead, by <em>helping</em>
+others! While I cannot speak to every industry, in the world of open source
+software, based on my experience, helping others is definitely the path to
+success!</p>
+
+<p>While this topic applies to individuals, as well as businesses, it&rsquo;s <strong>probably
+most important for our youth</strong> and their hyper-competitive parents. The
+importance of winning, sadly, starts off early for most youngsters. On the
+playground, kids play sports to &ldquo;win&rdquo;. Have you ever seen hyper-competitive
+little league parents? &ldquo;If you&rsquo;re not a winner, then you&rsquo;re a <strong>LOSER</strong>!</p>
+
+<p>In high school, you have to beat your peers to get the best grades, and then
+have to beat them on college entrance exams to get into the right university.
+Winning jocks are idolized. This continues into college, where you have to
+compete for grades, jobs, and seemingly just about anything.</p>
+
+<p>This recent, detailed article,
+<a href="http://www.theatlantic.com/magazine/archive/2015/12/the-silicon-valley-suicides/413140/">The Silicon Valley Suicides: Why are so many kids with bright prospects killing themselves in Palo Alto?</a>,
+highlights dangers of hyper-competitive parenting. Here&rsquo;s a quote that describes
+the pressure at these high achieving high schools:</p>
+
+<blockquote><p>Heavy stress among “good kids” was the product of “a nasty competitive
+atmosphere contrived by unethical Tiger Mothers,” one commenter wrote. At the
+end of some of my conversations, a student, teacher, or counselor would look
+around to make sure no one was listening and then whisper a story about an
+Asian kid being punished or even kicked out of the house for a night after
+getting a B or failing to get into Stanford.</p></blockquote>
+
+<p>A Palo Alto student, Carolyn Walworth, gave the youth perspective:</p>
+
+<blockquote><p>“A piece of you cringes when you hear that your friend has been preparing for
+the SAT with classes since last summer, and that they’re already scoring a
+2000, (And what about … the girl taking a summer immersion program to skip ahead and
+get into AP French her sophomore year? And that internship your best friend
+has with a Stanford professor?) You can’t help but slip into the system of
+competitive insanity … We are not teenagers. We are lifeless bodies in a
+system that breeds competition, hatred, and discourages teamwork and genuine
+learning. We lack sincere passion. We are sick … Why is that not getting
+through to this community? Why does this insanity that is our school district
+continue?&#8221;</p></blockquote>
+
+<p>The college grad may then go into corporate America and learn the meaning of
+&ldquo;Stack Ranking&rdquo;, as portrayed
+<a href="http://qz.com/320532/marissa-mayers-yahoo-is-a-case-study-in-the-toxic-nature-of-stack-ranking/">at Yahoo</a>.
+I&rsquo;ve personally worked for a company where the managers of a division could only
+award a single &ldquo;1&rdquo; performance ranking, regardless of how many excellent
+achievers were in the group. At the same time, these managers were forced to
+award &ldquo;3&rsquo;s&rdquo;. &ldquo;1&rdquo; means amazing, and &ldquo;3&rdquo; means you&rsquo;re being given a &ldquo;performance
+plan&rdquo;, which really means &ldquo;we&rsquo;re firing you and we don&rsquo;t want you to sue us.&rdquo;
+It&rsquo;s probably not surprising that this same stack-ranking company also deterred
+open source contributions. At this company, contributing to any open source
+project without 3 levels of management approval was grounds for firing! <em>Tip:
+don&rsquo;t work for such companies.</em></p>
+
+<h2>Compete Against Yourself Only</h2>
+
+<p><img src="http://www.railsonmaui.com//images/shakacode-blog/Laird_Hamilton_Teahupoo_2000.jpg"></p>
+
+<p><a href="https://en.wikipedia.org/wiki/Laird_Hamilton">Laird</a> is as much a legend in the
+surfing world as David is in the programming and startup worlds. He could have
+competed in professional surfing. Instead, he chose to forge his own path,
+rather than being bound by the judging standards of competitive surfing. In a
+recent interview in the
+<a href="http://www.huffingtonpost.com/entry/laird-hamilton-competition_55d4fe27e4b055a6dab2d7b5">Huffington Post</a>,
+he stated:</p>
+
+<p>While Laird is all about surfing, his comments also apply to the world of <strong>open
+source collaboration</strong>:</p>
+
+<blockquote><p>“A creative man is fulfilled by accomplishments and a competitive man is
+fulfilled by beating others,&ldquo; Hamilton said, paraphrasing an old saying. He
+continued, &#8220;I’m all about accomplishments. Ride the biggest wave. It has to do
+with me. I can always grow and keep accomplishing things.”</p>
+
+<p>This insistence on competing only with himself is a survival mechanism of
+sorts &ndash; or an almost spiritual life philosophy. “I wanted to be in control. I
+wanted to be the one determining if I felt fulfilled or not,” Hamilton said.
+<a href="http://www.huffingtonpost.com/entry/laird-hamilton-competition_55d4fe27e4b055a6dab2d7b5">Source: Huffington Post</a></p></blockquote>
+
+<p>While Laird and Justin surf, David races cars:</p>
+
+<blockquote><p>The only competition I’ve come to love is the one against myself, and that’s
+not really a competition, now is it? The progress of betterment. Playing your
+part to the best of your abilities in a beautiful whole.</p>
+
+<p>That’s the joy I take away from racing cars for endurance. It’s not so much
+being faster than the other cars, but striving to perfect your own
+contribution as part of a team. Pushing against the limits of perfect
+execution over the long term. 24 hours of testing your capability to avoid
+mistake and fatigue. Winning is almost incidental to that.</p></blockquote>
+
+<p>For me, the joy of surfing is to compete with myself. The primary goal is to
+become <strong>connected to the energy of the ocean</strong>. It challenges you both at the
+physical and mental levels, as you need strength and agility to ride waves. It
+also challenges your judgment. Can you predict where the next wave will break?
+Are you the surfer best positioned for the next wave? What I love the most about
+surfing is the feeling that the learning process never ends. This combination of
+applying strength and skill also applies to other outdoor action sports such as snow
+boarding, mountain biking, kite-surfing, windsurfing, paddling, etc. For myself
+and many others, healthy outdoor exercise fosters great creativity at work.</p>
+
+<h2>Success the ShakaCode Way</h2>
+
+<p>What works for Laird, David, and me, regarding happiness, is to focus on
+<strong>creative expression</strong>, be it in the waves, in writing, in software, or
+wherever your passion lies. Forget about competition and beating others.
+Instead, focus on what you can do to help and inspire others! We have to
+focus on making bigger pies, and not getting just larger slices of a fixed pie,
+as in &ldquo;winners&rdquo; and &ldquo;losers.&rdquo; Open source is all about this &ldquo;grow the pie
+collaboration,&rdquo; in sharp contrast to the litigation brought on by patents and
+copyrights.</p>
+
+<p>At ShakaCode, there&rsquo;s no good or bad or code. Through constant collaboration and
+peer review, without fears of criticism or &ldquo;looking dumb,&rdquo; we as a team deliver
+the best possible product, and we all improve our skills on a daily basis.
+Everything we do is based on open source, and we&rsquo;re doing our best to make
+meaningful contributions to the community, such as our new Ruby Gem,
+<a href="https://github.com/shakacode/react_on_rails">react_on_rails</a>.</p>
+
+<p>Our hiring reflects our philosophy. We don&rsquo;t torture job candidates with
+programming stress tests. Instead, we try to work with them on open source just
+as we would after they are hired. This fits into our <strong>remote first</strong>
+philosophy. Basically, if you can contribute meaningfully to open source in the
+Ruby and JavaScript worlds, then you&rsquo;ll fit right in with us, regardless of
+where you&rsquo;re located or whether or not you can solve humiliating programming
+puzzles in record time. We don&rsquo;t monitor our team members. Instead we trust them
+to make the right decisions and to act with integrity.</p>
+
+<p>By the way, at ShakaCode, we&rsquo;re thrilled our team members have hobbies like
+surfing to complement the intellectual vigor of writing code. Our business is a
+marathon, not a sprint, and a healthy, long-term perspective is best for our
+team, our clients, and our products. And a flexible, remote-first work
+environment is conducive to allowing our team members to live well balanced and
+productive lives.</p>
+
+<p>For a more detailed perspective on the <a href="http://www.shakacode.com/">ShakaCode&rsquo;s</a>
+philosophy, see <a href="http://www.railsonmaui.com//2015/09/17/who-is-shaka-code.html">Who Is ShakaCode?</a></p>
+
+<p>If this article resonates with you, please don&rsquo;t hesitate to
+<a href="mailto:contact@shakacode.com">get in touch</a>! Or comment! We’re currently
+looking for more ShakaCoders to join us!</p>
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.shakacode.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2015/11/26/success-the-shakacode-way/";
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Who Is ShakaCode?]]></title>
+    <link href="http://www.railsonmaui.com//blog/2015/09/17/who-is-shaka-code/"/>
+    <updated>2015-09-17T19:14:15-07:00</updated>
+    <id>http://www.railsonmaui.com//blog/2015/09/17/who-is-shaka-code</id>
+    <content type="html"><![CDATA[<p><em>Republished from <a href="http://www.shakacode.com/2015/09/17/who-is-shaka-code.html">www.shakacode.com</a></em></p>
+
+<p><img src="http://www.railsonmaui.com//images/shakacode-blog/shaka-sign.png"></p>
+
+<blockquote><p>This gesture is more than just a mere wave or thumbs up. The shaka is a symbol
+of the “Aloha spirit,” which is the coordination of the mind and spirit to think
+and exude good feelings to others. (by Megan Denny, www.padi.com)</p></blockquote>
+
+<p>by Justin Gordon with help from the ShakaCode Team, September, 2015</p>
+
+<h2><a class="offset-y-anchor" name="who-is-shaka-code"></a> Who is ShakaCode?</h2>
+
+<p>It’s the global web development software consultancy and product company started by Justin Gordon, AKA “railsonmaui” in the Ruby on Rails world. We’re focused on what we believe to be the best technologies for web development. Today, those are Ruby on Rails and React. But it’s not just us, we like to think that it’s the larger WE in the open source community that loves collaborating on beautiful code.</p>
+
+<!--more-->
+
+
+<h2>Why Change the Name from &ldquo;Rails on Maui?&rdquo;</h2>
+
+<p>We&rsquo;re <strong>polyglots</strong> and we&rsquo;re not just based in Maui. When Justin Gordon started out, he was focused on just Ruby on Rails, and &ldquo;Rails On Maui&rdquo; was the name he used for his Twitter handle and blog.</p>
+
+<h2>Why &ldquo;ShakaCode&rdquo;?</h2>
+
+<p>The &ldquo;shaka&rdquo; is really the embodiment of the philosophy, culture, and team behind ShakaCode as well as our community of open source collaborators. In order to fully explain this, we’ll need to tell you a bit about the meaning of the “shaka symbol” as well as a lot more about us. Let’s first summarize the key points:</p>
+
+<p>We love open source collaboration (the friendliness of the Shaka meaning) and we love to code. These go hand in hand. We love code so much that we want to share it! And we only want team members that love it as much as us. With a team that loves to code, we don’t need to be handcuffed to an office. We need a good computer and a decent Internet connection anywhere in the world. The company was born in Hawaii, and all early company employees love surfing and tropical beach culture. Sunshine and surf perfectly balances intensely passionate coding!</p>
+
+<p>Read more if you’d like the details. Or go surfing! Or skiing, mountain biking, etc.</p>
+
+<h2>The ShakaCode Philosophy</h2>
+
+<p>Here&rsquo;s a bit more about us:</p>
+
+<ol>
+<li><p>We&rsquo;re passionate about what we do and we all love to write and read code. Because we&rsquo;re 100% remote, we can only hire team members that love code. Jeff Atwood put this well in his article <a href="http://blog.codinghorror.com/on-working-remotely/">On Working Remotely</a>. “But the minimum bar to work remotely is “to find someone who loves code as much as you do”. It&rsquo;s … enough.”</p></li>
+<li><p>We love open source and helping others. There&rsquo;s probably no movement that&rsquo;s changed software in the past 10 years like open source. Open source is not just about creating some well known project, like Linux or Ruby on Rails. It&rsquo;s about doing what you can in a system of freely sharing ideas and helping others. This might be writing blog articles, participating on Stack Overflow,or working on open source projects. We believe this open source philosophy complements the definition from Wikipedia of the shaka symbol: &ldquo;Aloha Spirit&rdquo;, a concept of friendship, understanding, compassion”</p></li>
+<li><p>We almost all surf, and we all love to get outdoors and do fun, athletic things. In fact, Dylan met Justin from surfing in Maui, and Justin contacted Alex when he saw that his Facebook profile page featured a picture of him in Bali. Samnang does huge mountain bike rides around Cambodia. We want to structure our lives to pursue our passions, which is coding and doing fun sports like surfing. This is akin to how <a href="https://vimeo.com/76063825">37signals Works Remotely</a>.</p></li>
+<li><p>Part of loving code is viewing it as an art. It&rsquo;s like creative writing. When you first see really beautiful code, what is it that you see that is special? It&rsquo;s a bit like looking at a random page of an Ernest Hemingway novel and seeing clear, short sentences. Great software is written such that it&rsquo;s simple and clear. It&rsquo;s easy to read.</p></li>
+</ol>
+
+
+<blockquote><p>“Beautiful code is similar to beautiful prose: Succinct, it has flow and rhythm, and it’s an expression of clear thinking that doesn’t jump around different layers of abstraction all the time.” from the article <a href="https://www.simple-talk.com/opinion/geek-of-the-week/david-heinemeier-hansson-geek-of-the-week/">David Heinemeier Hansson: Geek of the Week</a>.</p>
+
+<p>DHH&rsquo;s <a href="https://www.youtube.com/watch?v=9LfmrkyP81M">RailsConf 2014 keynote on &ldquo;Writing Software&rdquo;</a> nicely summarizes this philosophy.</p></blockquote>
+
+<p><a href="http://www.dish.com/dig/sports/why-one-of-the-best-athletes-in-the-world-refuses-to-compete/">Thus, Shaka + Code embodies who we are!</a></p>
+
+<h2>Is ShakaCode a Service or Product Company?</h2>
+
+<p>We&rsquo;re both, and we&rsquo;re open source contributors! Our company role model is 37Signals. They started off as a web development shop. Out of their work, they developed the program <a href="http://basecamp.com/">&ldquo;Base Camp&rdquo;</a> to address their own needs for more organized and effective client interaction. From that work, they extracted <a href="http://rubyonrails.org/">Ruby on Rails</a>, undoubtedly one of the most successful application frameworks ever created.</p>
+
+<h2>Why is it important for us to have an internal project?</h2>
+
+<p>Our ultimate mission is to maximize our creative contributions. This includes:</p>
+
+<ol>
+<li>Helping our clients achieve their goals through well-written software.</li>
+<li>Building a useful product.</li>
+<li>Contributing to open source, including source code and articles.</li>
+</ol>
+
+
+<p>Goal #2, building a product, is a critical component for several reasons:</p>
+
+<ol>
+<li><p>We can experiment with the latest technologies, such as <a href="http://facebook.github.io/react/">React</a>, projects of <a href="https://github.com/rackt">rackt</a>, including <a href="https://github.com/rackt/redux">redux</a> and <a href="https://github.com/rackt/react-router">react-router</a>. Our clients often don’t want experimentation with the latest technologies. An internal project allows us to gain the expertise needed in order to conservatively apply such new technologies for our clients.</p></li>
+<li><p>We can work on the latest, often beta version of software. It&rsquo;s almost impossible to contribute meaningfully to open source when you&rsquo;re working on ancient versions of open source. Almost all the action and collaboration is happening on the leading edge, as it should be.</p></li>
+<li><p>We have a training ground for introducing team members into the ShakaCode style of development. We can interview prospective team members by pairing with them on open source. We can hire junior level engineers who are not ready to be placed in front of clients, and groom them into senior engineers.</p></li>
+<li><p>Our internal project epitomizes how want our client code to look. It&rsquo;s sparkly, shiny, and fresh. It&rsquo;s how we believe code should be written and how projects should be organized. It&rsquo;s a living example of what we intend to do for our clients. There&rsquo;s no better &ldquo;training&rdquo; or &ldquo;documentation&rdquo; than a living example of a real software project.</p></li>
+<li><p><a name="fng-internal-project"></a> It&rsquo;s fun to have our own project! Coding is our passion!</p></li>
+<li><p>We intend to give back TONS to the open source community. And that requires &ldquo;Extraction&rdquo; rather than &ldquo;Design&rdquo; by itself. <a href="http://rubyonrails.org/">Ruby on Rails</a> was an extraction of the 37Signals App, <a href="https://basecamp.com/">Basecamp</a>, and <a href="http://getbootstrap.com/">Twitter Bootstrap</a> was an extract of the UI framework used by Twitter. This article <a href="http://littlehart.net/atthekeyboard/2007/08/14/extraction-vs-design/">Extraction vs. Design</a> nicely sums this up:</p></li>
+</ol>
+
+
+<blockquote><p>David Heinemeier Hansson (the driving force behind Ruby on Rails) is a huge believer in using extractions as a method to add functionality to your projects, typically in the context of a framework. You need some particular functionality, you write it, and if it&rsquo;s good enough you extract it from it&rsquo;s original context and make it generic enough that it can be used by other people. You could also call this &ldquo;building stuff you need&rdquo; instead of &ldquo;building stuff you think you might need&rdquo;. It&rsquo;s part of the whole YAGNI philosophy of programming, I guess.</p></blockquote>
+
+<h2>Our Internal Project: Friends and Guests</h2>
+
+<p>This application solves the problem of &ldquo;I&rsquo;ve got a vacation home that I want to share with my friends, but not with the general public. What&rsquo;s the best way to do that?&rdquo; It&rsquo;s based on our experiences sharing <a href="https://www.flickr.com/photos/justingordon/sets/72157622506575437/show/?rb=1">Sugar Ranch Maui</a> with our friends and with long-term tenants. One such long-term tenant was Beau Hartshorne, a YC and Facebook alum, who also expressed a need to share his places with his friends, and not the general public. It turns out that many of our friends on Maui have a similar need, as Hawaiians typically have space for family and friends to visit. Thus, &ldquo;Friends and Guests&rdquo; is designed to scratch the itch of our friends. It&rsquo;s not about &ldquo;what we can build to make the most money&rdquo;. It&rsquo;s about, &ldquo;what we can build to enrich the lives of our friends&rdquo;.</p>
+
+<p>We believe that the part of the enjoyment of a vacation home is to share it with your friends. To that ends, we&rsquo;ll be part of the means with the &ldquo;Friends and Guests&rdquo; application.</p>
+
+<h2>Anti Discrimination Policy</h2>
+
+<p>Part of ShakaCode is that we don&rsquo;t discriminate on:</p>
+
+<ol>
+<li><strong>Geography</strong> and <strong>Time Zone</strong></li>
+<li>All the normal stuff, like gender, race, age, tattoos, piercings, sexual preference, etc.</li>
+<li>Degrees and credentials. Justin has degrees from Harvard, UC Berkeley, as well as a <a href="https://www.cfainstitute.org/programs/cfaprogram/Pages/index.aspx?WPID=Programs&amp;PageName=Homepage">CFA credential</a>. However, based on his experience working with great software engineers, education is only one of many signals. In fact, education is less important than passion and great taste.</li>
+<li>Working remotely (that&rsquo;s what we do!).</li>
+</ol>
+
+
+<p>We do discriminate against:</p>
+
+<ol>
+<li>People that discriminate on the above.</li>
+<li>People that view writing software as a job, and not as an enjoyable creative endeavor. Passion is critical.</li>
+</ol>
+
+
+<h2>Influences</h2>
+
+<p>Here&rsquo;s some of our favorite influences:</p>
+
+<h3>37 Signals</h3>
+
+<p>Definitely listen to this interview of <a href="http://5by5.tv/changelog/145">David Heinemeier Hanson on The Changelog</a> for some great thoughts on the influence of David and Ruby on Rails on the ShakaCode philosophy. Plus, see this article: <a href="https://www.simple-talk.com/opinion/geek-of-the-week/david-heinemeier-hansson-geek-of-the-week/">David Heinemeier Hansson: Geek of the Week</a></p>
+
+<h3>Coding Horror</h3>
+
+<p>Justin still remembers reading <a href="http://blog.codinghorror.com/about-me/">Jeff Atwood&rsquo;s</a> book where he describe how creating a programming blog was the best thing he ever did, and how it led to <a href="http://stackoverflow.com/">Stack Overflow</a> and now <a href="http://www.discourse.org/">discourse.org</a>.</p>
+
+<h2>Aloha</h2>
+
+<p>As Jeff Atwood said on <a href="http://blog.codinghorror.com/on-the-meaning-of-coding-horror/">&ldquo;On The Meaning of &#8220;Coding Horror&rdquo;</a> (why he blogs):</p>
+
+<blockquote><p>But that&rsquo;s not the complete story. I&rsquo;d be lying if I didn&rsquo;t admit that there&rsquo;s an element of selfishness at work here. I love computers and programming. I love it so much it borders on obsession. When I saw the movie Into The Wild, I was transfixed by the final note written into the margins of Dr. Zhivago by a doomed Christopher McCandless: &ldquo;Happiness only real when shared.&rdquo;</p></blockquote>
+
+<p><img src="http://www.railsonmaui.com//images/shakacode-blog/fanpage-header.jpg"></p>
+
+<div id="discourse-comments"></div>
+
+
+<script type="text/javascript">
+  var discourseUrl = "http://forum.shakacode.com/",
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2015/09/17/who-is-shaka-code/";
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+      d.src = discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Masking PII With Ruby Gsub With Regular Expression Named Match Groups, Non-Greedy]]></title>
@@ -6663,934 +7069,6 @@ I&#8217;ll try to keep this page of tips updated as my test configuration evolve
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
       discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/09/capybara-phantomjs-poltergeist-rspec-tips/";
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-      d.src = discourseUrl + 'javascripts/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Org-Mode Octopress Setup V2]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/"/>
-    <updated>2014-03-05T19:37:00-08:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2</id>
-    <content type="html"><![CDATA[<p>
-<i>Note: This is a refresh of my original post from April, 2013 to adjust for Emacs 24.3 and org-mode 8.2.x</i>
-</p>
-
-<p>
-WordPress seemed like a good blogging platform, but it just didn&#8217;t feel right. I
-spend all my day editing text files using vim key-bindings, and I love <a href="http://orgmode.org/">Org Mode</a>
-for all non-coding writing. If you don&#8217;t know Org Mode, it&#8217;s like having
-Markdown mode on steroids. You can have a numbered list in Markdown, but
-org-mode lets you re-order the list, and that&#8217;s just the beginning. Editing blog
-documents in the WordPress editor felt almost as bad as being told to use MS
-Word. I found that ergonomics of Org Mode, including all the goodness of recent
-versions of <a href="http://www.gnu.org/software/emacs/">Emacs</a>, including <a href="http://www.emacswiki.org/emacs/Evil">Evil</a> (Vim emulation), just made organization of
-creative thoughts so much more enjoyable.
-</p>
-
-<p>
-So I bit the bullet one weekend, and dove into <a href="http://octopress.org/">Octopress</a>, publishing my first
-article, <a href="http://www.railsonmaui.com/blog/2013/04/27/octopress-setup-with-github-and-org-mode/">Octopress Setup with Github, Org Mode, and LiveReload</a>. The solution
-presented in that article <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a> stopped
-working when I upgraded Emacs to 24.3 and org-mode to 8.2.x. Here&#8217;s a rehash of
-my original article updated to the latest software versions as of March, 2014.
-</p>
-
-<p>
-If you used to writing real web applications, rather than know the intricacies
-of a giant monolithic blogging platform, then the <a href="http://octopress.org/docs/theme/template/">customization of Octopress</a>
-seems so much more straightforward. This is so much more like the Unix
-philosophy that so many of us love, which is small and modular, rather than
-monolithic.
-</p>
-
-<!-- more -->
-
-<p>
-I like <a href="https://github.com/robdodson/robdodson.github.com/blob/source/source/_posts/2012-04-30-custom-domain-with-octopress-and-github-pages.markdown">Rob Dodson&#8217;s summary</a> (noting Org Mode plus Emacs):
-</p>
-
-<ul class="org-ul">
-<li><a href="http://octopress.org/">Octopress</a> is a blogging framework written by <a href="http://brandonmathis.com/">Brandon Mathis</a> (<a href="https://twitter.com/#!/imathis">@imathis</a>) which
-sits on top of <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is a static site generator, meaning there&#8217;s no
-database associated with your blog. Instead of writing everything in a WSYWIG
-linked to MySQL (like Wordpress or Blogger) you produce text files using
-Markdown which are then converted to static HTML. There are 3 huge benefits to
-this approach. First, writing in Markdown (<b>org-mode</b> for me) is awesome. Once
-you learn the syntax it&#8217;s incredibly fast and you don&#8217;t have to spend time
-playing with a tiny little editor window just to add <i>some</i> <b>style</b> to your
-posts. Second, writing in your favorite text editor is also awesome. I produce
-everything in Sublime Text 2 (<b>Emacs</b> for me) and every day I discover new
-tricks to make the process better. If you&#8217;ve ever had to write a blog post
-using one of those horrible little TinyMCE editors you will appreciate this
-feature. And lastly, static HTML is <b>fast</b>.
-</li>
-</ul>
-
-<p>
-This article should be useful for:
-</p>
-<ol class="org-ol">
-<li>Any interest in using org-mode to publish to Octopress including some
-reasons I use Org Mode (with Emacs).
-</li>
-<li>Some explanation of what Octopress and git are doing.
-</li>
-<li>Anybody curious about how using free github pages works to host Octopress.
-</li>
-</ol>
-
-<p>
-Incidentally, since my blog is hosted using github pages, the source code and
-configuration I use to generate it can all be found <a href="https://github.com/justin808/justin808.github.io">here</a>. See the notes below on
-the difference between the <code>source</code> and <code>master</code> branches.
-</p>
-
-<!-- more -->
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Basic setup</h2>
-<div class="outline-text-2" id="text-1">
-<ol class="org-ol">
-<li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages/">Rob Dodson on Octopress</a>: Start off with these instructions from this posting
-on April 30th, 2012. There are a few differences worth noting:
-<ol class="org-ol">
-<li>You should change the .rvmrc to a .ruby-version file
-</li>
-<li>Github recommends your deployment repository be named <code>yourname.github.io</code>,
-not <code>yourname.github.com</code>.
-</li>
-<li>After you run <code>rake setup_github_pages</code> and before running <code>rake
-      generate</code>, you should run <code>rake install</code>. If you forget, there&#8217;s a clear
-message indicating this omission.
-</li>
-</ol>
-</li>
-<li>Customize <code>octopress/_config.yml</code>. The yaml file contains descriptions.
-</li>
-<li>Update the DNS to use your custom domain if you wish: <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on
-setting up a custom domain</a>
-</li>
-<li>At this point, you can create a post:
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;my post name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-Create a page:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_page<span class="o">[</span><span class="s2">&quot;my page name&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-Generate and deploy:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake gen_deploy
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-Watch the site and regenerate when it changes:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake watch
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-Preview the site in a web browser:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake preview
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-See all the available rake options:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake -T
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-Save changes to source branch:
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add .
-</span><span class='line'>git commit -m <span class="s2">&quot;save changes to source&quot;</span>
-</span><span class='line'>git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Some Perspectives on how Octopress Works</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Posts</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-<b>Posts</b> are created using the rake task <code>rake new_post["Post Title"]</code>. The key things about a post are:
-</p>
-<ol class="org-ol">
-<li>File is located in =source/_posts.
-</li>
-<li>File has a header containing the meta-data for the post. The post URL and
-date are determined by the by the <code>title</code> and <code>date</code> fields. If you want to
-change the date of your post, then you change the meta-data. Changing the
-file name is useful only for file navigation. Here&#8217;s a <a href="https://gist.github.com/justin808/5550381">gist for a rake task
-to update the file names to match the metadata</a>.
-</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Pages</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-<b>Pages</b> are created using the rake task <code>rake new_page["Page Title"]</code>. The key
-things about a page are:
-</p>
-<ol class="org-ol">
-<li>Files are located in <code>source/page-title</code>
-</li>
-<li>File has a header containing the meta-data for the post.
-</li>
-</ol>
-
-<p>
-I use &#8220;Pages&#8221; for things like <a href="http://www.railsonmaui.com/about">my &#8220;about&#8221; page.</a>
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">POW</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-POW allows you to point your browser to <code>http://octopress.dev</code> to see your local,
-unpublished Octopress website. It&#8217;s very convenient to not have to remember to
-run a local server, and it works great with LiveReload. Scroll to the bottom of
-this link for details on <a href="http://octopress.org/docs/blogging/">POW</a>. The alternative to running POW is to run <code>rake
-preview</code> and then point your browser at <code>http://0.0.0.0:4000</code> (or whatever port
-you configured).
-</p>
-</div>
-</div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Automatically Generating the Site</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-Start a shell tab running this command: <code>rake generate &amp;&amp; rake watch</code>. Edit a
-file in markdown or follow the instructions below to use org-mode.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Org-Mode</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-You can skip this section if you&#8217;re not interested in org-mode. However, it&#8217;s
-super cool!
-</p>
-</div>
-<div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1">Why org-mode for blog publishing?</h3>
-<div class="outline-text-3" id="text-5-1">
-<p>
-<a href="http://orgmode.org/">Org-mode</a> offers quite a bit more than plain markdown. It&#8217;s quite the <b>hacker&#8217;s
-delight</b> for note taking and authoring of blog articles. Down below I list a few
-reasons why org-mode. Here&#8217;s a few org-mode features I love (Some are Emacs
-ones):
-</p>
-<ol class="org-ol">
-<li>All headers and list items can be reordered with minimal keystrokes (think
-super powerful outliner).
-</li>
-<li>Numbered lists.
-</li>
-<li>Editable tables in text editor, with movable columns, movable rows.
-</li>
-<li>Ergonomics of insertion of URLs and images.
-</li>
-<li>Includes the basics of markdown, such as source code blocks and much more.
-</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-sec-5-2" class="outline-3">
-<h3 id="sec-5-2">Org-mode Integration</h3>
-<div class="outline-text-3" id="text-5-2">
-<p>
-The <a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress</a> plugin automates the process of converting an org-mode
-document (<code>.org</code> file) in <code>source/org_posts</code> into a <code>.html</code> document in
-<code>source/_posts</code>. Once the html document is saved in _posts, the <code>rake watch</code>
-task picks up the change and deploys the file. <b>Neat!</b>
-</p>
-
-<p>
-Here are the basic steps:
-</p>
-<ol class="org-ol">
-<li>Install Emacs 24.3 and use the package manager to install org-mode and
-   <a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress</a>.
-</li>
-<li>See my Emacs configuration below.
-</li>
-<li>Note, there are two ways to use org-octopress. I do not use its features to
-automate the setup of the directories. This automated setup does not provide
-a way to have &#8220;pages&#8221;. As of March, 2014, you can only have &#8220;posts&#8221;. Instead,
-my configuration below handles the mapping of directories.
-</li>
-<li><del>Images work fine.</del> Well, almost fine. The big gotcha is that the standard
-inclusion of images in org-mode results in broken paths at deployment. The
-workaround is to embed the <a href="http://octopress.org/docs/plugins/image-tag/">Octopress syntax for an image</a>, and to place the
-images under source/images. Note, you&#8217;ll want to be sure to use an absolute
-path, or else your article might look OK on the home page, but might now work
-in the postings directory. If I&#8217;m creating a document with many images, I&#8217;ll
-group the images for that document in a sub-directory of images named like
-the document. This is how it should look. The trick is to place the
-octopress <code>img</code> directive within a HTML begin/end block.
-
-<p>
-<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/org-mode-images.png">
-</p>
-</li>
-<li><b>Links</b>: This is key thing to get right. It&#8217;s critical to understand the
-issues links, or else you&#8217;ll have one of these issues:
-<ol class="org-ol">
-<li>Links work when you test your blog locally using <code>pow</code>, but not when you
-go to your published website. This happens if you use a relative link from
-blog articles, because blog articles sometimes appear on your home page
-and sometimes under the <code>/blog</code> directory. You have to use your domain
-address to link from blog articles to other articles on your blog.
-</li>
-<li>You&#8217;d like your local links to point to the correct local spot. You can do
-this for links on static pages, but just not blog articles. Thus, for
-non-blog articles, it&#8217;s preferable to use the <code>file:</code> relative path format
-(just not <code>file:/</code> absolute path and not <code>file:~/</code>).
-</li>
-</ol>
-<p>
-<b>Here&#8217;s the rules:</b>
-</p>
-
-<p>
-Links from static pages, relatively specified to other static pages and to
-posts. Ensure that there&#8217;s no <code>/</code> immediately following <code>file:</code>. For example:
-</p>
-<pre class="example">
-[[file:telecommuting.html][Why telecommuting works and how I maximize productivity]]
-</pre>
-<p>
-Or if the link is one level under the current directory:
-</p>
-<pre class="example">
-[[file:misc/telecommuting.html][Why telecommuting works and how I maximize productivity]]
-</pre>
-<p>
-Links from a <i>page</i> to a <i>post</i> can use a relative link like this.
-<i>Important: you must use the <code>YYYY/MM/DD/blog-title/index.html</code> format! and you must specify the article title.</i>
-</p>
-<pre class="example">
-[[file:../blog/2013/04/27/octopress-setup-with-github-and-org-mode/index.html][Org-Mode Octopress Setup V2]]
-</pre>
-<p>
-<b>However</b>, links from posts to other posts require an absolute URL using your
-published domain name. The big gotcha is that blog posts sometimes are shown
-on the home page and sometimes inside of the blog directory. To avoid
-trouble, you need to follow a format as this example shows. It&#8217;s easiest to
-copy the URL from the browser address bar.
-</p>
-<pre class="example">
-[[http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/][Strategies for Rails Logging and Error Handling]]
-</pre>
-<p>
-I tried using a <code>file:../blog</code> syntax, but that either would work on the home
-page or in the specific blog article, but not both. <code>http:/blog</code> links would
-work in Chrome but not mobile Safari. Hopefully, one day we&#8217;ll be able to
-specify relative links from blog article to blog article. <i>For now, this is a
-big <b>gotcha</b>.</i>
-<b>Tip</b>: You can specify relative links between org pages using the <code>.org</code> file
-suffix, rather than html. The earlier example could have been specified as:
-</p>
-<pre class="example">
-[[file:misc/telecommuting.org][Why telecommuting works and how I maximize productivity]]
-</pre>
-<p>
-That allows you to put your cursor on the link in emacs, and hit F12 to go
-the org file! I&#8217;ve got <code>F12</code> mapped to <code>org-open-at-point</code>. Awesome!
-</p>
-</li>
-<li>Bold and italic styling (text inside of stars and /) was a bit of mystery
-using the standard theme. Octopress has styling for <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code>. Org-mode spits out <code>&lt;b&gt;</code> and
-<code>&lt;i&gt;</code> tags.
-Add this to <code>sass/custom/_fonts.scss</code>.
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">b</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span> <span class="p">}</span>
-</span><span class='line'><span class="nt">i</span> <span class="p">{</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-Code styling (text inside of equals) <code>like this</code> did not work after a code block unless I added
-the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>. You&#8217;re just adding
-the <code>div</code> selector.
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">Sometimes</span> <span class="nt">html</span> <span class="nt">gen</span> <span class="nt">by</span> <span class="nt">org-mode</span> <span class="nt">misses</span> <span class="nt">p</span> <span class="nt">or</span> <span class="nt">li</span> <span class="nt">tags</span><span class="o">,</span> <span class="nt">so</span> <span class="nt">add</span> <span class="nt">div</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">mix</span>
-</span><span class='line'><span class="nt">div</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">code</span> <span class="err">{</span>
-</span><span class='line'>    <span class="o">@</span><span class="n">extend</span> <span class="o">.</span><span class="n">mono</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-</li>
-</ol>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">Useful Scripts</h2>
-<div class="outline-text-2" id="text-6">
-<ul class="org-ul">
-<li>Just configure <code>OCTO_HOME</code>
-</li>
-<li>Emacs tip: Visit the created file by placing cursor over file name and then hit <code>Ctrl-x, f</code>.
-</li>
-</ul>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">OCTO_HOME</span><span class="o">=</span>~/octopress
-</span><span class='line'>ogen <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; rake generate; <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>osave <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; git commit -am <span class="s2">&quot;Updates&quot;</span> <span class="o">&amp;&amp;</span> git push origin <span class="nb">source</span>; <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>odeploy <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; osave; rake gen_deploy; <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># this one is for orgmode only</span>
-</span><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
-</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> | awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$new_file</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">new_location</span><span class="o">=</span><span class="nv">$OCTO_HOME</span>/source/org_posts/
-</span><span class='line'>  mv <span class="nv">$OCTO_HOME</span>/<span class="nv">$new_file</span> <span class="nv">$new_location</span>
-</span><span class='line'>  <span class="nb">echo </span>created <span class="nv">$new_location</span>/<span class="nv">$base</span>
-</span><span class='line'>  <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>opage<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
-</span><span class='line'>  rake new_page<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span>
-</span><span class='line'>  <span class="nb">cd</span> -
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-</div>
-</div>
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7">Emacs setup</h2>
-<div class="outline-text-2" id="text-7">
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;; Justin&#39;s customized org to octopress publishing</span>
-</span><span class='line'><span class="c1">;; Based on</span>
-</span><span class='line'><span class="c1">;; org-mode 8.x+</span>
-</span><span class='line'><span class="c1">;; http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/</span>
-</span><span class='line'><span class="c1">;; https://github.com/yoshinari-nomura/org-octopress</span>
-</span><span class='line'><span class="c1">;; See http://wwww.railsonmaui.com</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; the converter from org to jekyll html files</span>
-</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;ox-jekyll</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; I prefer to use the plugin for source formatting. More colors!</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-jekyll-use-src-plugin</span> <span class="no">t</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; We&#39;re going to create the yaml-front-matter in the rake task</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-jekyll-include-yaml-front-matter</span> <span class="no">nil</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">save-then-publish</span> <span class="p">()</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">save-buffer</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">org-save-all-org-buffers</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">org-publish-current-project</span><span class="p">))</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-export-with-sub-superscripts</span> <span class="o">`</span><span class="nv">{}</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">my-common-octopress-settings</span>
-</span><span class='line'>      <span class="o">&#39;</span><span class="p">(</span><span class="ss">:base-extension</span> <span class="s">&quot;org&quot;</span>
-</span><span class='line'>                        <span class="ss">:with-toc</span> <span class="no">nil</span>
-</span><span class='line'>                        <span class="ss">:with-sub-superscript</span> <span class="no">nil</span>
-</span><span class='line'>                        <span class="ss">:section-numbers</span> <span class="no">nil</span>
-</span><span class='line'>                        <span class="ss">:recursive</span> <span class="no">t</span>
-</span><span class='line'>                        <span class="ss">:publishing-function</span> <span class="nv">org-jekyll-publish-to-html</span>
-</span><span class='line'>                        <span class="ss">:headline-levels</span> <span class="mi">4</span>
-</span><span class='line'>                        <span class="ss">:body-only</span> <span class="no">t</span><span class="p">))</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">my-static-directories</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;about&quot;</span> <span class="s">&quot;meta&quot;</span> <span class="s">&quot;tips&quot;</span><span class="p">))</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">my-base-directory</span> <span class="s">&quot;~/j/railsonmaui-octopress/source&quot;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-create-octopress-static</span> <span class="p">(</span><span class="nv">prj</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">base-dir</span> <span class="p">(</span><span class="nv">expand-file-name</span> <span class="nv">prj</span><span class="p">)))</span>
-</span><span class='line'>    <span class="o">`</span><span class="p">(</span><span class="o">,</span><span class="nv">prj</span> <span class="o">.</span> <span class="p">(</span><span class="ss">:base-directory</span> <span class="o">,</span><span class="nv">base-dir</span>
-</span><span class='line'>                              <span class="ss">:publishing-directory</span> <span class="o">,</span><span class="nv">base-dir</span>
-</span><span class='line'>                              <span class="o">,@</span><span class="nv">my-common-octopress-settings</span><span class="p">))))</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-static-components</span> <span class="p">()</span>
-</span><span class='line'>  <span class="p">(</span><span class="nb">mapcar</span> <span class="ss">&#39;my-create-octopress-static</span> <span class="nv">my-static-directories</span><span class="p">))</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">default-directory</span> <span class="nv">my-base-directory</span><span class="p">))</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">org-publish-project-alist</span>
-</span><span class='line'>      <span class="o">`</span><span class="p">(</span>
-</span><span class='line'>        <span class="c1">;; components</span>
-</span><span class='line'>        <span class="p">(</span><span class="s">&quot;blog&quot;</span> <span class="o">.</span> <span class="p">(</span><span class="ss">:components</span> <span class="p">(</span><span class="s">&quot;blog-org&quot;</span> <span class="s">&quot;blog-extra&quot;</span> <span class="s">&quot;about&quot;</span> <span class="s">&quot;meta&quot;</span> <span class="s">&quot;tips&quot;</span><span class="p">)))</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">;; blog articles</span>
-</span><span class='line'>        <span class="p">(</span><span class="s">&quot;blog-org&quot;</span> <span class="o">.</span>  <span class="p">(</span><span class="ss">:base-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;org_posts&quot;</span><span class="p">)</span>
-</span><span class='line'>                                        <span class="ss">:publishing-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;_posts&quot;</span><span class="p">)</span>
-</span><span class='line'>                                        <span class="o">,@</span><span class="nv">my-common-octopress-settings</span><span class="p">))</span>
-</span><span class='line'>        <span class="p">(</span><span class="s">&quot;blog-extra&quot;</span> <span class="o">.</span> <span class="p">(</span><span class="ss">:base-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;org_posts&quot;</span><span class="p">)</span>
-</span><span class='line'>                                         <span class="ss">:publishing-directory</span> <span class="o">,</span><span class="p">(</span><span class="nv">expand-file-name</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
-</span><span class='line'>                                         <span class="ss">:base-extension</span> <span class="s">&quot;css\\|pdf\\|png\\|jpg\\|gif\\|svg&quot;</span>
-</span><span class='line'>                                         <span class="ss">:publishing-function</span> <span class="nv">org-publish-attachment</span>
-</span><span class='line'>                                         <span class="ss">:recursive</span> <span class="no">t</span>
-</span><span class='line'>                                         <span class="ss">:author</span> <span class="no">nil</span><span class="p">))</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">;; static articles</span>
-</span><span class='line'>        <span class="o">,@</span><span class="p">(</span><span class="nv">my-static-components</span><span class="p">))))</span>
-</span></code></pre></td></tr></table></div></figure>
-</div>
-</div>
-
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8">Deploying to Github: Directory Structure of Octopress and the master and source Git Branches</h2>
-<div class="outline-text-2" id="text-8">
-<p>
-Github offers free hosting of both the blog deployment and source. You&#8217;re
-looking at the deployment right now. You can find the source here at
-<a href="https://github.com/justin808/justin808.github.io">my git repo justin808.github.io</a>. I doubt you could beat the price, performance, and
-convenience. You can look inside of this repo, clone it, etc. and you have
-everything that it took to make this blog.
-</p>
-
-<p>
-I originally was quite confused by the concept of using two separate git
-branches to make up what gets deployed on the live website versus the git
-repository of my articles. Plus, there&#8217;s the issue of Octopress git repository
-that you clone when starting out. Eventually, I figured out that the two branches
-simply contain different files, with one containing the original Octopress
-files. Here&#8217;s a few screen grabs that might clarify the situation for you.
-</p>
-
-<p>
-Don&#8217;t forget that you never push to the master branch, but rather the <code>rake
-deploy</code> task does it for you. Instead, you run <code>git push origin source</code> to push
-the content of your blog to github.
-</p>
-
-<p>
-The <code>octopress/public</code> directory corresponds to what you&#8217;ll find on the github
-site for your deployment (master branch).
-</p>
-
-<p>
-<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/public-dir-corresponds-master-branch.png">
-</p>
-
-<p>
-The octopress/.gitignore file contains entries like <code>public</code>, which essentially
-keeps the <code>rake generate</code> files out of the source branch.
-</p>
-
-<p>
-Here&#8217;s the github master branch right after creation. Note the correspondence
-with <code>public</code>. This is what gets deployed as your blog.
-<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/github-master-branch.png">
-</p>
-
-<p>
-Here&#8217;s the github source branch. This contains the octopress environment, as
-well as your customizations and blog posts.
-</p>
-<img src="http://www.railsonmaui.com//images/2013-04-27-octopress-setup-with-github-and-org-mode/github-source-branch.png">
-</div>
-</div>
-<div id="outline-container-sec-9" class="outline-2">
-<h2 id="sec-9">Useful Links</h2>
-<div class="outline-text-2" id="text-9">
-<ol class="org-ol">
-<li><a href="http://webdesign.tutsplus.com/tutorials/applications/getting-started-with-octopress/">Getting Started with Octopress</a>: Nice overall tutorial. Very current!
-March 2013.
-</li>
-<li><a href="http://robdodson.me/blog/2012/04/30/custom-domain-with-octopress-and-github-pages">Rob Dodson on Octopress</a>: Most of the instructions I show below are from this
-posting on April 30th, 2012.
-</li>
-<li><a href="http://joelmccracken.github.io/entries/octopress-is-pretty-sweet/">Joel McCracken on Octopress</a>: Use Jekyll? You Really Should Be Using Octopress
-</li>
-<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Github directions on setting up a custom domain</a>
-</li>
-<li><a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">dblock.org Article on Octopress</a>: A good explanation from Jan 17, 2012,
-especially on the difference of the source and master branches.
-</li>
-<li><a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>: For org-mode. See below.
-</li>
-<li><a href="http://hiltmon.com/blog/2013/04/17/18-months-of-octopress/">18 Months of Octopress</a>: Nice article on why Octopress was worth the switch.
-</li>
-<li><a href="http://odino.org/bash-aliases-for-octopress/">Shell Aliases for Octopress</a>: Save time with these shortcuts
-</li>
-<li><a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress package</a>: The connection between emacs/org-mode and octopress.
-</li>
-<li><a href="http://www.brokenlinkcheck.com/broken-links.php">Check your blog for broken links</a>: Super useful to scan for broken links.
-This link is more efficient than the <a href="http://validator.w3.org/checklink">W3C Link Checker</a>
-</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-sec-10" class="outline-2">
-<h2 id="sec-10">Live Reload</h2>
-<div class="outline-text-2" id="text-10">
-<p>
-Previously, I tried to get Live Reload to work. It would be neat it worked, but
-I ran into a snag. The browser gets triggered to update before the Jekyll page
-is generated. I tried some various techniques for working around this, but
-nothing seemed reliable. If you figure out how to fix this, please let me know.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-11" class="outline-2">
-<h2 id="sec-11">Parting words&#x2026;</h2>
-<div class="outline-text-2" id="text-11">
-<p>
-Thanks in advance for any suggestions on this article. I hope you find it
-helpful. 
-</p>
-</div>
-</div>
-<div id="discourse-comments"></div>
-<script type="text/javascript">
-  var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/";
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-      d.src = discourseUrl + 'javascripts/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Simple Form and Disabling Buttons on Submit by Default]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/02/23/simple-form-and-disable-processing-by-default/"/>
-    <updated>2014-02-23T21:43:00-08:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/02/23/simple-form-and-disable-processing-by-default</id>
-    <content type="html"><![CDATA[<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">TLDR</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Here&#8217;s an easy way to have all your SimpleForm submit buttons default to setting
-<code>data-disable-with</code> so that you don&#8217;t get errors when users double click on
-submit buttons. If you&#8217;ve gotten a few <code>ActiveRecord::RecordNotUnique</code> errors
-that were hard to reproduce, then here&#8217;s your solution, with our without
-SimpleForm. Additionally, using <code>data-disable-with</code> provides the user with nice
-feedback once a button is clicked.
-</p>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">ActiveRecord::RecordNotUnique Error!</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-If you&#8217;re using Devise, and you get a <code>ActiveRecord::RecordNotUnique</code> error when
-a new user is signing up, where do you look?
-</p>
-
-<pre class="example">
-An ActiveRecord::RecordNotUnique occurred in registrations#create:
-
-PG::UniqueViolation: ERROR: duplicate key value violates unique constraint
-"index_users_on_email" DETAIL: Key (email)=(somebody@yahoo.com) already
-exists. : INSERT INTO "users" ("address", "city", "confirmation_sent_at",
-"confirmation_token", "created_at", "default_location_id", "email",
-"encrypted_password", "first_name", "last_name", "mobile", "role", "state",
-"updated_at", "zip_code") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11,
-$12, $13, $14, $15) RETURNING "id"
-</pre>
-
-<p>
-At first, I was concerned that my unique index on my users table is not case
-insensitive. I started going down the road of converting my normal unique index
-on users.email to this index:
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">CREATE</span> <span class="k">UNIQUE</span> <span class="k">INDEX</span> <span class="n">users_email_ci_idx</span> <span class="k">ON</span> <span class="n">users</span> <span class="p">((</span><span class="k">lower</span><span class="p">(</span><span class="n">email</span><span class="p">)));</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-However, I soon figured out that Devise was already always saving email in the
-database in lower case via a <code>before_validation</code> hook.
-</p>
-
-<p>
-So then I tried to double click the <code>SAVE</code> button, and, <b>BOOM</b>, I got the same error.
-</p>
-
-<!-- more -->
-</div>
-</div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">data-disable-with=&#8217;Processing&#x2026;&#8217;</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-A little bit of googling quickly revealed some handy rails techniques disabling
-a submit button after being clicked, namely the setting of attribute
-data-disable-with: &#8220;Some Message&#x2026;&#8221; on both links and buttons. This works
-nicely to fix the double submit RecordNotUnique error, and it provides some
-sweet user feedback upon clicking a button. Here&#8217;s an example of a <code>SAVE</code> button.
-</p>
-
-<p>
-<img src="http://www.railsonmaui.com//images/2014-02-23-simple-form-and-disable-processing-by-default/button-before-clicking.jpg">
-</p>
-
-<p>
-Immediately after clicking the <code>SAVE</code> button, the button disables and the text changes.
-</p>
-
-<p>
-<img src="http://www.railsonmaui.com//images/2014-02-23-simple-form-and-disable-processing-by-default/button-disabled.jpg">
-</p>
-</div>
-
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1">Buttons</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-Example and API: <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-button_tag">button_tag</a>
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="err">&lt;</span>%= button_tag &quot;Checkout&quot;, data: { disable_with =&gt; &quot;Please wait...&quot; } %&gt;
-</span></code></pre></td></tr></table></div></figure>
-</div>
-</div>
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2">Links</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-Example and API: <a href="http://apidock.com/rails/ActionView/Helpers/UrlHelper/link_to?q=link_to">link_to</a>
-</p>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="err">&lt;</span>%= link_to &quot;Profile&quot;, profile_path(@profile), data: { disable_with: &quot;Processsing...&quot; } %&gt;
-</span></code></pre></td></tr></table></div></figure>
-</div>
-</div>
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3">SimpleForm Submit Buttons</h3>
-<div class="outline-text-3" id="text-3-3">
-<p>
-Even better, this can be done in one place for all SimpleForm submit buttons!
-</p>
-
-<p>
-In a file like <code>config/simple_form.rb</code>, place this initialization code:
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">SimpleForm</span><span class="p">:</span><span class="ss">:FormBuilder</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">submit_with_override</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
-</span><span class='line'>    <span class="n">data_disable_with</span> <span class="o">=</span> <span class="p">{</span> <span class="n">disable_with</span><span class="p">:</span> <span class="s1">&#39;Processing...&#39;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="n">options</span><span class="o">[</span><span class="ss">:data</span><span class="o">]</span> <span class="o">=</span> <span class="n">data_disable_with</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:data</span><span class="o">]</span> <span class="o">||</span> <span class="p">{})</span>
-</span><span class='line'>    <span class="n">submit_without_override</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="n">alias_method_chain</span> <span class="ss">:submit</span><span class="p">,</span> <span class="ss">:override</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-What the bit of code above does is that it:
-</p>
-<ol class="org-ol">
-<li>Opens up the FormBuilder class to add a method <code>submit_with_override</code>.
-</li>
-<li>Modifies options hash&#8217;s :data element, setting a default value for key
-<code>disable_with</code> that will not apply if there&#8217;s already a value there, thus
-allowing the default to be overridden by any individual button.
-</li>
-<li>Calls <a href="http://apidock.com/rails/Module/alias_method_chain">alias_method_chain</a> which makes is so that a call to submit actually
-calls <code>submit_with_override</code> and that method can call
-<code>submit_without_override</code>, which is the original <code>submit</code> method. The pattern
-of naming the methods <code>with_override</code> and <code>without_override</code> is part of the
-<code>alias_method_chain</code> call. Pretty darn cool!
-</li>
-</ol>
-
-<p>
-Here&#8217;s a sample sign-up form that overrides the default &#8220;Processing&#x2026;&#8221; label
-when the <code>SAVE</code> button is clicked.
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='haml'><span class='line'><span class="nc">.box.clearfix.box-last</span>
-</span><span class='line'>  <span class="p">=</span> <span class="n">simple_form_for</span> <span class="n">resource</span><span class="p">,</span> <span class="ss">as</span><span class="p">:</span> <span class="n">resource_name</span><span class="p">,</span> <span class="ss">url</span><span class="p">:</span> <span class="n">registration_path</span><span class="p">(</span><span class="n">resource_name</span><span class="p">),</span> <span class="ss">html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>  <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">error_notification</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">autofocus</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="n">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="n">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:last_name</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="n">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="n">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="n">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="n">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">button</span> <span class="ss">:submit</span><span class="p">,</span> <span class="s2">&quot;SAVE&quot;</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;submit&quot;</span><span class="p">,</span> <span class="ss">data</span><span class="p">:</span> <span class="p">{</span> <span class="n">disable_with</span><span class="p">:</span> <span class="s2">&quot;Creating New Account...&quot;</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-<p>
-Now go and click on some of your submit buttons, and they will all disable and
-display &#8220;Processing&#x2026;&#8221;. On a remote form that returned <code>js.erb</code>, I had to send
-back this line to reset the submit button:
-</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#js-some-button&quot;</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s2">&quot;disabled&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;ORIGINAL BUTTON TEXT&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">References</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-Stack Overflow Discussions:
-</p>
-<ol class="org-ol">
-<li><a href="http://stackoverflow.com/questions/11505801/prevent-double-submits-in-a-rails-ajax-form/20161880">Prevent Double Clicks in Rails Ajax Form</a>
-</li>
-<li><a href="http://stackoverflow.com/questions/11340843/default-disable-with-for-simple-form-submit/11610795#11610795">Default Disable With for Simple Form</a>
-</li>
-<li><a href="http://stackoverflow.com/questions/3160204/in-rails-controllers-how-to-prevent-double-submit-when-user-double-clic-submit">How to Prevent Double Submit in Rails</a>
-</li>
-</ol>
-</div>
-</div>
-<div id="discourse-comments"></div>
-<script type="text/javascript">
-  var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/02/23/simple-form-and-disable-processing-by-default/";
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
