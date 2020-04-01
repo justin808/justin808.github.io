@@ -8,6 +8,7 @@ redirect_from: /blog/2013/05/25/getting-started-wtih-discourse/index.html
 categories: [emberjs]
 keywords: emberjs discourse.org
 description: A quick guide to installing discourse to see a production quality rails project on github.
+canonical: https://www.shakacode.com/blog/getting-started-with-discourse/
 ---
 #+END_HTML
 

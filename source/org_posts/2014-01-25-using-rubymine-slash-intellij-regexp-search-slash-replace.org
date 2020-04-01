@@ -7,6 +7,7 @@ comments: true
 categories: [rubymine]
 keywords: 
 description: Tutorial and example of using Jetbrain's RubyMine and IntelliJ's interactive regexp search and replace.
+canonical: https://www.shakacode.com/blog/using-rubymine-slash-intellij-regexp-search-slash-replace/
 ---
 #+END_HTML
 

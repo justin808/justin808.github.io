@@ -8,6 +8,7 @@ categories: [rails, error-handling, rspec, capybara ]
 keywords: Ruby on Rails, Exceptions, Logging, rspec, capybara, phantomjs
 description: Clean logging and error handling is a critical aspect of a RoR app.
 published: true
+canonical: https://www.shakacode.com/blog/testing-error-handling/
 ---
 #+END_HTML
 How do ensure that your application properly handles errors, especially when

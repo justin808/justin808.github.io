@@ -8,6 +8,7 @@ categories:
 keywords: 
 published: false
 description: 
+canonical: https://www.shakacode.com/blog/how-much-client-side-javascript-in-rails-4/
 ---
 #+END_HTML
 

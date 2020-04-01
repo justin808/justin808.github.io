@@ -9,6 +9,7 @@ categories: [rails, emberjs]
 keywords: Rails4, Rails, Ruby on Rails, Ember.js, Emberjs, Persistence, Serialization, Controllers, Router, Tutorial
 description: This post demonstrates how to build a simple Ember.js app with Rails 4 for persistence, and includes a detailed screencast. 
 published: true
+canonical: https://www.shakacode.com/blog/emberjs-rails4-tutorial/
 ---
 #+END_HTML
 

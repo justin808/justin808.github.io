@@ -7,6 +7,7 @@ comments: true
 categories: [pry]
 keywords: Pry, Ruby, Array, zip, CSV, Hash
 description: Example showing how pry demonstrates the usefulness of Array#zip with CSV
+canonical: https://www.shakacode.com/blog/pry-ruby-array-zip-csv-and-the-hash-constructor/
 ---
 #+END_HTML
 
