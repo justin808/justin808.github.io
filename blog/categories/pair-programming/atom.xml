@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pair-programming | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pair-programming/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-12-20T13:45:09-08:00</updated>
+  <updated>2020-04-04T16:16:53-03:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Remote Pair Programming Tips using RubyMine and Screenhero]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero/"/>
-    <updated>2014-05-06T22:36:22-07:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero</id>
+    <link href="http://www.railsonmaui.com//blog/2014/05/07/remote-pair-programming-tips-using-screenhero/"/>
+    <updated>2014-05-07T02:36:22-03:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/05/07/remote-pair-programming-tips-using-screenhero</id>
     <content type="html"><![CDATA[<p>
 I had the opportunity to spend the entire workday remote pair programming from
 my office in Maui with a San Francisco client from <a href="http://www.cloudcity.io/">Cloud City Development</a>. We
@@ -266,7 +266,7 @@ Finally, click here for <a href="http://theoatmeal.com/comics/working_home">OMG,
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/05/06/remote-pair-programming-tips-using-screenhero/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/05/07/remote-pair-programming-tips-using-screenhero/";
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';

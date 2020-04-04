@@ -19,7 +19,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2014/02/23/simple-form-and-disable-processing-by-default">
+  <link rel="canonical" href="https://www.shakacode.com/blog/simple-form-and-disable-processing-by-default/">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -99,7 +99,7 @@
 
 
 
-<time class='entry-date' datetime='2014-02-23T21:43:00-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:43 pm</span></time>
+<time class='entry-date' datetime='2014-02-23T21:43:00-03:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:43 pm</span></time>
         
       </p>
     
@@ -226,9 +226,9 @@ In a file like <code>config/simple_form.rb</code>, place this initialization cod
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">SimpleForm</span><span class="p">:</span><span class="ss">:FormBuilder</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">SimpleForm</span><span class="o">::</span><span class="no">FormBuilder</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">submit_with_override</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>
-</span><span class='line'>    <span class="n">data_disable_with</span> <span class="o">=</span> <span class="p">{</span> <span class="n">disable_with</span><span class="p">:</span> <span class="s1">&#39;Processing...&#39;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">data_disable_with</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">disable_with</span><span class="p">:</span> <span class="s1">&#39;Processing...&#39;</span> <span class="p">}</span>
 </span><span class='line'>    <span class="n">options</span><span class="o">[</span><span class="ss">:data</span><span class="o">]</span> <span class="o">=</span> <span class="n">data_disable_with</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:data</span><span class="o">]</span> <span class="o">||</span> <span class="p">{})</span>
 </span><span class='line'>    <span class="n">submit_without_override</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">end</span>
@@ -269,10 +269,10 @@ when the <code>SAVE</code> button is clicked.
 </pre></td><td class='code'><pre><code class='haml'><span class='line'><span class="nc">.box.clearfix.box-last</span>
 </span><span class='line'>  <span class="p">=</span> <span class="n">simple_form_for</span> <span class="n">resource</span><span class="p">,</span> <span class="ss">as</span><span class="p">:</span> <span class="n">resource_name</span><span class="p">,</span> <span class="ss">url</span><span class="p">:</span> <span class="n">registration_path</span><span class="p">(</span><span class="n">resource_name</span><span class="p">),</span> <span class="ss">html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>  <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
 </span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">error_notification</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">autofocus</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="n">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="n">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:last_name</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="n">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="n">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="n">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="n">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">button</span> <span class="ss">:submit</span><span class="p">,</span> <span class="s2">&quot;SAVE&quot;</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;submit&quot;</span><span class="p">,</span> <span class="ss">data</span><span class="p">:</span> <span class="p">{</span> <span class="n">disable_with</span><span class="p">:</span> <span class="s2">&quot;Creating New Account...&quot;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">autofocus</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="ss">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:last_name</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="ss">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">input</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">label_html</span><span class="p">:</span> <span class="p">{</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;label-required&quot;</span><span class="p">},</span> <span class="ss">input_html</span><span class="p">:</span> <span class="p">{</span><span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;.col-md-4&quot;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="p">=</span> <span class="n">f</span><span class="o">.</span><span class="n">button</span> <span class="ss">:submit</span><span class="p">,</span> <span class="s2">&quot;SAVE&quot;</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">&quot;submit&quot;</span><span class="p">,</span> <span class="ss">data</span><span class="p">:</span> <span class="p">{</span> <span class="ss">disable_with</span><span class="p">:</span> <span class="s2">&quot;Creating New Account...&quot;</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 <p>
@@ -328,7 +328,7 @@ Stack Overflow Discussions:
 
 
 
-<time class='entry-date' datetime='2014-02-23T21:43:00-08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:43 pm</span></time>
+<time class='entry-date' datetime='2014-02-23T21:43:00-03:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>9:43 pm</span></time>
       
 
 <span class="categories">
@@ -415,7 +415,7 @@ Stack Overflow Discussions:
       </li>
     
       <li class="post">
-        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+        <a href="/blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
       <li class="post">
@@ -470,7 +470,7 @@ Stack Overflow Discussions:
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Justin Gordon -
+  Copyright &copy; 2020 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

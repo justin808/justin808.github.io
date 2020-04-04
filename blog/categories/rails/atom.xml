@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-12-20T13:45:09-08:00</updated>
+  <updated>2020-04-04T16:16:53-03:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Enums and Queries in Rails 4.1, and Understanding Ruby]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/"/>
-    <updated>2014-10-22T22:23:02-07:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/10/22/enums-and-queries-in-rails-4-dot-1</id>
+    <link href="http://www.railsonmaui.com//blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/"/>
+    <updated>2014-10-23T03:23:02-02:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/10/23/enums-and-queries-in-rails-4-dot-1</id>
     <content type="html"><![CDATA[<p>
 Sometimes when you get puzzled by what Rails is doing, you really just need to
 understand what Ruby is doing.
@@ -781,7 +781,7 @@ find <a href="https://hackhands.com/ruby-on-enums-queries-and-rails-4-1/">a copy
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/";
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -794,9 +794,9 @@ find <a href="https://hackhands.com/ruby-on-enums-queries-and-rails-4-1/">a copy
   
   <entry>
     <title type="html"><![CDATA[Rails Gem Upgrading Tips and Strategies]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/"/>
-    <updated>2014-09-13T20:04:38-07:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque</id>
+    <link href="http://www.railsonmaui.com//blog/2014/09/14/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/"/>
+    <updated>2014-09-14T00:04:38-03:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/09/14/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque</id>
     <content type="html"><![CDATA[<p>
 What are the best-practices for upgrading gems to newer versions? What sort of
 tips and techniques can save time and headaches? 
@@ -938,14 +938,14 @@ pre-loaders are <i><b>NOT</b></i> running.
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>pgr<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pgrep -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pgrep -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>pgk<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pkill -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -1363,7 +1363,7 @@ Justin
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/14/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1377,7 +1377,7 @@ Justin
   <entry>
     <title type="html"><![CDATA[Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/"/>
-    <updated>2014-09-12T14:20:58-07:00</updated>
+    <updated>2014-09-12T18:20:58-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3</id>
     <content type="html"><![CDATA[<p>
 This article describes some tougher issues I faced when upgrading to Rails 4.1,
@@ -1722,9 +1722,9 @@ Justin
   
   <entry>
     <title type="html"><![CDATA[Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/"/>
-    <updated>2014-09-09T20:54:42-07:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1</id>
+    <link href="http://www.railsonmaui.com//blog/2014/09/10/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/"/>
+    <updated>2014-09-10T00:54:42-03:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/09/10/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1</id>
     <content type="html"><![CDATA[<p>
 What&#8217;s faster? <a href="https://github.com/burke/zeus">Zeus</a> with <a href="https://github.com/grosser/parallel_tests">Parallel Tests</a> or <a href="https://github.com/rails/spring">Spring</a>, in the context of Rails 4.1,
 RSpec 3, Capybara 2.4, and PhantomJs?
@@ -2119,15 +2119,15 @@ zeus-parallel_tests (0.2.4)
 </span><span class='line'>
 </span><span class='line'><span class="c"># List processes related to rails</span>
 </span><span class='line'>pgr<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pgrep -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pgrep -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c"># Kill processes related to rails</span>
 </span><span class='line'>pgk<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pkill -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -2152,7 +2152,7 @@ Justin
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/10/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -2166,7 +2166,7 @@ Justin
   <entry>
     <title type="html"><![CDATA[2014 Golden Gate Ruby Conference: Top 10 Reasons to Attend]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference/"/>
-    <updated>2014-08-13T17:25:57-07:00</updated>
+    <updated>2014-08-13T21:25:57-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/08/13/2014-golden-gate-ruby-conference</id>
     <content type="html"><![CDATA[<p>
 Woo hoo! I&#8217;m going to the <a href="http://gogaruco.com/">2014 Golden Gate Ruby Conference</a>. It&#8217;s at UCSF Mission

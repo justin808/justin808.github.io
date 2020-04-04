@@ -4,7 +4,7 @@
   <title><![CDATA[Category: error-handling | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/error-handling/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-12-20T13:45:09-08:00</updated>
+  <updated>2020-04-04T16:16:53-03:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Testing Error Handling]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/"/>
-    <updated>2013-05-11T00:01:00-07:00</updated>
+    <updated>2013-05-11T00:01:00-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling</id>
     <content type="html"><![CDATA[<p>
 How do ensure that your application properly handles errors, especially when
@@ -422,7 +422,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'> <span class="n">scenario</span> <span class="s2">&quot;Purchase cart, Strip payment error&quot;</span><span class="p">,</span> <span class="ss">:vcr</span> <span class="k">do</span>
 </span><span class='line'>   <span class="c1"># Setup the stub -- the secret sauce to this test</span>
 </span><span class='line'>   <span class="n">error_content</span> <span class="o">=</span> <span class="s2">&quot;Testing error handling exception message&quot;</span>
-</span><span class='line'>   <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="ss">Stripe</span><span class="p">:</span><span class="ss">:InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>   <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">Stripe</span><span class="o">::</span><span class="no">InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
 </span><span class='line'>   <span class="n">place_order</span>
 </span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="n">error_content</span>
 </span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="s2">&quot;Error purchasing&quot;</span>
@@ -447,7 +447,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'>
 </span><span class='line'><span class="c1"># example of how you verify that an error was emailed</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">validate_error_emailed</span>
-</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="ss">ActionMailer</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
@@ -497,7 +497,7 @@ for Rails Logging and Error Handling</a>
   <entry>
     <title type="html"><![CDATA[Strategies for Rails Logging and Error Handling]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling/"/>
-    <updated>2013-05-08T17:41:00-07:00</updated>
+    <updated>2013-05-08T17:41:00-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/05/08/strategies-for-rails-logging-and-error-handling</id>
     <content type="html"><![CDATA[<p>
 TLDR: Clean logging and error handling is a critical aspect of a RoR app.
@@ -694,9 +694,9 @@ Definition of <code>Utility.log_exception</code>:
 </span><span class='line'>    <span class="n">request</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:request</span><span class="o">]</span>
 </span><span class='line'>    <span class="n">env</span> <span class="o">=</span> <span class="n">request</span> <span class="p">?</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span> <span class="p">:</span> <span class="kp">nil</span>
 </span><span class='line'>    <span class="k">if</span> <span class="n">env</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">exception_notification</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>      <span class="no">ExceptionNotifier</span><span class="o">::</span><span class="no">Notifier</span><span class="o">.</span><span class="n">exception_notification</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
 </span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">background_exception_notification</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>      <span class="no">ExceptionNotifier</span><span class="o">::</span><span class="no">Notifier</span><span class="o">.</span><span class="n">background_exception_notification</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
 </span><span class='line'>     <span class="k">end</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>

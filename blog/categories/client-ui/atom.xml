@@ -4,7 +4,7 @@
   <title><![CDATA[Category: client-ui | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/client-ui/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-12-20T13:45:09-08:00</updated>
+  <updated>2020-04-04T16:16:53-03:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Fast Rich Client Rails Development with Webpack and the ES6 Transpiler]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/"/>
-    <updated>2014-10-03T00:00:00-07:00</updated>
+    <updated>2014-10-03T00:00:00-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/10/03/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project</id>
     <content type="html"><![CDATA[<p>
 <i>There has to be a better way to incorporate the JavaScript ecosystem into Rails.</i>

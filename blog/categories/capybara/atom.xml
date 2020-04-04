@@ -4,7 +4,7 @@
   <title><![CDATA[Category: capybara | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/capybara/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-12-20T13:45:09-08:00</updated>
+  <updated>2020-04-04T16:16:53-03:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rails Gem Upgrading Tips and Strategies]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/"/>
-    <updated>2014-09-13T20:04:38-07:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque</id>
+    <link href="http://www.railsonmaui.com//blog/2014/09/14/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/"/>
+    <updated>2014-09-14T00:04:38-03:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/09/14/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque</id>
     <content type="html"><![CDATA[<p>
 What are the best-practices for upgrading gems to newer versions? What sort of
 tips and techniques can save time and headaches? 
@@ -159,14 +159,14 @@ pre-loaders are <i><b>NOT</b></i> running.
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>pgr<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pgrep -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pgrep -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>pgk<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pkill -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -584,7 +584,7 @@ Justin
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/14/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/";
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -598,7 +598,7 @@ Justin
   <entry>
     <title type="html"><![CDATA[Specific Issues Upgrading Gems to Rails 4.1, RSpec 3, and Twitter Bootstrap 3.2]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/"/>
-    <updated>2014-09-12T14:20:58-07:00</updated>
+    <updated>2014-09-12T18:20:58-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/12/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3</id>
     <content type="html"><![CDATA[<p>
 This article describes some tougher issues I faced when upgrading to Rails 4.1,
@@ -943,9 +943,9 @@ Justin
   
   <entry>
     <title type="html"><![CDATA[Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3]]></title>
-    <link href="http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/"/>
-    <updated>2014-09-09T20:54:42-07:00</updated>
-    <id>http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1</id>
+    <link href="http://www.railsonmaui.com//blog/2014/09/10/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/"/>
+    <updated>2014-09-10T00:54:42-03:00</updated>
+    <id>http://www.railsonmaui.com//blog/2014/09/10/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1</id>
     <content type="html"><![CDATA[<p>
 What&#8217;s faster? <a href="https://github.com/burke/zeus">Zeus</a> with <a href="https://github.com/grosser/parallel_tests">Parallel Tests</a> or <a href="https://github.com/rails/spring">Spring</a>, in the context of Rails 4.1,
 RSpec 3, Capybara 2.4, and PhantomJs?
@@ -1340,15 +1340,15 @@ zeus-parallel_tests (0.2.4)
 </span><span class='line'>
 </span><span class='line'><span class="c"># List processes related to rails</span>
 </span><span class='line'>pgr<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pgrep -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pgrep -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c"># Kill processes related to rails</span>
 </span><span class='line'>pgk<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="k">for </span>x in spring rails phantomjs zeus; <span class="k">do </span>
-</span><span class='line'><span class="k">    </span>pkill -fl <span class="nv">$x</span>;
+</span><span class='line'>  <span class="k">for</span> x in spring rails phantomjs zeus<span class="p">;</span> <span class="k">do</span>
+</span><span class='line'>    pkill -fl <span class="nv">$x</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">done</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -1373,7 +1373,7 @@ Justin
 
 <script type="text/javascript">
   var discourseUrl = "http://forum.shakacode.com/",
-      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
+      discourseEmbedUrl = "http://www.railsonmaui.com//blog/2014/09/10/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/";
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
       d.src = discourseUrl + 'javascripts/embed.js';
@@ -1387,7 +1387,7 @@ Justin
   <entry>
     <title type="html"><![CDATA[Testing Error Handling]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling/"/>
-    <updated>2013-05-11T00:01:00-07:00</updated>
+    <updated>2013-05-11T00:01:00-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/05/11/testing-error-handling</id>
     <content type="html"><![CDATA[<p>
 How do ensure that your application properly handles errors, especially when
@@ -1793,7 +1793,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'> <span class="n">scenario</span> <span class="s2">&quot;Purchase cart, Strip payment error&quot;</span><span class="p">,</span> <span class="ss">:vcr</span> <span class="k">do</span>
 </span><span class='line'>   <span class="c1"># Setup the stub -- the secret sauce to this test</span>
 </span><span class='line'>   <span class="n">error_content</span> <span class="o">=</span> <span class="s2">&quot;Testing error handling exception message&quot;</span>
-</span><span class='line'>   <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="ss">Stripe</span><span class="p">:</span><span class="ss">:InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>   <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">Stripe</span><span class="o">::</span><span class="no">InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
 </span><span class='line'>   <span class="n">place_order</span>
 </span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="n">error_content</span>
 </span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="s2">&quot;Error purchasing&quot;</span>
@@ -1818,7 +1818,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'>
 </span><span class='line'><span class="c1"># example of how you verify that an error was emailed</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">validate_error_emailed</span>
-</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="ss">ActionMailer</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>

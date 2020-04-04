@@ -19,7 +19,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor">
+  <link rel="canonical" href="https://www.shakacode.com/blog/pry-ruby-array-zip-csv-and-the-hash-constructor/">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -99,7 +99,7 @@
 
 
 
-<time class='entry-date' datetime='2014-09-15T14:06:17-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>2:06 pm</span></time>
+<time class='entry-date' datetime='2014-09-15T18:06:17-03:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>6:06 pm</span></time>
         
       </p>
     
@@ -287,7 +287,7 @@ I first created a CSV string from hand like this:
 </span><span class='line'><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">*</span> <span class="no">CSV</span>
 </span><span class='line'><span class="s2">&quot;1, </span><span class="se">\&quot;</span><span class="s2">Justin</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">Gordon</span><span class="se">\&quot;\n</span><span class="s2">2, </span><span class="se">\&quot;</span><span class="s2">Avdi</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">Grimm</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">csv_row</span><span class="o">|</span> <span class="nb">p</span> <span class="n">csv_row</span> <span class="p">}</span>
-</span><span class='line'><span class="ss">CSV</span><span class="p">:</span><span class="ss">:MalformedCSVError</span><span class="p">:</span> <span class="no">Illegal</span> <span class="n">quoting</span> <span class="k">in</span> <span class="n">line</span> <span class="mi">1</span><span class="o">.</span>
+</span><span class='line'><span class="no">CSV</span><span class="o">::</span><span class="ss">MalformedCSVError</span><span class="p">:</span> <span class="no">Illegal</span> <span class="n">quoting</span> <span class="k">in</span> <span class="n">line</span> <span class="mi">1</span><span class="o">.</span>
 </span><span class='line'><span class="n">from</span> <span class="sr">/Users/</span><span class="n">justin</span><span class="o">/.</span><span class="n">rvm</span><span class="o">/</span><span class="n">rubies</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">csv</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">1855</span><span class="ss">:in</span> <span class="sb">`block (2 levels) in shift&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -554,7 +554,7 @@ Well, what&#8217;s the doc?
 </span><span class='line'><span class="ow">or</span> <span class="n">just</span> <span class="n">use</span> <span class="n">the</span> <span class="n">returned</span> <span class="nb">Array</span> <span class="n">of</span> <span class="no">Arrays</span> <span class="p">(</span><span class="k">when</span> <span class="n">no</span> <span class="n">block</span> <span class="n">is</span> <span class="n">given</span><span class="p">)</span><span class="o">.</span>
 </span><span class='line'>
 </span><span class='line'><span class="no">You</span> <span class="n">pass</span> <span class="n">your</span> <span class="n">str</span> <span class="n">to</span> <span class="n">read</span> <span class="n">from</span><span class="p">,</span> <span class="ow">and</span> <span class="n">an</span> <span class="n">optional</span> <span class="n">options</span> <span class="no">Hash</span> <span class="n">containing</span>
-</span><span class='line'><span class="n">anything</span> <span class="ss">CSV</span><span class="p">:</span><span class="ss">:new</span><span class="p">()</span> <span class="n">understands</span><span class="o">.</span>
+</span><span class='line'><span class="n">anything</span> <span class="no">CSV</span><span class="o">::</span><span class="kp">new</span><span class="p">()</span> <span class="n">understands</span><span class="o">.</span>
 </span></code></pre></td></tr></table></div></figure>
 
 <p>
@@ -710,7 +710,7 @@ I hope you enjoyed this!
 
 
 
-<time class='entry-date' datetime='2014-09-15T14:06:17-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>2:06 pm</span></time>
+<time class='entry-date' datetime='2014-09-15T18:06:17-03:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>6:06 pm</span></time>
       
 
 <span class="categories">
@@ -737,10 +737,10 @@ I hope you enjoyed this!
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/09/13/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/" title="Previous Post: Rails Gem Upgrading Tips and Strategies">&laquo; Rails Gem Upgrading Tips and Strategies</a>
+        <a class="basic-alignment left" href="/blog/2014/09/14/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/" title="Previous Post: Rails Gem Upgrading Tips and Strategies">&laquo; Rails Gem Upgrading Tips and Strategies</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/09/27/updating-to-jekyll-2-and-discourse-for-comments/" title="Next Post: Updating My Blog to Octopress with Jekyll 2 and Discourse for Comments">Updating My Blog to Octopress with Jekyll 2 and Discourse for Comments &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/09/28/updating-to-jekyll-2-and-discourse-for-comments/" title="Next Post: Updating My Blog to Octopress with Jekyll 2 and Discourse for Comments">Updating My Blog to Octopress with Jekyll 2 and Discourse for Comments &raquo;</a>
       
     </p>
   </footer>
@@ -797,7 +797,7 @@ I hope you enjoyed this!
       </li>
     
       <li class="post">
-        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+        <a href="/blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
       <li class="post">
@@ -852,7 +852,7 @@ I hope you enjoyed this!
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Justin Gordon -
+  Copyright &copy; 2020 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pry | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/pry/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-12-20T13:45:09-08:00</updated>
+  <updated>2020-04-04T16:16:53-03:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Pry, Ruby, Array#zip, CSV, and the Hash[] constructor]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor/"/>
-    <updated>2014-09-15T14:06:17-07:00</updated>
+    <updated>2014-09-15T18:06:17-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/09/15/pry-ruby-array-zip-csv-and-the-hash-constructor</id>
     <content type="html"><![CDATA[<p>
 A couple weeks ago, I wrote a popular article, <a href="http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/">Pry, Ruby, and Fun With the Hash Constructor</a> demonstrating the usefulness of
@@ -204,7 +204,7 @@ I first created a CSV string from hand like this:
 </span><span class='line'><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">*</span> <span class="no">CSV</span>
 </span><span class='line'><span class="s2">&quot;1, </span><span class="se">\&quot;</span><span class="s2">Justin</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">Gordon</span><span class="se">\&quot;\n</span><span class="s2">2, </span><span class="se">\&quot;</span><span class="s2">Avdi</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">Grimm</span><span class="se">\&quot;\n</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="p">(</span><span class="n">pry</span><span class="p">)</span> <span class="ss">main</span><span class="p">:</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="no">CSV</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">csv_row</span><span class="o">|</span> <span class="nb">p</span> <span class="n">csv_row</span> <span class="p">}</span>
-</span><span class='line'><span class="ss">CSV</span><span class="p">:</span><span class="ss">:MalformedCSVError</span><span class="p">:</span> <span class="no">Illegal</span> <span class="n">quoting</span> <span class="k">in</span> <span class="n">line</span> <span class="mi">1</span><span class="o">.</span>
+</span><span class='line'><span class="no">CSV</span><span class="o">::</span><span class="ss">MalformedCSVError</span><span class="p">:</span> <span class="no">Illegal</span> <span class="n">quoting</span> <span class="k">in</span> <span class="n">line</span> <span class="mi">1</span><span class="o">.</span>
 </span><span class='line'><span class="n">from</span> <span class="sr">/Users/</span><span class="n">justin</span><span class="o">/.</span><span class="n">rvm</span><span class="o">/</span><span class="n">rubies</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">csv</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">1855</span><span class="ss">:in</span> <span class="sb">`block (2 levels) in shift&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -473,7 +473,7 @@ Well, what&#8217;s the doc?
 </span><span class='line'><span class="ow">or</span> <span class="n">just</span> <span class="n">use</span> <span class="n">the</span> <span class="n">returned</span> <span class="nb">Array</span> <span class="n">of</span> <span class="no">Arrays</span> <span class="p">(</span><span class="k">when</span> <span class="n">no</span> <span class="n">block</span> <span class="n">is</span> <span class="n">given</span><span class="p">)</span><span class="o">.</span>
 </span><span class='line'>
 </span><span class='line'><span class="no">You</span> <span class="n">pass</span> <span class="n">your</span> <span class="n">str</span> <span class="n">to</span> <span class="n">read</span> <span class="n">from</span><span class="p">,</span> <span class="ow">and</span> <span class="n">an</span> <span class="n">optional</span> <span class="n">options</span> <span class="no">Hash</span> <span class="n">containing</span>
-</span><span class='line'><span class="n">anything</span> <span class="ss">CSV</span><span class="p">:</span><span class="ss">:new</span><span class="p">()</span> <span class="n">understands</span><span class="o">.</span>
+</span><span class='line'><span class="n">anything</span> <span class="no">CSV</span><span class="o">::</span><span class="kp">new</span><span class="p">()</span> <span class="n">understands</span><span class="o">.</span>
 </span></code></pre></td></tr></table></div></figure>
 
 <p>
@@ -625,7 +625,7 @@ I hope you enjoyed this!
   <entry>
     <title type="html"><![CDATA[Pry, Ruby, and Fun with the Hash Constructor]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor/"/>
-    <updated>2014-08-17T17:51:24-07:00</updated>
+    <updated>2014-08-17T21:51:24-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor</id>
     <content type="html"><![CDATA[<p>
 I recently had a chance to pair with <a href="https://twitter.com/searls">Justin Searls</a> of <a href="http://testdouble.com/">TestDouble</a>, and we got
@@ -994,7 +994,36 @@ To see more of what pry can do for you, simply type <code>help</code> at the com
 <p>
 Create a file in your home directory called <code>~/.pryrc</code>.
 <div><script src='https://gist.github.com/1fe1dfbecc00a18e7f2a.js'></script>
-<noscript><pre><code>## Useful Collections
+<noscript><pre><code># See https://github.com/justin808/justin808-dotfiles/blob/master/home/.pryrc
+
+# Using these pry gems
+# Essentials
+# gem &quot;pry&quot;
+# gem &quot;pry-rails&quot;
+# gem &quot;pry-byebug&quot;
+# gem &quot;pry-doc&quot;
+# gem &quot;pry-rescue&quot;
+
+# If you like this one:
+# gem &quot;pry-state&quot;
+
+# Probably not so necessary
+# gem &quot;pry-toys&quot;
+
+# Do not use pry-stack_explorer as it conflicts with pry-byebug
+
+# Pry::Commands.block_command &quot;noconflict&quot;, &quot;Rename step to sstep and next to nnext&quot; do
+#   Pry::Commands.rename_command(&quot;nnext&quot;, &quot;next&quot;)
+#   Pry::Commands.rename_command(&quot;bbreak&quot;, &quot;break&quot;)
+# end
+
+# Pry::Commands.block_command &quot;unnoconflict&quot;, &quot;Revert to normal next and break&quot; do
+#   Pry::Commands.rename_command(&quot;next&quot;, &quot;nnext&quot;)
+#   Pry::Commands.rename_command(&quot;break&quot;, &quot;bbreak&quot;)
+# end
+
+## Useful Collections
+
 def a_array
   (1..6).to_a
 end
@@ -1003,13 +1032,83 @@ def a_hash
   {hello: &quot;world&quot;, free: &quot;of charge&quot;}
 end
 
+## Benchmarking
+# Inspired by &lt;http://stackoverflow.com/questions/123494/whats-your-favourite-irb-trick/123834#123834&gt;.
+
+def do_time(repetitions = 100, &amp;block)
+  require &#39;benchmark&#39;
+  Benchmark.bm{|b| b.report{repetitions.times(&amp;block)}}
+end
+
 Pry.config.color = true
-Pry.config.prompt = Pry::NAV_PROMPT
+
+# New version of pry uses Pry::Prompt[:nav]
+unless defined?(Pry::Prompt)
+  Pry.config.prompt =  Pry::NAV_PROMPT
+end  
 
 Pry.config.commands.alias_command &quot;h&quot;, &quot;hist -T 20&quot;, desc: &quot;Last 20 commands&quot;
 Pry.config.commands.alias_command &quot;hg&quot;, &quot;hist -T 20 -G&quot;, desc: &quot;Up to 20 commands matching expression&quot;
 Pry.config.commands.alias_command &quot;hG&quot;, &quot;hist -G&quot;, desc: &quot;Commands matching expression ever used&quot;
 Pry.config.commands.alias_command &quot;hr&quot;, &quot;hist -r&quot;, desc: &quot;hist -r &lt;command number&gt; to run a command&quot;
+
+if defined?(PryByebug)
+   def pry_debug
+     puts &quot;You can also call &#39;pd&#39; to save typing!&quot;
+     pd
+   end
+
+   # Shortcut for calling pry_debug
+   def pd
+     Pry.commands.alias_command &#39;t&#39;, &#39;backtrace&#39;
+     Pry.commands.alias_command &#39;s&#39;, &#39;step&#39;
+     Pry.commands.alias_command &#39;n&#39;, &#39;next&#39;
+     Pry.commands.alias_command &#39;c&#39;, &#39;continue&#39;
+     Pry.commands.alias_command &#39;f&#39;, &#39;finish&#39;
+     Pry.commands.alias_command &#39;u&#39;, &#39;up&#39;
+     Pry.commands.alias_command &#39;d&#39;, &#39;down&#39;
+     Pry.commands.alias_command &#39;b&#39;, &#39;break&#39;
+     Pry.commands.alias_command &#39;w&#39;, &#39;whereami&#39;
+
+     puts &quot;Installed debugging Shortcuts&quot;
+     puts &#39;w  :  whereami&#39;
+     puts &#39;s  :  step&#39;
+     puts &#39;n  :  next&#39;
+     puts &#39;c  :  continue&#39;
+     puts &#39;f  :  finish&#39;
+     puts &#39;Stack movement&#39;
+     puts &#39;t  :  backtrace&#39;
+     puts &#39;ff :  frame&#39;
+     puts &#39;u  :  up&#39;
+     puts &#39;d  :  down&#39;
+     puts &#39;b  :  break&#39;
+     &quot;&quot;
+   end
+
+   # def pry_rails
+   #   puts &quot;You can also call &#39;pr&#39; to save typing!&quot;
+   #   pr
+   # end
+
+   # # Shortcut for calling pry_debug
+   # def pr
+   #   # Seems these are now loaded automatically in newer Rails
+   #   # require &#39;factory_bot&#39;;
+   #   # FactoryBot.find_definitions
+   #   puts &quot;Added factory support&quot;
+   # end
+
+   # Longer shortcuts that don&#39;t conflict
+   Pry.commands.alias_command &#39;ff&#39;, &#39;frame&#39;
+   Pry.commands.alias_command &#39;ss&#39;, &#39;step&#39;
+   Pry.commands.alias_command &#39;nn&#39;, &#39;next&#39;
+   Pry.commands.alias_command &#39;cc&#39;, &#39;continue&#39;
+   Pry.commands.alias_command &#39;fin&#39;, &#39;finish&#39;
+   Pry.commands.alias_command &#39;uu&#39;, &#39;up&#39;
+   Pry.commands.alias_command &#39;dd&#39;, &#39;down&#39;
+   Pry.commands.alias_command &#39;bb&#39;, &#39;break&#39;
+   Pry.commands.alias_command &#39;ww&#39;, &#39;whereami&#39;
+end
 
 begin
   require &#39;awesome_print&#39;
@@ -1020,24 +1119,72 @@ rescue LoadError =&gt; err
 end
 
 my_hook = Pry::Hooks.new.add_hook(:before_session, :add_dirs_to_load_path) do
-  # adds the directories /lib and /spec and /test directories to the path if they exist
-  puts &quot;Added lib spec test dirs to load path&quot;
+  # adds the directories /spec and /test directories to the path if they exist and not already included
   dir = `pwd`.chomp
-  %w(lib spec test).map{ |d| &quot;#{dir}/#{d}&quot; }.each { |p| $: &lt;&lt; p unless !File.exist?(p) || $:.include?(p) }
-end 
+  dirs_added = []
+  %w(spec test presenters lib).map{ |d| &quot;#{dir}/#{d}&quot; }.each do |p|
+    if File.exist?(p) &amp;&amp; !$:.include?(p)
+      $: &lt;&lt; p
+      dirs_added &lt;&lt; p
+    end
+  end
+  puts &quot;Added #{ dirs_added.join(&quot;, &quot;) } to load path in ~/.pryrc.&quot; if dirs_added.present?
+end
+
+# Hit Enter to repeat last command
+Pry::Commands.command /^$/, &quot;repeat last command&quot; do
+  _pry_.run_command Pry.history.to_a.last
+end
 
 my_hook.exec_hook(:before_session)
 
-puts &quot;Loaded ~/.pryrc&quot; 
-puts &quot;Helpful shortcuts:&quot;
-puts &quot;h  : hist -T 20       Last 20 commands&quot;
-puts &quot;hg : hist -T 20 -G    Up to 20 commands matching expression&quot;
-puts &quot;hG : hist -G          Commands matching expression ever used&quot;
-puts &quot;hr : hist -r          hist -r &lt;command number&gt; to run a command&quot;
-puts &quot;Samples variables&quot;
-puts &quot;a_array: [1, 2, 3, 4, 5, 6]&quot;
-puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }&quot;
-</code></pre></noscript></div>
+
+puts &quot;Loaded ~/.pryrc&quot;
+puts
+def more_help
+  puts &quot;Helpful shortcuts:&quot;
+  puts &quot;hh  : hist -T 20       Last 20 commands&quot;
+  puts &quot;hg : hist -T 20 -G    Up to 20 commands matching expression&quot;
+  puts &quot;hG : hist -G          Commands matching expression ever used&quot;
+  puts &quot;hr : hist -r          hist -r &lt;command number&gt; to run a command&quot;
+  puts
+
+  puts &quot;Samples variables&quot;
+  puts &quot;a_array  :  [1, 2, 3, 4, 5, 6]&quot;
+  puts &quot;a_hash   :  { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }&quot;
+  puts
+  puts &quot;helper   : Access Rails helpers&quot;
+  puts &quot;app      : Access url_helpers&quot;
+  puts
+  puts &quot;require \&quot;rails_helper\&quot;              : To include Factory Girl Syntax&quot;
+  puts &quot;include FactoryGirl::Syntax::Methods  : To include Factory Girl Syntax&quot;
+  puts
+  puts &quot;or if you defined one...&quot;
+  puts &quot;require \&quot;pry_helper\&quot;&quot;
+  puts
+  puts &quot;Sidekiq::Queue.new.clear              : To clear sidekiq&quot;
+  puts &quot;Sidekiq.redis { |r| puts r.flushall } : Another clear of sidekiq&quot;
+  puts
+  puts &quot;Debugging Shortcuts&quot;
+  puts &#39;ss  :  step&#39;
+  puts &#39;nn  :  next&#39;
+  puts &#39;cc  :  continue&#39;
+  puts &#39;fin :  finish&#39;
+  puts &#39;uu  :  up&#39;
+  puts &#39;dd  :  down&#39;
+  puts &#39;bb  :  break&#39;
+  puts &#39;w   :  whereami&#39;
+  puts &#39;ff  :  frame&#39;
+  puts &#39;t   :  backtrace&#39;
+  puts &#39;$   :  show whole method of context&#39;
+  puts
+  puts &quot;Run &#39;pry_debug&#39; or &#39;pd&#39; to display shorter debug shortcuts&quot;
+  # puts &quot;Run &#39;pry_rails&#39; or &#39;pr&#39; run rails helpers&quot;
+  puts &quot;Run `require &#39;factory_girl&#39;; FactoryBot.find_definitions` for FactoryBot&quot;
+  &quot;&quot;
+end
+
+puts &quot;Run &#39;more_help&#39; to see tips&quot;</code></pre></noscript></div>
 
 </p>
 </div>

@@ -19,7 +19,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2014/08/17/pry-ruby-and-fun-with-the-hash-constructor">
+  <link rel="canonical" href="https://www.shakacode.com/blog/pry-ruby-and-fun-with-the-hash-constructor/">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -99,7 +99,7 @@
 
 
 
-<time class='entry-date' datetime='2014-08-17T17:51:24-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:51 pm</span></time>
+<time class='entry-date' datetime='2014-08-17T21:51:24-03:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:51 pm</span></time>
         
       </p>
     
@@ -453,7 +453,36 @@ To see more of what pry can do for you, simply type <code>help</code> at the com
 <p>
 Create a file in your home directory called <code>~/.pryrc</code>.
 <div><script src='https://gist.github.com/1fe1dfbecc00a18e7f2a.js'></script>
-<noscript><pre><code>## Useful Collections
+<noscript><pre><code># See https://github.com/justin808/justin808-dotfiles/blob/master/home/.pryrc
+
+# Using these pry gems
+# Essentials
+# gem &quot;pry&quot;
+# gem &quot;pry-rails&quot;
+# gem &quot;pry-byebug&quot;
+# gem &quot;pry-doc&quot;
+# gem &quot;pry-rescue&quot;
+
+# If you like this one:
+# gem &quot;pry-state&quot;
+
+# Probably not so necessary
+# gem &quot;pry-toys&quot;
+
+# Do not use pry-stack_explorer as it conflicts with pry-byebug
+
+# Pry::Commands.block_command &quot;noconflict&quot;, &quot;Rename step to sstep and next to nnext&quot; do
+#   Pry::Commands.rename_command(&quot;nnext&quot;, &quot;next&quot;)
+#   Pry::Commands.rename_command(&quot;bbreak&quot;, &quot;break&quot;)
+# end
+
+# Pry::Commands.block_command &quot;unnoconflict&quot;, &quot;Revert to normal next and break&quot; do
+#   Pry::Commands.rename_command(&quot;next&quot;, &quot;nnext&quot;)
+#   Pry::Commands.rename_command(&quot;break&quot;, &quot;bbreak&quot;)
+# end
+
+## Useful Collections
+
 def a_array
   (1..6).to_a
 end
@@ -462,13 +491,83 @@ def a_hash
   {hello: &quot;world&quot;, free: &quot;of charge&quot;}
 end
 
+## Benchmarking
+# Inspired by &lt;http://stackoverflow.com/questions/123494/whats-your-favourite-irb-trick/123834#123834&gt;.
+
+def do_time(repetitions = 100, &amp;block)
+  require &#39;benchmark&#39;
+  Benchmark.bm{|b| b.report{repetitions.times(&amp;block)}}
+end
+
 Pry.config.color = true
-Pry.config.prompt = Pry::NAV_PROMPT
+
+# New version of pry uses Pry::Prompt[:nav]
+unless defined?(Pry::Prompt)
+  Pry.config.prompt =  Pry::NAV_PROMPT
+end  
 
 Pry.config.commands.alias_command &quot;h&quot;, &quot;hist -T 20&quot;, desc: &quot;Last 20 commands&quot;
 Pry.config.commands.alias_command &quot;hg&quot;, &quot;hist -T 20 -G&quot;, desc: &quot;Up to 20 commands matching expression&quot;
 Pry.config.commands.alias_command &quot;hG&quot;, &quot;hist -G&quot;, desc: &quot;Commands matching expression ever used&quot;
 Pry.config.commands.alias_command &quot;hr&quot;, &quot;hist -r&quot;, desc: &quot;hist -r &lt;command number&gt; to run a command&quot;
+
+if defined?(PryByebug)
+   def pry_debug
+     puts &quot;You can also call &#39;pd&#39; to save typing!&quot;
+     pd
+   end
+
+   # Shortcut for calling pry_debug
+   def pd
+     Pry.commands.alias_command &#39;t&#39;, &#39;backtrace&#39;
+     Pry.commands.alias_command &#39;s&#39;, &#39;step&#39;
+     Pry.commands.alias_command &#39;n&#39;, &#39;next&#39;
+     Pry.commands.alias_command &#39;c&#39;, &#39;continue&#39;
+     Pry.commands.alias_command &#39;f&#39;, &#39;finish&#39;
+     Pry.commands.alias_command &#39;u&#39;, &#39;up&#39;
+     Pry.commands.alias_command &#39;d&#39;, &#39;down&#39;
+     Pry.commands.alias_command &#39;b&#39;, &#39;break&#39;
+     Pry.commands.alias_command &#39;w&#39;, &#39;whereami&#39;
+
+     puts &quot;Installed debugging Shortcuts&quot;
+     puts &#39;w  :  whereami&#39;
+     puts &#39;s  :  step&#39;
+     puts &#39;n  :  next&#39;
+     puts &#39;c  :  continue&#39;
+     puts &#39;f  :  finish&#39;
+     puts &#39;Stack movement&#39;
+     puts &#39;t  :  backtrace&#39;
+     puts &#39;ff :  frame&#39;
+     puts &#39;u  :  up&#39;
+     puts &#39;d  :  down&#39;
+     puts &#39;b  :  break&#39;
+     &quot;&quot;
+   end
+
+   # def pry_rails
+   #   puts &quot;You can also call &#39;pr&#39; to save typing!&quot;
+   #   pr
+   # end
+
+   # # Shortcut for calling pry_debug
+   # def pr
+   #   # Seems these are now loaded automatically in newer Rails
+   #   # require &#39;factory_bot&#39;;
+   #   # FactoryBot.find_definitions
+   #   puts &quot;Added factory support&quot;
+   # end
+
+   # Longer shortcuts that don&#39;t conflict
+   Pry.commands.alias_command &#39;ff&#39;, &#39;frame&#39;
+   Pry.commands.alias_command &#39;ss&#39;, &#39;step&#39;
+   Pry.commands.alias_command &#39;nn&#39;, &#39;next&#39;
+   Pry.commands.alias_command &#39;cc&#39;, &#39;continue&#39;
+   Pry.commands.alias_command &#39;fin&#39;, &#39;finish&#39;
+   Pry.commands.alias_command &#39;uu&#39;, &#39;up&#39;
+   Pry.commands.alias_command &#39;dd&#39;, &#39;down&#39;
+   Pry.commands.alias_command &#39;bb&#39;, &#39;break&#39;
+   Pry.commands.alias_command &#39;ww&#39;, &#39;whereami&#39;
+end
 
 begin
   require &#39;awesome_print&#39;
@@ -479,24 +578,72 @@ rescue LoadError =&gt; err
 end
 
 my_hook = Pry::Hooks.new.add_hook(:before_session, :add_dirs_to_load_path) do
-  # adds the directories /lib and /spec and /test directories to the path if they exist
-  puts &quot;Added lib spec test dirs to load path&quot;
+  # adds the directories /spec and /test directories to the path if they exist and not already included
   dir = `pwd`.chomp
-  %w(lib spec test).map{ |d| &quot;#{dir}/#{d}&quot; }.each { |p| $: &lt;&lt; p unless !File.exist?(p) || $:.include?(p) }
-end 
+  dirs_added = []
+  %w(spec test presenters lib).map{ |d| &quot;#{dir}/#{d}&quot; }.each do |p|
+    if File.exist?(p) &amp;&amp; !$:.include?(p)
+      $: &lt;&lt; p
+      dirs_added &lt;&lt; p
+    end
+  end
+  puts &quot;Added #{ dirs_added.join(&quot;, &quot;) } to load path in ~/.pryrc.&quot; if dirs_added.present?
+end
+
+# Hit Enter to repeat last command
+Pry::Commands.command /^$/, &quot;repeat last command&quot; do
+  _pry_.run_command Pry.history.to_a.last
+end
 
 my_hook.exec_hook(:before_session)
 
-puts &quot;Loaded ~/.pryrc&quot; 
-puts &quot;Helpful shortcuts:&quot;
-puts &quot;h  : hist -T 20       Last 20 commands&quot;
-puts &quot;hg : hist -T 20 -G    Up to 20 commands matching expression&quot;
-puts &quot;hG : hist -G          Commands matching expression ever used&quot;
-puts &quot;hr : hist -r          hist -r &lt;command number&gt; to run a command&quot;
-puts &quot;Samples variables&quot;
-puts &quot;a_array: [1, 2, 3, 4, 5, 6]&quot;
-puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }&quot;
-</code></pre></noscript></div>
+
+puts &quot;Loaded ~/.pryrc&quot;
+puts
+def more_help
+  puts &quot;Helpful shortcuts:&quot;
+  puts &quot;hh  : hist -T 20       Last 20 commands&quot;
+  puts &quot;hg : hist -T 20 -G    Up to 20 commands matching expression&quot;
+  puts &quot;hG : hist -G          Commands matching expression ever used&quot;
+  puts &quot;hr : hist -r          hist -r &lt;command number&gt; to run a command&quot;
+  puts
+
+  puts &quot;Samples variables&quot;
+  puts &quot;a_array  :  [1, 2, 3, 4, 5, 6]&quot;
+  puts &quot;a_hash   :  { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }&quot;
+  puts
+  puts &quot;helper   : Access Rails helpers&quot;
+  puts &quot;app      : Access url_helpers&quot;
+  puts
+  puts &quot;require \&quot;rails_helper\&quot;              : To include Factory Girl Syntax&quot;
+  puts &quot;include FactoryGirl::Syntax::Methods  : To include Factory Girl Syntax&quot;
+  puts
+  puts &quot;or if you defined one...&quot;
+  puts &quot;require \&quot;pry_helper\&quot;&quot;
+  puts
+  puts &quot;Sidekiq::Queue.new.clear              : To clear sidekiq&quot;
+  puts &quot;Sidekiq.redis { |r| puts r.flushall } : Another clear of sidekiq&quot;
+  puts
+  puts &quot;Debugging Shortcuts&quot;
+  puts &#39;ss  :  step&#39;
+  puts &#39;nn  :  next&#39;
+  puts &#39;cc  :  continue&#39;
+  puts &#39;fin :  finish&#39;
+  puts &#39;uu  :  up&#39;
+  puts &#39;dd  :  down&#39;
+  puts &#39;bb  :  break&#39;
+  puts &#39;w   :  whereami&#39;
+  puts &#39;ff  :  frame&#39;
+  puts &#39;t   :  backtrace&#39;
+  puts &#39;$   :  show whole method of context&#39;
+  puts
+  puts &quot;Run &#39;pry_debug&#39; or &#39;pd&#39; to display shorter debug shortcuts&quot;
+  # puts &quot;Run &#39;pry_rails&#39; or &#39;pr&#39; run rails helpers&quot;
+  puts &quot;Run `require &#39;factory_girl&#39;; FactoryBot.find_definitions` for FactoryBot&quot;
+  &quot;&quot;
+end
+
+puts &quot;Run &#39;more_help&#39; to see tips&quot;</code></pre></noscript></div>
 
 </p>
 </div>
@@ -526,7 +673,7 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
 
 
 
-<time class='entry-date' datetime='2014-08-17T17:51:24-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:51 pm</span></time>
+<time class='entry-date' datetime='2014-08-17T21:51:24-03:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:51 pm</span></time>
       
 
 <span class="categories">
@@ -556,7 +703,7 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
         <a class="basic-alignment left" href="/blog/2014/08/13/2014-golden-gate-ruby-conference/" title="Previous Post: 2014 Golden Gate Ruby Conference: Top 10 Reasons to Attend">&laquo; 2014 Golden Gate Ruby Conference: Top 10 Reasons to Attend</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/09/09/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/" title="Next Post: Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3">Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2014/09/10/fast-tests-comparing-zeus-with-spring-on-rails-4-dot-1/" title="Next Post: Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3">Fast Tests: Comparing Zeus with Spring on Rails 4.1 and RSpec 3 &raquo;</a>
       
     </p>
   </footer>
@@ -613,7 +760,7 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
       </li>
     
       <li class="post">
-        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+        <a href="/blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
       <li class="post">
@@ -668,7 +815,7 @@ puts &quot;a_hash: { hello: \&quot;world\&quot;, free: \&quot;of charge\&quot; }
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Justin Gordon -
+  Copyright &copy; 2020 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

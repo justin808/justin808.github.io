@@ -4,7 +4,7 @@
   <title><![CDATA[Category: org-mode | Rails on Maui]]></title>
   <link href="http://www.railsonmaui.com//blog/categories/org-mode/atom.xml" rel="self"/>
   <link href="http://www.railsonmaui.com//"/>
-  <updated>2015-12-20T13:45:09-08:00</updated>
+  <updated>2020-04-04T16:16:53-03:00</updated>
   <id>http://www.railsonmaui.com//</id>
   <author>
     <name><![CDATA[Justin Gordon]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Org-Mode Octopress Setup v2]]></title>
     <link href="http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/"/>
-    <updated>2014-03-05T19:37:00-08:00</updated>
+    <updated>2014-03-05T19:37:00-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is a refresh of my original post from April, 2013 to adjust for Emacs 24.3 and org-mode 8.2.x</i>
@@ -484,22 +484,22 @@ the <code>div</code> selector.
 <span class='line-number'>30</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">OCTO_HOME</span><span class="o">=</span>~/octopress
 </span><span class='line'>ogen <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; rake generate; <span class="nb">cd</span> -
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span><span class="p">;</span> rake generate<span class="p">;</span> <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>osave <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; git commit -am <span class="s2">&quot;Updates&quot;</span> <span class="o">&amp;&amp;</span> git push origin <span class="nb">source</span>; <span class="nb">cd</span> -
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span><span class="p">;</span> git commit -am <span class="s2">&quot;Updates&quot;</span> <span class="o">&amp;&amp;</span> git push origin <span class="nb">source</span><span class="p">;</span> <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>odeploy <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; osave; rake gen_deploy; <span class="nb">cd</span> -
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span><span class="p">;</span> osave<span class="p">;</span> rake gen_deploy<span class="p">;</span> <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c"># this one is for orgmode only</span>
 </span><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
 </span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
 </span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> | awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
 </span><span class='line'>  <span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$new_file</span><span class="k">)</span>
 </span><span class='line'>  <span class="nv">new_location</span><span class="o">=</span><span class="nv">$OCTO_HOME</span>/source/org_posts/
 </span><span class='line'>  mv <span class="nv">$OCTO_HOME</span>/<span class="nv">$new_file</span> <span class="nv">$new_location</span>
@@ -788,7 +788,7 @@ helpful.
   <entry>
     <title type="html"><![CDATA[Octopress Setup with Github, Org Mode, and LiveReload]]></title>
     <link href="http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode/"/>
-    <updated>2013-04-27T22:46:00-07:00</updated>
+    <updated>2013-04-27T22:46:00-03:00</updated>
     <id>http://www.railsonmaui.com//blog/2013/04/27/octopress-setup-with-github-and-org-mode</id>
     <content type="html"><![CDATA[<p>
 <i>Note: This is post applies to Emacs 23 with org-mode 7.8.x. See <a href="http://www.railsonmaui.com/blog/2014/03/05/octopress-setup-with-github-and-org-mode-v2/index.html">Org-Mode Octopress Setup v2</a> for the updated version applying to Emacs 24.3 and org-mode 8.2.x</i>
@@ -1250,22 +1250,22 @@ the <code>div</code> tag to this line around 100 in <code>_syntax.scss</code>
 <span class='line-number'>30</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">OCTO_HOME</span><span class="o">=</span>~/octopress
 </span><span class='line'>ogen <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; rake generate; <span class="nb">cd</span> -
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span><span class="p">;</span> rake generate<span class="p">;</span> <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>osave <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; git commit -am <span class="s2">&quot;Updates&quot;</span> <span class="o">&amp;&amp;</span> git push origin <span class="nb">source</span>; <span class="nb">cd</span> -
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span><span class="p">;</span> git commit -am <span class="s2">&quot;Updates&quot;</span> <span class="o">&amp;&amp;</span> git push origin <span class="nb">source</span><span class="p">;</span> <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>odeploy <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>; osave; rake gen_deploy; <span class="nb">cd</span> -
+</span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span><span class="p">;</span> osave<span class="p">;</span> rake gen_deploy<span class="p">;</span> <span class="nb">cd</span> -
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c"># this one is for orgmode only</span>
 </span><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
 </span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
 </span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="o">[</span><span class="s2">&quot;${1}&quot;</span><span class="o">]</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> | awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
 </span><span class='line'>  <span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$new_file</span><span class="k">)</span>
 </span><span class='line'>  <span class="nv">new_location</span><span class="o">=</span><span class="nv">$OCTO_HOME</span>/source/org_posts/
 </span><span class='line'>  mv <span class="nv">$OCTO_HOME</span>/<span class="nv">$new_file</span> <span class="nv">$new_location</span>

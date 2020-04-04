@@ -95,7 +95,7 @@
 
 
 
-<time class='entry-date' datetime='2013-05-10T22:20:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>10:20 pm</span></time></p>
+<time class='entry-date' datetime='2013-05-10T22:20:00-03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>10:20 pm</span></time></p>
   </header>
   
   <p>
@@ -192,7 +192,54 @@ Note, be sure to comment out line 12 if you are using org-mode.
 
 <p>
 <div><script src='https://gist.github.com/5559479.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<noscript><pre><code># Based on blog post http://www.ewal.net/2012/09/08/octopress-customizations/
+# Modified to option of either all or no drafts, and also to use org-mode files
+desc &quot;Redate files in the posts directory if the filename does not match the post date in the YAML front matter. Note, URLs based on &#39;date&#39; metadata, so this shouldn&#39;t break any links&quot;
+task :redate_posts do
+  redate_posts true, source_dir, posts_dir, org_posts_dir
+end
+
+desc &quot;Redate files in the posts directory, skipping drafts, if the filename does not match the post date in the YAML front matter. Note, URLs based on &#39;date&#39; metadata, so this shouldn&#39;t break any links&quot;
+task :redate_posts_no_drafts do
+  redate_posts false, source_dir, posts_dir, org_posts_dir
+end
+
+def redate_posts include_drafts, source_dir, posts_dir, org_posts_dir
+  redate_posts_in_dir &quot;#{source_dir}/#{posts_dir}&quot;, &quot;markdown&quot;, include_drafts
+  # remove next line if you&#39;re you&#39;re not using org-mode
+  redate_posts_in_dir &quot;#{source_dir}/#{org_posts_dir}&quot;, &quot;org&quot;, include_drafts
+end
+
+def redate_posts_in_dir dir, ext, include_drafts = true
+  Dir.chdir(dir) do
+    Dir[&quot;*.#{ext}&quot;].each do |post|
+      post_date = &quot;&quot;
+      File.open(post) do |f|
+        f.grep(/^date: /) do |line|
+          post_date = line.gsub(/date: /, &quot;&quot;).gsub(/\s.*$/, &quot;&quot;)
+          break
+        end
+      end
+      post_title    = post.to_s.gsub(/\d{4}-\d{2}-\d{2}/, &quot;&quot;) # Get the post title from the currently processed post
+      new_post_name = post_date + post_title                  # determing the correct filename
+      rename        = post != new_post_name
+      next unless rename
+      unless include_drafts
+        is_draft = false
+        File.open(post) do |f|
+          f.grep(/^published: false/) do |line|
+            is_draft = true
+            break
+          end
+        end
+        next if is_draft
+      end
+      puts &quot;renaming #{post} to #{new_post_name}&quot;
+      FileUtils.mv(post, new_post_name)
+    end
+  end
+end
+</code></pre></noscript></div>
 
 </p>
 </div>
@@ -207,7 +254,7 @@ Note, be sure to comment out line 12 if you are using org-mode.
 
 
 
-<time class='entry-date' datetime='2013-05-10T22:20:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>10:20 pm</span></time>
+<time class='entry-date' datetime='2013-05-10T22:20:00-03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>10:20 pm</span></time>
         
 
 <span class="categories">
@@ -287,7 +334,7 @@ Note, be sure to comment out line 12 if you are using org-mode.
       </li>
     
       <li class="post">
-        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+        <a href="/blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
       <li class="post">
@@ -342,7 +389,7 @@ Note, be sure to comment out line 12 if you are using org-mode.
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Justin Gordon -
+  Copyright &copy; 2020 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

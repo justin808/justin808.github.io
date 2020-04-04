@@ -19,7 +19,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/05/11/testing-error-handling">
+  <link rel="canonical" href="https://www.shakacode.com/blog/testing-error-handling/">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -99,7 +99,7 @@
 
 
 
-<time class='entry-date' datetime='2013-05-11T00:01:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:01 am</span></time>
+<time class='entry-date' datetime='2013-05-11T00:01:00-03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:01 am</span></time>
         
       </p>
     
@@ -493,7 +493,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'> <span class="n">scenario</span> <span class="s2">&quot;Purchase cart, Strip payment error&quot;</span><span class="p">,</span> <span class="ss">:vcr</span> <span class="k">do</span>
 </span><span class='line'>   <span class="c1"># Setup the stub -- the secret sauce to this test</span>
 </span><span class='line'>   <span class="n">error_content</span> <span class="o">=</span> <span class="s2">&quot;Testing error handling exception message&quot;</span>
-</span><span class='line'>   <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="ss">Stripe</span><span class="p">:</span><span class="ss">:InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>   <span class="no">PaymentGateway</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:charge</span><span class="p">)</span> <span class="p">{</span> <span class="k">raise</span> <span class="no">Stripe</span><span class="o">::</span><span class="no">InvalidRequestError</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">error_content</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="p">}</span>
 </span><span class='line'>   <span class="n">place_order</span>
 </span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="n">error_content</span>
 </span><span class='line'>   <span class="n">page</span><span class="o">.</span><span class="n">should</span> <span class="n">have_content</span> <span class="s2">&quot;Error purchasing&quot;</span>
@@ -518,7 +518,7 @@ verification that an email was sent signifying an error:
 </span><span class='line'>
 </span><span class='line'><span class="c1"># example of how you verify that an error was emailed</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">validate_error_emailed</span>
-</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="ss">ActionMailer</span><span class="p">:</span><span class="ss">:Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">last</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">should_not</span> <span class="n">be_nil</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should_not</span> <span class="kp">include</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">email</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">should</span> <span class="kp">include</span><span class="p">(</span><span class="s1">&#39;whoever@gets-error.com&#39;</span><span class="p">)</span>
@@ -570,7 +570,7 @@ for Rails Logging and Error Handling</a>
 
 
 
-<time class='entry-date' datetime='2013-05-11T00:01:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:01 am</span></time>
+<time class='entry-date' datetime='2013-05-11T00:01:00-03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:01 am</span></time>
       
 
 <span class="categories">
@@ -657,7 +657,7 @@ for Rails Logging and Error Handling</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+        <a href="/blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
       <li class="post">
@@ -712,7 +712,7 @@ for Rails Logging and Error Handling</a>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Justin Gordon -
+  Copyright &copy; 2020 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

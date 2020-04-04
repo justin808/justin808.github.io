@@ -19,7 +19,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2014/01/04/migrating-from-bash-to-zsh">
+  <link rel="canonical" href="https://www.shakacode.com/blog/migrating-from-bash-to-zsh/">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -99,7 +99,7 @@
 
 
 
-<time class='entry-date' datetime='2014-01-04T06:00:00-08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>6:00 am</span></time>
+<time class='entry-date' datetime='2014-01-04T12:00:00-02:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 pm</span></time>
         
       </p>
     
@@ -191,7 +191,7 @@ In the third line of this function, I had to escape the <code>[</code> and the <
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>opost<span class="o">()</span> <span class="o">{</span>
 </span><span class='line'>  <span class="nb">cd</span> <span class="nv">$OCTO_HOME</span>
 </span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>rake new_post<span class="se">\[</span><span class="s2">&quot;${1}&quot;</span><span class="se">\]</span><span class="k">)</span>
-</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> | awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+</span><span class='line'>  <span class="nv">new_file</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$output</span> <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
 </span><span class='line'>  <span class="nv">base</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$new_file</span><span class="k">)</span>
 </span><span class='line'>  <span class="nv">new_location</span><span class="o">=</span><span class="nv">$OCTO_HOME</span>/source/org_posts/
 </span><span class='line'>  mv <span class="nv">$OCTO_HOME</span>/<span class="nv">$new_file</span> <span class="nv">$new_location</span>
@@ -260,11 +260,11 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">hostname</span><span class="o">=</span><span class="sb">`</span>hostname<span class="sb">`</span>
-</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$hostname</span> !<span class="o">=</span> <span class="s2">&quot;$HOME_HOST&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$USER</span> !<span class="o">=</span> <span class="s2">&quot;justin&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k">  </span><span class="nv">host_stuff</span><span class="o">=</span><span class="s1">&#39;%n@%m:&#39;</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="nv">$hostname</span> !<span class="o">=</span> <span class="s2">&quot;$HOME_HOST&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$USER</span> !<span class="o">=</span> <span class="s2">&quot;justin&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>  <span class="nv">host_stuff</span><span class="o">=</span><span class="s1">&#39;%n@%m:&#39;</span>
 </span><span class='line'><span class="k">else</span>
-</span><span class='line'><span class="k">  </span><span class="nv">host_stuff</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-</span><span class='line'><span class="k">fi  </span>
+</span><span class='line'>  <span class="nv">host_stuff</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+</span><span class='line'><span class="k">fi</span>
 </span><span class='line'><span class="nv">PROMPT</span><span class="o">=</span><span class="s1">&#39;%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p ${host_stuff}%{$fg[cyan]%}${PWD/#$HOME/~} %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}&#39;</span>
 </span><span class='line'>
 </span><span class='line'><span class="c"># display exitcode on the right when &gt;0</span>
@@ -314,7 +314,7 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
 
 
 
-<time class='entry-date' datetime='2014-01-04T06:00:00-08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>6:00 am</span></time>
+<time class='entry-date' datetime='2014-01-04T12:00:00-02:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 pm</span></time>
       
 
 <span class="categories">
@@ -401,7 +401,7 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+        <a href="/blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
       <li class="post">
@@ -456,7 +456,7 @@ Here is my theme file <code>oh_my_zsh/custom/justin808.zsh-theme</code>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Justin Gordon -
+  Copyright &copy; 2020 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

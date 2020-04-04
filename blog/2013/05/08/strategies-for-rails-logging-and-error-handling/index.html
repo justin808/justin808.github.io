@@ -19,7 +19,7 @@
 
   
   
-  <link rel="canonical" href="http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling">
+  <link rel="canonical" href="https://www.shakacode.com/blog/strategies-for-rails-logging-and-error-handling/">
   <link href="/railsonmaui-favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/railsonmaui" rel="alternate" title="Rails on Maui" type="application/atom+xml">
@@ -99,7 +99,7 @@
 
 
 
-<time class='entry-date' datetime='2013-05-08T17:41:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>5:41 pm</span></time>
+<time class='entry-date' datetime='2013-05-08T17:41:00-03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>5:41 pm</span></time>
         
       </p>
     
@@ -284,9 +284,9 @@ Definition of <code>Utility.log_exception</code>:
 </span><span class='line'>    <span class="n">request</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:request</span><span class="o">]</span>
 </span><span class='line'>    <span class="n">env</span> <span class="o">=</span> <span class="n">request</span> <span class="p">?</span> <span class="n">request</span><span class="o">.</span><span class="n">env</span> <span class="p">:</span> <span class="kp">nil</span>
 </span><span class='line'>    <span class="k">if</span> <span class="n">env</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">exception_notification</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>      <span class="no">ExceptionNotifier</span><span class="o">::</span><span class="no">Notifier</span><span class="o">.</span><span class="n">exception_notification</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
 </span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="ss">ExceptionNotifier</span><span class="p">:</span><span class="ss">:Notifier</span><span class="o">.</span><span class="n">background_exception_notification</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
+</span><span class='line'>      <span class="no">ExceptionNotifier</span><span class="o">::</span><span class="no">Notifier</span><span class="o">.</span><span class="n">background_exception_notification</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;Exception: </span><span class="si">#{</span><span class="n">extra_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">deliver</span>
 </span><span class='line'>     <span class="k">end</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
@@ -374,7 +374,7 @@ handling.
 
 
 
-<time class='entry-date' datetime='2013-05-08T17:41:00-07:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>5:41 pm</span></time>
+<time class='entry-date' datetime='2013-05-08T17:41:00-03:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>5:41 pm</span></time>
       
 
 <span class="categories">
@@ -461,7 +461,7 @@ handling.
       </li>
     
       <li class="post">
-        <a href="/blog/2014/10/22/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
+        <a href="/blog/2014/10/23/enums-and-queries-in-rails-4-dot-1/">Enums and Queries in Rails 4.1, and Understanding Ruby</a>
       </li>
     
       <li class="post">
@@ -516,7 +516,7 @@ handling.
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Justin Gordon -
+  Copyright &copy; 2020 - Justin Gordon -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
