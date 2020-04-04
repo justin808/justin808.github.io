@@ -7,6 +7,7 @@ comments: true
 categories: [rails, simple-form]
 keywords: simple_form, rails, disable_processing
 description: Fixing RecordNotUnique errors by turning on disable_with by default for all submit buttons using simple_form.
+canonical: https://www.shakacode.com/blog/simple-form-and-disable-processing-by-default/
 ---
 #+END_HTML
 

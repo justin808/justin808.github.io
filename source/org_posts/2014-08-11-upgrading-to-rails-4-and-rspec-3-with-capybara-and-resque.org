@@ -7,7 +7,7 @@ comments: true
 categories: [rails, testing, rspec, capybara] 
 keywords:  Ruby on Rails, Gems, Upgrade, RSpec, Bootstrap
 description: Best-practices for upgrading Ruby on Rails gems to newer versions while saving time and avoiding headaches.
-canonical: https://hackhands.com/tips-strategies-upgrading-ruby-gems/
+canonical: https://www.shakacode.com/blog/upgrading-to-rails-4-and-rspec-3-with-capybara-and-resque/
 ---
 #+END_HTML
 

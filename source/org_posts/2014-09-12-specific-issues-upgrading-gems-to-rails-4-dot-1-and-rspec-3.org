@@ -6,7 +6,8 @@ date: 2014-09-12 11:20:58 -1000
 comments: true
 categories: [rails, testing, rspec, capybara] 
 keywords: Rails, rspec, capybara, gems, ruby
-description: This article describes some tougher issues I faced when upgrading to Rails 4.1 and RSpec 3. 
+description: This article describes some tougher issues I faced when upgrading to Rails 4.1 and RSpec 3.
+canonical: https://www.shakacode.com/blog/specific-issues-upgrading-gems-to-rails-4-dot-1-and-rspec-3/
 ---
 #+END_HTML
 This article describes some tougher issues I faced when upgrading to Rails 4.1,

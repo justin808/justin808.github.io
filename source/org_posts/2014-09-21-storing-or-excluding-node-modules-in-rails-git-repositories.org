@@ -7,6 +7,7 @@ comments: true
 categories: [webpack, npm]
 keywords: webpack, npm, git
 description: Should you store your node_modules in your git repository or configure git to ignore the node_modules directory.
+canonical: https://www.shakacode.com/blog/storing-or-excluding-node-modules-in-rails-git-repositories/
 ---
 #+END_HTML
 

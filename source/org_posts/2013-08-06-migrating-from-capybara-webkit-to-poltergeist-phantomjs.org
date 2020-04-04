@@ -7,6 +7,7 @@ comments: true
 categories: [testing, rails]
 keywords: capybara, capybara-webkit, poltergeist, phantomjs, rspec, rails, rspec-rails
 description: Tips for efficiently migrating a test rspec test suite from capybara-webkit to poltergeist-phantomjs
+canonical: https://www.shakacode.com/blog/migrating-from-capybara-webkit-to-poltergeist-phantomjs/
 ---
 #+END_HTML
 * Motivation

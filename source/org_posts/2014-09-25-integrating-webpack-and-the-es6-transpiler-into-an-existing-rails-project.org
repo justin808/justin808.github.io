@@ -9,6 +9,7 @@ categories: [webpack, client-ui]
 keywords: 
 description: This article shows you how to integrate webpack into the Rails ecosystem, allowing the use of npm modules and tools, including the ES6 and JSX transpilers.
 published: true
+canonical: https://www.shakacode.com/blog/integrating-webpack-and-the-es6-transpiler-into-an-existing-rails-project/
 ---
 #+END_HTML
 

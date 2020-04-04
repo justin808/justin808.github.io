@@ -8,6 +8,7 @@ categories: emberjs
 keywords: emberjs tutorial javascript
 description: Tips to learn emberjs and advice on getting started with Tom Dale's Tutorial
 published: true
+canonical: https://www.shakacode.com/blog/ember-dot-js-hello-world/
 ---
 #+END_HTML
 

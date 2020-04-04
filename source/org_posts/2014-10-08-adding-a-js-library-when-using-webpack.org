@@ -6,7 +6,8 @@ date: 2014-10-08 11:49:26 -1000
 comments: true
 categories: 
 keywords: 
-description: 
+description:
+canonical: https://www.shakacode.com/blog/adding-a-js-library-when-using-webpack/
 ---
 #+END_HTML
 

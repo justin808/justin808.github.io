@@ -7,7 +7,7 @@ comments: true
 categories: [rails]
 keywords: Ruby on Rails, Enums, Ruby
 description: Understanding Ruby and how enums work in Rails 4.1.
-canonical: https://hackhands.com/ruby-on-enums-queries-and-rails-4-1/
+canonical: https://www.shakacode.com/blog/enums-and-queries-in-rails-4-dot-1/
 ---
 #+END_HTML
 
