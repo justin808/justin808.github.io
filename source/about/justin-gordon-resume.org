@@ -6,6 +6,7 @@ date: 2013-05-06 22:04
 comments: true
 sharing: true
 footer: true
+canonical: https://www.shakacode.com/blog/justin-gordon-resume/
 ---
 #+END_HTML
 Contact: at gmail, =justin.gordon=, 141 Makahiki Street, Paia, HI 96779, (808)

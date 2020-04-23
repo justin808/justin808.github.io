@@ -7,6 +7,7 @@ comments: true
 sharing: true
 footer: true
 draft: true
+canonical: https://www.shakacode.com/blog/about-justin-gordon-programming/
 ---
 #+END_HTML
 Here's the more detailed version about me. Skim it, read it, let me know what
